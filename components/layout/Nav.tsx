@@ -110,7 +110,7 @@ export function Nav() {
         </div>
       </nav>
 
-      <HairlineDivider className={cn(scrolled ? 'opacity-100' : 'opacity-0')} />
+      <HairlineDivider className={cn('transition-opacity duration-300', scrolled ? 'opacity-100' : 'opacity-0')} />
 
       {/* Mobile menu */}
       <AnimatePresence>
