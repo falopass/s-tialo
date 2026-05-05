@@ -10,7 +10,7 @@ import { whatsappLink, emailLink } from '@/lib/contact'
 export const metadata: Metadata = {
   title: 'Páginas web que sí venden',
   description:
-    'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $199.000. Mobile-first, sin agencia grande.',
+    'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990. Mobile-first, sin agencia grande.',
   alternates: { canonical: 'https://sitiazo.cl' },
 }
 
@@ -31,7 +31,7 @@ export default function HomePage() {
 
               <p className="font-body text-lead text-ink-muted leading-body max-w-[var(--prose-max)] mb-8">
                 Diseñamos sitios para pymes chilenas que necesitan vender, no impresionar a un jurado.
-                Listo en 7 días, desde $199.000.
+                Listo en 7 días, desde $79.990.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">

@@ -8,14 +8,14 @@ import { whatsappLink } from '@/lib/contact'
 export const metadata: Metadata = {
   title: 'Planes claros',
   description:
-    'Planes de diseño web para pymes chilenas. Pago único desde $199.000. Sin letras chicas, sin sorpresas.',
+    'Planes de diseño web para pymes chilenas. Pago único desde $79.990. Sin letras chicas, sin sorpresas.',
   alternates: { canonical: 'https://sitiazo.cl/planes/' },
 }
 
 const plans = [
   {
     name: 'BASE',
-    price: '$199.000',
+    price: '$79.990',
     description: 'Una página, CTA a WhatsApp, estructura simple.',
     bullets: [
       'Diseño editorial a medida',
@@ -27,7 +27,7 @@ const plans = [
   },
   {
     name: 'NEGOCIO',
-    price: '$299.000',
+    price: '$129.990',
     tag: 'Más pedido',
     description: 'Hasta 5 secciones, diseño editorial, mobile-first.',
     bullets: [
@@ -40,7 +40,7 @@ const plans = [
   },
   {
     name: 'CATÁLOGO',
-    price: '$449.000',
+    price: '$199.990',
     description: 'Hasta 10 productos o servicios, fichas y formularios.',
     bullets: [
       'Hasta 10 productos o servicios',

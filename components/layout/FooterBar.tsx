@@ -45,7 +45,7 @@ export function FooterBar() {
           <div className="flex items-center gap-3 text-ink-faded font-body text-micro tracking-ui uppercase shrink-0">
             <span>ENTREGA — 7 DÍAS</span>
             <span className="text-yellow">·</span>
-            <span>DESDE $199K</span>
+            <span>DESDE $80K</span>
             <span className="text-yellow">·</span>
             <span>MOBILE-FIRST</span>
           </div>
@@ -77,7 +77,7 @@ export function FooterBar() {
           <div className="flex items-center gap-2 text-ink-faded font-body text-micro tracking-ui uppercase">
             <span>ENTREGA — 7 DÍAS</span>
             <span className="text-yellow">·</span>
-            <span>DESDE $199K</span>
+            <span>DESDE $80K</span>
             <span className="text-yellow">·</span>
             <span>MOBILE-FIRST</span>
           </div>
