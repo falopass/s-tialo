@@ -4,8 +4,7 @@ import { Tag } from '@/components/ui/Tag'
 import { BulletList } from '@/components/ui/BulletList'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { SecondaryButton } from '@/components/ui/SecondaryButton'
-import { StillLifePlaceholder } from '@/components/ui/StillLifePlaceholder'
-import { FooterBar } from '@/components/layout/FooterBar'
+import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { whatsappLink } from '@/lib/contact'
 
@@ -16,19 +15,33 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitiazo.cl/casos/roma-crochet/',
   },
+  openGraph: {
+    title: 'Caso Roma Crochet | Sitiazo.cl',
+    description:
+      'Cómo Roma Crochet pasó de vender por DM a tener su propia web profesional.',
+    url: 'https://sitiazo.cl/casos/roma-crochet/',
+    images: [
+      {
+        url: '/og-image-casosroma-crochet.png',
+        width: 1200,
+        height: 630,
+        alt: 'Caso Roma Crochet de Sitiazo.cl',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og-image-casosroma-crochet.png'],
+  },
 }
 
 export default function RomaCrochetPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-11)] pb-[var(--spacing-10)] md:pb-[var(--spacing-12)]">
+      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-8)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <Tag variant="yellow" className="mb-8">CASO · 2026</Tag>
-
-          <Tag variant="yellow" className="mb-6">
-            CASO DESTACADO
-          </Tag>
+          <Tag variant="yellow" className="mb-8">CASO DESTACADO · 2026</Tag>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--spacing-9)] lg:gap-[var(--spacing-10)]">
             <div className="flex flex-col justify-center">
@@ -52,16 +65,18 @@ export default function RomaCrochetPage() {
 
               <div className="flex flex-col sm:flex-row items-start gap-4">
                 <PrimaryButton href={whatsappLink('contacto')} external>
-                  ¿Quieres tu caso así? →
+                  ¿Quieres tu caso así?
                 </PrimaryButton>
                 <SecondaryButton href="https://romacrochet.cl" external>
-                  Visitar romacrochet.cl →
+                  Visitar romacrochet.cl
                 </SecondaryButton>
               </div>
             </div>
 
             <div className="flex items-center justify-center">
-              <StillLifePlaceholder
+              <StillLifeImage
+                src="/images/still-lifes/roma-crochet.png"
+                alt="Still-life editorial del caso Roma Crochet con mockup web y materiales artesanales"
                 aspectRatio="16:10"
                 figLabel="fig. 02 — romacrochet.cl"
                 className="max-w-lg lg:max-w-none w-full"
@@ -69,16 +84,14 @@ export default function RomaCrochetPage() {
             </div>
           </div>
         </div>
-
-        <FooterBar />
       </section>
 
       <HairlineDivider />
 
       {/* El Proceso */}
-      <section className="py-[var(--spacing-11)] md:py-[var(--spacing-12)]">
+      <section className="py-[var(--spacing-7)] md:py-[var(--spacing-8)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-12">
+          <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-8">
             El proceso.<Dot size="lg" variant="solid-yellow" />
           </h2>
 
@@ -135,7 +148,7 @@ export default function RomaCrochetPage() {
                 Cuéntanos tu proyecto. 30 minutos sin compromiso.
               </p>
               <PrimaryButton href={whatsappLink('contacto')} external>
-                Hablemos →
+                Hablemos
               </PrimaryButton>
             </div>
           </div>

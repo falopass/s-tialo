@@ -13,7 +13,7 @@ export const posts: PostMeta[] = [
     slug: 'precios-paginas-web-pymes-chile-2026',
     title: 'Cuánto cuesta hacer una página web para una pyme en Chile (precios reales 2026).',
     description:
-      'Precios transparentes de diseño web para pymes en Chile. Desde $199.000 CLP. Sin humo, sin agencia gigante, sin letras chicas.',
+      'Precios transparentes de diseño web para pymes en Chile. Desde $79.990 CLP. Sin humo, sin agencia gigante, sin letras chicas.',
     date: 'Marzo 2026',
     readTime: '8 MIN',
     tags: ['PRECIOS', 'PYMES', 'GUÍA'],

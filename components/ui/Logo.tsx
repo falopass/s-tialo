@@ -1,6 +1,5 @@
-import { Dot } from '@/components/ui/Dot'
-import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { cn } from '@/lib/utils'
 
 interface LogoProps {
   variant?: 'default' | 'inverse' | 'mono'
@@ -9,53 +8,37 @@ interface LogoProps {
   className?: string
 }
 
-const variantColors = {
-  default: { text: 'text-ink', accent: 'text-yellow' },
-  inverse: { text: 'text-cream', accent: 'text-yellow' },
-  mono: { text: 'text-ink', accent: 'text-ink' },
-} as const
-
-const textSizes = {
-  sm: 'text-base',
-  md: 'text-[var(--text-logo)]',
-  lg: 'text-[var(--text-logo-hero)]',
+const heightClasses = {
+  sm: 'h-[90px]',
+  md: 'h-[110px]',
+  lg: 'h-[140px]',
 } as const
 
 export function Logo({
   variant = 'default',
   size = 'md',
-  showDot = true,
   className,
 }: LogoProps) {
-  const colors = variantColors[variant]
-  const dotVariant = variant === 'inverse' ? 'solid-yellow' : 'solid-yellow' as const
+  const src = variant === 'inverse'
+    ? '/images/logo/logo-white-letras.png'
+    : '/images/logo/logo-black-letras.png'
 
   return (
     <Link
       href="/"
+      aria-label="Sitiazo.cl — volver al inicio"
       className={cn(
-        'font-[var(--font-logo)] leading-none inline-flex items-baseline',
-        textSizes[size],
-        colors.text,
+        'relative inline-flex shrink-0 leading-none',
+        heightClasses[size],
         className,
       )}
     >
-      <span>sit</span>
-      <span className="relative">
-        <span>i</span>
-        {showDot && (
-          <Dot
-            size="xs"
-            variant={dotVariant}
-            className="absolute -top-2.5 left-1/2 -translate-x-1/2"
-          />
-        )}
-      </span>
-      <span>azo</span>
-      <span className={colors.accent}>
-        <Dot size="xs" variant={dotVariant} className="inline-block align-middle mx-0.5" />
-        cl
-      </span>
+      <img
+        src={src}
+        alt="Sitiazo.cl"
+        className="h-full w-auto object-contain object-left"
+        loading="eager"
+      />
     </Link>
   )
 }

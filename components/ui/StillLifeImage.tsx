@@ -22,6 +22,7 @@ export function StillLifeImage({
   aspectRatio = '4:5',
   figLabel,
   className,
+  priority = false,
 }: StillLifeImageProps) {
   return (
     <figure className={cn('relative w-full', className)}>
@@ -35,7 +36,7 @@ export function StillLifeImage({
           src={src}
           alt={alt}
           className="w-full h-full object-cover"
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
         />
         <div
           className="absolute inset-0 pointer-events-none"

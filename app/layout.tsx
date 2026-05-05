@@ -10,27 +10,75 @@ export const metadata: Metadata = {
     template: '%s | Sitiazo.cl',
   },
   description:
-    'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $199.000. Mobile-first, sin agencias grandes.',
+    'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990. Mobile-first, sin agencias grandes.',
   metadataBase: new URL('https://sitiazo.cl'),
-  openGraph: {
-    title: 'Sitiazo.cl — Páginas web que sí venden',
-    description:
-      'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $199.000.',
-    url: 'https://sitiazo.cl',
-    siteName: 'Sitiazo.cl',
-    locale: 'es_CL',
-    type: 'website',
+  manifest: '/manifest.webmanifest',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sitiazo.cl — Páginas web que sí venden',
-    description:
-      'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $199.000.',
-  },
+    openGraph: {
+      title: 'Sitiazo.cl — Páginas web que sí venden',
+      description:
+        'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990.',
+      url: 'https://sitiazo.cl',
+      siteName: 'Sitiazo.cl',
+      locale: 'es_CL',
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'Sitiazo.cl — Páginas web que sí venden',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Sitiazo.cl — Páginas web que sí venden',
+      description:
+        'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990.',
+      images: ['/og-image.png'],
+    },
   robots: {
     index: true,
     follow: true,
   },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Sitiazo.cl',
+  description:
+    'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990.',
+  url: 'https://sitiazo.cl',
+  telephone: '+56 9 4544 6575',
+  email: 'hola@sitiazo.cl',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Curicó',
+    addressRegion: 'Maule',
+    addressCountry: 'CL',
+  },
+  priceRange: '$$$',
+  logo: 'https://sitiazo.cl/images/logo/logo-blackfondo.png',
+  image: [
+    'https://sitiazo.cl/og-image.png',
+    'https://sitiazo.cl/images/logo/logo-blackfondo.png',
+    'https://sitiazo.cl/images/logo/logo-realwhite.png',
+  ],
+}
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Sitiazo.cl',
+  url: 'https://sitiazo.cl',
 }
 
 export default function RootLayout({
@@ -50,6 +98,14 @@ export default function RootLayout({
         >
           Saltar al contenido
         </a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Nav />
         <main id="main-content">{children}</main>
         <Footer />

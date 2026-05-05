@@ -1,8 +1,8 @@
 const messages: Record<string, string> = {
   home: 'Hola Sitiazo! Vi su web y me interesa cotizar para mi pyme 🟡',
-  basico: 'Hola! Me interesa el plan Básico ($199K). ¿Podemos conversar? 🟡',
-  recomendado: 'Hola! Me interesa el plan Recomendado ($349K). ¿Podemos conversar? 🟡',
-  catalogo: 'Hola! Me interesa el plan Catálogo ($449K). Quisiera más detalles 🟡',
+  basico: 'Hola! Me interesa el plan Básico ($80K). ¿Podemos conversar? 🟡',
+  recomendado: 'Hola! Me interesa el plan Recomendado ($130K). ¿Podemos conversar? 🟡',
+  catalogo: 'Hola! Me interesa el plan Catálogo ($200K). Quisiera más detalles 🟡',
   contacto: 'Hola Sitiazo! Quiero conversar sobre un proyecto web 🟡',
 }
 

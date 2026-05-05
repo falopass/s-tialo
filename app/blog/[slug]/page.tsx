@@ -5,7 +5,7 @@ import { Dot } from '@/components/ui/Dot'
 import { Tag } from '@/components/ui/Tag'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { FooterBar } from '@/components/layout/FooterBar'
+
 import { whatsappLink, emailLink } from '@/lib/contact'
 import { posts, getPost } from '@/content/posts'
 
@@ -49,14 +49,14 @@ const postContent: Record<string, { sections: { heading?: string; body: string }
         body: 'Perfil 1: Agencia grande ($1.500.000 - $5.000.000+). Incluyen project manager, diseñador senior, desarrollador, SEO specialist. Pagas el equipo completo. Tiene sentido si eres una empresa mediana-grande con presupuesto de marketing.',
       },
       {
-        body: 'Perfil 2: Freelance/estudio chico ($199.000 - $599.000). Diseñador + desarrollador en una sola persona. Sin intermediarios, comunicación directa por WhatsApp. Menos overhead = precios más bajos. Ideal para pymes que necesitan presencia online sin gastar millones.',
+        body: 'Perfil 2: Freelance/estudio chico ($79.990 - $199.990). Diseñador + desarrollador en una sola persona. Sin intermediarios, comunicación directa por WhatsApp. Menos overhead = precios más bajos. Ideal para pymes que necesitan presencia online sin gastar millones.',
       },
       {
         body: 'Perfil 3: Plataformas DIY (Wix, Squarespace, Shopify) ($0 - $50.000/mes). Lo armas tú. La curva de aprendizaje es real. El resultado se nota genérico. Pero si tienes tiempo y cero presupuesto, puede funcionar.',
       },
       {
         heading: '¿Qué incluye cada rango de precio?',
-        body: 'En Sitiazo trabajamos en el rango estudio chico ($199K-$449K). Por ese precio entregamos: diseño mobile-first, hosting primer año, dominio .cl, SEO local básico, WhatsApp integrado, y manual de uso. Sin costos escondidos, sin mantención obligatoria.',
+        body: 'En Sitiazo trabajamos en el rango estudio chico ($80K-$200K). Por ese precio entregamos: diseño mobile-first, hosting primer año, dominio .cl, SEO local básico, WhatsApp integrado, y manual de uso. Sin costos escondidos, sin mantención obligatoria.',
       },
       {
         heading: 'La trampa del "barato"',
@@ -64,7 +64,7 @@ const postContent: Record<string, { sections: { heading?: string; body: string }
       },
       {
         heading: 'Conclusión: cuánto deberías pagar',
-        body: 'Si eres una pyme chilena que necesita presencia online profesional, tu rango razonable es $199.000 - $599.000. Menos que eso, desconfía. Más que eso, pregúntate si realmente necesitas todo lo que te están vendiendo. Y siempre, siempre pide ver trabajos anteriores reales (no mockups).',
+        body: 'Si eres una pyme chilena que necesita presencia online profesional, tu rango razonable es $79.990 - $199.990. Menos que eso, desconfía. Más que eso, pregúntate si realmente necesitas todo lo que te están vendiendo. Y siempre, siempre pide ver trabajos anteriores reales (no mockups).',
       },
       {
         heading: '¿Quieres cotizar tu proyecto?',
@@ -143,9 +143,31 @@ export default async function BlogPostPage({ params }: Props) {
 
   const allPosts = posts.filter((p) => p.slug !== slug)
 
+  const blogJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title.replace('.', ''),
+    description: post.description,
+    datePublished: post.date,
+    author: {
+      '@type': 'Person',
+      name: 'Diego',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Sitiazo.cl',
+      url: 'https://sitiazo.cl',
+    },
+    url: `https://sitiazo.cl/blog/${post.slug}/`,
+  }
+
   return (
     <>
-      <article className="pt-[var(--spacing-9)] md:pt-[var(--spacing-11)] pb-[var(--spacing-10)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
+      <article className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-8)]">
         <div className="max-w-[var(--prose-max)] mx-auto px-[var(--spacing-5)] md:px-0">
           {/* Meta */}
           <div className="flex items-center gap-3 mb-6">
@@ -198,19 +220,18 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <PrimaryButton href={whatsappLink('contacto')} external>
-                Hablemos por WhatsApp →
+                Hablemos por WhatsApp
               </PrimaryButton>
             </div>
           </div>
         </div>
       </article>
 
-      <FooterBar />
       <HairlineDivider />
 
       {/* More posts */}
       {allPosts.length > 0 && (
-        <section className="py-[var(--spacing-11)]">
+        <section className="py-[var(--spacing-7)] md:py-[var(--spacing-8)]">
           <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
             <h2 className="font-display font-bold text-display-md text-ink mb-8">
               Más notas.<Dot size="lg" variant="solid-yellow" />
