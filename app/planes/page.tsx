@@ -1,129 +1,98 @@
 import type { Metadata } from 'next'
 import { Dot } from '@/components/ui/Dot'
-import { Tag } from '@/components/ui/Tag'
 import { BulletList } from '@/components/ui/BulletList'
-import { FooterBar } from '@/components/layout/FooterBar'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
-import { whatsappLink, emailLink } from '@/lib/contact'
+import { whatsappLink } from '@/lib/contact'
 
 export const metadata: Metadata = {
   title: 'Planes claros',
   description:
-    'Planes de diseño web para pymes chilenas. Pago único desde $199.000. Hosting incluido año 1. Sin letras chicas, sin sorpresas.',
-  alternates: {
-    canonical: 'https://sitiazo.cl/planes/',
-  },
+    'Planes de diseño web para pymes chilenas. Pago único desde $199.000. Sin letras chicas, sin sorpresas.',
+  alternates: { canonical: 'https://sitiazo.cl/planes/' },
 }
 
 const plans = [
   {
-    name: 'BÁSICO',
+    name: 'BASE',
     price: '$199.000',
-    tag: 'PARA EMPEZAR',
-    tagVariant: 'outline' as const,
-    cardVariant: 'standard' as const,
-    description:
-      'Perfecto si necesitas tu primera página web. Simple, clara y lista en 5 días.',
+    description: 'Una página, CTA a WhatsApp, estructura simple.',
     bullets: [
-      'Página web de 1 pantalla',
-      'Diseño mobile-first',
-      'WhatsApp integrado',
-      'SEO básico local',
-      'Hosting incluido (año 1)',
-      'Entrega en 5 días',
+      'Diseño editorial a medida',
+      'Responsive mobile-first',
+      'Formulario o botón WhatsApp',
+      'Entrega en 7 días hábiles',
     ],
-    cta: whatsappLink('basico'),
+    cta: whatsappLink('plan base'),
   },
   {
-    name: 'RECOMENDADO',
+    name: 'NEGOCIO',
     price: '$299.000',
-    tag: 'MÁS PEDIDO',
-    tagVariant: 'ink' as const,
-    cardVariant: 'highlighted' as const,
-    description:
-      'Lo que la mayoría de pymes necesita. Varias pantallas, hosting y dominio incluidos.',
+    tag: 'Más pedido',
+    description: 'Hasta 5 secciones, diseño editorial, mobile-first.',
     bullets: [
-      'Página web de 3-5 pantallas',
-      'Diseño mobile-first premium',
-      'WhatsApp + formulario',
-      'SEO local avanzado',
-      'Hosting incluido (año 1)',
-      'Dominio personalizado .cl',
-      'Manual de uso',
-      'Entrega en 7 días',
+      'Hasta 5 secciones',
+      'Diseño editorial a medida',
+      'Optimización SEO básica',
+      'Entrega en 10 días hábiles',
     ],
-    cta: whatsappLink('recomendado'),
+    cta: whatsappLink('plan negocio'),
   },
   {
     name: 'CATÁLOGO',
     price: '$449.000',
-    tag: 'PREMIUM',
-    tagVariant: 'outline' as const,
-    cardVariant: 'premium' as const,
-    description:
-      'Para marcas con varios productos. Catálogo editorial y diseño destacado.',
+    description: 'Hasta 10 productos o servicios, fichas y formularios.',
     bullets: [
-      'Página web de 5-10 pantallas',
-      'Catálogo de productos (hasta 20)',
-      'Diseño editorial destacado',
-      'WhatsApp + formulario',
-      'SEO local avanzado',
-      'Hosting + dominio .cl (año 1)',
-      'Manual + soporte 30 días',
-      'Entrega en 10 días',
+      'Hasta 10 productos o servicios',
+      'Fichas de producto o servicio',
+      'Filtros y búsqueda básica',
+      'Entrega en 14 días hábiles',
     ],
-    cta: whatsappLink('catalogo'),
+    cta: whatsappLink('plan catalogo'),
   },
 ]
 
-const cardStyles = {
-  standard: 'bg-cream border border-border-subtle',
-  highlighted: 'bg-yellow border-2 border-ink shadow-none',
-  premium: 'bg-cream-deep border border-border-strong',
-}
-
 export default function PlanesPage() {
   return (
-    <div className="pt-[var(--spacing-9)] md:pt-[var(--spacing-11)]">
+    <div className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)]">
       <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-        <Tag variant="outline" className="mb-8">PLANES · 2026</Tag>
-
-        <div className="max-w-[var(--prose-max)] mb-16">
-          <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
-            Planes claros.<Dot size="hero" variant="solid-yellow" />
-          </h1>
-
-          <p className="font-body text-lead text-ink-muted leading-body">
-            Sin humo, sin agencia gigante. Tres planes con todo incluido.
-            Cada uno pago único + hosting año 1. Precios transparentes desde el día uno.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--spacing-7)] lg:gap-[var(--spacing-9)] mb-[var(--spacing-6)]">
+          <div className="lg:col-span-4">
+            <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
+              Planes claros.
+              <Dot size="hero" variant="solid-yellow" />
+            </h1>
+            <p className="font-body text-lead text-ink-muted leading-body">
+              Sin humo, sin agencia gigante: eliges, avanzamos y sales online.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-[var(--spacing-6)]">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`${cardStyles[plan.cardVariant]} px-[var(--spacing-6)] py-[var(--spacing-7)] flex flex-col`}
+              className="border border-border-subtle bg-cream-deep p-[var(--spacing-6)] flex flex-col"
             >
-              <Tag variant={plan.tagVariant} className="mb-4 self-start">
-                {plan.tag}
-              </Tag>
-
-              <h2 className="font-display font-bold text-display-sm text-ink leading-display mb-1">
-                {plan.name}
-                <Dot size="sm" variant="solid-yellow" className="ml-1 inline-block" />
-              </h2>
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-body text-micro uppercase tracking-ui text-ink-faded font-medium">
+                  {plan.name}
+                </span>
+                {plan.tag && (
+                  <span className="flex items-center gap-2 font-body text-micro uppercase tracking-ui text-ink-faded">
+                    <Dot size="xs" variant="solid-yellow" />
+                    {plan.tag}
+                  </span>
+                )}
+              </div>
 
               <p className="font-display font-bold text-display-md text-ink leading-display mb-1">
                 {plan.price}
               </p>
 
-              <p className="font-body text-body-sm text-ink-muted mb-4">
-                Pago único + hosting año 1
-              </p>
+              <HairlineDivider className="my-4" />
 
-              <p className="font-body text-body-sm text-ink-muted leading-body mb-6">
+              <p className="font-body text-body text-ink-muted leading-body mb-4">
                 {plan.description}
               </p>
 
@@ -133,11 +102,7 @@ export default function PlanesPage() {
                 href={plan.cta}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-2 font-medium text-body px-8 py-4 transition-colors duration-200 group ${
-                  plan.cardVariant === 'highlighted'
-                    ? 'bg-ink text-cream hover:bg-ink-soft'
-                    : 'bg-ink text-cream hover:bg-ink-soft'
-                }`}
+                className="inline-flex items-center justify-center gap-2 font-medium text-body px-6 py-3 transition-colors duration-200 bg-ink text-cream hover:bg-ink-soft"
               >
                 Elegir {plan.name} →
               </a>
@@ -146,32 +111,22 @@ export default function PlanesPage() {
         </div>
       </div>
 
-      <FooterBar />
-
       <HairlineDivider />
 
-      {/* FAQ específico de planes */}
-      <section className="py-[var(--spacing-11)]">
+      {/* FAQ específico */}
+      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <div className="max-w-[var(--prose-max)] mx-auto text-center">
-            <h2 className="font-display font-bold text-display-md text-ink leading-display mb-6">
-              ¿No sabes cuál elegir?<Dot size="lg" variant="solid-yellow" />
+            <h2 className="font-display font-bold text-display-md text-ink leading-display mb-4">
+              ¿No sabes cuál elegir?
+              <Dot size="md" variant="solid-yellow" />
             </h2>
-            <p className="font-body text-body text-ink-muted leading-body mb-8">
+            <p className="font-body text-body text-ink-muted leading-body mb-6">
               Conversemos 30 minutos. Te ayudo a decidir cuál plan calza mejor con tu negocio.
-              Sin compromiso, sin venta agresiva.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <PrimaryButton href={whatsappLink('contacto')} external>
-                Agenda una llamada →
-              </PrimaryButton>
-              <a
-                href={emailLink('Consulta plan')}
-                className="font-body text-body text-ink underline decoration-ink/30 underline-offset-4 hover:text-yellow hover:decoration-yellow transition-colors"
-              >
-                {process.env.NEXT_PUBLIC_EMAIL} →
-              </a>
-            </div>
+            <PrimaryButton href={whatsappLink('contacto')} external>
+              Agenda una llamada
+            </PrimaryButton>
           </div>
         </div>
       </section>
