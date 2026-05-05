@@ -3,8 +3,7 @@ import { Dot } from '@/components/ui/Dot'
 import { Tag } from '@/components/ui/Tag'
 import { BulletList } from '@/components/ui/BulletList'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
-import { StillLifePlaceholder } from '@/components/ui/StillLifePlaceholder'
-import { FooterBar } from '@/components/layout/FooterBar'
+import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { whatsappLink } from '@/lib/contact'
 
@@ -34,11 +33,9 @@ export default function SobrePage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-11)] pb-[var(--spacing-10)]">
+      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <Tag variant="outline" className="mb-8">SOBRE SITIAZO · 2026</Tag>
-
-          <div className="max-w-[var(--prose-max)] mb-16">
+          <div className="max-w-[var(--prose-max)] mb-8">
             <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
               Un estudio chico<br />
               que diseña<br />
@@ -53,11 +50,10 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <FooterBar />
       <HairlineDivider />
 
       {/* Lo que creemos */}
-      <section className="py-[var(--spacing-11)] md:py-[var(--spacing-12)]">
+      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <div className="max-w-[var(--prose-max)]">
             <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-8">
@@ -71,7 +67,7 @@ export default function SobrePage() {
       <HairlineDivider />
 
       {/* Detrás — Diego */}
-      <section className="py-[var(--spacing-11)] md:py-[var(--spacing-12)]">
+      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-9)] items-center">
             <div>
@@ -95,7 +91,9 @@ export default function SobrePage() {
               </p>
             </div>
             <div>
-              <StillLifePlaceholder
+              <StillLifeImage
+                src="/images/still-lifes/sobre.png"
+                alt="Composición editorial del estudio Sitiazo.cl con escritorio, papeles y punto amarillo"
                 aspectRatio="1:1"
                 figLabel="fig. 02 — estudio"
                 className="max-w-sm mx-auto"
@@ -105,14 +103,13 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <FooterBar />
       <HairlineDivider />
 
       {/* Cómo construimos */}
-      <section className="py-[var(--spacing-11)] md:py-[var(--spacing-12)]">
+      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-12">
-            Cómo construimos.<Dot size="lg" variant="solid-yellow" />
+            <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-8">
+              Cómo construimos.<Dot size="lg" variant="solid-yellow" />
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {stack.map((item) => (
@@ -128,7 +125,7 @@ export default function SobrePage() {
       <HairlineDivider />
 
       {/* Por qué nos llamamos así */}
-      <section className="py-[var(--spacing-11)]">
+      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <div className="max-w-[var(--prose-max)]">
             <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-8">
@@ -147,7 +144,7 @@ export default function SobrePage() {
       <HairlineDivider />
 
       {/* CTA final */}
-      <section className="py-[var(--spacing-12)]">
+      <section className="py-[var(--spacing-7)] md:py-[var(--spacing-8)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <div className="max-w-[var(--prose-max)] mx-auto text-center">
             <h2 className="font-display font-bold text-display-xl text-ink leading-display mb-4">
@@ -157,7 +154,7 @@ export default function SobrePage() {
               30 minutos. WhatsApp o Meet. Sin compromiso.
             </p>
             <PrimaryButton href={whatsappLink('contacto')} external>
-              Hablemos →
+              Hablemos
             </PrimaryButton>
           </div>
         </div>

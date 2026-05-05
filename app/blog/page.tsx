@@ -2,10 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Dot } from '@/components/ui/Dot'
 import { Tag } from '@/components/ui/Tag'
-import { StillLifePlaceholder } from '@/components/ui/StillLifePlaceholder'
-import { FooterBar } from '@/components/layout/FooterBar'
+import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { PrimaryButton } from '@/components/ui/PrimaryButton'
+import { SubmitButton } from '@/components/ui/SubmitButton'
 import { posts, type PostMeta } from '@/content/posts'
 
 export const metadata: Metadata = {
@@ -24,11 +23,9 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-11)] pb-[var(--spacing-10)]">
+      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <Tag variant="outline" className="mb-8">NOTAS · BLOG SITIAZO</Tag>
-
-          <div className="max-w-[var(--prose-max)] mb-16">
+          <div className="max-w-[var(--prose-max)] mb-8">
             <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
               Notas sobre web,<br />
               pymes y vender<br />
@@ -44,10 +41,14 @@ export default function BlogPage() {
           {featured && (
             <Link
               href={`/blog/${featured.slug}`}
-              className="block border border-border-subtle bg-cream hover:border-border-strong transition-colors duration-200 group mb-16"
+              className="block border border-border-subtle bg-cream hover:border-border-strong transition-colors duration-200 group mb-8"
             >
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <StillLifePlaceholder aspectRatio="16:10" />
+                <StillLifeImage
+                  src="/images/still-lifes/blog.png"
+                  alt="Composición editorial para notas del blog de Sitiazo.cl"
+                  aspectRatio="16:10"
+                />
                 <div className="flex flex-col justify-center px-[var(--spacing-6)] py-[var(--spacing-8)]">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="font-display italic text-meta text-ink-faded tracking-ui">
@@ -88,14 +89,12 @@ export default function BlogPage() {
             </div>
           )}
         </div>
-
-        <FooterBar />
       </section>
 
       <HairlineDivider />
 
       {/* Newsletter */}
-      <section className="py-[var(--spacing-11)]">
+      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <div className="max-w-[var(--narrow-max)] mx-auto text-center">
             <h2 className="font-display font-bold text-display-md text-ink leading-display mb-4">
@@ -108,10 +107,11 @@ export default function BlogPage() {
               <input
                 type="email"
                 placeholder="tu@email.com"
+                aria-label="Email para suscripción"
                 className="flex-1 bg-cream border border-border-subtle px-4 py-3 font-body text-body text-ink placeholder:text-ink-faded focus:outline-none focus:border-ink"
                 required
               />
-              <PrimaryButton href="#">Suscribirme</PrimaryButton>
+              <SubmitButton>Suscribirme</SubmitButton>
             </form>
           </div>
         </div>
@@ -126,7 +126,11 @@ function BlogCard({ post, index }: { post: PostMeta; index: number }) {
       href={`/blog/${post.slug}`}
       className="border border-border-subtle bg-cream hover:border-border-strong transition-colors duration-200 group"
     >
-      <StillLifePlaceholder aspectRatio="16:10" />
+      <StillLifeImage
+        src="/images/still-lifes/blog.png"
+        alt={`Composición editorial para la nota ${post.title}`}
+        aspectRatio="16:10"
+      />
       <div className="px-[var(--spacing-5)] py-[var(--spacing-5)]">
         <div className="flex items-center gap-2 mb-3">
           <span className="font-body text-micro uppercase tracking-ui text-ink-faded font-medium">

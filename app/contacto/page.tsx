@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Dot } from '@/components/ui/Dot'
 import { Tag } from '@/components/ui/Tag'
 import { SecondaryButton } from '@/components/ui/SecondaryButton'
+import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { FooterBar } from '@/components/layout/FooterBar'
 import { whatsappLink, emailLink, calLink } from '@/lib/contact'
 
 export const metadata: Metadata = {
@@ -37,11 +37,9 @@ export default function ContactoPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-11)] pb-[var(--spacing-10)]">
+      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <Tag variant="outline" className="mb-8">CONTACTO · 2026</Tag>
-
-          <div className="max-w-[var(--prose-max)] mb-16">
+          <div className="max-w-[var(--prose-max)] mb-8">
             <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
               Hablemos.<Dot size="hero" variant="solid-yellow" />
             </h1>
@@ -52,7 +50,7 @@ export default function ContactoPage() {
           </div>
 
           {/* 3 contact cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {/* Card A — WhatsApp (highlighted) */}
             <div className="bg-yellow border-2 border-ink px-[var(--spacing-6)] py-[var(--spacing-7)] flex flex-col">
               <Dot size="lg" variant="solid-ink" className="mb-4" />
@@ -60,7 +58,7 @@ export default function ContactoPage() {
                 WhatsApp.
               </h2>
               <p className="font-body text-body text-ink mb-1">
-                +56 9 4544 6575
+                {process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+56 9 0000 0000'}
               </p>
               <p className="font-body text-body-sm text-ink-muted mb-6">
                 Lo más rápido. Respuesta en horas.
@@ -92,7 +90,7 @@ export default function ContactoPage() {
               </p>
               <div className="mt-auto">
                 <SecondaryButton href={emailLink('Proyecto web')} external>
-                  Mandar correo →
+                  Mandar correo
                 </SecondaryButton>
               </div>
             </div>
@@ -108,7 +106,7 @@ export default function ContactoPage() {
               </p>
               <div className="mt-auto">
                 <SecondaryButton href={calLink()} external>
-                  Ver disponibilidad →
+                  Ver disponibilidad
                 </SecondaryButton>
               </div>
             </div>
@@ -116,11 +114,10 @@ export default function ContactoPage() {
         </div>
       </section>
 
-      <FooterBar />
       <HairlineDivider />
 
       {/* Estamos en el Maule */}
-      <section className="py-[var(--spacing-11)]">
+      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--spacing-9)]">
             <div>
@@ -132,6 +129,14 @@ export default function ContactoPage() {
                 El proceso es 100% online: WhatsApp + Google Meet. Si estás en el Maule
                 y quieres juntarte cara a cara, dale, te invito un café.
               </p>
+
+              <StillLifeImage
+                src="/images/still-lifes/contacto.png"
+                alt="Composición editorial de contacto con smartphone, tarjeta y punto amarillo"
+                aspectRatio="1:1"
+                figLabel="fig. 01 — contacto"
+                className="mt-8 max-w-sm"
+              />
             </div>
 
             <div>
