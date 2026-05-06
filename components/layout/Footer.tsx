@@ -66,20 +66,20 @@ export function Footer() {
         <HairlineDivider className="!bg-cream/15 mb-8" />
 
         {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <Logo variant="inverse" size="sm" />
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-6">
+        <div className="flex flex-col items-center text-center gap-5 md:flex-row md:items-center md:justify-between md:text-left md:gap-4">
+          <Logo variant="inverse" size="sm" className="mx-auto md:mx-0" />
+          <div className="flex flex-col items-center md:flex-row md:items-center gap-2 md:gap-6">
             <span className="font-body text-body-sm text-ink-faded">
               © {new Date().getFullYear()} Sitiazo. Curicó, Maule · Chile
             </span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:justify-start">
             <a
-              href="mailto:hola@sitiazo.cl"
+              href="mailto:soporte@cvlisto.cl"
               className="font-body text-body-sm text-ink-faded hover:text-yellow transition-colors duration-200"
               aria-label="Email"
             >
-              hola@sitiazo.cl
+              soporte@cvlisto.cl
             </a>
             <a
               href="https://wa.me/56900000000"
@@ -111,7 +111,7 @@ export function Footer() {
           </div>
           <Link
             href="/contacto"
-            className="font-body text-body-sm text-ink-faded hover:text-yellow transition-colors duration-200 flex items-center gap-2"
+            className="font-body text-body-sm text-ink-faded hover:text-yellow transition-colors duration-200 flex items-center justify-center md:justify-start gap-2"
           >
             <Dot size="xs" variant="solid-yellow" />
             Desliza ↑

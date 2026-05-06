@@ -51,7 +51,7 @@ const jsonLd = {
     'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990.',
   url: 'https://sitiazo.cl',
   telephone: '+56 9 4544 6575',
-  email: 'hola@sitiazo.cl',
+  email: 'soporte@cvlisto.cl',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Curicó',

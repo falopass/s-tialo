@@ -97,7 +97,7 @@ export default function ContactoPage() {
                 Email.
               </h2>
               <p className="font-body text-body text-ink mb-1">
-                hola@sitiazo.cl
+                soporte@cvlisto.cl
               </p>
               <p className="font-body text-body-sm text-ink-muted mb-6">
                 Para propuestas detalladas o brief largo.

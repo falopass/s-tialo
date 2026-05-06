@@ -45,7 +45,7 @@ export function Nav() {
     <header
       className={cn(
         'fixed top-0 inset-x-0 z-50 transition-colors duration-300',
-        scrolled ? 'bg-cream/80 backdrop-blur-md' : 'bg-transparent',
+        menuOpen ? 'bg-transparent' : scrolled ? 'bg-cream/80 backdrop-blur-md' : 'bg-transparent',
       )}
     >
       <nav className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">

@@ -99,7 +99,7 @@ export default function SobrePage() {
                 Maule. Disfruto de la computación, el diseño y resolver problemas con el mínimo de código posible.
               </p>
               <p className="font-body text-body-sm text-ink-muted">
-                diego@sitiazo.cl · Curicó, Chile
+                soporte@cvlisto.cl · Curicó, Chile
               </p>
             </div>
             <div>

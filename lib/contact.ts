@@ -12,13 +12,13 @@ export function whatsappLink(context: keyof typeof messages = 'contacto'): strin
 }
 
 export function emailLink(subject?: string): string {
-  const email = process.env.NEXT_PUBLIC_EMAIL || 'hola@sitiazo.cl'
+  const email = process.env.NEXT_PUBLIC_EMAIL || 'soporte@cvlisto.cl'
   const s = subject ? `?subject=${encodeURIComponent(subject)}` : ''
   return `mailto:${email}${s}`
 }
 
 export function calLink(): string {
-  return process.env.NEXT_PUBLIC_CALCOM_URL || 'https://cal.com/diego/30min'
+  return process.env.NEXT_PUBLIC_CALCOM_URL || 'https://cal.com/diego-sitiazo'
 }
 
 export function siteUrl(path = ''): string {

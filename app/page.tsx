@@ -55,7 +55,7 @@ export default function HomePage() {
                   href={emailLink('Proyecto web')}
                   className="font-body text-body text-ink underline decoration-ink/30 underline-offset-4 hover:text-yellow hover:decoration-yellow transition-colors"
                 >
-                  hola@sitiazo.cl →
+                  soporte@cvlisto.cl →
                 </a>
               </div>
 
