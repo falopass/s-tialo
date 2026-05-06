@@ -6,7 +6,12 @@ import { Tag } from '@/components/ui/Tag'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 
-import { whatsappLink, emailLink } from '@/lib/contact'
+import {
+  whatsappLink,
+  SITE,
+  LEGAL,
+  siteUrl,
+} from '@/lib/config'
 import { posts, getPost } from '@/content/posts'
 
 interface Props {
@@ -27,12 +32,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: post.title.replace('.', ''),
     description: post.description,
     alternates: {
-      canonical: `https://sitiazo.cl/blog/${post.slug}/`,
+      canonical: siteUrl(`/blog/${post.slug}/`),
     },
     openGraph: {
       title: post.title.replace('.', ''),
       description: post.description,
-      url: `https://sitiazo.cl/blog/${post.slug}/`,
+      url: siteUrl(`/blog/${post.slug}/`),
       type: 'article',
       publishedTime: post.date,
       images: [
@@ -166,14 +171,14 @@ export default async function BlogPostPage({ params }: Props) {
     datePublished: post.date,
     author: {
       '@type': 'Person',
-      name: 'Diego',
+      name: LEGAL.ownerName,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Sitiazo.cl',
-      url: 'https://sitiazo.cl',
+      name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+      url: SITE.url,
     },
-    url: `https://sitiazo.cl/blog/${post.slug}/`,
+    url: siteUrl(`/blog/${post.slug}/`),
   }
 
   return (
@@ -196,7 +201,10 @@ export default async function BlogPostPage({ params }: Props) {
             <Dot size="xs" variant="solid-yellow" />
             <div className="flex items-center gap-2">
               {post.tags.map((tag) => (
-                <span key={tag} className="font-body text-micro uppercase tracking-ui text-ink-faded">
+                <span
+                  key={tag}
+                  className="font-body text-micro uppercase tracking-ui text-ink-faded"
+                >
                   {tag}
                 </span>
               ))}
@@ -215,7 +223,11 @@ export default async function BlogPostPage({ params }: Props) {
                 {section.heading && (
                   <h2 className="font-display font-bold text-display-sm text-ink mb-3">
                     {section.heading}
-                    <Dot size="md" variant="solid-yellow" className="ml-1 inline-block" />
+                    <Dot
+                      size="md"
+                      variant="solid-yellow"
+                      className="ml-1 inline-block"
+                    />
                   </h2>
                 )}
                 <p className="font-body text-body text-ink-muted leading-body">
@@ -228,10 +240,12 @@ export default async function BlogPostPage({ params }: Props) {
           {/* CTA */}
           <div className="mt-8 pt-6 border-t border-divider">
             <p className="font-display font-bold text-display-sm text-ink mb-4">
-              ¿Hablamos de tu proyecto?<Dot size="md" variant="solid-yellow" />
+              ¿Hablamos de tu proyecto?
+              <Dot size="md" variant="solid-yellow" />
             </p>
             <p className="font-body text-body text-ink-muted mb-6">
-              30 minutos sin compromiso. Escríbeme por WhatsApp o mándame un correo.
+              30 minutos sin compromiso. Escríbeme por WhatsApp o mándame un
+              correo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <PrimaryButton href={whatsappLink('contacto')} external>
@@ -249,7 +263,8 @@ export default async function BlogPostPage({ params }: Props) {
         <section className="py-[var(--spacing-5)] md:py-[var(--spacing-6)]">
           <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
             <h2 className="font-display font-bold text-display-md text-ink mb-8">
-              Más notas.<Dot size="lg" variant="solid-yellow" />
+              Más notas.
+              <Dot size="lg" variant="solid-yellow" />
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {allPosts.map((p) => (
@@ -269,7 +284,11 @@ export default async function BlogPostPage({ params }: Props) {
                   </div>
                   <h3 className="font-display font-semibold text-display-sm text-ink leading-tight mb-2 group-hover:underline decoration-yellow decoration-2 underline-offset-4">
                     {p.title}
-                    <Dot size="sm" variant="solid-yellow" className="ml-1 inline-block" />
+                    <Dot
+                      size="sm"
+                      variant="solid-yellow"
+                      className="ml-1 inline-block"
+                    />
                   </h3>
                   <p className="font-body text-body-sm text-ink-muted leading-body">
                     {p.description}

@@ -4,16 +4,16 @@ import { Dot } from '@/components/ui/Dot'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { whatsappLink } from '@/lib/contact'
+import { whatsappLink, siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Casos',
   description: 'Proyectos web diseñados para pymes chilenas. Casos reales con resultados medibles.',
-  alternates: { canonical: 'https://sitiazo.cl/casos/' },
+  alternates: { canonical: siteUrl('/casos/') },
   openGraph: {
     title: 'Casos | Sitiazo.cl',
     description: 'Proyectos web diseñados para pymes chilenas. Casos reales con resultados medibles.',
-    url: 'https://sitiazo.cl/casos/',
+    url: siteUrl('/casos/'),
     images: [
       {
         url: '/og-image.png',

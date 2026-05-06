@@ -4,20 +4,26 @@ import { Tag } from '@/components/ui/Tag'
 import { SecondaryButton } from '@/components/ui/SecondaryButton'
 import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { whatsappLink, emailLink, calLink } from '@/lib/contact'
+import {
+  whatsappLink,
+  emailLink,
+  calLink,
+  CONTACT,
+  siteUrl,
+} from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Contacto',
   description:
     'Hablemos sobre tu proyecto web. Respondemos en 24 horas. WhatsApp, Email o agenda una llamada por Google Meet.',
   alternates: {
-    canonical: 'https://sitiazo.cl/contacto/',
+    canonical: siteUrl('/contacto/'),
   },
   openGraph: {
     title: 'Contacto | Sitiazo.cl',
     description:
       'Hablemos sobre tu proyecto web. Respondemos en 24 horas. WhatsApp, Email o agenda una llamada por Google Meet.',
-    url: 'https://sitiazo.cl/contacto/',
+    url: siteUrl('/contacto/'),
     images: [
       {
         url: '/og-image.png',
@@ -55,11 +61,12 @@ export default function ContactoPage() {
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <div className="max-w-[var(--prose-max)] mb-8">
             <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
-              Hablemos.<Dot size="hero" variant="solid-yellow" />
+              Hablemos.
+              <Dot size="hero" variant="solid-yellow" />
             </h1>
             <p className="font-body text-lead text-ink-muted leading-body">
-              Cuéntanos sobre tu negocio. Te respondemos en 24 horas (laborales).
-              Sin formularios eternos, sin venta agresiva.
+              Cuéntanos sobre tu negocio. Te respondemos en 24 horas
+              (laborales). Sin formularios eternos, sin venta agresiva.
             </p>
           </div>
 
@@ -72,7 +79,7 @@ export default function ContactoPage() {
                 WhatsApp.
               </h2>
               <p className="font-body text-body text-ink mb-1">
-                {process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+56 9 0000 0000'}
+                {CONTACT.whatsappDisplay}
               </p>
               <p className="font-body text-body-sm text-ink-muted mb-6">
                 Lo más rápido. Respuesta en horas.
@@ -85,7 +92,9 @@ export default function ContactoPage() {
                   className="inline-flex items-center gap-2 bg-ink text-cream font-medium text-body px-8 py-4 hover:bg-ink-soft transition-colors duration-200 group"
                 >
                   Abrir WhatsApp
-                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
+                    →
+                  </span>
                 </a>
               </div>
             </div>
@@ -97,13 +106,13 @@ export default function ContactoPage() {
                 Email.
               </h2>
               <p className="font-body text-body text-ink mb-1">
-                soporte@cvlisto.cl
+                {CONTACT.email}
               </p>
               <p className="font-body text-body-sm text-ink-muted mb-6">
                 Para propuestas detalladas o brief largo.
               </p>
               <div className="mt-auto">
-                <SecondaryButton href={emailLink('Proyecto web')} external>
+                <SecondaryButton href={emailLink('cotizacion')} external>
                   Mandar correo
                 </SecondaryButton>
               </div>
@@ -136,12 +145,16 @@ export default function ContactoPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--spacing-9)]">
             <div>
               <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-6">
-                Estamos en<br />el Maule.<Dot size="lg" variant="solid-yellow" />
+                Estamos en
+                <br />
+                el Maule.
+                <Dot size="lg" variant="solid-yellow" />
               </h2>
               <p className="font-body text-body text-ink-muted leading-body max-w-[var(--prose-max)]">
-                Trabajamos desde Curicó y Talca, pero atendemos proyectos en todo Chile.
-                El proceso es 100% online: WhatsApp + Google Meet. Si estás en el Maule
-                y quieres juntarte cara a cara, dale, te invito un café.
+                Trabajamos desde Curicó y Talca, pero atendemos proyectos en
+                todo Chile. El proceso es 100% online: WhatsApp + Google Meet.
+                Si estás en el Maule y quieres juntarte cara a cara, dale, te
+                invito un café.
               </p>
 
               <StillLifeImage

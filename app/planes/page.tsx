@@ -4,18 +4,23 @@ import { Dot } from '@/components/ui/Dot'
 import { BulletList } from '@/components/ui/BulletList'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
-import { whatsappLink } from '@/lib/contact'
+import {
+  whatsappLink,
+  PLANS_ARRAY,
+  PLANS,
+  EXTRAS,
+  STARTING_PRICE,
+  siteUrl,
+} from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Planes claros',
-  description:
-    'Planes de diseño web para pymes chilenas. Pago único desde $79.990. Sin letras chicas, sin sorpresas.',
-  alternates: { canonical: 'https://sitiazo.cl/planes/' },
+  description: `Planes de diseño web para pymes chilenas. Pago único desde ${STARTING_PRICE}. Sin letras chicas, sin sorpresas.`,
+  alternates: { canonical: siteUrl('/planes/') },
   openGraph: {
     title: 'Planes claros | Sitiazo.cl',
-    description:
-      'Planes de diseño web para pymes chilenas. Pago único desde $79.990. Sin letras chicas, sin sorpresas.',
-    url: 'https://sitiazo.cl/planes/',
+    description: `Planes de diseño web para pymes chilenas. Pago único desde ${STARTING_PRICE}. Sin letras chicas, sin sorpresas.`,
+    url: siteUrl('/planes/'),
     images: [
       {
         url: '/og-image-planes.png',
@@ -26,52 +31,6 @@ export const metadata: Metadata = {
     ],
   },
 }
-
-const plans = [
-  {
-    name: 'Básico',
-    price: '$79.990',
-    description: '1 página, diseño editorial, CTA a WhatsApp.',
-    bullets: [
-      '1 página web',
-      'Diseño editorial a medida',
-      'Botón directo a WhatsApp',
-      'Responsive mobile-first',
-      'Entrega en 7 días hábiles',
-    ],
-    cta: whatsappLink('basico'),
-  },
-  {
-    name: 'Recomendado',
-    price: '$129.990',
-    tag: 'Más pedido',
-    highlighted: true,
-    description: 'Hasta 5 secciones, blog integrado, SEO local.',
-    bullets: [
-      'Hasta 5 secciones',
-      'Blog integrado',
-      'Diseño editorial a medida',
-      'SEO local (Google My Business)',
-      'Responsive mobile-first',
-      'Entrega en 10 días hábiles',
-    ],
-    cta: whatsappLink('recomendado'),
-  },
-  {
-    name: 'Catálogo',
-    price: '$199.990',
-    description: 'Hasta 10 productos, fichas, filtros, Cal.com.',
-    bullets: [
-      'Hasta 10 productos o servicios',
-      'Fichas con foto y precio',
-      'Filtros y búsqueda',
-      'Cal.com integrado',
-      'SEO local + Schema.org',
-      'Entrega en 14 días hábiles',
-    ],
-    cta: whatsappLink('catalogo'),
-  },
-]
 
 export default function PlanesPage() {
   return (
@@ -84,41 +43,49 @@ export default function PlanesPage() {
               <Dot size="xl" variant="solid-yellow" />
             </h1>
             <p className="font-body text-lead text-ink-muted leading-body">
-              Sin humo, sin agencia gigante. Eliges tu plan, avanzamos y sales online.
+              Sin humo, sin agencia gigante. Eliges tu plan, avanzamos y sales
+              online.
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-[var(--spacing-6)]">
-          {plans.map((plan) => (
+          {PLANS_ARRAY.map((plan) => (
             <div
-              key={plan.name}
+              key={plan.id}
               className={cn(
                 'p-[var(--spacing-6)] flex flex-col',
                 plan.highlighted
                   ? 'bg-yellow border-2 border-ink'
-                  : 'border border-border-subtle bg-cream-deep'
+                  : 'border border-border-subtle bg-cream-deep',
               )}
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="font-body text-micro uppercase tracking-ui text-ink-faded font-medium">
                   {plan.name}
                 </span>
-                {plan.tag && (
-                  <span className={cn(
-                    'flex items-center gap-2 font-body text-micro uppercase tracking-ui',
-                    plan.highlighted
-                      ? 'text-ink font-medium'
-                      : 'text-ink-faded'
-                  )}>
-                    <Dot size="xs" variant={plan.highlighted ? 'solid-ink' : 'solid-yellow'} />
-                    {plan.tag}
+                {plan.badge && (
+                  <span
+                    className={cn(
+                      'flex items-center gap-2 font-body text-micro uppercase tracking-ui',
+                      plan.highlighted
+                        ? 'text-ink font-medium'
+                        : 'text-ink-faded',
+                    )}
+                  >
+                    <Dot
+                      size="xs"
+                      variant={
+                        plan.highlighted ? 'solid-ink' : 'solid-yellow'
+                      }
+                    />
+                    {plan.badge}
                   </span>
                 )}
               </div>
 
               <p className="font-display font-bold text-display-md text-ink leading-display mb-1">
-                {plan.price}
+                {plan.priceFormatted}
               </p>
 
               <HairlineDivider className="my-4" />
@@ -127,20 +94,20 @@ export default function PlanesPage() {
                 {plan.description}
               </p>
 
-              <BulletList items={plan.bullets} className="mb-6 flex-1" />
+              <BulletList items={plan.features} className="mb-6 flex-1" />
 
               <a
-                href={plan.cta}
+                href={whatsappLink(plan.whatsappContext)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
                   'inline-flex items-center justify-center gap-2 font-medium text-body px-6 py-3 transition-colors duration-200',
                   plan.highlighted
                     ? 'bg-ink text-yellow hover:bg-ink-soft'
-                    : 'bg-ink text-cream hover:bg-ink-soft'
+                    : 'bg-ink text-cream hover:bg-ink-soft',
                 )}
               >
-                Elegir {plan.name} →
+                {plan.ctaText}
               </a>
             </div>
           ))}
@@ -153,46 +120,115 @@ export default function PlanesPage() {
       <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-8">
-            Qué incluye cada plan.<Dot size="lg" variant="solid-yellow" />
+            Qué incluye cada plan.
+            <Dot size="lg" variant="solid-yellow" />
           </h2>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-border-subtle">
-                  <th className="py-3 pr-4 font-body text-body-sm uppercase tracking-ui text-ink-faded font-medium text-left">Feature</th>
-                  <th className="py-3 px-4 font-body text-body-sm uppercase tracking-ui text-ink font-medium text-center">Básico</th>
-                  <th className="py-3 px-4 font-body text-body-sm uppercase tracking-ui text-ink font-medium text-center bg-yellow/30">Recomendado</th>
-                  <th className="py-3 pl-4 font-body text-body-sm uppercase tracking-ui text-ink font-medium text-center">Catálogo</th>
+                  <th className="py-3 pr-4 font-body text-body-sm uppercase tracking-ui text-ink-faded font-medium text-left">
+                    Feature
+                  </th>
+                  <th className="py-3 px-4 font-body text-body-sm uppercase tracking-ui text-ink font-medium text-center">
+                    {PLANS.basico.name}
+                  </th>
+                  <th className="py-3 px-4 font-body text-body-sm uppercase tracking-ui text-ink font-medium text-center bg-yellow/30">
+                    {PLANS.recomendado.name}
+                  </th>
+                  <th className="py-3 pl-4 font-body text-body-sm uppercase tracking-ui text-ink font-medium text-center">
+                    {PLANS.catalogo.name}
+                  </th>
                 </tr>
               </thead>
               <tbody className="font-body text-body-sm text-ink-muted">
                 {[
-                  { feature: 'Secciones', basico: '1', recomendado: 'Hasta 5', catalogo: 'Hasta 10' },
-                  { feature: 'Diseño editorial', basico: true, recomendado: true, catalogo: true },
-                  { feature: 'Mobile-first', basico: true, recomendado: true, catalogo: true },
-                  { feature: 'Blog integrado', basico: false, recomendado: true, catalogo: true },
-                  { feature: 'SEO local', basico: false, recomendado: true, catalogo: true },
-                  { feature: 'WhatsApp checkout', basico: true, recomendado: true, catalogo: true },
-                  { feature: 'Cal.com', basico: false, recomendado: false, catalogo: true },
-                  { feature: 'Schema.org', basico: false, recomendado: false, catalogo: true },
-                  { feature: 'Entrega', basico: '7 días', recomendado: '10 días', catalogo: '14 días' },
+                  {
+                    feature: 'Secciones',
+                    basico: PLANS.basico.pages,
+                    recomendado: PLANS.recomendado.pages,
+                    catalogo: PLANS.catalogo.pages,
+                  },
+                  {
+                    feature: 'Diseño editorial',
+                    basico: true,
+                    recomendado: true,
+                    catalogo: true,
+                  },
+                  {
+                    feature: 'Mobile-first',
+                    basico: true,
+                    recomendado: true,
+                    catalogo: true,
+                  },
+                  {
+                    feature: 'Blog integrado',
+                    basico: false,
+                    recomendado: true,
+                    catalogo: true,
+                  },
+                  {
+                    feature: 'SEO local',
+                    basico: false,
+                    recomendado: true,
+                    catalogo: true,
+                  },
+                  {
+                    feature: 'WhatsApp checkout',
+                    basico: true,
+                    recomendado: true,
+                    catalogo: true,
+                  },
+                  {
+                    feature: 'Cal.com',
+                    basico: false,
+                    recomendado: false,
+                    catalogo: true,
+                  },
+                  {
+                    feature: 'Schema.org',
+                    basico: false,
+                    recomendado: false,
+                    catalogo: true,
+                  },
+                  {
+                    feature: 'Entrega',
+                    basico: `${PLANS.basico.deliveryDays} días`,
+                    recomendado: `${PLANS.recomendado.deliveryDays} días`,
+                    catalogo: `${PLANS.catalogo.deliveryDays} días`,
+                  },
                 ].map((row) => (
-                  <tr key={row.feature} className="border-b border-border-subtle">
+                  <tr
+                    key={row.feature}
+                    className="border-b border-border-subtle"
+                  >
                     <td className="py-3 pr-4 text-ink">{row.feature}</td>
-                    {(['basico', 'recomendado', 'catalogo'] as const).map((plan) => (
-                      <td key={plan} className={cn(
-                        'py-3 px-4 text-center',
-                        plan === 'recomendado' && 'bg-yellow/20'
-                      )}>
-                        {typeof row[plan] === 'boolean'
-                          ? (row[plan]
-                            ? <Dot size="sm" variant="solid-yellow" className="mx-auto" />
-                            : <span className="text-ink-faded">—</span>)
-                          : <span>{row[plan]}</span>
-                        }
-                      </td>
-                    ))}
+                    {(['basico', 'recomendado', 'catalogo'] as const).map(
+                      (plan) => (
+                        <td
+                          key={plan}
+                          className={cn(
+                            'py-3 px-4 text-center',
+                            plan === 'recomendado' && 'bg-yellow/20',
+                          )}
+                        >
+                          {typeof row[plan] === 'boolean' ? (
+                            row[plan] ? (
+                              <Dot
+                                size="sm"
+                                variant="solid-yellow"
+                                className="mx-auto"
+                              />
+                            ) : (
+                              <span className="text-ink-faded">—</span>
+                            )
+                          ) : (
+                            <span>{row[plan]}</span>
+                          )}
+                        </td>
+                      ),
+                    )}
                   </tr>
                 ))}
               </tbody>
@@ -207,15 +243,15 @@ export default function PlanesPage() {
       <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-8">
-            Extras.<Dot size="lg" variant="solid-yellow" />
+            Extras.
+            <Dot size="lg" variant="solid-yellow" />
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              { name: 'Logo', price: '$29.990', desc: 'Diseño de logo editorial que calza con tu web.' },
-              { name: 'Sesión de fotos', price: '$49.990', desc: 'Fotos de tus productos o espacio. Región del Maule.' },
-              { name: 'Posts extra', price: '$19.990 c/u', desc: 'Notas de blog o fichas de producto adicionales.' },
-            ].map((addon) => (
-              <div key={addon.name} className="border border-border-subtle bg-cream p-[var(--spacing-5)]">
+            {EXTRAS.map((addon) => (
+              <div
+                key={addon.name}
+                className="border border-border-subtle bg-cream p-[var(--spacing-5)]"
+              >
                 <div className="flex items-center justify-between gap-4 mb-2">
                   <h3 className="font-display font-semibold text-[32px] leading-tight text-ink whitespace-nowrap">
                     {addon.name}
@@ -240,16 +276,32 @@ export default function PlanesPage() {
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <div className="max-w-[var(--prose-max)] mx-auto">
             <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-8 text-center">
-              Preguntas frecuentes.<Dot size="lg" variant="solid-yellow" />
+              Preguntas frecuentes.
+              <Dot size="lg" variant="solid-yellow" />
             </h2>
             <div className="space-y-6">
               {[
-                { q: '¿Por qué tan barato?', a: 'Somos un estudio chico en Curicó, sin oficina ni cuenta de agencia grande. El ahorro se va directo a tu web. Pagas una vez y listo.' },
-                { q: '¿Qué incluye el hosting?', a: 'Tu página queda alojada en Vercel (gratis) con dominio personalizado. Puedes usar tu dominio actual o te ayudamos a comprar uno (~$10.000/año).' },
-                { q: '¿Y si quiero cambiar después?', a: 'Empiezas con el plan que necesitas hoy. Si tu negocio crece, migramos sin problema al siguiente plan pagando la diferencia.' },
-                { q: '¿Hacen tiendas online?', a: 'Para ecommerce completo (carrito, pasarela de pago) recomendamos plataformas especializadas. Nuestro plan Catálogo funciona como vidriera con checkout por WhatsApp.' },
+                {
+                  q: '¿Por qué tan barato?',
+                  a: 'Somos un estudio chico en Curicó, sin oficina ni cuenta de agencia grande. El ahorro se va directo a tu web. Pagas una vez y listo.',
+                },
+                {
+                  q: '¿Qué incluye el hosting?',
+                  a: 'Tu página queda alojada en Vercel (gratis) con dominio personalizado. Puedes usar tu dominio actual o te ayudamos a comprar uno (~$10.000/año).',
+                },
+                {
+                  q: '¿Y si quiero cambiar después?',
+                  a: 'Empiezas con el plan que necesitas hoy. Si tu negocio crece, migramos sin problema al siguiente plan pagando la diferencia.',
+                },
+                {
+                  q: '¿Hacen tiendas online?',
+                  a: 'Para ecommerce completo (carrito, pasarela de pago) recomendamos plataformas especializadas. Nuestro plan Catálogo funciona como vidriera con checkout por WhatsApp.',
+                },
               ].map((faq) => (
-                <div key={faq.q} className="border border-border-subtle bg-cream p-[var(--spacing-5)]">
+                <div
+                  key={faq.q}
+                  className="border border-border-subtle bg-cream p-[var(--spacing-5)]"
+                >
                   <h3 className="font-display font-semibold text-display-sm text-ink mb-2 flex items-center gap-2">
                     <Dot size="sm" variant="solid-yellow" />
                     {faq.q}
@@ -275,7 +327,8 @@ export default function PlanesPage() {
               <Dot size="md" variant="solid-yellow" />
             </h2>
             <p className="font-body text-body text-ink-muted leading-body mb-6">
-              Conversemos 30 minutos. Te ayudo a decidir cuál plan calza mejor con tu negocio.
+              Conversemos 30 minutos. Te ayudo a decidir cuál plan calza mejor
+              con tu negocio.
             </p>
             <PrimaryButton href={whatsappLink('contacto')} external>
               Agenda una llamada
@@ -286,3 +339,5 @@ export default function PlanesPage() {
     </div>
   )
 }
+
+

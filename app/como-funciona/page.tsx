@@ -2,16 +2,16 @@ import type { Metadata } from 'next'
 import { Dot } from '@/components/ui/Dot'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
-import { whatsappLink } from '@/lib/contact'
+import { whatsappLink, siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Así Trabajamos',
   description: 'Proceso de 4 pasos para tener tu página web. Sin sorpresas, sin enredos.',
-  alternates: { canonical: 'https://sitiazo.cl/como-funciona/' },
+  alternates: { canonical: siteUrl('/como-funciona/') },
   openGraph: {
     title: 'Así Trabajamos | Sitiazo.cl',
     description: 'Proceso de 4 pasos para tener tu página web. Sin sorpresas, sin enredos.',
-    url: 'https://sitiazo.cl/como-funciona/',
+    url: siteUrl('/como-funciona/'),
     images: [
       {
         url: '/og-image.png',

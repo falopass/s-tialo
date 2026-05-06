@@ -5,24 +5,31 @@ import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { SecondaryButton } from '@/components/ui/SecondaryButton'
 import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { whatsappLink, emailLink } from '@/lib/contact'
+import {
+  whatsappLink,
+  emailLink,
+  SITE,
+  CONTACT,
+  STARTING_PRICE,
+  PLANS,
+  LEGAL,
+  siteUrl,
+} from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Páginas web que sí venden',
-  description:
-    'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990. Mobile-first, sin agencia grande.',
-  alternates: { canonical: 'https://sitiazo.cl' },
+  description: SITE.description,
+  alternates: { canonical: siteUrl() },
   openGraph: {
     title: 'Páginas web que sí venden',
-    description:
-      'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990. Mobile-first, sin agencia grande.',
-    url: 'https://sitiazo.cl',
+    description: SITE.description,
+    url: siteUrl(),
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Sitiazo.cl — Páginas web que sí venden',
+        alt: `${SITE.name}.cl — ${SITE.tagline}`,
       },
     ],
   },
@@ -42,27 +49,33 @@ export default function HomePage() {
                 web que
                 <br />
                 sí venden
-                <Dot size="hero" variant="solid-yellow" className="ml-2 inline-block align-middle animate-soft-pulse" />
+                <Dot
+                  size="hero"
+                  variant="solid-yellow"
+                  className="ml-2 inline-block align-middle animate-soft-pulse"
+                />
               </h1>
 
               <p className="font-body text-lead text-ink-muted leading-body max-w-[var(--prose-max)] mb-8">
-                Diseñamos sitios para pymes chilenas que necesitan vender. Listos en 7 días, desde $79.990.
+                Diseñamos sitios para pymes chilenas que necesitan vender.
+                Listos en 7 días, desde {STARTING_PRICE}.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
                 <PrimaryButton href="/planes">Ver planes</PrimaryButton>
                 <a
-                  href={emailLink('Proyecto web')}
+                  href={emailLink('cotizacion')}
                   className="font-body text-body text-ink underline decoration-ink/30 underline-offset-4 hover:text-yellow hover:decoration-yellow transition-colors"
                 >
-                  soporte@cvlisto.cl →
+                  {CONTACT.email} →
                 </a>
               </div>
 
               <div className="flex items-center gap-3 mb-3">
                 <Dot size="sm" variant="solid-yellow" />
                 <span className="font-body text-body-sm text-ink-muted">
-                  Diseño web · Curicó, Maule · Chile
+                  Diseño web · {LEGAL.city}, {LEGAL.address.addressRegion} ·{' '}
+                  {LEGAL.country}
                 </span>
               </div>
 
@@ -76,11 +89,11 @@ export default function HomePage() {
                 </span>
                 <span className="text-ink-faded select-none">·</span>
                 <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
-                  Entrega 7 días
+                  Entrega {PLANS.basico.deliveryDays} días
                 </span>
                 <span className="text-ink-faded select-none">·</span>
                 <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
-                  Desde $79.990
+                  Desde {STARTING_PRICE}
                 </span>
               </div>
             </div>
@@ -102,7 +115,12 @@ export default function HomePage() {
             <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
               Desliza
             </span>
-            <span className="inline-block animate-bounce text-ink-faded" aria-hidden="true">↓</span>
+            <span
+              className="inline-block animate-bounce text-ink-faded"
+              aria-hidden="true"
+            >
+              ↓
+            </span>
           </div>
         </div>
       </section>
@@ -119,17 +137,37 @@ export default function HomePage() {
                 <Dot size="xl" variant="solid-yellow" />
               </h2>
               <p className="font-body text-lead text-ink-muted leading-body max-w-[var(--prose-max)]">
-                Para pymes que necesitan una web clara, rápida y lista para vender.
+                Para pymes que necesitan una web clara, rápida y lista para
+                vender.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {[
-                { tag: 'SERVICIOS', title: 'Servicios locales', desc: 'Peluquerías, barberías, estudios profesionales. Webs claras que dicen quién eres y cómo te contactan.', image: '/images/still-lifes/para-quien-servicios-locales.png' },
-                { tag: 'HECHO A MANO', title: 'Marcas hechas a mano', desc: 'Crochet, cerámica, joyería, talleres. Catálogos editoriales que respetan tu oficio.', image: '/images/still-lifes/para-quien-hechas-a-mano.png' },
-                { tag: 'COMERCIO', title: 'Comercio pequeño', desc: 'Cafeterías, tiendas, delivery local. Webs rápidas que convierten visitantes en clientes.', image: '/images/still-lifes/para-quien-comercio-pequeno.png' },
+                {
+                  tag: 'SERVICIOS',
+                  title: 'Servicios locales',
+                  desc: 'Peluquerías, barberías, estudios profesionales. Webs claras que dicen quién eres y cómo te contactan.',
+                  image:
+                    '/images/still-lifes/para-quien-servicios-locales.png',
+                },
+                {
+                  tag: 'HECHO A MANO',
+                  title: 'Marcas hechas a mano',
+                  desc: 'Crochet, cerámica, joyería, talleres. Catálogos editoriales que respetan tu oficio.',
+                  image: '/images/still-lifes/para-quien-hechas-a-mano.png',
+                },
+                {
+                  tag: 'COMERCIO',
+                  title: 'Comercio pequeño',
+                  desc: 'Cafeterías, tiendas, delivery local. Webs rápidas que convierten visitantes en clientes.',
+                  image: '/images/still-lifes/para-quien-comercio-pequeno.png',
+                },
               ].map((item) => (
-                <div key={item.tag} className="border border-border-subtle bg-cream p-[var(--spacing-5)] flex flex-col">
+                <div
+                  key={item.tag}
+                  className="border border-border-subtle bg-cream p-[var(--spacing-5)] flex flex-col"
+                >
                   <div className="mb-6 flex h-64 items-center justify-center md:h-72">
                     <img
                       src={item.image}
@@ -139,7 +177,9 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="flex items-center mb-3">
-                    <span className="font-body text-micro uppercase tracking-ui text-ink-faded">{item.tag}</span>
+                    <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
+                      {item.tag}
+                    </span>
                   </div>
                   <h3 className="font-display font-semibold text-display-sm text-ink leading-tight mb-2">
                     {item.title}
@@ -162,19 +202,26 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-7)] md:gap-[var(--spacing-8)] items-center">
             <div>
               <h2 className="font-display font-bold text-display-md text-ink leading-display mb-4 whitespace-nowrap">
-                Caso Roma Crochet.<Dot size="lg" variant="solid-yellow" />
+                Caso Roma Crochet.
+                <Dot size="lg" variant="solid-yellow" />
               </h2>
               <p className="font-body text-body text-ink-muted leading-body mb-4 max-w-[var(--prose-max)]">
-                Una marca artesanal del Maule que pasó de vender por DM a tener su propia web.
-                Amigurumis personalizados, hechos a mano en Curicó.
+                Una marca artesanal del Maule que pasó de vender por DM a tener
+                su propia web. Amigurumis personalizados, hechos a mano en
+                Curicó.
               </p>
               <div className="flex items-center gap-4 mb-6 flex-wrap">
-                {['Mobile-first', 'WhatsApp visible', 'Identidad cálida'].map((b) => (
-                  <span key={b} className="flex items-center gap-2 font-body text-body-sm text-ink-muted">
-                    <Dot size="xs" variant="solid-yellow" />
-                    {b}
-                  </span>
-                ))}
+                {['Mobile-first', 'WhatsApp visible', 'Identidad cálida'].map(
+                  (b) => (
+                    <span
+                      key={b}
+                      className="flex items-center gap-2 font-body text-body-sm text-ink-muted"
+                    >
+                      <Dot size="xs" variant="solid-yellow" />
+                      {b}
+                    </span>
+                  ),
+                )}
               </div>
               <SecondaryButton href="/casos/roma-crochet">
                 Ver caso completo

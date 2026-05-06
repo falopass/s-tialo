@@ -3,16 +3,16 @@ import { Dot } from '@/components/ui/Dot'
 import { Accordion } from '@/components/ui/Accordion'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
-import { whatsappLink } from '@/lib/contact'
+import { whatsappLink, siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Preguntas frecuentes',
   description: 'Respuestas claras sobre diseño web, plazos, pagos y mantención.',
-  alternates: { canonical: 'https://sitiazo.cl/preguntas-frecuentes/' },
+  alternates: { canonical: siteUrl('/preguntas-frecuentes/') },
   openGraph: {
     title: 'Preguntas frecuentes | Sitiazo.cl',
     description: 'Respuestas claras sobre diseño web, plazos, pagos y mantención.',
-    url: 'https://sitiazo.cl/preguntas-frecuentes/',
+    url: siteUrl('/preguntas-frecuentes/'),
     images: [
       {
         url: '/og-image.png',

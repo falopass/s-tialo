@@ -2,16 +2,16 @@ import type { Metadata } from 'next'
 import { displaySerif, bodySans, monoText } from '@/lib/fonts'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
+import { SITE, SEO_DEFAULTS, SCHEMA } from '@/lib/config'
 import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Sitiazo.cl — Páginas web que sí venden',
-    template: '%s | Sitiazo.cl',
+    default: SEO_DEFAULTS.defaultTitle,
+    template: SEO_DEFAULTS.titleTemplate,
   },
-  description:
-    'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990. Mobile-first, sin agencias grandes.',
-  metadataBase: new URL('https://sitiazo.cl'),
+  description: SEO_DEFAULTS.defaultDescription,
+  metadataBase: new URL(SITE.url),
   manifest: '/manifest.webmanifest',
   icons: {
     icon: [
@@ -20,58 +20,19 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-touch-icon.png',
   },
-    openGraph: {
-      title: 'Sitiazo.cl — Páginas web que sí venden',
-      description:
-        'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990.',
-      url: 'https://sitiazo.cl',
-      siteName: 'Sitiazo.cl',
-      locale: 'es_CL',
-      type: 'website',
-      images: [
-        {
-          url: '/og-image.png',
-          width: 1200,
-          height: 630,
-          alt: 'Sitiazo.cl — Páginas web que sí venden',
-        },
-      ],
-    },
+  openGraph: {
+    title: SEO_DEFAULTS.defaultTitle,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+    locale: SITE.ogLocale,
+    type: 'website',
+    images: [SEO_DEFAULTS.ogImage],
+  },
   robots: {
     index: true,
     follow: true,
   },
-}
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Sitiazo.cl',
-  description:
-    'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990.',
-  url: 'https://sitiazo.cl',
-  telephone: '+56 9 4544 6575',
-  email: 'soporte@cvlisto.cl',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Curicó',
-    addressRegion: 'Maule',
-    addressCountry: 'CL',
-  },
-  priceRange: '$$$',
-  logo: 'https://sitiazo.cl/images/logo/logo-blackfondo.png',
-  image: [
-    'https://sitiazo.cl/og-image.png',
-    'https://sitiazo.cl/images/logo/logo-blackfondo.png',
-    'https://sitiazo.cl/images/logo/logo-realwhite.png',
-  ],
-}
-
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Sitiazo.cl',
-  url: 'https://sitiazo.cl',
 }
 
 export default function RootLayout({
@@ -81,7 +42,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="es-CL"
+      lang={SITE.locale}
       className={`${displaySerif.variable} ${bodySans.variable} ${monoText.variable}`}
     >
       <body className="font-body text-body text-ink leading-body antialiased">
@@ -93,11 +54,15 @@ export default function RootLayout({
         </a>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(SCHEMA.localBusiness),
+          }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(SCHEMA.website),
+          }}
         />
         <Nav />
         <main id="main-content">{children}</main>

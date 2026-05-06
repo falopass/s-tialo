@@ -2,6 +2,14 @@ import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
 import { Dot } from '@/components/ui/Dot'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
+import {
+  whatsappLink,
+  emailLink,
+  CONTACT,
+  SOCIAL,
+  LEGAL,
+  SITE,
+} from '@/lib/config'
 
 const sitemap = {
   ESTUDIO: [
@@ -22,7 +30,7 @@ const sitemap = {
     { label: 'Blog', href: '/blog' },
     { label: 'Recursos', href: '/blog' },
   ],
-  LEGAL: [
+  LEGAL_SECTION: [
     { label: 'Términos', href: '/terminos' },
     { label: 'Privacidad', href: '/privacidad' },
   ],
@@ -35,7 +43,8 @@ export function Footer() {
         {/* Tagline */}
         <div className="mb-16">
           <h2 className="font-display text-display-lg font-bold text-cream leading-display tracking-display">
-            Construyamos algo bueno.<Dot size="xl" variant="solid-yellow" />
+            Construyamos algo bueno.
+            <Dot size="xl" variant="solid-yellow" />
           </h2>
         </div>
 
@@ -44,7 +53,7 @@ export function Footer() {
           {Object.entries(sitemap).map(([heading, links]) => (
             <div key={heading}>
               <h3 className="font-body text-body-sm uppercase tracking-ui font-medium text-cream mb-4">
-                {heading}
+                {heading.replace('LEGAL_SECTION', 'LEGAL')}
               </h3>
               <ul className="space-y-2">
                 {links.map((link) => (
@@ -53,7 +62,11 @@ export function Footer() {
                       href={link.href}
                       className="font-body text-body-sm text-ink-faded hover:text-yellow transition-colors duration-200 flex items-center gap-2 group"
                     >
-                      <Dot size="xs" variant="solid-yellow" className="shrink-0" />
+                      <Dot
+                        size="xs"
+                        variant="solid-yellow"
+                        className="shrink-0"
+                      />
                       <span>{link.label}</span>
                     </Link>
                   </li>
@@ -70,19 +83,20 @@ export function Footer() {
           <Logo variant="inverse" size="sm" className="mx-auto md:mx-0" />
           <div className="flex flex-col items-center md:flex-row md:items-center gap-2 md:gap-6">
             <span className="font-body text-body-sm text-ink-faded">
-              © {new Date().getFullYear()} Sitiazo. Curicó, Maule · Chile
+              © {new Date().getFullYear()} {SITE.name}. {LEGAL.city},{' '}
+              {LEGAL.address.addressRegion} · {LEGAL.country}
             </span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:justify-start">
             <a
-              href="mailto:soporte@cvlisto.cl"
+              href={emailLink('general')}
               className="font-body text-body-sm text-ink-faded hover:text-yellow transition-colors duration-200"
               aria-label="Email"
             >
-              soporte@cvlisto.cl
+              {CONTACT.email}
             </a>
             <a
-              href="https://wa.me/56900000000"
+              href={whatsappLink('contacto')}
               target="_blank"
               rel="noopener noreferrer"
               className="text-ink-faded hover:text-yellow transition-colors duration-200"
@@ -91,7 +105,7 @@ export function Footer() {
               <WhatsAppIcon />
             </a>
             <a
-              href="https://instagram.com/sitiazo.cl"
+              href={SOCIAL.instagram.url}
               target="_blank"
               rel="noopener noreferrer"
               className="text-ink-faded hover:text-yellow transition-colors duration-200"
@@ -100,7 +114,7 @@ export function Footer() {
               <InstagramIcon />
             </a>
             <a
-              href="https://tiktok.com/@sitiazo.cl"
+              href={SOCIAL.tiktok.url}
               target="_blank"
               rel="noopener noreferrer"
               className="text-ink-faded hover:text-yellow transition-colors duration-200"
@@ -124,7 +138,16 @@ export function Footer() {
 
 function InstagramIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
@@ -134,7 +157,16 @@ function InstagramIcon() {
 
 function TikTokIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
     </svg>
   )
@@ -142,7 +174,16 @@ function TikTokIcon() {
 
 function WhatsAppIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
       <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1zm0 0a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
     </svg>

@@ -6,19 +6,20 @@ import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { SubmitButton } from '@/components/ui/SubmitButton'
 import { posts, type PostMeta } from '@/content/posts'
+import { siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Notas',
   description:
     'Notas sobre web, pymes y vender en internet. Para emprendedores chilenos que quieren entender su negocio online.',
   alternates: {
-    canonical: 'https://sitiazo.cl/blog/',
+    canonical: siteUrl('/blog/'),
   },
   openGraph: {
     title: 'Notas | Sitiazo.cl',
     description:
       'Notas sobre web, pymes y vender en internet. Para emprendedores chilenos que quieren entender su negocio online.',
-    url: 'https://sitiazo.cl/blog/',
+    url: siteUrl('/blog/'),
     images: [
       {
         url: '/og-image.png',

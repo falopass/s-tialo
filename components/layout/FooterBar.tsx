@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
+import { PLANS, STARTING_PRICE_SHORT } from '@/lib/config'
 
 const clients = [
   { name: 'ROMA CROCHET', href: '/casos/roma-crochet', isLink: true },
@@ -43,9 +44,9 @@ export function FooterBar() {
           </div>
 
           <div className="flex items-center gap-3 text-ink-faded font-body text-micro tracking-ui uppercase shrink-0">
-            <span>ENTREGA — 7 DÍAS</span>
+            <span>ENTREGA — {PLANS.basico.deliveryDays} DÍAS</span>
             <span className="text-yellow">·</span>
-            <span>DESDE $80K</span>
+            <span>DESDE {STARTING_PRICE_SHORT}</span>
             <span className="text-yellow">·</span>
             <span>MOBILE-FIRST</span>
           </div>
@@ -75,9 +76,9 @@ export function FooterBar() {
             ))}
           </div>
           <div className="flex items-center gap-2 text-ink-faded font-body text-micro tracking-ui uppercase">
-            <span>ENTREGA — 7 DÍAS</span>
+            <span>ENTREGA — {PLANS.basico.deliveryDays} DÍAS</span>
             <span className="text-yellow">·</span>
-            <span>DESDE $80K</span>
+            <span>DESDE {STARTING_PRICE_SHORT}</span>
             <span className="text-yellow">·</span>
             <span>MOBILE-FIRST</span>
           </div>

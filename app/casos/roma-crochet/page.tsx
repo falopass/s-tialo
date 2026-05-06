@@ -6,20 +6,20 @@ import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { SecondaryButton } from '@/components/ui/SecondaryButton'
 import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { whatsappLink } from '@/lib/contact'
+import { whatsappLink, siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Caso Roma Crochet',
   description:
     'Cómo Roma Crochet, una marca artesanal del Maule, pasó de vender por DM a tener su propia web profesional. Caso real de Sitiazo.cl.',
   alternates: {
-    canonical: 'https://sitiazo.cl/casos/roma-crochet/',
+    canonical: siteUrl('/casos/roma-crochet/'),
   },
   openGraph: {
     title: 'Caso Roma Crochet | Sitiazo.cl',
     description:
       'Cómo Roma Crochet pasó de vender por DM a tener su propia web profesional.',
-    url: 'https://sitiazo.cl/casos/roma-crochet/',
+    url: siteUrl('/casos/roma-crochet/'),
     images: [
       {
         url: '/og-image-casosroma-crochet.png',
