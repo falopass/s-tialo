@@ -14,6 +14,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitiazo.cl/blog/',
   },
+  openGraph: {
+    title: 'Notas | Sitiazo.cl',
+    description:
+      'Notas sobre web, pymes y vender en internet. Para emprendedores chilenos que quieren entender su negocio online.',
+    url: 'https://sitiazo.cl/blog/',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Blog — Sitiazo.cl',
+      },
+    ],
+  },
 }
 
 export default function BlogPage() {
@@ -25,11 +39,10 @@ export default function BlogPage() {
       {/* Hero */}
       <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-[var(--prose-max)] mb-8">
-            <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
-              Notas sobre web,<br />
-              pymes y vender<br />
-              en internet.<Dot size="hero" variant="solid-yellow" />
+          <div className="max-w-5xl mb-8">
+            <h1 className="font-display font-bold text-display-lg md:text-display-xl text-ink leading-display tracking-display mb-6">
+              Notas sobre web, pymes y<br />
+              vender en internet.<Dot size="xl" variant="solid-yellow" />
             </h1>
             <p className="font-body text-lead text-ink-muted leading-body">
               Sin tecnicismos. Para emprendedores y emprendedoras chilenas que quieren
@@ -127,7 +140,7 @@ function BlogCard({ post, index }: { post: PostMeta; index: number }) {
       className="border border-border-subtle bg-cream hover:border-border-strong transition-colors duration-200 group"
     >
       <StillLifeImage
-        src="/images/still-lifes/blog.png"
+        src={post.image ?? '/images/still-lifes/blog.png'}
         alt={`Composición editorial para la nota ${post.title}`}
         aspectRatio="16:10"
       />

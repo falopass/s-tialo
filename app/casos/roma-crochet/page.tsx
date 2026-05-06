@@ -29,10 +29,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    images: ['/og-image-casosroma-crochet.png'],
-  },
 }
 
 export default function RomaCrochetPage() {
@@ -139,7 +135,7 @@ export default function RomaCrochetPage() {
             </div>
           </div>
 
-          <div className="mt-12 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <div className="max-w-[var(--prose-max)] text-center">
               <h3 className="font-display font-bold text-display-md text-ink mb-4">
                 ¿Quieres tu caso así?<Dot size="lg" variant="solid-yellow" />

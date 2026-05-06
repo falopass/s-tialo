@@ -29,6 +29,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `https://sitiazo.cl/blog/${post.slug}/`,
     },
+    openGraph: {
+      title: post.title.replace('.', ''),
+      description: post.description,
+      url: `https://sitiazo.cl/blog/${post.slug}/`,
+      type: 'article',
+      publishedTime: post.date,
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: post.title.replace('.', ''),
+        },
+      ],
+    },
   }
 }
 
@@ -167,10 +182,10 @@ export default async function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
       />
-      <article className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-8)]">
+      <article className="pt-[var(--spacing-7)] md:pt-[var(--spacing-8)] pb-[var(--spacing-6)]">
         <div className="max-w-[var(--prose-max)] mx-auto px-[var(--spacing-5)] md:px-0">
           {/* Meta */}
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4">
             <span className="font-body text-micro uppercase tracking-ui text-ink-faded font-medium">
               {post.date}
             </span>
@@ -188,17 +203,17 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </div>
 
-          <h1 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-8">
+          <h1 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-6">
             {post.title}
             <Dot size="xl" variant="solid-yellow" />
           </h1>
 
           {/* Content sections */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {content.sections.map((section, i) => (
               <div key={i}>
                 {section.heading && (
-                  <h2 className="font-display font-bold text-display-sm text-ink mb-4">
+                  <h2 className="font-display font-bold text-display-sm text-ink mb-3">
                     {section.heading}
                     <Dot size="md" variant="solid-yellow" className="ml-1 inline-block" />
                   </h2>
@@ -211,7 +226,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
 
           {/* CTA */}
-          <div className="mt-12 pt-8 border-t border-divider">
+          <div className="mt-8 pt-6 border-t border-divider">
             <p className="font-display font-bold text-display-sm text-ink mb-4">
               ¿Hablamos de tu proyecto?<Dot size="md" variant="solid-yellow" />
             </p>
@@ -231,7 +246,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* More posts */}
       {allPosts.length > 0 && (
-        <section className="py-[var(--spacing-7)] md:py-[var(--spacing-8)]">
+        <section className="py-[var(--spacing-5)] md:py-[var(--spacing-6)]">
           <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
             <h2 className="font-display font-bold text-display-md text-ink mb-8">
               Más notas.<Dot size="lg" variant="solid-yellow" />

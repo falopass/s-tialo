@@ -14,6 +14,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitiazo.cl/sobre/',
   },
+  openGraph: {
+    title: 'Sobre Nosotros | Sitiazo.cl',
+    description:
+      'Sitiazo es un estudio independiente de diseño web basado en el Maule. Hacemos páginas que venden, no que impresionan.',
+    url: 'https://sitiazo.cl/sobre/',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Sobre Nosotros — Sitiazo.cl',
+      },
+    ],
+  },
 }
 
 const creencias = [
@@ -35,12 +49,10 @@ export default function SobrePage() {
       {/* Hero */}
       <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-[var(--prose-max)] mb-8">
-            <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
+          <div className="max-w-5xl mb-8">
+            <h1 className="font-display font-bold text-display-lg md:text-display-xl text-ink leading-display tracking-display mb-6">
               Un estudio chico<br />
-              que diseña<br />
-              para pymes<br />
-              chilenas.<Dot size="hero" variant="solid-yellow" />
+              que diseña para pymes chilenas.<Dot size="xl" variant="solid-yellow" />
             </h1>
             <p className="font-body text-lead text-ink-muted leading-body">
               Sitiazo es un estudio independiente de diseño web basado en el Maule.
@@ -81,10 +93,10 @@ export default function SobrePage() {
                 Diego.<Dot size="lg" variant="solid-yellow" />
               </h2>
               <p className="font-body text-body text-ink-muted leading-body mb-6 max-w-[var(--prose-max)]">
-                Soy estudiante de ingeniería informática en la Universidad de Talca y fundador de Sitiazo.
-                Construyo webs para pymes desde 2024. Antes hice CVListo (cvlisto.cl), QuizVerse
-                (quizverse.org) y CalculadoraChile (calculadorachile.cl). Vivo en el Maule. Me gusta
-                el café cargado y resolver problemas con el mínimo de código posible.
+                Soy estudiante de Ingeniería Civil en Computación en la Universidad de Talca y fundador de Sitiazo.
+                Construyo WEBs como hobby y sustento para mis estudios. Ya he construido páginas
+                para algunas pymes. CVListo (cvlisto.cl) RomaCrochet (romacrochet.cl). Vivo en el
+                Maule. Disfruto de la computación, el diseño y resolver problemas con el mínimo de código posible.
               </p>
               <p className="font-body text-body-sm text-ink-muted">
                 diego@sitiazo.cl · Curicó, Chile
@@ -94,9 +106,9 @@ export default function SobrePage() {
               <StillLifeImage
                 src="/images/still-lifes/sobre.png"
                 alt="Composición editorial del estudio Sitiazo.cl con escritorio, papeles y punto amarillo"
-                aspectRatio="1:1"
+                aspectRatio="16:10"
                 figLabel="fig. 02 — estudio"
-                className="max-w-sm mx-auto"
+                className="max-w-lg mx-auto"
               />
             </div>
           </div>
@@ -127,11 +139,11 @@ export default function SobrePage() {
       {/* Por qué nos llamamos así */}
       <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-[var(--prose-max)]">
-            <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-8">
+          <div className="max-w-5xl">
+            <h2 className="font-display font-bold text-display-md md:text-display-lg text-ink leading-display tracking-display mb-8 whitespace-nowrap">
               Por qué nos llamamos así.<Dot size="lg" variant="solid-yellow" />
             </h2>
-            <p className="font-body text-body text-ink-muted leading-body">
+            <p className="font-body text-body text-ink-muted leading-body max-w-[var(--prose-max)]">
               &ldquo;Sitiazo&rdquo; es la versión chilena de &ldquo;sitio + azo&rdquo;. Como decir
               &ldquo;partidazo&rdquo;, &ldquo;asadazo&rdquo;, &ldquo;golazo&rdquo;. Un sitiazo es
               una web que la rompe — bien hecha, sin enredos, que cumple lo que promete. Eso es lo

@@ -13,6 +13,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sitiazo.cl/contacto/',
   },
+  openGraph: {
+    title: 'Contacto | Sitiazo.cl',
+    description:
+      'Hablemos sobre tu proyecto web. Respondemos en 24 horas. WhatsApp, Email o agenda una llamada por Google Meet.',
+    url: 'https://sitiazo.cl/contacto/',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Contacto — Sitiazo.cl',
+      },
+    ],
+  },
 }
 
 const faqRapido = [

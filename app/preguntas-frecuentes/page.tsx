@@ -9,6 +9,19 @@ export const metadata: Metadata = {
   title: 'Preguntas frecuentes',
   description: 'Respuestas claras sobre diseño web, plazos, pagos y mantención.',
   alternates: { canonical: 'https://sitiazo.cl/preguntas-frecuentes/' },
+  openGraph: {
+    title: 'Preguntas frecuentes | Sitiazo.cl',
+    description: 'Respuestas claras sobre diseño web, plazos, pagos y mantención.',
+    url: 'https://sitiazo.cl/preguntas-frecuentes/',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Preguntas frecuentes — Sitiazo.cl',
+      },
+    ],
+  },
 }
 
 const faqs = [

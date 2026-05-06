@@ -37,13 +37,6 @@ export const metadata: Metadata = {
         },
       ],
     },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'Sitiazo.cl — Páginas web que sí venden',
-      description:
-        'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990.',
-      images: ['/og-image.png'],
-    },
   robots: {
     index: true,
     follow: true,

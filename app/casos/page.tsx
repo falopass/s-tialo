@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   title: 'Casos',
   description: 'Proyectos web diseñados para pymes chilenas. Casos reales con resultados medibles.',
   alternates: { canonical: 'https://sitiazo.cl/casos/' },
+  openGraph: {
+    title: 'Casos | Sitiazo.cl',
+    description: 'Proyectos web diseñados para pymes chilenas. Casos reales con resultados medibles.',
+    url: 'https://sitiazo.cl/casos/',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Casos — Sitiazo.cl',
+      },
+    ],
+  },
 }
 
 export default function CasosPage() {
@@ -28,12 +41,12 @@ export default function CasosPage() {
           </div>
 
           {/* Caso destacado */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-7)] md:gap-[var(--spacing-8)] items-center border border-border-subtle bg-cream p-[var(--spacing-5)] md:p-[var(--spacing-7)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-5)] md:gap-[var(--spacing-6)] items-center border border-border-subtle bg-cream p-[var(--spacing-4)] md:p-[var(--spacing-5)]">
             <div>
               <StillLifeImage
                 src="/images/still-lifes/casos.png"
                 alt="Caso Roma Crochet"
-                aspectRatio="4:5"
+                aspectRatio="16:10"
                 figLabel="fig. 01 — destacado"
                 className="max-w-sm w-full mx-auto md:mx-0"
               />
