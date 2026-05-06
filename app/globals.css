@@ -133,6 +133,104 @@ body::before {
   }
 }
 
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; }
+  10%, 80% { opacity: 0.2; }
+  20%, 60% { opacity: 1; }
+  30%, 90% { opacity: 0.2; }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 5s var(--ease-out-smooth) infinite;
+}
+
+.legal-content h1 {
+  margin-bottom: var(--spacing-6);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-display-lg);
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-display);
+}
+
+.legal-content h2 {
+  margin-top: var(--spacing-7);
+  margin-bottom: var(--spacing-4);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: 700;
+  line-height: var(--leading-display);
+}
+
+.legal-content h3 {
+  margin-top: var(--spacing-5);
+  margin-bottom: var(--spacing-3);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.legal-content p,
+.legal-content li,
+.legal-content td,
+.legal-content th {
+  color: var(--color-ink-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+.legal-content p,
+.legal-content ul,
+.legal-content ol,
+.legal-content table {
+  margin-bottom: var(--spacing-4);
+}
+
+.legal-content ul,
+.legal-content ol {
+  padding-left: var(--spacing-5);
+}
+
+.legal-content li {
+  margin-bottom: var(--spacing-2);
+}
+
+.legal-content strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.legal-content hr {
+  margin: var(--spacing-6) 0;
+  border: 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.legal-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.legal-content th,
+.legal-content td {
+  border-bottom: 1px solid var(--color-divider);
+  padding: var(--spacing-3);
+  text-align: left;
+}
+
+.legal-content a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-yellow) 80%, transparent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

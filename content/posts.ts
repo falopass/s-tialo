@@ -5,6 +5,7 @@ export interface PostMeta {
   date: string
   readTime: string
   tags: string[]
+  image?: string
   featured?: boolean
 }
 
@@ -27,6 +28,7 @@ export const posts: PostMeta[] = [
     date: 'Marzo 2026',
     readTime: '6 MIN',
     tags: ['CASOS', 'PYMES', 'RESULTADOS'],
+    image: '/images/still-lifes/blog-roma-crochet.png',
   },
   {
     slug: 'whatsapp-business-pagina-web-pymes',
@@ -36,6 +38,7 @@ export const posts: PostMeta[] = [
     date: 'Abril 2026',
     readTime: '7 MIN',
     tags: ['WHATSAPP', 'VENTAS', 'GUÍA'],
+    image: '/images/still-lifes/blog-whatsapp.png',
   },
 ]
 

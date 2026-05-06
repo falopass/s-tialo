@@ -28,14 +28,14 @@ export function StillLifeImage({
     <figure className={cn('relative w-full', className)}>
       <div
         className={cn(
-          'relative w-full overflow-hidden bg-cream-darker',
+          'relative w-full overflow-hidden',
           aspectMap[aspectRatio],
         )}
       >
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           loading={priority ? 'eager' : 'lazy'}
         />
         <div
