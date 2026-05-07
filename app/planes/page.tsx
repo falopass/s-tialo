@@ -348,27 +348,25 @@ export default function PlanesPage() {
       {/* ── FAQ ── */}
       <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-[var(--prose-max)] mx-auto">
-            <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-8 text-center">
-              Preguntas frecuentes.
-              <Dot size="lg" variant="solid-yellow" />
-            </h2>
-            <div className="space-y-6">
-              {planesFaqs.map((faq) => (
-                <div
-                  key={faq.q}
-                  className="border border-border-subtle bg-cream p-[var(--spacing-5)]"
-                >
-                  <h3 className="font-display font-semibold text-display-sm text-ink mb-2 flex items-center gap-2">
-                    <Dot size="sm" variant="solid-yellow" />
-                    {faq.q}
-                  </h3>
-                  <p className="font-body text-body-sm text-ink-muted leading-body">
-                    {faq.a}
-                  </p>
-                </div>
-              ))}
-            </div>
+          <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-8 text-center">
+            Preguntas frecuentes.
+            <Dot size="lg" variant="solid-yellow" />
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {planesFaqs.map((faq) => (
+              <div
+                key={faq.q}
+                className="border border-border-subtle bg-cream p-4"
+              >
+                <h3 className="font-display font-semibold text-display-sm text-ink mb-2 flex items-center gap-2">
+                  <Dot size="sm" variant="solid-yellow" />
+                  {faq.q}
+                </h3>
+                <p className="font-body text-body-sm text-ink-muted leading-body">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
