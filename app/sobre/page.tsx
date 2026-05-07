@@ -9,6 +9,7 @@ import {
   whatsappLink,
   CONTACT,
   LEGAL,
+  TEAM,
   siteUrl,
 } from '@/lib/config'
 
@@ -71,57 +72,60 @@ export default function SobrePage() {
 
       <HairlineDivider />
 
-      {/* Lo que creemos */}
+      {/* Lo que creemos + imagen del estudio */}
       <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-[var(--prose-max)]">
-            <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-8">
-              Lo que creemos.
-              <Dot size="lg" variant="solid-yellow" />
-            </h2>
-            <BulletList items={creencias} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-9)] items-center">
+            <div>
+              <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-8">
+                Lo que creemos.
+                <Dot size="lg" variant="solid-yellow" />
+              </h2>
+              <BulletList items={creencias} />
+            </div>
+            <StillLifeImage
+              src="/images/still-lifes/sobre.png"
+              alt="Composición editorial del estudio Sitiazo.cl con escritorio, papeles y punto amarillo"
+              aspectRatio="16:10"
+              figLabel="fig. 03 — estudio"
+              className="max-w-lg mx-auto"
+            />
           </div>
         </div>
       </section>
 
       <HairlineDivider />
 
-      {/* Detrás — Diego */}
+      {/* Detrás del estudio */}
       <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-9)] items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="font-display italic text-meta text-ink-faded tracking-ui">
-                  fig. 01 — fundador
-                </span>
-                <Dot size="xs" variant="solid-yellow" />
+          <div className="flex items-center gap-3 mb-8">
+            <span className="font-display italic text-meta text-ink-faded tracking-ui">
+              socios
+            </span>
+            <Dot size="xs" variant="solid-yellow" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-9)]">
+            {TEAM.map((member) => (
+              <div key={member.name}>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="font-display italic text-meta text-ink-faded tracking-ui">
+                    {member.figLabel} — {member.role}
+                  </span>
+                  <Dot size="xs" variant="solid-yellow" />
+                </div>
+                <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-6">
+                  {member.name}.
+                  <Dot size="lg" variant="solid-yellow" />
+                </h2>
+                <p className="font-body text-body text-ink-muted leading-body mb-6">
+                  {member.bio}
+                </p>
+                <p className="font-body text-body-sm text-ink-muted">
+                  {CONTACT.email} · {LEGAL.city}, {LEGAL.country}
+                </p>
               </div>
-              <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-6">
-                Diego.
-                <Dot size="lg" variant="solid-yellow" />
-              </h2>
-              <p className="font-body text-body text-ink-muted leading-body mb-6 max-w-[var(--prose-max)]">
-                Soy estudiante de Ingeniería Civil en Computación en la
-                Universidad de Talca y fundador de Sitiazo. Construyo WEBs como
-                hobby y sustento para mis estudios. Ya he construido páginas
-                para algunas pymes. CVListo (cvlisto.cl) RomaCrochet
-                (romacrochet.cl). Vivo en el Maule. Disfruto de la computación,
-                el diseño y resolver problemas con el mínimo de código posible.
-              </p>
-              <p className="font-body text-body-sm text-ink-muted">
-                {CONTACT.email} · {LEGAL.city}, {LEGAL.country}
-              </p>
-            </div>
-            <div>
-              <StillLifeImage
-                src="/images/still-lifes/sobre.png"
-                alt="Composición editorial del estudio Sitiazo.cl con escritorio, papeles y punto amarillo"
-                aspectRatio="16:10"
-                figLabel="fig. 02 — estudio"
-                className="max-w-lg mx-auto"
-              />
-            </div>
+            ))}
           </div>
         </div>
       </section>

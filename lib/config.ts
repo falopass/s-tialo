@@ -324,6 +324,32 @@ export const EXTRAS = [
 ]
 
 // ─────────────────────────────────────────────
+// 👥 TEAM
+// ─────────────────────────────────────────────
+
+export interface TeamMember {
+  name: string
+  role: string
+  figLabel: string
+  bio: string
+}
+
+export const TEAM: TeamMember[] = [
+  {
+    name: 'Diego',
+    role: 'CEO',
+    figLabel: 'fig. 01',
+    bio: 'Estudiante de Ingeniería Civil en Computación en la Universidad de Talca y CEO de Sitiazo. Construyo webs como hobby y sustento para mis estudios. Ya he construido páginas para algunas pymes: CVListo (cvlisto.cl), RomaCrochet (romacrochet.cl). Vivo en el Maule. Disfruto de la computación, el diseño y resolver problemas con el mínimo de código posible.',
+  },
+  {
+    name: 'Cristian',
+    role: 'CEO',
+    figLabel: 'fig. 02',
+    bio: 'Estudia Ingeniería Civil en Minas en la Universidad de Talca y es CEO de Sitiazo. Sabe de computación tanto como de números. Construyó OasisVIP (oasisvip.cl), plataforma para Explora perfiles VIP verificados por ciudad en Chile — privada, discreta y enfocada en una experiencia clara y segura para adultos. En Sitiazo colabora en proyectos y ayuda a que cada entrega salga limpia y a tiempo.',
+  },
+]
+
+// ─────────────────────────────────────────────
 // 🏢 LEGAL & BUSINESS
 // ─────────────────────────────────────────────
 
@@ -400,6 +426,7 @@ export const SCHEMA = {
     email: CONTACT.email,
     address: LEGAL.address,
     priceRange: `${PLANS.basico.priceFormatted} - ${PLANS.catalogo.priceFormatted}`,
+    image: `${SITE.url}/og-image.png`,
     areaServed: LEGAL.serviceArea,
     founder: {
       '@type': 'Person',

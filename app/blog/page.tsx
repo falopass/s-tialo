@@ -9,7 +9,7 @@ import { posts, type PostMeta } from '@/content/posts'
 import { siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
-  title: 'Notas',
+  title: 'Blog — Diseño web, pymes y ventas online',
   description:
     'Notas sobre web, pymes y vender en internet. Para emprendedores chilenos que quieren entender su negocio online.',
   alternates: {

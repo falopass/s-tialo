@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       url: siteUrl(`/blog/${post.slug}/`),
       type: 'article',
-      publishedTime: post.date,
+      publishedTime: post.dateISO,
       images: [
         {
           url: '/og-image.png',
@@ -163,12 +163,14 @@ export default async function BlogPostPage({ params }: Props) {
 
   const allPosts = posts.filter((p) => p.slug !== slug)
 
+  const postUrl = siteUrl(`/blog/${post.slug}/`)
   const blogJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title.replace('.', ''),
     description: post.description,
-    datePublished: post.date,
+    image: `${SITE.url}/og-image.png`,
+    datePublished: post.dateISO,
     author: {
       '@type': 'Person',
       name: LEGAL.ownerName,
@@ -178,7 +180,11 @@ export default async function BlogPostPage({ params }: Props) {
       name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
       url: SITE.url,
     },
-    url: siteUrl(`/blog/${post.slug}/`),
+    url: postUrl,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
   }
 
   return (

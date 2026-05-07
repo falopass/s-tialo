@@ -9,11 +9,12 @@ import {
   emailLink,
   calLink,
   CONTACT,
+  SITE,
   siteUrl,
 } from '@/lib/config'
 
 export const metadata: Metadata = {
-  title: 'Contacto',
+  title: 'Contacto — Sitiazo.cl · Diseño web para pymes',
   description:
     'Hablemos sobre tu proyecto web. Respondemos en 24 horas. WhatsApp, Email o agenda una llamada por Google Meet.',
   alternates: {
@@ -53,9 +54,62 @@ const faqRapido = [
   },
 ]
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqRapido.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}
+
+const contactPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  url: siteUrl('/contacto/'),
+  description:
+    'Contactá a Sitiazo.cl por WhatsApp, Email o agenda una llamada por Google Meet.',
+  mainEntity: {
+    '@type': 'ProfessionalService',
+    name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+    description: SITE.description,
+    url: SITE.url,
+    telephone: CONTACT.telephone,
+    email: CONTACT.email,
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'WhatsApp',
+        telephone: CONTACT.telephone,
+        url: whatsappLink('contacto'),
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'Email',
+        email: CONTACT.email,
+        url: emailLink('cotizacion'),
+      },
+    ],
+  },
+}
+
 export default function ContactoPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactPageJsonLd),
+        }}
+      />
       {/* Hero */}
       <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
@@ -71,13 +125,14 @@ export default function ContactoPage() {
           </div>
 
           {/* 3 contact cards */}
+          <h2 className="sr-only">Canales de contacto</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {/* Card A — WhatsApp (highlighted) */}
             <div className="bg-yellow border-2 border-ink px-[var(--spacing-6)] py-[var(--spacing-7)] flex flex-col">
               <Dot size="lg" variant="solid-ink" className="mb-4" />
-              <h2 className="font-display font-bold text-display-sm text-ink leading-display mb-3">
+              <h3 className="font-display font-bold text-display-sm text-ink leading-display mb-3">
                 WhatsApp.
-              </h2>
+              </h3>
               <p className="font-body text-body text-ink mb-1">
                 {CONTACT.whatsappDisplay}
               </p>
@@ -102,9 +157,9 @@ export default function ContactoPage() {
             {/* Card B — Email */}
             <div className="bg-cream border border-border-subtle px-[var(--spacing-6)] py-[var(--spacing-7)] flex flex-col">
               <Dot size="lg" variant="solid-yellow" className="mb-4" />
-              <h2 className="font-display font-bold text-display-sm text-ink leading-display mb-3">
+              <h3 className="font-display font-bold text-display-sm text-ink leading-display mb-3">
                 Email.
-              </h2>
+              </h3>
               <p className="font-body text-body text-ink mb-1">
                 {CONTACT.email}
               </p>
@@ -121,9 +176,9 @@ export default function ContactoPage() {
             {/* Card C — Cal.com */}
             <div className="bg-cream border border-border-subtle px-[var(--spacing-6)] py-[var(--spacing-7)] flex flex-col">
               <Dot size="lg" variant="solid-yellow" className="mb-4" />
-              <h2 className="font-display font-bold text-display-sm text-ink leading-display mb-3">
+              <h3 className="font-display font-bold text-display-sm text-ink leading-display mb-3">
                 Agenda 30 min.
-              </h2>
+              </h3>
               <p className="font-body text-body-sm text-ink-muted mb-6">
                 Llamada por Google Meet. Sin costo, sin compromiso.
               </p>

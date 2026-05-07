@@ -10,6 +10,7 @@ import {
   PLANS,
   EXTRAS,
   STARTING_PRICE,
+  SITE,
   siteUrl,
 } from '@/lib/config'
 
@@ -32,9 +33,82 @@ export const metadata: Metadata = {
   },
 }
 
+const planesFaqs = [
+  {
+    q: '¿Por qué tan barato?',
+    a: 'Somos un estudio chico en Curicó, sin oficina ni cuenta de agencia grande. El ahorro se va directo a tu web. Pagas una vez y listo.',
+  },
+  {
+    q: '¿Qué incluye el hosting?',
+    a: 'Tu página queda alojada en Vercel (gratis) con dominio personalizado. Puedes usar tu dominio actual o te ayudamos a comprar uno (~$10.000/año).',
+  },
+  {
+    q: '¿Y si quiero cambiar después?',
+    a: 'Empiezas con el plan que necesitas hoy. Si tu negocio crece, migramos sin problema al siguiente plan pagando la diferencia.',
+  },
+  {
+    q: '¿Hacen tiendas online?',
+    a: 'Para ecommerce completo (carrito, pasarela de pago) recomendamos plataformas especializadas. Nuestro plan Catálogo funciona como vidriera con checkout por WhatsApp.',
+  },
+]
+
+const planesFaqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: planesFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+}
+
+const planesServiceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Planes de diseño web — Sitiazo.cl',
+  description: `Planes de diseño web para pymes chilenas. Pago único desde ${STARTING_PRICE}.`,
+  url: siteUrl('/planes/'),
+  itemListElement: PLANS_ARRAY.map((plan, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Service',
+      name: `Plan ${plan.name} — Sitiazo.cl`,
+      description: plan.description,
+      url: siteUrl('/planes/'),
+      provider: {
+        '@type': 'ProfessionalService',
+        name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+        url: SITE.url,
+      },
+      offers: {
+        '@type': 'Offer',
+        price: plan.price.toString(),
+        priceCurrency: 'CLP',
+        availability: 'https://schema.org/InStock',
+        description: `${plan.name}: ${plan.pages}, entrega en ${plan.deliveryDays} días hábiles`,
+      },
+    },
+  })),
+  numberOfItems: PLANS_ARRAY.length,
+}
+
 export default function PlanesPage() {
   return (
     <div className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(planesFaqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(planesServiceJsonLd),
+        }}
+      />
       <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--spacing-7)] lg:gap-[var(--spacing-9)] mb-[var(--spacing-6)]">
           <div className="lg:col-span-8">
@@ -280,24 +354,7 @@ export default function PlanesPage() {
               <Dot size="lg" variant="solid-yellow" />
             </h2>
             <div className="space-y-6">
-              {[
-                {
-                  q: '¿Por qué tan barato?',
-                  a: 'Somos un estudio chico en Curicó, sin oficina ni cuenta de agencia grande. El ahorro se va directo a tu web. Pagas una vez y listo.',
-                },
-                {
-                  q: '¿Qué incluye el hosting?',
-                  a: 'Tu página queda alojada en Vercel (gratis) con dominio personalizado. Puedes usar tu dominio actual o te ayudamos a comprar uno (~$10.000/año).',
-                },
-                {
-                  q: '¿Y si quiero cambiar después?',
-                  a: 'Empiezas con el plan que necesitas hoy. Si tu negocio crece, migramos sin problema al siguiente plan pagando la diferencia.',
-                },
-                {
-                  q: '¿Hacen tiendas online?',
-                  a: 'Para ecommerce completo (carrito, pasarela de pago) recomendamos plataformas especializadas. Nuestro plan Catálogo funciona como vidriera con checkout por WhatsApp.',
-                },
-              ].map((faq) => (
+              {planesFaqs.map((faq) => (
                 <div
                   key={faq.q}
                   className="border border-border-subtle bg-cream p-[var(--spacing-5)]"

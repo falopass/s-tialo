@@ -6,7 +6,7 @@ import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { SecondaryButton } from '@/components/ui/SecondaryButton'
 import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { whatsappLink, siteUrl } from '@/lib/config'
+import { whatsappLink, SITE, siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Caso Roma Crochet',
@@ -31,9 +31,41 @@ export const metadata: Metadata = {
   },
 }
 
+const casoJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: 'Caso Roma Crochet — Sitiazo.cl',
+  description:
+    'Cómo Roma Crochet, una marca artesanal del Maule, pasó de vender por DM de Instagram a tener su propia web profesional con checkout por WhatsApp.',
+  url: siteUrl('/casos/roma-crochet/'),
+  image: `${SITE.url}/images/still-lifes/roma-crochet.png`,
+  author: {
+    '@type': 'Organization',
+    name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+    url: SITE.url,
+  },
+  about: {
+    '@type': 'CreativeWork',
+    name: 'Roma Crochet — romacrochet.cl',
+    description:
+      'Marca artesanal de amigurumis personalizados hechos a mano en Curicó, Chile.',
+    url: 'https://romacrochet.cl',
+  },
+  datePublished: '2026-03-01',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+    url: SITE.url,
+  },
+}
+
 export default function RomaCrochetPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(casoJsonLd) }}
+      />
       {/* Hero */}
       <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-8)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">

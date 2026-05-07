@@ -76,9 +76,9 @@ export default function ComoFuncionaPage() {
                 <span className="font-mono text-display-sm text-ink-faded font-medium tracking-mono mb-2">
                   {step.number}
                 </span>
-                <h3 className="font-display font-semibold text-display-sm text-ink leading-tight mb-1">
+                <h2 className="font-display font-semibold text-display-sm text-ink leading-tight mb-1">
                   {step.title}
-                </h3>
+                </h2>
                 <p className="font-body text-body-sm text-ink-muted leading-body">
                   {step.desc}
                 </p>

@@ -7,7 +7,7 @@ import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { whatsappLink, siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
-  title: 'Casos',
+  title: 'Casos de éxito — Webs para pymes chilenas',
   description: 'Proyectos web diseñados para pymes chilenas. Casos reales con resultados medibles.',
   alternates: { canonical: siteUrl('/casos/') },
   openGraph: {

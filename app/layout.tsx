@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/next'
 import { displaySerif, bodySans, monoText } from '@/lib/fonts'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
+import { CookieConsent } from '@/components/ui/CookieConsent'
 import { SITE, SEO_DEFAULTS, SCHEMA } from '@/lib/config'
 import './globals.css'
 
@@ -67,6 +69,8 @@ export default function RootLayout({
         <Nav />
         <main id="main-content">{children}</main>
         <Footer />
+        <CookieConsent />
+        <Analytics />
       </body>
     </html>
   )

@@ -4,7 +4,8 @@ export interface PostMeta {
   slug: string
   title: string
   description: string
-  date: string
+  date: string        // 'Marzo 2026' — para display
+  dateISO: string     // '2026-03-01' — para schema / OG
   readTime: string
   tags: string[]
   image?: string
@@ -18,6 +19,7 @@ export const posts: PostMeta[] = [
     description:
       `Precios transparentes de diseño web para pymes en Chile. Desde ${STARTING_PRICE} CLP. Sin humo, sin agencia gigante, sin letras chicas.`,
     date: 'Marzo 2026',
+    dateISO: '2026-03-01',
     readTime: '8 MIN',
     tags: ['PRECIOS', 'PYMES', 'GUÍA'],
     featured: true,
@@ -28,6 +30,7 @@ export const posts: PostMeta[] = [
     description:
       'La historia de una marca artesanal del Maule que pasó de vender por mensaje directo en Instagram a tener su propia página web profesional.',
     date: 'Marzo 2026',
+    dateISO: '2026-03-15',
     readTime: '6 MIN',
     tags: ['CASOS', 'PYMES', 'RESULTADOS'],
     image: '/images/still-lifes/blog-roma-crochet.png',
@@ -38,6 +41,7 @@ export const posts: PostMeta[] = [
     description:
       'Por qué WhatsApp es el mejor canal de venta para pymes chilenas y cómo integrarlo con tu página web para multiplicar conversiones.',
     date: 'Abril 2026',
+    dateISO: '2026-04-01',
     readTime: '7 MIN',
     tags: ['WHATSAPP', 'VENTAS', 'GUÍA'],
     image: '/images/still-lifes/blog-whatsapp.png',
