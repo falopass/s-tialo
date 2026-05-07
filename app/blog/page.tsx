@@ -59,7 +59,7 @@ export default function BlogPage() {
             >
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <StillLifeImage
-                  src="/images/still-lifes/blog.png"
+                  src="/images/still-lifes/blog.webp"
                   alt="Composición editorial para notas del blog de Sitiazo.cl"
                   aspectRatio="16:10"
                 />
@@ -141,7 +141,7 @@ function BlogCard({ post, index }: { post: PostMeta; index: number }) {
       className="border border-border-subtle bg-cream hover:border-border-strong transition-colors duration-200 group"
     >
       <StillLifeImage
-        src={post.image ?? '/images/still-lifes/blog.png'}
+        src={post.image ?? '/images/still-lifes/blog.webp'}
         alt={`Composición editorial para la nota ${post.title}`}
         aspectRatio="16:10"
       />

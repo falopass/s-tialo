@@ -213,7 +213,7 @@ export default function ContactoPage() {
               </p>
 
               <StillLifeImage
-                src="/images/still-lifes/contacto.png"
+                src="/images/still-lifes/contacto.webp"
                 alt="Composición editorial de contacto con smartphone, tarjeta y punto amarillo"
                 aspectRatio="1:1"
                 figLabel="fig. 01 — contacto"

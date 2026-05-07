@@ -100,7 +100,7 @@ export default function HomePage() {
 
             <div className="flex items-center justify-center">
               <StillLifeImage
-                src="/images/still-lifes/home-hero.png"
+                src="/images/still-lifes/home-hero.webp"
                 alt="Composición editorial de Sitiazo.cl con smartphone, papeles y punto amarillo"
                 aspectRatio="4:5"
                 figLabel="fig. 01 — sitiazo home"
@@ -149,19 +149,19 @@ export default function HomePage() {
                   title: 'Servicios locales',
                   desc: 'Peluquerías, barberías, estudios profesionales. Webs claras que dicen quién eres y cómo te contactan.',
                   image:
-                    '/images/still-lifes/para-quien-servicios-locales.png',
+                    '/images/still-lifes/para-quien-servicios-locales.webp',
                 },
                 {
                   tag: 'HECHO A MANO',
                   title: 'Marcas hechas a mano',
                   desc: 'Crochet, cerámica, joyería, talleres. Catálogos editoriales que respetan tu oficio.',
-                  image: '/images/still-lifes/para-quien-hechas-a-mano.png',
+                  image: '/images/still-lifes/para-quien-hechas-a-mano.webp',
                 },
                 {
                   tag: 'COMERCIO',
                   title: 'Comercio pequeño',
                   desc: 'Cafeterías, tiendas, delivery local. Webs rápidas que convierten visitantes en clientes.',
-                  image: '/images/still-lifes/para-quien-comercio-pequeno.png',
+                  image: '/images/still-lifes/para-quien-comercio-pequeno.webp',
                 },
               ].map((item) => (
                 <div
@@ -230,7 +230,7 @@ export default function HomePage() {
 
             <div className="flex items-center justify-center">
               <StillLifeImage
-                src="/images/still-lifes/roma-crochet.png"
+                src="/images/still-lifes/roma-crochet.webp"
                 alt="Caso Roma Crochet en smartphone"
                 aspectRatio="16:10"
                 figLabel="fig. 02 — caso roma crochet"

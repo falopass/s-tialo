@@ -33,7 +33,7 @@ export const posts: PostMeta[] = [
     dateISO: '2026-03-15',
     readTime: '6 MIN',
     tags: ['CASOS', 'PYMES', 'RESULTADOS'],
-    image: '/images/still-lifes/blog-roma-crochet.png',
+    image: '/images/still-lifes/blog-roma-crochet.webp',
   },
   {
     slug: 'whatsapp-business-pagina-web-pymes',
@@ -44,7 +44,7 @@ export const posts: PostMeta[] = [
     dateISO: '2026-04-01',
     readTime: '7 MIN',
     tags: ['WHATSAPP', 'VENTAS', 'GUÍA'],
-    image: '/images/still-lifes/blog-whatsapp.png',
+    image: '/images/still-lifes/blog-whatsapp.webp',
   },
 ]
 

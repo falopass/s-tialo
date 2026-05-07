@@ -44,7 +44,7 @@ export default function CasosPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-5)] md:gap-[var(--spacing-6)] items-center border border-border-subtle bg-cream p-[var(--spacing-4)] md:p-[var(--spacing-5)]">
             <div>
               <StillLifeImage
-                src="/images/still-lifes/casos.png"
+                src="/images/still-lifes/casos.webp"
                 alt="Caso Roma Crochet"
                 aspectRatio="16:10"
                 figLabel="fig. 01 — destacado"

@@ -38,7 +38,7 @@ const casoJsonLd = {
   description:
     'Cómo Roma Crochet, una marca artesanal del Maule, pasó de vender por DM de Instagram a tener su propia web profesional con checkout por WhatsApp.',
   url: siteUrl('/casos/roma-crochet/'),
-  image: `${SITE.url}/images/still-lifes/roma-crochet.png`,
+  image: `${SITE.url}/images/still-lifes/roma-crochet.webp`,
   author: {
     '@type': 'Organization',
     name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
@@ -103,7 +103,7 @@ export default function RomaCrochetPage() {
 
             <div className="flex items-center justify-center">
               <StillLifeImage
-                src="/images/still-lifes/roma-crochet.png"
+                src="/images/still-lifes/roma-crochet.webp"
                 alt="Still-life editorial del caso Roma Crochet con mockup web y materiales artesanales"
                 aspectRatio="16:10"
                 figLabel="fig. 02 — romacrochet.cl"

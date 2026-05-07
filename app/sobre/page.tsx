@@ -84,7 +84,7 @@ export default function SobrePage() {
               <BulletList items={creencias} />
             </div>
             <StillLifeImage
-              src="/images/still-lifes/sobre.png"
+              src="/images/still-lifes/sobre.webp"
               alt="Composición editorial del estudio Sitiazo.cl con escritorio, papeles y punto amarillo"
               aspectRatio="16:10"
               figLabel="fig. 03 — estudio"
