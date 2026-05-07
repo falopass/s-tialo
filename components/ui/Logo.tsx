@@ -21,7 +21,7 @@ export function Logo({
 }: LogoProps) {
   const src = variant === 'inverse'
     ? '/images/logo/logo-white-letras.png'
-    : '/images/logo/logo-black-letras.png'
+    : '/images/logo/logo-black-letras.webp'
 
   return (
     <Link
