@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://sitiazo.cl/sitemap.xml
