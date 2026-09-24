@@ -2,14 +2,7 @@ import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
 import { Dot } from '@/components/ui/Dot'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import {
-  whatsappLink,
-  emailLink,
-  CONTACT,
-  SOCIAL,
-  LEGAL,
-  SITE,
-} from '@/lib/config'
+import { whatsappLink, LEGAL, SITE } from '@/lib/config'
 
 const sitemap = {
   ESTUDIO: [
@@ -89,13 +82,6 @@ export function Footer() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:justify-start">
             <a
-              href={emailLink('general')}
-              className="font-body text-body-sm text-ink-faded hover:text-yellow transition-colors duration-200"
-              aria-label="Email"
-            >
-              {CONTACT.email}
-            </a>
-            <a
               href={whatsappLink('contacto')}
               target="_blank"
               rel="noopener noreferrer"
@@ -103,24 +89,6 @@ export function Footer() {
               aria-label="WhatsApp"
             >
               <WhatsAppIcon />
-            </a>
-            <a
-              href={SOCIAL.instagram.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-ink-faded hover:text-yellow transition-colors duration-200"
-              aria-label="Instagram"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href={SOCIAL.tiktok.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-ink-faded hover:text-yellow transition-colors duration-200"
-              aria-label="TikTok"
-            >
-              <TikTokIcon />
             </a>
           </div>
           <Link
@@ -133,42 +101,6 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
-}
-
-function InstagramIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-    </svg>
-  )
-}
-
-function TikTokIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-    </svg>
   )
 }
 

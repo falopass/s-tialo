@@ -6,7 +6,7 @@
  * REGLAS CRÍTICAS:
  * 1. NUNCA hardcodear datos de negocio en componentes/páginas
  * 2. Toda data debe importarse desde acá
- * 3. Valores sensibles (teléfono, email) DEBEN venir de env vars
+ * 3. Valores sensibles (teléfono) DEBEN venir de env vars
  * 4. Si necesitás un valor nuevo (precio, plazo, contacto), agregalo acá primero
  */
 
@@ -67,13 +67,11 @@ export const SITE = {
 // 📞 CONTACT (todo viene de env vars)
 // ─────────────────────────────────────────────
 
-const RAW_WHATSAPP = getEnv('NEXT_PUBLIC_WHATSAPP_NUMBER', '56974236559')
-const RAW_EMAIL = getEnv('NEXT_PUBLIC_EMAIL', 'hola@sitiazo.cl')
+const RAW_WHATSAPP = getEnv('NEXT_PUBLIC_WHATSAPP_NUMBER', '56962343671')
 const RAW_CALCOM = getEnv('NEXT_PUBLIC_CALCOM_URL', 'https://cal.com/diego-sitiazo/30min')
 
 export const CONTACT = {
   whatsappNumber: RAW_WHATSAPP,
-  email: RAW_EMAIL,
   calcomUrl: RAW_CALCOM,
   whatsappDisplay: formatPhoneNumber(RAW_WHATSAPP),
   telephone: `+${RAW_WHATSAPP}`,
@@ -121,30 +119,6 @@ export function whatsappLink(context: WhatsAppContext = 'contacto'): string {
 }
 
 // ─────────────────────────────────────────────
-// 📧 EMAIL
-// ─────────────────────────────────────────────
-
-export type EmailContext =
-  | 'general'
-  | 'cotizacion'
-  | 'caso-estudio'
-  | 'colaboracion'
-  | 'soporte'
-
-const EMAIL_SUBJECTS: Record<EmailContext, string> = {
-  general: 'Consulta desde sitiazo.cl',
-  cotizacion: 'Cotización para mi proyecto web',
-  'caso-estudio': 'Vi su caso destacado en sitiazo.cl',
-  colaboracion: 'Propuesta de colaboración',
-  soporte: 'Soporte técnico - cliente',
-}
-
-export function emailLink(context: EmailContext = 'general'): string {
-  const subject = EMAIL_SUBJECTS[context]
-  return `mailto:${RAW_EMAIL}?subject=${encodeURIComponent(subject)}`
-}
-
-// ─────────────────────────────────────────────
 // 📅 CAL.COM
 // ─────────────────────────────────────────────
 
@@ -161,21 +135,6 @@ export function siteUrl(path = ''): string {
   const cleanPath = path.startsWith('/') ? path : `/${path}`
   return path === '' ? base : `${base}${cleanPath}`
 }
-
-// ─────────────────────────────────────────────
-// 📱 SOCIAL MEDIA
-// ─────────────────────────────────────────────
-
-export const SOCIAL = {
-  instagram: {
-    handle: '@sitiazo.cl',
-    url: 'https://instagram.com/sitiazo.cl',
-  },
-  tiktok: {
-    handle: '@sitiazo.cl',
-    url: 'https://tiktok.com/@sitiazo.cl',
-  },
-} as const
 
 // ─────────────────────────────────────────────
 // 💰 PLAN PRICES (standalone constants)
@@ -396,7 +355,6 @@ export const BUSINESS_HOURS = {
   timezone: 'America/Santiago',
   responseTime: {
     whatsapp: 'horas hábiles',
-    email: '24 horas hábiles',
   },
 } as const
 
@@ -423,7 +381,6 @@ export const SCHEMA = {
     description: SITE.description,
     url: SITE.url,
     telephone: CONTACT.telephone,
-    email: CONTACT.email,
     address: LEGAL.address,
     priceRange: `${PLANS.basico.priceFormatted} - ${PLANS.catalogo.priceFormatted}`,
     image: `${SITE.url}/og-image.png`,
@@ -432,7 +389,6 @@ export const SCHEMA = {
       '@type': 'Person',
       name: LEGAL.ownerName,
     },
-    sameAs: [SOCIAL.instagram.url, SOCIAL.tiktok.url],
   },
   website: {
     '@context': 'https://schema.org',
@@ -450,11 +406,6 @@ if (process.env.NODE_ENV === 'development') {
   if (RAW_WHATSAPP === '56900000000' || RAW_WHATSAPP === '569XXXXXXXX') {
     console.warn(
       '⚠️  WHATSAPP NUMBER IS A PLACEHOLDER! Set NEXT_PUBLIC_WHATSAPP_NUMBER in .env.local',
-    )
-  }
-  if (RAW_EMAIL.includes('cvlisto') || RAW_EMAIL === 'hola@example.com') {
-    console.warn(
-      '⚠️  EMAIL IS INCORRECT! Set NEXT_PUBLIC_EMAIL in .env.local',
     )
   }
   if (!RAW_CALCOM.startsWith('https://cal.com/')) {

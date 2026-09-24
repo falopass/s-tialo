@@ -7,7 +7,6 @@ import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import {
   whatsappLink,
-  CONTACT,
   LEGAL,
   TEAM,
   siteUrl,
@@ -122,7 +121,7 @@ export default function SobrePage() {
                   {member.bio}
                 </p>
                 <p className="font-body text-body-sm text-ink-muted">
-                  {CONTACT.email} · {LEGAL.city}, {LEGAL.country}
+                  {LEGAL.city}, {LEGAL.country}
                 </p>
               </div>
             ))}

@@ -6,17 +6,17 @@ import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import {
   whatsappLink,
-  emailLink,
   calLink,
   CONTACT,
   SITE,
   siteUrl,
 } from '@/lib/config'
+import { contactFaqs, faqJsonLd } from '@/content/faqs'
 
 export const metadata: Metadata = {
   title: 'Contacto — Sitiazo.cl · Diseño web para pymes',
   description:
-    'Hablemos sobre tu proyecto web. Respondemos en 24 horas. WhatsApp, Email o agenda una llamada por Google Meet.',
+    'Hablemos sobre tu proyecto web. Escríbenos por WhatsApp o agenda una llamada por Google Meet.',
   alternates: {
     canonical: siteUrl('/contacto/'),
   },
@@ -36,62 +36,26 @@ export const metadata: Metadata = {
   },
 }
 
-const faqRapido = [
-  {
-    question: '¿Cuánto demora la respuesta?',
-    answer:
-      'WhatsApp: en horas. Email: en 24 horas laborales. Llamada por Cal.com: agenda directo según disponibilidad.',
-  },
-  {
-    question: '¿Atienden fuera del Maule?',
-    answer:
-      'Sí, todo Chile. El proceso es 100% online. Hemos trabajado con clientes desde Arica hasta Punta Arenas.',
-  },
-  {
-    question: '¿Hacen presupuesto sin compromiso?',
-    answer:
-      'Sí. Conversamos 30 min, te mando propuesta clara en 24 hrs. Si no te tinca, todo bien. Sin venta agresiva, sin follow-ups molestos.',
-  },
-]
-
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqRapido.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
-    },
-  })),
-}
+const faqJsonLdData = faqJsonLd(contactFaqs)
 
 const contactPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
   url: siteUrl('/contacto/'),
   description:
-    'Contactá a Sitiazo.cl por WhatsApp, Email o agenda una llamada por Google Meet.',
+    'Contactá a Sitiazo.cl por WhatsApp o agenda una llamada por Google Meet.',
   mainEntity: {
     '@type': 'ProfessionalService',
     name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
     description: SITE.description,
     url: SITE.url,
     telephone: CONTACT.telephone,
-    email: CONTACT.email,
     contactPoint: [
       {
         '@type': 'ContactPoint',
         contactType: 'WhatsApp',
         telephone: CONTACT.telephone,
         url: whatsappLink('contacto'),
-      },
-      {
-        '@type': 'ContactPoint',
-        contactType: 'Email',
-        email: CONTACT.email,
-        url: emailLink('cotizacion'),
       },
     ],
   },
@@ -102,7 +66,7 @@ export default function ContactoPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLdData) }}
       />
       <script
         type="application/ld+json"
@@ -126,7 +90,7 @@ export default function ContactoPage() {
 
           {/* 3 contact cards */}
           <h2 className="sr-only">Canales de contacto</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* Card A — WhatsApp (highlighted) */}
             <div className="bg-yellow border-2 border-ink px-[var(--spacing-6)] py-[var(--spacing-7)] flex flex-col">
               <Dot size="lg" variant="solid-ink" className="mb-4" />
@@ -151,25 +115,6 @@ export default function ContactoPage() {
                     →
                   </span>
                 </a>
-              </div>
-            </div>
-
-            {/* Card B — Email */}
-            <div className="bg-cream border border-border-subtle px-[var(--spacing-6)] py-[var(--spacing-7)] flex flex-col">
-              <Dot size="lg" variant="solid-yellow" className="mb-4" />
-              <h3 className="font-display font-bold text-display-sm text-ink leading-display mb-3">
-                Email.
-              </h3>
-              <p className="font-body text-body text-ink mb-1">
-                {CONTACT.email}
-              </p>
-              <p className="font-body text-body-sm text-ink-muted mb-6">
-                Para propuestas detalladas o brief largo.
-              </p>
-              <div className="mt-auto">
-                <SecondaryButton href={emailLink('cotizacion')} external>
-                  Mandar correo
-                </SecondaryButton>
               </div>
             </div>
 
@@ -226,7 +171,7 @@ export default function ContactoPage() {
                 FAQ rápido.
               </h3>
               <div className="space-y-4">
-                {faqRapido.map((faq, i) => (
+                {contactFaqs.map((faq, i) => (
                   <div key={i} className="border-b border-divider pb-4">
                     <p className="font-body text-body-sm font-medium text-ink mb-1">
                       {faq.question}

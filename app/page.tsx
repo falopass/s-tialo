@@ -7,9 +7,7 @@ import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import {
   whatsappLink,
-  emailLink,
   SITE,
-  CONTACT,
   STARTING_PRICE,
   PLANS,
   LEGAL,
@@ -62,13 +60,15 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
-                <PrimaryButton href="/planes">Ver planes</PrimaryButton>
-                <a
-                  href={emailLink('cotizacion')}
+                <PrimaryButton href={whatsappLink('home')} external>
+                  Cotizar por WhatsApp
+                </PrimaryButton>
+                <Link
+                  href="/planes"
                   className="font-body text-body text-ink underline decoration-ink/30 underline-offset-4 hover:text-yellow hover:decoration-yellow transition-colors"
                 >
-                  {CONTACT.email} →
-                </a>
+                  Ver planes →
+                </Link>
               </div>
 
               <div className="flex items-center gap-3 mb-3">
