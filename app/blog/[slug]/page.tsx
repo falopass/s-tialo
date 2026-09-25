@@ -14,6 +14,7 @@ import {
 } from '@/lib/config'
 import { posts, getPost } from '@/content/posts'
 import { getPostContent } from '@/content/blog-posts'
+import { breadcrumbJsonLd } from '@/lib/seo'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -82,17 +83,28 @@ export default async function BlogPostPage({ params }: Props) {
       url: SITE.url,
     },
     url: postUrl,
+    inLanguage: SITE.locale,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': postUrl,
     },
   }
 
+  const breadcrumbLd = breadcrumbJsonLd([
+    { name: 'Inicio', url: siteUrl('/') },
+    { name: 'Notas', url: siteUrl('/blog/') },
+    { name: post.title.replace('.', ''), url: postUrl },
+  ])
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <article className="pt-[var(--spacing-7)] md:pt-[var(--spacing-8)] pb-[var(--spacing-6)]">
         <div className="max-w-[var(--prose-max)] mx-auto px-[var(--spacing-5)] md:px-0">
@@ -151,8 +163,14 @@ export default async function BlogPostPage({ params }: Props) {
               <Dot size="md" variant="solid-yellow" />
             </p>
             <p className="font-body text-body text-ink-muted mb-6">
-              30 minutos sin compromiso. Escríbeme por WhatsApp o mándame un
-              correo.
+              30 minutos sin compromiso. Escríbeme por WhatsApp o revisa los{' '}
+              <Link
+                href="/planes"
+                className="text-ink underline decoration-yellow decoration-2 underline-offset-4 hover:text-yellow transition-colors"
+              >
+                planes y precios
+              </Link>
+              .
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <PrimaryButton href={whatsappLink('contacto')} external>

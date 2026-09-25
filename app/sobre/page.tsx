@@ -13,16 +13,16 @@ import {
 } from '@/lib/config'
 
 export const metadata: Metadata = {
-  title: 'Sobre Nosotros',
+  title: 'Sobre Sitiazo — estudio de diseño web en el Maule',
   description:
-    'Sitiazo es un estudio independiente de diseño web basado en el Maule. Hacemos páginas que venden, no que impresionan.',
+    'Sitiazo es un estudio independiente de diseño web basado en el Maule (Curicó y Talca). Hacemos páginas que venden, no que impresionan.',
   alternates: {
     canonical: siteUrl('/sobre/'),
   },
   openGraph: {
-    title: 'Sobre Nosotros | Sitiazo.cl',
+    title: 'Sobre Sitiazo | Sitiazo.cl',
     description:
-      'Sitiazo es un estudio independiente de diseño web basado en el Maule. Hacemos páginas que venden, no que impresionan.',
+      'Estudio independiente de diseño web basado en el Maule (Curicó y Talca). Hacemos páginas que venden, no que impresionan.',
     url: siteUrl('/sobre/'),
     images: [
       {

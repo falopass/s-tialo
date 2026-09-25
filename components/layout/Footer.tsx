@@ -8,6 +8,7 @@ const sitemap = {
   ESTUDIO: [
     { label: 'Cómo funciona', href: '/como-funciona' },
     { label: 'Sobre nosotros', href: '/sobre' },
+    { label: 'Preguntas frecuentes', href: '/preguntas-frecuentes' },
     { label: 'Contacto', href: '/contacto' },
   ],
   PLANES: [
@@ -17,7 +18,9 @@ const sitemap = {
   ],
   CASOS: [
     { label: 'Roma Crochet', href: '/casos/roma-crochet' },
-    { label: 'Próximos casos', href: '/casos' },
+    { label: 'CalculaChile', href: '/casos/calculachile' },
+    { label: 'CVListo', href: '/casos/cvlisto' },
+    { label: 'Todos los casos', href: '/casos' },
   ],
   NOTAS: [
     { label: 'Blog', href: '/blog' },

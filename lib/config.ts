@@ -56,7 +56,7 @@ export const SITE = {
   url: getEnv('NEXT_PUBLIC_SITE_URL', 'https://sitiazo.cl'),
   tagline: 'Páginas web que sí venden.',
   description:
-    'Estudio de diseño web para pymes chilenas. Páginas listas en 7 días, desde $79.990. Mobile-first, sin agencia grande.',
+    'Estudio de diseño web para pymes chilenas. Páginas que venden, listas en 7 días desde $79.990. Desde el Maule para todo Chile.',
   shortDescription: 'Estudio de diseño web para pymes chilenas.',
   locale: 'es-CL',
   ogLocale: 'es_CL',
@@ -384,7 +384,20 @@ export const SCHEMA = {
     address: LEGAL.address,
     priceRange: `${PLANS.basico.priceFormatted} - ${PLANS.catalogo.priceFormatted}`,
     image: `${SITE.url}/og-image.png`,
-    areaServed: LEGAL.serviceArea,
+    slogan: SITE.tagline,
+    areaServed: [
+      { '@type': 'State', name: 'Región del Maule' },
+      { '@type': 'City', name: 'Talca' },
+      { '@type': 'City', name: 'San Clemente' },
+      { '@type': 'City', name: 'Curicó' },
+      { '@type': 'Country', name: 'Chile' },
+    ],
+    knowsAbout: [
+      'Diseño web para pymes',
+      'Páginas web para negocios',
+      'Catálogos online con WhatsApp',
+      'SEO local',
+    ],
     founder: {
       '@type': 'Person',
       name: LEGAL.ownerName,
@@ -395,6 +408,7 @@ export const SCHEMA = {
     '@type': 'WebSite',
     name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
     url: SITE.url,
+    inLanguage: SITE.locale,
   },
 } as const
 

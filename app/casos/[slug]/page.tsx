@@ -9,6 +9,7 @@ import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { Tag } from '@/components/ui/Tag'
 import { detailedCases, getCase } from '@/content/cases'
 import { SITE, siteUrl, whatsappLink } from '@/lib/config'
+import { breadcrumbJsonLd } from '@/lib/seo'
 
 type CasePageProps = {
   params: Promise<{ slug: string }>
@@ -86,11 +87,21 @@ export default async function CasePage({ params }: CasePageProps) {
     },
   }
 
+  const breadcrumbLd = breadcrumbJsonLd([
+    { name: 'Inicio', url: siteUrl('/') },
+    { name: 'Casos', url: siteUrl('/casos/') },
+    { name: caseStudy.name, url: caseUrl },
+  ])
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <section className="pb-[var(--spacing-8)] pt-[var(--spacing-9)] md:pt-[var(--spacing-10)]">

@@ -9,16 +9,16 @@ import { posts, type PostMeta } from '@/content/posts'
 import { siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
-  title: 'Blog — Diseño web, pymes y ventas online',
+  title: 'Blog — diseño web y ventas online para pymes',
   description:
-    'Notas sobre web, pymes y vender en internet. Para emprendedores chilenos que quieren entender su negocio online.',
+    'Notas sobre diseño web, pymes y vender en internet. Para emprendedores chilenos que quieren entender su negocio online.',
   alternates: {
     canonical: siteUrl('/blog/'),
   },
   openGraph: {
     title: 'Notas | Sitiazo.cl',
     description:
-      'Notas sobre web, pymes y vender en internet. Para emprendedores chilenos que quieren entender su negocio online.',
+      'Notas sobre diseño web, pymes y vender en internet. Para emprendedores chilenos que quieren entender su negocio online.',
     url: siteUrl('/blog/'),
     images: [
       {

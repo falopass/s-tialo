@@ -6,12 +6,12 @@ import { whatsappLink, siteUrl } from '@/lib/config'
 import { processSteps } from '@/content/process'
 
 export const metadata: Metadata = {
-  title: 'Así Trabajamos',
-  description: 'Proceso de 4 pasos para tener tu página web. Sin sorpresas, sin enredos.',
+  title: 'Cómo funciona — tu página web lista en 7 días',
+  description: 'El proceso para crear la página web de tu negocio: brief, diseño, desarrollo y publicación. 4 pasos, 7 días, sin enredos.',
   alternates: { canonical: siteUrl('/como-funciona/') },
   openGraph: {
-    title: 'Así Trabajamos | Sitiazo.cl',
-    description: 'Proceso de 4 pasos para tener tu página web. Sin sorpresas, sin enredos.',
+    title: 'Cómo funciona — tu página web en 7 días | Sitiazo.cl',
+    description: 'El proceso para crear la página web de tu negocio: brief, diseño, desarrollo y publicación. 4 pasos, 7 días, sin enredos.',
     url: siteUrl('/como-funciona/'),
     images: [
       {

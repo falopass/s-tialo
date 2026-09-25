@@ -14,16 +14,16 @@ import {
 import { contactFaqs, faqJsonLd } from '@/content/faqs'
 
 export const metadata: Metadata = {
-  title: 'Contacto — Sitiazo.cl · Diseño web para pymes',
+  title: 'Contacto — cotiza la página web de tu pyme',
   description:
-    'Hablemos sobre tu proyecto web. Escríbenos por WhatsApp o agenda una llamada por Google Meet.',
+    'Cotiza la página web de tu negocio: WhatsApp directo o una llamada de 30 minutos por Meet. Respondemos en horas.',
   alternates: {
     canonical: siteUrl('/contacto/'),
   },
   openGraph: {
     title: 'Contacto | Sitiazo.cl',
     description:
-      'Hablemos sobre tu proyecto web. Respondemos en 24 horas. WhatsApp, Email o agenda una llamada por Google Meet.',
+      'Cotiza la página web de tu negocio. Respondemos en horas: WhatsApp directo o una llamada de 30 minutos por Google Meet.',
     url: siteUrl('/contacto/'),
     images: [
       {

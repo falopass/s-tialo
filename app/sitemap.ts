@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { SITE } from '@/lib/config'
 import { posts } from '@/content/posts'
+import { detailedCases } from '@/content/cases'
 
 // Required for `output: 'export'` static builds.
 export const dynamic = 'force-static'
@@ -36,25 +37,37 @@ const STATIC_ROUTES: Route[] = [
   { path: '/privacidad/',           changeFrequency: 'yearly',  priority: 0.3 },
 ]
 
+// Fecha real de la última actualización de contenido de las páginas estáticas.
+// Actualizarla cuando cambie el contenido, no en cada build.
+const LAST_UPDATED = new Date('2026-09-25')
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url.replace(/\/$/, '')
-  const now = new Date()
 
   const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map(
     ({ path, changeFrequency, priority }) => ({
       url: `${base}${path}`,
-      lastModified: now,
+      lastModified: LAST_UPDATED,
       changeFrequency,
       priority,
     }),
   )
 
+  const caseEntries: MetadataRoute.Sitemap = detailedCases.map((caseStudy) => ({
+    url: `${base}/casos/${caseStudy.slug}/`,
+    lastModified: caseStudy.publishedDate
+      ? new Date(caseStudy.publishedDate)
+      : LAST_UPDATED,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
   const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${base}/blog/${post.slug}/`,
-    lastModified: post.dateISO ? new Date(post.dateISO) : now,
+    lastModified: post.dateISO ? new Date(post.dateISO) : LAST_UPDATED,
     changeFrequency: 'yearly',
     priority: 0.6,
   }))
 
-  return [...staticEntries, ...blogEntries]
+  return [...staticEntries, ...caseEntries, ...blogEntries]
 }

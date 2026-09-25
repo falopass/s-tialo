@@ -7,6 +7,7 @@ import { SecondaryButton } from '@/components/ui/SecondaryButton'
 import { StillLifeImage } from '@/components/ui/StillLifeImage'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { whatsappLink, SITE, siteUrl } from '@/lib/config'
+import { breadcrumbJsonLd } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Caso Roma Crochet',
@@ -59,12 +60,22 @@ const casoJsonLd = {
   },
 }
 
+const breadcrumbLd = breadcrumbJsonLd([
+  { name: 'Inicio', url: siteUrl('/') },
+  { name: 'Casos', url: siteUrl('/casos/') },
+  { name: 'Roma Crochet', url: siteUrl('/casos/roma-crochet/') },
+])
+
 export default function RomaCrochetPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(casoJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       {/* Hero */}
       <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-8)]">

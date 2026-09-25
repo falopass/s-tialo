@@ -15,9 +15,9 @@ import {
 } from '@/lib/config'
 
 export const metadata: Metadata = {
-  title: 'Páginas web que sí venden',
+  title: 'Diseño web para pymes en Chile',
   description: SITE.description,
-  alternates: { canonical: siteUrl() },
+  alternates: { canonical: siteUrl('/') },
   openGraph: {
     title: 'Páginas web que sí venden',
     description: SITE.description,
@@ -55,8 +55,8 @@ export default function HomePage() {
               </h1>
 
               <p className="font-body text-lead text-ink-muted leading-body max-w-[var(--prose-max)] mb-8">
-                Diseñamos sitios para pymes chilenas que necesitan vender.
-                Listos en 7 días, desde {STARTING_PRICE}.
+                Diseñamos páginas web para pymes y negocios que necesitan
+                vender. Listas en 7 días, desde {STARTING_PRICE}.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
@@ -74,8 +74,8 @@ export default function HomePage() {
               <div className="flex items-center gap-3 mb-3">
                 <Dot size="sm" variant="solid-yellow" />
                 <span className="font-body text-body-sm text-ink-muted">
-                  Diseño web · {LEGAL.city}, {LEGAL.address.addressRegion} ·{' '}
-                  {LEGAL.country}
+                  Diseño web · {LEGAL.city} y Talca,{' '}
+                  {LEGAL.address.addressRegion} · {LEGAL.country}
                 </span>
               </div>
 
@@ -171,7 +171,7 @@ export default function HomePage() {
                   <div className="mb-6 flex h-64 items-center justify-center md:h-72">
                     <img
                       src={item.image}
-                      alt={`Still-life para ${item.title}`}
+                      alt={`Página web para ${item.title.toLowerCase()} — composición editorial`}
                       className="h-full w-full object-contain"
                       loading="lazy"
                     />

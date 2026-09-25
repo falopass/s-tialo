@@ -16,12 +16,12 @@ import {
 import { planFaqs, faqJsonLd } from '@/content/faqs'
 
 export const metadata: Metadata = {
-  title: 'Planes claros',
-  description: `Planes de diseño web para pymes chilenas. Pago único desde ${STARTING_PRICE}. Sin letras chicas, sin sorpresas.`,
+  title: 'Planes y precios de páginas web para pymes',
+  description: `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, pago único, sin letras chicas ni sorpresas.`,
   alternates: { canonical: siteUrl('/planes/') },
   openGraph: {
-    title: 'Planes claros | Sitiazo.cl',
-    description: `Planes de diseño web para pymes chilenas. Pago único desde ${STARTING_PRICE}. Sin letras chicas, sin sorpresas.`,
+    title: 'Planes y precios de páginas web para pymes | Sitiazo.cl',
+    description: `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, pago único, sin letras chicas ni sorpresas.`,
     url: siteUrl('/planes/'),
     images: [
       {

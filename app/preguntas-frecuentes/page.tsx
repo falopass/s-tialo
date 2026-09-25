@@ -7,12 +7,12 @@ import { whatsappLink, siteUrl } from '@/lib/config'
 import { generalFaqs, faqJsonLd } from '@/content/faqs'
 
 export const metadata: Metadata = {
-  title: 'Preguntas frecuentes',
-  description: 'Respuestas claras sobre diseño web, plazos, pagos y mantención.',
+  title: 'Preguntas frecuentes sobre páginas web para pymes',
+  description: 'Cuánto cuesta una página web, plazos de entrega, formas de pago y mantención: respuestas claras para pymes chilenas.',
   alternates: { canonical: siteUrl('/preguntas-frecuentes/') },
   openGraph: {
     title: 'Preguntas frecuentes | Sitiazo.cl',
-    description: 'Respuestas claras sobre diseño web, plazos, pagos y mantención.',
+    description: 'Cuánto cuesta una página web, plazos de entrega, formas de pago y mantención: respuestas claras para pymes chilenas.',
     url: siteUrl('/preguntas-frecuentes/'),
     images: [
       {

@@ -31,6 +31,12 @@ export const metadata: Metadata = {
     type: 'website',
     images: [SEO_DEFAULTS.ogImage],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: SEO_DEFAULTS.defaultTitle,
+    description: SITE.description,
+    images: [SEO_DEFAULTS.ogImage.url],
+  },
   robots: {
     index: true,
     follow: true,
