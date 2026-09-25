@@ -3,6 +3,7 @@ import { Dot } from '@/components/ui/Dot'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { whatsappLink, siteUrl } from '@/lib/config'
+import { processSteps } from '@/content/process'
 
 export const metadata: Metadata = {
   title: 'Así Trabajamos',
@@ -23,37 +24,6 @@ export const metadata: Metadata = {
   },
 }
 
-const steps = [
-  {
-    number: '01',
-    title: 'Brief express',
-    desc: 'Nos mandas WhatsApp + referencias.',
-    time: 'Día 1',
-    image: '/images/still-lifes/step-brief-express.webp',
-  },
-  {
-    number: '02',
-    title: 'Diseño claro',
-    desc: 'Orden, textos y estructura.',
-    time: 'Día 2-3',
-    image: '/images/still-lifes/step-diseno-claro.webp',
-  },
-  {
-    number: '03',
-    title: 'Desarrollo',
-    desc: 'Lo armamos y afinamos contigo.',
-    time: 'Día 4-7',
-    image: '/images/still-lifes/step-desarrollo.webp',
-  },
-  {
-    number: '04',
-    title: 'Publicación',
-    desc: 'Sale online en 7 días.',
-    time: 'Día 7',
-    image: '/images/still-lifes/step-publicacion.webp',
-  },
-]
-
 export default function ComoFuncionaPage() {
   return (
     <>
@@ -71,7 +41,7 @@ export default function ComoFuncionaPage() {
 
           {/* Steps grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 mb-10">
-            {steps.map((step) => (
+            {processSteps.map((step) => (
               <div key={step.number} className="flex flex-col">
                 <span className="font-mono text-display-sm text-ink-faded font-medium tracking-mono mb-2">
                   {step.number}
@@ -100,7 +70,7 @@ export default function ComoFuncionaPage() {
           {/* Timeline visual */}
           <div className="relative flex items-center justify-between gap-4">
             <div className="absolute left-0 right-0 top-1/2 h-px bg-divider -z-10" />
-            {steps.map((step) => (
+            {processSteps.map((step) => (
               <div key={step.number} className="flex flex-col items-center gap-2 bg-cream px-2">
                 <Dot size="sm" variant="solid-yellow" />
                 <span className="font-body text-micro uppercase tracking-ui text-ink-faded">

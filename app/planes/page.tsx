@@ -13,6 +13,7 @@ import {
   SITE,
   siteUrl,
 } from '@/lib/config'
+import { planFaqs, faqJsonLd } from '@/content/faqs'
 
 export const metadata: Metadata = {
   title: 'Planes claros',
@@ -33,37 +34,7 @@ export const metadata: Metadata = {
   },
 }
 
-const planesFaqs = [
-  {
-    q: '¿Por qué tan barato?',
-    a: 'Somos un estudio chico en Curicó, sin oficina ni cuenta de agencia grande. El ahorro se va directo a tu web. Pagas una vez y listo.',
-  },
-  {
-    q: '¿Qué incluye el hosting?',
-    a: 'Tu página queda alojada en Vercel (gratis) con dominio personalizado. Puedes usar tu dominio actual o te ayudamos a comprar uno (~$10.000/año).',
-  },
-  {
-    q: '¿Y si quiero cambiar después?',
-    a: 'Empiezas con el plan que necesitas hoy. Si tu negocio crece, migramos sin problema al siguiente plan pagando la diferencia.',
-  },
-  {
-    q: '¿Hacen tiendas online?',
-    a: 'Para ecommerce completo (carrito, pasarela de pago) recomendamos plataformas especializadas. Nuestro plan Catálogo funciona como vidriera con checkout por WhatsApp.',
-  },
-]
-
-const planesFaqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: planesFaqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.q,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.a,
-    },
-  })),
-}
+const planesFaqJsonLd = faqJsonLd(planFaqs)
 
 const planesServiceJsonLd = {
   '@context': 'https://schema.org',
@@ -353,17 +324,17 @@ export default function PlanesPage() {
             <Dot size="lg" variant="solid-yellow" />
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {planesFaqs.map((faq) => (
+            {planFaqs.map((faq) => (
               <div
-                key={faq.q}
+                key={faq.id}
                 className="border border-border-subtle bg-cream p-4"
               >
                 <h3 className="font-display font-semibold text-display-sm text-ink mb-2 flex items-center gap-2">
                   <Dot size="sm" variant="solid-yellow" />
-                  {faq.q}
+                  {faq.question}
                 </h3>
                 <p className="font-body text-body-sm text-ink-muted leading-body">
-                  {faq.a}
+                  {faq.answer}
                 </p>
               </div>
             ))}

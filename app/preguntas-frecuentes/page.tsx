@@ -4,6 +4,7 @@ import { Accordion } from '@/components/ui/Accordion'
 import { HairlineDivider } from '@/components/ui/HairlineDivider'
 import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import { whatsappLink, siteUrl } from '@/lib/config'
+import { generalFaqs, faqJsonLd } from '@/content/faqs'
 
 export const metadata: Metadata = {
   title: 'Preguntas frecuentes',
@@ -24,48 +25,14 @@ export const metadata: Metadata = {
   },
 }
 
-const faqs = [
-  {
-    question: '¿Cuánto demora?',
-    answer: 'Normalmente 7 días hábiles desde que tenemos contenido y feedback.',
-  },
-  {
-    question: '¿Puedo pagar en etapas?',
-    answer: 'Sí. 50% para comenzar y 50% al aprobar la página.',
-  },
-  {
-    question: '¿Qué necesito enviarte?',
-    answer: 'Fotos, textos y referencias de sitios que te gusten. Si no tienes todo, te ayudamos.',
-  },
-  {
-    question: '¿La página se adapta al celular?',
-    answer: '100% mobile-first. Diseñamos primero para celular.',
-  },
-  {
-    question: '¿Después la puedo editar?',
-    answer: 'Sí. Te entregamos un manual y soporte para que puedas hacer cambios básicos.',
-  },
-]
-
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
-    },
-  })),
-}
+const faqJsonLdData = faqJsonLd(generalFaqs)
 
 export default function FAQPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLdData) }}
       />
       <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
@@ -82,7 +49,7 @@ export default function FAQPage() {
           </div>
 
           <div className="max-w-[var(--prose-max)] lg:max-w-none lg:w-full mt-8">
-            <Accordion items={faqs} />
+            <Accordion items={generalFaqs} />
           </div>
         </div>
       </section>

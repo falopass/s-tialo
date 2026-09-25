@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 interface StillLifeImageProps {
@@ -32,11 +33,13 @@ export function StillLifeImage({
           aspectMap[aspectRatio],
         )}
       >
-        <img
+        <Image
           src={src}
           alt={alt}
-          className="w-full h-full object-contain"
-          loading={priority ? 'eager' : 'lazy'}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-contain"
+          priority={priority}
         />
         <div
           className="absolute inset-0 pointer-events-none"
