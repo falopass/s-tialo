@@ -5,11 +5,11 @@
  * todo el contenido es de fantasía: nombres, precios, direcciones y
  * teléfonos son referenciales y no corresponden a negocios reales.
  *
- * Excepciones: `mg-publicidad`, `constructora-valdes`, `mym-taller` y
- * `pannton` son mockups para leads reales y usan solo datos públicos
- * (nombre, comuna y teléfono; MG, MyM y Pannton además dirección, red
- * social o nota de Google). Sus servicios y textos siguen siendo
- * referenciales.
+ * Excepciones: `mg-publicidad`, `constructora-valdes`, `mym-taller`,
+ * `pannton` y `alumrod` son mockups para leads reales y usan solo datos
+ * públicos (nombre, comuna y teléfono; MG, MyM, Pannton y Alumrod además
+ * dirección, red social o nota de Google). Sus servicios y textos siguen
+ * siendo referenciales.
  */
 
 export type DemoMotif =
@@ -26,10 +26,11 @@ export type DemoMotif =
   | 'tow'
   | 'gear'
   | 'print'
+  | 'window'
 
 export type DemoHeading = 'serif' | 'sans' | 'black'
 
-export type DemoHero = 'split' | 'banner' | 'type'
+export type DemoHero = 'split' | 'banner' | 'type' | 'frame'
 
 export type DemoSwatch =
   | 'sheet'
@@ -40,6 +41,10 @@ export type DemoSwatch =
   | 'pendon'
   | 'letter'
   | 'flyer'
+  | 'pane'
+  | 'laminado'
+  | 'templado'
+  | 'dvh'
 
 export interface DemoTheme {
   paper: string
@@ -114,6 +119,14 @@ export type DemoSection =
       blurb?: string
       products: string[]
       sizes: string[]
+    }
+  | {
+      type: 'measure'
+      id?: string
+      title: string
+      blurb?: string
+      products: string[]
+      glasses: string[]
     }
   | { type: 'cta'; id?: string; text: string; button: string }
 
@@ -2600,6 +2613,232 @@ export const DEMOS: Demo[] = [
       title: 'Pannton — Impresión y soluciones gráficas en Talca',
       description:
         'Pannton, Arquitectura y Soluciones Gráficas en Talca: tarjetas, volantes, dípticos, adhesivos, pendones y gigantografías. 4,2★ en Google. Cotiza por WhatsApp.',
+    },
+  },
+
+  // ── 16. Mockup para lead real: Aluminios Alumrod ──────────
+  // Datos reales y públicos: nombre, dirección, teléfono y nota de
+  // Google (4,6★ en 10 reseñas). Servicios y textos: referenciales.
+  {
+    slug: 'alumrod',
+    name: 'Aluminios Alumrod',
+    rubro: 'Cristales, vidriería y aluminio',
+    city: 'Talca',
+    tagline: 'Ventanas, puertas, mamparas y closets a medida en Talca.',
+    intro:
+      'Vidriería y aluminio en Talca. Cada pieza se fabrica a la medida exacta del vano: tú mandas el ancho y el alto, nosotros cotizamos y fabricamos.',
+    phone: '+56 9 9537 4432',
+    whatsapp: '56995374432',
+    address: '6 Norte, Diez Oriente 1712',
+    established: 'Cristales y aluminio',
+    hero: 'frame',
+    motif: 'window',
+    theme: {
+      paper: '#F4F6F7',
+      ink: '#171B20',
+      muted: '#5B6670',
+      accent: '#0E7490',
+      accentInk: '#FFFFFF',
+      soft: '#E3E9EC',
+      line: '#C7CFD6',
+      radius: '2px',
+      heading: 'sans',
+    },
+    nav: [
+      { label: 'Cotiza tus medidas', href: '#cotiza' },
+      { label: 'Vidrios', href: '#vidrios' },
+      { label: 'Trabajos', href: '#trabajos' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: 'horario comercial' },
+      { days: 'Mediciones', time: 'con agenda' },
+    ],
+    stats: [
+      { value: '4,6★', label: 'nota en Google' },
+      { value: '10', label: 'reseñas reales de clientes' },
+      { value: 'A medida', label: 'ancho × alto según tu vano' },
+    ],
+    sections: [
+      {
+        type: 'measure',
+        id: 'cotiza',
+        title: 'Cotiza con tus medidas',
+        blurb:
+          'Indica el ancho y el alto del vano en centímetros: armamos el mensaje y llega directo al WhatsApp del taller. Te respondemos con valor y plazo.',
+        products: [
+          'Ventana de aluminio',
+          'Ventana PVC con termopanel',
+          'Puerta de aluminio',
+          'Mampara de baño',
+          'Closet o ropero',
+          'Cierre de terraza o quincho',
+          'Espejo a medida',
+          'Vidrio o cristal suelto',
+        ],
+        glasses: [
+          'Monolítico',
+          'Laminado',
+          'Templado',
+          'DVH (doble vidrio hermético)',
+          'No sé, que me asesoren',
+        ],
+      },
+      {
+        type: 'services',
+        id: 'servicios',
+        title: 'Servicios',
+        blurb:
+          'Fabricación e instalación a medida, desde un espejo suelto hasta el cierre completo de una terraza. Todo trabajo parte midiendo el vano.',
+        items: [
+          {
+            name: 'Ventanas de aluminio',
+            desc: 'Correderas, proyectantes y paños fijos en perfilería de aluminio, fabricadas a la medida del vano.',
+          },
+          {
+            name: 'Ventanas y termopanel PVC',
+            desc: 'Perfiles PVC con doble vidrio hermético para mejor aislación térmica y acústica.',
+          },
+          {
+            name: 'Puertas de aluminio',
+            desc: 'Puertas de acceso y correderas, con vidrio o panel, hechas a medida.',
+          },
+          {
+            name: 'Mamparas de baño',
+            desc: 'Mamparas de vidrio templado para ducha y tina, correderas o abatibles.',
+          },
+          {
+            name: 'Closets y roperos',
+            desc: 'Interiores y puertas de closet a medida, con espejo si quieres.',
+          },
+          {
+            name: 'Quinchos y cierres de terraza',
+            desc: 'Cierres en aluminio y vidrio para usar la terraza todo el año.',
+          },
+          {
+            name: 'Espejos a medida',
+            desc: 'Espejos cortados a medida para baño, closet o muro completo.',
+          },
+          {
+            name: 'Vidrios y cristales',
+            desc: 'Corte de vidrio a medida para muebles, repisas y repuestos.',
+          },
+        ],
+      },
+      {
+        type: 'swatches',
+        id: 'vidrios',
+        title: 'Tipos de vidrio',
+        blurb:
+          'El vidrio correcto depende de dónde va y qué tiene que soportar. Te asesoramos al cotizar, sin costo.',
+        items: [
+          {
+            name: 'Monolítico',
+            desc: 'Una sola lámina de vidrio, en el espesor que pida la pieza. El estándar para ventanas.',
+            swatch: 'pane',
+          },
+          {
+            name: 'Laminado',
+            desc: 'Dos vidrios unidos por una lámina de seguridad: si se rompe, queda adherido.',
+            swatch: 'laminado',
+          },
+          {
+            name: 'Templado',
+            desc: 'Vidrio con tratamiento térmico, más resistente y de fractura segura. El estándar para mamparas.',
+            swatch: 'templado',
+          },
+          {
+            name: 'DVH (doble vidrio hermético)',
+            desc: 'Dos vidrios separados por una cámara de aire: mejor aislación térmica y acústica.',
+            swatch: 'dvh',
+          },
+        ],
+      },
+      {
+        type: 'gallery',
+        id: 'trabajos',
+        title: 'Trabajos',
+        blurb:
+          'Estos espacios quedan reservados para fotos reales de tus trabajos: en el sitio final cada uno muestra una instalación terminada.',
+        items: [
+          { label: 'Ventana de aluminio', desc: 'Espacio para tus trabajos' },
+          { label: 'Mampara de baño', desc: 'Espacio para tus trabajos' },
+          { label: 'Puerta de acceso', desc: 'Espacio para tus trabajos' },
+          { label: 'Closet a medida', desc: 'Espacio para tus trabajos' },
+          { label: 'Cierre de terraza', desc: 'Espacio para tus trabajos' },
+          { label: 'Tu próximo proyecto', desc: 'Conversemos' },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Del vano a la instalación',
+        steps: [
+          {
+            title: 'Medición',
+            desc: 'Mandas tus medidas por WhatsApp o coordinamos una visita para medir el vano.',
+          },
+          {
+            title: 'Fabricación',
+            desc: 'Aprobado el presupuesto, fabricamos cada pieza a la medida exacta en el taller.',
+          },
+          {
+            title: 'Instalación',
+            desc: 'Instalamos nivelado, con sellos terminados, y dejamos el espacio limpio.',
+          },
+          {
+            title: 'Garantía',
+            desc: 'Quedamos disponibles para cualquier ajuste o detalle después de la entrega.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: '¿Ya tienes el ancho y el alto? Mándalos por WhatsApp y te cotizamos sin compromiso.',
+        button: 'Enviar medidas por WhatsApp',
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Nota 4,6 sobre 5 en Google.',
+        author: 'Ficha de Google',
+        detail: 'Aluminios Alumrod, Talca',
+      },
+      {
+        text: '10 reseñas publicadas por clientes reales, todas visibles en línea.',
+        author: 'Ficha de Google',
+        detail: 'Reseñas verificables',
+      },
+      {
+        text: 'No tienes que creernos: busca «Aluminios Alumrod» en Google y lee lo que dicen sus clientes.',
+        author: 'Verifícalo tú mismo',
+        detail: 'google.com → Aluminios Alumrod, Talca',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Vienen a medir a domicilio?',
+        a: 'Sí. Puedes mandar el ancho y el alto por WhatsApp para una cotización rápida, o coordinamos una visita para medir el vano antes de fabricar.',
+      },
+      {
+        q: '¿Trabajan solo aluminio o también PVC?',
+        a: 'Ambos: ventanas y puertas en perfilería de aluminio o PVC, con vidrio monolítico, templado o DVH según lo que pida el proyecto.',
+      },
+      {
+        q: '¿Cuánto demora una ventana o mampara a medida?',
+        a: 'Depende del tamaño y del tipo de vidrio. Junto con el presupuesto te confirmamos el plazo de fabricación e instalación.',
+      },
+      {
+        q: '¿Hacen trabajos pequeños, como un espejo o una repisa?',
+        a: 'Sí. Cortamos vidrio y espejo a medida también para trabajos menores.',
+      },
+      {
+        q: '¿Atienden fuera de Talca?',
+        a: 'La base es Talca. Para comunas cercanas, consulta por WhatsApp según el trabajo.',
+      },
+    ],
+    meta: {
+      title: 'Aluminios Alumrod — Cristales, vidriería y aluminio en Talca',
+      description:
+        'Aluminios Alumrod en Talca: ventanas, puertas, mamparas, closets y vidrios a medida. 4,6★ en Google. Cotiza con tus medidas por WhatsApp.',
     },
   },
 ]

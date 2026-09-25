@@ -7,7 +7,7 @@ import { Motif, headingFont } from './kit'
 export const metadata: Metadata = {
   title: 'Demos por rubro — ejemplos de sitios para pymes',
   description:
-    'Ejemplos de páginas web para pymes por rubro: escuela de conductores, veterinaria, vivero, óptica, cabañas, ferretería, dental, gasfitería, agencia de publicidad, contador y grúas.',
+    'Ejemplos de páginas web para pymes por rubro: escuela de conductores, veterinaria, vivero, óptica, cabañas, ferretería, dental, gasfitería, agencia de publicidad, contador, grúas y vidriería.',
 }
 
 export default function DemosIndex() {

@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react'
 import { logoFont } from '@/lib/fonts'
 import { SITE, whatsappLink } from '@/lib/config'
 import type { Demo, DemoSection, DemoTheme, DemoMotif, DemoSwatch } from './data'
-import { DemoQuoter } from './quote'
+import { DemoQuoter, DemoMeasure } from './quote'
 
 // ── Theme ────────────────────────────────────────────────────
 
@@ -125,6 +125,13 @@ const MOTIF_PATHS: Record<DemoMotif, React.ReactNode> = {
       <circle cx="12" cy="12" r="6.5" />
       <circle cx="12" cy="12" r="2" />
       <path d="M12 1.5 v4 M12 18.5 v4 M1.5 12 h4 M18.5 12 h4" />
+    </g>
+  ),
+  window: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.4">
+      <rect x="3.5" y="3.5" width="17" height="17" />
+      <rect x="6" y="6" width="12" height="12" />
+      <path d="M12 6 v12 M6 12 h12" />
     </g>
   ),
 }
@@ -465,6 +472,168 @@ export function DemoHero({ demo }: { demo: Demo }) {
     )
   }
 
+  if (demo.hero === 'frame') {
+    return (
+      <section
+        id="inicio"
+        className="relative overflow-hidden border-b"
+        style={{ borderColor: t.line }}
+      >
+        {/* Franja de medidas: regla en centímetros */}
+        <div
+          aria-hidden="true"
+          className="border-b"
+          style={{ borderColor: t.line, backgroundColor: t.soft }}
+        >
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4">
+            <div
+              className="flex items-baseline justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.15em] mb-1"
+              style={{ color: t.muted }}
+            >
+              <span>Medidas a pedido</span>
+              <span>ancho × alto · cm</span>
+            </div>
+            <svg
+              viewBox="0 0 960 26"
+              preserveAspectRatio="none"
+              className="block w-full h-[26px]"
+            >
+              {Array.from({ length: 97 }, (_, i) => {
+                const x = i * 10
+                const h = i % 10 === 0 ? 18 : i % 5 === 0 ? 12 : 7
+                return (
+                  <line
+                    key={i}
+                    x1={x}
+                    y1={0}
+                    x2={x}
+                    y2={h}
+                    stroke={t.muted}
+                    strokeWidth={i % 10 === 0 ? 1.4 : 1}
+                  />
+                )
+              })}
+              <line
+                x1={0}
+                y1={0.5}
+                x2={960}
+                y2={0.5}
+                stroke={t.ink}
+                strokeWidth={1.2}
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20 grid lg:grid-cols-[1.2fr_1fr] gap-10 md:gap-16 items-center">
+          <div>
+            <p
+              className="font-mono text-xs uppercase tracking-[0.15em] mb-4"
+              style={{ color: t.muted }}
+            >
+              {demo.rubro} · {demo.city} · {demo.established}
+            </p>
+            <h1
+              className={`${headingFont(t)} text-4xl md:text-6xl leading-[1.02] mb-5`}
+            >
+              {demo.tagline}
+            </h1>
+            <p
+              className="text-base md:text-lg leading-relaxed mb-8 max-w-xl"
+              style={{ color: t.muted }}
+            >
+              {demo.intro}
+            </p>
+            <div className="flex flex-wrap gap-3 mb-10">
+              <a
+                href="#cotiza"
+                className="font-semibold text-sm px-6 py-3 transition-transform active:scale-95"
+                style={{
+                  backgroundColor: t.accent,
+                  color: t.accentInk,
+                  borderRadius: t.radius,
+                }}
+              >
+                Cotizar con tus medidas
+              </a>
+              <a
+                href={waLink(demo)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-sm px-6 py-3 border transition-colors"
+                style={{ borderColor: t.line, borderRadius: t.radius }}
+              >
+                Escribir por WhatsApp
+              </a>
+            </div>
+            <dl className="grid grid-cols-3 gap-4 max-w-lg">
+              {demo.stats.map((s) => (
+                <div key={s.label}>
+                  <dt
+                    className={`${headingFont(t)} text-sm md:text-base`}
+                    style={{ color: t.accent }}
+                  >
+                    {s.value}
+                  </dt>
+                  <dd
+                    className="text-xs md:text-sm leading-snug"
+                    style={{ color: t.muted }}
+                  >
+                    {s.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          {/* Esquema acotado: ventana con cotas de ancho y alto */}
+          <div
+            className="border p-5 md:p-6"
+            style={{
+              borderColor: t.ink,
+              borderRadius: t.radius,
+              backgroundColor: t.soft,
+            }}
+          >
+            <svg
+              viewBox="0 0 200 170"
+              className="block w-full h-auto"
+              role="img"
+              aria-label="Esquema de ventana con cotas de ancho y alto"
+            >
+              {/* líneas de extensión */}
+              <line x1="40" y1="28" x2="40" y2="36" stroke={t.muted} strokeWidth="0.8" strokeDasharray="2 2" />
+              <line x1="160" y1="28" x2="160" y2="36" stroke={t.muted} strokeWidth="0.8" strokeDasharray="2 2" />
+              <line x1="166" y1="34" x2="182" y2="34" stroke={t.muted} strokeWidth="0.8" strokeDasharray="2 2" />
+              <line x1="166" y1="140" x2="182" y2="140" stroke={t.muted} strokeWidth="0.8" strokeDasharray="2 2" />
+              {/* cota ancho */}
+              <line x1="40" y1="24" x2="160" y2="24" stroke={t.accent} strokeWidth="1.2" />
+              <path d="M40 24 l7 -3 v6 z" fill={t.accent} />
+              <path d="M160 24 l-7 -3 v6 z" fill={t.accent} />
+              <text x="100" y="16" textAnchor="middle" fontSize="9" fill={t.accent} fontFamily="monospace" letterSpacing="2">ANCHO</text>
+              {/* cota alto */}
+              <line x1="186" y1="34" x2="186" y2="140" stroke={t.accent} strokeWidth="1.2" />
+              <path d="M186 34 l-3 7 h6 z" fill={t.accent} />
+              <path d="M186 140 l-3 -7 h6 z" fill={t.accent} />
+              <text x="196" y="87" textAnchor="middle" fontSize="9" fill={t.accent} fontFamily="monospace" letterSpacing="2" transform="rotate(90 196 87)">ALTO</text>
+              {/* ventana */}
+              <rect x="40" y="34" width="120" height="106" fill="#FFFFFF" stroke={t.ink} strokeWidth="2" />
+              <line x1="100" y1="34" x2="100" y2="140" stroke={t.ink} strokeWidth="1.2" />
+              <line x1="40" y1="87" x2="160" y2="87" stroke={t.ink} strokeWidth="1.2" />
+              <path d="M50 78 l24 -36 M110 78 l24 -36" stroke={t.line} strokeWidth="2" />
+            </svg>
+            <p
+              className="font-mono text-[10px] uppercase tracking-[0.15em] mt-4"
+              style={{ color: t.muted }}
+            >
+              Cada pieza se fabrica a la medida del vano
+            </p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section
       id="inicio"
@@ -686,6 +855,34 @@ function SwatchArt({ kind, t }: { kind: DemoSwatch; t: DemoTheme }) {
         <rect x="30" y="8" width="26" height="42" {...stroke} />
         <rect x="34" y="13" width="18" height="9" fill={t.accent} />
         <path d="M34 27 h18 M34 32 h18 M34 37 h12" {...lines} />
+      </>
+    ),
+    // Secciones de vidrio vistas de canto (sin fotos).
+    pane: (
+      <>
+        <rect x="40" y="8" width="16" height="48" fill={t.soft} stroke={t.ink} strokeWidth="1.5" />
+        <path d="M44 44 l8 -16" {...lines} />
+      </>
+    ),
+    laminado: (
+      <>
+        <rect x="34" y="8" width="12" height="48" fill={t.soft} stroke={t.ink} strokeWidth="1.5" />
+        <rect x="46" y="8" width="4" height="48" fill={t.accent} />
+        <rect x="50" y="8" width="12" height="48" fill={t.soft} stroke={t.ink} strokeWidth="1.5" />
+      </>
+    ),
+    templado: (
+      <>
+        <rect x="38" y="8" width="20" height="48" fill={t.soft} stroke={t.ink} strokeWidth="1.5" />
+        <path d="M42 18 l12 7 M42 30 l12 7 M42 42 l12 7" stroke={t.accent} strokeWidth="1.4" />
+      </>
+    ),
+    dvh: (
+      <>
+        <rect x="28" y="8" width="11" height="48" fill={t.soft} stroke={t.ink} strokeWidth="1.5" />
+        <rect x="57" y="8" width="11" height="48" fill={t.soft} stroke={t.ink} strokeWidth="1.5" />
+        <rect x="39" y="8" width="18" height="5" fill={t.muted} />
+        <rect x="39" y="51" width="18" height="5" fill={t.muted} />
       </>
     ),
   }
@@ -935,6 +1132,13 @@ function RenderSection({ s, demo }: { s: DemoSection; demo: Demo }) {
       return (
         <SectionShell id={id} title={s.title} blurb={s.blurb} t={t}>
           <DemoQuoter demo={demo} products={s.products} sizes={s.sizes} />
+        </SectionShell>
+      )
+
+    case 'measure':
+      return (
+        <SectionShell id={id} title={s.title} blurb={s.blurb} t={t}>
+          <DemoMeasure demo={demo} products={s.products} glasses={s.glasses} />
         </SectionShell>
       )
 
