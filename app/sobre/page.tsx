@@ -100,11 +100,11 @@ export default function SobrePage() {
         <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
           <div className="flex items-center gap-3 mb-8">
             <span className="font-display italic text-meta text-ink-faded tracking-ui">
-              socios
+              fundador
             </span>
             <Dot size="xs" variant="solid-yellow" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-9)]">
+          <div className="grid grid-cols-1 gap-[var(--spacing-9)] max-w-3xl">
             {TEAM.map((member) => (
               <div key={member.name}>
                 <div className="flex items-center gap-3 mb-4">
