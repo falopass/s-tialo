@@ -307,7 +307,7 @@ export const TEAM: TeamMember[] = [
 // ─────────────────────────────────────────────
 
 export const LEGAL = {
-  ownerName: 'Diego Cancino',
+  ownerName: 'Diego Bravo Opazo',
   legalName: 'Eldrinor y Vaelen',
   city: 'Curicó',
   region: 'Región del Maule',
