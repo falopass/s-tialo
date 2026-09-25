@@ -698,6 +698,7 @@ export function DemoSections({ demo }: { demo: Demo }) {
 
 export function Testimonials({ demo }: { demo: Demo }) {
   const t = demo.theme
+  if (demo.testimonials.length === 0) return null
   return (
     <SectionShell title="Lo que dicen los clientes" t={t}>
       <ul className="grid md:grid-cols-3 gap-4">
@@ -779,8 +780,12 @@ export function DemoFooter({ demo }: { demo: Demo }) {
               Encuéntranos
             </p>
             <address className="not-italic text-sm opacity-80 leading-relaxed">
-              {demo.address}
-              <br />
+              {demo.address !== demo.city && (
+                <>
+                  {demo.address}
+                  <br />
+                </>
+              )}
               {demo.city}, Región del Maule
               <br />
               <a href={`tel:${demo.phone.replace(/\s/g, '')}`} className="underline underline-offset-2">

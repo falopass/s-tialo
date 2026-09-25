@@ -100,7 +100,9 @@ export default async function DemoPage({
               <div>
                 <dt className="font-semibold mb-0.5">Dirección</dt>
                 <dd style={{ color: t.muted }}>
-                  {demo.address}, {demo.city}
+                  {demo.address === demo.city
+                    ? demo.city
+                    : `${demo.address}, ${demo.city}`}
                 </dd>
               </div>
               <div>

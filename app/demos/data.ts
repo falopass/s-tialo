@@ -1,13 +1,14 @@
 /**
  * app/demos/data.ts
  *
- * Contenido de las 12 demos por rubro. Salvo que se indique lo contrario,
+ * Contenido de las demos por rubro. Salvo que se indique lo contrario,
  * todo el contenido es de fantasía: nombres, precios, direcciones y
  * teléfonos son referenciales y no corresponden a negocios reales.
  *
- * Excepción: `mg-publicidad` es un mockup para un lead real y usa solo
- * datos públicos (nombre, dirección, teléfono, Instagram y nota de Google).
- * Sus servicios y textos siguen siendo referenciales.
+ * Excepciones: `mg-publicidad` y `constructora-valdes` son mockups para
+ * leads reales y usan solo datos públicos (nombre, comuna y teléfono;
+ * MG además dirección, Instagram y nota de Google). Sus servicios y
+ * textos siguen siendo referenciales.
  */
 
 export type DemoMotif =
@@ -2066,6 +2067,144 @@ export const DEMOS: Demo[] = [
       title: 'MG Publicidad — Agencia de publicidad en Talca',
       description:
         'MG Publicidad, agencia de publicidad en Talca: identidad de marca, campañas y contenidos para redes, producción audiovisual y medios. 5,0★ en Google.',
+    },
+  },
+
+  // ── 13. Mockup para lead real: Constructora Valdes ────────
+  // Datos reales y públicos: nombre, comuna y teléfono de su ficha de
+  // Google. No tiene reseñas en Google: la sección de testimonios queda
+  // vacía y no se muestra. Servicios y textos: referenciales.
+  {
+    slug: 'constructora-valdes',
+    name: 'Constructora Valdes',
+    rubro: 'Constructora',
+    city: 'San Clemente',
+    tagline: 'Obras y terminaciones en San Clemente y la zona.',
+    intro:
+      'Constructora con base en San Clemente, Maule. Ampliaciones, radieres, terminaciones, quinchos y regularizaciones, con cotización por escrito y visita a terreno.',
+    phone: '+56 9 8459 6816',
+    whatsapp: '56984596816',
+    address: 'San Clemente',
+    established: 'Constructora Valdes EIRL',
+    hero: 'banner',
+    motif: 'hammer',
+    theme: {
+      paper: '#F4F2EE',
+      ink: '#1C1917',
+      muted: '#5C554E',
+      accent: '#C2410C',
+      accentInk: '#FFFFFF',
+      soft: '#EAE5DE',
+      line: '#D9D2C8',
+      radius: '4px',
+      heading: 'black',
+    },
+    nav: [
+      { label: 'Obras', href: '#obras' },
+      { label: 'Servicios', href: '#servicios' },
+      { label: 'Cotizar', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Sáb', time: 'horario de obra' },
+      { days: 'Visitas', time: 'con agenda' },
+    ],
+    stats: [
+      { value: 'San Clemente', label: 'base y zona de trabajo' },
+      { value: 'En terreno', label: 'visita y cotización inicial' },
+      { value: 'Por escrito', label: 'presupuesto sin compromiso' },
+    ],
+    sections: [
+      {
+        type: 'gallery',
+        id: 'obras',
+        title: 'Obras',
+        blurb:
+          'Estos espacios quedan reservados para fotos reales de tus trabajos: en el sitio final cada uno muestra una obra con fotos del antes y el después.',
+        items: [
+          { label: 'Ampliación', desc: 'Espacio para tus fotos de obras' },
+          { label: 'Radier y albañilería', desc: 'Espacio para tus fotos de obras' },
+          { label: 'Terminaciones', desc: 'Espacio para tus fotos de obras' },
+          { label: 'Quincho', desc: 'Espacio para tus fotos de obras' },
+          { label: 'Estructura simple', desc: 'Espacio para tus fotos de obras' },
+          { label: 'Tu próxima obra', desc: 'Conversemos' },
+        ],
+      },
+      {
+        type: 'services',
+        id: 'servicios',
+        title: 'Servicios',
+        blurb:
+          'Obras a medida, desde trabajos menores hasta ampliaciones completas. Cada proyecto se cotiza después de visitar el terreno.',
+        items: [
+          {
+            name: 'Ampliaciones y obras menores',
+            desc: 'Piezas nuevas, cierres, segundas piezas y adecuaciones a medida.',
+          },
+          {
+            name: 'Radieres y albañilería',
+            desc: 'Radieres, sobrelosas, muros y reparaciones de albañilería.',
+          },
+          {
+            name: 'Terminaciones',
+            desc: 'Instalación de pisos, revestimientos y pintura para dejar la obra lista.',
+          },
+          {
+            name: 'Quinchos y estructuras simples',
+            desc: 'Quinchos, pérgolas, cobertizos y techumbres livianas.',
+          },
+          {
+            name: 'Planos y regularizaciones',
+            desc: 'Orientación y preparación de lo necesario para regularizar tu construcción.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo trabajamos',
+        steps: [
+          {
+            title: 'Visita y cotización',
+            desc: 'Vamos a terreno, medimos y te enviamos el presupuesto por escrito. Sin compromiso.',
+          },
+          {
+            title: 'Ejecución',
+            desc: 'Coordinamos fecha, materiales y avances, y te mantenemos al tanto mientras dure la obra.',
+          },
+          {
+            title: 'Entrega',
+            desc: 'Revisamos el trabajo contigo y entregamos la obra terminada y limpia.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: 'Cuéntanos qué quieres construir y te enviamos una cotización sin compromiso.',
+        button: 'Cotizar por WhatsApp',
+      },
+    ],
+    testimonials: [],
+    faqs: [
+      {
+        q: '¿Solo trabajan en San Clemente?',
+        a: 'La base es San Clemente. Para comunas cercanas de la zona se coordina según el tamaño de la obra.',
+      },
+      {
+        q: '¿Cómo pido una cotización?',
+        a: 'Escríbenos por WhatsApp con una descripción del trabajo. Coordinamos una visita a terreno y te enviamos el presupuesto por escrito.',
+      },
+      {
+        q: '¿Hacen trabajos pequeños?',
+        a: 'Sí, desde terminaciones puntuales y reparaciones hasta ampliaciones completas.',
+      },
+      {
+        q: '¿Ayudan a regularizar una construcción?',
+        a: 'Sí, podemos orientarte y preparar lo necesario para regularizar ampliaciones o construcciones existentes.',
+      },
+    ],
+    meta: {
+      title: 'Constructora Valdes — Obras y terminaciones en San Clemente',
+      description:
+        'Constructora en San Clemente, Maule: ampliaciones, radieres, terminaciones, quinchos y regularizaciones. Cotiza por WhatsApp con visita a terreno.',
     },
   },
 ]
