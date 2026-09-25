@@ -204,7 +204,7 @@ export function DemoHeader({ demo }: { demo: Demo }) {
   )
 }
 
-export function DemoBand({ demo }: { demo: Demo }) {
+export function DemoBand({ name }: { name: string }) {
   return (
     <div className="fixed bottom-4 left-4 z-50 max-w-[calc(100vw-7rem)] flex items-center gap-2 bg-ink/90 text-cream text-[11px] leading-tight px-3 py-2 rounded-full shadow-lg backdrop-blur-sm">
       <span
@@ -221,7 +221,7 @@ export function DemoBand({ demo }: { demo: Demo }) {
         >
           Sitiazo
         </a>{' '}
-        para {demo.name} — así se vería tu sitio.{' '}
+        para {name} — así se vería tu sitio.{' '}
         <a
           href={whatsappLink('contacto')}
           target="_blank"

@@ -75,6 +75,46 @@ export default function DemosIndex() {
               </Link>
             </li>
           ))}
+          <li>
+            <Link
+              href="/demos/cabanas-la-quebrada"
+              className="group block border border-divider bg-white overflow-hidden h-full transition-shadow hover:shadow-md focus-visible:shadow-md"
+            >
+              <div
+                className="relative h-[112px] flex items-end p-4"
+                style={{
+                  background:
+                    'linear-gradient(135deg, #0E241B 0%, #173A2B 55%, #C4704B 140%)',
+                }}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="absolute top-3 right-3 w-[40px] opacity-30"
+                  fill="none"
+                  stroke="#FAF7F0"
+                  strokeWidth="1.4"
+                  aria-hidden="true"
+                >
+                  <path d="M3 19 L9 7 L13 14 L16 9 L21 19 Z" />
+                  <circle cx="17.5" cy="5" r="1.8" />
+                </svg>
+                <span className="font-display font-bold tracking-display text-lg leading-tight text-[#FAF7F0] drop-shadow-sm">
+                  Cabañas La Quebrada
+                </span>
+              </div>
+              <div className="p-4">
+                <p className="font-mono text-[10px] uppercase tracking-ui text-ink-muted mb-1">
+                  Cabañas · Talca · lead real
+                </p>
+                <p className="text-body-sm text-ink-muted leading-snug mb-3">
+                  Mockup premium con identidad propia: refugio natural del Maule.
+                </p>
+                <span className="font-body text-body-sm font-medium text-ink underline decoration-yellow decoration-2 underline-offset-4">
+                  Ver demo →
+                </span>
+              </div>
+            </Link>
+          </li>
         </ul>
 
         <div className="mt-16 pt-8 border-t border-divider flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
