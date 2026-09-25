@@ -4,6 +4,7 @@ import { displaySerif, bodySans, monoText } from '@/lib/fonts'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
 import { CookieConsent } from '@/components/ui/CookieConsent'
+import { SiteChrome } from '@/components/layout/SiteChrome'
 import { SITE, SEO_DEFAULTS, SCHEMA } from '@/lib/config'
 import './globals.css'
 
@@ -72,10 +73,14 @@ export default function RootLayout({
             __html: JSON.stringify(SCHEMA.website),
           }}
         />
-        <Nav />
+        <SiteChrome>
+          <Nav />
+        </SiteChrome>
         <main id="main-content">{children}</main>
-        <Footer />
-        <CookieConsent />
+        <SiteChrome>
+          <Footer />
+          <CookieConsent />
+        </SiteChrome>
         <Analytics />
       </body>
     </html>

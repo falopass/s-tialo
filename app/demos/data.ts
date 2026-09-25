@@ -1,0 +1,1359 @@
+/**
+ * app/demos/data.ts
+ *
+ * Contenido de las 8 demos por rubro. Todo el contenido es de fantasía:
+ * nombres, precios, direcciones y teléfonos son referenciales y no
+ * corresponden a negocios reales.
+ */
+
+export type DemoMotif =
+  | 'road'
+  | 'paw'
+  | 'leaf'
+  | 'glasses'
+  | 'mountain'
+  | 'hammer'
+  | 'tooth'
+  | 'flame'
+
+export type DemoHeading = 'serif' | 'sans' | 'black'
+
+export type DemoHero = 'split' | 'banner'
+
+export interface DemoTheme {
+  paper: string
+  ink: string
+  muted: string
+  accent: string
+  accentInk: string
+  soft: string
+  line: string
+  radius: string
+  heading: DemoHeading
+}
+
+export type DemoSection =
+  | {
+      type: 'services'
+      id?: string
+      title: string
+      blurb?: string
+      items: { name: string; desc: string; price?: string }[]
+    }
+  | {
+      type: 'plans'
+      id?: string
+      title: string
+      note?: string
+      items: {
+        name: string
+        price: string
+        unit?: string
+        features: string[]
+        highlight?: boolean
+      }[]
+    }
+  | {
+      type: 'features'
+      id?: string
+      title: string
+      items: { title: string; desc: string }[]
+    }
+  | {
+      type: 'gallery'
+      id?: string
+      title: string
+      blurb?: string
+      items: { label: string; desc?: string }[]
+    }
+  | {
+      type: 'pricelist'
+      id?: string
+      title: string
+      note?: string
+      items: { name: string; desc?: string; price: string }[]
+    }
+  | {
+      type: 'steps'
+      id?: string
+      title: string
+      steps: { title: string; desc: string }[]
+    }
+  | { type: 'cta'; id?: string; text: string; button: string }
+
+export interface Demo {
+  slug: string
+  name: string
+  rubro: string
+  city: string
+  tagline: string
+  intro: string
+  phone: string
+  whatsapp: string
+  address: string
+  established: string
+  hero: DemoHero
+  motif: DemoMotif
+  theme: DemoTheme
+  nav: { label: string; href: string }[]
+  hours: { days: string; time: string }[]
+  stats: { value: string; label: string }[]
+  sections: DemoSection[]
+  testimonials: { text: string; author: string; detail?: string }[]
+  faqs: { q: string; a: string }[]
+  meta: { title: string; description: string }
+}
+
+export const DEMOS: Demo[] = [
+  // ── 1. Escuela de conductores ─────────────────────────────
+  {
+    slug: 'escuela-vial-maule',
+    name: 'Escuela Vial Maule',
+    rubro: 'Escuela de conductores',
+    city: 'Talca',
+    tagline: 'Aprende a manejar con calma, paso a paso y sin sustos.',
+    intro:
+      'Escuela de conducción en Talca con instructores pacientes y autos doble comando. Te preparamos para el examen teórico y práctico en la municipalidad.',
+    phone: '+56 9 4123 7802',
+    whatsapp: '56941237802',
+    address: '1 Sur 1234, of. 21, Talca',
+    established: 'Desde 2015',
+    hero: 'banner',
+    motif: 'road',
+    theme: {
+      paper: '#F4F5F7',
+      ink: '#14213D',
+      muted: '#5A6478',
+      accent: '#FCA311',
+      accentInk: '#14213D',
+      soft: '#E8EBF0',
+      line: '#D4D9E2',
+      radius: '6px',
+      heading: 'black',
+    },
+    nav: [
+      { label: 'Planes', href: '#planes' },
+      { label: 'Requisitos', href: '#requisitos' },
+      { label: 'Contacto', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: '9:00–19:00' },
+      { days: 'Sábado', time: '9:00–14:00' },
+    ],
+    stats: [
+      { value: '1.200+', label: 'alumnos aprobados' },
+      { value: '92%', label: 'aprueban a la primera' },
+      { value: 'Doble comando', label: 'en todos los autos' },
+    ],
+    sections: [
+      {
+        type: 'plans',
+        id: 'planes',
+        title: 'Planes de clases',
+        note: 'Todos los planes incluyen auto con doble comando y simulacro de examen.',
+        items: [
+          {
+            name: 'Plan Partir',
+            price: '$189.000',
+            unit: '10 horas',
+            features: [
+              '10 horas prácticas en ciudad',
+              'Material de estudio para el teórico',
+              'Simulacro de examen práctico',
+            ],
+          },
+          {
+            name: 'Plan Completo',
+            price: '$289.000',
+            unit: '16 horas',
+            highlight: true,
+            features: [
+              '16 horas prácticas (ciudad + carretera)',
+              'Preparación examen teórico y práctico',
+              'Acompañamiento el día del examen',
+              'Cupos de sábado disponibles',
+            ],
+          },
+          {
+            name: 'Plan Repaso',
+            price: '$99.000',
+            unit: '5 horas',
+            features: [
+              'Para quienes reprobaron o están oxidados',
+              'Foco en maniobras y estacionamiento',
+              'Horarios flexibles entre semana',
+            ],
+          },
+        ],
+      },
+      {
+        type: 'features',
+        id: 'requisitos',
+        title: 'Requisitos para sacar tu licencia clase B',
+        items: [
+          {
+            title: 'Ser mayor de 18 años',
+            desc: 'Desde los 17 con autorización notarial de los padres.',
+          },
+          {
+            title: 'Certificado de estudios',
+            desc: 'Enseñanza básica completa (8º básico aprobado).',
+          },
+          {
+            title: 'Examen médico',
+            desc: 'Se rinde en la Dirección de Tránsito el mismo día.',
+          },
+          {
+            title: 'Cédula de identidad vigente',
+            desc: 'No se acepta pasaporte para el examen municipal.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo funciona',
+        steps: [
+          {
+            title: 'Reserva tu hora',
+            desc: 'Escríbenos por WhatsApp y agenda tu primera clase de evaluación sin costo.',
+          },
+          {
+            title: 'Plan a tu medida',
+            desc: 'Según tu nivel te recomendamos un plan. Nunca te vendemos horas de más.',
+          },
+          {
+            title: 'Clases prácticas',
+            desc: 'Manejas desde la primera clase, con instructor al lado y doble comando.',
+          },
+          {
+            title: 'Examen en la municipalidad',
+            desc: 'Te preparamos para el teórico y te acompañamos el día del práctico.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: 'Primera clase de evaluación gratis. Sin compromiso.',
+        button: 'Reservar por WhatsApp',
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Yo le tenía terror al auto. El instructor Ramiro tuvo una paciencia infinita y aprobé el práctico a la primera.',
+        author: 'Camila R.',
+        detail: 'Licencia clase B, marzo 2026',
+      },
+      {
+        text: 'Reprobé dos veces por mi cuenta. Con el Plan Repaso ordené las maniobras y pasé. Vale cada peso.',
+        author: 'Jorge M.',
+        detail: 'Plan Repaso',
+      },
+      {
+        text: 'Me acompañaron hasta el día del examen en la municipalidad. Se nota que les importa que apruebes.',
+        author: 'Fernanda T.',
+        detail: 'Plan Completo',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Puedo aprender desde cero, sin haber manejado nunca?',
+        a: 'Sí, la mayoría de nuestros alumnos parte de cero. Las primeras horas son en sectores tranquilos y con doble comando.',
+      },
+      {
+        q: '¿En qué auto se hacen las clases?',
+        a: 'En citycar con transmisión mecánica y doble comando, el mismo tipo que usa la municipalidad para el examen.',
+      },
+      {
+        q: '¿Cuánto demora el proceso completo?',
+        a: 'Con dos clases semanales, entre 6 y 8 semanas desde la primera clase hasta el examen.',
+      },
+      {
+        q: '¿Emiten boleta o factura?',
+        a: 'Emitimos boleta electrónica. Puedes pagar por transferencia, tarjeta o efectivo.',
+      },
+    ],
+    meta: {
+      title: 'Escuela Vial Maule — Clases de conducción en Talca',
+      description:
+        'Escuela de conductores en Talca. Planes desde $189.000 con doble comando, simulacro de examen y acompañamiento el día de la prueba.',
+    },
+  },
+
+  // ── 2. Clínica veterinaria ────────────────────────────────
+  {
+    slug: 'vetsur',
+    name: 'VetSur',
+    rubro: 'Clínica veterinaria',
+    city: 'Talca',
+    tagline: 'Tu mascota en buenas manos, de día y de noche.',
+    intro:
+      'Clínica veterinaria de barrio con atención general, vacunas, peluquería canina y urgencias 24/7. Atendemos perros, gatos y mascotas menores.',
+    phone: '+56 9 6234 1178',
+    whatsapp: '56962341178',
+    address: 'Av. Colín 0450, Talca',
+    established: 'Desde 2018',
+    hero: 'split',
+    motif: 'paw',
+    theme: {
+      paper: '#F6FAF7',
+      ink: '#14342B',
+      muted: '#57756A',
+      accent: '#2E7D5B',
+      accentInk: '#FFFFFF',
+      soft: '#E4F0E9',
+      line: '#CFE0D6',
+      radius: '14px',
+      heading: 'sans',
+    },
+    nav: [
+      { label: 'Servicios', href: '#servicios' },
+      { label: 'Urgencias', href: '#urgencias' },
+      { label: 'Agendar', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: '9:30–19:00' },
+      { days: 'Sábado', time: '10:00–14:00' },
+      { days: 'Urgencias', time: '24/7' },
+    ],
+    stats: [
+      { value: '24/7', label: 'urgencias reales' },
+      { value: '6.500+', label: 'pacientes atendidos' },
+      { value: '2', label: 'veterinarios de planta' },
+    ],
+    sections: [
+      {
+        type: 'services',
+        id: 'servicios',
+        title: 'Servicios',
+        blurb: 'Atención de lunes a sábado. Las urgencias no tienen horario.',
+        items: [
+          {
+            name: 'Consulta general',
+            desc: 'Evaluación completa, diagnóstico y plan de tratamiento.',
+            price: '$18.000',
+          },
+          {
+            name: 'Vacunación',
+            desc: 'Calendario completo para cachorros y adultos. Incluye certificado.',
+            price: 'desde $15.000',
+          },
+          {
+            name: 'Desparasitación',
+            desc: 'Interna y externa, según peso y edad de tu mascota.',
+            price: 'desde $8.000',
+          },
+          {
+            name: 'Peluquería canina',
+            desc: 'Corte higiénico, baño medicado y corte de uñas.',
+            price: 'desde $22.000',
+          },
+          {
+            name: 'Ecografía y rayos',
+            desc: 'Diagnóstico por imagen en la clínica, sin derivación.',
+            price: 'desde $35.000',
+          },
+          {
+            name: 'Cirugías programadas',
+            desc: 'Esterilización y cirugías menores con anestesia monitoreada.',
+            price: 'a evaluar',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        id: 'urgencias',
+        text: '¿Urgencia ahora? Atendemos 24/7, todos los días del año.',
+        button: 'Llamar a urgencias',
+      },
+      {
+        type: 'features',
+        title: 'Por qué los vecinos eligen VetSur',
+        items: [
+          {
+            title: 'Urgencias reales 24/7',
+            desc: 'Siempre hay un veterinario de turno, también fines de semana y feriados.',
+          },
+          {
+            title: 'Sin hora para vacunas',
+            desc: 'Puedes llegar directo de lunes a viernes entre 10:00 y 18:00.',
+          },
+          {
+            title: 'Precios claros',
+            desc: 'Te decimos el valor antes de atender. Nada de sorpresas en caja.',
+          },
+          {
+            title: 'Seguimiento por WhatsApp',
+            desc: 'Te escribimos al día siguiente para ver cómo evoluciona tu mascota.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo agendar',
+        steps: [
+          {
+            title: 'Escríbenos por WhatsApp',
+            desc: 'Cuéntanos qué le pasa a tu mascota o qué servicio necesitas.',
+          },
+          {
+            title: 'Te confirmamos hora',
+            desc: 'Respondemos en minutos con las horas disponibles del día.',
+          },
+          {
+            title: 'Ven con tu mascota',
+            desc: 'Trae su carnet si lo tienes. Si no, partimos uno nuevo gratis.',
+          },
+        ],
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Llegué de noche con mi perra intoxicada y la atendieron al tiro. Le salvaron la vida.',
+        author: 'Marcela P.',
+        detail: 'Urgencia, agosto 2026',
+      },
+      {
+        text: 'Los precios son honestos y te explican todo con calma. Mi gato odia salir y aun así lo trataron súper bien.',
+        author: 'Rodrigo A.',
+        detail: 'Cliente desde 2022',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Atienden urgencias de noche?',
+        a: 'Sí. Tenemos veterinario de turno las 24 horas. En urgencias atendemos por orden de gravedad, no de llegada.',
+      },
+      {
+        q: '¿Necesito hora para vacunar?',
+        a: 'No. Para vacunas y desparasitación puedes llegar directo de lunes a viernes entre 10:00 y 18:00.',
+      },
+      {
+        q: '¿Atienden gatos?',
+        a: 'Sí, y tenemos un horario preferente para gatos los martes y jueves, cuando la clínica está más tranquila.',
+      },
+      {
+        q: '¿Hacen visitas a domicilio?',
+        a: 'Sí, dentro de Talca, para vacunación y eutanasia domiciliaria. Coordina por WhatsApp.',
+      },
+    ],
+    meta: {
+      title: 'VetSur — Clínica veterinaria y urgencias 24/7 en Talca',
+      description:
+        'Veterinaria en Talca con consultas, vacunas, peluquería canina y urgencias 24/7. Agenda por WhatsApp.',
+    },
+  },
+
+  // ── 3. Vivero ─────────────────────────────────────────────
+  {
+    slug: 'vivero-los-aromos',
+    name: 'Vivero Los Aromos',
+    rubro: 'Vivero y plantas',
+    city: 'Talca',
+    tagline: 'Plantas sanas, de temporada y con consejo incluido.',
+    intro:
+      'Vivero familiar a la salida de Talca. Producimos nuestras propias plantas, vendemos maceteros e insumos, y despachamos dentro de la ciudad.',
+    phone: '+56 9 5471 2093',
+    whatsapp: '56954712093',
+    address: 'Camino Los Aromos km 3, Talca',
+    established: 'Desde 2009',
+    hero: 'split',
+    motif: 'leaf',
+    theme: {
+      paper: '#FAF7EF',
+      ink: '#2C3A24',
+      muted: '#6B755C',
+      accent: '#4E7A3A',
+      accentInk: '#FFFFFF',
+      soft: '#ECE8D8',
+      line: '#DDD6C4',
+      radius: '10px',
+      heading: 'serif',
+    },
+    nav: [
+      { label: 'Catálogo', href: '#catalogo' },
+      { label: 'Despacho', href: '#despacho' },
+      { label: 'Contacto', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Sáb', time: '9:30–18:30' },
+      { days: 'Domingo', time: '10:00–14:00' },
+    ],
+    stats: [
+      { value: '300+', label: 'variedades en temporada' },
+      { value: 'Producción propia', label: 'del semillero a tu casa' },
+      { value: '$3.000', label: 'despacho en Talca' },
+    ],
+    sections: [
+      {
+        type: 'gallery',
+        id: 'catalogo',
+        title: 'Lo que está lindo esta temporada',
+        blurb: 'Primavera 2026 — el stock cambia cada semana, pregunta por WhatsApp.',
+        items: [
+          { label: 'Aromáticas', desc: 'Albahaca, romero, menta, orégano' },
+          { label: 'Frutales', desc: 'Ciruelo, durazno, limonero, higuera' },
+          { label: 'Florales', desc: 'Lavanda, petunia, alegría del hogar' },
+          { label: 'Suculentas', desc: 'Echeverias, cactus y suculentas variadas' },
+          { label: 'Interior', desc: 'Potos, sansevieria, monstera' },
+          { label: 'Maceteros', desc: 'Terracota, barro y cerámica esmaltada' },
+        ],
+      },
+      {
+        type: 'pricelist',
+        title: 'Precios referenciales',
+        note: 'Los precios varían según tamaño. Confirmamos valor y stock por WhatsApp.',
+        items: [
+          { name: 'Aromáticas en maceta nº 5', price: 'desde $2.500' },
+          { name: 'Suculentas pequeñas', price: 'desde $1.500' },
+          { name: 'Frutales enraizados', price: 'desde $8.500' },
+          { name: 'Plantas de interior medianas', price: 'desde $6.000' },
+          { name: 'Maceteros de terracota', price: 'desde $3.000' },
+          { name: 'Sustrato y tierra de hoja (saco)', price: '$4.500' },
+        ],
+      },
+      {
+        type: 'features',
+        id: 'despacho',
+        title: 'Comprar en el vivero',
+        items: [
+          {
+            title: 'Despacho en Talca $3.000',
+            desc: 'Entregamos al día siguiente en toda la ciudad. Sobre $30.000 el despacho es gratis.',
+          },
+          {
+            title: 'Retiro en el vivero',
+            desc: 'Ven a caminar entre las hileras y elige tu planta con calma. Te servimos once.',
+          },
+          {
+            title: 'Consejo de verdad',
+            desc: 'Te decimos qué planta le va a resultar a tu casa según luz y riego. Sin humo.',
+          },
+          {
+            title: 'Garantía de planta sana',
+            desc: 'Si se muere en las primeras dos semanas siguiendo nuestras indicaciones, la cambiamos.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: '¿No sabes qué planta elegir? Mándanos una foto del lugar y te recomendamos.',
+        button: 'Consultar por WhatsApp',
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Pedí aromáticas por WhatsApp y llegaron al día siguiente, preciosas y con instrucciones escritas a mano.',
+        author: 'Josefa L.',
+        detail: 'Despacho en Talca',
+      },
+      {
+        text: 'El vivero más bonito de la zona. Te aconsejan de verdad, no te venden por vender.',
+        author: 'Andrés C.',
+        detail: 'Cliente hace 4 años',
+      },
+      {
+        text: 'Compré tres frutales y los plantaron ellos mismos con garantía. A los dos años ya estamos cosechando.',
+        author: 'María Elena S.',
+        detail: 'San Clemente',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Despachan fuera de Talca?',
+        a: 'Dentro de Talca despachamos todos los días. A comunas cercanas (Maule, San Clemente, Pencahue) coordinamos por pedido.',
+      },
+      {
+        q: '¿Atienden todos los días?',
+        a: 'De lunes a sábado de 9:30 a 18:30, y domingos de 10:00 a 14:00. Feriados consulta por WhatsApp.',
+      },
+      {
+        q: '¿Hacen asesoría de jardín?',
+        a: 'Sí. Para proyectos de jardín completo hacemos visita a domicilio con presupuesto sin costo dentro de Talca.',
+      },
+    ],
+    meta: {
+      title: 'Vivero Los Aromos — Plantas y despacho en Talca',
+      description:
+        'Vivero familiar en Talca. Plantas de temporada, frutales, maceteros e insumos con despacho a domicilio.',
+    },
+  },
+
+  // ── 4. Óptica ─────────────────────────────────────────────
+  {
+    slug: 'optica-central',
+    name: 'Óptica Central',
+    rubro: 'Óptica',
+    city: 'Curicó',
+    tagline: 'Ver bien no tiene por qué costar un ojo de la cara.',
+    intro:
+      'Óptica en pleno centro de Curicó. Examen visual computado, marcos nacionales e importados, y cristales con garantía de adaptación.',
+    phone: '+56 9 7812 4465',
+    whatsapp: '56978124465',
+    address: 'Merced 332, local 4, Curicó',
+    established: 'Desde 2012',
+    hero: 'banner',
+    motif: 'glasses',
+    theme: {
+      paper: '#F7F5F1',
+      ink: '#231D19',
+      muted: '#71655C',
+      accent: '#A8802A',
+      accentInk: '#FFFFFF',
+      soft: '#EDE8DF',
+      line: '#D9D2C6',
+      radius: '4px',
+      heading: 'serif',
+    },
+    nav: [
+      { label: 'Servicios', href: '#servicios' },
+      { label: 'Convenios', href: '#convenios' },
+      { label: 'Reservar hora', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: '10:00–19:00' },
+      { days: 'Sábado', time: '10:00–14:00' },
+    ],
+    stats: [
+      { value: '45 min', label: 'examen + marco + cristales' },
+      { value: '3', label: 'convenios de salud' },
+      { value: '30 días', label: 'garantía de adaptación' },
+    ],
+    sections: [
+      {
+        type: 'services',
+        id: 'servicios',
+        title: 'Servicios y precios',
+        blurb: 'El examen es gratis si compras tus lentes con nosotros.',
+        items: [
+          {
+            name: 'Examen visual computado',
+            desc: 'Medición de lejos, cerca y astigmatismo. Receta en el momento.',
+            price: '$10.000',
+          },
+          {
+            name: 'Lentes de cerca o lejos',
+            desc: 'Marco + cristales monofocales con antirreflejo incluido.',
+            price: 'desde $39.990',
+          },
+          {
+            name: 'Bifocales y progresivos',
+            desc: 'Cristales multifocales con adaptación garantizada.',
+            price: 'desde $89.990',
+          },
+          {
+            name: 'Lentes de sol con receta',
+            desc: 'Polarizados o fotocromáticos según tu receta.',
+            price: 'desde $59.990',
+          },
+          {
+            name: 'Lentes de contacto',
+            desc: 'Evaluación, adaptación y enseñanza de uso incluida.',
+            price: 'desde $29.990',
+          },
+          {
+            name: 'Repuesto de cristales',
+            desc: 'Cambiamos los cristales de tu marco actual si está en buen estado.',
+            price: 'desde $24.990',
+          },
+        ],
+      },
+      {
+        type: 'features',
+        id: 'convenios',
+        title: 'Convenios y formas de pago',
+        items: [
+          {
+            title: 'Fonasa e Isapre',
+            desc: 'Emitimos boleta electrónica con el detalle para reembolso en tu previsión.',
+          },
+          {
+            title: 'Convenio Caja Los Andes',
+            desc: '20% de descuento en marcos seleccionados presentando tu credencial.',
+          },
+          {
+            title: 'Pago en cuotas',
+            desc: 'Aceptamos tarjetas de crédito hasta 6 cuotas precio contado.',
+          },
+          {
+            title: 'Garantía de adaptación',
+            desc: 'Si en 30 días no te acomodan los cristales, los revisamos y cambiamos sin costo.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo es la atención',
+        steps: [
+          {
+            title: 'Reserva tu hora',
+            desc: 'Por WhatsApp eliges día y hora. También atendemos por orden de llegada.',
+          },
+          {
+            title: 'Examen de 20 minutos',
+            desc: 'Medición completa con receta impresa y explicación de tu diagnóstico.',
+          },
+          {
+            title: 'Eliges tu marco',
+            desc: 'Te ayudamos a elegir según tu cara y tu presupuesto, sin presión.',
+          },
+          {
+            title: 'Retiras en 2-5 días',
+            desc: 'Te avisamos por WhatsApp cuando tus lentes están listos.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: 'Examen visual gratis comprando tus lentes. Reserva tu hora hoy.',
+        button: 'Reservar hora',
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Me atendieron la dueña misma, me explicó mi astigmatismo como nadie lo había hecho y los lentes quedaron perfectos.',
+        author: 'Patricia V.',
+        detail: 'Progresivos, junio 2026',
+      },
+      {
+        text: 'Precios honestos comparado con las ópticas de cadena. Mismo modelo de marco, la mitad de precio.',
+        author: 'Hernán D.',
+        detail: 'Cliente desde 2019',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿El examen es con oftalmólogo?',
+        a: 'El examen lo realiza un óptico técnico con equipo computado. Si detectamos algo que requiere médico, te derivamos sin costo.',
+      },
+      {
+        q: '¿Puedo traer mi receta de otro lado?',
+        a: 'Sí, trabajamos con recetas de cualquier oftalmólogo. Si tiene más de un año te recomendamos medirla de nuevo.',
+      },
+      {
+        q: '¿Cuánto demoran los lentes?',
+        a: 'Monofocales: 2 a 3 días hábiles. Progresivos y fotocromáticos: hasta 5 días hábiles.',
+      },
+    ],
+    meta: {
+      title: 'Óptica Central — Examen visual y lentes en Curicó',
+      description:
+        'Óptica en centro de Curicó. Examen visual $10.000 (gratis con compra), marcos desde $39.990 y garantía de adaptación.',
+    },
+  },
+
+  // ── 5. Cabañas ────────────────────────────────────────────
+  {
+    slug: 'cabanas-rio-claro',
+    name: 'Cabañas Río Claro',
+    rubro: 'Cabañas y turismo',
+    city: 'San Clemente',
+    tagline: 'Desconecta junto al río, entre pinos y cielo abierto.',
+    intro:
+      'Cinco cabañas equipadas a orillas del estero, a 20 minutos de las termas y el Parque Nacional Radal Siete Tazas. Ideal para parejas y familias.',
+    phone: '+56 9 8201 5534',
+    whatsapp: '56982015534',
+    address: 'Camino a Vilches km 8, San Clemente',
+    established: 'Desde 2016',
+    hero: 'banner',
+    motif: 'mountain',
+    theme: {
+      paper: '#FBF6ED',
+      ink: '#37291F',
+      muted: '#7A6A58',
+      accent: '#B4552D',
+      accentInk: '#FFFFFF',
+      soft: '#F0E6D6',
+      line: '#E0D3BF',
+      radius: '12px',
+      heading: 'serif',
+    },
+    nav: [
+      { label: 'Cabañas', href: '#cabanas' },
+      { label: 'Tarifas', href: '#tarifas' },
+      { label: 'Reservar', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Check-in', time: 'desde 15:00' },
+      { days: 'Check-out', time: 'hasta 12:00' },
+      { days: 'Reservas', time: '9:00–20:00' },
+    ],
+    stats: [
+      { value: '5', label: 'cabañas equipadas' },
+      { value: '20 min', label: 'a Radal Siete Tazas' },
+      { value: '4.9/5', label: 'nota promedio de huéspedes' },
+    ],
+    sections: [
+      {
+        type: 'gallery',
+        id: 'cabanas',
+        title: 'Las cabañas',
+        blurb: 'Todas con cocina equipada, calefacción, quincho y acceso directo al estero.',
+        items: [
+          { label: 'Cabaña Arrayán', desc: '2 personas · 1 dormitorio · vista al río' },
+          { label: 'Cabaña Coihue', desc: '4 personas · 2 dormitorios · quincho propio' },
+          { label: 'Cabaña Roble', desc: '4 personas · 2 dormitorios · terraza' },
+          { label: 'Cabaña Mañío', desc: '6 personas · 3 dormitorios · ideal familias' },
+          { label: 'Tinaja de agua caliente', desc: 'Uso exclusivo por cabaña, se agenda' },
+          { label: 'Quincho y fogatas', desc: 'Zona común con leña incluida' },
+        ],
+      },
+      {
+        type: 'pricelist',
+        id: 'tarifas',
+        title: 'Tarifas por noche',
+        note: 'Temporada alta (dic-feb y feriados) tiene recargo de 20%. Mínimo 2 noches.',
+        items: [
+          { name: 'Cabaña para 2 personas', desc: 'Cama matrimonial, vista al río', price: '$55.000' },
+          { name: 'Cabaña para 4 personas', desc: '2 dormitorios, quincho propio', price: '$85.000' },
+          { name: 'Cabaña para 6 personas', desc: '3 dormitorios, ideal familias', price: '$115.000' },
+          { name: 'Tinaja de agua caliente', desc: 'Sesión de 3 horas, uso exclusivo', price: '$25.000' },
+          { name: 'Leña adicional', desc: 'Saco de leña de roble seco', price: '$4.000' },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo reservar',
+        steps: [
+          {
+            title: 'Consulta disponibilidad',
+            desc: 'Escríbenos las fechas y cuántos son. Te respondemos con opciones el mismo día.',
+          },
+          {
+            title: 'Confirma con el 30%',
+            desc: 'La reserva queda firme con una seña del 30% por transferencia.',
+          },
+          {
+            title: 'Llega y descansa',
+            desc: 'Check-in desde las 15:00, check-out hasta las 12:00. Te esperamos con la cabaña lista.',
+          },
+        ],
+      },
+      {
+        type: 'features',
+        title: 'Qué incluye cada cabaña',
+        items: [
+          {
+            title: 'Cocina equipada',
+            desc: 'Refrigerador, cocina, loza completa y hervidor. Trae solo tu comida.',
+          },
+          {
+            title: 'Calefacción a leña',
+            desc: 'Bosca encendida al llegar en invierno. Primer saco de leña incluido.',
+          },
+          {
+            title: 'Ropa de cama y toallas',
+            desc: 'Sábanas, plumones y toallas incluidas en la tarifa.',
+          },
+          {
+            title: 'Estacionamiento privado',
+            desc: 'Al lado de cada cabaña, dentro del recinto con portón.',
+          },
+        ],
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Despertar con el sonido del río no tiene precio. La cabaña impecable y la tinaja espectacular.',
+        author: 'Familia Contreras',
+        detail: 'Cabaña Mañío, enero 2026',
+      },
+      {
+        text: 'Fuimos en invierno y la bosca estaba encendida cuando llegamos. Detalles que se agradecen.',
+        author: 'Carolina y Sebastián',
+        detail: 'Cabaña Arrayán, julio 2026',
+      },
+      {
+        text: 'A 20 minutos de las termas y del parque. Ubicación perfecta para recorrer sin apuro.',
+        author: 'Miguel R.',
+        detail: '3 noches, marzo 2026',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Aceptan mascotas?',
+        a: 'Sí, mascotas medianas y pequeñas con aviso previo. Pedimos que no suban a las camas.',
+      },
+      {
+        q: '¿Hay señal y WiFi?',
+        a: 'Hay señal entel limitada y WiFi satelital en el quincho común. En las cabañas la idea es desconectar.',
+      },
+      {
+        q: '¿Cómo es el camino?',
+        a: 'Camino de ripio consolidado, apto para cualquier auto. No se necesita 4x4 ni cadenas en verano.',
+      },
+      {
+        q: '¿Se puede cancelar?',
+        a: 'Con 15 días de anticipación devolvemos la seña completa. Con menos tiempo, queda como crédito por 6 meses.',
+      },
+    ],
+    meta: {
+      title: 'Cabañas Río Claro — Cabañas en San Clemente, Maule',
+      description:
+        'Cabañas equipadas junto al río en San Clemente, a 20 min de Radal Siete Tazas. Desde $55.000 la noche. Reserva con seña del 30%.',
+    },
+  },
+
+  // ── 6. Ferretería ─────────────────────────────────────────
+  {
+    slug: 'ferreteria-el-martillo',
+    name: 'Ferretería El Martillo',
+    rubro: 'Ferretería',
+    city: 'Molina',
+    tagline: 'Todo para la construcción, el campo y la casa.',
+    intro:
+      'Ferretería de toda la vida en el centro de Molina. Herramientas, materiales, pinturas y despacho a obra. Si no lo tenemos, te lo conseguimos.',
+    phone: '+56 9 3587 6620',
+    whatsapp: '56935876620',
+    address: 'Av. Bernardo O’Higgins 745, Molina',
+    established: 'Desde 1998',
+    hero: 'split',
+    motif: 'hammer',
+    theme: {
+      paper: '#F5F3EE',
+      ink: '#1C1B18',
+      muted: '#6B675E',
+      accent: '#E8590C',
+      accentInk: '#FFFFFF',
+      soft: '#EAE6DC',
+      line: '#D5CFC2',
+      radius: '3px',
+      heading: 'black',
+    },
+    nav: [
+      { label: 'Productos', href: '#productos' },
+      { label: 'Horario', href: '#horario' },
+      { label: 'Cotizar', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: '8:30–19:00' },
+      { days: 'Sábado', time: '9:00–14:00' },
+    ],
+    stats: [
+      { value: '27 años', label: 'atendiendo en Molina' },
+      { value: 'Despacho a obra', label: 'en Molina y alrededores' },
+      { value: 'Mismo día', label: 'cotizaciones por WhatsApp' },
+    ],
+    sections: [
+      {
+        type: 'services',
+        id: 'productos',
+        title: 'Departamentos',
+        blurb: 'Más de 8.000 productos en tienda. Cotiza tu lista completa por WhatsApp.',
+        items: [
+          {
+            name: 'Herramientas',
+            desc: 'Manuales y eléctricas: taladros, esmeriles, soldadoras, medición.',
+          },
+          {
+            name: 'Construcción',
+            desc: 'Cemento, fierro, alambre, morteros, aislación y enfierradura.',
+          },
+          {
+            name: 'Gasfitería',
+            desc: 'Tuberías PVC y cobre, llaves, flexibles, sellantes y fitting.',
+          },
+          {
+            name: 'Electricidad',
+            desc: 'Cables, interruptores, automáticos, ampolletas LED y canalización.',
+          },
+          {
+            name: 'Pinturas',
+            desc: 'Esmaltes, latex, barnices, rodillos y preparación de superficie.',
+          },
+          {
+            name: 'Campo y jardín',
+            desc: 'Alambre de púas, mallas, herramientas de jardín y riego.',
+          },
+        ],
+      },
+      {
+        type: 'features',
+        title: 'Por qué comprar acá',
+        items: [
+          {
+            title: 'Cotización por WhatsApp',
+            desc: 'Mándanos tu lista o una foto del material y te cotizamos el mismo día.',
+          },
+          {
+            title: 'Despacho a obra',
+            desc: 'Llevamos materiales a tu obra en Molina y comunas aledañas.',
+          },
+          {
+            title: 'Precio de ferretería, no de mall',
+            desc: 'Compramos directo a distribuidores. Compara, nosotros también lo hacemos.',
+          },
+          {
+            title: 'Te asesoramos de verdad',
+            desc: 'Llevamos 27 años detrás del mesón. Si algo no te sirve, te lo decimos.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: '¿Tienes la lista? Mándala por WhatsApp y te la cotizamos hoy.',
+        button: 'Cotizar por WhatsApp',
+      },
+      {
+        type: 'steps',
+        title: 'Cómo cotizar',
+        steps: [
+          {
+            title: 'Manda tu lista',
+            desc: 'Por WhatsApp, con foto o texto. También sirve la lista del maestro.',
+          },
+          {
+            title: 'Recibe la cotización',
+            desc: 'Te mandamos valores, marcas disponibles y alternativas si falta algo.',
+          },
+          {
+            title: 'Retira o te lo llevamos',
+            desc: 'Retiras en tienda o coordinamos despacho a tu obra o casa.',
+          },
+        ],
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Para la ampliación de mi casa me cotizaron todo en una tarde y me despacharon el cemento el mismo día.',
+        author: 'Luis O.',
+        detail: 'Obra en Molina',
+      },
+      {
+        text: 'Siempre tienen lo que las grandes tiendas no tienen, y te atienden personas que saben.',
+        author: 'Ana María G.',
+        detail: 'Clienta desde siempre',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Hacen despachos?',
+        a: 'Sí, despachamos en Molina sin costo sobre $50.000 y a comunas cercanas con recargo según distancia.',
+      },
+      {
+        q: '¿Puedo pagar con transferencia?',
+        a: 'Sí, aceptamos transferencia, tarjetas y efectivo. Para cuentas de empresa consulta por facturación.',
+      },
+      {
+        q: '¿Venden al por mayor?',
+        a: 'Hacemos precio especial a maestros y empresas por volumen. Cotiza tu lista y conversamos.',
+      },
+    ],
+    meta: {
+      title: 'Ferretería El Martillo — Ferretería en Molina',
+      description:
+        'Ferretería en Molina con 27 años de historia. Herramientas, construcción, pinturas y despacho a obra. Cotiza por WhatsApp.',
+    },
+  },
+
+  // ── 7. Clínica dental ─────────────────────────────────────
+  {
+    slug: 'dental-norte',
+    name: 'Dental Norte',
+    rubro: 'Clínica dental',
+    city: 'Talca',
+    tagline: 'Odontología moderna, amable y con presupuesto claro.',
+    intro:
+      'Clínica dental en el norte de Talca. Evaluación completa con plan de tratamiento escrito, convenios con Fonasa e Isapre y facilidades de pago.',
+    phone: '+56 9 9345 7712',
+    whatsapp: '56993457712',
+    address: 'Av. Circunvalación Norte 1055, Talca',
+    established: 'Desde 2017',
+    hero: 'split',
+    motif: 'tooth',
+    theme: {
+      paper: '#F4F9FC',
+      ink: '#16344C',
+      muted: '#5B7183',
+      accent: '#0E86C8',
+      accentInk: '#FFFFFF',
+      soft: '#E1EEF6',
+      line: '#CBDEEA',
+      radius: '16px',
+      heading: 'sans',
+    },
+    nav: [
+      { label: 'Tratamientos', href: '#tratamientos' },
+      { label: 'Convenios', href: '#convenios' },
+      { label: 'Agenda tu hora', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: '9:00–19:00' },
+      { days: 'Sábado', time: '9:00–13:00' },
+    ],
+    stats: [
+      { value: '4', label: 'odontólogos especialistas' },
+      { value: 'Fonasa', label: 'modalidad libre elección' },
+      { value: '0%', label: 'interés en 3 cuotas' },
+    ],
+    sections: [
+      {
+        type: 'pricelist',
+        id: 'tratamientos',
+        title: 'Tratamientos y valores referenciales',
+        note: 'El valor final se confirma en la evaluación con tu plan de tratamiento escrito.',
+        items: [
+          { name: 'Evaluación dental + plan de tratamiento', desc: 'Incluye radiografía de diagnóstico', price: '$15.000' },
+          { name: 'Limpieza dental (profilaxis)', desc: 'Ultrasonido + pulido + flúor', price: '$35.000' },
+          { name: 'Resina (tapadura estética)', desc: 'Por pieza, color del diente', price: 'desde $45.000' },
+          { name: 'Endodoncia (tratamiento de conducto)', desc: 'Según número de conductos', price: 'desde $180.000' },
+          { name: 'Corona de porcelana', desc: 'Incluye provisoria y ajuste', price: 'desde $280.000' },
+          { name: 'Limpieza con destartraje', desc: 'Para sarro subgingival', price: 'desde $60.000' },
+          { name: 'Blanqueamiento ambulatorio', desc: 'Con cubetas personalizadas', price: '$120.000' },
+        ],
+      },
+      {
+        type: 'features',
+        id: 'convenios',
+        title: 'Convenios y pago',
+        items: [
+          {
+            title: 'Fonasa libre elección',
+            desc: 'Emitimos bonos electrónicos para que reembolses según tu tramo.',
+          },
+          {
+            title: 'Isapres',
+            desc: 'Atendemos con bono reembolsable en todas las isapres.',
+          },
+          {
+            title: 'Pago en cuotas',
+            desc: 'Tratamientos sobre $100.000 en 3 cuotas sin interés con tarjeta.',
+          },
+          {
+            title: 'Presupuesto escrito',
+            desc: 'Antes de partir sabes exactamente cuánto costará todo, sin sorpresas.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Tu primera visita',
+        steps: [
+          {
+            title: 'Agenda por WhatsApp',
+            desc: 'Elige día y hora. Confirmamos al tiro con indicaciones para llegar.',
+          },
+          {
+            title: 'Evaluación completa',
+            desc: 'Radiografía, diagnóstico y plan de tratamiento con presupuesto escrito.',
+          },
+          {
+            title: 'Tú decides el ritmo',
+            desc: 'Priorizamos lo urgente contigo y agendamos según tu tiempo y bolsillo.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: '¿Hace años que no ves al dentista? La evaluación es tranquila y sin juicio.',
+        button: 'Agendar evaluación',
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Llevaba 6 años sin ir al dentista por miedo. Me trataron con una paciencia enorme y hoy tengo mi tratamiento al día.',
+        author: 'Valentina M.',
+        detail: 'Paciente desde 2024',
+      },
+      {
+        text: 'Presupuesto claro desde el día uno. Cero sorpresas y el trabajo quedó impecable.',
+        author: 'Cristóbal F.',
+        detail: 'Corona + limpieza',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿La primera consulta es cara?',
+        a: 'La evaluación completa con radiografía de diagnóstico cuesta $15.000 e incluye el plan de tratamiento escrito.',
+      },
+      {
+        q: '¿Atienden urgencias?',
+        a: 'Sí, dejamos cupos diarios para urgencias (dolor agudo, fracturas, infecciones). Escríbenos temprano por WhatsApp.',
+      },
+      {
+        q: '¿Atienden niños?',
+        a: 'Sí, tenemos odontopediatra los miércoles y sábados. La primera visita de niños es de adaptación, sin procedimientos.',
+      },
+      {
+        q: '¿Cómo reembolso en mi isapre?',
+        a: 'Te entregamos la boleta electrónica con el detalle y códigos para que ingreses el reembolso directo en tu isapre.',
+      },
+    ],
+    meta: {
+      title: 'Dental Norte — Clínica dental en Talca norte',
+      description:
+        'Clínica dental en Talca. Evaluación $15.000 con plan escrito, limpieza $35.000, convenios Fonasa e Isapre. Agenda por WhatsApp.',
+    },
+  },
+
+  // ── 8. Gasfitería / técnico SEC ───────────────────────────
+  {
+    slug: 'servitec-maule',
+    name: 'Servitec Maule',
+    rubro: 'Gasfitería y técnico SEC',
+    city: 'Talca',
+    tagline: 'Gasfiter certificado SEC. Urgencias el mismo día.',
+    intro:
+      'Técnico gasfiter con autorización SEC para instalaciones de gas y agua. Atiendo Talca y alrededores, con urgencias el mismo día.',
+    phone: '+56 9 7642 3091',
+    whatsapp: '56976423091',
+    address: 'Sector norte, Talca (a domicilio)',
+    established: 'Técnico SEC desde 2013',
+    hero: 'banner',
+    motif: 'flame',
+    theme: {
+      paper: '#F4F5F6',
+      ink: '#1F2833',
+      muted: '#5E6B78',
+      accent: '#D64123',
+      accentInk: '#FFFFFF',
+      soft: '#E7EAED',
+      line: '#D2D7DC',
+      radius: '8px',
+      heading: 'sans',
+    },
+    nav: [
+      { label: 'Servicios', href: '#servicios' },
+      { label: 'Cobertura', href: '#cobertura' },
+      { label: 'Llamar ahora', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Sáb', time: '8:30–20:00' },
+      { days: 'Urgencias', time: 'todos los días' },
+    ],
+    stats: [
+      { value: 'SEC', label: 'autorización vigente' },
+      { value: 'Mismo día', label: 'para urgencias' },
+      { value: '12 años', label: 'de experiencia' },
+    ],
+    sections: [
+      {
+        type: 'services',
+        id: 'servicios',
+        title: 'Servicios',
+        blurb: 'Trabajos con garantía escrita de 6 meses. Visita técnica $15.000, se descuenta si haces el trabajo.',
+        items: [
+          {
+            name: 'Urgencias de gasfitería',
+            desc: 'Roturas de cañería, inundaciones, llaves que no cierran. Atención el mismo día.',
+            price: 'desde $30.000',
+          },
+          {
+            name: 'Instalación de calefont',
+            desc: 'Instalación, mantención y reparación de calefont a gas, con certificación SEC.',
+            price: 'desde $45.000',
+          },
+          {
+            name: 'Instalaciones de gas',
+            desc: 'Redes de gas para cocinas, calefones y estufas. Certificado TE1 incluido.',
+            price: 'según evaluación',
+          },
+          {
+            name: 'Destape de alcantarillado',
+            desc: 'Destape con máquina y sonda, sin romper.',
+            price: 'desde $50.000',
+          },
+          {
+            name: 'Reparación de filtraciones',
+            desc: 'Detección y reparación de filtraciones en muros y pisos.',
+            price: 'desde $35.000',
+          },
+          {
+            name: 'Instalación de artefactos',
+            desc: 'WC, lavamanos, llaves monomando, lavavajillas y lavadoras.',
+            price: 'desde $25.000',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: '¿Inundación o corte de agua? Urgencias atendidas el mismo día en Talca.',
+        button: 'Llamar ahora',
+      },
+      {
+        type: 'features',
+        id: 'cobertura',
+        title: 'Cobertura y garantías',
+        items: [
+          {
+            title: 'Autorización SEC vigente',
+            desc: 'Certifico instalaciones de gas y agua con TE1 para gasfitería nueva o modificaciones.',
+          },
+          {
+            title: 'Talca y comunas cercanas',
+            desc: 'Maule, San Clemente, Pencahue y Molina. Consulta por otras comunas.',
+          },
+          {
+            title: 'Garantía escrita 6 meses',
+            desc: 'Si el mismo punto falla, vuelvo sin costo dentro de la garantía.',
+          },
+          {
+            title: 'Presupuesto antes de partir',
+            desc: 'Te digo el valor completo antes de tocar nada. Sin sorpresas al final.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo trabajar conmigo',
+        steps: [
+          {
+            title: 'Me cuentas el problema',
+            desc: 'Por WhatsApp o llamada. Con fotos o video te presupuesto más rápido.',
+          },
+          {
+            title: 'Agendamos la visita',
+            desc: 'Urgencias el mismo día; trabajos programados dentro de la semana.',
+          },
+          {
+            title: 'Trabajo listo y garantizado',
+            desc: 'Dejo el lugar limpio, te entrego boleta y garantía escrita de 6 meses.',
+          },
+        ],
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Se me reventó una cañería un domingo y vino en la tarde. Ordenado, rápido y con garantía. Lo recomiendo.',
+        author: 'Marcelo S.',
+        detail: 'Urgencia, Talca',
+      },
+      {
+        text: 'Me instaló el calefont con su certificado SEC. Todo en regla y a buen precio.',
+        author: 'Daniela H.',
+        detail: 'San Clemente',
+      },
+      {
+        text: 'Me detectó una filtración que otros dos gasfiter no encontraron. Se nota la experiencia.',
+        author: 'Roxana P.',
+        detail: 'Sector oriente, Talca',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Qué significa que tengas autorización SEC?',
+        a: 'Que la Superintendencia de Electricidad y Combustibles me autoriza a instalar y certificar redes de gas y agua. El certificado TE1 lo exigen las empresas de gas y los bancos.',
+      },
+      {
+        q: '¿Cuánto cobras por la visita?',
+        a: 'La visita técnica cuesta $15.000 dentro de Talca. Si haces el trabajo conmigo, se descuenta del total.',
+      },
+      {
+        q: '¿Trabajas fines de semana?',
+        a: 'Para urgencias sí, todos los días. Trabajos programados de lunes a sábado.',
+      },
+      {
+        q: '¿Emites boleta?',
+        a: 'Sí, boleta electrónica por todo el trabajo. También sirve para gastos de comunidad o empresa.',
+      },
+    ],
+    meta: {
+      title: 'Servitec Maule — Gasfiter certificado SEC en Talca',
+      description:
+        'Gasfiter técnico SEC en Talca. Urgencias el mismo día, instalación de calefont, certificado TE1 y garantía escrita de 6 meses.',
+    },
+  },
+]
+
+export function getDemo(slug: string): Demo | undefined {
+  return DEMOS.find((d) => d.slug === slug)
+}

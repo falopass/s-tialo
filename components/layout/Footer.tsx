@@ -21,6 +21,7 @@ const sitemap = {
     { label: 'CalculaChile', href: '/casos/calculachile' },
     { label: 'CVListo', href: '/casos/cvlisto' },
     { label: 'Todos los casos', href: '/casos' },
+    { label: 'Demos por rubro', href: '/demos' },
   ],
   NOTAS: [
     { label: 'Blog', href: '/blog' },
