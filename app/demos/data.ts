@@ -2624,7 +2624,7 @@ export const DEMOS: Demo[] = [
     name: 'Aluminios Alumrod',
     rubro: 'Cristales, vidriería y aluminio',
     city: 'Talca',
-    tagline: 'Ventanas, puertas, mamparas y closets a medida en Talca.',
+    tagline: 'Ventanas, puertas, mamparas y vidrios a medida en Talca.',
     intro:
       'Vidriería y aluminio en Talca. Cada pieza se fabrica a la medida exacta del vano: tú mandas el ancho y el alto, nosotros cotizamos y fabricamos.',
     phone: '+56 9 9537 4432',
@@ -2670,7 +2670,7 @@ export const DEMOS: Demo[] = [
           'Ventana PVC con termopanel',
           'Puerta de aluminio',
           'Mampara de baño',
-          'Closet o ropero',
+          'Mampara de terraza',
           'Cierre de terraza o quincho',
           'Espejo a medida',
           'Vidrio o cristal suelto',
@@ -2707,8 +2707,8 @@ export const DEMOS: Demo[] = [
             desc: 'Mamparas de vidrio templado para ducha y tina, correderas o abatibles.',
           },
           {
-            name: 'Closets y roperos',
-            desc: 'Interiores y puertas de closet a medida, con espejo si quieres.',
+            name: 'Mamparas de terraza',
+            desc: 'Mamparas de vidrio templado para terrazas y espacios exteriores, correderas o fijas.',
           },
           {
             name: 'Quinchos y cierres de terraza',
@@ -2716,7 +2716,7 @@ export const DEMOS: Demo[] = [
           },
           {
             name: 'Espejos a medida',
-            desc: 'Espejos cortados a medida para baño, closet o muro completo.',
+            desc: 'Espejos cortados a medida para baño, living o muro completo.',
           },
           {
             name: 'Vidrios y cristales',
@@ -2763,7 +2763,7 @@ export const DEMOS: Demo[] = [
           { label: 'Ventana de aluminio', desc: 'Espacio para tus trabajos' },
           { label: 'Mampara de baño', desc: 'Espacio para tus trabajos' },
           { label: 'Puerta de acceso', desc: 'Espacio para tus trabajos' },
-          { label: 'Closet a medida', desc: 'Espacio para tus trabajos' },
+          { label: 'Espejo a medida', desc: 'Espacio para tus trabajos' },
           { label: 'Cierre de terraza', desc: 'Espacio para tus trabajos' },
           { label: 'Tu próximo proyecto', desc: 'Conversemos' },
         ],
@@ -2838,7 +2838,7 @@ export const DEMOS: Demo[] = [
     meta: {
       title: 'Aluminios Alumrod — Cristales, vidriería y aluminio en Talca',
       description:
-        'Aluminios Alumrod en Talca: ventanas, puertas, mamparas, closets y vidrios a medida. 4,6★ en Google. Cotiza con tus medidas por WhatsApp.',
+        'Aluminios Alumrod en Talca: ventanas, puertas, mamparas y vidrios a medida. 4,6★ en Google. Cotiza con tus medidas por WhatsApp.',
     },
   },
 ]
