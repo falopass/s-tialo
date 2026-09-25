@@ -1,7 +1,7 @@
 /**
  * app/demos/data.ts
  *
- * Contenido de las 8 demos por rubro. Todo el contenido es de fantasía:
+ * Contenido de las 11 demos por rubro. Todo el contenido es de fantasía:
  * nombres, precios, direcciones y teléfonos son referenciales y no
  * corresponden a negocios reales.
  */
@@ -15,6 +15,9 @@ export type DemoMotif =
   | 'hammer'
   | 'tooth'
   | 'flame'
+  | 'megaphone'
+  | 'calculator'
+  | 'tow'
 
 export type DemoHeading = 'serif' | 'sans' | 'black'
 
@@ -1350,6 +1353,564 @@ export const DEMOS: Demo[] = [
       title: 'Servitec Maule — Gasfiter certificado SEC en Talca',
       description:
         'Gasfiter técnico SEC en Talca. Urgencias el mismo día, instalación de calefont, certificado TE1 y garantía escrita de 6 meses.',
+    },
+  },
+
+  // ── 9. Agencia de publicidad ──────────────────────────────
+  {
+    slug: 'agencia-cumbre',
+    name: 'Agencia Cumbre',
+    rubro: 'Agencia de publicidad',
+    city: 'Talca',
+    tagline: 'Ideas que se ven. Publicidad y diseño para marcas del Maule.',
+    intro:
+      'Agencia creativa en Talca. Hacemos identidad de marca, campañas digitales y contenido para redes. Trabajamos con pymes y marcas regionales que quieren verse profesionales.',
+    phone: '+56 9 6412 8853',
+    whatsapp: '56964128853',
+    address: '4 Oriente 1087, of. 305, Talca',
+    established: 'Desde 2019',
+    hero: 'split',
+    motif: 'megaphone',
+    theme: {
+      paper: '#F5F3F0',
+      ink: '#181622',
+      muted: '#6B6878',
+      accent: '#5B3DF5',
+      accentInk: '#FFFFFF',
+      soft: '#EBE8FB',
+      line: '#DCD7F0',
+      radius: '4px',
+      heading: 'black',
+    },
+    nav: [
+      { label: 'Trabajos', href: '#trabajos' },
+      { label: 'Servicios', href: '#servicios' },
+      { label: 'Pide una propuesta', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: '9:00–18:30' },
+      { days: 'Reuniones', time: 'con agenda' },
+    ],
+    stats: [
+      { value: '70+', label: 'marcas trabajadas' },
+      { value: '6 años', label: 'de oficio creativo' },
+      { value: '48 h', label: 'para enviarte una propuesta' },
+    ],
+    sections: [
+      {
+        type: 'gallery',
+        id: 'trabajos',
+        title: 'Trabajos recientes',
+        blurb: 'Una muestra de lo último que salió del estudio. Pedimos permiso antes de publicar cada caso.',
+        items: [
+          { label: 'Rebranding Minimarket El Paso', desc: 'Logo, paleta y señalética exterior' },
+          { label: 'Cervecería Lonquén', desc: 'Identidad + campaña de lanzamiento' },
+          { label: 'Café Delirante', desc: 'Gestión de redes y contenido mensual' },
+          { label: 'Inmobiliaria Valle Maule', desc: 'Marca completa desde cero' },
+          { label: 'Feria Costumbrista Talca', desc: 'Campaña gráfica y difusión' },
+          { label: 'Taller Mecánico Don Pedro', desc: 'Rotulación y página web' },
+        ],
+      },
+      {
+        type: 'services',
+        id: 'servicios',
+        title: 'Servicios',
+        blurb: 'Proyectos puntuales o planes mensuales. Todo con contrato y plazos claros.',
+        items: [
+          {
+            name: 'Identidad de marca',
+            desc: 'Logo, paleta, tipografías y manual de uso para verte igual en todas partes.',
+            price: 'desde $280.000',
+          },
+          {
+            name: 'Gestión de redes sociales',
+            desc: 'Plan de contenido, diseño de posts y community management.',
+            price: 'desde $250.000/mes',
+          },
+          {
+            name: 'Campañas digitales',
+            desc: 'Pauta en Meta y Google Ads con reporte mensual de resultados.',
+            price: 'desde $180.000/mes + pauta',
+          },
+          {
+            name: 'Diseño web',
+            desc: 'Landing pages y sitios institucionales listos para recibir clientes.',
+            price: 'desde $350.000',
+          },
+          {
+            name: 'Producción de contenido',
+            desc: 'Sesiones de foto y video para productos, local y equipo.',
+            price: 'desde $120.000/sesión',
+          },
+          {
+            name: 'Material impreso',
+            desc: 'Pendones, flyers, tarjetas y rotulación vehicular.',
+            price: 'a cotizar',
+          },
+        ],
+      },
+      {
+        type: 'features',
+        title: 'Con quiénes trabajamos',
+        items: [
+          {
+            title: 'Retail y minimarkets',
+            desc: 'Rebrandings completos y campañas de temporada para el comercio local.',
+          },
+          {
+            title: 'Restaurantes y cafeterías',
+            desc: 'Contenido mensual, menús y campañas pensadas para llenar mesas.',
+          },
+          {
+            title: 'Servicios profesionales',
+            desc: 'Identidades sobrias que transmiten confianza: estudios, clínicas y oficinas.',
+          },
+          {
+            title: 'Emprendimientos nuevos',
+            desc: 'Marcas que parten de cero con todo lo necesario para lanzar.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo trabajamos',
+        steps: [
+          {
+            title: 'Cuéntanos tu proyecto',
+            desc: 'Por WhatsApp o reunión. Qué vendes, a quién le hablas y qué te falta.',
+          },
+          {
+            title: 'Propuesta en 48 horas',
+            desc: 'Te mandamos alcance, plazos y valor por escrito. Sin compromiso.',
+          },
+          {
+            title: 'Diseño y revisiones',
+            desc: 'Dos rondas de cambios incluidas en cada proyecto.',
+          },
+          {
+            title: 'Lanzamiento y medición',
+            desc: 'Entregamos archivos finales y, en campañas, reporte de resultados.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: '¿Quieres una propuesta? Cuéntanos tu proyecto y te la mandamos en 48 horas.',
+        button: 'Pedir propuesta',
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Nos cambiaron el logo y la fachada. La gente empezó a entrar "porque se veía bonito". Bestial.',
+        author: 'Pamela G.',
+        detail: 'Minimarket El Paso, Talca',
+      },
+      {
+        text: 'Profesionales de verdad. La campaña de lanzamiento nos dejó la bodega sin stock en un mes.',
+        author: 'Ignacio B.',
+        detail: 'Cervecería Lonquén',
+      },
+      {
+        text: 'Llevamos un año con ellos en redes. Posts bonitos y, más importante, más reservas.',
+        author: 'Equipo Café Delirante',
+        detail: 'Cliente mensual',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Cuánto cuesta un logo?',
+        a: 'Un logo solo parte en $150.000, pero recomendamos la identidad completa (desde $280.000) para que la marca funcione en todos los formatos.',
+      },
+      {
+        q: '¿Trabajan con clientes fuera de Talca?',
+        a: 'Sí, trabajamos remoto con clientes en todo Chile. Las sesiones de foto y video sí son solo en la región del Maule.',
+      },
+      {
+        q: '¿Puedo contratar solo las redes sociales?',
+        a: 'Sí, hay planes mensuales de contenido. Si tu marca está desordenada te lo diremos antes de partir.',
+      },
+      {
+        q: '¿Cómo se paga?',
+        a: 'Proyectos: 50% al partir y 50% al entregar. Planes mensuales: el día 1 de cada mes, por transferencia.',
+      },
+    ],
+    meta: {
+      title: 'Agencia Cumbre — Agencia de publicidad y diseño en Talca',
+      description:
+        'Agencia creativa en Talca: identidad de marca, campañas digitales, redes sociales y diseño web para pymes. Pide tu propuesta en 48 horas.',
+    },
+  },
+
+  // ── 10. Contador auditor ──────────────────────────────────
+  {
+    slug: 'estudio-contable-munoz',
+    name: 'Estudio Contable Muñoz',
+    rubro: 'Contador auditor',
+    city: 'Curicó',
+    tagline: 'Tu contabilidad al día y cero sustos con el SII.',
+    intro:
+      'Estudio contable en Curicó para pymes, emprendedores y rentistas. Contabilidad mensual, declaración de renta, remuneraciones e inicio de actividades.',
+    phone: '+56 9 7234 1987',
+    whatsapp: '56972341987',
+    address: 'Carmen 680, of. 21, Curicó',
+    established: 'Desde 2011',
+    hero: 'banner',
+    motif: 'calculator',
+    theme: {
+      paper: '#F7F6F3',
+      ink: '#1F2A38',
+      muted: '#5D6B79',
+      accent: '#27476E',
+      accentInk: '#FFFFFF',
+      soft: '#E9ECEF',
+      line: '#D5DBE1',
+      radius: '6px',
+      heading: 'serif',
+    },
+    nav: [
+      { label: 'Servicios', href: '#servicios' },
+      { label: 'Honorarios', href: '#honorarios' },
+      { label: 'Agendar reunión', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: '9:00–18:00' },
+      { days: 'Temporada renta', time: 'marzo–abril' },
+    ],
+    stats: [
+      { value: '200+', label: 'pymes atendidas' },
+      { value: '14 años', label: 'de experiencia' },
+      { value: 'Gratis', label: 'primera reunión de 30 min' },
+    ],
+    sections: [
+      {
+        type: 'services',
+        id: 'servicios',
+        title: 'Servicios',
+        blurb: 'Trabajo mensual o servicios puntuales. Todo con boleta o factura electrónica.',
+        items: [
+          {
+            name: 'Contabilidad mensual pyme',
+            desc: 'Libros, IVA, conciliaciones y declaraciones al día, todos los meses.',
+            price: 'desde $90.000/mes',
+          },
+          {
+            name: 'Declaración de renta (F22)',
+            desc: 'Para personas y empresas. Revisamos gastos y optimizamos tu devolución.',
+            price: 'desde $80.000',
+          },
+          {
+            name: 'Remuneraciones',
+            desc: 'Sueldos, contratos y liquidaciones para tu equipo.',
+            price: 'desde $15.000/empleado',
+          },
+          {
+            name: 'Inicio de actividades',
+            desc: 'Tramitamos tu empresa ante el SII de principio a fin.',
+            price: 'desde $120.000',
+          },
+          {
+            name: 'Constitución de empresa',
+            desc: 'SpA, EIRL o sociedad: te orientamos según tu caso real.',
+            price: 'desde $150.000',
+          },
+          {
+            name: 'Asesoría tributaria',
+            desc: 'Revisión de tu situación y plan para pagar lo justo, ni más ni menos.',
+            price: 'desde $60.000/sesión',
+          },
+        ],
+      },
+      {
+        type: 'plans',
+        id: 'honorarios',
+        title: 'Planes de contabilidad mensual',
+        note: 'Valores referenciales según volumen de movimientos. Cotizamos a tu medida en la primera reunión.',
+        items: [
+          {
+            name: 'Emprendedor',
+            price: '$75.000',
+            unit: 'mes',
+            features: [
+              'Hasta 30 movimientos mensuales',
+              'IVA y F29 al día',
+              '1 liquidación de sueldo incluida',
+              'Consultas por WhatsApp',
+            ],
+          },
+          {
+            name: 'Pyme',
+            price: '$140.000',
+            unit: 'mes',
+            highlight: true,
+            features: [
+              'Hasta 100 movimientos mensuales',
+              'Contabilidad completa + balances',
+              'Hasta 5 liquidaciones incluidas',
+              'Reunión trimestral de revisión',
+            ],
+          },
+          {
+            name: 'Empresa',
+            price: '$260.000',
+            unit: 'mes',
+            features: [
+              'Volumen de movimientos a convenir',
+              'Contabilidad + reportes gerenciales',
+              'Remuneraciones hasta 10 personas',
+              'Asesoría tributaria permanente',
+            ],
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo partir',
+        steps: [
+          {
+            title: 'Escríbenos',
+            desc: 'Por WhatsApp o el formulario. Cuéntanos en qué está tu negocio.',
+          },
+          {
+            title: 'Reunión gratuita de 30 min',
+            desc: 'Presencial en Curicó o por videollamada. Revisamos tu situación sin costo.',
+          },
+          {
+            title: 'Propuesta de honorarios',
+            desc: 'Valor fijo mensual por escrito, según tu volumen real de trabajo.',
+          },
+          {
+            title: 'Ordenamos tus números',
+            desc: 'Regularizamos lo pendiente y te mantenemos al día mes a mes.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: 'Primera reunión sin costo. Trae tus dudas y te decimos cómo está tu situación.',
+        button: 'Agendar reunión',
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Llevaba años con multas atrasadas. En tres meses me dejaron al día y hoy duermo tranquila.',
+        author: 'Rosa H.',
+        detail: 'Minimarket La Esquina, Curicó',
+      },
+      {
+        text: 'Nos ordenaron remuneraciones y contratos de 12 conductores. Todo en regla y a tiempo.',
+        author: 'Transportes Fuentes',
+        detail: 'Cliente mensual desde 2019',
+      },
+      {
+        text: 'Recién emprendía y no entendía nada del SII. Me explicaron con lápiz y papel, literal.',
+        author: 'Diego L.',
+        detail: 'E-commerce, Curicó',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Atienden a quienes recién inician actividades?',
+        a: 'Sí, es uno de nuestros servicios más pedidos. Te orientamos sobre el tipo de empresa que te conviene y tramitamos todo ante el SII.',
+      },
+      {
+        q: '¿Qué necesito para la declaración de renta?',
+        a: 'Tu clave del SII y los certificados del año (sueldos, honorarios, intereses). Si no tienes clave, te ayudamos a recuperarla.',
+      },
+      {
+        q: '¿Trabajan con clientes de otras comunas?',
+        a: 'Sí. La contabilidad mensual la trabajamos remoto con clientes de todo Chile. Las reuniones presenciales son en Curicó.',
+      },
+      {
+        q: '¿Puedo cambiarme desde mi contador actual?',
+        a: 'Sí. Coordinamos el traspaso de carpetas tributarias y libros sin que tengas que pedirle nada incómodo a tu contador anterior.',
+      },
+    ],
+    meta: {
+      title: 'Estudio Contable Muñoz — Contador auditor en Curicó',
+      description:
+        'Contador en Curicó para pymes y emprendedores. Contabilidad mensual, renta, remuneraciones e inicio de actividades. Primera reunión gratis.',
+    },
+  },
+
+  // ── 11. Grúas y transporte ────────────────────────────────
+  {
+    slug: 'gruas-ruta-5',
+    name: 'Grúas Ruta 5',
+    rubro: 'Grúas y transporte',
+    city: 'Talca',
+    tagline: 'Grúa 24/7 en la Ruta 5 y la región del Maule.',
+    intro:
+      'Auxilio vial, rescate en ruta y transporte de vehículos y maquinaria menor. Base en Talca, cobertura habitual entre Curicó y San Javier. Día y noche, todos los días.',
+    phone: '+56 9 5518 2074',
+    whatsapp: '56955182074',
+    address: 'Base en Ruta 5 Sur km 251, Talca',
+    established: 'Desde 2014',
+    hero: 'banner',
+    motif: 'tow',
+    theme: {
+      paper: '#15181C',
+      ink: '#EDEFF2',
+      muted: '#9AA5B0',
+      accent: '#FFB520',
+      accentInk: '#181104',
+      soft: '#20262D',
+      line: '#313944',
+      radius: '6px',
+      heading: 'black',
+    },
+    nav: [
+      { label: 'Servicios', href: '#servicios' },
+      { label: 'Tarifas', href: '#tarifas' },
+      { label: 'Urgencia 24/7', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Urgencias', time: '24/7 todos los días' },
+      { days: 'Oficina', time: 'Lun–Vie 9:00–18:00' },
+    ],
+    stats: [
+      { value: '24/7', label: 'auxilio real en ruta' },
+      { value: '2', label: 'grúas plataforma propias' },
+      { value: '~40 min', label: 'de respuesta en Talca' },
+    ],
+    sections: [
+      {
+        type: 'services',
+        id: 'servicios',
+        title: 'Servicios',
+        blurb: 'Valor confirmado antes de salir. Si tu seguro cubre grúa, coordinamos directo con la aseguradora.',
+        items: [
+          {
+            name: 'Grúa para auto o camioneta',
+            desc: 'Traslado por panne, accidente o cambio de taller en plataforma.',
+            price: 'desde $45.000',
+          },
+          {
+            name: 'Auxilio vial en ruta',
+            desc: 'Pinchazo, batería descargada o sin bencina: lo resolvemos en el lugar o te llevamos.',
+            price: 'desde $30.000',
+          },
+          {
+            name: 'Rescate fuera de pista',
+            desc: 'Vehículos volcados o fuera del camino, con equipo de extracción.',
+            price: 'a evaluar',
+          },
+          {
+            name: 'Traslado entre regiones',
+            desc: 'Movemos tu vehículo entre el Maule y otras regiones con cotización previa.',
+            price: 'a cotizar',
+          },
+          {
+            name: 'Maquinaria menor',
+            desc: 'Minicargadores, retroexcavadoras pequeñas y equipos de obra.',
+            price: 'a cotizar',
+          },
+          {
+            name: 'Traslado por compañía de seguros',
+            desc: 'Si tu póliza incluye grúa, coordinamos el servicio directo con tu aseguradora.',
+            price: 'según póliza',
+          },
+        ],
+      },
+      {
+        type: 'pricelist',
+        id: 'tarifas',
+        title: 'Tarifas referenciales',
+        note: 'Valor final según distancia y horario. Noches y feriados tienen recargo de 20%. Cotiza el valor exacto por WhatsApp.',
+        items: [
+          { name: 'Traslado dentro de Talca', desc: 'Auto o SUV, hasta 15 km', price: 'desde $45.000' },
+          { name: 'Talca ↔ Curicó o San Javier', desc: 'Por tramo sobre la Ruta 5', price: 'desde $80.000' },
+          { name: 'Auxilio menor sin traslado', desc: 'Batería, pinchazo o bencina, resuelto en el lugar', price: 'desde $30.000' },
+          { name: 'Rescate fuera de camino', desc: 'Requiere evaluación con fotos del lugar', price: 'desde $120.000' },
+          { name: 'Km adicional fuera de zona base', desc: 'Sobre 15 km recorridos', price: '$1.200/km' },
+        ],
+      },
+      {
+        type: 'cta',
+        id: 'urgencia',
+        text: '¿Botado en la carretera? Mándanos tu ubicación y salimos altiro.',
+        button: 'Pedir grúa ahora',
+      },
+      {
+        type: 'features',
+        id: 'cobertura',
+        title: 'Cobertura',
+        items: [
+          {
+            title: 'Zona base Talca',
+            desc: 'Despacho inmediato dentro de la ciudad y sus alrededores.',
+          },
+          {
+            title: 'Ruta 5, km 210–280',
+            desc: 'Cobertura habitual entre Curicó y San Javier, en ambos sentidos.',
+          },
+          {
+            title: 'Otras comunas a cotizar',
+            desc: 'Pencahue, Molina, Constitución y precordillera según disponibilidad.',
+          },
+          {
+            title: 'Trabajo con aseguradoras',
+            desc: 'Coordinamos el traslado directo con tu compañía de seguros cuando la póliza lo cubre.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo pedir la grúa',
+        steps: [
+          {
+            title: 'Manda tu ubicación',
+            desc: 'Por WhatsApp, con pin de Maps o el km de la ruta. Con foto del auto, mejor.',
+          },
+          {
+            title: 'Confirmamos valor y tiempo',
+            desc: 'Te decimos cuánto sale y en cuánto llegamos, antes de movernos.',
+          },
+          {
+            title: 'Cargamos y trasladamos',
+            desc: 'Grúa plataforma: tu vehículo viaja seguro y tú puedes ir con el operador.',
+          },
+        ],
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Se me cortó la correa de noche a la altura de Panguilemo. En 40 minutos estaba la grúa y en una hora estaba en mi casa.',
+        author: 'Rodrigo V.',
+        detail: 'Auxilio en Ruta 5, agosto 2026',
+      },
+      {
+        text: 'Me trasladaron un minicargador de Talca a Molina sin ningún problema. Precio justo y puntual.',
+        author: 'Constructora Álamo',
+        detail: 'Traslado de maquinaria',
+      },
+      {
+        text: 'El seguro cubría la grúa y ellos coordinaron todo. Yo solo mandé la ubicación por WhatsApp.',
+        author: 'Carolina J.',
+        detail: 'Traslado a taller, Talca',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Atienden de noche y fines de semana?',
+        a: 'Sí, las urgencias se atienden 24/7 todos los días del año. Fuera de horario de oficina la tarifa tiene un recargo del 20%.',
+      },
+      {
+        q: '¿Cuánto demoran en llegar?',
+        a: 'Dentro de Talca, unos 40 minutos en promedio. En la ruta depende del km, pero te confirmamos el tiempo estimado antes de salir.',
+      },
+      {
+        q: '¿Trabajan con seguros?',
+        a: 'Sí. Si tu póliza incluye servicio de grúa, coordinamos directo con la aseguradora y tú no pagas nada en el momento.',
+      },
+      {
+        q: '¿Cómo se paga?',
+        a: 'Transferencia o tarjeta en el momento del servicio. Emitimos boleta electrónica.',
+      },
+    ],
+    meta: {
+      title: 'Grúas Ruta 5 — Grúa 24/7 en Talca y la Ruta 5',
+      description:
+        'Grúas y auxilio vial 24/7 en el Maule. Traslado de vehículos, rescate en ruta y tarifas claras. Base en Talca.',
     },
   },
 ]

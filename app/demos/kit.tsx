@@ -85,6 +85,34 @@ const MOTIF_PATHS: Record<DemoMotif, React.ReactNode> = {
       <path d="M12 3 C12 7 7 9.5 7 14 A5 5 0 0 0 17 14 C17 10.5 14.5 9 14.5 6 C13.5 7.5 12.5 8 11.5 8" />
     </g>
   ),
+  megaphone: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.4">
+      <path d="M4 10.5 v3 h2.5 L15 18 V6 L6.5 10.5 Z" />
+      <path d="M7 13.8 L8.2 19" />
+      <path d="M18 9 a4.2 4.2 0 0 1 0 6.5" />
+    </g>
+  ),
+  calculator: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.4">
+      <rect x="6" y="3" width="12" height="18" rx="2" />
+      <path d="M9 7 h6" strokeWidth="1.8" />
+      <path
+        d="M9 11.5 h.01 M12 11.5 h.01 M15 11.5 h.01 M9 14.5 h.01 M12 14.5 h.01 M15 14.5 h.01 M9 17.5 h.01 M12 17.5 h.01 M15 17.5 h.01"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+    </g>
+  ),
+  tow: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.4">
+      <circle cx="6.5" cy="17" r="2" />
+      <circle cx="16.5" cy="17" r="2" />
+      <path d="M2 17 h2.5 M8.5 17 h6 M18.5 17 h3" />
+      <path d="M4.5 15 v-4.5 h6 V15" />
+      <path d="M10.5 11.5 L18.5 7.5" />
+      <path d="M18.5 7.5 v3 v1.5 a2.4 2.4 0 1 1 -4.8 0" />
+    </g>
+  ),
 }
 
 export function Motif({
@@ -641,8 +669,12 @@ function RenderSection({ s, demo }: { s: DemoSection; demo: Demo }) {
               href={waLink(demo)}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 font-semibold text-sm px-6 py-3 bg-white/95 transition-transform active:scale-95"
-              style={{ color: t.ink, borderRadius: t.radius }}
+              className="shrink-0 font-semibold text-sm px-6 py-3 transition-transform active:scale-95"
+              style={{
+                backgroundColor: t.accentInk,
+                color: t.accent,
+                borderRadius: t.radius,
+              }}
             >
               {s.button}
             </a>
