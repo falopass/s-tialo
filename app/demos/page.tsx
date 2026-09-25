@@ -45,14 +45,14 @@ export default function DemosIndex() {
                 className="group block border border-divider bg-white overflow-hidden h-full transition-shadow hover:shadow-md focus-visible:shadow-md"
               >
                 <div
-                  className="relative h-28 flex items-end p-4"
+                  className="relative h-[112px] flex items-end p-4"
                   style={{
                     background: `linear-gradient(135deg, ${d.theme.accent} 0%, ${d.theme.soft} 140%)`,
                   }}
                 >
                   <Motif
                     motif={d.motif}
-                    className="absolute top-3 right-3 w-10 opacity-30"
+                    className="absolute top-3 right-3 w-[40px] opacity-30"
                   />
                   <span
                     className={`${headingFont(d.theme)} text-lg leading-tight drop-shadow-sm`}

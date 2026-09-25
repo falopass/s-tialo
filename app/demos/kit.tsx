@@ -146,7 +146,7 @@ export function DemoHeader({ demo }: { demo: Demo }) {
         borderColor: t.line,
       }}
     >
-      <div className="max-w-6xl mx-auto px-5 md:px-8 h-14 md:h-16 flex items-center justify-between gap-4">
+      <div className="max-w-6xl mx-auto px-5 md:px-8 h-[56px] md:h-[64px] flex items-center justify-between gap-4">
         <a
           href="#inicio"
           className={`${headingFont(t)} text-lg md:text-xl leading-none`}
@@ -187,7 +187,7 @@ export function DemoBand({ demo }: { demo: Demo }) {
   return (
     <div className="fixed bottom-4 left-4 z-50 max-w-[calc(100vw-7rem)] flex items-center gap-2 bg-ink/90 text-cream text-[11px] leading-tight px-3 py-2 rounded-full shadow-lg backdrop-blur-sm">
       <span
-        className="inline-block w-1.5 h-1.5 rounded-full bg-yellow shrink-0"
+        className="inline-block w-[6px] h-[6px] rounded-full bg-yellow shrink-0"
         aria-hidden="true"
       />
       <span>
@@ -221,12 +221,12 @@ export function WhatsAppFab({ demo }: { demo: Demo }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Escribir por WhatsApp a ${demo.name}`}
-      className="fixed bottom-4 right-4 z-50 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95"
+      className="fixed bottom-4 right-4 z-50 w-[48px] h-[48px] md:w-[56px] md:h-[56px] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95"
       style={{ backgroundColor: '#25D366' }}
     >
       <svg
         viewBox="0 0 24 24"
-        className="w-6 h-6 md:w-7 md:h-7"
+        className="w-[24px] h-[24px] md:w-[28px] md:h-[28px]"
         fill="none"
         stroke="#fff"
         strokeWidth="2"
@@ -318,7 +318,7 @@ export function DemoHero({ demo }: { demo: Demo }) {
       >
         <Motif
           motif={demo.motif}
-          className="absolute -right-6 -bottom-8 w-56 md:w-96 opacity-[0.08] pointer-events-none"
+          className="absolute -right-6 -bottom-8 w-[224px] md:w-[384px] opacity-[0.08] pointer-events-none"
         />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -343,14 +343,14 @@ export function DemoHero({ demo }: { demo: Demo }) {
         <HeroContent demo={demo} />
       </div>
       <div
-        className="relative min-h-56 md:min-h-0 flex items-center justify-center overflow-hidden"
+        className="relative min-h-[224px] md:min-h-0 flex items-center justify-center overflow-hidden"
         style={{
           background: `linear-gradient(150deg, ${t.accent} 0%, ${t.soft} 130%)`,
         }}
       >
         <Motif
           motif={demo.motif}
-          className="w-40 md:w-64 opacity-30"
+          className="w-[160px] md:w-[256px] opacity-30"
         />
         <span
           className="absolute bottom-4 right-4 font-mono text-[10px] uppercase tracking-[0.15em]"
@@ -577,7 +577,7 @@ function RenderSection({ s, demo }: { s: DemoSection; demo: Demo }) {
             {s.items.map((g, i) => (
               <li
                 key={g.label}
-                className="relative overflow-hidden border min-h-36 p-5 flex flex-col justify-end"
+                className="relative overflow-hidden border min-h-[144px] p-5 flex flex-col justify-end"
                 style={{
                   borderColor: t.line,
                   borderRadius: t.radius,
@@ -586,7 +586,7 @@ function RenderSection({ s, demo }: { s: DemoSection; demo: Demo }) {
               >
                 <Motif
                   motif={demo.motif}
-                  className="absolute top-4 right-4 w-12 opacity-20"
+                  className="absolute top-4 right-4 w-[48px] opacity-20"
                 />
                 <h3 className="font-semibold text-base">{g.label}</h3>
                 {g.desc && (
@@ -807,7 +807,7 @@ export function DemoFooter({ demo }: { demo: Demo }) {
             </p>
             <ul className="text-sm opacity-80 space-y-1">
               {demo.hours.map((h) => (
-                <li key={h.days} className="flex justify-between gap-4 max-w-60">
+                <li key={h.days} className="flex justify-between gap-4 max-w-[240px]">
                   <span>{h.days}</span>
                   <span>{h.time}</span>
                 </li>

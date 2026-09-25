@@ -1,4 +1,4 @@
 :HL["/_next/static/chunks/0ildl2-21bxr6.css","style"]
-:HL["/_next/static/chunks/0eu5pfs39aq5b.css","style"]
+:HL["/_next/static/chunks/001q--.c8nrv6.css","style"]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"gchtWEDv9OWgB7Yk2KXK8"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"M1XauuTyzCIyqoAtOdjnj"}
