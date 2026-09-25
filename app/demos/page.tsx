@@ -4,6 +4,58 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { DEMOS } from './data'
 import { Motif, headingFont } from './kit'
 
+// Mockups personalizados para leads reales (carpeta propia en /demos).
+const BLITZ = [
+  {
+    slug: 'triadent',
+    name: 'Clínica Dental Triadent',
+    rubro: 'Clínica dental',
+    city: 'Talca',
+    tagline: 'Clínico premium y luminoso: menta y azul profundo.',
+    gradient: 'linear-gradient(135deg, #0F3B57 0%, #1D9E8E 140%)',
+  },
+  {
+    slug: 'one-health',
+    name: 'One Health',
+    rubro: 'Centro veterinario',
+    city: 'Maule',
+    tagline: 'Amable y moderno: salvia, durazno y crema.',
+    gradient: 'linear-gradient(135deg, #4E6B50 0%, #F2B48C 140%)',
+  },
+  {
+    slug: 'homyvet',
+    name: 'Clínica Veterinaria Homyvet',
+    rubro: 'Clínica veterinaria',
+    city: 'Talca',
+    tagline: 'Hogar y cuidado: mostaza, azul marino y hueso.',
+    gradient: 'linear-gradient(135deg, #1E2C4E 0%, #D9A02B 140%)',
+  },
+  {
+    slug: 'altos-de-lircay',
+    name: 'Altos de Lircay',
+    rubro: 'Clínica dental',
+    city: 'San Clemente',
+    tagline: 'Cercano y natural: verde bosque y cobre.',
+    gradient: 'linear-gradient(135deg, #16342A 0%, #B4643C 140%)',
+  },
+  {
+    slug: 'jd-abogados',
+    name: 'J&D Abogados',
+    rubro: 'Estudio jurídico',
+    city: 'Talca',
+    tagline: 'Serio y elegante: grafito y dorado apagado.',
+    gradient: 'linear-gradient(135deg, #1B1E22 0%, #A5885A 140%)',
+  },
+  {
+    slug: 'santa-fe',
+    name: 'Ingeniería y Construcciones Santa Fe',
+    rubro: 'Constructora',
+    city: 'Talca',
+    tagline: 'Industrial sólido: acero y naranjo de seguridad.',
+    gradient: 'linear-gradient(135deg, #16191D 0%, #E8631A 140%)',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Demos por rubro — ejemplos de sitios para pymes',
   description:
@@ -116,6 +168,46 @@ export default function DemosIndex() {
             </Link>
           </li>
         </ul>
+
+        <div className="mt-16">
+          <h2 className="font-display text-2xl md:text-3xl font-bold leading-display tracking-display mb-2">
+            Mockups para leads reales
+          </h2>
+          <p className="text-body-sm text-ink-muted leading-snug mb-6 max-w-xl">
+            Muestras personalizadas con identidad propia, armadas solo con
+            datos públicos de cada ficha de Google.
+          </p>
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {BLITZ.map((d) => (
+              <li key={d.slug}>
+                <Link
+                  href={`/demos/${d.slug}`}
+                  className="group block border border-divider bg-white overflow-hidden h-full transition-shadow hover:shadow-md focus-visible:shadow-md"
+                >
+                  <div
+                    className="relative h-[112px] flex items-end p-4"
+                    style={{ background: d.gradient }}
+                  >
+                    <span className="font-display font-bold tracking-display text-lg leading-tight text-white drop-shadow-sm">
+                      {d.name}
+                    </span>
+                  </div>
+                  <div className="p-4">
+                    <p className="font-mono text-[10px] uppercase tracking-ui text-ink-muted mb-1">
+                      {d.rubro} · {d.city} · lead real
+                    </p>
+                    <p className="text-body-sm text-ink-muted leading-snug mb-3">
+                      {d.tagline}
+                    </p>
+                    <span className="font-body text-body-sm font-medium text-ink underline decoration-yellow decoration-2 underline-offset-4">
+                      Ver demo →
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <div className="mt-16 pt-8 border-t border-divider flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
           <p className="text-body-sm text-ink-muted">

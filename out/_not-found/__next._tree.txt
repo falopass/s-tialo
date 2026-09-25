@@ -1,4 +1,4 @@
-:HL["/_next/static/chunks/1681m53i5nl18.css","style"]
-:HL["/_next/static/chunks/0_ka83f3i~-cv.css","style"]
+:HL["/_next/static/chunks/0bdykj74st~-5.css","style"]
+:HL["/_next/static/chunks/06lyqbcv2mten.css","style"]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"XfsUBbtP1TO_pPffPZUCm"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"AkCSezcc5LWDXBq7HXdq3"}

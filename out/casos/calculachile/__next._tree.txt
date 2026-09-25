@@ -1,10 +1,10 @@
-:HL["/_next/static/chunks/1681m53i5nl18.css","style"]
-:HL["/_next/static/chunks/0_ka83f3i~-cv.css","style"]
+:HL["/_next/static/chunks/0bdykj74st~-5.css","style"]
+:HL["/_next/static/chunks/06lyqbcv2mten.css","style"]
 :HL["/_next/static/media/01e4147cff8141ee-s.p.10ked.7w885.g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/3c7c6164b2587822-s.p.0duriy8536ewt.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/07454f8ad8aaac57-s.p.0tqkxa-w3pk~c.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/5e4d537aaa9e154b.p.0g9-.3zp53cup.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/d7d9c82e455b419c-s.p.0ycukbtwcuvn3.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"casos","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"calculachile","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"XfsUBbtP1TO_pPffPZUCm"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"casos","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"calculachile","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"AkCSezcc5LWDXBq7HXdq3"}
