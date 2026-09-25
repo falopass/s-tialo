@@ -1,7 +1,8 @@
 import type { CSSProperties } from 'react'
 import { logoFont } from '@/lib/fonts'
 import { SITE, whatsappLink } from '@/lib/config'
-import type { Demo, DemoSection, DemoTheme, DemoMotif } from './data'
+import type { Demo, DemoSection, DemoTheme, DemoMotif, DemoSwatch } from './data'
+import { DemoQuoter } from './quote'
 
 // ── Theme ────────────────────────────────────────────────────
 
@@ -117,6 +118,13 @@ const MOTIF_PATHS: Record<DemoMotif, React.ReactNode> = {
     <g fill="none" stroke="currentColor" strokeWidth="1.4">
       <circle cx="12" cy="12" r="3.4" />
       <path d="M12 2.8 v3 M12 18.2 v3 M2.8 12 h3 M18.2 12 h3 M5.5 5.5 l2.1 2.1 M16.4 16.4 l2.1 2.1 M18.5 5.5 l-2.1 2.1 M7.6 16.4 l-2.1 2.1" />
+    </g>
+  ),
+  print: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.4">
+      <circle cx="12" cy="12" r="6.5" />
+      <circle cx="12" cy="12" r="2" />
+      <path d="M12 1.5 v4 M12 18.5 v4 M1.5 12 h4 M18.5 12 h4" />
     </g>
   ),
 }
@@ -339,6 +347,124 @@ export function DemoHero({ demo }: { demo: Demo }) {
     )
   }
 
+  if (demo.hero === 'type') {
+    return (
+      <section
+        id="inicio"
+        className="border-b"
+        style={{ borderColor: t.line }}
+      >
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-10 md:pt-14 pb-14 md:pb-20">
+          <div
+            className="flex items-baseline justify-between gap-4 border-t-[3px] border-b py-2.5 font-mono text-[10px] md:text-xs uppercase tracking-[0.15em]"
+            style={{
+              borderTopColor: t.ink,
+              borderBottomColor: t.line,
+              color: t.muted,
+            }}
+          >
+            <span>{demo.rubro}</span>
+            <span className="hidden md:inline">{demo.established}</span>
+            <span>{demo.city}</span>
+          </div>
+
+          <h1
+            className={`${headingFont(t)} uppercase leading-[0.85] tracking-[-0.01em] mt-8 md:mt-10 text-[clamp(3.5rem,14.5vw,11rem)]`}
+          >
+            {demo.name}
+          </h1>
+
+          <div
+            className="flex items-center gap-1.5 mt-5 mb-10"
+            aria-hidden="true"
+          >
+            {['#00AEEF', '#EC008C', '#F8E71C', '#231F20'].map((c) => (
+              <span
+                key={c}
+                className="h-[10px] w-[48px] md:w-[72px]"
+                style={{ backgroundColor: c }}
+              />
+            ))}
+            <span className="ml-3 shrink-0" style={{ color: t.ink }}>
+              <Motif motif={demo.motif} className="w-[24px] h-[24px]" />
+            </span>
+          </div>
+
+          <div className="grid md:grid-cols-[1.35fr_1fr] gap-10 md:gap-16 items-start">
+            <div>
+              <p
+                className={`${headingFont(t)} text-2xl md:text-3xl leading-tight mb-4`}
+              >
+                {demo.tagline}
+              </p>
+              <p
+                className="text-base md:text-lg leading-relaxed mb-8 max-w-xl"
+                style={{ color: t.muted }}
+              >
+                {demo.intro}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={waLink(demo)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-sm px-6 py-3 transition-transform active:scale-95"
+                  style={{
+                    backgroundColor: t.accent,
+                    color: t.accentInk,
+                    borderRadius: t.radius,
+                  }}
+                >
+                  Escribir por WhatsApp
+                </a>
+                <a
+                  href="#cotiza"
+                  className="font-semibold text-sm px-6 py-3 border transition-colors"
+                  style={{ borderColor: t.line, borderRadius: t.radius }}
+                >
+                  Cotiza tu impresión
+                </a>
+              </div>
+            </div>
+            <div
+              className="border p-5 md:p-6"
+              style={{ borderColor: t.ink, borderRadius: t.radius }}
+            >
+              <p
+                className="font-mono text-[10px] uppercase tracking-[0.15em] mb-4"
+                style={{ color: t.muted }}
+              >
+                Ficha del taller
+              </p>
+              <dl className="space-y-3">
+                {demo.stats.map((s) => (
+                  <div
+                    key={s.label}
+                    className="flex items-baseline justify-between gap-4 border-b pb-3 last:border-b-0 last:pb-0"
+                    style={{ borderColor: t.line }}
+                  >
+                    <dt
+                      className="font-mono text-[11px] uppercase tracking-[0.1em]"
+                      style={{ color: t.muted }}
+                    >
+                      {s.label}
+                    </dt>
+                    <dd
+                      className={`${headingFont(t)} text-lg md:text-xl shrink-0`}
+                      style={{ color: t.accent }}
+                    >
+                      {s.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section
       id="inicio"
@@ -456,6 +582,116 @@ function Check() {
       aria-hidden="true"
     >
       <path d="M4 10.5 L8.5 15 L16 5.5" />
+    </svg>
+  )
+}
+
+// Muestrario: composiciones CSS/SVG por tipo de producto (sin fotos).
+function SwatchArt({ kind, t }: { kind: DemoSwatch; t: DemoTheme }) {
+  const paper = '#FFFFFF'
+  const stroke = { fill: paper, stroke: t.ink, strokeWidth: 1.5 }
+  const lines = { stroke: t.line, strokeWidth: 2 }
+  const art: Record<DemoSwatch, React.ReactNode> = {
+    sheet: (
+      <>
+        <rect x="42" y="20" width="38" height="30" {...stroke} />
+        <rect x="36" y="14" width="38" height="30" {...stroke} />
+        <rect x="30" y="8" width="38" height="30" {...stroke} />
+        <path d="M36 16 h14 M36 21 h22 M36 26 h17" {...lines} />
+      </>
+    ),
+    card: (
+      <>
+        <rect x="32" y="8" width="46" height="26" fill={t.accent} />
+        <rect x="18" y="28" width="46" height="26" {...stroke} />
+        <path d="M24 36 h16 M24 42 h28 M24 48 h20" {...lines} />
+      </>
+    ),
+    fold: (
+      <>
+        <rect x="20" y="10" width="56" height="44" {...stroke} />
+        <path
+          d="M48 10 v44"
+          fill="none"
+          stroke={t.ink}
+          strokeWidth="1.2"
+          strokeDasharray="3 3"
+        />
+        <rect x="25" y="16" width="18" height="14" fill={t.soft} />
+        <path d="M25 36 h18 M25 42 h18 M25 48 h12" {...lines} />
+        <path d="M53 18 h18 M53 24 h18 M53 30 h14" {...lines} />
+        <rect x="53" y="38" width="18" height="10" fill={t.accent} />
+      </>
+    ),
+    sticker: (
+      <>
+        <circle
+          cx="48"
+          cy="32"
+          r="24"
+          fill="none"
+          stroke={t.muted}
+          strokeWidth="1.2"
+          strokeDasharray="4 3"
+        />
+        <circle cx="48" cy="32" r="19" {...stroke} />
+        <circle cx="48" cy="32" r="9" fill={t.accent} />
+      </>
+    ),
+    banner: (
+      <>
+        <rect x="8" y="20" width="80" height="24" {...stroke} />
+        <circle cx="12" cy="23.5" r="1.6" fill={t.ink} />
+        <circle cx="84" cy="23.5" r="1.6" fill={t.ink} />
+        <circle cx="12" cy="40.5" r="1.6" fill={t.ink} />
+        <circle cx="84" cy="40.5" r="1.6" fill={t.ink} />
+        <rect x="16" y="26" width="20" height="12" fill={t.accent} />
+        <path d="M42 29 h30 M42 35 h24" {...lines} />
+      </>
+    ),
+    pendon: (
+      <>
+        <path
+          d="M30 12 h36"
+          fill="none"
+          stroke={t.ink}
+          strokeWidth="2.5"
+          strokeLinecap="round"
+        />
+        <rect x="36" y="12" width="24" height="44" {...stroke} />
+        <circle cx="48" cy="28" r="7" fill={t.accent} />
+        <path d="M42 42 h12 M42 47 h8" {...lines} />
+      </>
+    ),
+    letter: (
+      <>
+        <rect x="32" y="6" width="34" height="52" {...stroke} />
+        <rect x="37" y="11" width="12" height="6" fill={t.accent} />
+        <path d="M37 24 h22 M37 30 h22 M37 36 h22 M37 42 h16" {...lines} />
+        <path d="M37 50 h10" fill="none" stroke={t.ink} strokeWidth="2" />
+      </>
+    ),
+    flyer: (
+      <>
+        <rect
+          x="38"
+          y="10"
+          width="26"
+          height="42"
+          fill={t.soft}
+          stroke={t.muted}
+          strokeWidth="1.2"
+          transform="rotate(6 51 31)"
+        />
+        <rect x="30" y="8" width="26" height="42" {...stroke} />
+        <rect x="34" y="13" width="18" height="9" fill={t.accent} />
+        <path d="M34 27 h18 M34 32 h18 M34 37 h12" {...lines} />
+      </>
+    ),
+  }
+  return (
+    <svg viewBox="0 0 96 64" className="h-full w-auto" aria-hidden="true">
+      {art[kind]}
     </svg>
   )
 }
@@ -655,6 +891,50 @@ function RenderSection({ s, demo }: { s: DemoSection; demo: Demo }) {
               </li>
             ))}
           </ol>
+        </SectionShell>
+      )
+
+    case 'swatches':
+      return (
+        <SectionShell id={id} title={s.title} blurb={s.blurb} t={t}>
+          <ul
+            className="grid grid-cols-2 lg:grid-cols-4 gap-px border"
+            style={{ backgroundColor: t.line, borderColor: t.line }}
+          >
+            {s.items.map((it, i) => (
+              <li
+                key={it.name}
+                className="p-4 md:p-5"
+                style={{ backgroundColor: t.paper }}
+              >
+                <div className="h-[88px] md:h-[104px] mb-4 flex items-center justify-center">
+                  <SwatchArt kind={it.swatch} t={t} />
+                </div>
+                <p
+                  className="font-mono text-[10px] uppercase tracking-[0.15em] mb-1"
+                  style={{ color: t.muted }}
+                >
+                  Nº {String(i + 1).padStart(2, '0')}
+                </p>
+                <h3 className="font-semibold text-sm md:text-base mb-1">
+                  {it.name}
+                </h3>
+                <p
+                  className="text-xs md:text-sm leading-snug"
+                  style={{ color: t.muted }}
+                >
+                  {it.desc}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </SectionShell>
+      )
+
+    case 'quoter':
+      return (
+        <SectionShell id={id} title={s.title} blurb={s.blurb} t={t}>
+          <DemoQuoter demo={demo} products={s.products} sizes={s.sizes} />
         </SectionShell>
       )
 

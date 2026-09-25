@@ -5,10 +5,11 @@
  * todo el contenido es de fantasía: nombres, precios, direcciones y
  * teléfonos son referenciales y no corresponden a negocios reales.
  *
- * Excepciones: `mg-publicidad`, `constructora-valdes` y `mym-taller` son
- * mockups para leads reales y usan solo datos públicos (nombre, comuna y
- * teléfono; MG y MyM además dirección, red social y nota de Google).
- * Sus servicios y textos siguen siendo referenciales.
+ * Excepciones: `mg-publicidad`, `constructora-valdes`, `mym-taller` y
+ * `pannton` son mockups para leads reales y usan solo datos públicos
+ * (nombre, comuna y teléfono; MG, MyM y Pannton además dirección, red
+ * social o nota de Google). Sus servicios y textos siguen siendo
+ * referenciales.
  */
 
 export type DemoMotif =
@@ -24,10 +25,21 @@ export type DemoMotif =
   | 'calculator'
   | 'tow'
   | 'gear'
+  | 'print'
 
 export type DemoHeading = 'serif' | 'sans' | 'black'
 
-export type DemoHero = 'split' | 'banner'
+export type DemoHero = 'split' | 'banner' | 'type'
+
+export type DemoSwatch =
+  | 'sheet'
+  | 'card'
+  | 'fold'
+  | 'sticker'
+  | 'banner'
+  | 'pendon'
+  | 'letter'
+  | 'flyer'
 
 export interface DemoTheme {
   paper: string
@@ -87,6 +99,21 @@ export type DemoSection =
       id?: string
       title: string
       steps: { title: string; desc: string }[]
+    }
+  | {
+      type: 'swatches'
+      id?: string
+      title: string
+      blurb?: string
+      items: { name: string; desc: string; swatch: DemoSwatch }[]
+    }
+  | {
+      type: 'quoter'
+      id?: string
+      title: string
+      blurb?: string
+      products: string[]
+      sizes: string[]
     }
   | { type: 'cta'; id?: string; text: string; button: string }
 
@@ -2365,6 +2392,214 @@ export const DEMOS: Demo[] = [
       title: 'MyM Taller mecánico — Mecánica general y a domicilio en Talca',
       description:
         'Taller mecánico en Talca con servicio a domicilio: mantenciones, diagnóstico con scanner, frenos y suspensión. 5,0★ en Google. Agenda por WhatsApp.',
+    },
+  },
+
+  // ── 15. Mockup para lead real: Pannton ────────────────────
+  // Datos reales y públicos: nombre, dirección, teléfono y nota de
+  // Google (4,2★ en 22 reseñas). Servicios y textos: referenciales.
+  {
+    slug: 'pannton',
+    name: 'Pannton',
+    rubro: 'Arquitectura y Soluciones Gráficas',
+    city: 'Talca',
+    tagline: 'Del archivo al papel: impresión con oficio.',
+    intro:
+      'Taller gráfico en Lomas de Lircay, Talca. Tarjetas, volantes, dípticos, adhesivos, pendones y gigantografías, con prueba digital antes de cada producción.',
+    phone: '+56 9 7645 6647',
+    whatsapp: '56976456647',
+    address: 'Diez Oriente 3057, Lomas de Lircay',
+    established: 'Imprenta · Taller gráfico',
+    hero: 'type',
+    motif: 'print',
+    theme: {
+      paper: '#F5F0E6',
+      ink: '#1B1813',
+      muted: '#6E6454',
+      accent: '#D22E1E',
+      accentInk: '#FFF8EE',
+      soft: '#EAE2D0',
+      line: '#D6CCB6',
+      radius: '2px',
+      heading: 'serif',
+    },
+    nav: [
+      { label: 'Muestrario', href: '#muestrario' },
+      { label: 'Trabajos', href: '#trabajos' },
+      { label: 'Cotiza', href: '#cotiza' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: 'horario comercial' },
+      { days: 'Encargos', time: 'por WhatsApp' },
+    ],
+    stats: [
+      { value: '4,2★', label: 'nota en Google' },
+      { value: '22', label: 'reseñas reales de clientes' },
+      { value: 'Talca', label: 'taller en Lomas de Lircay' },
+    ],
+    sections: [
+      {
+        type: 'swatches',
+        id: 'muestrario',
+        title: 'Muestrario del taller',
+        blurb:
+          'Lo que sale de la máquina: papel, vinilo y gran formato. Todo trabajo pasa por una prueba digital antes de producir.',
+        items: [
+          {
+            name: 'Tarjetas de presentación',
+            desc: 'Couché de alto gramaje, mate o brillante, con o sin laminado.',
+            swatch: 'card',
+          },
+          {
+            name: 'Volantes',
+            desc: 'A6, A5 y A4, a una o dos caras, para reparto y promociones.',
+            swatch: 'flyer',
+          },
+          {
+            name: 'Dípticos y trípticos',
+            desc: 'Plegados con doblez marcado, listos para mostrador o reparto.',
+            swatch: 'fold',
+          },
+          {
+            name: 'Adhesivos y etiquetas',
+            desc: 'Vinilo adhesivo troquelado a medida para productos y vitrinas.',
+            swatch: 'sticker',
+          },
+          {
+            name: 'Pendones',
+            desc: 'Tela o PVC con ojillos, para fachadas, ferias y eventos.',
+            swatch: 'pendon',
+          },
+          {
+            name: 'Gigantografías',
+            desc: 'Gran formato para letreros, murales y señalética.',
+            swatch: 'banner',
+          },
+          {
+            name: 'Papelería corporativa',
+            desc: 'Hojas membretadas, sobres y talonarios con la misma línea.',
+            swatch: 'letter',
+          },
+          {
+            name: 'Papeles y cartulinas',
+            desc: 'Couché, ilustración y cartulina en el gramaje que pida el trabajo.',
+            swatch: 'sheet',
+          },
+        ],
+      },
+      {
+        type: 'quoter',
+        id: 'cotiza',
+        title: 'Cotiza tu impresión',
+        blurb:
+          'Elige el producto, la cantidad y el tamaño: armamos el mensaje y llega directo al WhatsApp del taller. Te respondemos con valor y plazo.',
+        products: [
+          'Tarjetas de presentación',
+          'Volantes',
+          'Dípticos o trípticos',
+          'Adhesivos y etiquetas',
+          'Pendón',
+          'Gigantografía',
+          'Papelería corporativa',
+          'Otro producto',
+        ],
+        sizes: [
+          'Tarjeta 9 × 5 cm',
+          '10 × 15 cm',
+          'A6',
+          'A5',
+          'A4',
+          'A3',
+          '50 × 70 cm',
+          'A medida / otro',
+        ],
+      },
+      {
+        type: 'gallery',
+        id: 'trabajos',
+        title: 'Trabajos del taller',
+        blurb:
+          'Estos espacios quedan reservados para fotos reales de tus trabajos: en el sitio final cada uno muestra un pedido terminado con su material y formato.',
+        items: [
+          { label: 'Tarjetas de presentación', desc: 'Espacio para tus trabajos' },
+          { label: 'Pendón para fachada', desc: 'Espacio para tus trabajos' },
+          { label: 'Gigantografía', desc: 'Espacio para tus trabajos' },
+          { label: 'Adhesivos y etiquetas', desc: 'Espacio para tus trabajos' },
+          { label: 'Papelería corporativa', desc: 'Espacio para tus trabajos' },
+          { label: 'Tu próximo pedido', desc: 'Conversemos' },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Del arte a la entrega',
+        steps: [
+          {
+            title: 'Mandas tu arte o tu idea',
+            desc: 'Por WhatsApp: el archivo listo o solo la idea de lo que necesitas imprimir.',
+          },
+          {
+            title: 'Prueba digital',
+            desc: 'Antes de producir ves cómo quedará el trabajo y lo aprobamos contigo.',
+          },
+          {
+            title: 'Producción',
+            desc: 'Imprimimos y terminamos el pedido con el material y formato acordado.',
+          },
+          {
+            title: 'Entrega',
+            desc: 'Retiras en el taller de Lomas de Lircay o coordinamos la entrega al cotizar.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: '¿Tienes el archivo listo o partimos desde la idea? Cotiza sin compromiso y te confirmamos valor y plazo.',
+        button: 'Cotizar por WhatsApp',
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Nota 4,2 sobre 5 en Google.',
+        author: 'Ficha de Google',
+        detail: 'Pannton, Talca',
+      },
+      {
+        text: '22 reseñas publicadas por clientes reales, todas visibles en línea.',
+        author: 'Ficha de Google',
+        detail: 'Reseñas verificables',
+      },
+      {
+        text: 'No tienes que creernos: busca «Pannton» en Google y lee lo que dicen sus clientes.',
+        author: 'Verifícalo tú mismo',
+        detail: 'google.com → Pannton, Talca',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Necesito tener el diseño listo?',
+        a: 'No. Puedes traer el archivo final o solo la idea: revisamos lo que tengas y, si falta, lo preparamos antes de imprimir.',
+      },
+      {
+        q: '¿En qué formato envío mi archivo?',
+        a: 'PDF en alta resolución, o JPG/PNG a 300 dpi. Si trabajas en Illustrator o Photoshop, también puedes enviar el archivo editable.',
+      },
+      {
+        q: '¿Hacen tirajes pequeños?',
+        a: 'Sí, dependiendo del producto. Indica la cantidad en el cotizador y te confirmamos el mínimo y el valor por WhatsApp.',
+      },
+      {
+        q: '¿Cuánto demora un pedido?',
+        a: 'Depende del producto y del tiraje. Junto con la cotización te confirmamos el plazo de producción.',
+      },
+      {
+        q: '¿Dónde retiro mi pedido?',
+        a: 'En el taller: Diez Oriente 3057, Lomas de Lircay, Talca. Si necesitas coordinar una entrega dentro de la ciudad, cuéntanos al cotizar.',
+      },
+    ],
+    meta: {
+      title: 'Pannton — Impresión y soluciones gráficas en Talca',
+      description:
+        'Pannton, Arquitectura y Soluciones Gráficas en Talca: tarjetas, volantes, dípticos, adhesivos, pendones y gigantografías. 4,2★ en Google. Cotiza por WhatsApp.',
     },
   },
 ]
