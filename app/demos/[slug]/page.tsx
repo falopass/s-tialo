@@ -147,7 +147,7 @@ export default async function DemoPage({
 
       <DemoFooter demo={demo} />
       <WhatsAppFab demo={demo} />
-      <DemoBand />
+      <DemoBand demo={demo} />
     </div>
   )
 }

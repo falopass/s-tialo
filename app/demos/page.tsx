@@ -31,7 +31,7 @@ export default function DemosIndex() {
             Demos por rubro
           </h1>
           <p className="text-body text-ink-muted leading-body">
-            Once mini-sitios de ejemplo, cada uno pensado como un negocio real
+            Doce mini-sitios de ejemplo, cada uno pensado como un negocio real
             del Maule. Cuando una pyme pregunte «¿me mandas un ejemplo de mi
             rubro?», este es el link.
           </p>

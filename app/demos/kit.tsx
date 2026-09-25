@@ -183,7 +183,7 @@ export function DemoHeader({ demo }: { demo: Demo }) {
   )
 }
 
-export function DemoBand() {
+export function DemoBand({ demo }: { demo: Demo }) {
   return (
     <div className="fixed bottom-4 left-4 z-50 max-w-[calc(100vw-7rem)] flex items-center gap-2 bg-ink/90 text-cream text-[11px] leading-tight px-3 py-2 rounded-full shadow-lg backdrop-blur-sm">
       <span
@@ -191,7 +191,7 @@ export function DemoBand() {
         aria-hidden="true"
       />
       <span>
-        Demo hecha por{' '}
+        Mockup preparado por{' '}
         <a
           href={SITE.url}
           target="_blank"
@@ -200,14 +200,14 @@ export function DemoBand() {
         >
           Sitiazo
         </a>{' '}
-        ·{' '}
+        para {demo.name} — así se vería tu sitio.{' '}
         <a
           href={whatsappLink('contacto')}
           target="_blank"
           rel="noopener noreferrer"
           className="font-semibold underline underline-offset-2 hover:text-yellow"
         >
-          ¿La quieres así para tu negocio?
+          ¿Lo hacemos realidad?
         </a>
       </span>
     </div>
@@ -786,6 +786,19 @@ export function DemoFooter({ demo }: { demo: Demo }) {
               <a href={`tel:${demo.phone.replace(/\s/g, '')}`} className="underline underline-offset-2">
                 {demo.phone}
               </a>
+              {demo.instagram && (
+                <>
+                  <br />
+                  <a
+                    href={demo.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2"
+                  >
+                    @{demo.instagram.replace(/\/$/, '').split('/').pop()}
+                  </a>
+                </>
+              )}
             </address>
           </div>
           <div>

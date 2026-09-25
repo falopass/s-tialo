@@ -1,9 +1,13 @@
 /**
  * app/demos/data.ts
  *
- * Contenido de las 11 demos por rubro. Todo el contenido es de fantasía:
- * nombres, precios, direcciones y teléfonos son referenciales y no
- * corresponden a negocios reales.
+ * Contenido de las 12 demos por rubro. Salvo que se indique lo contrario,
+ * todo el contenido es de fantasía: nombres, precios, direcciones y
+ * teléfonos son referenciales y no corresponden a negocios reales.
+ *
+ * Excepción: `mg-publicidad` es un mockup para un lead real y usa solo
+ * datos públicos (nombre, dirección, teléfono, Instagram y nota de Google).
+ * Sus servicios y textos siguen siendo referenciales.
  */
 
 export type DemoMotif =
@@ -94,6 +98,7 @@ export interface Demo {
   phone: string
   whatsapp: string
   address: string
+  instagram?: string
   established: string
   hero: DemoHero
   motif: DemoMotif
@@ -1911,6 +1916,156 @@ export const DEMOS: Demo[] = [
       title: 'Grúas Ruta 5 — Grúa 24/7 en Talca y la Ruta 5',
       description:
         'Grúas y auxilio vial 24/7 en el Maule. Traslado de vehículos, rescate en ruta y tarifas claras. Base en Talca.',
+    },
+  },
+
+  // ── 12. Mockup para lead real: MG Publicidad ──────────────
+  // Datos reales y públicos: nombre, dirección, teléfono, Instagram y
+  // nota de Google (5,0★ en 29 reseñas). Servicios y textos: referenciales.
+  {
+    slug: 'mg-publicidad',
+    name: 'MG Publicidad',
+    rubro: 'Agencia de publicidad',
+    city: 'Talca',
+    tagline: 'Publicidad que se nota. Marca, campañas y contenido para pymes del Maule.',
+    intro:
+      'Agencia de publicidad en Talca. Identidad de marca, campañas y contenidos para redes, producción gráfica y audiovisual, y planificación de medios.',
+    phone: '+56 9 4796 0151',
+    whatsapp: '56947960151',
+    address: '6 Norte, Pje. Veinticuatro y Medio Ote. Oriente 2015',
+    instagram: 'https://www.instagram.com/mgpublicidad.cl/',
+    established: 'MG Publicidad SpA',
+    hero: 'split',
+    motif: 'megaphone',
+    theme: {
+      paper: '#F7F5F3',
+      ink: '#18161C',
+      muted: '#6D6875',
+      accent: '#E11D48',
+      accentInk: '#FFFFFF',
+      soft: '#F1E7E9',
+      line: '#E1D9DC',
+      radius: '4px',
+      heading: 'black',
+    },
+    nav: [
+      { label: 'Portafolio', href: '#trabajos' },
+      { label: 'Servicios', href: '#servicios' },
+      { label: 'Pide una propuesta', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: 'horario comercial' },
+      { days: 'Reuniones', time: 'con agenda' },
+    ],
+    stats: [
+      { value: '5,0★', label: 'nota en Google' },
+      { value: '29', label: 'reseñas reales de clientes' },
+      { value: '48 h', label: 'para enviarte una propuesta' },
+    ],
+    sections: [
+      {
+        type: 'gallery',
+        id: 'trabajos',
+        title: 'Portafolio',
+        blurb:
+          'Estos espacios quedan reservados para los trabajos reales de MG: en el sitio final cada uno muestra un proyecto con fotos, alcance y resultado.',
+        items: [
+          { label: 'Identidad de marca', desc: 'Espacio para un trabajo real' },
+          { label: 'Campaña en redes', desc: 'Espacio para un trabajo real' },
+          { label: 'Producción audiovisual', desc: 'Espacio para un trabajo real' },
+          { label: 'Pieza gráfica', desc: 'Espacio para un trabajo real' },
+          { label: 'Planificación de medios', desc: 'Espacio para un trabajo real' },
+          { label: 'Tu próximo proyecto', desc: 'Conversemos' },
+        ],
+      },
+      {
+        type: 'services',
+        id: 'servicios',
+        title: 'Servicios',
+        blurb:
+          'Proyectos puntuales o trabajo continuo. Cada propuesta se cotiza a medida, sin compromiso.',
+        items: [
+          {
+            name: 'Identidad de marca',
+            desc: 'Logo, paleta, tipografías y manual de uso para que tu marca se vea igual en todas partes.',
+          },
+          {
+            name: 'Campañas y contenidos para redes',
+            desc: 'Plan de contenidos, diseño de piezas y gestión de Instagram y Facebook.',
+          },
+          {
+            name: 'Producción gráfica y audiovisual',
+            desc: 'Foto, video y material impreso para lanzar tu marca o tu campaña.',
+          },
+          {
+            name: 'Planificación de medios',
+            desc: 'Dónde pautar y cuánto invertir: pauta digital y medios tradicionales con objetivos claros.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo trabajamos',
+        steps: [
+          {
+            title: 'Cuéntanos tu proyecto',
+            desc: 'Por WhatsApp o en una reunión: qué vendes, a quién le hablas y qué te falta.',
+          },
+          {
+            title: 'Propuesta a tu medida',
+            desc: 'Te enviamos alcance, plazos y valor por escrito. Sin compromiso.',
+          },
+          {
+            title: 'Diseño y lanzamiento',
+            desc: 'Desarrollamos con rondas de revisión incluidas y entregamos todo listo para publicar.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: '¿Tienes un proyecto en mente? Pide una propuesta sin costo y te la enviamos en 48 horas.',
+        button: 'Pedir propuesta por WhatsApp',
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Nota 5,0 sobre 5 en Google: la máxima posible.',
+        author: 'Ficha de Google',
+        detail: 'MG Publicidad, Talca',
+      },
+      {
+        text: '29 reseñas publicadas por clientes reales, todas visibles en línea.',
+        author: 'Ficha de Google',
+        detail: 'Reseñas verificables',
+      },
+      {
+        text: 'No tienes que creernos: busca «MG Publicidad» en Google y lee lo que dicen sus clientes.',
+        author: 'Verifícalo tú mismo',
+        detail: 'google.com → MG Publicidad',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Solo trabajan con empresas de Talca?',
+        a: 'No. La identidad de marca y las campañas digitales se pueden trabajar remoto con clientes de todo Chile; la producción audiovisual se concentra en la región del Maule.',
+      },
+      {
+        q: '¿Cuánto cuesta un proyecto?',
+        a: 'Depende del alcance: no es lo mismo un logo que una identidad completa o una campaña mensual. Pide una propuesta y te enviamos valor y plazos por escrito.',
+      },
+      {
+        q: '¿Puedo contratar solo las redes sociales?',
+        a: 'Sí. Existen modalidades de trabajo continuo para contenidos y campañas, o proyectos puntuales según lo que necesites.',
+      },
+      {
+        q: '¿Cómo empiezo?',
+        a: 'Escríbenos por WhatsApp con una breve descripción de tu negocio y lo que necesitas. Coordinamos una conversación y te enviamos la propuesta.',
+      },
+    ],
+    meta: {
+      title: 'MG Publicidad — Agencia de publicidad en Talca',
+      description:
+        'MG Publicidad, agencia de publicidad en Talca: identidad de marca, campañas y contenidos para redes, producción audiovisual y medios. 5,0★ en Google.',
     },
   },
 ]
