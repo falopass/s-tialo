@@ -5,10 +5,10 @@
  * todo el contenido es de fantasía: nombres, precios, direcciones y
  * teléfonos son referenciales y no corresponden a negocios reales.
  *
- * Excepciones: `mg-publicidad` y `constructora-valdes` son mockups para
- * leads reales y usan solo datos públicos (nombre, comuna y teléfono;
- * MG además dirección, Instagram y nota de Google). Sus servicios y
- * textos siguen siendo referenciales.
+ * Excepciones: `mg-publicidad`, `constructora-valdes` y `mym-taller` son
+ * mockups para leads reales y usan solo datos públicos (nombre, comuna y
+ * teléfono; MG y MyM además dirección, red social y nota de Google).
+ * Sus servicios y textos siguen siendo referenciales.
  */
 
 export type DemoMotif =
@@ -23,6 +23,7 @@ export type DemoMotif =
   | 'megaphone'
   | 'calculator'
   | 'tow'
+  | 'gear'
 
 export type DemoHeading = 'serif' | 'sans' | 'black'
 
@@ -100,6 +101,7 @@ export interface Demo {
   whatsapp: string
   address: string
   instagram?: string
+  facebook?: string
   established: string
   hero: DemoHero
   motif: DemoMotif
@@ -2205,6 +2207,164 @@ export const DEMOS: Demo[] = [
       title: 'Constructora Valdes — Obras y terminaciones en San Clemente',
       description:
         'Constructora en San Clemente, Maule: ampliaciones, radieres, terminaciones, quinchos y regularizaciones. Cotiza por WhatsApp con visita a terreno.',
+    },
+  },
+
+  // ── 14. Mockup para lead real: MyM Taller mecánico ─────────
+  // Datos reales y públicos: nombre, dirección, teléfono, Facebook y
+  // nota de Google (5,0★ en 8 reseñas). Servicios y textos: referenciales.
+  {
+    slug: 'mym-taller',
+    name: 'MyM Taller mecánico',
+    rubro: 'Taller mecánico',
+    city: 'Talca',
+    tagline: 'Mecánica general en Talca y servicio a domicilio.',
+    intro:
+      'Taller mecánico en Talca con atención en el taller y a domicilio: mantenciones, diagnóstico con scanner, frenos, suspensión y mecánica general. Agenda por WhatsApp.',
+    phone: '+56 9 7545 0216',
+    whatsapp: '56975450216',
+    address: '44 y Medio Oriente 477, con 6 y Medio Sur',
+    facebook: 'https://www.facebook.com/share/1Ccxd3Uznv/',
+    established: 'Servicio a domicilio',
+    hero: 'banner',
+    motif: 'gear',
+    theme: {
+      paper: '#F3F4F4',
+      ink: '#16191D',
+      muted: '#5C6470',
+      accent: '#2563EB',
+      accentInk: '#FFFFFF',
+      soft: '#E7EAEF',
+      line: '#D5DAE1',
+      radius: '6px',
+      heading: 'black',
+    },
+    nav: [
+      { label: 'Servicios', href: '#servicios' },
+      { label: 'Trabajos', href: '#trabajos' },
+      { label: 'Pide hora', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: 'horario comercial' },
+      { days: 'A domicilio', time: 'con agenda' },
+    ],
+    stats: [
+      { value: '5,0★', label: 'nota en Google' },
+      { value: '8', label: 'reseñas reales de clientes' },
+      { value: 'A domicilio', label: 'atención en Talca' },
+    ],
+    sections: [
+      {
+        type: 'gallery',
+        id: 'trabajos',
+        title: 'Trabajos del taller',
+        blurb:
+          'Estos espacios quedan reservados para fotos reales de los trabajos de MyM: en el sitio final cada uno muestra el antes y el después.',
+        items: [
+          { label: 'Mantención completa', desc: 'Espacio para tus fotos' },
+          { label: 'Diagnóstico con scanner', desc: 'Espacio para tus fotos' },
+          { label: 'Frenos', desc: 'Espacio para tus fotos' },
+          { label: 'Suspensión y dirección', desc: 'Espacio para tus fotos' },
+          { label: 'Servicio a domicilio', desc: 'Espacio para tus fotos' },
+          { label: 'Tu próximo trabajo', desc: 'Conversemos' },
+        ],
+      },
+      {
+        type: 'services',
+        id: 'servicios',
+        title: 'Servicios',
+        blurb:
+          'Atención en el taller y a domicilio dentro de Talca. Todo trabajo parte con diagnóstico y presupuesto claro.',
+        items: [
+          {
+            name: 'Mantención y cambio de aceite',
+            desc: 'Mantenciones por kilometraje, cambio de aceite y filtros, y revisión de niveles.',
+          },
+          {
+            name: 'Diagnóstico con scanner',
+            desc: 'Lectura de códigos de falla y revisión electrónica para encontrar la causa real.',
+          },
+          {
+            name: 'Frenos',
+            desc: 'Pastillas, discos, rectificación y revisión completa del sistema de frenado.',
+          },
+          {
+            name: 'Suspensión y dirección',
+            desc: 'Amortiguadores, terminales, rótulas y todo lo que suena o vibra.',
+          },
+          {
+            name: 'Mecánica general',
+            desc: 'Reparaciones y mantención general del motor y sistemas del vehículo.',
+          },
+          {
+            name: 'Mecánica a domicilio',
+            desc: 'Para trabajos que no requieren taller vamos donde esté el auto, dentro de Talca.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo trabajamos',
+        steps: [
+          {
+            title: 'Agenda por WhatsApp',
+            desc: 'Cuéntanos qué le pasa a tu auto y coordinamos hora en el taller o a domicilio.',
+          },
+          {
+            title: 'Diagnóstico y presupuesto claro',
+            desc: 'Revisamos el vehículo y te entregamos el presupuesto antes de trabajar. Sin sorpresas.',
+          },
+          {
+            title: 'Trabajo y entrega',
+            desc: 'Hacemos el trabajo, lo revisamos contigo y te entregamos el auto listo.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: '¿El auto te está dando señales? Agenda una revisión antes de que sea peor.',
+        button: 'Pedir hora por WhatsApp',
+      },
+    ],
+    testimonials: [
+      {
+        text: 'Nota 5,0 sobre 5 en Google: la máxima posible.',
+        author: 'Ficha de Google',
+        detail: 'MyM Taller mecánico, Talca',
+      },
+      {
+        text: '8 reseñas publicadas por clientes reales, todas visibles en línea.',
+        author: 'Ficha de Google',
+        detail: 'Reseñas verificables',
+      },
+      {
+        text: 'No tienes que creernos: busca «MyM Taller mecánico» en Google y lee lo que dicen sus clientes.',
+        author: 'Verifícalo tú mismo',
+        detail: 'google.com → MyM Taller mecánico',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Voy al taller o van a domicilio?',
+        a: 'Ambas. Atendemos en el taller en 44 y Medio Oriente, y para trabajos que no requieren taller vamos a domicilio en Talca. Coordina por WhatsApp.',
+      },
+      {
+        q: '¿Cuánto cuesta el diagnóstico?',
+        a: 'Depende del trabajo: partimos revisando el vehículo y te entregamos un presupuesto claro antes de hacer nada.',
+      },
+      {
+        q: '¿Cómo agendo una hora?',
+        a: 'Por WhatsApp: cuéntanos qué le pasa al auto y coordinamos hora en el taller o a domicilio.',
+      },
+      {
+        q: '¿Qué trabajos se pueden hacer a domicilio?',
+        a: 'Los que no requieren levantar el auto ni equipamiento de taller: mantenciones, diagnóstico con scanner y reparaciones menores. Si el trabajo pide taller, te lo decimos al cotizar.',
+      },
+    ],
+    meta: {
+      title: 'MyM Taller mecánico — Mecánica general y a domicilio en Talca',
+      description:
+        'Taller mecánico en Talca con servicio a domicilio: mantenciones, diagnóstico con scanner, frenos y suspensión. 5,0★ en Google. Agenda por WhatsApp.',
     },
   },
 ]

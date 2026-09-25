@@ -113,6 +113,12 @@ const MOTIF_PATHS: Record<DemoMotif, React.ReactNode> = {
       <path d="M18.5 7.5 v3 v1.5 a2.4 2.4 0 1 1 -4.8 0" />
     </g>
   ),
+  gear: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.4">
+      <circle cx="12" cy="12" r="3.4" />
+      <path d="M12 2.8 v3 M12 18.2 v3 M2.8 12 h3 M18.2 12 h3 M5.5 5.5 l2.1 2.1 M16.4 16.4 l2.1 2.1 M18.5 5.5 l-2.1 2.1 M7.6 16.4 l-2.1 2.1" />
+    </g>
+  ),
 }
 
 export function Motif({
@@ -801,6 +807,19 @@ export function DemoFooter({ demo }: { demo: Demo }) {
                     className="underline underline-offset-2"
                   >
                     @{demo.instagram.replace(/\/$/, '').split('/').pop()}
+                  </a>
+                </>
+              )}
+              {demo.facebook && (
+                <>
+                  <br />
+                  <a
+                    href={demo.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2"
+                  >
+                    Facebook
                   </a>
                 </>
               )}
