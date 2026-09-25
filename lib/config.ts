@@ -314,6 +314,7 @@ export const TEAM: TeamMember[] = [
 
 export const LEGAL = {
   ownerName: 'Diego Cancino',
+  legalName: 'Eldrinor y Vaelen',
   city: 'Curicó',
   region: 'Región del Maule',
   country: 'Chile',
@@ -378,6 +379,7 @@ export const SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+    legalName: LEGAL.legalName,
     description: SITE.description,
     url: SITE.url,
     telephone: CONTACT.telephone,
