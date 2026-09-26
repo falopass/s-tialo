@@ -134,6 +134,15 @@ const MOTIF_PATHS: Record<DemoMotif, React.ReactNode> = {
       <path d="M12 6 v12 M6 12 h12" />
     </g>
   ),
+  dumbbell: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.4">
+      <rect x="1.5" y="9" width="3.4" height="6" rx="1.2" />
+      <rect x="19.1" y="9" width="3.4" height="6" rx="1.2" />
+      <rect x="4.9" y="6" width="3.4" height="12" rx="1.2" />
+      <rect x="15.7" y="6" width="3.4" height="12" rx="1.2" />
+      <path d="M8.3 12 h7.4" strokeWidth="2" />
+    </g>
+  ),
 }
 
 export function Motif({

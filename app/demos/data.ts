@@ -27,6 +27,7 @@ export type DemoMotif =
   | 'gear'
   | 'print'
   | 'window'
+  | 'dumbbell'
 
 export type DemoHeading = 'serif' | 'sans' | 'black'
 
@@ -2839,6 +2840,198 @@ export const DEMOS: Demo[] = [
       title: 'Aluminios Alumrod — Cristales, vidriería y aluminio en Talca',
       description:
         'Aluminios Alumrod en Talca: ventanas, puertas, mamparas y vidrios a medida. 4,6★ en Google. Cotiza con tus medidas por WhatsApp.',
+    },
+  },
+
+  // ── 17. Mockup para lead real: Family Gym ─────────────────
+  // Solo el nombre y la ciudad corresponden al negocio real; teléfono,
+  // dirección, precios, horarios y textos son referenciales.
+  {
+    slug: 'family-gym',
+    name: 'Family Gym',
+    rubro: 'Gimnasio',
+    city: 'Talca',
+    tagline: 'Entrena fuerte, cerca de casa. Planes desde un mes.',
+    intro:
+      'Gimnasio en Talca con sala de pesas, funcional, spinning y zumba. Sin permanencia: parte con el plan mensual y sube cuando quieras.',
+    phone: '+56 9 8264 1357',
+    whatsapp: '56982641357',
+    address: 'Talca centro',
+    established: 'Sin permanencia',
+    hero: 'banner',
+    motif: 'dumbbell',
+    theme: {
+      paper: '#121517',
+      ink: '#EFF3EA',
+      muted: '#99A398',
+      accent: '#C8F24B',
+      accentInk: '#141810',
+      soft: '#1B2020',
+      line: '#2C3433',
+      radius: '4px',
+      heading: 'black',
+    },
+    nav: [
+      { label: 'Planes', href: '#planes' },
+      { label: 'Clases', href: '#clases' },
+      { label: 'Contacto', href: '#contacto' },
+    ],
+    hours: [
+      { days: 'Lun–Vie', time: '7:00–22:00' },
+      { days: 'Sábado', time: '9:00–14:00' },
+    ],
+    stats: [
+      { value: 'desde $20.000', label: 'plan mensual referencial' },
+      { value: '7 a 22 h', label: 'de lunes a viernes' },
+      { value: '5', label: 'disciplinas incluidas en el plan' },
+    ],
+    sections: [
+      {
+        type: 'plans',
+        id: 'planes',
+        title: 'Planes',
+        note: 'Valores referenciales de este demo: confirma el plan vigente por WhatsApp. Todos incluyen sala de pesas y clases.',
+        items: [
+          {
+            name: 'Mensual',
+            price: 'desde $20.000',
+            unit: 'mes',
+            features: [
+              'Acceso ilimitado a sala y clases',
+              'Sin permanencia ni letra chica',
+              'Puedes congelar avisando antes',
+            ],
+          },
+          {
+            name: 'Trimestral',
+            price: 'desde $55.000',
+            unit: '3 meses',
+            highlight: true,
+            features: [
+              'Todo lo del plan mensual',
+              'Equivale a menos de $19.000 al mes',
+              'Evaluación inicial y rutina incluidas',
+            ],
+          },
+          {
+            name: 'Anual',
+            price: 'desde $190.000',
+            unit: 'año',
+            features: [
+              'El mejor valor del gimnasio',
+              'Equivale a menos de $16.000 al mes',
+              'Rutina y seguimiento de progreso',
+            ],
+          },
+        ],
+      },
+      {
+        type: 'services',
+        id: 'clases',
+        title: 'Clases y entrenamiento',
+        blurb:
+          'Todo incluido en tu plan. Los horarios de la parrilla son referenciales: confirma la de la semana por WhatsApp.',
+        items: [
+          {
+            name: 'Funcional',
+            desc: 'Circuitos de alta intensidad con peso corporal, kettlebells y cajones. Para todos los niveles.',
+            price: 'incluida en el plan',
+          },
+          {
+            name: 'Spinning',
+            desc: 'Pedaleo guiado con música, por bloques de mañana y tarde.',
+            price: 'incluida en el plan',
+          },
+          {
+            name: 'Sala de pesas',
+            desc: 'Máquinas, peso libre y rack para entrenar a tu ritmo, con instructor en sala.',
+            price: 'acceso ilimitado',
+          },
+          {
+            name: 'Zumba',
+            desc: 'Cardio bailado para soltar la semana. Clases en grupo, sin experiencia previa.',
+            price: 'incluida en el plan',
+          },
+          {
+            name: 'Entrenamiento personalizado',
+            desc: 'Sesiones 1 a 1 con entrenador para objetivos específicos.',
+            price: 'cotiza por WhatsApp',
+          },
+        ],
+      },
+      {
+        type: 'features',
+        title: 'Por qué entrenar acá',
+        items: [
+          {
+            title: 'Entrenadores en sala',
+            desc: 'Siempre hay alguien que corrige tu técnica y ajusta la rutina. No entrenas solo.',
+          },
+          {
+            title: 'Equipamiento completo',
+            desc: 'Máquinas, peso libre, cardio y espacio para funcional, sin filas eternas.',
+          },
+          {
+            title: 'Comunidad de barrio',
+            desc: 'Ambiente familiar y cercano: acá se entrena en serio, pero sin pose.',
+          },
+          {
+            title: 'Sin permanencia',
+            desc: 'Partes con un mes y decides después. Si te vas de viaje, congelas el plan.',
+          },
+        ],
+      },
+      {
+        type: 'steps',
+        title: 'Cómo empezar',
+        steps: [
+          {
+            title: 'Escríbenos por WhatsApp',
+            desc: 'Cuéntanos tu objetivo y te contamos horarios y planes disponibles.',
+          },
+          {
+            title: 'Ven a conocer',
+            desc: 'Te mostramos la sala y resolves tus dudas. Primera visita sin compromiso.',
+          },
+          {
+            title: 'Elige tu plan',
+            desc: 'Mensual, trimestral o anual. Te recomendamos según lo que realmente vas a usar.',
+          },
+          {
+            title: 'A entrenar',
+            desc: 'Con rutina inicial y entrenadores en sala desde el primer día.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        text: '¿Vienes a conocer el gimnasio? Primera visita sin compromiso.',
+        button: 'Escríbenos por WhatsApp',
+      },
+    ],
+    testimonials: [],
+    faqs: [
+      {
+        q: '¿Cómo me inscribo?',
+        a: 'Por WhatsApp o directamente en el gimnasio. El proceso es rápido: eliges plan, completas tus datos y partes el mismo día.',
+      },
+      {
+        q: '¿Puedo probar una clase antes de pagar?',
+        a: 'Sí. Agenda una visita de prueba por WhatsApp y prueba la sala o una clase sin compromiso.',
+      },
+      {
+        q: '¿Hay planes familiares o de pareja?',
+        a: 'Hay descuentos para familias y parejas que se inscriben juntas. Los valores son referenciales: consulta la promoción vigente por WhatsApp.',
+      },
+      {
+        q: '¿Hay estacionamiento?',
+        a: 'Hay espacio para dejar el auto cerca del gimnasio, y bicicletero para quienes llegan en bici.',
+      },
+    ],
+    meta: {
+      title: 'Family Gym — Gimnasio en Talca con planes desde el mes',
+      description:
+        'Gimnasio en Talca: sala de pesas, funcional, spinning, zumba y entrenamiento personalizado. Planes referenciales desde $20.000. Escríbenos por WhatsApp.',
     },
   },
 ]
