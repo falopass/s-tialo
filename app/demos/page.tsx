@@ -54,6 +54,14 @@ const BLITZ = [
     tagline: 'Industrial sólido: acero y naranjo de seguridad.',
     gradient: 'linear-gradient(135deg, #16191D 0%, #E8631A 140%)',
   },
+  {
+    slug: 'rancho-itahue',
+    name: 'Rancho Itahue',
+    rubro: 'Agroturismo y eventos',
+    city: 'Molina',
+    tagline: 'Editorial de campo: verde bosque, hueso y ámbar, con fotos.',
+    gradient: 'linear-gradient(135deg, #12231A 0%, #B97E33 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
