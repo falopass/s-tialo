@@ -62,6 +62,14 @@ const BLITZ = [
     tagline: 'Editorial de campo: verde bosque, hueso y ámbar, con fotos.',
     gradient: 'linear-gradient(135deg, #12231A 0%, #B97E33 140%)',
   },
+  {
+    slug: 'panaderia-bravo',
+    name: 'Panadería Bravo',
+    rubro: 'Panadería y pastelería',
+    city: 'Molina',
+    tagline: 'Pan de verdad: crema de masa, chocolate y dorado de horno.',
+    gradient: 'linear-gradient(135deg, #2E1C0E 0%, #D59A33 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

@@ -1,10 +1,11 @@
-:HL["/_next/static/chunks/0bdykj74st~-5.css","style"]
-:HL["/_next/static/chunks/06ooszpcnmpl2.css","style"]
+:HL["/_next/static/chunks/0rfj7q6j6~in7.css","style"]
+:HL["/_next/static/chunks/15wrtdj3.pp_3.css","style"]
 :HL["/_next/static/media/01e4147cff8141ee-s.p.10ked.7w885.g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/07454f8ad8aaac57-s.p.0tqkxa-w3pk~c.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/3e185f0c9c3d9cda-s.p.0w3s_lwrmz1l8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/4bb3c571e95f6f90-s.p.0eibskl.182vt.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/5e4d537aaa9e154b.p.0g9-.3zp53cup.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/d7d9c82e455b419c-s.p.0ycukbtwcuvn3.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/f287e533ed04f2e6-s.p.0t20vcyusyjhl.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"casos","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"cvlisto","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"pfofrwvNkgFfTSHR0tDV3"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"casos","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"cvlisto","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"FXPHUMYDxfiWAYFk9mhZK"}
