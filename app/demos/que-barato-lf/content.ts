@@ -118,6 +118,13 @@ export const PRODUCTS: {
   price: string | null
   mayor?: string
 }[] = [
+  // Curas y botiquín — primero los del catálogo real que mandó la tienda (27-09)
+  { cat: 'botiquin', name: 'Tegaderm film 1624W', price: '$600' },
+  { cat: 'botiquin', name: 'Tegaderm film 3M 1626W', price: '$700', mayor: '$500' },
+  { cat: 'botiquin', name: 'Coban 10 cm marca 3M', price: '$2.500' },
+  { cat: 'botiquin', name: 'Jeringa 5 ml Venotek (100 un.)', price: '$6.500', mayor: '$5.500' },
+  { cat: 'botiquin', name: 'Manguillas blancas (100 un.)', price: '$2.500', mayor: '$2.000' },
+  { cat: 'botiquin', name: 'Plantilla talón', price: null, mayor: '$1.200' },
   // Curas y botiquín
   { cat: 'botiquin', name: 'Apósito corriente 11 cm', price: '$100' },
   { cat: 'botiquin', name: 'Venda elasticada blanca', price: '$300' },
@@ -140,6 +147,8 @@ export const PRODUCTS: {
   { cat: 'botiquin', name: 'Pechera desechable', price: '$200', mayor: '$170' },
   { cat: 'botiquin', name: 'Caja guantes estéril 8.0', price: null },
   // Escolares y manualidades
+  { cat: 'escolar', name: 'Block Liceo 60, 20 hojas', price: '$900', mayor: '$700' },
+  { cat: 'escolar', name: 'Pegamento en barra Giotto', price: '$1.000', mayor: '$800' },
   { cat: 'escolar', name: 'Cartulina española 10 pliegos', price: '$2.000', mayor: '$1.800' },
   { cat: 'escolar', name: 'Block médium 99 1/8 hojas', price: '$1.500', mayor: '$1.300' },
   { cat: 'escolar', name: 'Pegamento en barra', price: '$1.000' },
@@ -147,6 +156,7 @@ export const PRODUCTS: {
   { cat: 'escolar', name: 'Silicona líquida 100 gr', price: '$1.300', mayor: '$1.000' },
   { cat: 'escolar', name: 'Palos de helado medianos', price: '$900', mayor: '$700' },
   // Hogar y varios
+  { cat: 'hogar', name: 'Pistola silicona 20W', price: '$2.100', mayor: '$1.600' },
   { cat: 'hogar', name: 'Paño microfibra 38 cm', price: '$500', mayor: '$300' },
   { cat: 'hogar', name: 'Toalla interfoliada', price: '$1.500', mayor: '$1.300' },
 ]
