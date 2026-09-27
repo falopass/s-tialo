@@ -17,13 +17,15 @@ const body = Inter({
 const C = {
   naranja: '#E4572E',
   naranjaDark: '#C2431F',
+  naranjaText: '#A8381A',
+  naranjaLight: '#F59A70',
   concreto: '#3A3F44',
   concretoDeep: '#2B2F33',
   arena: '#EDE6DA',
   arenaSoft: '#F6F1E8',
   blanco: '#FFFFFF',
   ink: '#24282B',
-  muted: '#6E6A62',
+  muted: '#5F5B54',
   line: 'rgba(36,40,43,0.14)',
   lineLight: 'rgba(237,230,218,0.18)',
 }
@@ -120,7 +122,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className={`${display.className} text-[11px] uppercase tracking-[0.26em] mb-4 flex items-center gap-3 font-semibold`}
-      style={{ color: light ? C.arena : C.naranja }}
+      style={{ color: light ? C.arena : C.naranjaText }}
     >
       <Chevron className="w-[14px] h-[14px]" color={C.naranja} />
       {children}
@@ -144,7 +146,7 @@ export default function InfinityMueblesPage() {
           bar: 'rgba(237,230,218,0.95)',
           ink: C.ink,
           line: C.line,
-          btnBg: C.naranja,
+          btnBg: C.naranjaDark,
           btnInk: '#FFFFFF',
         }}
       />
@@ -210,7 +212,7 @@ export default function InfinityMueblesPage() {
               <span
                 className="inline-block px-3 md:px-4 -ml-1 mt-2"
                 style={{
-                  backgroundColor: C.naranja,
+                  backgroundColor: C.naranjaDark,
                   transform: 'skewX(-8deg)',
                   color: C.blanco,
                 }}
@@ -229,7 +231,7 @@ export default function InfinityMueblesPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`}
-                style={{ backgroundColor: C.naranja, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
+                style={{ backgroundColor: C.naranjaDark, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
               >
                 Cotizar por WhatsApp
               </a>
@@ -259,7 +261,7 @@ export default function InfinityMueblesPage() {
             <h2 className={`${display.className} font-bold uppercase text-4xl md:text-6xl leading-[1.0]`} style={{ color: C.concretoDeep }}>
               Del taller
               <br />
-              <span style={{ color: C.naranja }}>a tu casa</span>
+              <span style={{ color: C.naranjaText }}>a tu casa</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
               Estos trabajos son de muestra: al publicar van los
@@ -284,6 +286,7 @@ export default function InfinityMueblesPage() {
                       alt={p.alt}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      loading="eager"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                     />
                     <span
@@ -340,6 +343,7 @@ export default function InfinityMueblesPage() {
                   alt="Local de Infinity Muebles abierto a la calle en Once Sur, Talca"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
+                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -350,7 +354,7 @@ export default function InfinityMueblesPage() {
             <h2 className={`${display.className} font-bold uppercase text-4xl md:text-5xl leading-[1.02] mb-6`} style={{ color: C.concretoDeep }}>
               Carpintería de barrio,
               <br />
-              <span style={{ color: C.naranja }}>trato directo</span>
+              <span style={{ color: C.naranjaText }}>trato directo</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-6 max-w-md" style={{ color: C.muted }}>
               {BIZ.legal} trabaja en {BIZ.address}, {BIZ.city}. Acá
@@ -374,7 +378,7 @@ export default function InfinityMueblesPage() {
                 <p className={`${display.className} font-bold text-3xl md:text-4xl leading-none`} style={{ color: C.concretoDeep }}>
                   {BIZ.reviews}
                 </p>
-                <p className="text-xs uppercase tracking-[0.16em] font-semibold mt-1.5 underline underline-offset-4 decoration-2" style={{ color: C.naranja, textDecorationColor: 'rgba(228,87,46,0.35)' }}>
+                <p className="text-xs uppercase tracking-[0.16em] font-semibold mt-1.5 underline underline-offset-4 decoration-2" style={{ color: C.naranjaText, textDecorationColor: 'rgba(228,87,46,0.35)' }}>
                   reseñas en Google →
                 </p>
               </a>
@@ -382,7 +386,7 @@ export default function InfinityMueblesPage() {
                 <p className={`${display.className} font-bold text-3xl md:text-4xl leading-none`} style={{ color: C.concretoDeep }}>
                   4.050
                 </p>
-                <p className="text-xs uppercase tracking-[0.16em] font-semibold mt-1.5 underline underline-offset-4 decoration-2" style={{ color: C.naranja, textDecorationColor: 'rgba(228,87,46,0.35)' }}>
+                <p className="text-xs uppercase tracking-[0.16em] font-semibold mt-1.5 underline underline-offset-4 decoration-2" style={{ color: C.naranjaText, textDecorationColor: 'rgba(228,87,46,0.35)' }}>
                   seguidores en Instagram →
                 </p>
               </a>
@@ -412,7 +416,7 @@ export default function InfinityMueblesPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-bold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]"
-                style={{ color: C.naranja, textDecorationColor: 'rgba(228,87,46,0.35)' }}
+                style={{ color: C.naranjaText, textDecorationColor: 'rgba(228,87,46,0.35)' }}
               >
                 Ver la ficha en Google →
               </a>
@@ -428,7 +432,7 @@ export default function InfinityMueblesPage() {
                       “{t.text}”
                     </blockquote>
                     <figcaption className="flex items-center justify-between gap-3">
-                      <span className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.naranja }}>
+                      <span className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.naranjaText }}>
                         {t.author} · Reseña de ejemplo
                       </span>
                       <Chevron className="w-4 h-4 shrink-0" color={C.concreto} />
@@ -455,7 +459,7 @@ export default function InfinityMueblesPage() {
             <h2 className={`${display.className} font-bold uppercase text-4xl md:text-6xl leading-[1.0] mb-12 md:mb-16`} style={{ color: C.arena }}>
               De la idea a la
               <br />
-              <span style={{ color: C.naranja }}>instalación</span>
+              <span style={{ color: C.naranjaLight }}>instalación</span>
             </h2>
           </Reveal>
           <ol className="grid md:grid-cols-4 gap-8 md:gap-6">
@@ -503,7 +507,7 @@ export default function InfinityMueblesPage() {
               <h2 className={`${display.className} font-bold uppercase text-4xl md:text-5xl leading-[1.02]`} style={{ color: C.concretoDeep }}>
                 Precios de
                 <br />
-                <span style={{ color: C.naranja }}>referencia</span>
+                <span style={{ color: C.naranjaText }}>referencia</span>
               </h2>
               <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
                 Valores de muestra: el precio real se cotiza según
@@ -520,7 +524,7 @@ export default function InfinityMueblesPage() {
                   style={{ borderColor: C.line }}
                 >
                   <div className="flex items-baseline gap-4 min-w-0">
-                    <span className={`${display.className} text-xs font-bold shrink-0`} style={{ color: C.naranja }}>
+                    <span className={`${display.className} text-xs font-bold shrink-0`} style={{ color: C.naranjaText }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>
@@ -532,7 +536,7 @@ export default function InfinityMueblesPage() {
                       )}
                     </div>
                   </div>
-                  <p className={`${display.className} font-bold text-base md:text-lg whitespace-nowrap flex items-center gap-3`} style={{ color: C.naranja }}>
+                  <p className={`${display.className} font-bold text-base md:text-lg whitespace-nowrap flex items-center gap-3`} style={{ color: C.naranjaText }}>
                     <Chevron className="w-3.5 h-3.5 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" color={C.naranja} />
                     {p.price}
                   </p>
@@ -558,7 +562,7 @@ export default function InfinityMueblesPage() {
             <h2 className={`${display.className} font-bold uppercase text-4xl md:text-5xl leading-[1.02] mb-6`} style={{ color: C.concretoDeep }}>
               Once Sur,
               <br />
-              <span style={{ color: C.naranja }}>Talca</span>
+              <span style={{ color: C.naranjaText }}>Talca</span>
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6 font-medium" style={{ color: C.muted }}>
               {BIZ.address}
@@ -574,7 +578,7 @@ export default function InfinityMueblesPage() {
                 <Chevron className="w-4 h-4 shrink-0" color={C.naranja} />
                 <span>
                   Instagram:{' '}
-                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]" style={{ color: C.naranja, textDecorationColor: 'rgba(228,87,46,0.35)' }}>
+                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]" style={{ color: C.naranjaText, textDecorationColor: 'rgba(228,87,46,0.35)' }}>
                     {BIZ.instagramUser}
                   </a>
                 </span>
@@ -590,7 +594,7 @@ export default function InfinityMueblesPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-bold uppercase tracking-wide text-sm px-7 py-3.5 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2F33]`}
-                style={{ backgroundColor: C.naranja, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)' }}
+                style={{ backgroundColor: C.naranjaDark, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)' }}
               >
                 Escribir por WhatsApp
               </a>
@@ -631,6 +635,7 @@ export default function InfinityMueblesPage() {
           alt=""
           fill
           sizes="100vw"
+          loading="eager"
           className="object-cover opacity-[0.16]"
           aria-hidden="true"
         />
@@ -646,7 +651,7 @@ export default function InfinityMueblesPage() {
               <br />
               <span
                 className="inline-block px-3 md:px-4 mt-2"
-                style={{ backgroundColor: C.naranja, transform: 'skewX(-8deg)', color: C.blanco }}
+                style={{ backgroundColor: C.naranjaDark, transform: 'skewX(-8deg)', color: C.blanco }}
               >
                 a la medida justa
               </span>
@@ -660,7 +665,7 @@ export default function InfinityMueblesPage() {
               target="_blank"
               rel="noopener noreferrer"
               className={`${display.className} inline-block font-bold uppercase tracking-wide text-sm md:text-base px-9 py-4 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`}
-              style={{ backgroundColor: C.naranja, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
+              style={{ backgroundColor: C.naranjaDark, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
             >
               Agendar medición →
             </a>
@@ -670,7 +675,7 @@ export default function InfinityMueblesPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.concretoDeep, color: C.arena }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8 border-t" style={{ borderColor: C.lineLight }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5 border-t" style={{ borderColor: C.lineLight }}>
           <div>
             <p className={`${display.className} font-bold uppercase text-2xl mb-2 flex items-center gap-3`}>
               <Chevron className="w-5 h-5" color={C.naranja} />
@@ -689,15 +694,15 @@ export default function InfinityMueblesPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: C.lineLight }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.legal}.
-            Servicios, precios, horarios, reseñas y fotos son de
-            muestra; nombre, dirección, Instagram y WhatsApp son reales.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.7)' }}>
+            Precios, horarios, reseñas y fotos son de muestra; nombre,
+            dirección, Instagram y WhatsApp son reales.
           </p>
         </div>
+        <div className="px-5 pt-1 pb-20 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+          <DemoBand name={BIZ.name} />
+        </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
