@@ -582,6 +582,14 @@ const BLITZ = [
     tagline: 'Tarjetas apiladas al hacer scroll: azul distribución, gris y cian, con fotos.',
     gradient: 'linear-gradient(135deg, #0E2A39 0%, #1F5673 55%, #3CD9EC 140%)',
   },
+  {
+    slug: 'johnbarber',
+    name: 'JohnBarber',
+    rubro: 'Barbería',
+    city: 'Pencahue',
+    tagline: 'Cuadrícula suiza: verde veterinario, crema y ámbar, reglas finas y cartel moderno con fotos.',
+    gradient: 'linear-gradient(135deg, #16493A 0%, #2A7F62 55%, #E8A33D 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
