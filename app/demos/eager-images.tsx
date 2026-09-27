@@ -10,20 +10,22 @@ import { useEffect } from 'react'
  */
 export default function EagerImages() {
   useEffect(() => {
-    const forzar = () => {
-      document.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach((img) => {
-        img.loading = 'eager'
-        if (img.dataset.src && !img.src) img.src = img.dataset.src
-        // si el navegador ya lo había diferido, forzamos la carga reevaluando el src
-        if (!img.complete && img.src) {
-          const s = img.src
-          img.src = s
-        }
+    const calentar = () => {
+      document.querySelectorAll<HTMLImageElement>('img').forEach((img) => {
+        const src = img.currentSrc || img.src
+        if (!src || img.complete) return
+        const pre = new Image()
+        pre.decoding = 'async'
+        pre.src = src
       })
     }
-    forzar()
-    const t = window.setTimeout(forzar, 1200)
-    return () => window.clearTimeout(t)
+    calentar()
+    const t1 = window.setTimeout(calentar, 1500)
+    const t2 = window.setTimeout(calentar, 3500)
+    return () => {
+      window.clearTimeout(t1)
+      window.clearTimeout(t2)
+    }
   }, [])
   return null
 }
