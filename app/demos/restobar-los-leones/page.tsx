@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Fraunces, Manrope } from 'next/font/google'
-import { DemoBand } from '../kit'
+import type { CSSProperties } from 'react'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_MESA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -20,6 +21,12 @@ const C = {
   muted: '#5D626B',
   line: 'rgba(20,21,24,0.14)',
 }
+
+// globals.css redefine --spacing-5…12 (gap-10 = 128px, py-12 = 240px); este demo
+// se diseñó con la escala por defecto de Tailwind (n × 4px), así que se restaura aquí.
+const SPACING = Object.fromEntries(
+  [5, 6, 7, 8, 9, 10, 11, 12].map((n) => [`--spacing-${n}`, `${n * 4}px`]),
+) as CSSProperties
 
 export const metadata: Metadata = {
   title: 'Restobar Los Leones — Cocina casera y barra en Pelarco',
@@ -113,12 +120,9 @@ export default function RestobarLosLeonesPage() {
   return (
     <div
       className={`${body.className} min-h-screen antialiased`}
-      style={{ backgroundColor: C.paper, color: C.ink }}
+      style={{ ...SPACING, backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`
-        @keyframes ll-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .ll-marquee { animation: ll-marquee 26s linear infinite; }
-        @media (prefers-reduced-motion: reduce) { .ll-marquee { animation: none; } }
         .ll-btn { transition: transform 0.18s ease, filter 0.18s ease, background-color 0.18s ease; }
         .ll-btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
         .ll-btn:active { transform: translateY(0) scale(0.97); }
@@ -261,27 +265,18 @@ export default function RestobarLosLeonesPage() {
         </div>
       </section>
 
-      {/* ── Cinta marquee ── */}
-      <div
-        className="overflow-hidden border-b whitespace-nowrap py-3 md:py-4"
-        style={{ backgroundColor: C.lime, borderColor: C.line }}
-        aria-hidden="true"
-      >
-        <div className="ll-marquee inline-block">
-          {[0, 1].map((dup) => (
-            <span
-              key={dup}
-              className={`${display.className} inline-flex items-center text-sm md:text-base font-extrabold uppercase tracking-[0.12em]`}
-              style={{ color: C.ink }}
-            >
-              {MARQUEE.map((item) => (
-                <span key={`${dup}-${item}`} className="inline-flex items-center">
-                  <span className="px-4">{item}</span>
-                  <svg viewBox="0 0 24 24" className="w-3 h-3" fill={C.blue} aria-hidden="true">
-                    <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4Z" />
-                  </svg>
-                </span>
-              ))}
+      {/* ── Cinta de especialidades ── */}
+      <div className="border-b py-3 md:py-4" style={{ backgroundColor: C.lime, borderColor: C.line }} aria-hidden="true">
+        <div
+          className={`${display.className} max-w-6xl mx-auto px-5 md:px-8 flex flex-wrap justify-center gap-y-1.5 text-sm md:text-base font-extrabold uppercase tracking-[0.12em]`}
+          style={{ color: C.ink }}
+        >
+          {MARQUEE.map((item) => (
+            <span key={item} className="inline-flex items-center">
+              <span className="px-3">{item}</span>
+              <svg viewBox="0 0 24 24" className="w-3 h-3" fill={C.blue} aria-hidden="true">
+                <path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4Z" />
+              </svg>
             </span>
           ))}
         </div>
@@ -319,6 +314,7 @@ export default function RestobarLosLeonesPage() {
                   alt="Cazuela de vacuno con papas, choclo y zapallo, con pebre y pan amasado"
                   fill
                   sizes="(min-width: 768px) 58vw, 100vw"
+                  loading="eager"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
@@ -349,6 +345,7 @@ export default function RestobarLosLeonesPage() {
                   alt="Empanadas recién horneadas sobre lata, junto a uslero y masa"
                   fill
                   sizes="(min-width: 768px) 42vw, 100vw"
+                  loading="eager"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
@@ -379,6 +376,7 @@ export default function RestobarLosLeonesPage() {
                   alt="Mesón de la cocina con sopaipillas, platos y copas listas para servir"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
+                  loading="eager"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
@@ -413,6 +411,7 @@ export default function RestobarLosLeonesPage() {
               alt="Fachada del restobar en una calle de Pelarco, con cerros y viñas de fondo"
               fill
               sizes="100vw"
+              loading="eager"
               className="object-cover"
             />
           </div>
@@ -689,14 +688,20 @@ export default function RestobarLosLeonesPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. La
-            carta, los precios, las reseñas y las fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            Sitio de ejemplo preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#FFFFFF' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. La carta, los precios, las reseñas y las fotos
+            son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.lime }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
