@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Bricolage_Grotesque, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { Vitrina, C, HAZARD } from './vitrina'
-import { BIZ, WA_LINK, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import { BIZ, WA_LINK, waLinkServicio, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -61,6 +62,11 @@ export default function GirlsHousePage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`
+        @keyframes gh-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .gh-marquee-track { animation: gh-marquee 36s linear infinite; }
+        @media (prefers-reduced-motion: reduce) { .gh-marquee-track { animation: none; } }
+      `}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -76,44 +82,21 @@ export default function GirlsHousePage() {
         }}
       />
 
-      {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.ink }}>
-        <img
-          src={`${IMG}/hero.webp`}
-          alt="Sala de atención de Girls House Estética: camilla, lámpara de trabajo y vista a la calle de Molina"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      {/* ── Escaparate ── */}
+      <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.ink }}>
         <div
-          className="absolute inset-0"
+          aria-hidden="true"
+          className="absolute inset-0 opacity-[0.05]"
           style={{
-            background:
-              'linear-gradient(180deg, rgba(23,24,26,0.55) 0%, rgba(23,24,26,0.18) 42%, rgba(23,24,26,0.88) 100%)',
+            backgroundImage:
+              'repeating-linear-gradient(90deg, #8A9199 0 1px, transparent 1px 96px)',
           }}
         />
-        {/* sello de Instagram */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8">
-          <Reveal>
-            <a
-              href={IG_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 shadow-lg"
-              style={{ backgroundColor: C.signal, color: C.ink }}
-            >
-              <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-              </svg>
-              {BIZ.instagramFollowers} seguidores en Instagram
-            </a>
-          </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-20 md:pb-28 grid lg:grid-cols-[1.05fr_0.95fr] gap-14 md:gap-16 items-center">
           <Reveal>
             <Eyebrow light>Centro de estética · Molina · Maule</Eyebrow>
             <h1
-              className={`${display.className} font-extrabold leading-[0.98] tracking-[-0.02em] text-[clamp(2.9rem,10vw,6.4rem)] mb-6 uppercase`}
+              className={`${display.className} font-extrabold leading-[0.98] tracking-[-0.02em] text-[clamp(2.9rem,9vw,5.8rem)] mb-6 uppercase`}
               style={{ color: '#FFFFFF' }}
             >
               Trabajo fino,
@@ -121,39 +104,138 @@ export default function GirlsHousePage() {
               <span style={{ color: C.signal }}>precio claro.</span>
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(255,255,255,0.85)' }}>
-              Maquillaje, cejas, pestañas y faciales en {BIZ.address},
+              Maquillaje, cejas, pestañas y faciales en {BIZ.address},{' '}
               {BIZ.city}. Cada servicio con su ficha: qué incluye, cuánto
               dura y qué vale. Sin letra chica.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mb-10">
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95 uppercase tracking-wide`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95 uppercase tracking-wide focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]`}
                 style={{ backgroundColor: C.signal, color: C.ink }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#vitrina"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 uppercase tracking-wide`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 uppercase tracking-wide focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver la vitrina
               </a>
             </div>
+            <ul className="flex flex-wrap gap-x-7 gap-y-2 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              <li>
+                <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  @{BIZ.instagram} · {BIZ.instagramFollowers} seguidores
+                </a>
+              </li>
+              <li>{BIZ.address}, {BIZ.city}</li>
+              <li style={{ color: C.signal }}>Sitio de ejemplo · precios de muestra</li>
+            </ul>
+          </Reveal>
+          <Reveal delay={140}>
+            <div className="relative">
+              {/* marco de la vitrina */}
+              <div
+                className="border-2 p-2 md:p-2.5"
+                style={{
+                  borderColor: 'rgba(255,255,255,0.28)',
+                  backgroundColor: 'rgba(255,255,255,0.05)',
+                }}
+              >
+                <div className="flex items-baseline justify-between gap-3 px-1.5 pb-2.5">
+                  <p
+                    className={`${display.className} text-[11px] md:text-xs font-bold uppercase tracking-[0.24em]`}
+                    style={{ color: C.signal }}
+                  >
+                    Girls House
+                  </p>
+                  <p className="text-[10px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                    {BIZ.address} · {BIZ.city}
+                  </p>
+                </div>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={`${IMG}/hero.webp`}
+                    alt="Sala de atención de Girls House Estética: camilla, lámpara de trabajo y vista a la calle de Molina"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 45vw"
+                    className="object-cover"
+                  />
+                  {/* reflejo del vidrio */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        'linear-gradient(115deg, transparent 42%, rgba(255,255,255,0.10) 48%, rgba(255,255,255,0.04) 54%, transparent 60%)',
+                    }}
+                  />
+                  <span
+                    className="absolute top-0 right-5 text-[10px] font-bold uppercase tracking-[0.14em] px-3 py-1.5"
+                    style={{ background: HAZARD, color: C.signal, textShadow: '0 1px 0 #17181A' }}
+                  >
+                    Oferta
+                  </span>
+                </div>
+                <div style={{ background: HAZARD, height: '6px' }} aria-hidden="true" />
+              </div>
+              {/* etiqueta de precio */}
+              <div
+                className="absolute -bottom-5 left-3 md:left-5 -rotate-2 shadow-xl"
+                style={{ backgroundColor: C.signal, color: C.ink }}
+              >
+                <div className="flex items-stretch">
+                  <span
+                    className="flex items-center px-2.5 border-r border-dashed"
+                    style={{ borderColor: 'rgba(23,24,26,0.35)' }}
+                    aria-hidden="true"
+                  >
+                    <span className="block w-2 h-2 rounded-full border-2" style={{ borderColor: C.ink }} />
+                  </span>
+                  <span className="block px-3.5 py-2.5">
+                    <span className="block text-[9px] font-bold uppercase tracking-[0.2em] mb-1">
+                      Lifting de pestañas
+                    </span>
+                    <span className={`${display.className} block text-xl md:text-2xl font-extrabold leading-none`}>
+                      $18.000
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
           </Reveal>
         </div>
-        {/* barra de datos al pie del hero */}
-        <div className="relative" style={{ background: HAZARD, height: '4px' }} aria-hidden="true" />
-        <div className="relative" style={{ backgroundColor: 'rgba(23,24,26,0.75)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            <span>{BIZ.address} · {BIZ.city}</span>
-            <span>@{BIZ.instagram}</span>
-            <span>Agenda directa por WhatsApp</span>
-            <span className="hidden md:inline" style={{ color: C.signal }}>sitio de ejemplo</span>
-          </div>
+      </section>
+
+      {/* ── Cinta de precios ── */}
+      <section aria-label="Servicios y precios de muestra" className="overflow-hidden" style={{ backgroundColor: C.signal }}>
+        <div className="gh-marquee-track flex w-max items-center py-3 md:py-3.5">
+          {[0, 1].map((copy) => (
+            <ul
+              key={copy}
+              aria-hidden={copy === 1}
+              className={`${display.className} flex items-center whitespace-nowrap`}
+            >
+              {PRICES.map((p) => (
+                <li
+                  key={p.name}
+                  className="flex items-center text-xs md:text-sm font-bold uppercase tracking-[0.12em]"
+                  style={{ color: C.ink }}
+                >
+                  <span className="px-4">{p.name}</span>
+                  <span className="px-2 py-0.5" style={{ backgroundColor: C.ink, color: C.signal }}>
+                    {p.price}
+                  </span>
+                  <span className="pl-4" aria-hidden="true">✦</span>
+                </li>
+              ))}
+            </ul>
+          ))}
         </div>
       </section>
 
@@ -184,12 +266,13 @@ export default function GirlsHousePage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
           <Reveal>
             <div className="relative">
-              <div className="overflow-hidden border" style={{ borderColor: C.line }}>
-                <img
+              <div className="relative aspect-[4/3] overflow-hidden border" style={{ borderColor: C.line }}>
+                <Image
                   src={`${IMG}/ambiente.webp`}
                   alt="Fachada de Girls House Estética en Quechereguas, Molina: vitrina encendida al atardecer"
-                  loading="lazy"
-                  className="w-full h-full object-cover aspect-[4/3]"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
               <div
@@ -254,7 +337,7 @@ export default function GirlsHousePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block font-bold text-sm px-7 py-3.5 uppercase tracking-wide transition-transform active:scale-95`}
+                className={`${display.className} inline-block font-bold text-sm px-7 py-3.5 uppercase tracking-wide transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]`}
                 style={{ backgroundColor: C.signal, color: C.ink }}
               >
                 Consultar valor real
@@ -263,28 +346,32 @@ export default function GirlsHousePage() {
             <Reveal delay={120}>
               <ul className="border-t" style={{ borderColor: 'rgba(255,255,255,0.18)' }}>
                 {PRICES.map((p) => (
-                  <li
-                    key={p.name}
-                    className="flex items-baseline gap-3 py-4 border-b border-dashed"
-                    style={{ borderColor: 'rgba(255,255,255,0.18)' }}
-                  >
-                    <span className="text-sm md:text-base font-medium" style={{ color: '#FFFFFF' }}>
-                      {p.name}
-                    </span>
-                    <span className="flex-1 border-b border-dotted translate-y-[-4px]" style={{ borderColor: 'rgba(138,145,153,0.5)' }} aria-hidden="true" />
-                    {p.before && (
-                      <span className="text-xs line-through" style={{ color: C.steel }}>
-                        {p.before}
+                  <li key={p.name}>
+                    <a
+                      href={waLinkServicio(p.name)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-baseline gap-3 py-4 px-2 -mx-2 border-b border-dashed transition-colors hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]"
+                      style={{ borderColor: 'rgba(255,255,255,0.18)' }}
+                    >
+                      <span className="text-sm md:text-base font-medium transition-transform group-hover:translate-x-1" style={{ color: '#FFFFFF' }}>
+                        {p.name}
                       </span>
-                    )}
-                    <span className={`${display.className} text-xl md:text-2xl font-extrabold`} style={{ color: C.signal }}>
-                      {p.price}
-                    </span>
+                      <span className="flex-1 border-b border-dotted translate-y-[-4px]" style={{ borderColor: 'rgba(138,145,153,0.5)' }} aria-hidden="true" />
+                      {p.before && (
+                        <span className="text-xs line-through" style={{ color: C.steel }}>
+                          {p.before}
+                        </span>
+                      )}
+                      <span className={`${display.className} text-xl md:text-2xl font-extrabold`} style={{ color: C.signal }}>
+                        {p.price}
+                      </span>
+                    </a>
                   </li>
                 ))}
               </ul>
               <p className="mt-4 text-[11px] uppercase tracking-[0.18em]" style={{ color: C.steel }}>
-                Lista de muestra · confirma valores por WhatsApp
+                Lista de muestra · toca un servicio para reservarlo por WhatsApp
               </p>
             </Reveal>
           </div>
@@ -311,7 +398,7 @@ export default function GirlsHousePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 uppercase tracking-wide transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 uppercase tracking-wide transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A]`}
                 style={{ backgroundColor: C.ink, color: C.signal }}
               >
                 {BIZ.phoneDisplay}
@@ -320,7 +407,7 @@ export default function GirlsHousePage() {
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 uppercase tracking-wide border-2 transition-colors hover:bg-black/5`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 uppercase tracking-wide border-2 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A]`}
                 style={{ borderColor: C.ink, color: C.ink }}
               >
                 @{BIZ.instagram}

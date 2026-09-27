@@ -9,6 +9,7 @@
  */
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { IMG, waLinkServicio } from './content'
 
 export const C = {
@@ -136,7 +137,7 @@ export function Vitrina({ fontClass }: { fontClass: string }) {
               type="button"
               onClick={() => setFilter(f.key)}
               aria-pressed={active}
-              className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.14em] px-4 py-2 border transition-colors"
+              className={`text-[11px] md:text-xs font-semibold uppercase tracking-[0.14em] px-4 py-2 border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]${active ? '' : ' hover:border-[#8A9199] hover:text-[#17181A]'}`}
               style={{
                 backgroundColor: active ? C.signal : 'transparent',
                 borderColor: active ? C.signal : C.line,
@@ -164,11 +165,12 @@ export function Vitrina({ fontClass }: { fontClass: string }) {
             style={{ borderColor: C.line }}
           >
             <div className="relative aspect-[4/3] overflow-hidden" style={{ backgroundColor: C.ink }}>
-              <img
+              <Image
                 src={`${IMG}/${p.img}`}
                 alt={p.name}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 style={p.pos ? { objectPosition: p.pos } : undefined}
               />
               <span
@@ -216,15 +218,15 @@ export function Vitrina({ fontClass }: { fontClass: string }) {
                 <div>
                   {p.before && (
                     <p
-                      className="text-xs line-through leading-none mb-1"
+                      className="text-xs line-through leading-none mb-1.5"
                       style={{ color: C.steel }}
                     >
-                      {p.before}
+                      antes {p.before}
                     </p>
                   )}
                   <p
-                    className={`${fontClass} text-2xl font-extrabold leading-none`}
-                    style={{ color: C.ink }}
+                    className={`${fontClass} inline-block text-xl md:text-2xl font-extrabold leading-none px-2 py-1 -ml-2`}
+                    style={{ backgroundColor: C.signal, color: C.ink }}
                   >
                     {p.price}
                   </p>
@@ -233,7 +235,7 @@ export function Vitrina({ fontClass }: { fontClass: string }) {
                   href={waLinkServicio(p.name)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-2 transition-colors"
+                  className="text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-2 transition-colors hover:bg-[#FFC300] hover:text-[#17181A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A]"
                   style={{ backgroundColor: C.ink, color: '#fff' }}
                 >
                   Reservar
