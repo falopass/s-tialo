@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Fraunces, Public_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_EVENTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -19,7 +19,8 @@ const C = {
   amber: '#B97E33',
   amberSoft: '#E7D3AC',
   ink: '#232A20',
-  muted: '#6C7260',
+  muted: '#565C4B',
+  amberText: '#8A5A1F',
   line: 'rgba(35,42,32,0.16)',
 }
 
@@ -89,7 +90,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: light ? C.amberSoft : C.amber }}
+      style={{ color: light ? C.amberSoft : C.amberText }}
     >
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
@@ -123,13 +124,14 @@ export default function RanchoItahuePage() {
         <img
           src={`${IMG}/hero.webp`}
           alt="Vista amplia de Rancho Itahue: pradera, caballos y cerros de la precordillera maulina"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(18,35,26,0.42) 0%, rgba(18,35,26,0.08) 38%, rgba(18,35,26,0.78) 100%)',
+              'linear-gradient(180deg, rgba(18,35,26,0.42) 0%, rgba(18,35,26,0.3) 38%, rgba(18,35,26,0.78) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -267,7 +269,7 @@ export default function RanchoItahuePage() {
                     <img
                       src={e.src}
                       alt={e.name}
-                      loading="lazy"
+                     
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
                     <span
@@ -301,7 +303,7 @@ export default function RanchoItahuePage() {
               <img
                 src={`${IMG}/eventos.webp`}
                 alt="Quinchos y sector de eventos de Rancho Itahue al atardecer"
-                loading="lazy"
+               
                 className="w-full h-full object-cover aspect-[4/3]"
               />
             </div>
@@ -356,19 +358,19 @@ export default function RanchoItahuePage() {
         <Reveal delay={120}>
           <div className="grid grid-cols-2 md:grid-cols-6 md:auto-rows-[215px] lg:auto-rows-[250px] gap-3">
             <figure className="col-span-2 md:col-span-4 md:row-span-2 rounded-2xl overflow-hidden">
-              <img src={`${IMG}/hero.webp`} alt="Panorámica de Rancho Itahue" loading="lazy" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
+              <img src={`${IMG}/hero.webp`} alt="Panorámica de Rancho Itahue" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
             </figure>
             <figure className="rounded-2xl overflow-hidden">
-              <img src={`${IMG}/cabalgata.webp`} alt="Cabalgata por los senderos del rancho" loading="lazy" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+              <img src={`${IMG}/cabalgata.webp`} alt="Cabalgata por los senderos del rancho" className="w-full h-full object-cover aspect-square md:aspect-auto" />
             </figure>
             <figure className="rounded-2xl overflow-hidden">
-              <img src={`${IMG}/naturaleza.webp`} alt="Bosque nativo y senderos del predio" loading="lazy" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+              <img src={`${IMG}/naturaleza.webp`} alt="Bosque nativo y senderos del predio" className="w-full h-full object-cover aspect-square md:aspect-auto" />
             </figure>
             <figure className="col-span-2 md:col-span-3 rounded-2xl overflow-hidden">
-              <img src={`${IMG}/piscina.webp`} alt="Piscina al aire libre rodeada de pradera" loading="lazy" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+              <img src={`${IMG}/piscina.webp`} alt="Piscina al aire libre rodeada de pradera" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
             </figure>
             <figure className="col-span-2 md:col-span-3 rounded-2xl overflow-hidden">
-              <img src={`${IMG}/eventos.webp`} alt="Sector de quinchos preparado para un evento" loading="lazy" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+              <img src={`${IMG}/eventos.webp`} alt="Sector de quinchos preparado para un evento" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
             </figure>
           </div>
         </Reveal>
@@ -393,7 +395,7 @@ export default function RanchoItahuePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-semibold underline underline-offset-4 decoration-2"
-                style={{ color: C.amber, textDecorationColor: 'rgba(185,126,51,0.35)' }}
+                style={{ color: C.amberText, textDecorationColor: 'rgba(185,126,51,0.35)' }}
               >
                 Ver la ficha en Google →
               </a>
@@ -408,7 +410,7 @@ export default function RanchoItahuePage() {
                     <blockquote className={`${display.className} text-base md:text-lg leading-relaxed mb-4`} style={{ color: C.ink }}>
                       “{t}”
                     </blockquote>
-                    <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.amber }}>
+                    <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.amberText }}>
                       Reseña de ejemplo
                     </figcaption>
                   </figure>
@@ -466,7 +468,7 @@ export default function RanchoItahuePage() {
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
-                loading="lazy"
+               
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
@@ -529,14 +531,19 @@ export default function RanchoItahuePage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(245,240,227,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(245,240,227,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            actividades y fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(245,240,227,0.75)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.amberSoft }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Textos, actividades y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.amberSoft }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
