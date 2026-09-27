@@ -158,6 +158,14 @@ const BLITZ = [
     tagline: 'Panel de datos cumplidor: rojo, gris flota y naranja señal, con fotos.',
     gradient: 'linear-gradient(135deg, #4A4E52 0%, #C1272D 140%)',
   },
+  {
+    slug: 'csf-especialidades-veterinarias-san-francisco',
+    name: 'CSF Especialidades Veterinarias',
+    rubro: 'Clínica veterinaria',
+    city: 'Talca',
+    tagline: 'Brutalista industrial: azul eléctrico, lima y negro, retícula de obra con fotos.',
+    gradient: 'linear-gradient(135deg, #0E0E0E 0%, #2251FF 55%, #C6F24E 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
