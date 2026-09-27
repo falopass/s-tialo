@@ -62,6 +62,7 @@ function Ornament() {
 export default function Page() {
   return (
     <main className={`${sans.className} min-h-screen`} style={{ background: C.crema, color: C.ink }}>
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
@@ -71,7 +72,7 @@ export default function Page() {
       />
 
       {/* Portada a sangre */}
-      <section className="relative min-h-[100svh] flex items-center justify-center text-center overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-center justify-center text-center overflow-hidden" style={{ background: C.campoDeep }}>
         <Image src={`${IMG}/hero.webp`} alt="Pasillo de ferretería con fitting, herramientas, sacos de cemento y pinturas, abierto hacia una calle de pueblo" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(42,61,33,0.78) 0%, rgba(42,61,33,0.62) 50%, rgba(42,61,33,0.9) 100%)' }} />
         <div className="relative px-6 py-28 max-w-3xl" style={{ color: C.crema }}>
