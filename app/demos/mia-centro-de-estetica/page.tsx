@@ -225,7 +225,7 @@ export default function MiaCentroDeEsteticaPage() {
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
-          over: 'dark',
+          over: 'light',
           bar: 'rgba(251,247,239,0.94)',
           ink: C.deep,
           line: C.line,
@@ -248,7 +248,8 @@ export default function MiaCentroDeEsteticaPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(46,66,36,0.55) 0%, rgba(46,66,36,0.30) 35%, rgba(46,66,36,0.88) 100%)',
+              'linear-gradient(180deg, rgba(251,247,239,0.94) 0%, rgba(251,247,239,0) 130px), ' +
+              'linear-gradient(180deg, rgba(46,66,36,0.30) 0%, rgba(46,66,36,0.30) 35%, rgba(46,66,36,0.88) 100%)',
           }}
         />
         <div className="absolute top-24 md:top-28 right-5 md:right-8">
@@ -540,7 +541,7 @@ export default function MiaCentroDeEsteticaPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.8)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.8)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2" style={{ color: '#FBF7EF' }}>
               Sitiazo
