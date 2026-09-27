@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Anton, Heebo, Roboto_Mono } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_PRESUPUESTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -150,6 +150,7 @@ export default function TallerServimacPage() {
       className={`${body.className} min-h-screen antialiased overflow-x-clip`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -235,7 +236,7 @@ export default function TallerServimacPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(244,244,242,0.22)', backgroundColor: 'rgba(42,45,48,0.55)', backdropFilter: 'blur(6px)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(244,244,242,0.22)', backgroundColor: 'rgba(42,45,48,0.8)', backdropFilter: 'blur(6px)' }}>
           <div className={`${mono.className} max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]`} style={{ color: 'rgba(244,244,242,0.78)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
@@ -457,7 +458,7 @@ export default function TallerServimacPage() {
                 <br />
                 <span style={{ color: C.signal }}>antes de abrir el capó</span>
               </h2>
-              <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: 'rgba(244,244,242,0.72)' }}>
+              <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: 'rgba(244,244,242,0.85)' }}>
                 Todos los valores son de muestra para mostrar el
                 formato. Las tarifas reales las confirma el taller por
                 WhatsApp.
@@ -484,7 +485,7 @@ export default function TallerServimacPage() {
           </Reveal>
           <Reveal delay={200}>
             <div className="flex flex-wrap items-center justify-between gap-4 mt-10">
-              <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.16em]`} style={{ color: 'rgba(244,244,242,0.55)' }}>
+              <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.16em]`} style={{ color: 'rgba(244,244,242,0.8)' }}>
                 Valores de muestra · sin compromiso
               </p>
               <a
@@ -610,11 +611,11 @@ export default function TallerServimacPage() {
               <Wrench className="w-5 h-5" color={C.signal} />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,244,242,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,244,242,0.8)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,244,242,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,244,242,0.8)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white focus-visible:text-white transition-colors">
                 {l.label}
@@ -626,16 +627,21 @@ export default function TallerServimacPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(244,244,242,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(244,244,242,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-            Servicios, precios, horarios y reseñas son de muestra; el
-            nombre, la dirección, el teléfono y las redes corresponden
-            a datos públicos del taller.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(244,244,242,0.8)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signal }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Servicios, precios, horarios y reseñas son de
+            muestra; nombre, dirección, teléfono y redes son datos públicos
+            del taller.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signal }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
