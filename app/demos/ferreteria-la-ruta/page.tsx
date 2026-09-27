@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Fraunces, Manrope } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_STOCK, MAPS_URL, MAPS_EMBED } from './content'
 
@@ -154,7 +154,7 @@ function Leader({ dark = false }: { dark?: boolean }) {
 export default function FerreteriaLaRutaPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`${body.className} relative min-h-screen antialiased overflow-x-clip [&>header]:!absolute`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <BlitzNav
@@ -550,7 +550,7 @@ export default function FerreteriaLaRutaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deepInk, color: '#FFFFFF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
           <div>
             <p className={`${display.className} italic font-medium text-2xl mb-2 flex items-center gap-3`}>
               <Wrench className="w-5 h-5" color={C.lime} />
@@ -569,16 +569,19 @@ export default function FerreteriaLaRutaPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            productos, precios, servicios, horarios y fotos son de muestra;
-            la dirección, el teléfono, el Facebook y las {BIZ.reviews}{' '}
-            reseñas de Google son los datos reales de la ficha.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 md:pb-8 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:opacity-80`} style={{ color: '#FFFFFF' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name} — así se vería tu sitio. Productos, precios y
+            horarios son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:opacity-80`} style={{ color: C.lime }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
