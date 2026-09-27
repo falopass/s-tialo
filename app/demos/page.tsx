@@ -670,6 +670,14 @@ const BLITZ = [
     tagline: 'Doble columna con sidebar pegajoso: azul pizarra y amarillo lápiz, fichas que explican cada tema, con fotos.',
     gradient: 'linear-gradient(135deg, #1F323E 0%, #2F4858 55%, #F2B705 140%)',
   },
+  {
+    slug: 'jardin-vivero-carolina',
+    name: 'Jardin Vivero Carolina',
+    rubro: 'Vivero',
+    city: 'Curicó',
+    tagline: 'Directorio funcional: azul noche, arena y terracota, lista con fotos, precios a la derecha y FAQ en bloques.',
+    gradient: 'linear-gradient(135deg, #1B2A41 0%, #26395A 55%, #C1663F 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
