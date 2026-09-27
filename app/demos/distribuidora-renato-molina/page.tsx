@@ -122,6 +122,7 @@ function Chevrons({ color }: { color: string }) {
 export default function DistribuidoraRenatoMolina() {
   return (
     <div className={`${body.className} antialiased`} style={{ backgroundColor: C.rojo, color: C.tinta }}>
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
@@ -149,7 +150,7 @@ export default function DistribuidoraRenatoMolina() {
             </p>
           </div>
 
-          <h1 className={`${display.className} font-extrabold uppercase leading-[0.86] tracking-[-0.04em] text-[17vw] md:text-[12.5vw] lg:text-[164px]`}>
+          <h1 className={`${display.className} w-fit font-extrabold uppercase leading-[0.86] tracking-[-0.04em] text-[11.5vw] md:text-[11vw] lg:text-[132px]`}>
             <span className="block">Tu pedido,</span>
             <span className="block">listo y</span>
             <span className="block">
@@ -300,7 +301,7 @@ export default function DistribuidoraRenatoMolina() {
               </a>
               .
             </p>
-            <p className="mt-3 text-xs text-white/50">Textos de muestra.</p>
+            <p className="mt-3 text-xs text-white/70">Textos de muestra.</p>
           </div>
         </div>
       </section>
