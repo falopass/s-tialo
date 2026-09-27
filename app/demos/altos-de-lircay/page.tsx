@@ -17,6 +17,7 @@ const C = {
   forest: '#24503A',
   forestDeep: '#16342A',
   copper: '#B4643C',
+  copperInk: '#9E5530',
   copperSoft: '#EFDCCF',
   muted: '#5B6E60',
   line: 'rgba(36,80,58,0.14)',
@@ -82,7 +83,7 @@ export default function AltosDeLircayPage() {
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
-          over: 'dark',
+          over: 'light',
           bar: 'rgba(252,253,251,0.94)',
           ink: C.forestDeep,
           line: C.line,
@@ -101,20 +102,20 @@ export default function AltosDeLircayPage() {
               'linear-gradient(180deg, rgba(22,52,42,0.25) 0%, rgba(22,52,42,0) 35%, rgba(22,52,42,0.72) 100%)',
           }}
         />
-        {/* sello de rating */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8">
-          <Reveal>
-            <p
-              className="flex items-center gap-2 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
-              style={{ backgroundColor: 'rgba(252,253,251,0.94)', color: C.forestDeep }}
-            >
-              <Stars value={BIZ.rating} color={C.copper} />
-              {BIZ.ratingLabel} en Google
-            </p>
-          </Reveal>
-        </div>
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24 pt-32">
           <Reveal>
+            <div
+              className="max-w-2xl rounded-3xl p-6 md:p-10 backdrop-blur-sm"
+              style={{ backgroundColor: 'rgba(22,52,42,0.84)' }}
+            >
+            {/* sello de rating */}
+            <p
+              className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg mb-6"
+              style={{ backgroundColor: '#FCFDFB', color: C.forestDeep }}
+            >
+              <Stars value={BIZ.rating} color={C.copperInk} />
+              {BIZ.ratingLabel} en Google
+            </p>
             <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] mb-5 flex items-center gap-3" style={{ color: C.copperSoft }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: C.copperSoft }} aria-hidden="true" />
               Clínica dental en San Clemente
@@ -127,7 +128,7 @@ export default function AltosDeLircayPage() {
               <br />
               en el valle
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-lg mb-8" style={{ color: 'rgba(252,253,251,0.88)' }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-lg mb-8" style={{ color: '#FCFDFB' }}>
               Atención dental cercana, sin traslados largos ni esperas
               eternas. Agenda tu hora por WhatsApp.
             </p>
@@ -137,17 +138,18 @@ export default function AltosDeLircayPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.copper, color: '#fff' }}
+                style={{ backgroundColor: C.copperInk, color: '#fff' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#tratamientos"
                 className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors`}
-                style={{ borderColor: 'rgba(252,253,251,0.5)', color: '#FCFDFB' }}
+                style={{ borderColor: 'rgba(252,253,251,0.5)', backgroundColor: C.forestDeep, color: '#FCFDFB' }}
               >
                 Ver tratamientos
               </a>
+            </div>
             </div>
           </Reveal>
         </div>
@@ -179,7 +181,7 @@ export default function AltosDeLircayPage() {
       {/* ── Tratamientos (lista) ── */}
       <section id="tratamientos" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.22em] mb-3 font-semibold" style={{ color: C.copper }}>
+          <p className="text-[11px] uppercase tracking-[0.22em] mb-3 font-semibold" style={{ color: C.copperInk }}>
             Tratamientos
           </p>
           <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.forest }}>
@@ -314,7 +316,7 @@ export default function AltosDeLircayPage() {
                   <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.forestDeep }}>
                     “{t}”
                   </blockquote>
-                  <figcaption className="text-xs uppercase tracking-[0.15em] font-semibold" style={{ color: C.copper }}>
+                  <figcaption className="text-xs uppercase tracking-[0.15em] font-semibold" style={{ color: C.copperInk }}>
                     Reseña de ejemplo
                   </figcaption>
                 </figure>
@@ -425,7 +427,7 @@ export default function AltosDeLircayPage() {
             <h2 className={`${display.className} font-semibold text-[clamp(2rem,6vw,3.8rem)] leading-[1.04] mb-6`} style={{ color: C.forestDeep }}>
               Agenda tu hora en San Clemente
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: C.muted }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: C.forest }}>
               Escríbenos por WhatsApp y te confirmamos la hora más
               cercana disponible.
             </p>
@@ -453,7 +455,7 @@ export default function AltosDeLircayPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.forestDeep, color: '#FCFDFB' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-12 pb-28 md:pb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(252,253,251,0.65)' }}>
@@ -464,7 +466,7 @@ export default function AltosDeLircayPage() {
               </a>
             </address>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(252,253,251,0.45)' }}>
+          <p className="text-xs" style={{ color: 'rgba(252,253,251,0.72)' }}>
             © {new Date().getFullYear()} {BIZ.name}
           </p>
         </div>
