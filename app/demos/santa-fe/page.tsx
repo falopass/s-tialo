@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Oswald, Barlow } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { GridScene } from './scenes'
@@ -16,6 +16,8 @@ const C = {
   steel: '#3A4148',
   orange: '#E8631A',
   orangeInk: '#A8440C',
+  // naranjo claro: texto sobre grafito/deep (≥4.5:1)
+  orangeHi: '#F07C3C',
   orangeSoft: '#FBDDC9',
   muted: '#5D666E',
   line: 'rgba(38,43,49,0.16)',
@@ -103,20 +105,23 @@ export default function SantaFePage() {
       style={{ backgroundColor: C.paper, color: C.graphite }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={`${display.className} uppercase`}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(237,239,241,0.94)',
-          ink: C.graphite,
-          line: C.line,
-          btnBg: C.orange,
-          btnInk: '#fff',
-        }}
-      />
+      {/* el nav fijo es transparente arriba: este wrapper declara el fondo oscuro real detrás (hero) */}
+      <div style={{ backgroundColor: C.deep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={`${display.className} uppercase`}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(237,239,241,0.94)',
+            ink: C.graphite,
+            line: C.line,
+            btnBg: C.orangeInk,
+            btnInk: '#fff',
+          }}
+        />
+      </div>
 
       {/* ── Hero con grilla técnica ── */}
       <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden" style={{ backgroundColor: C.deep }}>
@@ -152,7 +157,7 @@ export default function SantaFePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-7 py-3.5 transition-transform active:scale-95`}
-                style={{ backgroundColor: C.orange, color: '#fff' }}
+                style={{ backgroundColor: C.orangeInk, color: '#fff' }}
               >
                 Cotiza tu proyecto
               </a>
@@ -231,7 +236,7 @@ export default function SantaFePage() {
                     style={{ backgroundColor: C.orange }}
                     aria-hidden="true"
                   />
-                  <p className={`${display.className} font-semibold text-xs uppercase tracking-[0.2em] mb-2`} style={{ color: C.orange }}>
+                  <p className={`${display.className} font-semibold text-xs uppercase tracking-[0.2em] mb-2`} style={{ color: C.orangeHi }}>
                     0{i + 1}
                   </p>
                   <h3 className={`${display.className} uppercase font-semibold text-lg leading-snug mb-2`}>
@@ -414,25 +419,37 @@ export default function SantaFePage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#EDEFF1' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-12 pb-28 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <p className={`${display.className} uppercase font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,239,241,0.6)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,239,241,0.72)' }}>
               {BIZ.address} · {BIZ.region}
-              <br />
+              {' · '}
               <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
                 {BIZ.phoneDisplay}
               </a>
             </address>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(237,239,241,0.6)' }}>
+          <p className="text-xs" style={{ color: 'rgba(237,239,241,0.72)' }}>
             © {new Date().getFullYear()} {BIZ.name}
+          </p>
+        </div>
+        {/* Aviso de mockup en el flujo (no flotante) para no tapar contenido; pb deja libre la burbuja de WhatsApp */}
+        <div style={{ borderTop: '1px solid rgba(237,239,241,0.15)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(237,239,241,0.75)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}, así se vería tu sitio.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }
