@@ -287,6 +287,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
   },
   {
+    slug: 'vasquez-muebles-linares-spa',
+    name: 'Vasquez Muebles Linares',
+    rubro: 'Fábrica de muebles',
+    city: 'Linares',
+    tagline: 'Jardín botánico de taller: azul noche, arena y terracota, arcos y hojas, con fotos.',
+    gradient: 'linear-gradient(135deg, #1B2A41 0%, #1B2A41 55%, #C1663F 140%)',
+  },
+  {
     slug: 'restaurant-el-encuentro',
     name: 'Restaurant El Encuentro',
     rubro: 'Restaurante',
