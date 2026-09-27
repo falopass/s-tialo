@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -19,8 +20,9 @@ const C = {
   concrete: '#3A3F44',
   concreteDeep: '#24272B',
   orange: '#E4572E',
+  orangeDark: '#B93A17',
   orangeSoft: '#F2A582',
-  muted: '#73695C',
+  muted: '#5E574B',
   line: 'rgba(58,63,68,0.22)',
   lineLight: 'rgba(237,230,218,0.2)',
 }
@@ -45,7 +47,7 @@ const PASOS = [
     src: `${IMG}/detalle2.webp`,
     tag: 'reserva directa',
     title: 'Llegas y te reciben en la puerta',
-    desc: 'Escríbes por WhatsApp, te confirman la pieza y al llegar hay alguien esperándote: sin recepción de hotel ni formularios.',
+    desc: 'Escríbenos por WhatsApp, te confirmamos la pieza y al llegar hay alguien esperándote: sin recepción de hotel ni formularios.',
     alt: 'Recepción del hostal con llavero de madera, campana y libro de huéspedes',
   },
   {
@@ -117,13 +119,17 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="text-[11px] uppercase tracking-[0.26em] mb-4 flex items-center gap-3 font-bold"
-      style={{ color: light ? C.orangeSoft : C.orange }}
+      style={{ color: light ? C.orangeSoft : C.orangeDark }}
     >
       <KeyIcon className="w-[18px] h-[18px]" />
       {children}
     </p>
   )
 }
+
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B93A17]'
+const btnSolid = `${display.className} ${FOCUS} inline-block bg-[#E4572E] text-white font-bold text-sm md:text-base px-7 py-3.5 transition-all hover:bg-[#B93A17] active:scale-95`
+const btnGhostDark = `${display.className} ${FOCUS} font-bold text-sm md:text-base px-7 py-3.5 border-2 border-[#EDE6DA]/60 text-[#EDE6DA] transition-colors hover:bg-white/10`
 
 export default function HostalJosefaPage() {
   return (
@@ -148,10 +154,13 @@ export default function HostalJosefaPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.concreteDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Pieza del Hostal Josefa con cama de sábanas blancas y ventana con vista a los techos de Curicó"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -198,15 +207,13 @@ export default function HostalJosefaPage() {
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
-                style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                className={btnSolid}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#historia"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
-                style={{ borderColor: 'rgba(237,230,218,0.55)', color: '#EDE6DA' }}
+                className={btnGhostDark}
               >
                 Cómo es quedarse
               </a>
@@ -267,14 +274,15 @@ export default function HostalJosefaPage() {
                   {/* foto */}
                   <div className={i % 2 === 1 ? 'md:order-2' : ''}>
                     <div
-                      className="border-[3px]"
+                      className="relative aspect-[4/3] border-[3px]"
                       style={{ borderColor: C.concrete, boxShadow: `10px 10px 0 ${C.orange}` }}
                     >
-                      <img
+                      <Image
                         src={p.src}
                         alt={p.alt}
-                        loading="lazy"
-                        className="w-full h-full object-cover aspect-[4/3]"
+                        fill
+                        sizes="(min-width: 768px) 45vw, 100vw"
+                        className="object-cover"
                       />
                     </div>
                   </div>
@@ -282,7 +290,7 @@ export default function HostalJosefaPage() {
                   <div className={i % 2 === 1 ? 'md:order-1 md:text-right' : ''}>
                     <p
                       className={`${display.className} text-[11px] uppercase tracking-[0.26em] font-bold mb-3`}
-                      style={{ color: C.orange }}
+                      style={{ color: C.orangeDark }}
                     >
                       {p.tag}
                     </p>
@@ -306,14 +314,15 @@ export default function HostalJosefaPage() {
           <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-center mb-14 md:mb-20">
             <Reveal>
               <div
-                className="border-[3px]"
+                className="relative aspect-[4/3] border-[3px]"
                 style={{ borderColor: 'rgba(237,230,218,0.35)', boxShadow: `10px 10px 0 ${C.orange}` }}
               >
-                <img
+                <Image
                   src={`${IMG}/ambiente.webp`}
                   alt="Calle arbolada y fachada del hostal al atardecer en Curicó"
-                  loading="lazy"
-                  className="w-full h-full object-cover aspect-[4/3]"
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="object-cover"
                 />
               </div>
             </Reveal>
@@ -334,7 +343,7 @@ export default function HostalJosefaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} flex items-center gap-2 text-sm font-bold px-5 py-3 border-2`}
+                  className={`${display.className} ${FOCUS} flex items-center gap-2 text-sm font-bold px-5 py-3 border-2 transition-colors hover:bg-white/10`}
                   style={{ borderColor: C.orange, color: C.orangeSoft }}
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4" fill={C.orange} stroke={C.orange} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -346,7 +355,7 @@ export default function HostalJosefaPage() {
                   href={BIZ.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} flex items-center gap-2 text-sm font-bold px-5 py-3 border-2 transition-colors hover:bg-white/5`}
+                  className={`${display.className} ${FOCUS} flex items-center gap-2 text-sm font-bold px-5 py-3 border-2 transition-colors hover:bg-white/10`}
                   style={{ borderColor: 'rgba(237,230,218,0.4)', color: 'rgba(237,230,218,0.85)' }}
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -355,7 +364,7 @@ export default function HostalJosefaPage() {
                   residencialjosefa
                 </a>
               </div>
-              <p className="text-xs leading-relaxed max-w-sm" style={{ color: 'rgba(237,230,218,0.55)' }}>
+              <p className="text-xs leading-relaxed max-w-sm" style={{ color: 'rgba(237,230,218,0.7)' }}>
                 Las {BIZ.reviews} reseñas y la ficha de Google son datos
                 reales. Los textos de esta página son de muestra hasta
                 publicar el sitio definitivo.
@@ -440,8 +449,7 @@ export default function HostalJosefaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
-              style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+              className={btnSolid}
             >
               Consultar tarifa real
             </a>
@@ -495,8 +503,7 @@ export default function HostalJosefaPage() {
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 transition-transform active:scale-95`}
-                style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                className={btnSolid}
               >
                 Reservar por WhatsApp
               </a>
@@ -504,7 +511,7 @@ export default function HostalJosefaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 border-2 transition-colors`}
+                className={`${display.className} ${FOCUS} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-[#3A3F44]/5`}
                 style={{ borderColor: 'rgba(58,63,68,0.4)', color: C.concrete }}
               >
                 Cómo llegar →
@@ -551,8 +558,7 @@ export default function HostalJosefaPage() {
               href={WA_LINK_RESERVA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-transform active:scale-95`}
-              style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+              className={btnSolid}
             >
               Reservar por WhatsApp
             </a>
@@ -581,7 +587,7 @@ export default function HostalJosefaPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(237,230,218,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.45)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.62)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
             Dirección, teléfono y las {BIZ.reviews} reseñas de Google son
             datos reales; textos, servicios, tarifas y fotos son de
