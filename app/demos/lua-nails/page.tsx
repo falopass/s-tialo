@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Jost } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -22,9 +22,9 @@ const C = {
   plumDeep: '#351325',
   gold: '#C9A227',
   goldSoft: '#E8D3A2',
-  rose: '#C78FA0',
+  rose: '#94485F',
   ink: '#4A1F33',
-  muted: '#8A6474',
+  muted: '#7A5264',
   line: 'rgba(74,31,51,0.14)',
 }
 
@@ -136,13 +136,14 @@ export default function LuaNailsPage() {
         <img
           src={`${IMG}/hero.webp`}
           alt="Estación de manicure de Lua Nails Home: mesa blanca, lámpara y silla de terciopelo rosa"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(53,19,37,0.45) 0%, rgba(53,19,37,0.1) 40%, rgba(53,19,37,0.85) 100%)',
+              'linear-gradient(180deg, rgba(53,19,37,0.6) 0%, rgba(53,19,37,0.5) 40%, rgba(53,19,37,0.9) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -199,8 +200,8 @@ export default function LuaNailsPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(255,249,246,0.2)', backgroundColor: 'rgba(53,19,37,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.2em]" style={{ color: 'rgba(255,249,246,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(255,249,246,0.2)', backgroundColor: 'rgba(53,19,37,0.8)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto pl-5 pr-20 md:pl-8 lg:pr-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.2em]" style={{ color: 'rgba(255,249,246,0.78)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.gold }} aria-hidden="true" />
@@ -239,7 +240,6 @@ export default function LuaNailsPage() {
                   <img
                     src={s.src}
                     alt={s.name}
-                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                   />
                   <span
@@ -291,19 +291,19 @@ export default function LuaNailsPage() {
           <Reveal delay={120}>
             <div className="grid grid-cols-2 md:grid-cols-6 md:auto-rows-[215px] lg:auto-rows-[250px] gap-3">
               <figure className="col-span-2 md:col-span-4 md:row-span-2 rounded-3xl overflow-hidden">
-                <img src={`${IMG}/manos.webp`} alt="Manos con manicure nude recién terminado sobre toalla" loading="lazy" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
+                <img src={`${IMG}/manos.webp`} alt="Manos con manicure nude recién terminado sobre toalla" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
               </figure>
               <figure className="rounded-3xl overflow-hidden">
-                <img src={`${IMG}/esmaltes.webp`} alt="Repisas con esmaltes en degradé de rosas y rojos" loading="lazy" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+                <img src={`${IMG}/esmaltes.webp`} alt="Repisas con esmaltes en degradé de rosas y rojos" className="w-full h-full object-cover aspect-square md:aspect-auto" />
               </figure>
               <figure className="rounded-3xl overflow-hidden">
-                <img src={`${IMG}/detalle.webp`} alt="Bandeja de mármol con limas e instrumental de manicure" loading="lazy" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+                <img src={`${IMG}/detalle.webp`} alt="Bandeja de mármol con limas e instrumental de manicure" className="w-full h-full object-cover aspect-square md:aspect-auto" />
               </figure>
               <figure className="col-span-2 md:col-span-3 rounded-3xl overflow-hidden">
-                <img src={`${IMG}/rincon.webp`} alt="Rincón de espera con sillón de terciopelo rosa junto a la ventana" loading="lazy" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+                <img src={`${IMG}/rincon.webp`} alt="Rincón de espera con sillón de terciopelo rosa junto a la ventana" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
               </figure>
               <figure className="col-span-2 md:col-span-3 rounded-3xl overflow-hidden">
-                <img src={`${IMG}/hero.webp`} alt="Estación de manicure iluminada con luz natural" loading="lazy" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+                <img src={`${IMG}/hero.webp`} alt="Estación de manicure iluminada con luz natural" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
               </figure>
             </div>
           </Reveal>
@@ -364,7 +364,6 @@ export default function LuaNailsPage() {
               <img
                 src={`${IMG}/rincon.webp`}
                 alt="Rincón de espera de Lua Nails Home: sillón de terciopelo rosa, planta y luz de ventana"
-                loading="lazy"
                 className="w-full h-full object-cover aspect-[4/3]"
               />
             </div>
@@ -419,7 +418,7 @@ export default function LuaNailsPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium underline underline-offset-4 decoration-2"
-              style={{ color: C.rose, textDecorationColor: 'rgba(199,143,160,0.4)' }}
+              style={{ color: C.rose, textDecorationColor: 'rgba(148,72,95,0.4)' }}
             >
               Ver la ficha en Google →
             </a>
@@ -573,16 +572,21 @@ export default function LuaNailsPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,249,246,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs font-light leading-relaxed" style={{ color: 'rgba(255,249,246,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-            Servicios, precios, horarios y fotos son de muestra; el
-            nombre, la dirección, el WhatsApp y las reseñas son datos
-            reales de su ficha pública.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 pb-20 text-xs font-light leading-relaxed" style={{ color: 'rgba(255,249,246,0.78)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-2" style={{ color: C.cream }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Servicios, precios, horarios y fotos son de
+            muestra; el nombre, la dirección, el WhatsApp y las reseñas
+            son datos reales de su ficha pública.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-2" style={{ color: C.cream }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
