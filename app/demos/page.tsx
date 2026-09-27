@@ -382,6 +382,30 @@ const BLITZ = [
     tagline: 'Brutalista industrial: azul pizarra, amarillo lápiz y retícula de obra, con fotos.',
     gradient: 'linear-gradient(135deg, #22303A 0%, #2F4858 55%, #F2B705 140%)',
   },
+  {
+    slug: 'atlantix-clinica-odontologica-san-javier-de-lonc',
+    name: 'Atlantix Clínica Odontológica',
+    rubro: 'Clínica dental',
+    city: 'San Javier de Loncomilla',
+    tagline: 'Hero tipográfico sin foto: azul noche, arena y terracota, calmo y hospitalario.',
+    gradient: 'linear-gradient(135deg, #1B2A41 0%, #1B2A41 55%, #C1663F 140%)',
+  },
+  {
+    slug: 'peluqueria-fran-wartemberg',
+    name: 'Peluquería Fran Wartemberg',
+    rubro: 'Peluquería',
+    city: 'Curicó',
+    tagline: 'Directorio funcional de taller: negro, amarillo señal y acero, carta de precios con fotos.',
+    gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
+  },
+  {
+    slug: 'brutal-curico',
+    name: 'Brutal Curicó',
+    rubro: 'Gimnasio',
+    city: 'Curicó',
+    tagline: 'Bento modular ferretero: mostaza, verde oscuro y madera, con fotos.',
+    gradient: 'linear-gradient(135deg, #1D2F26 0%, #2E4A3C 55%, #D9A441 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
