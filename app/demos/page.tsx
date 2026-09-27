@@ -79,6 +79,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #24381F 0%, #C1663F 140%)',
   },
   {
+    slug: 'barberia-rulos-style-barberia-curico',
+    name: 'Barbería Rulos Style',
+    rubro: 'Barbería',
+    city: 'Curicó',
+    tagline: 'Bento industrial y directo: naranja construcción, hormigón y arena, con fotos.',
+    gradient: 'linear-gradient(135deg, #26292D 0%, #E4572E 140%)',
+  },
+  {
     slug: 'lua-nails',
     name: 'Lua Nails Home',
     rubro: 'Manicure y uñas',
@@ -133,6 +141,14 @@ const BLITZ = [
     city: 'Curicó',
     tagline: 'Editorial de revista: petróleo, menta y blanco roto, con fotos.',
     gradient: 'linear-gradient(135deg, #0A3742 0%, #0E4C5C 55%, #9FD8CB 140%)',
+  },
+  {
+    slug: 'clinica-y-farmacia-veterinaria-angel-guardian',
+    name: 'Clínica y Farmacia Veterinaria Ángel Guardián',
+    rubro: 'Clínica y farmacia veterinaria',
+    city: 'Linares',
+    tagline: 'Inmersivo y cálido: vino, hueso y oro viejo, con fotos a sangre.',
+    gradient: 'linear-gradient(135deg, #4A1A26 0%, #B98B4E 140%)',
   },
 ]
 
