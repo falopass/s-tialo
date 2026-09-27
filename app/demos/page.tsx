@@ -166,6 +166,14 @@ const BLITZ = [
     tagline: 'Brutalista industrial: azul eléctrico, lima y negro, retícula de obra con fotos.',
     gradient: 'linear-gradient(135deg, #0E0E0E 0%, #2251FF 55%, #C6F24E 140%)',
   },
+  {
+    slug: 'emporio-vintage-cafe',
+    name: 'Emporio Vintage Café',
+    rubro: 'Cafetería',
+    city: 'Talca',
+    tagline: 'Carta tipográfica de cafetería: verde emporio, crema y ámbar, con puntos guía.',
+    gradient: 'linear-gradient(135deg, #173E32 0%, #2A7F62 55%, #E8A33D 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
