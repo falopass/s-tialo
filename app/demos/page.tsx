@@ -79,6 +79,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #24381F 0%, #C1663F 140%)',
   },
   {
+    slug: 'vivero-entre-raices',
+    name: 'Vivero Entre Raices',
+    rubro: 'Centro de jardinería',
+    city: 'Linares',
+    tagline: 'Periódico clásico: azul petróleo, blanco roto y menta, con fotos.',
+    gradient: 'linear-gradient(135deg, #093540 0%, #0E4C5C 55%, #9FD8CB 140%)',
+  },
+  {
     slug: 'barberia-rulos-style-barberia-curico',
     name: 'Barbería Rulos Style',
     rubro: 'Barbería',
