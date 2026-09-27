@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Outfit, Manrope, IBM_Plex_Mono } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -172,9 +172,7 @@ export default function CsfVeterinariaPage() {
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`
-        @keyframes csf-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .csf-marquee-track { animation: csf-marquee 26s linear infinite; }
-        @media (prefers-reduced-motion: reduce) { .csf-marquee-track { animation: none; } }
+        html { scroll-behavior: auto }
         .csf-page .font-mono { font-family: var(--font-csf-mono), monospace; }
         .csf-page a:focus-visible, .csf-page button:focus-visible, .csf-page summary:focus-visible {
           outline: 3px solid #2251FF;
@@ -244,11 +242,11 @@ export default function CsfVeterinariaPage() {
               'linear-gradient(90deg, rgba(14,14,14,0.88) 0%, rgba(14,14,14,0.55) 52%, rgba(34,81,255,0.25) 100%)',
           }}
         />
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-12 md:pb-16 pt-40">
+        <div className="relative w-full max-w-6xl mx-auto pl-5 pr-[4.5rem] md:px-8 pb-12 md:pb-16 pt-32 md:pt-40">
           <Reveal>
             <Tag>Clínica veterinaria · San Francisco · Talca</Tag>
             <h1
-              className={`${display.className} font-black uppercase leading-[0.92] tracking-[-0.02em] text-balance text-[clamp(2.5rem,10.5vw,7rem)] mt-6 mb-6`}
+              className={`${display.className} font-black uppercase leading-[0.92] tracking-[-0.02em] text-balance text-[clamp(2rem,8.5vw,7rem)] mt-6 mb-6`}
               style={{ color: C.white }}
             >
               Atención de
@@ -266,14 +264,14 @@ export default function CsfVeterinariaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-extrabold uppercase text-sm md:text-base px-7 py-4 border-[3px] transition-[transform,box-shadow] shadow-[6px_6px_0_#2251FF] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0_#2251FF] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none`}
+                className={`${display.className} font-extrabold uppercase text-sm md:text-base px-6 py-3 md:px-7 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[6px_6px_0_#2251FF] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0_#2251FF] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none`}
                 style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.ink }}
               >
                 Agendar por WhatsApp →
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-extrabold uppercase text-sm md:text-base px-7 py-4 border-[3px] border-white text-white transition-colors hover:bg-white hover:text-[#0E0E0E]`}
+                className={`${display.className} font-extrabold uppercase text-sm md:text-base px-6 py-3 md:px-7 md:py-4 border-[3px] border-white text-white transition-colors hover:bg-white hover:text-[#0E0E0E]`}
               >
                 Ver servicios
               </a>
@@ -289,11 +287,11 @@ export default function CsfVeterinariaPage() {
               { v: BIZ.phoneDisplay, l: 'WhatsApp directo', href: WA_LINK },
               { v: 'San Francisco', l: 'sector · Talca' },
             ].map((s, i) => (
-              <div key={s.l} className={`border-r-[3px] last:border-r-0 ${i % 2 === 1 ? 'max-md:border-r-0' : ''} px-4 md:px-6 py-4 md:py-5`} style={{ borderColor: C.ink }}>
+              <div key={s.l} className={`border-r-[3px] last:border-r-0 ${i % 2 === 1 ? 'max-md:border-r-0' : ''} min-w-0 px-4 md:px-6 py-4 md:py-5`} style={{ borderColor: C.ink }}>
                 <dt className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: 'rgba(14,14,14,0.55)' }}>
                   {s.l}
                 </dt>
-                <dd className={`${display.className} font-black text-lg md:text-2xl leading-tight mt-1`} style={{ color: C.blue }}>
+                <dd className={`${display.className} font-black text-base md:text-2xl leading-tight mt-1 break-words`} style={{ color: C.blue }}>
                   {s.href ? (
                     <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 decoration-[3px]">
                       {s.v}
@@ -309,14 +307,14 @@ export default function CsfVeterinariaPage() {
       </section>
 
       {/* ── Cinta corrida ── */}
-      <div className="overflow-hidden border-b-[3px]" style={{ backgroundColor: C.lime, borderColor: C.ink }} aria-hidden="true">
-        <div className="csf-marquee-track flex w-max items-center py-3">
-          {[...TICKER, ...TICKER].map((t, i) => (
-            <span key={i} className={`${display.className} font-extrabold uppercase text-sm md:text-base tracking-[0.06em] whitespace-nowrap px-5`} style={{ color: C.ink }}>
-              {t} <span style={{ color: C.blue }}>+</span>
-            </span>
+      <div className="border-b-[3px] px-5 py-3" style={{ backgroundColor: C.lime, borderColor: C.ink }}>
+        <ul className="max-w-6xl mx-auto flex flex-wrap justify-center gap-x-5 gap-y-1.5">
+          {TICKER.map((t) => (
+            <li key={t} className={`${display.className} font-extrabold uppercase text-sm md:text-base tracking-[0.06em]`} style={{ color: C.ink }}>
+              {t} <span style={{ color: C.blue }} aria-hidden="true">+</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       {/* ── Servicios ── */}
@@ -575,7 +573,7 @@ export default function CsfVeterinariaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} flex items-center justify-between gap-4 font-black uppercase text-lg md:text-2xl px-6 md:px-8 py-5 md:py-6 border-[3px] transition-[transform,box-shadow] shadow-[8px_8px_0_#2251FF] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0_#2251FF] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none mb-8`}
+                className={`${display.className} flex items-center justify-between gap-3 font-black uppercase text-sm sm:text-base md:text-2xl whitespace-nowrap px-4 md:px-8 py-3.5 md:py-5 border-[3px] transition-[transform,box-shadow] shadow-[8px_8px_0_#2251FF] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0_#2251FF] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none mb-8`}
                 style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.lime }}
               >
                 <span>WhatsApp</span>
@@ -641,15 +639,20 @@ export default function CsfVeterinariaPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 font-mono text-[10px] uppercase tracking-[0.12em] leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Servicios,
-            precios, horarios y fotos son de muestra; el nombre, la dirección,
-            el WhatsApp, las reseñas y el Instagram son los datos reales del negocio.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 font-mono text-[10px] uppercase tracking-[0.12em] leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2" style={{ color: C.lime }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Servicios, precios, horarios y fotos son de muestra;
+            el WhatsApp, las reseñas y el Instagram son datos reales.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2" style={{ color: C.lime }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
