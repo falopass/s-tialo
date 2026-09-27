@@ -166,6 +166,10 @@ export default function DamianStylePage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.tinta }}
     >
+      <style>{`
+        html { scroll-behavior: auto }
+        .ds-band > div { background-color: rgba(44,27,32,0.94) }
+      `}</style>
       {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
       <div style={{ backgroundColor: C.vinoDeep }}>
         <BlitzNav
@@ -224,11 +228,11 @@ export default function DamianStylePage() {
             </a>
           </Reveal>
         </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-24 pt-40">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-24 pt-28 md:pt-40">
           <Reveal>
             <Eyebrow light>Barbería · Pelarco · Villa Altos del Bosque</Eyebrow>
             <h1
-              className={`${display.className} font-extrabold leading-[1.04] tracking-[-0.01em] text-[clamp(2.35rem,9vw,5.2rem)] mb-6`}
+              className={`${display.className} font-extrabold leading-[1.04] tracking-[-0.01em] text-[clamp(2.1rem,7vw,5.2rem)] mb-6`}
               style={{ color: C.paper }}
             >
               Corte fino, toalla caliente
@@ -660,7 +664,9 @@ export default function DamianStylePage() {
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <div className="ds-band">
+        <DemoBand name={BIZ.name} />
+      </div>
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
