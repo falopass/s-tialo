@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { DM_Serif_Display, DM_Sans } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -23,7 +24,7 @@ const C = {
   brassSoft: '#E6D5A8',
   charcoal: '#23211C',
   ink: '#2B2A24',
-  muted: '#6E6654',
+  muted: '#5F5847',
   line: 'rgba(43,42,36,0.16)',
   lineLight: 'rgba(246,241,231,0.2)',
 }
@@ -163,10 +164,13 @@ export default function MyFusionGymPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.forestDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Sala de entrenamiento de MY Fusion Gym en Curicó"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -182,7 +186,7 @@ export default function MyFusionGymPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]"
               style={{ backgroundColor: 'rgba(246,241,231,0.95)', color: C.forestDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.brass} stroke={C.brass} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -196,7 +200,7 @@ export default function MyFusionGymPage() {
               href={BIZ.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[11px] md:text-xs font-bold px-3.5 py-2 rounded-full"
+              className="flex items-center gap-2 text-[11px] md:text-xs font-bold px-3.5 py-2 rounded-full transition-colors hover:bg-[rgba(20,42,32,0.85)] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]"
               style={{ backgroundColor: 'rgba(20,42,32,0.65)', color: C.brassSoft, border: `1px solid ${C.lineLight}` }}
             >
               <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
@@ -228,14 +232,14 @@ export default function MyFusionGymPage() {
                 href={WA_LINK_CLASE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]`}
                 style={{ backgroundColor: C.brass, color: C.forestDeep }}
               >
                 Agendar clase de prueba
               </a>
               <a
                 href="#gimnasio"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]`}
                 style={{ borderColor: 'rgba(246,241,231,0.55)', color: C.cream }}
               >
                 Ver el gimnasio
@@ -280,33 +284,48 @@ export default function MyFusionGymPage() {
           {FICHAS.map((f, i) => (
             <article
               key={f.num}
-              className="sticky mb-6 md:mb-8 rounded-2xl overflow-hidden border"
+              className="sticky mb-5 md:mb-7 rounded-2xl overflow-hidden border"
               style={{
-                top: `calc(84px + ${i * 26}px)`,
+                top: `calc(78px + ${i * 34}px)`,
                 zIndex: i + 1,
                 backgroundColor: f.bg,
                 borderColor: f.border,
-                boxShadow: '0 -14px 40px rgba(20,42,32,0.22)',
+                boxShadow: '0 -16px 44px rgba(20,42,32,0.28)',
               }}
             >
-              <div className="grid md:grid-cols-[1.05fr_1fr] min-h-[440px] md:min-h-[460px]">
+              {/* pestaña que queda visible cuando la ficha queda apilada */}
+              <div
+                className="h-[34px] flex items-center gap-3 px-5 md:px-7 border-b"
+                style={{ borderColor: f.border }}
+              >
+                <span className={`${display.className} text-sm leading-none`} style={{ color: f.accent }}>
+                  {f.num}
+                </span>
+                <span className="text-[10px] uppercase tracking-[0.24em] font-bold truncate" style={{ color: f.sub }}>
+                  {f.tag}
+                </span>
+                <span
+                  className="ml-auto text-[10px] uppercase tracking-[0.18em] font-bold hidden sm:inline"
+                  style={{ color: f.accent }}
+                >
+                  {f.datum}
+                </span>
+              </div>
+              <div className="grid md:grid-cols-[1.05fr_1fr] min-h-[430px] md:min-h-[450px]">
                 <div className="relative min-h-[220px] md:min-h-0">
-                  <img
+                  <Image
                     src={f.src}
                     alt={`${f.name} — ${BIZ.name}`}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6 md:p-10 flex flex-col justify-center">
-                  <p className="text-[11px] uppercase tracking-[0.24em] font-bold mb-3 flex items-baseline gap-3" style={{ color: f.accent }}>
-                    <span className={`${display.className} normal-case tracking-normal text-2xl leading-none`}>{f.num}</span>
-                    ficha · {f.tag}
-                  </p>
                   <h3 className={`${display.className} text-3xl md:text-4xl leading-[1.08] mb-4`} style={{ color: f.ink }}>
                     {f.name}
                   </h3>
-                  <p className="text-sm md:text-[15px] leading-relaxed mb-6 max-w-md" style={{ color: f.sub }}>
+                  <p className="text-sm md:text-base leading-relaxed mb-6 max-w-md" style={{ color: f.sub }}>
                     {f.desc}
                   </p>
                   <p className="flex items-center gap-2.5 text-sm font-bold" style={{ color: f.accent }}>
@@ -317,6 +336,8 @@ export default function MyFusionGymPage() {
               </div>
             </article>
           ))}
+          {/* espacio para que la última ficha respire antes de soltarse */}
+          <div className="h-6 md:h-10" aria-hidden="true" />
         </div>
       </section>
 
@@ -341,7 +362,7 @@ export default function MyFusionGymPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#C8A24B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F]"
                 style={{ color: C.forest, textDecorationColor: 'rgba(200,162,75,0.5)' }}
               >
                 Ver la ficha en Google →
@@ -350,7 +371,7 @@ export default function MyFusionGymPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#C8A24B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F]"
                 style={{ color: C.forest, textDecorationColor: 'rgba(200,162,75,0.5)' }}
               >
                 {BIZ.igUser} en Instagram →
@@ -426,7 +447,7 @@ export default function MyFusionGymPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E6D5A8]`}
                 style={{ backgroundColor: C.brass, color: C.forestDeep }}
               >
                 Consultar valores reales
@@ -476,14 +497,14 @@ export default function MyFusionGymPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F]`}
                 style={{ backgroundColor: C.forest, color: C.cream }}
               >
                 Escribir por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/50`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F]`}
                 style={{ borderColor: C.forest, color: C.forest }}
               >
                 {BIZ.phoneDisplay}
