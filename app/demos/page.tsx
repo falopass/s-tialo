@@ -158,22 +158,6 @@ const BLITZ = [
     tagline: 'Panel de datos cumplidor: rojo, gris flota y naranja señal, con fotos.',
     gradient: 'linear-gradient(135deg, #4A4E52 0%, #C1272D 140%)',
   },
-  {
-    slug: 'la-pica-de-los-tatas',
-    name: 'La Picá De Los Tatas',
-    rubro: 'Restaurante',
-    city: 'Molina',
-    tagline: 'Oscuro premium y hospitalario: azul noche, arena y terracota, con vidrio y fotos.',
-    gradient: 'linear-gradient(135deg, #0F141C 0%, #1B2A41 55%, #C1663F 140%)',
-  },
-  {
-    slug: 'cafe-la-francesa',
-    name: 'Café La Francesa',
-    rubro: 'Cafetería',
-    city: 'Linares',
-    tagline: 'Collage artesanal: verde campo, tierra y crema de papel, con fotos.',
-    gradient: 'linear-gradient(135deg, #27361F 0%, #4C6B3C 55%, #8C6239 140%)',
-  },
 ]
 
 export const metadata: Metadata = {
