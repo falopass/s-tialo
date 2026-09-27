@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Bitter, Rubik } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_TORTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -23,7 +23,7 @@ const C = {
   yellowSoft: '#FBE3A2',
   white: '#FFFFFF',
   soft: '#F1F4F7',
-  muted: '#6B7885',
+  muted: '#56626E',
   line: 'rgba(47,72,88,0.16)',
   lineLight: 'rgba(255,255,255,0.22)',
 }
@@ -215,7 +215,7 @@ export default function LePetitPage() {
           </div>
         </div>
         {/* colofón al pie de la portada */}
-        <div className="relative border-t" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(27,41,51,0.55)', backdropFilter: 'blur(6px)' }}>
+        <div className="relative border-t" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(27,41,51,0.8)', backdropFilter: 'blur(6px)' }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.78)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]" style={{ textDecorationColor: C.yellow }}>
@@ -332,7 +332,7 @@ export default function LePetitPage() {
                 <br />
                 de barrio, con
                 <br />
-                <em className="font-bold" style={{ color: C.yellow }}>nombre propio</em>
+                <em className="font-bold underline decoration-[6px] underline-offset-[6px]" style={{ color: C.slate, textDecorationColor: C.yellow }}>nombre propio</em>
               </h2>
               <dl className="grid grid-cols-2 gap-5 border-t-2 pt-6" style={{ borderColor: C.slate }}>
                 <div>
@@ -477,7 +477,7 @@ export default function LePetitPage() {
               <h2 className={`${display.className} font-black leading-[1.02] text-[clamp(2rem,4.5vw,3.2rem)] mb-6`} style={{ color: C.slate }}>
                 2 Oriente 1133,
                 <br />
-                <em className="font-bold" style={{ color: C.yellow }}>Talca</em>
+                <em className="font-bold underline decoration-[6px] underline-offset-[6px]" style={{ color: C.slate, textDecorationColor: C.yellow }}>Talca</em>
               </h2>
               <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
                 {BIZ.address}
@@ -598,14 +598,15 @@ export default function LePetitPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            productos, precios, horarios y fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            Sitio de ejemplo preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]" style={{ color: C.yellowSoft }}>Sitiazo</a>{' '}
+            para {BIZ.name}. Textos, productos, precios, horarios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]" style={{ color: C.yellowSoft }}>¿Lo hacemos realidad?</a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
