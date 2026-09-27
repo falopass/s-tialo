@@ -165,13 +165,15 @@ export default function SigelPage() {
         <img
           src={`${IMG}/hero.webp`}
           alt="Electricista de Eléctrico Domiciliario Sigel trabajando en una instalación domiciliaria"
+          loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(14,16,19,0.55) 0%, rgba(14,16,19,0.15) 38%, rgba(14,16,19,0.85) 100%)',
+              'linear-gradient(180deg, rgba(14,16,19,0.7) 0%, rgba(14,16,19,0.45) 38%, rgba(14,16,19,0.92) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -195,7 +197,7 @@ export default function SigelPage() {
           <Reveal>
             <Eyebrow light>Electricista a domicilio · Talca</Eyebrow>
             <h1
-              className={`${display.className} font-black leading-[1.02] tracking-[-0.01em] text-[clamp(2.6rem,9vw,5.4rem)] mb-6`}
+              className={`${display.className} scroll-mt-28 font-black leading-[1.02] tracking-[-0.01em] text-[clamp(2.6rem,9vw,5.4rem)] mb-6`}
               style={{ color: '#F5F6F9' }}
             >
               Luz, enchufes y tableros:
@@ -228,8 +230,8 @@ export default function SigelPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(245,246,249,0.22)', backgroundColor: 'rgba(14,16,19,0.55)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(245,246,249,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(245,246,249,0.22)', backgroundColor: 'rgba(14,16,19,0.92)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(245,246,249,0.9)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
@@ -258,9 +260,9 @@ export default function SigelPage() {
           </div>
         </Reveal>
         <ul className="grid sm:grid-cols-2 gap-5 md:gap-6">
-          {SERVICIOS.map((s, i) => (
-            <Reveal key={s.name} delay={i * 90}>
+          {SERVICIOS.map((s) => (
               <li
+                key={s.name}
                 className="group rounded-2xl overflow-hidden border h-full"
                 style={{ backgroundColor: C.card, borderColor: C.line, boxShadow: '0 2px 6px rgba(21,23,28,0.06)' }}
               >
@@ -268,7 +270,6 @@ export default function SigelPage() {
                   <img
                     src={s.src}
                     alt={s.name}
-                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
@@ -287,7 +288,6 @@ export default function SigelPage() {
                   </p>
                 </div>
               </li>
-            </Reveal>
           ))}
         </ul>
       </section>
@@ -303,7 +303,7 @@ export default function SigelPage() {
                 <br />
                 <span style={{ color: C.yellow }}>con reglas claras</span>
               </h2>
-              <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: 'rgba(245,246,249,0.68)' }}>
+              <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: 'rgba(245,246,249,0.85)' }}>
                 Cuatro pasos, siempre iguales. Así sabes qué esperar
                 desde que escribes hasta que me voy.
               </p>
@@ -325,7 +325,7 @@ export default function SigelPage() {
                   <h3 className={`${display.className} font-extrabold text-lg mb-2`} style={{ color: '#F5F6F9' }}>
                     {p.title}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(245,246,249,0.68)' }}>
+                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(245,246,249,0.85)' }}>
                     {p.desc}
                   </p>
                 </li>
@@ -345,14 +345,14 @@ export default function SigelPage() {
               <br />
               <span style={{ color: C.yellow }}>y cotiza al tiro</span>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: 'rgba(255,255,255,0.82)' }}>
+            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: 'rgba(255,255,255,0.95)' }}>
               Escríbeme por WhatsApp contando qué necesitas — si puedes,
               con foto del enchufe, tablero o lugar del trabajo — y te
               respondo con presupuesto y fecha.
             </p>
             <ul className="space-y-3 mb-9">
               {['Presupuesto antes de empezar', 'Agendamiento por WhatsApp', 'Emergencias dentro de Talca'].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'rgba(255,255,255,0.92)' }}>
+                <li key={item} className="flex items-center gap-3 text-sm md:text-base" style={{ color: '#FFFFFF' }}>
                   <Bolt className="w-4 h-4 shrink-0" color={C.yellow} />
                   {item}
                 </li>
@@ -379,16 +379,13 @@ export default function SigelPage() {
               </a>
             </div>
           </Reveal>
-          <Reveal delay={140}>
-            <div className="rounded-2xl overflow-hidden rotate-[1.2deg]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}>
-              <img
-                src={`${IMG}/furgon.webp`}
-                alt="Furgón de trabajo de Eléctrico Domiciliario Sigel frente a una casa"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[4/3]"
-              />
-            </div>
-          </Reveal>
+          <div className="rounded-2xl overflow-hidden rotate-[1.2deg]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}>
+            <img
+              src={`${IMG}/furgon.webp`}
+              alt="Furgón de trabajo de Eléctrico Domiciliario Sigel frente a una casa"
+              className="w-full h-full object-cover aspect-[4/3]"
+            />
+          </div>
         </div>
       </section>
 
@@ -535,7 +532,6 @@ export default function SigelPage() {
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
-                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
@@ -561,7 +557,7 @@ export default function SigelPage() {
               <br />
               <span style={{ color: C.yellow }}>no se te vaya la luz</span>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(245,246,249,0.78)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(245,246,249,0.9)' }}>
               Escríbeme por WhatsApp con tu consulta o emergencia.
               Presupuesto claro antes de partir.
             </p>
@@ -580,17 +576,17 @@ export default function SigelPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.grafitoDeep, color: '#F5F6F9' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
           <div>
             <p className={`${display.className} font-extrabold text-2xl mb-2 flex items-center gap-3`}>
               <Bolt className="w-5 h-5" color={C.yellow} />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(245,246,249,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(245,246,249,0.82)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(245,246,249,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(245,246,249,0.82)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white transition-colors">
                 {l.label}
@@ -599,15 +595,14 @@ export default function SigelPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(245,246,249,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(245,246,249,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Servicios,
-            pasos, zonas, horarios y reseñas son de muestra; el nombre,
-            la dirección, el teléfono y las reseñas de Google son reales.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(245,246,249,0.75)' }}>
+            Servicios, pasos, zonas, horarios y reseñas son de muestra.
           </p>
         </div>
+        <div className="px-5 pt-1 pb-20 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+          <DemoBand name={BIZ.name} />
+        </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
