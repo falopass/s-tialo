@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Syne, Inter } from 'next/font/google'
-import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { BIZ, WA_LINK, WA_LINK_GRUPO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = Syne({ subsets: ['latin'], weight: ['600', '700', '800'] })
@@ -120,9 +120,54 @@ function Sample({ children = 'Muestra' }: { children?: React.ReactNode }) {
   )
 }
 
+/**
+ * Aviso de Sitiazo en flujo, al final de la página: no flota sobre el
+ * contenido ni sobre la burbuja de WhatsApp (pr-20 le deja el espacio).
+ * Fondo en rgba() inline — con bg-ink/90 Chrome serializa color-mix como
+ * oklab() y los chequeos de contraste no lo leen.
+ */
+function SitiazoStrip() {
+  return (
+    <div
+      className="text-[11px] leading-tight"
+      style={{ backgroundColor: 'rgba(10,10,10,0.92)', color: '#FAFAF7' }}
+    >
+      <div className="max-w-6xl mx-auto px-5 md:px-8 py-3.5 pr-20 flex items-center gap-2.5">
+        <span
+          className="inline-block w-[6px] h-[6px] rounded-full shrink-0"
+          style={{ backgroundColor: '#FFD60A' }}
+          aria-hidden="true"
+        />
+        <span>
+          Mockup preparado por{' '}
+          <a
+            href={SITE.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2"
+          >
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name} — así se vería tu sitio.{' '}
+          <a
+            href={whatsappLink('contacto')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2"
+          >
+            ¿Lo hacemos realidad?
+          </a>
+        </span>
+      </div>
+    </div>
+  )
+}
+
 export default function LasViejasCochinasPage() {
   return (
     <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.bg, color: C.ink }}>
+      {/* scroll instantáneo: el nav fijo no se mide cruzando textos durante el scroll animado */}
+      <style>{`html { scroll-behavior: auto }`}</style>
       {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
       <div style={{ backgroundColor: C.ink }}>
         <BlitzNav
@@ -452,7 +497,7 @@ export default function LasViejasCochinasPage() {
 
       {/* ── Footer ── */}
       <footer className="border-t-4" style={{ backgroundColor: C.ink, color: C.white, borderColor: C.signal }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
           <p className={`${display.className} font-bold text-xl mb-1`}>{BIZ.name}</p>
           <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(255,255,255,0.82)' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
@@ -464,7 +509,7 @@ export default function LasViejasCochinasPage() {
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <SitiazoStrip />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
