@@ -98,15 +98,14 @@ export default function BeautyLovePage() {
       style={{ backgroundColor: C.night, color: C.paper }}
     >
       <style>{`
+        html { scroll-behavior: auto }
         @keyframes bl-flicker { 0%,19%,21%,62%,64%,100% { opacity: 1 } 20%,63% { opacity: .45 } }
-        @keyframes bl-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
         .bl-flicker { animation: bl-flicker 6s linear infinite }
-        .bl-marquee { animation: bl-marquee 38s linear infinite }
         .bl-card:hover .bl-img { transform: scale(1.05); filter: contrast(1.35) saturate(0.95) brightness(0.9) }
         .bl-card:hover { box-shadow: ${TUBE} }
         .bl-cta:hover { box-shadow: 0 0 0 1px ${C.mint}, 0 0 28px rgba(159,216,203,.7), 0 0 70px rgba(159,216,203,.35) }
         a:focus-visible { outline: 2px solid ${C.mint}; outline-offset: 3px }
-        @media (prefers-reduced-motion: reduce) { .bl-flicker, .bl-marquee { animation: none } }
+        @media (prefers-reduced-motion: reduce) { .bl-flicker { animation: none } }
       `}</style>
 
       <BlitzNav
@@ -129,6 +128,7 @@ export default function BeautyLovePage() {
         <img
           src={`${IMG}/hero.webp`}
           alt="Estación de manicura con lámpara encendida, toalla blanca y repisas de esmaltes"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: PHOTO }}
         />
@@ -188,15 +188,15 @@ export default function BeautyLovePage() {
       </section>
 
       {/* Letrero corrido */}
-      <div className="relative overflow-hidden py-5 border-y" style={{ borderColor: C.line, backgroundColor: C.night2 }} aria-hidden="true">
-        <div className="bl-marquee flex w-max gap-10 whitespace-nowrap">
-          {[...TICKER, ...TICKER, ...TICKER, ...TICKER].map((t, i) => (
+      <div className="py-5 px-5 border-y" style={{ borderColor: C.line, backgroundColor: C.night2 }} aria-hidden="true">
+        <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-x-6 gap-y-2">
+          {TICKER.map((t, i) => (
             <span
-              key={i}
-              className="text-2xl md:text-3xl font-black uppercase tracking-[-0.01em]"
+              key={t}
+              className="text-xl md:text-3xl font-black uppercase tracking-[-0.01em]"
               style={i % 2 ? { color: 'transparent', WebkitTextStroke: `1px ${C.mint}` } : { color: C.mint, textShadow: GLOW }}
             >
-              {t} <span className="mx-4 opacity-60">✦</span>
+              {t}
             </span>
           ))}
         </div>
@@ -416,7 +416,7 @@ export default function BeautyLovePage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bl-cta mt-9 inline-flex items-center gap-3 min-h-[60px] px-9 rounded-full text-base font-black uppercase tracking-[0.14em] transition-shadow"
+              className="bl-cta mt-9 inline-flex items-center gap-3 min-h-[52px] px-6 md:px-9 rounded-full text-sm md:text-base font-black uppercase tracking-[0.08em] md:tracking-[0.14em] transition-shadow"
               style={{ backgroundColor: C.mint, color: C.night, boxShadow: GLOW }}
             >
               <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -465,7 +465,7 @@ export default function BeautyLovePage() {
         Sitio de ejemplo de Sitiazo
       </div>
 
-      <footer className="py-10 pb-24 text-center text-xs" style={{ backgroundColor: C.graphite, color: C.muted }}>
+      <footer className="pt-6 pb-20 px-5 text-center text-xs" style={{ backgroundColor: C.graphite, color: C.muted }}>
         <p className={`${display.className} italic text-xl font-bold`} style={{ color: C.paper }}>
           {BIZ.name}
         </p>
