@@ -167,20 +167,23 @@ export default function PeluqueriaGloriaPage() {
       style={{ backgroundColor: C.crema, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(251,247,239,0.94)',
-          ink: C.ink,
-          line: C.line,
-          btnBg: C.verde,
-          btnInk: C.crema,
-        }}
-      />
+      {/* el nav fijo es transparente arriba: este wrapper declara el fondo oscuro real detrás (hero) */}
+      <div style={{ backgroundColor: C.verdeDeep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(251,247,239,0.94)',
+            ink: C.ink,
+            line: C.line,
+            btnBg: C.verde,
+            btnInk: C.crema,
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.verdeDeep }}>
