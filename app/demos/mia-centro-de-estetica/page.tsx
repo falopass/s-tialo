@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Instrument_Serif, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
@@ -99,7 +100,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 
 function Sidebar() {
   return (
-    <aside className="lg:sticky lg:top-24 space-y-5 self-start">
+    <aside className="lg:sticky lg:top-24 space-y-5 self-start" aria-label="Agenda, horarios y ubicación">
       {/* CTA principal */}
       <div
         className="rounded-2xl p-6 border"
@@ -109,20 +110,20 @@ function Sidebar() {
           Agenda tu hora
         </p>
         <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(251,247,239,0.78)' }}>
-          Respondemos por WhatsApp el mismo día. Cuéntanos qué servicio buscas.
+          Te confirmamos hora el mismo día. Cuéntanos qué servicio buscas.
         </p>
         <a
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="block text-center font-semibold text-sm px-6 py-3.5 rounded-full transition-transform active:scale-95"
+          className="block text-center font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-200 hover:brightness-[1.05] hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2"
           style={{ backgroundColor: '#FBF7EF', color: C.deep }}
         >
           Escribir por WhatsApp
         </a>
         <a
           href={`tel:${BIZ.phoneTel}`}
-          className="block text-center text-sm mt-3 underline underline-offset-4 decoration-2"
+          className="block text-center text-sm mt-3 underline underline-offset-4 decoration-2 transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2"
           style={{ color: 'rgba(251,247,239,0.85)', textDecorationColor: 'rgba(251,247,239,0.35)' }}
         >
           {BIZ.phoneDisplay}
@@ -171,7 +172,7 @@ function Sidebar() {
           href={MAPS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-semibold underline underline-offset-4 decoration-2"
+          className="inline-block text-sm font-semibold underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2"
           style={{ color: C.field, textDecorationColor: 'rgba(76,107,60,0.35)' }}
         >
           Cómo llegar →
@@ -191,7 +192,7 @@ function Sidebar() {
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-4 decoration-2"
+            className="underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2"
             style={{ color: C.field, textDecorationColor: 'rgba(76,107,60,0.35)' }}
           >
             Google Maps
@@ -200,7 +201,7 @@ function Sidebar() {
             href={BIZ.facebook}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-4 decoration-2"
+            className="underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2"
             style={{ color: C.field, textDecorationColor: 'rgba(76,107,60,0.35)' }}
           >
             Facebook · {BIZ.facebookFollowers} seguidores
@@ -234,10 +235,13 @@ export default function MiaCentroDeEsteticaPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Cabina de tratamientos de Mía Centro De Estética con vista al campanario de Curicó"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -252,7 +256,7 @@ export default function MiaCentroDeEsteticaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 hover:bg-white hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2"
               style={{ backgroundColor: 'rgba(251,247,239,0.94)', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.earth} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -272,7 +276,7 @@ export default function MiaCentroDeEsteticaPage() {
             >
               Lo que se cuida,
               <br />
-              <em style={{ color: C.earthSoft }}>crece</em>
+              <em style={{ color: C.earthSoft }}>florece</em>
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(251,247,239,0.88)' }}>
               En pleno Curicó, un espacio tranquilo para el cuidado de la
@@ -284,14 +288,14 @@ export default function MiaCentroDeEsteticaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-base md:text-lg px-8 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-base md:text-lg px-8 py-3.5 rounded-full transition-all duration-200 hover:brightness-[1.08] hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ backgroundColor: C.earth, color: '#FBF7EF' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} text-base md:text-lg px-8 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} text-base md:text-lg px-8 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: '#FBF7EF' }}
               >
                 Ver servicios
@@ -328,29 +332,32 @@ export default function MiaCentroDeEsteticaPage() {
             </Reveal>
             <ul className="space-y-10 md:space-y-12">
               {SERVICES.map((s, i) => (
-                <Reveal key={s.name} delay={i * 60}>
-                  <li className="grid sm:grid-cols-[240px_1fr] gap-5 md:gap-7 items-center">
-                    <figure className="rounded-2xl overflow-hidden border aspect-[4/3]" style={{ borderColor: C.line }}>
-                      <img
-                        src={s.src}
-                        alt={s.alt}
-                        loading="lazy"
-                        className="w-full h-full object-cover"
-                      />
-                    </figure>
-                    <div>
-                      <p className={`${display.className} italic text-lg mb-1`} style={{ color: C.earth }}>
-                        {String(i + 1).padStart(2, '0')}
-                      </p>
-                      <h3 className={`${display.className} text-2xl md:text-3xl leading-tight mb-2`} style={{ color: C.deep }}>
-                        {s.name}
-                      </h3>
-                      <p className="text-sm md:text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
-                        {s.desc}
-                      </p>
+                <li key={s.name}>
+                  <Reveal delay={i * 60}>
+                    <div className="group grid sm:grid-cols-[240px_1fr] gap-5 md:gap-7 items-center">
+                      <figure className="relative rounded-2xl overflow-hidden border aspect-[4/3]" style={{ borderColor: C.line }}>
+                        <Image
+                          src={s.src}
+                          alt={s.alt}
+                          fill
+                          sizes="(min-width: 640px) 240px, 100vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                        />
+                      </figure>
+                      <div>
+                        <p className={`${display.className} italic text-lg mb-1`} style={{ color: C.earth }}>
+                          {String(i + 1).padStart(2, '0')}
+                        </p>
+                        <h3 className={`${display.className} text-2xl md:text-3xl leading-tight mb-2`} style={{ color: C.deep }}>
+                          {s.name}
+                        </h3>
+                        <p className="text-sm md:text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
+                          {s.desc}
+                        </p>
+                      </div>
                     </div>
-                  </li>
-                </Reveal>
+                  </Reveal>
+                </li>
               ))}
             </ul>
           </section>
@@ -384,18 +391,19 @@ export default function MiaCentroDeEsteticaPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block text-sm font-semibold underline underline-offset-4 decoration-2"
+                    className="inline-block text-sm font-semibold underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2"
                     style={{ color: C.field, textDecorationColor: 'rgba(76,107,60,0.35)' }}
                   >
                     Ver la ficha en Google →
                   </a>
                 </div>
-                <figure className="rounded-2xl overflow-hidden border" style={{ borderColor: C.line }}>
-                  <img
+                <figure className="relative rounded-2xl overflow-hidden border aspect-[4/3]" style={{ borderColor: C.line }}>
+                  <Image
                     src={`${IMG}/ambiente.webp`}
                     alt="Recepción y sala de espera del centro, con plantas y vista a la calle"
-                    loading="lazy"
-                    className="w-full h-full object-cover aspect-[4/3]"
+                    fill
+                    sizes="(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
                   />
                 </figure>
               </div>
@@ -492,7 +500,7 @@ export default function MiaCentroDeEsteticaPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} text-base md:text-lg px-8 py-4 rounded-full transition-transform active:scale-95`}
+                  className={`${display.className} text-base md:text-lg px-8 py-4 rounded-full transition-all duration-200 hover:brightness-[1.08] hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
                   style={{ backgroundColor: C.earth, color: '#FBF7EF' }}
                 >
                   Escribir por WhatsApp
@@ -501,7 +509,7 @@ export default function MiaCentroDeEsteticaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} text-base md:text-lg px-8 py-4 rounded-full border transition-colors hover:bg-white/10`}
+                  className={`${display.className} text-base md:text-lg px-8 py-4 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2`}
                   style={{ borderColor: 'rgba(251,247,239,0.5)', color: '#FBF7EF' }}
                 >
                   Cómo llegar →
@@ -520,16 +528,16 @@ export default function MiaCentroDeEsteticaPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2">{BIZ.phoneDisplay}</a>
               {' · '}
-              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2">
                 Facebook
               </a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,247,239,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2">
                 {l.label}
               </a>
             ))}
