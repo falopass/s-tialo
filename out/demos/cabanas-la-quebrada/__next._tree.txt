@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/0rfj7q6j6~in7.css","style"]
-:HL["/_next/static/chunks/0r~97.-2jlkez.css","style"]
+:HL["/_next/static/chunks/0y2_30t250x66.css","style"]
 :HL["/_next/static/media/01e4147cff8141ee-s.p.10ked.7w885.g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/03bda585a99c6450-s.p.0zzh68k1~whtc.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/3c7c6164b2587822-s.p.0duriy8536ewt.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -11,4 +11,4 @@
 :HL["/_next/static/media/f287e533ed04f2e6-s.p.0t20vcyusyjhl.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/chunks/0sz_pwix0po4f.css","style"]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"demos","param":null,"prefetchHints":0,"slots":{"children":{"name":"cabanas-la-quebrada","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"inAE73pVJ6rSjiHG1CcuK"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"demos","param":null,"prefetchHints":0,"slots":{"children":{"name":"cabanas-la-quebrada","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"MhFtZZ0w2n7I00HzcolXv"}

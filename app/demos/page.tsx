@@ -102,6 +102,14 @@ const BLITZ = [
     tagline: 'Técnico y directo: azul eléctrico, grafito y amarillo de seguridad.',
     gradient: 'linear-gradient(135deg, #15171C 0%, #1B4DFF 140%)',
   },
+  {
+    slug: 'zamono',
+    name: 'Lubricentro Zamono',
+    rubro: 'Lavado y lubricentro',
+    city: 'Molina',
+    tagline: 'Limpio y rápido: azul agua, grafito y blanco.',
+    gradient: 'linear-gradient(135deg, #1C1F22 0%, #00A6C4 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

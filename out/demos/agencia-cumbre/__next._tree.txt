@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/0rfj7q6j6~in7.css","style"]
-:HL["/_next/static/chunks/0r~97.-2jlkez.css","style"]
+:HL["/_next/static/chunks/0y2_30t250x66.css","style"]
 :HL["/_next/static/media/01e4147cff8141ee-s.p.10ked.7w885.g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/3e185f0c9c3d9cda-s.p.0w3s_lwrmz1l8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/4bb3c571e95f6f90-s.p.0eibskl.182vt.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -8,4 +8,4 @@
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/f287e533ed04f2e6-s.p.0t20vcyusyjhl.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"demos","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"agencia-cumbre","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"inAE73pVJ6rSjiHG1CcuK"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"demos","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"agencia-cumbre","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"MhFtZZ0w2n7I00HzcolXv"}
