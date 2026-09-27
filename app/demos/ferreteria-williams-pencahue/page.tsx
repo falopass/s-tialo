@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Libre_Franklin, Source_Serif_4 } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -24,19 +25,19 @@ const C = {
   oro: '#B98B4E',
   oroSoft: '#E4D2B2',
   ink: '#2B1B20',
-  muted: '#7B6A62',
+  muted: '#6F5F56',
   line: 'rgba(43,27,32,0.16)',
 }
 
 export const metadata: Metadata = {
-  title: 'Ferreteria Williams Pencahue — Ferretería y maderas en Pencahue',
+  title: 'Ferreteria Williams Pencahue — ferretería y maderas en el Maule',
   description:
     'Ferretería en Santa Sara, Pencahue, Región del Maule. Herramientas, tornillería al detalle, gasfitería, electricidad e insumos para el campo. Pedidos por WhatsApp.',
   robots: { index: false, follow: false },
 }
 
 const NAV_LINKS = [
-  { label: 'La ferretería', href: '#mosaico' },
+  { label: 'La galería', href: '#mosaico' },
   { label: 'El negocio', href: '#nosotros' },
   { label: 'Precios', href: '#precios' },
   { label: 'Contacto', href: '#contacto' },
@@ -47,8 +48,10 @@ type MosaicTile =
       kind: 'photo'
       src: string
       alt: string
+      num: string
       tag: string
       caption: string
+      sizes: string
       span: string
     }
   | {
@@ -66,8 +69,10 @@ const MOSAIC: MosaicTile[] = [
     kind: 'photo',
     src: `${IMG}/detalle2.webp`,
     alt: 'Mesón de madera de la ferretería con tornillos en cajones, balanza y estantes de fittings al fondo',
+    num: '01',
     tag: 'Tornillería al detalle',
     caption: 'El mesón de siempre: el tornillo se pesa y se cobra justo.',
+    sizes: '(min-width: 768px) 66vw, 100vw',
     span: 'md:col-span-4 md:row-span-2',
   },
   {
@@ -82,24 +87,30 @@ const MOSAIC: MosaicTile[] = [
     kind: 'photo',
     src: `${IMG}/detalle1.webp`,
     alt: 'Banco de trabajo con martillo, alicates, huincha de medir, clavos y bisagras',
+    num: '02',
     tag: 'Herramientas',
     caption: 'Martillos, alicates, huinchas y todo lo que se gasta y hay que reponer.',
+    sizes: '(min-width: 768px) 33vw, 100vw',
     span: 'md:col-span-2',
   },
   {
     kind: 'photo',
     src: `${IMG}/detalle3.webp`,
     alt: 'Estantes del local con codos y tees de PVC, fittings de bronce, mangueras y carretilla',
+    num: '03',
     tag: 'Gasfitería y PVC',
     caption: 'Codos, tees, pegamento y mangueras: la gotera se corta hoy.',
+    sizes: '(min-width: 768px) 33vw, 100vw',
     span: 'md:col-span-2 md:row-span-2',
   },
   {
     kind: 'photo',
     src: `${IMG}/ambiente.webp`,
     alt: 'Fachada de la ferretería con la cortina abierta y los cerros de Pencahue al fondo',
+    num: '04',
     tag: 'El local',
     caption: 'Santa Sara - Lote 16, con los cerros de Pencahue al fondo.',
+    sizes: '(min-width: 768px) 66vw, 100vw',
     span: 'md:col-span-4',
   },
   {
@@ -108,7 +119,7 @@ const MOSAIC: MosaicTile[] = [
     title: 'Se encarga y llega',
     desc: 'Si no está en el estante, se pide y se avisa por WhatsApp cuando llega.',
     list: ['Material eléctrico', 'Pinturas y accesorios', 'Insumos para el campo y el huerto'],
-    span: 'md:col-span-2',
+    span: 'md:col-span-4',
   },
 ]
 
@@ -162,10 +173,13 @@ export default function FerreteriaWilliamsPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.vinoDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Pasillo interior de la ferretería con fittings de PVC, herramientas y la puerta abierta hacia la calle de Pencahue"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -181,7 +195,7 @@ export default function FerreteriaWilliamsPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg`}
+              className={`${display.className} flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
               style={{ backgroundColor: 'rgba(245,239,230,0.94)', color: C.vinoDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.oro} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -213,14 +227,14 @@ export default function FerreteriaWilliamsPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-[transform,filter] hover:brightness-110 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5EFE6]`}
                 style={{ backgroundColor: C.oro, color: C.vinoDeep }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#mosaico"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5EFE6]`}
                 style={{ borderColor: 'rgba(245,239,230,0.55)', color: '#F5EFE6' }}
               >
                 Ver la ferretería
@@ -240,8 +254,8 @@ export default function FerreteriaWilliamsPage() {
       </section>
 
       {/* ── Mosaico fotográfico: la página como galería ── */}
-      <section id="mosaico" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <div className="grid lg:grid-cols-[1fr_2fr] gap-8 md:gap-14 items-end mb-10 md:mb-14">
+      <section id="mosaico" className="scroll-mt-20 max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <div className="grid lg:grid-cols-[1fr_2fr] gap-8 md:gap-14 items-end mb-10 md:mb-14 max-w-6xl">
           <Reveal>
             <Eyebrow>La ferretería en fotos</Eyebrow>
             <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.05] tracking-[-0.01em]`} style={{ color: C.vino }}>
@@ -257,17 +271,25 @@ export default function FerreteriaWilliamsPage() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-6 md:auto-rows-[195px] gap-4 md:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-6 md:auto-rows-[200px] gap-4 md:gap-5">
           {MOSAIC.map((t, i) => (
             <Reveal key={i} delay={i * 80} className={t.span}>
               {t.kind === 'photo' ? (
                 <figure className="group relative rounded-2xl overflow-hidden h-full min-h-[240px] md:min-h-0 aspect-[4/3] md:aspect-auto" style={{ boxShadow: '0 1px 2px rgba(58,21,32,0.08)' }}>
-                  <img
+                  <Image
                     src={t.src}
                     alt={t.alt}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    fill
+                    sizes={t.sizes}
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
+                  <span
+                    className={`${display.className} absolute top-3 left-3 text-[10px] font-bold tracking-[0.16em] px-2.5 py-1 rounded-full`}
+                    style={{ backgroundColor: 'rgba(245,239,230,0.92)', color: C.vinoDeep }}
+                    aria-hidden="true"
+                  >
+                    Nº {t.num}
+                  </span>
                   <figcaption className="absolute inset-x-0 bottom-0 p-4 md:p-5" style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(58,21,32,0.82) 100%)' }}>
                     <p className={`${display.className} text-[10px] uppercase tracking-[0.2em] font-bold mb-1`} style={{ color: C.oroSoft }}>
                       {t.tag}
@@ -279,7 +301,7 @@ export default function FerreteriaWilliamsPage() {
                 </figure>
               ) : (
                 <div
-                  className={`rounded-2xl h-full p-5 md:p-6 flex flex-col justify-center border ${t.dark ? '' : ''}`}
+                  className="rounded-2xl h-full p-5 md:p-7 flex flex-col justify-center border"
                   style={
                     t.dark
                       ? { backgroundColor: C.vino, borderColor: 'rgba(245,239,230,0.12)' }
@@ -298,11 +320,11 @@ export default function FerreteriaWilliamsPage() {
                   >
                     {t.title}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: t.dark ? 'rgba(245,239,230,0.8)' : C.muted }}>
+                  <p className="text-sm leading-relaxed max-w-xl" style={{ color: t.dark ? 'rgba(245,239,230,0.8)' : C.muted }}>
                     {t.desc}
                   </p>
                   {t.list && (
-                    <ul className="mt-3 space-y-1.5">
+                    <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-1.5">
                       {t.list.map((item) => (
                         <li key={item} className="flex items-center gap-2.5 text-sm" style={{ color: t.dark ? 'rgba(245,239,230,0.85)' : C.ink }}>
                           <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: C.oro }} aria-hidden="true" />
@@ -353,7 +375,7 @@ export default function FerreteriaWilliamsPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm font-semibold underline underline-offset-4 decoration-2`}
+                className={`${display.className} text-sm font-semibold underline underline-offset-4 decoration-2 hover:decoration-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B98B4E]`}
                 style={{ color: C.oroSoft, textDecorationColor: 'rgba(185,139,78,0.4)' }}
               >
                 Ver la ficha en Google →
@@ -456,7 +478,7 @@ export default function FerreteriaWilliamsPage() {
                 href={WA_LINK_PEDIDO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-[transform,filter] hover:brightness-125 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
                 style={{ backgroundColor: C.vino, color: '#F5EFE6' }}
               >
                 Escribir por WhatsApp
@@ -465,21 +487,21 @@ export default function FerreteriaWilliamsPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors`}
+                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors hover:bg-[rgba(107,39,55,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
                 style={{ borderColor: 'rgba(107,39,55,0.4)', color: C.vino }}
               >
                 Cómo llegar →
               </a>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm" style={{ color: C.muted }}>
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-2" style={{ color: C.ink }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-2 hover:decoration-[#B98B4E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm" style={{ color: C.ink }}>
                 {BIZ.phoneDisplay}
               </a>
               <a
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold underline underline-offset-2"
+                className="font-semibold underline underline-offset-2 hover:decoration-[#B98B4E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm"
                 style={{ color: C.ink }}
               >
                 Facebook
@@ -527,7 +549,7 @@ export default function FerreteriaWilliamsPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-[transform,filter] hover:brightness-110 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5EFE6]`}
               style={{ backgroundColor: C.oro, color: C.vinoDeep }}
             >
               Consultar por WhatsApp
@@ -544,12 +566,12 @@ export default function FerreteriaWilliamsPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(245,239,230,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm">{BIZ.phoneDisplay}</a>
             </address>
           </div>
           <div className={`${display.className} flex flex-wrap gap-x-6 gap-y-2 text-sm`} style={{ color: 'rgba(245,239,230,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm">
                 {l.label}
               </a>
             ))}
