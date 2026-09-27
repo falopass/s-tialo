@@ -15,9 +15,11 @@ const C = {
   sandSoft: '#F4EEE3',
   terra: '#C1663F',
   terraDeep: '#A4522F',
+  terraText: '#8E4527',
+  terraLight: '#E0875F',
   white: '#FFFFFF',
   ink: '#1B2A41',
-  muted: '#5B6577',
+  muted: '#4E5869',
   line: 'rgba(27,42,65,0.14)',
 }
 
@@ -209,7 +211,7 @@ function WaButton({
   className?: string
 }) {
   const s = {
-    terra: { backgroundColor: C.terra, color: C.white },
+    terra: { backgroundColor: C.terraDeep, color: C.white },
     white: { backgroundColor: C.white, color: C.night },
     night: { backgroundColor: C.night, color: C.white },
   }[tone]
@@ -231,7 +233,7 @@ function SectionHead({ index, title, note, light = false }: { index: string; tit
   return (
     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 pb-6 mb-2 border-b" style={{ borderColor: light ? 'rgba(255,255,255,0.18)' : C.line }}>
       <div>
-        <p className="text-xs font-bold tracking-[0.2em] uppercase mb-3" style={{ color: C.terra }}>
+        <p className="text-xs font-bold tracking-[0.2em] uppercase mb-3" style={{ color: light ? C.terraLight : C.terraText }}>
           {index}
         </p>
         <h2 className={`${display.className} text-3xl md:text-[2.6rem] leading-tight`} style={{ color: light ? C.white : C.ink }}>
@@ -251,7 +253,7 @@ function SampleChip({ light = false }: { light?: boolean }) {
   return (
     <span
       className="inline-block text-[10px] font-bold tracking-[0.14em] uppercase px-2 py-[3px] rounded"
-      style={light ? { backgroundColor: 'rgba(255,255,255,0.12)', color: C.sand } : { backgroundColor: C.sand, color: C.terraDeep }}
+      style={light ? { backgroundColor: 'rgba(255,255,255,0.12)', color: C.sand } : { backgroundColor: C.sand, color: C.terraText }}
     >
       Muestra
     </span>
@@ -261,19 +263,21 @@ function SampleChip({ light = false }: { light?: boolean }) {
 export default function JardinViveroCarolinaPage() {
   return (
     <div className={`${body.className} min-h-screen`} style={{ backgroundColor: C.white, color: C.ink }}>
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{ over: 'dark', bar: 'rgba(255,255,255,0.94)', ink: C.night, line: C.line, btnBg: C.terra, btnInk: C.white }}
-      />
+      <div style={{ backgroundColor: C.night }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{ over: 'dark', bar: 'rgba(27,42,65,0.96)', ink: C.white, line: 'rgba(255,255,255,0.12)', btnBg: C.terraDeep, btnInk: C.white }}
+        />
+      </div>
 
       {/* ── Hero a sangre ─────────────────────────────── */}
-      <section id="inicio" className="relative min-h-[88svh] flex items-end overflow-hidden">
+      <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden" style={{ backgroundColor: C.night }}>
         <Image src={`${IMG}/hero.webp`} alt="Hileras de plantas en maceta en un vivero al atardecer, con cerros de fondo" fill priority sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(27,42,65,0.55) 0%, rgba(27,42,65,0.2) 35%, rgba(27,42,65,0.92) 100%)' }} />
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-32 pb-12 md:pb-16">
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(27,42,65,0.72) 0%, rgba(27,42,65,0.6) 35%, rgba(27,42,65,0.94) 100%)' }} />
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-32 pb-24 md:pb-24">
           <p className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase mb-5" style={{ color: C.sand }}>
             <span className="w-6 h-px" style={{ backgroundColor: C.terra }} />
             Vivero · Fundo La Obra, Curicó
@@ -288,7 +292,7 @@ export default function JardinViveroCarolinaPage() {
             <WaButton>Consultar por WhatsApp</WaButton>
             <a
               href="#directorio"
-              className="inline-flex items-center justify-center min-h-[48px] px-6 rounded-full font-bold text-[15px] border transition-colors hover:bg-white/10"
+              className="self-start sm:self-auto inline-flex items-center justify-center min-h-[48px] px-6 rounded-full font-bold text-[15px] border transition-colors hover:bg-white/10"
               style={{ borderColor: 'rgba(255,255,255,0.45)', color: C.white }}
             >
               Ver lo que hay en el vivero
@@ -303,7 +307,7 @@ export default function JardinViveroCarolinaPage() {
           {NAV_LINKS.map((l, i) => (
             <li key={l.href} className="border-white/10 border-b md:border-b-0 md:border-r last:border-r-0 odd:border-r md:odd:border-r">
               <a href={l.href} className="flex items-center gap-3 py-5 px-1 md:px-5 text-sm font-semibold transition-colors hover:text-white" style={{ color: C.sand }}>
-                <span className="text-xs tabular-nums" style={{ color: C.terra }}>0{i + 1}</span>
+                <span className="text-xs tabular-nums" style={{ color: C.terraLight }}>0{i + 1}</span>
                 {l.label}
               </a>
             </li>
@@ -321,7 +325,7 @@ export default function JardinViveroCarolinaPage() {
                 <Reveal delay={i * 60}>
                   <article className="grid grid-cols-1 md:grid-cols-[220px_1fr_200px] gap-5 md:gap-8 py-8 border-b" style={{ borderColor: C.line }}>
                     <div className="relative aspect-[4/3] md:aspect-[4/3.2] rounded-xl overflow-hidden">
-                      <Image src={d.src} alt={d.name} fill sizes="(min-width: 768px) 220px, 100vw" className="object-cover" />
+                      <Image src={d.src} alt={d.name} fill loading="eager" sizes="(min-width: 768px) 220px, 100vw" className="object-cover" />
                     </div>
                     <div>
                       <div className="flex items-center gap-3 mb-3">
@@ -366,7 +370,7 @@ export default function JardinViveroCarolinaPage() {
       </section>
 
       {/* ── WhatsApp (repetido) ───────────────────────── */}
-      <section style={{ backgroundColor: C.terra }}>
+      <section style={{ backgroundColor: C.terraDeep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
           <p className={`${display.className} text-2xl md:text-3xl leading-snug max-w-2xl`} style={{ color: C.white }}>
             ¿Buscas algo puntual? Mándanos una foto y te decimos si lo tenemos.
@@ -379,7 +383,7 @@ export default function JardinViveroCarolinaPage() {
       <section id="nosotros" className="py-20 md:py-28" style={{ backgroundColor: C.sandSoft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-[1fr_1.1fr] gap-12 md:gap-16">
           <Reveal>
-            <p className="text-xs font-bold tracking-[0.2em] uppercase mb-3" style={{ color: C.terra }}>El vivero</p>
+            <p className="text-xs font-bold tracking-[0.2em] uppercase mb-3" style={{ color: C.terraText }}>El vivero</p>
             <h2 className={`${display.className} text-3xl md:text-[2.6rem] leading-tight`}>
               Un vivero de campo en Curicó, atendido directo.
             </h2>
@@ -405,7 +409,7 @@ export default function JardinViveroCarolinaPage() {
                 <li key={v.title}>
                   <Reveal delay={i * 80}>
                     <div className="flex gap-4 p-6 rounded-xl" style={{ backgroundColor: C.white }}>
-                      <span className={`${display.className} text-2xl leading-none shrink-0`} style={{ color: C.terra }}>{i + 1}</span>
+                      <span className={`${display.className} text-2xl leading-none shrink-0`} style={{ color: C.terraText }}>{i + 1}</span>
                       <div>
                         <h3 className="font-bold text-lg">{v.title}</h3>
                         <p className="mt-1 leading-relaxed" style={{ color: C.muted }}>{v.desc}</p>
@@ -449,7 +453,7 @@ export default function JardinViveroCarolinaPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="mt-10 flex flex-col items-start sm:flex-row sm:items-center gap-4">
             <WaButton tone="night">Pedir precios actualizados</WaButton>
             <p className="text-sm" style={{ color: C.muted }}>Te respondemos con valores y stock del día.</p>
           </div>
@@ -464,14 +468,14 @@ export default function JardinViveroCarolinaPage() {
             {FAQS.map((f, i) => (
               <Reveal key={f.q} delay={(i % 3) * 70}>
                 <div className="h-full p-6 rounded-xl" style={{ backgroundColor: C.white }}>
-                  <p className="text-xs font-bold mb-3" style={{ color: C.terra }}>P.</p>
+                  <p className="text-xs font-bold mb-3" style={{ color: C.terraText }}>P.</p>
                   <h3 className="font-bold text-lg leading-snug">{f.q}</h3>
                   <p className="mt-2 leading-relaxed text-[15px]" style={{ color: C.muted }}>{f.a}</p>
                 </div>
               </Reveal>
             ))}
           </div>
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="mt-10 flex flex-col items-start sm:flex-row sm:items-center gap-4">
             <WaButton>Hacer otra pregunta</WaButton>
           </div>
         </div>
@@ -487,20 +491,18 @@ export default function JardinViveroCarolinaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-6 rounded-2xl transition-transform hover:-translate-y-0.5"
-                style={{ backgroundColor: C.terra, color: C.white }}
+                className="inline-flex items-center gap-3 min-h-[56px] py-2 pl-2 pr-6 rounded-full transition-transform hover:-translate-y-0.5"
+                style={{ backgroundColor: C.terraDeep, color: C.white }}
               >
-                <span className="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
-                  <WaIcon className="w-7 h-7" />
+                <span className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
+                  <WaIcon className="w-5 h-5" />
                 </span>
-                <span>
-                  <span className="block text-sm font-semibold opacity-85">WhatsApp</span>
-                  <span className={`${display.className} block text-2xl md:text-3xl`}>{BIZ.phoneDisplay}</span>
-                </span>
+                <span className="text-sm font-semibold">WhatsApp</span>
+                <span className={`${display.className} text-lg md:text-xl`}>{BIZ.phoneDisplay}</span>
               </a>
               <dl className="mt-8 space-y-6" style={{ color: C.sand }}>
                 <div>
-                  <dt className="text-xs font-bold tracking-[0.18em] uppercase mb-1.5" style={{ color: C.terra }}>Dirección</dt>
+                  <dt className="text-xs font-bold tracking-[0.18em] uppercase mb-1.5" style={{ color: C.terraLight }}>Dirección</dt>
                   <dd className="text-lg leading-snug" style={{ color: C.white }}>
                     {BIZ.address}
                     <br />
@@ -513,13 +515,13 @@ export default function JardinViveroCarolinaPage() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-bold tracking-[0.18em] uppercase mb-1.5" style={{ color: C.terra }}>Teléfono</dt>
+                  <dt className="text-xs font-bold tracking-[0.18em] uppercase mb-1.5" style={{ color: C.terraLight }}>Teléfono</dt>
                   <dd>
                     <a href={`tel:${BIZ.phoneTel}`} className="text-lg underline-offset-4 hover:underline" style={{ color: C.white }}>{BIZ.phoneDisplay}</a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-bold tracking-[0.18em] uppercase mb-1.5" style={{ color: C.terra }}>Instagram</dt>
+                  <dt className="text-xs font-bold tracking-[0.18em] uppercase mb-1.5" style={{ color: C.terraLight }}>Instagram</dt>
                   <dd>
                     <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="text-lg underline-offset-4 hover:underline" style={{ color: C.white }}>@jardinvivero.carolina</a>
                   </dd>
@@ -544,18 +546,17 @@ export default function JardinViveroCarolinaPage() {
         <div className="text-center text-xs font-bold tracking-[0.18em] uppercase py-3" style={{ backgroundColor: C.sand, color: C.night }}>
           Sitio de ejemplo de Sitiazo
         </div>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 pb-24 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm" style={{ color: C.muted }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-6 pb-20 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-sm" style={{ color: C.muted }}>
           <p>
-            <span className={`${display.className} text-lg`} style={{ color: C.night }}>{BIZ.name}</span>
-            <br />
-            {BIZ.rubro} en {BIZ.city}, {BIZ.region}
+            <span className={`${display.className} text-base`} style={{ color: C.night }}>{BIZ.name}</span> · {BIZ.rubro} en {BIZ.city}. Fotos y precios de muestra.
           </p>
-          <p className="max-w-sm md:text-right">Fotos, precios, horarios y respuestas son de muestra para este ejemplo.</p>
+          <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex!">
+            <DemoBand name={BIZ.name} />
+          </div>
         </div>
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir a ${BIZ.name} por WhatsApp`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }
