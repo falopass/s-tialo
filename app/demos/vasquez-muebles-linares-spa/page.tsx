@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Prata, Mulish } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_ENCARGO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -198,7 +198,7 @@ export default function VasquezMueblesPage() {
           bar: 'rgba(255,255,255,0.95)',
           ink: C.noche,
           line: C.line,
-          btnBg: C.terracota,
+          btnBg: C.terracotaInk,
           btnInk: '#FFFFFF',
         }}
       />
@@ -245,7 +245,7 @@ export default function VasquezMueblesPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} text-sm md:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] active:scale-95`}
-                style={{ backgroundColor: C.terracota, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.terracotaInk, color: '#FFFFFF' }}
               >
                 Cotizar mi mueble
               </a>
@@ -260,8 +260,8 @@ export default function VasquezMueblesPage() {
           </Reveal>
         </div>
 
-        <div className="relative border-t" style={{ borderColor: 'rgba(255,255,255,0.2)', backgroundColor: 'rgba(19,31,49,0.45)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.75)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(255,255,255,0.2)', backgroundColor: 'rgba(19,31,49,0.8)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.92)' }}>
             {[
               'Callejón Los Zárate, parcela 2',
               'Diseño y confección a medida',
@@ -300,6 +300,7 @@ export default function VasquezMueblesPage() {
                   alt="Fachada del taller en Callejón Los Zárate: galpón de ladrillo con maderas apiladas, en una calle tranquila de Linares"
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"
+                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -393,6 +394,7 @@ export default function VasquezMueblesPage() {
                         alt={m.alt}
                         fill
                         sizes="(min-width: 768px) 46vw, 100vw"
+                        loading="eager"
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
                     </div>
@@ -466,7 +468,7 @@ export default function VasquezMueblesPage() {
                   <p
                     className={`${display.className} w-12 h-12 flex items-center justify-center text-xl mb-5`}
                     style={{
-                      backgroundColor: C.terracota,
+                      backgroundColor: C.terracotaInk,
                       color: '#FFFFFF',
                       borderRadius: '62% 38% 55% 45% / 48% 60% 40% 52%',
                     }}
@@ -477,7 +479,7 @@ export default function VasquezMueblesPage() {
                   <h3 className={`${display.className} text-xl md:text-2xl mb-3`} style={{ color: '#FFFFFF' }}>
                     {p.title}
                   </h3>
-                  <p className="text-[15px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
+                  <p className="text-[15px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.88)' }}>
                     {p.desc}
                   </p>
                 </article>
@@ -583,7 +585,7 @@ export default function VasquezMueblesPage() {
                     </blockquote>
                     <figcaption className="flex items-center justify-between gap-3 text-[11px] uppercase tracking-[0.16em] font-bold">
                       <span style={{ color: C.noche }}>{t.author}</span>
-                      <span style={{ color: C.terracota }}>Reseña de ejemplo</span>
+                      <span style={{ color: C.terracotaInk }}>Reseña de ejemplo</span>
                     </figcaption>
                   </figure>
                 </Reveal>
@@ -621,7 +623,7 @@ export default function VasquezMueblesPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B2A41] active:scale-95`}
-                style={{ backgroundColor: C.terracota, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.terracotaInk, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
               </a>
@@ -689,7 +691,7 @@ export default function VasquezMueblesPage() {
               <br />
               <span style={{ color: C.arena }}>en mente?</span>
             </h2>
-            <p className="text-[15px] md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
+            <p className="text-[15px] md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.88)' }}>
               Mándanos una foto o las medidas por WhatsApp y te respondemos
               con una propuesta. Sin compromiso.
             </p>
@@ -698,7 +700,7 @@ export default function VasquezMueblesPage() {
               target="_blank"
               rel="noopener noreferrer"
               className={`${display.className} inline-block text-sm md:text-base px-9 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] active:scale-95`}
-              style={{ backgroundColor: C.terracota, color: '#FFFFFF' }}
+              style={{ backgroundColor: C.terracotaInk, color: '#FFFFFF' }}
             >
               Cotizar por WhatsApp
             </a>
@@ -707,36 +709,27 @@ export default function VasquezMueblesPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.deep, color: '#FFFFFF', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              Facebook
-            </a>
-          </div>
+      <footer className="pb-20" style={{ backgroundColor: C.deep, color: '#FFFFFF', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+          <p className={`${display.className} text-xl mb-1.5`}>{BIZ.name}</p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.legal}. Textos,
-            productos, precios y fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.arena }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.legal}: productos, precios, reseñas y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.arena }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
