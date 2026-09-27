@@ -15,6 +15,7 @@ const C = {
   deep: '#16191D',
   steel: '#3A4148',
   orange: '#E8631A',
+  orangeInk: '#A8440C',
   orangeSoft: '#FBDDC9',
   muted: '#5D666E',
   line: 'rgba(38,43,49,0.16)',
@@ -101,6 +102,7 @@ export default function SantaFePage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.graphite }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -117,7 +119,7 @@ export default function SantaFePage() {
       />
 
       {/* ── Hero con grilla técnica ── */}
-      <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden">
+      <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <GridScene className="absolute inset-0 w-full h-full" />
         <div
           className="absolute inset-0"
@@ -169,7 +171,7 @@ export default function SantaFePage() {
       {/* ── Servicios numerados ── */}
       <section id="servicios" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.26em] mb-3 font-semibold" style={{ color: C.orange }}>
+          <p className="text-[11px] uppercase tracking-[0.26em] mb-3 font-semibold" style={{ color: C.orangeInk }}>
             Servicios
           </p>
           <h2 className={`${display.className} uppercase font-semibold text-3xl md:text-5xl leading-tight mb-4`}>
@@ -196,7 +198,7 @@ export default function SantaFePage() {
                 </span>
                 <p
                   className={`${display.className} font-semibold text-sm tracking-[0.15em] mb-3`}
-                  style={{ color: C.orange }}
+                  style={{ color: C.orangeInk }}
                 >
                   {s.n}
                 </p>
@@ -295,7 +297,7 @@ export default function SantaFePage() {
                   <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.graphite }}>
                     “{t}”
                   </blockquote>
-                  <figcaption className="text-xs uppercase tracking-[0.18em] font-semibold" style={{ color: C.orange }}>
+                  <figcaption className="text-xs uppercase tracking-[0.18em] font-semibold" style={{ color: C.orangeInk }}>
                     Reseña de ejemplo
                   </figcaption>
                 </figure>
@@ -381,10 +383,10 @@ export default function SantaFePage() {
       <section style={{ backgroundColor: C.orange }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
-            <h2 className={`${display.className} uppercase font-semibold text-[clamp(2.2rem,7vw,4.2rem)] leading-[1] mb-6`} style={{ color: '#fff' }}>
+            <h2 className={`${display.className} uppercase font-semibold text-[clamp(2.2rem,7vw,4.2rem)] leading-[1] mb-6`} style={{ color: C.deep }}>
               Cotiza tu proyecto
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: 'rgba(255,255,255,0.85)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: C.deep }}>
               Escríbenos por WhatsApp, cuéntanos qué quieres construir y
               coordinamos la evaluación.
             </p>
@@ -401,7 +403,7 @@ export default function SantaFePage() {
               <a
                 href={`tel:${BIZ.phoneTel}`}
                 className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 py-4 border-2 transition-colors`}
-                style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#fff' }}
+                style={{ borderColor: C.deep, color: C.deep }}
               >
                 {BIZ.phoneDisplay}
               </a>
@@ -412,7 +414,7 @@ export default function SantaFePage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#EDEFF1' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-12 pb-28 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <p className={`${display.className} uppercase font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,239,241,0.6)' }}>
@@ -423,7 +425,7 @@ export default function SantaFePage() {
               </a>
             </address>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(237,239,241,0.4)' }}>
+          <p className="text-xs" style={{ color: 'rgba(237,239,241,0.6)' }}>
             © {new Date().getFullYear()} {BIZ.name}
           </p>
         </div>

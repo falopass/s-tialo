@@ -17,7 +17,7 @@ export function GridScene({ className = '' }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 1200 800"
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="xMaxYMid slice"
       className={className}
       aria-hidden="true"
       focusable="false"
