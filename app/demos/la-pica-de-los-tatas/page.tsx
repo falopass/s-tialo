@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import Image from 'next/image'
 import { Prata, Mulish } from 'next/font/google'
 import { SITE, whatsappLink } from '@/lib/config'
-import { DemoBand, Motif } from '../kit'
+import { Motif } from '../kit'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -111,6 +111,7 @@ export default function LaPicaDeLosTatasPage() {
       className={`${body.className} min-h-screen antialiased overflow-x-clip`}
       style={{ backgroundColor: C.coal, color: C.sand }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       {/* ── Barra flotante de vidrio ── */}
       <header className="fixed top-3 inset-x-3 md:top-5 z-40">
         <div className="max-w-[1100px] mx-auto flex items-center justify-between gap-4 pl-5 pr-2 py-2 rounded-full border border-[#E8DCC8]/12 bg-[#0F141C]/60 backdrop-blur-xl">
@@ -246,6 +247,7 @@ export default function LaPicaDeLosTatasPage() {
                       src={item.src}
                       alt={item.alt}
                       fill
+                      loading="eager"
                       sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -292,6 +294,7 @@ export default function LaPicaDeLosTatasPage() {
                   src={`${IMG}/ambiente.webp`}
                   alt="Fachada de La Picá De Los Tatas en calle Independencia, Molina, con la puerta abierta al comedor"
                   fill
+                  loading="eager"
                   sizes="(min-width: 1024px) 50vw, calc(100vw - 2.5rem)"
                   className="object-cover"
                 />
@@ -411,6 +414,7 @@ export default function LaPicaDeLosTatasPage() {
           alt=""
           aria-hidden="true"
           fill
+          loading="eager"
           sizes="100vw"
           className="object-cover"
         />
@@ -429,7 +433,7 @@ export default function LaPicaDeLosTatasPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${BTN_GLOW} mt-10 text-lg px-10 py-5`}
+              className={`${BTN_GLOW} mt-10 text-lg px-10 py-4`}
               style={{ backgroundColor: C.terra, color: C.coal }}
             >
               Escribir por WhatsApp
@@ -524,36 +528,21 @@ export default function LaPicaDeLosTatasPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.coal }}>
-        <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-14 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-[1200px] mx-auto px-5 md:px-8 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <p className={`${display.className} text-xl md:text-2xl mb-3`} style={{ color: C.white }}>
+            <p className={`${display.className} text-xl md:text-2xl mb-1`} style={{ color: C.white }}>
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed text-[#E8DCC8]/65">
-              {BIZ.address}, {BIZ.city}, {BIZ.region}
-              <br />
-              {BIZ.phoneDisplay}
+            <address className="not-italic text-sm leading-relaxed text-[#E8DCC8]/75">
+              {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
             </address>
           </div>
-          <nav className="flex flex-wrap gap-x-7 gap-y-2 text-sm text-[#E8DCC8]/65" aria-label="Pie">
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`transition-colors hover:text-white ${LINK_FOCUS}`}>
-                {l.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-        <div className="border-t border-[#E8DCC8]/10">
-          <p className="max-w-[1200px] mx-auto px-5 md:px-8 py-5 pb-20 text-xs leading-relaxed text-[#E8DCC8]/50">
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Nombre,
-            dirección, teléfono, reseñas de Google y seguidores de Facebook son
-            datos públicos reales; carta, precios, horarios y textos son de
-            muestra.
+          <p className="text-xs leading-relaxed md:max-w-[26rem] text-[#E8DCC8]/70">
+            Mockup de Sitiazo: datos del restaurante reales; carta, precios, horarios y textos de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
