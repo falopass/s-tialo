@@ -567,7 +567,7 @@ export default function CafeLaFrancesaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative -rotate-1 inline-flex items-center gap-3 px-7 py-3 rounded-full text-base md:text-lg font-semibold shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] transition-transform hover:rotate-0 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
+                className="relative -rotate-1 inline-flex items-center gap-3 px-7 py-2.5 rounded-full text-base md:text-lg font-semibold shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] transition-transform hover:rotate-0 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
                 style={{ backgroundColor: C.crema, color: C.campoInk }}
               >
                 <WaIcon className="h-6 w-6" />
