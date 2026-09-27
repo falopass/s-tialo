@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Bitter, Rubik } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_PRESUPUESTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -185,6 +185,7 @@ export default function MillycarPage() {
       className={`${body.className} min-h-screen antialiased overflow-x-clip`}
       style={{ backgroundColor: C.paper, color: C.slate }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -677,11 +678,11 @@ export default function MillycarPage() {
               <span className="inline-block w-5 h-5 rounded-sm" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,251,248,0.65)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,251,248,0.8)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,251,248,0.65)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,251,248,0.8)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white focus-visible:text-white transition-colors">
                 {l.label}
@@ -693,16 +694,21 @@ export default function MillycarPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,251,248,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,251,248,0.5)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-            Servicios, precios, horarios y reseñas son de muestra; el
-            nombre, la dirección, el teléfono y las redes corresponden a
-            datos públicos del taller.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,251,248,0.8)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellow }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Servicios, precios, horarios y reseñas son de
+            muestra; nombre, dirección, teléfono y redes son datos públicos
+            del taller.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellow }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
