@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { DM_Serif_Display, DM_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -157,7 +156,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(20,42,32,0.55) 0%, rgba(20,42,32,0.15) 38%, rgba(20,42,32,0.85) 100%)',
+              'linear-gradient(180deg, rgba(20,42,32,0.6) 0%, rgba(20,42,32,0.5) 38%, rgba(20,42,32,0.9) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -214,7 +213,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
         </div>
         {/* barra de datos al pie del hero */}
         <div className="relative border-t" style={{ borderColor: 'rgba(246,241,231,0.22)', backgroundColor: 'rgba(20,42,32,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,231,0.78)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,231,0.9)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.brass }} aria-hidden="true" />
@@ -427,7 +426,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                 <p className={`${display.className} text-2xl leading-tight mb-2`} style={{ color: '#F6F1E7' }}>
                   Agenda tu hora
                 </p>
-                <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(246,241,231,0.75)' }}>
+                <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(246,241,231,0.9)' }}>
                   Cuéntanos qué le pasa a tu mascota y te confirmamos hora el
                   mismo día.
                 </p>
@@ -449,7 +448,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                 >
                   Es una urgencia
                 </a>
-                <p className="text-[11px] mt-4 text-center" style={{ color: 'rgba(246,241,231,0.7)' }}>
+                <p className="text-[11px] mt-4 text-center" style={{ color: 'rgba(246,241,231,0.9)' }}>
                   {BIZ.phoneDisplay}
                 </p>
               </div>
@@ -549,7 +548,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
               <br />
               <em style={{ color: C.brassSoft }}>en buenas manos</em>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(246,241,231,0.9)' }}>
               Escríbenos por WhatsApp para agendar consulta, vacuna o
               esterilización. Respondemos el mismo día.
             </p>
@@ -568,34 +567,30 @@ export default function ClinicaVeterinariaDocpinoPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.forestDeep, color: '#F6F1E7' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} text-2xl mb-2 flex items-center gap-3`}>
-              <Paw className="w-5 h-5" color={C.brass} />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.55)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, horarios, precios y fotos son de muestra; la dirección,
-            el número de contacto y las reseñas son reales.
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 md:pb-10">
+          <p className={`${display.className} text-xl md:text-2xl mb-1 flex items-center gap-3`}>
+            <Paw className="w-5 h-5" color={C.brass} />
+            {BIZ.name}
+          </p>
+          <address className="not-italic text-sm leading-relaxed mb-4" style={{ color: 'rgba(246,241,231,0.85)' }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region}
+          </address>
+          <p className="text-xs leading-relaxed max-w-2xl" style={{ color: 'rgba(246,241,231,0.8)' }}>
+            Sitio de ejemplo preparado por{' '}
+            <a
+              href="https://sitiazo.cl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold underline underline-offset-2"
+              style={{ color: C.brassSoft }}
+            >
+              Sitiazo
+            </a>
+            . Textos, precios y fotos son de muestra; dirección, contacto y reseñas son reales.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
