@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Manrope } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 
@@ -16,8 +16,9 @@ const C = {
   graphite: '#23262B',
   ink: '#1B1E22',
   gold: '#A5885A',
+  goldInk: '#7A6238',
   goldSoft: '#E4DCC8',
-  muted: '#6E6E63',
+  muted: '#5C5C52',
   line: 'rgba(35,38,43,0.16)',
 }
 
@@ -111,6 +112,7 @@ export default function JdAbogadosPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
@@ -128,7 +130,7 @@ export default function JdAbogadosPage() {
 
       {/* ── Hero sobrio ── */}
       <section id="inicio" className="relative overflow-hidden">
-        <ScalesMark className="absolute -right-10 top-24 w-[280px] md:w-[420px] opacity-[0.07] pointer-events-none" />
+        <ScalesMark className="absolute right-0 top-24 w-[280px] md:w-[420px] opacity-[0.07] pointer-events-none" />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-14 md:pb-20">
           <Reveal>
             <div
@@ -212,7 +214,7 @@ export default function JdAbogadosPage() {
             style={{ borderColor: C.gold, backgroundColor: C.paper }}
           >
             <Reveal>
-              <p className="text-[11px] uppercase tracking-[0.24em] mb-4 font-semibold" style={{ color: C.gold }}>
+              <p className="text-[11px] uppercase tracking-[0.24em] mb-4 font-semibold" style={{ color: C.goldInk }}>
                 Primera consulta
               </p>
               <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-tight mb-4`}>
@@ -245,7 +247,7 @@ export default function JdAbogadosPage() {
               className="p-7 md:p-9"
               style={{ border: `1px solid ${C.gold}` }}
             >
-              <p className="text-[11px] uppercase tracking-[0.24em] mb-4 font-semibold" style={{ color: C.gold }}>
+              <p className="text-[11px] uppercase tracking-[0.24em] mb-4 font-semibold" style={{ color: C.goldInk }}>
                 En Google Maps
               </p>
               <p className={`${display.className} font-semibold text-6xl md:text-7xl leading-none mb-3`}>
@@ -287,7 +289,7 @@ export default function JdAbogadosPage() {
                   <blockquote className={`${display.className} text-base md:text-lg leading-relaxed mb-4`} style={{ color: C.ink }}>
                     “{t}”
                   </blockquote>
-                  <figcaption className="text-xs uppercase tracking-[0.18em] font-semibold" style={{ color: C.gold }}>
+                  <figcaption className="text-xs uppercase tracking-[0.18em] font-semibold" style={{ color: C.goldInk }}>
                     Reseña de ejemplo
                   </figcaption>
                 </figure>
@@ -415,14 +417,26 @@ export default function JdAbogadosPage() {
               </a>
             </address>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(247,245,240,0.4)' }}>
+          <p className="text-xs" style={{ color: 'rgba(247,245,240,0.7)' }}>
             © {new Date().getFullYear()} {BIZ.name}
           </p>
         </div>
+        <p
+          className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed border-t"
+          style={{ color: 'rgba(247,245,240,0.75)', borderColor: 'rgba(247,245,240,0.14)' }}
+        >
+          Mockup preparado por{' '}
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.goldSoft }}>
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name}, así se vería tu sitio.{' '}
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.goldSoft }}>
+            ¿Lo hacemos realidad?
+          </a>
+        </p>
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }
