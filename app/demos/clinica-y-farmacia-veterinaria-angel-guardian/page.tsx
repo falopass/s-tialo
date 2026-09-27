@@ -214,6 +214,11 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.bone, color: C.ink }}
     >
+      <style>{`
+        html { scroll-behavior: auto }
+        .ag-band { display: flex; justify-content: center; padding: 0 5rem 1.25rem 1.25rem; background-color: #2E1620 }
+        .ag-band > div { position: static; max-width: 100%; background-color: rgba(10,10,10,0.94) }
+      `}</style>
       <TopBar
         name={BIZ.short}
         links={NAV_LINKS}
@@ -547,10 +552,10 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.wineInk, color: C.bone }}>
-        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-5 flex flex-col md:flex-row md:items-end justify-between gap-3 border-t" style={{ borderColor: 'rgba(245,239,230,0.16)' }}>
           <div>
-            <p className={`${display.className} text-base md:text-lg font-bold mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(245,239,230,0.78)' }}>
+            <p className={`${display.className} text-base font-bold mb-1`}>{BIZ.name}</p>
+            <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.78)' }}>
               {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
             </address>
           </div>
@@ -558,14 +563,14 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             href={BIZ.facebook}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm underline underline-offset-4 transition-colors hover:text-[#F5EFE6]"
+            className="text-xs underline underline-offset-4 transition-colors hover:text-[#F5EFE6]"
             style={{ color: 'rgba(245,239,230,0.78)' }}
           >
             Facebook
           </a>
         </div>
-        <div className="border-t pb-20" style={{ borderColor: 'rgba(245,239,230,0.16)' }}>
-          <p className="max-w-[1400px] mx-auto px-5 md:px-10 py-4 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.7)' }}>
+        <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.16)' }}>
+          <p className="max-w-[1400px] mx-auto px-5 md:px-10 py-3 text-[10px] leading-snug" style={{ color: 'rgba(245,239,230,0.7)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Nombre,
             dirección, teléfono y reseñas de Google son datos públicos reales;
             servicios, precios, horarios y textos son de muestra.
@@ -573,7 +578,9 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <div className="ag-band">
+        <DemoBand name={BIZ.name} />
+      </div>
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
