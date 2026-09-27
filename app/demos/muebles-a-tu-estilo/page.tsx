@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Fraunces, Nunito_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -131,7 +131,7 @@ export default function MueblesATuEstiloPage() {
         />
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(180deg, rgba(29,37,33,0.55) 0%, rgba(29,37,33,0.25) 45%, rgba(29,37,33,0.9) 100%)' }}
+          style={{ background: 'linear-gradient(180deg, rgba(29,37,33,0.6) 0%, rgba(29,37,33,0.5) 45%, rgba(29,37,33,0.92) 100%)' }}
         />
         <div className="absolute inset-0 max-w-6xl mx-auto px-5 md:px-8 grid grid-cols-4 md:grid-cols-12 pointer-events-none" aria-hidden="true">
           {Array.from({ length: 12 }).map((_, i) => (
@@ -157,7 +157,7 @@ export default function MueblesATuEstiloPage() {
                 <br />
                 <em className="font-normal" style={{ color: C.ambar }}>a tu medida.</em>
               </h1>
-              <p className="col-span-4 md:col-span-5 md:col-start-1 text-base md:text-lg leading-relaxed mb-8 md:mb-0" style={{ color: 'rgba(253,246,236,0.88)' }}>
+              <p className="col-span-4 md:col-span-5 md:col-start-1 text-base md:text-lg leading-relaxed mb-8 md:mb-0" style={{ color: 'rgba(253,246,236,0.92)' }}>
                 Fabricamos cocinas, closets, comedores y encargos especiales en
                 nuestro taller de Molina. Conversas directo con quien lo hace.
               </p>
@@ -173,7 +173,7 @@ export default function MueblesATuEstiloPage() {
                 </a>
                 <a
                   href="#muebles"
-                  className={`flex items-center justify-between px-6 py-4 text-sm font-bold uppercase tracking-[0.14em] border transition-colors hover:bg-white/10 ${focusRing}`}
+                  className={`self-start md:self-stretch flex items-center justify-between gap-4 px-6 py-4 text-sm font-bold uppercase tracking-[0.14em] border transition-colors hover:bg-white/10 ${focusRing}`}
                   style={{ borderColor: 'rgba(253,246,236,0.5)', color: C.crema }}
                 >
                   Ver los muebles <span aria-hidden="true">↓</span>
@@ -198,7 +198,7 @@ export default function MueblesATuEstiloPage() {
               className={`px-5 md:px-8 py-4 ${i % 2 === 1 ? 'border-l' : ''} ${i === 2 ? 'md:border-l' : ''} ${i >= 2 ? 'border-t md:border-t-0' : ''}`}
               style={{ borderColor: 'rgba(253,246,236,0.22)' }}
             >
-              <dt className="text-[10px] font-bold uppercase tracking-[0.24em] mb-1" style={{ color: 'rgba(253,246,236,0.55)' }}>{k}</dt>
+              <dt className="text-[10px] font-bold uppercase tracking-[0.24em] mb-1" style={{ color: 'rgba(253,246,236,0.78)' }}>{k}</dt>
               <dd className="text-sm font-semibold" style={{ color: C.crema }}>{v}</dd>
             </div>
           ))}
@@ -345,14 +345,14 @@ export default function MueblesATuEstiloPage() {
       </section>
 
       {/* ── 04 Contacto ── */}
-      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.verde, color: C.crema }}>
+      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.verdeDeep, color: C.crema }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-12 gap-x-8 gap-y-12">
           <Reveal className="md:col-span-6">
             <Label n="04" light>Contacto</Label>
             <h2 className={`${display.className} text-[clamp(2.4rem,6vw,4.4rem)] leading-[1] tracking-[-0.01em] mt-6 mb-6`}>
               Cuéntanos qué mueble tienes en mente.
             </h2>
-            <p className="text-base leading-relaxed max-w-md mb-9" style={{ color: 'rgba(253,246,236,0.85)' }}>
+            <p className="text-base leading-relaxed max-w-md mb-9" style={{ color: 'rgba(253,246,236,0.9)' }}>
               Una foto de referencia o las medidas del espacio bastan para
               partir. Te respondemos por WhatsApp.
             </p>
@@ -365,7 +365,7 @@ export default function MueblesATuEstiloPage() {
             >
               Escribir por WhatsApp <span aria-hidden="true">→</span>
             </a>
-            <p className="mt-3 text-sm" style={{ color: 'rgba(253,246,236,0.75)' }}>
+            <p className="mt-3 text-sm" style={{ color: 'rgba(253,246,236,0.88)' }}>
               o llama al{' '}
               <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4">{BIZ.phoneDisplay}</a>
             </p>
@@ -378,12 +378,12 @@ export default function MueblesATuEstiloPage() {
                 ['WhatsApp', BIZ.phoneDisplay],
               ].map(([k, v]) => (
                 <div key={k} className="grid grid-cols-[7rem_1fr] py-3 border-b" style={{ borderColor: 'rgba(253,246,236,0.3)' }}>
-                  <dt className="text-[10px] font-bold uppercase tracking-[0.24em] pt-1" style={{ color: 'rgba(253,246,236,0.65)' }}>{k}</dt>
+                  <dt className="text-[10px] font-bold uppercase tracking-[0.24em] pt-1" style={{ color: 'rgba(253,246,236,0.8)' }}>{k}</dt>
                   <dd className="font-semibold">{v}</dd>
                 </div>
               ))}
             </dl>
-            <div className="relative aspect-[4/3] overflow-hidden" style={{ backgroundColor: C.verdeDeep }}>
+            <div className="relative aspect-[4/3] overflow-hidden" style={{ backgroundColor: C.tinta }}>
               <iframe
                 src={MAPS_EMBED}
                 title={`Mapa: ${BIZ.address}, ${BIZ.city}`}
@@ -404,35 +404,32 @@ export default function MueblesATuEstiloPage() {
         </div>
       </section>
 
-      {/* ── Franja Sitiazo ── */}
-      <div className="border-y" style={{ backgroundColor: C.ambar, color: C.tinta, borderColor: C.tinta }}>
-        <p className="max-w-6xl mx-auto px-5 md:px-8 py-3 flex flex-wrap justify-between gap-x-6 gap-y-1 text-[11px] font-extrabold uppercase tracking-[0.24em]">
-          <span>Sitio de ejemplo de Sitiazo</span>
-          <span className="hidden sm:inline">Textos, precios y fotos de muestra</span>
-        </p>
-      </div>
-
       <footer style={{ backgroundColor: C.tinta, color: C.crema }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 grid md:grid-cols-12 gap-8">
           <div className="md:col-span-6">
             <p className={`${display.className} text-3xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(253,246,236,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(253,246,236,0.78)' }}>
               {BIZ.address}, {BIZ.postal} {BIZ.city} · {BIZ.region}
             </address>
           </div>
-          <nav className="md:col-span-6 flex flex-wrap md:justify-end gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: 'rgba(253,246,236,0.62)' }}>
+          <nav className="md:col-span-6 flex flex-wrap md:justify-end gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: 'rgba(253,246,236,0.78)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white transition-colors">{l.label}</a>
             ))}
           </nav>
         </div>
-        <p className="border-t max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ borderColor: 'rgba(253,246,236,0.12)', color: 'rgba(253,246,236,0.45)' }}>
-          Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Productos,
-          precios y fotos son de muestra.
+        <p className="border-t max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ borderColor: 'rgba(253,246,236,0.12)', color: 'rgba(253,246,236,0.78)' }}>
+          Mockup preparado por{' '}
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.ambar }}>
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name}. Productos, precios y fotos son de muestra.{' '}
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.ambar }}>
+            ¿Lo hacemos realidad?
+          </a>
         </p>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
