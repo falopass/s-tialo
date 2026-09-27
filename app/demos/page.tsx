@@ -639,6 +639,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #1D2521 0%, #2A7F62 55%, #E8A33D 140%)',
   },
   {
+    slug: 'beauty-love',
+    name: 'Beauty Love',
+    rubro: 'Salón de manicura y pedicura',
+    city: 'Molina',
+    tagline: 'Neón nocturno clínico: azul petróleo, menta con glow y blanco roto, fotos de alto contraste.',
+    gradient: 'linear-gradient(135deg, #061E25 0%, #0E4C5C 55%, #9FD8CB 140%)',
+  },
+  {
     slug: 'distribuidora-renato-molina',
     name: 'Distribuidora Renato Molina',
     rubro: 'Mercado',
