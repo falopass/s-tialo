@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
-import { Outfit, Manrope } from 'next/font/google'
+import Image from 'next/image'
+import { Fraunces, Manrope } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_MESA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Outfit({
+const display = Fraunces({
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800', '900'],
+  weight: ['600', '700', '800', '900'],
 })
 const body = Manrope({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
@@ -118,6 +119,11 @@ export default function RestobarLosLeonesPage() {
         @keyframes ll-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         .ll-marquee { animation: ll-marquee 26s linear infinite; }
         @media (prefers-reduced-motion: reduce) { .ll-marquee { animation: none; } }
+        .ll-btn { transition: transform 0.18s ease, filter 0.18s ease, background-color 0.18s ease; }
+        .ll-btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
+        .ll-btn:active { transform: translateY(0) scale(0.97); }
+        .ll-btn:focus-visible { outline: 3px solid ${C.blue}; outline-offset: 3px; }
+        .ll-btn-dark:focus-visible { outline-color: ${C.lime}; }
       `}</style>
 
       <BlitzNav
@@ -141,10 +147,13 @@ export default function RestobarLosLeonesPage() {
         className="relative min-h-svh flex flex-col justify-end overflow-hidden"
         style={{ backgroundColor: '#0C0D10' }}
       >
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior del restobar: mesas de madera y cocina abierta a leña"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -177,7 +186,7 @@ export default function RestobarLosLeonesPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className="ll-btn ll-btn-dark flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
               style={{ backgroundColor: C.lime, color: C.ink }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -216,14 +225,14 @@ export default function RestobarLosLeonesPage() {
                 href={WA_LINK_MESA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-extrabold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5`}
                 style={{ backgroundColor: C.lime, color: C.ink }}
               >
                 Reservar por WhatsApp
               </a>
               <a
-                href="#cocina"
-                className={`${display.className} font-extrabold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
+                href="#precios"
+                className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 border-2 hover:bg-white/10`}
                 style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#FFFFFF' }}
               >
                 Ver la carta
@@ -304,12 +313,13 @@ export default function RestobarLosLeonesPage() {
         <ul className="grid grid-cols-12 gap-6 md:gap-8">
           <Reveal className="col-span-12 md:col-span-7">
             <li className="group h-full">
-              <div className="overflow-hidden mb-4">
-                <img
+              <div className="relative overflow-hidden mb-4 aspect-[16/10]">
+                <Image
                   src={PLATES[0].src}
                   alt="Cazuela de vacuno con papas, choclo y zapallo, con pebre y pan amasado"
-                  loading="lazy"
-                  className="w-full aspect-[16/10] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  fill
+                  sizes="(min-width: 768px) 58vw, 100vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
               <div className="flex items-start gap-4">
@@ -333,12 +343,13 @@ export default function RestobarLosLeonesPage() {
           </Reveal>
           <Reveal className="col-span-12 md:col-span-5 md:mt-16" delay={120}>
             <li className="group h-full">
-              <div className="overflow-hidden mb-4">
-                <img
+              <div className="relative overflow-hidden mb-4 aspect-[4/3]">
+                <Image
                   src={PLATES[1].src}
                   alt="Empanadas recién horneadas sobre lata, junto a uslero y masa"
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  fill
+                  sizes="(min-width: 768px) 42vw, 100vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
               <div className="flex items-start gap-4">
@@ -362,12 +373,13 @@ export default function RestobarLosLeonesPage() {
           </Reveal>
           <Reveal className="col-span-12 md:col-span-6 md:col-start-4 md:-mt-4" delay={160}>
             <li className="group h-full">
-              <div className="overflow-hidden mb-4">
-                <img
+              <div className="relative overflow-hidden mb-4 aspect-[16/9]">
+                <Image
                   src={PLATES[2].src}
                   alt="Mesón de la cocina con sopaipillas, platos y copas listas para servir"
-                  loading="lazy"
-                  className="w-full aspect-[16/9] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
               <div className="flex items-start gap-4">
@@ -396,11 +408,12 @@ export default function RestobarLosLeonesPage() {
       <section aria-label="El local visto desde la calle">
         <Reveal>
           <div className="relative h-[52vh] md:h-[70vh] overflow-hidden">
-            <img
+            <Image
               src={`${IMG}/ambiente.webp`}
               alt="Fachada del restobar en una calle de Pelarco, con cerros y viñas de fondo"
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="100vw"
+              className="object-cover"
             />
           </div>
           <div className="max-w-6xl mx-auto px-5 md:px-8">
@@ -444,7 +457,7 @@ export default function RestobarLosLeonesPage() {
                   </p>
                   <p>
                     En su ficha de Google acumula {BIZ.reviews} reseñas, y
-                    en Instagram ({' '}
+                    en Instagram (
                     <a
                       href={BIZ.instagram}
                       target="_blank"
@@ -453,8 +466,8 @@ export default function RestobarLosLeonesPage() {
                       style={{ color: C.blue, textDecorationColor: 'rgba(34,81,255,0.35)' }}
                     >
                       {BIZ.igUser}
-                    </a>{' '}
-                    · {BIZ.igFollowers}) muestra la cocina, la barra y el
+                    </a>
+                    , {BIZ.igFollowers}) muestra la cocina, la barra y el
                     ambiente del día a día.
                   </p>
                 </div>
@@ -570,6 +583,15 @@ export default function RestobarLosLeonesPage() {
                 </li>
               ))}
             </ul>
+            <a
+              href={WA_LINK_MESA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${display.className} ll-btn inline-block font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 mt-8`}
+              style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
+            >
+              Pedir o reservar por WhatsApp
+            </a>
           </Reveal>
         </div>
       </section>
@@ -609,7 +631,7 @@ export default function RestobarLosLeonesPage() {
                     href={WA_LINK_MESA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} font-extrabold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                    className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5`}
                     style={{ backgroundColor: C.lime, color: C.ink }}
                   >
                     Escribir por WhatsApp
@@ -618,7 +640,7 @@ export default function RestobarLosLeonesPage() {
                     href={BIZ.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} font-extrabold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
+                    className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 border-2 hover:bg-white/10`}
                     style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#FFFFFF' }}
                   >
                     {BIZ.igUser}
@@ -667,7 +689,7 @@ export default function RestobarLosLeonesPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. La
             carta, los precios, las reseñas y las fotos son de muestra.
           </p>
