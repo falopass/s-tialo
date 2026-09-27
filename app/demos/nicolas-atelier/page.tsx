@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Instrument_Serif, Inter } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -146,8 +146,9 @@ export default function NicolasAtelierPage() {
               'linear-gradient(180deg, rgba(46,66,36,0.55) 0%, rgba(46,66,36,0.12) 42%, rgba(46,66,36,0.82) 100%)',
           }}
         />
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-24 md:pb-28 pt-28">
         {/* sello de reseñas */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8 flex flex-col items-end gap-3">
+        <div className="flex flex-wrap items-center gap-3 mb-10">
           <Reveal>
             <a
               href={MAPS_URL}
@@ -172,7 +173,6 @@ export default function NicolasAtelierPage() {
             </span>
           </Reveal>
         </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24 pt-36">
           <Reveal>
             <p
               className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
@@ -217,7 +217,7 @@ export default function NicolasAtelierPage() {
 
       {/* ── Cinta diagonal sobre el corte del hero ── */}
       <div
-        className="relative z-10 -my-5 md:-my-7 rotate-[-1.7deg] w-[106%] -ml-[3%] shadow-md"
+        className="relative z-10 -my-5 md:-my-7 rotate-[-1.7deg] w-full shadow-md"
         style={{ backgroundColor: C.green }}
         aria-hidden="true"
       >
@@ -579,14 +579,19 @@ export default function NicolasAtelierPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.62)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios y fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.75)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.earthSoft }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Textos, servicios, precios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.earthSoft }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
