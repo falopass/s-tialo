@@ -1,0 +1,23 @@
+
+> sitiazo-cl@1.0.0 build
+> next build
+
+▲ Next.js 16.2.4 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 11.9s
+  Running TypeScript ...
+Failed to type check.
+
+./tmp/page-head.tsx:4:23
+Type error: Cannot find module './data' or its corresponding type declarations.
+
+  [90m2 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m'next/link'[0m
+  [90m3 |[0m [36mimport[0m { [33mSITE[0m, whatsappLink } [36mfrom[0m [32m'@/lib/config'[0m
+[31m[1m>[0m [90m4 |[0m [36mimport[0m { [33mDEMOS[0m } [36mfrom[0m [32m'./data'[0m
+  [90m  |[0m                       [31m[1m^[0m
+  [90m5 |[0m [36mimport[0m { [33mMotif[0m, headingFont } [36mfrom[0m [32m'./kit'[0m
+  [90m6 |[0m
+  [90m7 |[0m [90m// Mockups personalizados para leads reales (carpeta propia en /demos).[0m
+Next.js build worker exited with code: 1 and signal: null

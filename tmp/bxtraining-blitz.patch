@@ -1,0 +1,16 @@
+diff --git a/app/demos/page.tsx b/app/demos/page.tsx
+--- a/app/demos/page.tsx
++++ b/app/demos/page.tsx
+@@ -518,4 +518,12 @@
+     tagline: 'Oscuro premium mayorista: carbón, vidrio y cian con glow, surtido por pasillo y precio por volumen.',
+     gradient: 'linear-gradient(135deg, #0A0D12 0%, #1F5673 60%, #45D5E8 140%)',
+   },
++  {
++    slug: 'bxtraining-1',
++    name: 'Bxtraining 1',
++    rubro: 'Gimnasio',
++    city: 'San Clemente',
++    tagline: 'Mosaico fotográfico de sala: negro taller, amarillo señal y acero, con fotos.',
++    gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
++  },
+ ]

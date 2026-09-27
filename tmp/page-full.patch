@@ -1,0 +1,42 @@
+diff --git a/app/demos/page.tsx b/app/demos/page.tsx
+index d55c15a..4bd87ba 100644
+--- a/app/demos/page.tsx
++++ b/app/demos/page.tsx
+@@ -446,6 +446,14 @@ const BLITZ = [
+     tagline: 'Split-screen de taller: negro, amarillo señal y acero, bloques alternados con fotos.',
+     gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
+   },
++  {
++    slug: 'mia-centro-de-estetica',
++    name: 'Mía Centro De Estética',
++    rubro: 'Centro de estética',
++    city: 'Curicó',
++    tagline: 'Doble columna con sidebar pegajoso: verde campo, tierra y crema, con fotos.',
++    gradient: 'linear-gradient(135deg, #2E4224 0%, #4C6B3C 55%, #8C6239 140%)',
++  },
+   {
+     slug: 'muebleria-infinity-muebles-talca',
+     name: 'Infinity Muebles',
+@@ -454,6 +462,22 @@ const BLITZ = [
+     tagline: 'Diagonales dinámicas: naranja construcción, hormigón y arena, cortes en ángulo y fotos inclinadas.',
+     gradient: 'linear-gradient(135deg, #3A3F44 0%, #3A3F44 55%, #E4572E 140%)',
+   },
++  {
++    slug: 'hair-home-studio-claudia-beltran',
++    name: 'Hair Home studio Claudia Beltrán',
++    rubro: 'Centro de estética',
++    city: 'Linares',
++    tagline: 'Collage artesanal utilitario: mostaza, verde oscuro y papel, tarjetas con cinta adhesiva.',
++    gradient: 'linear-gradient(135deg, #1F3229 0%, #2E4A3C 55%, #D9A441 140%)',
++  },
++  {
++    slug: 'cabanas-vista-hermosa',
++    name: 'Cabañas Vista Hermosa',
++    rubro: 'Cabañas y hospedaje',
++    city: 'Río Claro',
++    tagline: 'Retro de almacén de barrio: petróleo, menta y blanco roto, sellos y boleta con fotos.',
++    gradient: 'linear-gradient(135deg, #093540 0%, #0E4C5C 55%, #9FD8CB 140%)',
++  },
+ ]
+ 
+ export const metadata: Metadata = {

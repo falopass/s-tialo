@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { DM_Serif_Display, DM_Sans } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
-import { Vitrina, C } from './vitrina'
-import { BIZ, WA_LINK, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import { Vitrina } from './vitrina'
+import { BIZ, C, WA_LINK, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = DM_Serif_Display({ subsets: ['latin'], weight: ['400'] })
 const body = DM_Sans({
@@ -60,6 +60,7 @@ export default function ComercialRioClaroPage() {
       style={{ backgroundColor: C.crema, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
+      <div style={{ backgroundColor: C.deep }}>
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
@@ -74,6 +75,7 @@ export default function ComercialRioClaroPage() {
           btnInk: C.crema,
         }}
       />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>

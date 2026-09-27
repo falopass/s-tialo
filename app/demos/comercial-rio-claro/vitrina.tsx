@@ -10,20 +10,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { IMG, waLinkProducto } from './content'
-
-export const C = {
-  forest: '#1E3D2F',
-  deep: '#132318',
-  crema: '#F6F1E7',
-  brass: '#C8A24B',
-  brassSoft: '#E9D9AE',
-  brassInk: '#7A5E1E',
-  ink: '#26282C',
-  muted: '#5E5A4F',
-  line: 'rgba(38,40,44,0.16)',
-  card: '#FCF9F1',
-} as const
+import { C, IMG, waLinkProducto } from './content'
 
 type Cat = 'limpieza' | 'menaje' | 'descartables'
 

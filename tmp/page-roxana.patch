@@ -1,0 +1,18 @@
+diff --git a/app/demos/page.tsx b/app/demos/page.tsx
+--- a/app/demos/page.tsx
++++ b/app/demos/page.tsx
+@@ -118,6 +118,14 @@ const BLITZ = [
+     tagline: 'Limpio y rápido: azul agua, grafito y blanco.',
+     gradient: 'linear-gradient(135deg, #1C1F22 0%, #00A6C4 140%)',
+   },
++  {
++    slug: 'centro-spa-roxana',
++    name: 'Centro Spa Roxana',
++    rubro: 'Centro de estética',
++    city: 'Curicó',
++    tagline: 'Editorial de revista: petróleo, menta y blanco roto, con fotos.',
++    gradient: 'linear-gradient(135deg, #0A3742 0%, #0E4C5C 55%, #9FD8CB 140%)',
++  },
+ ]
+ 
+ export const metadata: Metadata = {
