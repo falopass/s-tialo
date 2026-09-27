@@ -606,6 +606,14 @@ const BLITZ = [
     tagline: 'Carta de la casa: verde campo, tierra y crema, capítulos con numeral romano, puntos guía y carta al vecino.',
     gradient: 'linear-gradient(135deg, #2A3D21 0%, #4C6B3C 55%, #8C6239 140%)',
   },
+  {
+    slug: 'vulcanizacion-nikimoto',
+    name: 'Vulcanizacion nikimoto',
+    rubro: 'Taller mecánico',
+    city: 'Pelarco',
+    tagline: 'Mosaico fotográfico de taller: negro, amarillo señal y acero, franjas de peligro y captions por trabajo.',
+    gradient: 'linear-gradient(135deg, #17181A 0%, #3A3D42 55%, #FFC300 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
