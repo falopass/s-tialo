@@ -29,7 +29,7 @@ export const C = {
   sky: '#7FC6E8',
   paper: '#F5F8FA',
   white: '#FFFFFF',
-  steel: '#64748B',
+  steel: '#5C6C80',
   green: '#2FBF71',
   greenInk: '#0B3B24',
   line: '#D8E2EA',

@@ -140,7 +140,7 @@ export default function TriadentPage() {
           bar: 'rgba(251,254,253,0.94)',
           ink: C.ink,
           line: C.line,
-          btnBg: C.accent,
+          btnBg: C.accentDeep,
           btnInk: '#fff',
         }}
       />
@@ -169,7 +169,7 @@ export default function TriadentPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95"
-                style={{ backgroundColor: C.accent, color: '#fff' }}
+                style={{ backgroundColor: C.accentDeep, color: '#fff' }}
               >
                 Agenda por WhatsApp
               </a>
@@ -466,13 +466,13 @@ export default function TriadentPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-sm px-8 py-4 rounded-full transition-transform active:scale-95"
-                style={{ backgroundColor: C.accent, color: '#fff' }}
+                style={{ backgroundColor: C.accentDeep, color: '#fff' }}
               >
                 Agenda por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-4 rounded-full border transition-colors"
+                className="font-semibold text-sm px-8 py-3 md:py-4 rounded-full border transition-colors"
                 style={{ borderColor: 'rgba(15,59,87,0.3)', color: C.ink }}
               >
                 {BIZ.phoneDisplay}
@@ -484,7 +484,7 @@ export default function TriadentPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.ink, color: '#fff' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
@@ -501,7 +501,7 @@ export default function TriadentPage() {
         </div>
         {/* Aviso de mockup en el flujo (no flotante) para no tapar contenido; pb deja libre la burbuja de WhatsApp */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
               Sitiazo

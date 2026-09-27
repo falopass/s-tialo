@@ -114,6 +114,12 @@ export function BlitzNav({
       className="fixed top-0 inset-x-0 z-40 transition-colors duration-500"
       style={{
         backgroundColor: scrolled ? theme.bar : 'transparent',
+        // Velo oscuro cuando el nav transparente cae sobre una escena o foto:
+        // el texto blanco necesita fondo oscuro para leerse (regla de contraste móvil).
+        backgroundImage:
+          !scrolled && overDark
+            ? 'linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 100%)'
+            : undefined,
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(10px)' : 'none',
         boxShadow: scrolled ? `0 1px 0 ${theme.line}` : 'none',
@@ -149,7 +155,7 @@ export function BlitzNav({
               ? { backgroundColor: theme.btnBg, color: theme.btnInk }
               : overDark
                 ? {
-                    backgroundColor: 'rgba(255,255,255,0.14)',
+                    backgroundColor: 'rgba(0,0,0,0.4)',
                     color: '#fff',
                     border: '1px solid rgba(255,255,255,0.5)',
                   }

@@ -807,13 +807,13 @@ export default function SalonGabrielaSaavedraPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.forestDeep, color: C.cream }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
           <div>
-            <p className={`${display.className} text-2xl mb-2 flex items-center gap-3`}>
+            <p className={`${display.className} text-xl md:text-2xl mb-1 flex items-center gap-3`}>
               <HandMirror className="w-5 h-5" color={C.brass} />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.62)' }}>
+            <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
@@ -826,7 +826,7 @@ export default function SalonGabrielaSaavedraPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.7)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.7)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
             servicios, precios, horarios y fotos son de muestra; el número
             de contacto y la dirección son datos públicos del negocio.

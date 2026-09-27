@@ -407,7 +407,7 @@ export default function SantaFePage() {
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 py-4 border-2 transition-colors`}
+                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 py-3 md:py-4 border-2 transition-colors`}
                 style={{ borderColor: C.deep, color: C.deep }}
               >
                 {BIZ.phoneDisplay}
@@ -419,7 +419,7 @@ export default function SantaFePage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#EDEFF1' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-10 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-6">
           <div>
             <p className={`${display.className} uppercase font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,239,241,0.72)' }}>
@@ -436,7 +436,7 @@ export default function SantaFePage() {
         </div>
         {/* Aviso de mockup en el flujo (no flotante) para no tapar contenido; pb deja libre la burbuja de WhatsApp */}
         <div style={{ borderTop: '1px solid rgba(237,239,241,0.15)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(237,239,241,0.75)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(237,239,241,0.75)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
               Sitiazo

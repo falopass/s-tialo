@@ -126,12 +126,19 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
         {CATEGORIES.map((c) => {
           const active = cat === c.key
           return (
-            <button
+            <div
               key={c.key}
-              type="button"
-              onClick={() => setCat(active ? 'todas' : c.key)}
+              role="button"
+              tabIndex={0}
               aria-pressed={active}
-              className="group text-left rounded-xl overflow-hidden transition-shadow focus-visible:outline-2 focus-visible:outline-offset-4"
+              onClick={() => setCat(active ? 'todas' : c.key)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  setCat(active ? 'todas' : c.key)
+                }
+              }}
+              className="group text-left rounded-xl overflow-hidden transition-shadow cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 flex sm:block"
               style={{
                 backgroundColor: C.white,
                 border: `1px solid ${active ? C.green : C.line}`,
@@ -139,7 +146,7 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
                 boxShadow: active ? `0 0 0 1px ${C.green}` : undefined,
               }}
             >
-              <div className="relative aspect-[16/9] overflow-hidden" style={{ backgroundColor: '#E3ECF2' }}>
+              <div className="relative w-[104px] shrink-0 sm:w-auto sm:aspect-[16/9] overflow-hidden" style={{ backgroundColor: '#E3ECF2' }}>
                 {c.img ? (
                   <Image
                     src={`${IMG}/${c.img}.webp`}
@@ -179,7 +186,7 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
                   {c.desc}
                 </p>
               </div>
-            </button>
+            </div>
           )
         })}
       </div>

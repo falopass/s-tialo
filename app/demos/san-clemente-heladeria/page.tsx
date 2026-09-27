@@ -436,7 +436,7 @@ export default function SanClementeHeladeriaPage() {
                             {'real' in f && f.real && (
                               <span
                                 className="ml-2 inline-block align-middle text-[10px] font-bold uppercase tracking-wide rounded-full px-2 py-0.5"
-                                style={{ backgroundColor: `${fam.deep}1A`, color: fam.deep }}
+                                style={{ backgroundColor: fam.deep, color: '#fff' }}
                               >
                                 de su Instagram
                               </span>

@@ -576,7 +576,7 @@ export default function SigelPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.grafitoDeep, color: '#F5F6F9' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-5">
           <div>
             <p className={`${display.className} font-extrabold text-2xl mb-2 flex items-center gap-3`}>
               <Bolt className="w-5 h-5" color={C.yellow} />
@@ -595,11 +595,11 @@ export default function SigelPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(245,246,249,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(245,246,249,0.75)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-3 md:py-4 text-xs leading-relaxed" style={{ color: 'rgba(245,246,249,0.75)' }}>
             Servicios, pasos, zonas, horarios y reseñas son de muestra.
           </p>
         </div>
-        <div className="px-5 pt-1 pb-20 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+        <div className="px-5 pt-1 pb-6 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
           <DemoBand name={BIZ.name} />
         </div>
       </footer>
