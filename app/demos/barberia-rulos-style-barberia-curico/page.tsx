@@ -457,7 +457,7 @@ export default function BarberiaRulosStylePage() {
                 >
                   {m.value}
                 </span>
-                <p className="text-xs md:text-sm leading-snug" style={{ color: i < 2 ? 'rgba(237,230,218,0.75)' : C.muted }}>
+                <p className="text-xs md:text-sm leading-snug" style={{ color: i < 2 ? 'rgba(237,230,218,0.9)' : C.muted }}>
                   {m.label}
                 </p>
               </div>
@@ -483,7 +483,7 @@ export default function BarberiaRulosStylePage() {
                 <br />
                 <span style={{ color: C.orangeLite }}>y navaja</span>
               </h2>
-              <p className="text-sm md:text-base leading-relaxed max-w-sm" style={{ color: 'rgba(237,230,218,0.72)' }}>
+              <p className="text-sm md:text-base leading-relaxed max-w-sm" style={{ color: 'rgba(237,230,218,0.88)' }}>
                 Carta de servicios de muestra: al publicar van los servicios
                 y valores reales de la barbería.
               </p>
@@ -782,7 +782,7 @@ export default function BarberiaRulosStylePage() {
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.orangeDark }}>
         <div
-          className="absolute inset-0 opacity-[0.16]"
+          className="absolute inset-0 opacity-[0.1]"
           style={{
             backgroundImage: `url(${IMG}/hero.webp)`,
             backgroundSize: 'cover',
@@ -795,7 +795,7 @@ export default function BarberiaRulosStylePage() {
             <h2 className={`${display.className} font-semibold text-[clamp(2.1rem,6.5vw,4rem)] leading-[1.05] mb-6`} style={{ color: '#FFFFFF' }}>
               Reserva tu hora
               <br />
-              <span style={{ color: '#FFD9C9' }}>y llega al sillón</span>
+              <span style={{ color: '#FFE8DE' }}>y llega al sillón</span>
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.9)' }}>
               Escríbenos por WhatsApp con el día y la hora que te acomoden.
