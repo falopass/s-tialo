@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { DM_Serif_Display, DM_Sans } from 'next/font/google'
+import Image from 'next/image'
+import { Space_Grotesk, DM_Sans } from 'next/font/google'
 import { DemoBand } from '../kit'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = DM_Serif_Display({ subsets: ['latin'], weight: ['400'] })
+const display = Space_Grotesk({ subsets: ['latin'], weight: ['500', '600', '700'] })
 const body = DM_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
@@ -13,9 +14,11 @@ const body = DM_Sans({
 const C = {
   paper: '#F6F1E7',
   soft: '#EDE5D3',
+  card: '#FCFAF3',
   forest: '#1E3D2F',
   deep: '#132A1F',
   brass: '#C8A24B',
+  brassDark: '#A8863A',
   brassSoft: '#E4D3A8',
   ink: '#22241F',
   muted: '#6B6F62',
@@ -37,40 +40,36 @@ const NAV_LINKS = [
 ]
 
 const METRICS = [
-  { value: '24/7', label: 'Urgencias dentales, todos los días' },
-  { value: `${BIZ.reviews}`, label: 'Reseñas en Google Maps' },
-  { value: 'Of. 718', label: 'Manuel Montt 357, centro de Curicó' },
-  { value: `${BIZ.instagramFollowers}`, label: `Seguidores en @${BIZ.instagram}` },
+  { value: '24/7', label: 'Urgencias dentales, todos los días', href: null as string | null },
+  { value: `${BIZ.reviews}`, label: 'Reseñas en Google Maps', href: MAPS_URL },
+  { value: 'Of. 718', label: 'Manuel Montt 357, centro de Curicó', href: null },
+  { value: `${BIZ.instagramFollowers}`, label: `Seguidores en @${BIZ.instagram}`, href: IG_URL },
 ]
 
 const SERVICES = [
   {
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Bandeja de instrumental dental esterilizado en el box, con lámpara clínica',
     tag: 'Urgencias',
     name: 'Urgencia dental 24 horas',
-    desc: 'Dolor agudo, golpes, dientes quebrados o inflamación: atención las 24 horas del día, todos los días del año, sin esperar a la mañana siguiente.',
+    desc: 'Dolor agudo, golpes, dientes quebrados o inflamación: atención a cualquier hora, todos los días del año.',
+    hours: '24/7',
   },
   {
-    src: `${IMG}/hero.webp`,
-    alt: 'Box dental con sillón y vista a Curicó',
     tag: 'Odontología general',
     name: 'Consulta y tratamiento',
-    desc: 'Diagnóstico, limpieza, restauraciones y plan de tratamiento explicado con calma y por escrito antes de empezar.',
+    desc: 'Diagnóstico, limpieza, restauraciones y un plan de tratamiento explicado con calma y por escrito antes de empezar.',
+    hours: 'Agenda',
   },
   {
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Instrumental y muestrario de tonos para restauraciones',
     tag: 'Estética',
     name: 'Estética y rehabilitación',
-    desc: 'Restauraciones del color de tu diente, coronas y prótesis pensadas para que el trabajo no se note.',
+    desc: 'Restauraciones del color del diente, coronas y prótesis pensadas para que el trabajo no se note.',
+    hours: 'Agenda',
   },
   {
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Recepción de la clínica con mesón y box de atención al fondo',
-    tag: 'La clínica',
-    name: 'Atención directa y cercana',
-    desc: 'Oficina en pleno centro de Curicó: llegas, te atiende el mismo equipo de siempre y sales con el siguiente paso claro.',
+    tag: 'Prevención',
+    name: 'Control y limpieza',
+    desc: 'Profilaxis periódica y control de caries y encías para no terminar llegando de urgencia.',
+    hours: 'Agenda',
   },
 ]
 
@@ -83,17 +82,26 @@ const PRICES = [
   { name: 'Urgencia fuera de horario', desc: 'Atención inmediata 24/7', price: 'se informa al agendar' },
 ]
 
+const GALLERY = [
+  { src: `${IMG}/detalle3.webp`, alt: 'Bandeja de instrumental dental esterilizado en el box, con lámpara clínica', cap: 'Instrumental esterilizado por paciente' },
+  { src: `${IMG}/detalle1.webp`, alt: 'Instrumental y muestrario de tonos para restauraciones', cap: 'Muestrario de tonos para restauraciones' },
+  { src: `${IMG}/detalle2.webp`, alt: 'Recepción de la clínica con mesón y box de atención al fondo', cap: 'Recepción y box de atención' },
+]
+
 const TESTIMONIALS = [
   'Me dolía mucho una muela un domingo en la noche y me atendieron igual. Se agradece que contesten a cualquier hora.',
   'Muy ordenados y claros con los valores. Te explican el tratamiento antes de partir, eso da confianza.',
   'Queda en el centro, subo en ascensor a la oficina y me atienden puntual. La atención es muy buena.',
 ]
 
+const waBtn =
+  'inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]'
+
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: light ? C.brassSoft : C.brass }}
+      style={{ color: light ? C.brassSoft : C.brassDark }}
     >
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
@@ -113,7 +121,7 @@ export default function ClinicaDentalBilbaoPage() {
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
-          over: 'dark',
+          over: 'light',
           bar: 'rgba(246,241,231,0.94)',
           ink: C.forest,
           line: C.line,
@@ -122,50 +130,58 @@ export default function ClinicaDentalBilbaoPage() {
         }}
       />
 
-      {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
-          src={`${IMG}/hero.webp`}
-          alt="Box dental de Clínica Dental Bilbao con vista a Curicó"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(19,42,31,0.45) 0%, rgba(19,42,31,0.10) 40%, rgba(19,42,31,0.82) 100%)',
-          }}
-        />
-        {/* sello de reseñas */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8">
+      {/* ── Panel de datos arriba ── */}
+      <section id="inicio" className="scroll-mt-20 border-b pt-[60px] md:pt-[68px]" style={{ borderColor: C.line }}>
+        <dl
+          className="grid grid-cols-2 lg:grid-cols-4 gap-px border-b"
+          style={{ backgroundColor: C.line, borderColor: C.line }}
+          aria-label="Datos destacados de la clínica"
+        >
+          {METRICS.map((m) => {
+            const cell = (
+              <>
+                <dt
+                  className={`${display.className} text-3xl md:text-4xl leading-none mb-2 tabular-nums transition-colors`}
+                  style={{ color: C.forest }}
+                >
+                  {m.value}
+                </dt>
+                <dd className="text-[11px] md:text-xs leading-snug" style={{ color: C.muted }}>
+                  {m.label}
+                </dd>
+              </>
+            )
+            return (
+              <div key={m.label} style={{ backgroundColor: C.paper }}>
+                {m.href ? (
+                  <a
+                    href={m.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-5 md:px-7 py-5 md:py-6 transition-colors hover:bg-[#FCFAF3] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#C8A24B]"
+                  >
+                    {cell}
+                  </a>
+                ) : (
+                  <div className="px-5 md:px-7 py-5 md:py-6">{cell}</div>
+                )}
+              </div>
+            )
+          })}
+        </dl>
+
+        {/* Hero en panel: texto + ficha con foto */}
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20 grid lg:grid-cols-[1.05fr_1fr] gap-10 md:gap-14 items-center">
           <Reveal>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
-              style={{ backgroundColor: 'rgba(246,241,231,0.94)', color: C.deep }}
-            >
-              <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.brass} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11Z" />
-                <circle cx="12" cy="10" r="2.4" />
-              </svg>
-              {BIZ.reviews} reseñas en Google
-            </a>
-          </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
-            <Eyebrow light>Dentista · Curicó · Región del Maule</Eyebrow>
+            <Eyebrow>Dentista · Curicó · Región del Maule</Eyebrow>
             <h1
-              className={`${display.className} leading-[1.02] tracking-[-0.01em] text-[clamp(2.7rem,9.5vw,5.6rem)] mb-6`}
-              style={{ color: '#F6F1E7' }}
+              className={`${display.className} font-semibold leading-[1.05] tracking-[-0.02em] text-[clamp(2.4rem,6.5vw,4.4rem)] mb-6`}
+              style={{ color: C.forest }}
             >
-              El dolor de muelas
-              <br />
-              <em className="not-italic" style={{ color: C.brassSoft }}>no espera hasta mañana</em>
+              El dolor de muelas{' '}
+              <span style={{ color: C.brassDark }}>no espera hasta mañana</span>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(246,241,231,0.88)' }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: C.muted }}>
               Clínica dental en el centro de Curicó con urgencias las 24
               horas del día, todos los días. Atención directa, valores
               claros y trato de consulta de barrio.
@@ -175,8 +191,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={WA_LINK_URGENCIA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95"
-                style={{ backgroundColor: C.brass, color: '#1E130A' }}
+                className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#B08C3E]`}
               >
                 Urgencia: escribir ahora
               </a>
@@ -184,59 +199,46 @@ export default function ClinicaDentalBilbaoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10"
-                style={{ borderColor: 'rgba(246,241,231,0.55)', color: '#F6F1E7' }}
+                className={`${waBtn} border border-[#1E3D2F]/40 text-[#1E3D2F] hover:bg-[#1E3D2F] hover:text-[#F6F1E7]`}
               >
                 Agendar una hora
               </a>
             </div>
           </Reveal>
-        </div>
-        {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(246,241,231,0.22)', backgroundColor: 'rgba(19,42,31,0.45)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,231,0.78)' }}>
-            <span>Manuel Montt 357 · Of. 718</span>
-            <span>Abierto 24/7</span>
-            <span>Curicó centro</span>
-            <span className="hidden md:inline" style={{ color: C.brassSoft }}>sitio de ejemplo</span>
-          </div>
+
+          <Reveal delay={140}>
+            <figure className="border" style={{ borderColor: C.line, backgroundColor: C.card }}>
+              <div className="relative aspect-[4/3] overflow-hidden border-b" style={{ borderColor: C.line }}>
+                <Image
+                  src={`${IMG}/hero.webp`}
+                  alt="Box dental de Clínica Dental Bilbao con vista a Curicó"
+                  fill
+                  sizes="(min-width: 1024px) 44vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <figcaption className="px-5 md:px-6 py-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+                <span className="text-sm font-semibold" style={{ color: C.forest }}>
+                  {BIZ.address}
+                </span>
+                <span className="flex items-center gap-2 text-xs" style={{ color: C.muted }}>
+                  <Stars value={5} color={C.brass} className="w-3 h-3" />
+                  {BIZ.reviews} reseñas · Abierto 24/7
+                </span>
+              </figcaption>
+            </figure>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── Panel de métricas ── */}
-      <section className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
-        <Reveal>
-          <Eyebrow>La clínica en números</Eyebrow>
-        </Reveal>
-        <dl className="grid grid-cols-2 lg:grid-cols-4 gap-px border" style={{ backgroundColor: C.line, borderColor: C.line }}>
-          {METRICS.map((m, i) => (
-            <div key={m.label} className="p-6 md:p-8" style={{ backgroundColor: C.paper }}>
-              <Reveal delay={i * 90}>
-                <dt className={`${display.className} text-4xl md:text-5xl leading-none mb-3`} style={{ color: C.forest }}>
-                  {m.value}
-                </dt>
-                <dd className="text-xs md:text-sm leading-snug" style={{ color: C.muted }}>
-                  {m.label}
-                </dd>
-              </Reveal>
-            </div>
-          ))}
-        </dl>
-        <Reveal delay={200}>
-          <p className="text-xs mt-4" style={{ color: C.muted }}>
-            Datos reales de la ficha pública de la clínica. El horario de
-            urgencias se confirma al agendar.
-          </p>
-        </Reveal>
-      </section>
-
-      {/* ── Servicios ── */}
+      {/* ── Servicios en tabla ── */}
       <section id="servicios" className="scroll-mt-20" style={{ backgroundColor: C.soft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <Eyebrow>Servicios</Eyebrow>
-            <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-14">
-              <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.forest }}>
+            <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-12">
+              <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.forest }}>
                 Qué atendemos
               </h2>
               <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
@@ -245,38 +247,72 @@ export default function ClinicaDentalBilbaoPage() {
               </p>
             </div>
           </Reveal>
-          <ul className="grid sm:grid-cols-2 gap-px border" style={{ backgroundColor: C.line, borderColor: C.line }}>
-            {SERVICES.map((s, i) => (
-              <li key={s.name} style={{ backgroundColor: '#FCFAF3' }}>
-                <Reveal delay={i * 90} className="h-full">
-                  <article className="group h-full flex flex-col">
-                    <div className="relative overflow-hidden aspect-[16/9]">
-                      <img
-                        src={s.src}
-                        alt={s.alt}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                      />
-                      <span
-                        className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.18em] font-semibold px-3 py-1.5"
-                        style={{ backgroundColor: 'rgba(246,241,231,0.94)', color: C.forest }}
-                      >
+
+          <Reveal delay={100}>
+            <div className="border" style={{ borderColor: C.line, backgroundColor: C.card }}>
+              <div
+                className="hidden md:grid grid-cols-[3.5rem_1.1fr_1.6fr_7rem] gap-x-6 px-6 md:px-8 py-3.5 border-b text-[10px] uppercase tracking-[0.18em] font-semibold"
+                style={{ borderColor: C.line, color: C.muted }}
+              >
+                <span>N°</span>
+                <span>Servicio</span>
+                <span>Qué cubre</span>
+                <span className="text-right">Atención</span>
+              </div>
+              <ul>
+                {SERVICES.map((s, i) => (
+                  <li
+                    key={s.name}
+                    className="grid md:grid-cols-[3.5rem_1.1fr_1.6fr_7rem] gap-x-6 gap-y-1 px-6 md:px-8 py-5 md:py-6 border-t first:border-t-0 transition-colors hover:bg-[#F6F1E7]"
+                    style={{ borderColor: C.line }}
+                  >
+                    <span className={`${display.className} text-2xl tabular-nums leading-none self-start`} style={{ color: C.brass }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <span className="block text-[10px] uppercase tracking-[0.18em] font-semibold mb-1 md:hidden" style={{ color: C.muted }}>
+                        {s.tag}
+                      </span>
+                      <h3 className={`${display.className} font-semibold text-lg md:text-xl leading-snug`} style={{ color: C.forest }}>
+                        {s.name}
+                      </h3>
+                      <span className="hidden md:inline-block mt-1.5 text-[10px] uppercase tracking-[0.16em] font-semibold px-2 py-1 border" style={{ borderColor: C.line, color: C.muted }}>
                         {s.tag}
                       </span>
                     </div>
-                    <div className="p-5 md:p-7 flex-1">
-                      <h3 className={`${display.className} text-2xl md:text-[1.7rem] mb-2`} style={{ color: C.forest }}>
-                        {s.name}
-                      </h3>
-                      <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
-                        {s.desc}
-                      </p>
-                    </div>
-                  </article>
+                    <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
+                      {s.desc}
+                    </p>
+                    <span className={`text-xs font-semibold md:text-right uppercase tracking-[0.14em] ${s.hours === '24/7' ? 'text-[#A8863A]' : ''}`} style={s.hours === '24/7' ? undefined : { color: C.muted }}>
+                      {s.hours}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+
+          {/* Fotos de la clínica */}
+          <div className="grid sm:grid-cols-3 gap-px mt-10 md:mt-14 border" style={{ backgroundColor: C.line, borderColor: C.line }}>
+            {GALLERY.map((g, i) => (
+              <figure key={g.src} style={{ backgroundColor: C.card }}>
+                <Reveal delay={i * 90} className="h-full">
+                  <div className="relative aspect-[4/3] overflow-hidden group">
+                    <Image
+                      src={g.src}
+                      alt={g.alt}
+                      fill
+                      sizes="(min-width: 640px) 33vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <figcaption className="px-4 py-3 text-xs leading-snug border-t" style={{ borderColor: C.line, color: C.muted }}>
+                    {g.cap}
+                  </figcaption>
                 </Reveal>
-              </li>
+              </figure>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
@@ -285,7 +321,7 @@ export default function ClinicaDentalBilbaoPage() {
         <Reveal>
           <Eyebrow>Precios de referencia</Eyebrow>
           <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.forest }}>
+            <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.forest }}>
               Valores orientativos
             </h2>
             <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
@@ -295,7 +331,7 @@ export default function ClinicaDentalBilbaoPage() {
           </div>
         </Reveal>
         <Reveal delay={120}>
-          <div className="border overflow-x-auto" style={{ borderColor: C.line, backgroundColor: '#FCFAF3' }}>
+          <div className="border overflow-x-auto" style={{ borderColor: C.line, backgroundColor: C.card }}>
             <table className="w-full text-left border-collapse min-w-[560px]">
               <thead>
                 <tr className="text-[10px] uppercase tracking-[0.18em]" style={{ color: C.muted }}>
@@ -306,14 +342,14 @@ export default function ClinicaDentalBilbaoPage() {
               </thead>
               <tbody>
                 {PRICES.map((p) => (
-                  <tr key={p.name} className="border-b last:border-b-0" style={{ borderColor: C.line }}>
+                  <tr key={p.name} className="border-b last:border-b-0 transition-colors hover:bg-[#F6F1E7]" style={{ borderColor: C.line }}>
                     <td className="px-5 md:px-7 py-4 text-sm md:text-base font-semibold" style={{ color: C.forest }}>
                       {p.name}
                     </td>
                     <td className="px-5 md:px-7 py-4 text-sm hidden md:table-cell" style={{ color: C.muted }}>
                       {p.desc}
                     </td>
-                    <td className={`${display.className} px-5 md:px-7 py-4 text-base md:text-lg text-right whitespace-nowrap`} style={{ color: C.brass }}>
+                    <td className={`${display.className} px-5 md:px-7 py-4 text-base md:text-lg text-right whitespace-nowrap tabular-nums`} style={{ color: C.brassDark }}>
                       {p.price}
                     </td>
                   </tr>
@@ -325,6 +361,14 @@ export default function ClinicaDentalBilbaoPage() {
             Precios referenciales de muestra. Al publicar van los valores
             reales, convenios y formas de pago de la clínica.
           </p>
+          <a
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${waBtn} mt-6 bg-[#1E3D2F] text-[#F6F1E7] hover:bg-[#132A1F]`}
+          >
+            Consultar un valor por WhatsApp
+          </a>
         </Reveal>
       </section>
 
@@ -334,10 +378,8 @@ export default function ClinicaDentalBilbaoPage() {
           <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-start">
             <Reveal>
               <Eyebrow light>Urgencias dentales</Eyebrow>
-              <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: '#F6F1E7' }}>
-                Atendemos
-                <br />
-                <em className="not-italic" style={{ color: C.brassSoft }}>las 24 horas</em>
+              <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: '#F6F1E7' }}>
+                Atendemos las 24 horas
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: 'rgba(246,241,231,0.75)' }}>
                 Dolor agudo, trauma, inflamación o una pieza quebrada no
@@ -348,8 +390,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={WA_LINK_URGENCIA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95"
-                style={{ backgroundColor: C.brass, color: '#1E130A' }}
+                className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#D8B868]`}
               >
                 Escribir por urgencia
               </a>
@@ -362,7 +403,7 @@ export default function ClinicaDentalBilbaoPage() {
               ].map((s, i) => (
                 <Reveal key={s.n} delay={i * 110}>
                   <div className="flex gap-5 md:gap-6 border-t py-6 first:border-t-0" style={{ borderColor: 'rgba(246,241,231,0.18)' }}>
-                    <span className={`${display.className} text-3xl md:text-4xl leading-none shrink-0 w-12`} style={{ color: C.brass }}>
+                    <span className={`${display.className} font-semibold text-3xl md:text-4xl leading-none shrink-0 w-12 tabular-nums`} style={{ color: C.brass }}>
                       {s.n}
                     </span>
                     <div>
@@ -386,10 +427,8 @@ export default function ClinicaDentalBilbaoPage() {
         <div className="grid md:grid-cols-[1.15fr_1fr] gap-10 md:gap-14 items-start">
           <Reveal>
             <Eyebrow>Sobre la clínica</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.forest }}>
-              En el centro de Curicó,
-              <br />
-              como los consultorios de antes
+            <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.forest }}>
+              En el centro de Curicó, como los consultorios de antes
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-5 max-w-xl" style={{ color: C.muted }}>
               Clínica Dental Bilbao atiende en una oficina del centro,
@@ -403,13 +442,12 @@ export default function ClinicaDentalBilbaoPage() {
               en Instagram. Lo que más se repite: la puntualidad, los
               valores claros y que responden a cualquier hora.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-x-8 gap-y-3">
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold underline underline-offset-4 decoration-2"
-                style={{ color: C.brass, textDecorationColor: 'rgba(200,162,75,0.35)' }}
+                className="text-sm font-semibold underline underline-offset-4 decoration-2 text-[#A8863A] decoration-[#C8A24B]/40 hover:text-[#1E3D2F] transition-colors focus-visible:outline-2 focus-visible:outline-[#C8A24B]"
               >
                 Ver la ficha en Google →
               </a>
@@ -417,8 +455,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold underline underline-offset-4 decoration-2"
-                style={{ color: C.brass, textDecorationColor: 'rgba(200,162,75,0.35)' }}
+                className="text-sm font-semibold underline underline-offset-4 decoration-2 text-[#A8863A] decoration-[#C8A24B]/40 hover:text-[#1E3D2F] transition-colors focus-visible:outline-2 focus-visible:outline-[#C8A24B]"
               >
                 @{BIZ.instagram} en Instagram →
               </a>
@@ -426,22 +463,23 @@ export default function ClinicaDentalBilbaoPage() {
           </Reveal>
           <div className="space-y-5">
             <Reveal delay={120}>
-              <figure className="rounded-none overflow-hidden border" style={{ borderColor: C.line }}>
-                <img
+              <figure className="overflow-hidden border" style={{ borderColor: C.line }}>
+                <Image
                   src={`${IMG}/ambiente.webp`}
                   alt="Fachada de Clínica Dental Bilbao en Curicó"
-                  loading="lazy"
+                  width={900}
+                  height={560}
                   className="w-full object-cover aspect-[16/10]"
                 />
               </figure>
             </Reveal>
             {TESTIMONIALS.map((t, i) => (
               <Reveal key={i} delay={160 + i * 100}>
-                <figure className="p-5 md:p-6 border" style={{ backgroundColor: '#FCFAF3', borderColor: C.line }}>
+                <figure className="p-5 md:p-6 border" style={{ backgroundColor: C.card, borderColor: C.line }}>
                   <blockquote className="text-sm md:text-base leading-relaxed mb-3" style={{ color: C.ink }}>
                     “{t}”
                   </blockquote>
-                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.brass }}>
+                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.brassDark }}>
                     Reseña de ejemplo
                   </figcaption>
                 </figure>
@@ -456,17 +494,15 @@ export default function ClinicaDentalBilbaoPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
             <Eyebrow>Dónde estamos</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.forest }}>
-              Manuel Montt 357,
-              <br />
-              oficina 718
+            <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.forest }}>
+              Manuel Montt 357, oficina 718
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-7" style={{ color: C.muted }}>
               {BIZ.address}
               <br />
               {BIZ.city}, {BIZ.region}, Chile
             </address>
-            <dl className="border text-sm mb-8" style={{ borderColor: C.line, backgroundColor: '#FCFAF3' }}>
+            <dl className="border text-sm mb-8" style={{ borderColor: C.line, backgroundColor: C.card }}>
               {[
                 { k: 'Dirección', v: BIZ.address },
                 { k: 'Comuna', v: `${BIZ.city}, ${BIZ.region}` },
@@ -489,8 +525,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95"
-                style={{ backgroundColor: C.forest, color: '#F6F1E7' }}
+                className={`${waBtn} bg-[#1E3D2F] text-[#F6F1E7] hover:bg-[#132A1F]`}
               >
                 Escribir por WhatsApp
               </a>
@@ -498,15 +533,14 @@ export default function ClinicaDentalBilbaoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors"
-                style={{ borderColor: 'rgba(30,61,47,0.4)', color: C.forest }}
+                className={`${waBtn} border border-[#1E3D2F]/40 text-[#1E3D2F] hover:bg-[#1E3D2F] hover:text-[#F6F1E7]`}
               >
                 Cómo llegar →
               </a>
             </div>
           </Reveal>
           <Reveal delay={140}>
-            <div className="overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.paper }}>
+            <div className="overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.card }}>
               <iframe
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
@@ -532,10 +566,9 @@ export default function ClinicaDentalBilbaoPage() {
         />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
-            <h2 className={`${display.className} text-[clamp(2.1rem,6.5vw,4rem)] leading-[1.05] mb-6`} style={{ color: '#F6F1E7' }}>
-              Agenda tu hora
-              <br />
-              <em className="not-italic" style={{ color: C.brassSoft }}>o escribe por urgencia</em>
+            <h2 className={`${display.className} font-semibold text-[clamp(2.1rem,6.5vw,4rem)] leading-[1.05] mb-6`} style={{ color: '#F6F1E7' }}>
+              Agenda tu hora{' '}
+              <span style={{ color: C.brassSoft }}>o escribe por urgencia</span>
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
               Respondemos por WhatsApp, a cualquier hora. En urgencias
@@ -545,8 +578,7 @@ export default function ClinicaDentalBilbaoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95"
-              style={{ backgroundColor: C.brass, color: '#1E130A' }}
+              className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#D8B868] px-8 py-4`}
             >
               Escribir a {BIZ.short}
             </a>
@@ -558,11 +590,13 @@ export default function ClinicaDentalBilbaoPage() {
       <footer style={{ backgroundColor: C.deep, color: '#F6F1E7' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <p className={`${display.className} text-2xl mb-2`}>{BIZ.name}</p>
+            <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">
+                {BIZ.phoneDisplay}
+              </a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.62)' }}>
