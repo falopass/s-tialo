@@ -21,7 +21,7 @@ const C = {
   concrete: '#3A3F44',
   concreteDeep: '#2B2F33',
   ink: '#3A3F44',
-  muted: 'rgba(58,63,68,0.66)',
+  muted: 'rgba(58,63,68,0.82)',
   line: 'rgba(58,63,68,0.18)',
   lineDark: 'rgba(237,230,218,0.2)',
   sandSoft: 'rgba(237,230,218,0.72)',
@@ -159,6 +159,11 @@ export default function NailsyusPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.sand, color: C.ink }}
     >
+      <style>{`
+        html { scroll-behavior: auto }
+        .ny-band { display: flex; justify-content: center; padding: 0 5rem 1.25rem 1.25rem; background-color: #2B2F33 }
+        .ny-band > div { position: static; max-width: 100%; background-color: rgba(10,10,10,0.94) }
+      `}</style>
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
@@ -192,7 +197,7 @@ export default function NailsyusPage() {
           }}
         />
 
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-10 md:pb-12">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-20 md:pb-20">
           <Reveal>
             {/* fila de registro: rótulos en mayúsculas pequeñas */}
             <div
@@ -229,7 +234,7 @@ export default function NailsyusPage() {
                 <a
                   href="#servicios"
                   className={BTN_GHOST}
-                  style={{ borderColor: 'rgba(237,230,218,0.55)', color: C.sand }}
+                  style={{ borderColor: 'rgba(237,230,218,0.75)', color: C.sand }}
                 >
                   Ver servicios
                 </a>
@@ -247,7 +252,7 @@ export default function NailsyusPage() {
                 { k: 'Agenda', v: 'Con hora reservada' },
               ].map((f) => (
                 <div key={f.k} className="py-4 even:border-l even:pl-4 md:border-l md:pl-4 md:first:border-l-0 md:first:pl-0" style={{ borderColor: 'rgba(237,230,218,0.35)' }}>
-                  <dt className="text-[10px] uppercase tracking-[0.28em] mb-1.5" style={{ color: 'rgba(237,230,218,0.6)' }}>
+                  <dt className="text-[10px] uppercase tracking-[0.28em] mb-1.5" style={{ color: 'rgba(237,230,218,0.8)' }}>
                     {f.k}
                   </dt>
                   <dd className="text-xs md:text-sm font-medium" style={{ color: C.sand }}>
@@ -484,7 +489,7 @@ export default function NailsyusPage() {
               </div>
               <dl className="grid grid-cols-2 gap-x-8 border-t pt-5 max-w-md" style={{ borderColor: C.lineDark }}>
                 <div>
-                  <dt className="text-[10px] uppercase tracking-[0.24em] mb-2" style={{ color: 'rgba(237,230,218,0.55)' }}>
+                  <dt className="text-[10px] uppercase tracking-[0.24em] mb-2" style={{ color: 'rgba(237,230,218,0.75)' }}>
                     Dirección
                   </dt>
                   <dd className="text-sm leading-relaxed">
@@ -494,7 +499,7 @@ export default function NailsyusPage() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-[10px] uppercase tracking-[0.24em] mb-2" style={{ color: 'rgba(237,230,218,0.55)' }}>
+                  <dt className="text-[10px] uppercase tracking-[0.24em] mb-2" style={{ color: 'rgba(237,230,218,0.75)' }}>
                     Horario de muestra
                   </dt>
                   <dd className="text-sm leading-relaxed">
@@ -520,7 +525,7 @@ export default function NailsyusPage() {
                 />
                 <figcaption
                   className="flex items-center justify-between gap-4 px-4 py-2.5 border-t text-[10px] uppercase tracking-[0.22em] font-medium"
-                  style={{ borderColor: C.lineDark, color: 'rgba(237,230,218,0.55)' }}
+                  style={{ borderColor: C.lineDark, color: 'rgba(237,230,218,0.75)' }}
                 >
                   <span>Fig. 02 · Cómo llegar</span>
                   <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:text-white transition-colors shrink-0 ${FOCUS} focus-visible:outline-[#EDE6DA]`}>
@@ -540,11 +545,11 @@ export default function NailsyusPage() {
             <p className={`${display.className} font-bold uppercase tracking-[-0.01em] text-2xl mb-1`}>
               Nails<span style={{ color: C.orange }}>yus</span>
             </p>
-            <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.55)' }}>
+            <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.75)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.55)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.75)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS} focus-visible:outline-[#EDE6DA]`}>
                 {l.label}
@@ -553,7 +558,7 @@ export default function NailsyusPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: C.lineDark }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-[11px] leading-relaxed" style={{ color: 'rgba(237,230,218,0.4)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-[11px] leading-relaxed" style={{ color: 'rgba(237,230,218,0.72)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Servicios,
             precios, horarios y fotos son de muestra; el nombre, la dirección,
             el WhatsApp, el Instagram y las reseñas son datos reales de su
@@ -562,7 +567,9 @@ export default function NailsyusPage() {
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <div className="ny-band">
+        <DemoBand name={BIZ.name} />
+      </div>
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
