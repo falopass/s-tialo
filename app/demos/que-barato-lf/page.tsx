@@ -10,9 +10,9 @@ const display = Sora({ subsets: ['latin'], weight: ['500', '600', '700', '800'] 
 const body = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
 export const metadata: Metadata = {
-  title: 'QUE BARATO LF — Insumos médicos al por mayor en Talca',
+  title: 'QUE BARATO LF — Botiquín, escolar y hogar en Talca',
   description:
-    'Distribuidora de insumos y desechables médicos en 34 Ote. 3404, Talca. Venta por mayor y menor. Cotiza tu lista por WhatsApp.',
+    'Curas y artículos de botiquín, útiles escolares y productos para el hogar en 34 Ote. 3404, Talca. Detalle y mayor desde 3 unidades. Cotiza por WhatsApp.',
   robots: { index: false, follow: false },
 }
 
@@ -26,15 +26,15 @@ const NAV_LINKS = [
 const PASOS = [
   {
     title: 'Manda tu lista',
-    desc: 'Escríbenos por WhatsApp con lo que necesitas: productos, cantidades y para qué los usas. Una foto de tu lista anterior también sirve.',
+    desc: 'Escríbenos por WhatsApp con lo que necesitas: la lista de útiles, el botiquín de la casa o mercadería para revender. Una foto de la lista también sirve.',
   },
   {
-    title: 'Te cotizamos al tiro',
-    desc: 'Respondemos con precio por mayor o por menor según el volumen, y te avisamos si algo falta o hay un equivalente más conveniente.',
+    title: 'Precio mayor desde 3 unidades',
+    desc: 'Llevando 3 o más del mismo producto pagas el precio «mayor» de la tabla. Te confirmamos stock y te separamos el pedido.',
   },
   {
-    title: 'Retiras o te despachamos',
-    desc: 'Pasas a buscar tu pedido a 34 Ote. 3404 o coordinamos despacho en Talca y comunas cercanas.',
+    title: 'Retiras en el local',
+    desc: 'Pasas a buscar tu pedido a 34 Ote. 3404, Talca. Si necesitas despacho dentro de la ciudad, lo conversamos por WhatsApp.',
   },
 ]
 
@@ -83,12 +83,12 @@ export default function QueBaratoLf() {
             {BIZ.rubro} · {BIZ.city}, Maule
           </p>
           <h1 className={`${display.className} mt-4 font-bold leading-[1.02] tracking-[-0.02em] text-4xl md:text-6xl max-w-3xl`}>
-            Todo para tu consulta o botica,{' '}
-            <span style={{ color: C.sky }}>al por mayor.</span>
+            Botiquín, colegio y casa,{' '}
+            <span style={{ color: C.sky }}>a precio de mayor.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base md:text-lg leading-relaxed text-white/85">
-            Guantes, jeringas, gasas, mascarillas y equipos con precio de distribuidora.
-            Arma tu lista abajo y cotízala por WhatsApp en un minuto.
+            Curas, útiles escolares y artículos de hogar en 34 Oriente, Talca.
+            Cotiza tu lista por WhatsApp en un minuto.
           </p>
           <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-white/85">
             <li className="flex items-center gap-2">
@@ -97,11 +97,11 @@ export default function QueBaratoLf() {
             </li>
             <li className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.green }} aria-hidden="true" />
-              Venta por mayor y menor
+              Precio mayor desde 3 unidades
             </li>
             <li className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.green }} aria-hidden="true" />
-              Despacho en Talca y alrededores
+              Retiro en {BIZ.address}
             </li>
           </ul>
         </div>
@@ -120,10 +120,10 @@ export default function QueBaratoLf() {
           <Reveal>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10 md:mb-14">
               <h2 className={`${display.className} font-bold tracking-tight leading-[1.05] text-3xl md:text-5xl max-w-xl`}>
-                Compra por mayor, sin letra chica
+                Con 3 unidades ya pagas precio mayor
               </h2>
               <p className="max-w-sm text-sm md:text-base leading-relaxed text-white/75">
-                Consultas, CESFAM, boticas, laboratorios y cuidadoras: cotización simple y despacho coordinado por WhatsApp.
+                Ideal para colegios, oficinas, juntas de vecinos y revendedores — o para la familia que quiere el botiquín completo.
               </p>
             </div>
           </Reveal>
@@ -155,7 +155,7 @@ export default function QueBaratoLf() {
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: '#E3ECF2' }}>
               <Image
                 src={`${IMG}/ambiente.webp`}
-                alt="Pasillo de la distribuidora con estanterías ordenadas de insumos médicos"
+                alt="Pasillo del local con estanterías ordenadas de productos"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
                 loading="eager"
@@ -175,11 +175,12 @@ export default function QueBaratoLf() {
                 {BIZ.address} · {BIZ.city}
               </p>
               <h2 className={`${display.className} mt-3 font-bold tracking-tight leading-[1.05] text-3xl md:text-5xl`}>
-                La bodega de confianza de las consultas del Maule
+                La tienda del barrio donde alcanza para más
               </h2>
               <p className="mt-5 text-base md:text-lg leading-relaxed" style={{ color: C.steel }}>
-                {BIZ.name} atiende de forma directa: hablas con quien arma tu pedido, te dice al
-                tiro qué hay en stock y qué te conviene según el volumen.
+                {BIZ.name} es el típico local de barrio ordenado: atención directa, precios a la
+                vista y precio de mayor desde 3 unidades. Entras por una venda y sales con la
+                lista del colegio resuelta.
               </p>
             </Reveal>
             <div className="mt-8 grid grid-cols-2 gap-4">
@@ -196,10 +197,10 @@ export default function QueBaratoLf() {
               <Reveal delay={160}>
                 <div className="rounded-xl p-4 md:p-5" style={{ backgroundColor: C.paper, border: `1px solid ${C.line}` }}>
                   <p className={`${display.className} font-bold text-2xl md:text-3xl`} style={{ color: C.navy }}>
-                    Mayor y menor
+                    Mayor desde 3 un.
                   </p>
                   <p className="mt-1 text-xs md:text-sm leading-snug" style={{ color: C.steel }}>
-                    desde una unidad hasta el pedido del mes
+                    del mismo producto, sin mínimo de compra
                   </p>
                 </div>
               </Reveal>
@@ -230,8 +231,8 @@ export default function QueBaratoLf() {
               Cotiza tu pedido por WhatsApp
             </h2>
             <p className="mt-5 max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.steel }}>
-              Manda tu lista y te respondemos con precios y stock. Para urgencias de insumos,
-              es el canal más rápido.
+              Manda tu lista —del botiquín, del colegio o de la casa— y te confirmamos
+              stock al tiro. Es el canal más rápido.
             </p>
             <a
               href={WA_LINK}
@@ -298,7 +299,7 @@ export default function QueBaratoLf() {
           <div>
             <p className={`${display.className} text-lg font-bold`}>{BIZ.name}</p>
             <p className="text-xs text-white/70">
-              Sitio de ejemplo de Sitiazo · Datos de contacto reales; categorías, precios, textos y horarios de muestra; fotos referenciales.
+              Sitio de ejemplo de Sitiazo · Datos de contacto y precios del catálogo reales; textos y horarios de muestra; fotos referenciales.
             </p>
           </div>
           <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex!">

@@ -3,10 +3,10 @@
 /**
  * app/demos/que-barato-lf/catalogo.tsx
  *
- * Isla interactiva del demo: buscador, grilla de categorías con fotos,
- * tabla de productos destacados y cotizador que arma el mensaje de
- * WhatsApp con los productos elegidos. Los precios son de muestra
- * (ver content.ts).
+ * Isla interactiva del demo: buscador, tarjetas de las tres secciones
+ * del local, tablas con precio unitario y precio «mayor» (3 unidades),
+ * y cotizador que arma el mensaje de WhatsApp con los productos
+ * elegidos. Los precios son los reales del catálogo (ver content.ts).
  */
 
 import { useMemo, useState } from 'react'
@@ -14,50 +14,24 @@ import Image from 'next/image'
 import { BIZ, C, CAT_LABEL, CATEGORIES, IMG, PRODUCTS, WA_LINK, waLink, type CatKey } from './content'
 
 const ICONS: Record<CatKey, React.ReactNode> = {
-  guantes: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7.5 12V7.2a1.4 1.4 0 0 1 2.8 0V11" />
-      <path d="M10.3 10.8V5.4a1.4 1.4 0 0 1 2.8 0v5.4" />
-      <path d="M13.1 11V6.2a1.4 1.4 0 0 1 2.8 0V12" />
-      <path d="M15.9 11.8v-1.2a1.4 1.4 0 0 1 2.8 0V15c0 3.8-2.6 6-6.4 6c-3.4 0-4.8-1.4-6-4L4.6 13a1.4 1.4 0 0 1 2.5-1.3l.9 1.5" />
-    </g>
-  ),
-  jeringas: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 20l2.6-2.6" />
-      <path d="M6.8 15.4l3.2 3.2" />
-      <path d="M7.6 14.2l6.8-6.8l2.8 2.8l-6.8 6.8a2 2 0 0 1-2.8 0l-.8-.8a2 2 0 0 1 0-2.8z" />
-      <path d="M14.4 7.4l3-3 M17.6 10.6l3-3 M15.6 4.6l3.8 3.8" />
-      <path d="M9.8 12.4l1.4 1.4 M11.6 10.6l1.4 1.4" />
-    </g>
-  ),
-  gasas: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="4" y="4" width="16" height="16" rx="2.5" />
-      <path d="M12 8.5v7 M8.5 12h7" />
-    </g>
-  ),
-  mascarillas: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5.5 9.5C4 9 3 10 3 11.5S4 14 5.5 13.8" />
-      <path d="M18.5 9.5C20 9 21 10 21 11.5S20 14 18.5 13.8" />
-      <rect x="5.5" y="7.5" width="13" height="8" rx="3" />
-      <path d="M8.5 10.5h7 M8.5 12.5h7" />
-    </g>
-  ),
-  curaciones: (
+  botiquin: (
     <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
       <rect x="8" y="2.8" width="8" height="18.4" rx="4" transform="rotate(38 12 12)" />
       <path d="M10.4 10.6l1 1 M13 13.2l1 1" strokeWidth="2" />
       <path d="M9.5 14.6l1.4-1.1 M14.2 10.9l1.4-1.1" />
     </g>
   ),
-  equipos: (
+  escolar: (
     <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6.5 3.5v5a3.8 3.8 0 0 0 7.6 0v-5" />
-      <path d="M5 3.5h3 M12.2 3.5h3" />
-      <path d="M10.3 13.4v3.2a4.4 4.4 0 0 0 8.8 0v-1.4" />
-      <circle cx="19.1" cy="12.6" r="2.4" />
+      <path d="M12 20h9" />
+      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" />
+    </g>
+  ),
+  hogar: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3.5 10.5L12 3l8.5 7.5" />
+      <path d="M5.5 9.5V20h13V9.5" />
+      <path d="M10 20v-5h4v5" />
     </g>
   ),
 }
@@ -80,20 +54,25 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
   const [sel, setSel] = useState<string[]>([])
   const [nota, setNota] = useState('')
 
-  const filtered = useMemo(() => {
+  const sections = useMemo(() => {
     const nq = norm(q.trim())
-    return PRODUCTS.filter(
-      (p) =>
-        (cat === 'todas' || p.cat === cat) &&
-        (!nq || norm(`${p.name} ${p.format} ${CAT_LABEL[p.cat]}`).includes(nq)),
-    )
+    return CATEGORIES.filter((c) => cat === 'todas' || c.key === cat).map((c) => ({
+      ...c,
+      rows: PRODUCTS.filter(
+        (p) =>
+          p.cat === c.key &&
+          (!nq || norm(`${p.name} ${c.label}`).includes(nq)),
+      ),
+    }))
   }, [q, cat])
+
+  const total = sections.reduce((n, s) => n + s.rows.length, 0)
 
   const toggle = (name: string) =>
     setSel((s) => (s.includes(name) ? s.filter((x) => x !== name) : [...s, name]))
 
   const mensaje = [
-    `Hola ${BIZ.name}! Quiero cotizar estos insumos:`,
+    `Hola ${BIZ.name}! Quiero cotizar estos productos:`,
     ...sel.map((p) => `- ${p}`),
     nota.trim() ? `Detalle: ${nota.trim()}` : '',
   ]
@@ -125,7 +104,7 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
               type="search"
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Guantes, jeringas, mascarillas…"
+              placeholder="Vendas, cartulina, algodón, marcadores…"
               className="w-full bg-transparent text-base md:text-lg outline-none placeholder:text-slate-400"
               style={{ color: C.navy }}
             />
@@ -133,17 +112,17 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
         </div>
       </div>
 
-      {/* ── Grilla de categorías ─────────────────────────── */}
+      {/* ── Tarjetas de sección ──────────────────────────── */}
       <div className="flex items-end justify-between gap-4 mb-6">
         <h2 className={`${fontClass} font-bold text-3xl md:text-4xl tracking-tight`} style={{ color: C.navy }}>
-          Categorías
+          El catálogo
         </h2>
         <p className="hidden sm:block text-sm" style={{ color: C.steel }}>
-          Toca una categoría para filtrar la tabla.
+          Toca una sección para filtrar las tablas.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-14 md:mb-20">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 mb-14 md:mb-20">
         {CATEGORIES.map((c) => {
           const active = cat === c.key
           return (
@@ -161,15 +140,25 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
               }}
             >
               <div className="relative aspect-[16/9] overflow-hidden" style={{ backgroundColor: '#E3ECF2' }}>
-                <Image
-                  src={`${IMG}/${c.img}.webp`}
-                  alt={c.alt}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, 50vw"
-                  loading="eager"
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                  style={{ objectPosition: c.pos }}
-                />
+                {c.img ? (
+                  <Image
+                    src={`${IMG}/${c.img}.webp`}
+                    alt={c.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 50vw"
+                    loading="eager"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    style={{ objectPosition: c.pos }}
+                  />
+                ) : (
+                  <div
+                    className="absolute inset-0 grid place-items-center"
+                    style={{ backgroundColor: C.sky, color: C.navy }}
+                    aria-hidden="true"
+                  >
+                    <Icon k={c.key} className="w-16 h-16 opacity-30" />
+                  </div>
+                )}
                 <span
                   className="absolute left-3 top-3 inline-flex items-center justify-center w-9 h-9 rounded-full"
                   style={{ backgroundColor: C.navy, color: C.sky }}
@@ -195,76 +184,98 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
         })}
       </div>
 
-      {/* ── Tabla de destacados + cotizador ──────────────── */}
+      {/* ── Tablas por sección + cotizador ───────────────── */}
       <div id="destacados" className="scroll-mt-24 grid lg:grid-cols-[1fr_330px] gap-8 lg:gap-10 items-start">
         <div>
           <div className="flex flex-wrap items-end justify-between gap-3 mb-5">
             <h2 className={`${fontClass} font-bold text-3xl md:text-4xl tracking-tight`} style={{ color: C.navy }}>
-              Destacados de bodega
+              Precios del local
             </h2>
             <p aria-live="polite" className="text-sm font-medium" style={{ color: C.steel }}>
-              {filtered.length} {filtered.length === 1 ? 'producto' : 'productos'}
+              {total} {total === 1 ? 'producto' : 'productos'}
               {cat !== 'todas' && ` en ${CAT_LABEL[cat]}`}
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-xl" style={{ border: `1px solid ${C.line}`, backgroundColor: C.white }}>
-            <table className="w-full text-left text-sm min-w-[520px]">
-              <caption className="sr-only">Productos destacados con precios de muestra</caption>
-              <thead>
-                <tr className="text-[11px] uppercase tracking-[0.12em]" style={{ color: C.steel, borderBottom: `1px solid ${C.line}` }}>
-                  <th scope="col" className="py-3 pl-4 md:pl-5 font-semibold">Producto</th>
-                  <th scope="col" className="py-3 font-semibold hidden sm:table-cell">Categoría</th>
-                  <th scope="col" className="py-3 font-semibold">Formato</th>
-                  <th scope="col" className="py-3 font-semibold text-right">Precio</th>
-                  <th scope="col" className="py-3 pr-4 md:pr-5 font-semibold text-right w-[86px]">Cotizar</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.map((p) => {
-                  const inList = sel.includes(p.name)
-                  return (
-                    <tr key={p.name} style={{ borderTop: `1px solid ${C.line}` }}>
-                      <td className="py-3.5 pl-4 md:pl-5 font-semibold" style={{ color: C.navy }}>
-                        {p.name}
-                      </td>
-                      <td className="py-3.5 hidden sm:table-cell" style={{ color: C.steel }}>
-                        {CAT_LABEL[p.cat]}
-                      </td>
-                      <td className="py-3.5" style={{ color: C.steel }}>{p.format}</td>
-                      <td className={`${fontClass} py-3.5 text-right font-bold tabular-nums whitespace-nowrap`} style={{ color: C.navy }}>
-                        {p.price}<span aria-hidden="true" style={{ color: C.green }}>*</span>
-                      </td>
-                      <td className="py-3.5 pr-4 md:pr-5 text-right">
-                        <button
-                          type="button"
-                          onClick={() => toggle(p.name)}
-                          aria-pressed={inList}
-                          className="inline-flex items-center gap-1.5 min-h-[36px] px-3 rounded-full text-xs font-bold transition-colors"
-                          style={
-                            inList
-                              ? { backgroundColor: C.green, color: C.greenInk }
-                              : { backgroundColor: C.paper, color: C.navy, border: `1px solid ${C.line}` }
-                          }
-                        >
-                          {inList ? '✓ En lista' : '+ Agregar'}
-                        </button>
-                      </td>
-                    </tr>
-                  )
-                })}
-                {filtered.length === 0 && (
-                  <tr>
-                    <td colSpan={5} className="py-10 text-center" style={{ color: C.steel }}>
-                      Sin resultados para «{q}». Pregunta por WhatsApp, el catálogo completo es mucho más amplio.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+          <div className="space-y-8">
+            {sections.map(
+              (s) =>
+                s.rows.length > 0 && (
+                  <section key={s.key} aria-label={s.label}>
+                    <h3 className={`${fontClass} font-bold text-xl md:text-2xl mb-3`} style={{ color: C.navy }}>
+                      {s.label}
+                    </h3>
+                    <div className="overflow-x-auto rounded-xl" style={{ border: `1px solid ${C.line}`, backgroundColor: C.white }}>
+                      <table className="w-full text-left text-sm min-w-[420px]">
+                        <caption className="sr-only">
+                          {s.label}: precio unitario y precio mayor por 3 unidades
+                        </caption>
+                        <thead>
+                          <tr className="text-[11px] uppercase tracking-[0.12em]" style={{ color: C.steel, borderBottom: `1px solid ${C.line}` }}>
+                            <th scope="col" className="py-3 pl-4 md:pl-5 font-semibold">Producto</th>
+                            <th scope="col" className="py-3 font-semibold text-right">Precio</th>
+                            <th scope="col" className="py-3 pr-4 md:pr-5 font-semibold text-right w-[86px]">Cotizar</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {s.rows.map((p) => {
+                            const inList = sel.includes(p.name)
+                            return (
+                              <tr key={p.name} style={{ borderTop: `1px solid ${C.line}` }}>
+                                <td className="py-3.5 pl-4 md:pl-5 font-semibold" style={{ color: C.navy }}>
+                                  {p.name}
+                                </td>
+                                <td className="py-3 text-right whitespace-nowrap">
+                                  {p.price ? (
+                                    <>
+                                      <span className={`${fontClass} font-bold tabular-nums`} style={{ color: C.navy }}>
+                                        {p.price}
+                                      </span>
+                                      {p.mayor && (
+                                        <span className="block text-[11px] font-medium" style={{ color: C.greenInk }}>
+                                          mayor 3 un. {p.mayor}
+                                        </span>
+                                      )}
+                                    </>
+                                  ) : (
+                                    <span className="text-xs font-semibold" style={{ color: C.steel }}>
+                                      Consultar
+                                    </span>
+                                  )}
+                                </td>
+                                <td className="py-3.5 pr-4 md:pr-5 text-right">
+                                  <button
+                                    type="button"
+                                    onClick={() => toggle(p.name)}
+                                    aria-pressed={inList}
+                                    className="inline-flex items-center gap-1.5 min-h-[36px] px-3 rounded-full text-xs font-bold transition-colors"
+                                    style={
+                                      inList
+                                        ? { backgroundColor: C.green, color: C.greenInk }
+                                        : { backgroundColor: C.paper, color: C.navy, border: `1px solid ${C.line}` }
+                                    }
+                                  >
+                                    {inList ? '✓ En lista' : '+ Agregar'}
+                                  </button>
+                                </td>
+                              </tr>
+                            )
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                ),
+            )}
+            {total === 0 && (
+              <p className="py-10 text-center rounded-xl" style={{ color: C.steel, border: `1px solid ${C.line}`, backgroundColor: C.white }}>
+                Sin resultados para «{q}». Pregunta por WhatsApp, el catálogo del local es mucho más amplio.
+              </p>
+            )}
           </div>
           <p className="mt-3 text-xs" style={{ color: C.steel }}>
-            *Precios y stock de muestra. El valor real se confirma al cotizar por WhatsApp.
+            «Mayor 3 un.» es el precio por unidad llevando 3 o más del mismo producto.
+            Precios reales del catálogo; el stock se confirma por WhatsApp.
           </p>
         </div>
 
@@ -318,7 +329,7 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
             value={nota}
             onChange={(e) => setNota(e.target.value)}
             rows={3}
-            placeholder="Ej: 10 cajas de guantes talla M, despacho a Cesfam…"
+            placeholder="Ej: 3 toallitas antisépticas, 1 silicona, 6 paños amarillos…"
             className="mt-2 w-full rounded-lg px-3 py-2.5 text-sm outline-none placeholder:text-white/60"
             style={{ backgroundColor: 'rgba(255,255,255,0.10)', color: C.white, border: '1px solid rgba(255,255,255,0.18)' }}
           />

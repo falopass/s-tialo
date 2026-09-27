@@ -681,9 +681,9 @@ const BLITZ = [
   {
     slug: 'que-barato-lf',
     name: 'QUE BARATO LF',
-    rubro: 'Distribuidora de insumos médicos',
+    rubro: 'Botiquín, escolar y hogar',
     city: 'Talca',
-    tagline: 'Catálogo mayorista con cotizador: azul clínico, celeste y verde salud, buscador y tabla de precios.',
+    tagline: 'Catálogo de barrio con cotizador: precio unitario y mayor desde 3 unidades, buscador y tablas por sección.',
     gradient: 'linear-gradient(135deg, #0E3A5C 0%, #1D5E8A 55%, #7FC6E8 140%)',
   },
 ]

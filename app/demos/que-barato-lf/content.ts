@@ -1,15 +1,15 @@
 /**
  * app/demos/que-barato-lf/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps): nombre, rubro,
- * dirección (34 Ote. 3404, Talca), WhatsApp y las 133 reseñas. Todo lo
- * demás —categorías, tabla de precios «desde», textos y horarios— es
- * contenido de muestra; las fotos son referenciales.
+ * Datos del mockup. REALES: nombre, dirección (34 Ote. 3404, Talca),
+ * WhatsApp, las 133 reseñas de Google Maps y el catálogo con precios,
+ * incluido el precio «mayor» por 3 unidades. Los horarios son de
+ * referencia y las fotos, referenciales.
  */
 
 export const BIZ = {
   name: 'QUE BARATO LF',
-  rubro: 'Distribuidora de insumos médicos',
+  rubro: 'Botiquín, escolar y hogar',
   address: '34 Ote. 3404',
   city: 'Talca',
   region: 'Región del Maule',
@@ -36,7 +36,7 @@ export const waLink = (text: string) =>
   `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(text)}`
 
 export const WA_LINK = waLink(
-  'Hola QUE BARATO LF! Vi su sitio y quiero cotizar insumos',
+  'Hola QUE BARATO LF! Vi su sitio y quiero cotizar',
 )
 
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -55,98 +55,89 @@ export const HOURS = [
   { days: 'Sábado', time: '10:00–14:00' },
 ] as const
 
-export type CatKey =
-  | 'guantes'
-  | 'jeringas'
-  | 'gasas'
-  | 'mascarillas'
-  | 'curaciones'
-  | 'equipos'
+export type CatKey = 'botiquin' | 'escolar' | 'hogar'
 
 export const CATEGORIES: {
   key: CatKey
   label: string
   desc: string
-  img: string
+  /** null = la tarjeta usa fondo de color (no hay foto que calce) */
+  img: string | null
   pos: string
   alt: string
 }[] = [
   {
-    key: 'guantes',
-    label: 'Guantes',
-    desc: 'Nitrilo y látex, por caja o por bulto.',
-    img: 'hero',
-    pos: '15% 50%',
-    alt: 'Guantes de nitrilo azules sobre un mesón de acero en una distribuidora de insumos',
-  },
-  {
-    key: 'jeringas',
-    label: 'Jeringas',
-    desc: 'Desechables, insulina y agujas por caja.',
-    img: 'ambiente',
-    pos: '50% 50%',
-    alt: 'Pasillo de una distribuidora con estanterías llenas de insumos médicos empaquetados',
-  },
-  {
-    key: 'gasas',
-    label: 'Gasas',
-    desc: 'Estériles, parafinadas e hisopos.',
-    img: 'detalle2',
-    pos: '30% 50%',
-    alt: 'Paquetes de gasa estéril, vendas y algodón ordenados sobre una mesa',
-  },
-  {
-    key: 'mascarillas',
-    label: 'Mascarillas',
-    desc: 'Quirúrgicas 3 pliegues y KN95.',
-    img: 'hero',
-    pos: '80% 50%',
-    alt: 'Mascarillas quirúrgicas celestes empaquetadas junto a cajas de insumos',
-  },
-  {
-    key: 'curaciones',
-    label: 'Curaciones',
-    desc: 'Vendas, cintas, parches y antisepsia.',
+    key: 'botiquin',
+    label: 'Curas y botiquín',
+    desc: 'Vendas, gasas, cintas y todo para el botiquín.',
     img: 'detalle1',
     pos: '50% 50%',
     alt: 'Vendas, cinta adhesiva, parches y gasa estéril sobre un mesón',
   },
   {
-    key: 'equipos',
-    label: 'Equipos',
-    desc: 'Baumanómetros, oxímetros y termómetros.',
-    img: 'detalle3',
+    key: 'escolar',
+    label: 'Escolares y manualidades',
+    desc: 'Útiles, cartulinas, pegamento y materiales de manualidades.',
+    img: null,
+    pos: '',
+    alt: '',
+  },
+  {
+    key: 'hogar',
+    label: 'Hogar y varios',
+    desc: 'Paños, microfibra, toallas y varios para la casa.',
+    img: 'ambiente',
     pos: '50% 50%',
-    alt: 'Baumanómetro, oxímetro de pulso y termómetro digital sobre una mesa',
+    alt: 'Pasillo del local con estanterías llenas de productos',
   },
 ]
 
 export const CAT_LABEL: Record<CatKey, string> = {
-  guantes: 'Guantes',
-  jeringas: 'Jeringas',
-  gasas: 'Gasas',
-  mascarillas: 'Mascarillas',
-  curaciones: 'Curaciones',
-  equipos: 'Equipos',
+  botiquin: 'Curas y botiquín',
+  escolar: 'Escolares y manualidades',
+  hogar: 'Hogar y varios',
 }
 
-// Precios «desde» de muestra: el negocio confirma el valor real al cotizar.
+/**
+ * Catálogo real del local. `price` es el precio unitario y `mayor` el
+ * precio por unidad llevando 3 o más del mismo producto. `price: null`
+ * significa que la captura del catálogo no mostraba precio.
+ */
 export const PRODUCTS: {
   cat: CatKey
   name: string
-  format: string
-  price: string
+  price: string | null
+  mayor?: string
 }[] = [
-  { cat: 'guantes', name: 'Guantes de nitrilo', format: 'caja × 100', price: 'desde $4.990' },
-  { cat: 'guantes', name: 'Guantes de látex', format: 'caja × 100', price: 'desde $3.990' },
-  { cat: 'jeringas', name: 'Jeringa desechable 3 ml', format: 'caja × 100', price: 'desde $6.990' },
-  { cat: 'jeringas', name: 'Jeringa de insulina 1 ml', format: 'caja × 100', price: 'desde $8.990' },
-  { cat: 'gasas', name: 'Gasa estéril 10×10', format: 'sobre × 100', price: 'desde $3.490' },
-  { cat: 'gasas', name: 'Alcohol gel 1 litro', format: 'unidad', price: 'desde $2.990' },
-  { cat: 'mascarillas', name: 'Mascarilla quirúrgica 3 pliegues', format: 'caja × 50', price: 'desde $2.490' },
-  { cat: 'mascarillas', name: 'Mascarilla KN95', format: 'unidad', price: 'desde $390' },
-  { cat: 'curaciones', name: 'Venda elástica 10 cm', format: 'unidad', price: 'desde $890' },
-  { cat: 'curaciones', name: 'Parches curitas surtidos', format: 'caja × 100', price: 'desde $1.990' },
-  { cat: 'equipos', name: 'Termómetro digital', format: 'unidad', price: 'desde $3.490' },
-  { cat: 'equipos', name: 'Baumanómetro aneroide', format: 'unidad', price: 'desde $19.990' },
+  // Curas y botiquín
+  { cat: 'botiquin', name: 'Apósito corriente 11 cm', price: '$100' },
+  { cat: 'botiquin', name: 'Venda elasticada blanca', price: '$300' },
+  { cat: 'botiquin', name: 'Paño amarillo cocina', price: '$200', mayor: '$150' },
+  { cat: 'botiquin', name: 'Toallitas antisépticas', price: '$1.600', mayor: '$1.400' },
+  { cat: 'botiquin', name: 'Bajalenguas de madera', price: '$1.800', mayor: '$1.600' },
+  { cat: 'botiquin', name: 'Recolector de orina', price: '$2.000' },
+  { cat: 'botiquin', name: 'Cinta microporosa 2,5 cm', price: '$1.000' },
+  { cat: 'botiquin', name: 'Micropore beige 3M 1,25 cm', price: '$1.000' },
+  { cat: 'botiquin', name: 'Transpore 3M 2,5 cm', price: '$1.000' },
+  { cat: 'botiquin', name: 'Coban 5 cm marca 3M', price: '$1.500' },
+  { cat: 'botiquin', name: 'Coban 7,5 cm marca 3M', price: '$2.000' },
+  { cat: 'botiquin', name: 'Leukoplast blanca 5 cm', price: '$17.000', mayor: '$15.000' },
+  { cat: 'botiquin', name: 'Tegaderm film 1622W', price: '$200' },
+  { cat: 'botiquin', name: 'Gasa no tejida 5x5 LBF', price: '$3.500', mayor: '$3.000' },
+  { cat: 'botiquin', name: 'Algodón hidrófilo Cranberry', price: '$1.800', mayor: '$1.600' },
+  { cat: 'botiquin', name: 'Algodón hidrófilo 1 kg Trebol', price: '$9.500', mayor: '$9.300' },
+  { cat: 'botiquin', name: 'Cutimed spray 28 ml', price: '$6.000', mayor: '$5.000' },
+  { cat: 'botiquin', name: 'Cinta kinesiológica', price: '$2.000', mayor: '$1.200' },
+  { cat: 'botiquin', name: 'Pechera desechable', price: '$200', mayor: '$170' },
+  { cat: 'botiquin', name: 'Caja guantes estéril 8.0', price: null },
+  // Escolares y manualidades
+  { cat: 'escolar', name: 'Cartulina española 10 pliegos', price: '$2.000', mayor: '$1.800' },
+  { cat: 'escolar', name: 'Block médium 99 1/8 hojas', price: '$1.500', mayor: '$1.300' },
+  { cat: 'escolar', name: 'Pegamento en barra', price: '$1.000' },
+  { cat: 'escolar', name: 'Marcadores 12 unidades', price: '$1.800', mayor: '$1.500' },
+  { cat: 'escolar', name: 'Silicona líquida 100 gr', price: '$1.300', mayor: '$1.000' },
+  { cat: 'escolar', name: 'Palos de helado medianos', price: '$900', mayor: '$700' },
+  // Hogar y varios
+  { cat: 'hogar', name: 'Paño microfibra 38 cm', price: '$500', mayor: '$300' },
+  { cat: 'hogar', name: 'Toalla interfoliada', price: '$1.500', mayor: '$1.300' },
 ]
