@@ -32,6 +32,7 @@ const C = {
   ambarSoft: '#F4DFAE',
   ink: '#252A22',
   muted: '#6F6A58',
+  mutedDeep: '#5B5642',
   line: 'rgba(37,42,34,0.2)',
 }
 
@@ -142,11 +143,11 @@ function Rule({ light = false, className = '' }: { light?: boolean; className?: 
   )
 }
 
-function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+function Eyebrow({ children, light = false, color }: { children: React.ReactNode; light?: boolean; color?: string }) {
   return (
     <p
       className="text-[11px] uppercase tracking-[0.26em] mb-4 flex items-center gap-3 font-bold"
-      style={{ color: light ? C.ambarSoft : C.verde }}
+      style={{ color: color ?? (light ? C.ambarSoft : C.verde) }}
     >
       <Diamond />
       {children}
@@ -366,24 +367,24 @@ export default function EmporioVintageCafePage() {
                   />
                 </div>
               </div>
-              <figcaption className="mt-3 text-center text-[11px] uppercase tracking-[0.22em] font-bold" style={{ color: C.muted }}>
+              <figcaption className="mt-3 text-center text-[11px] uppercase tracking-[0.22em] font-bold" style={{ color: C.mutedDeep }}>
                 {BIZ.address} · {BIZ.city}
               </figcaption>
             </figure>
           </Reveal>
           <Reveal delay={140}>
-            <Eyebrow>El emporio</Eyebrow>
+            <Eyebrow color={C.verdeDeep}>El emporio</Eyebrow>
             <h2 className={`${display.className} font-medium text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.ink }}>
               Un café de barrio
               <br />
-              <em className="italic font-normal" style={{ color: C.verde }}>en pleno Talca</em>
+              <em className="italic font-normal" style={{ color: C.verdeDeep }}>en pleno Talca</em>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-4 max-w-md" style={{ color: C.muted }}>
+            <p className="text-sm md:text-base leading-relaxed mb-4 max-w-md" style={{ color: C.mutedDeep }}>
               En Tres Norte, a pasos del centro, el emporio junta café de
               grano, kuchen recién salido del horno y un salón con muebles
               de otra época. Se pide en la barra y la conversación es gratis.
             </p>
-            <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: C.muted }}>
+            <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: C.mutedDeep }}>
               Lo avalan los vecinos: {BIZ.reviews} reseñas en su ficha de
               Google y una comunidad de {BIZ.followers} seguidores en
               Instagram.
@@ -406,7 +407,7 @@ export default function EmporioVintageCafePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${FOCUS} underline underline-offset-4 decoration-2`}
-                style={{ color: C.verde, textDecorationColor: 'rgba(42,127,98,0.35)' }}
+                style={{ color: C.verdeDeep, textDecorationColor: 'rgba(23,62,50,0.35)' }}
               >
                 Instagram · @{BIZ.instagram.split('/').pop()}
               </a>
@@ -415,7 +416,7 @@ export default function EmporioVintageCafePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${FOCUS} underline underline-offset-4 decoration-2`}
-                style={{ color: C.verde, textDecorationColor: 'rgba(42,127,98,0.35)' }}
+                style={{ color: C.verdeDeep, textDecorationColor: 'rgba(23,62,50,0.35)' }}
               >
                 Ficha en Google Maps →
               </a>
@@ -559,19 +560,12 @@ export default function EmporioVintageCafePage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.verdeDeep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
-          <div>
-            <p className={`${display.className} font-medium italic text-2xl mb-2 flex items-center gap-3`}>
-              <Diamond color={C.ambar} className="w-3 h-3" />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(253,246,236,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              {BIZ.phoneDisplay}
-            </address>
-          </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(253,246,236,0.62)' }} aria-label="Pie">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-6 pb-20 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
+          <p className={`${display.className} font-medium italic text-xl flex items-center gap-3`}>
+            <Diamond color={C.ambar} className="w-3 h-3" />
+            {BIZ.name}
+          </p>
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-[13px]" style={{ color: 'rgba(253,246,236,0.75)' }} aria-label="Pie">
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors`}>
                 {l.label}
@@ -581,15 +575,16 @@ export default function EmporioVintageCafePage() {
               Instagram
             </a>
           </nav>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(253,246,236,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(253,246,236,0.7)' }}>
-            Datos del local reales; carta, precios, horarios y reseñas citadas de muestra.
+          <p className="w-full text-[11px] leading-relaxed border-t pt-3" style={{ borderColor: 'rgba(253,246,236,0.14)', color: 'rgba(253,246,236,0.7)' }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region} · {BIZ.phoneDisplay} — Datos del local reales; carta, precios, horarios y reseñas citadas de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      {/* bg-ink sólido: el /90 compila a oklab y el texto crema quedaba ilegible */}
+      <div className="[&>div]:bg-ink!">
+        <DemoBand name={BIZ.name} />
+      </div>
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
