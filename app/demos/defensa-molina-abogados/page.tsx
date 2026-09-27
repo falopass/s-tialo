@@ -240,7 +240,7 @@ export default function DefensaMolinaPage() {
       />
 
       {/* ── Hero a sangre ── */}
-      <header className="relative min-h-[88svh] flex items-end overflow-hidden">
+      <header className="relative min-h-[88svh] flex items-end overflow-hidden" style={{ backgroundColor: C.pizarraDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
           alt="Escritorio de madera con libros de derecho, lámpara encendida y ventana con vista a la ciudad"
@@ -252,7 +252,7 @@ export default function DefensaMolinaPage() {
         <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(180deg, rgba(31,50,62,0.35) 0%, rgba(31,50,62,0.55) 45%, ${C.pizarraDeep} 100%)`,
+            background: `linear-gradient(180deg, rgba(31,50,62,0.5) 0%, rgba(31,50,62,0.7) 45%, ${C.pizarraDeep} 100%)`,
           }}
           aria-hidden="true"
         />
@@ -486,7 +486,7 @@ export default function DefensaMolinaPage() {
 
       {/* ── Franja Sitiazo ── */}
       <footer style={{ backgroundColor: C.pizarraDeep, color: 'rgba(255,255,255,0.78)' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 pb-24 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[14px]">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-10 pb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[14px]">
           <p>
             <span className={`${display.className} font-bold text-[16px]`} style={{ color: C.white }}>{BIZ.name}</span>
             {' · '}
@@ -498,10 +498,12 @@ export default function DefensaMolinaPage() {
             Instagram son del negocio.
           </p>
         </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pb-24 [&>div]:static [&>div]:max-w-full [&>div]:w-fit">
+          <DemoBand name={BIZ.name} />
+        </div>
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir a ${BIZ.name} por WhatsApp`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }
