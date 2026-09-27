@@ -387,14 +387,14 @@ export default function JdAbogadosPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-8 py-4 transition-transform active:scale-95"
+                className="font-semibold text-sm px-8 py-3 md:py-4 transition-transform active:scale-95"
                 style={{ backgroundColor: C.graphite, color: '#fff' }}
               >
                 Escríbenos por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-4 border transition-colors"
+                className="font-semibold text-sm px-8 py-3 md:py-4 border transition-colors"
                 style={{ borderColor: C.ink, color: C.ink }}
               >
                 {BIZ.phoneDisplay}
@@ -406,7 +406,7 @@ export default function JdAbogadosPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.ink, color: '#F7F5F0' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,245,240,0.6)' }}>
@@ -422,7 +422,7 @@ export default function JdAbogadosPage() {
           </p>
         </div>
         <p
-          className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed border-t"
+          className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed border-t"
           style={{ color: 'rgba(247,245,240,0.75)', borderColor: 'rgba(247,245,240,0.14)' }}
         >
           Mockup preparado por{' '}

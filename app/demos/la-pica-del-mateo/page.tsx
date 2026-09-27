@@ -79,10 +79,10 @@ export default function LaPicaDelMateoPage() {
             por mesa completa, directo por WhatsApp.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3">
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} px-7 py-4 text-base`}>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} px-7 py-3 md:py-4 text-base`}>
               Hacer un pedido por WhatsApp
             </a>
-            <a href="#carta" className={`${BTN_LINE} px-7 py-4 text-base`}>Ver la carta</a>
+            <a href="#carta" className={`${BTN_LINE} px-7 py-3 md:py-4 text-base`}>Ver la carta</a>
           </div>
 
           <dl className="mt-14 grid grid-cols-3 max-w-[34rem] divide-x divide-white/20 border-y border-white/20 text-white">
@@ -250,7 +250,7 @@ export default function LaPicaDelMateoPage() {
             <p className="mt-6 text-base md:text-lg text-white/75 leading-relaxed">
               Escribe por WhatsApp con la cantidad y la hora de retiro. Te confirman el pedido directo.
             </p>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} mt-9 px-8 py-4 text-lg self-start`}>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} mt-9 px-8 py-3 md:py-4 text-base md:text-lg self-start`}>
               WhatsApp {BIZ.phoneDisplay}
             </a>
             <address className="not-italic mt-auto pt-12 text-white/80 leading-relaxed">

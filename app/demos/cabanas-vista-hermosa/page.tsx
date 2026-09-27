@@ -303,16 +303,19 @@ export default function CabanasVistaHermosaPage() {
         {/* letrero pintado */}
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-24">
           {/* sello de reseñas */}
-          <div className="flex justify-end mb-6">
+          <div className="flex flex-col items-end gap-2 mb-6">
             <Reveal>
+              <Sello size={128} top="RÍO CLARO · MAULE ·" center={String(BIZ.reviews)} sub="RESEÑAS EN GOOGLE" />
+            </Reveal>
+            <Reveal delay={80}>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Ver las ${BIZ.reviews} reseñas de Cabañas Vista Hermosa en Google`}
-                className="inline-block transition-transform hover:scale-105"
+                className="text-xs font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
+                style={{ color: '#F7F9F9', textDecorationColor: C.mint }}
               >
-                <Sello size={128} top="RÍO CLARO · MAULE ·" center={String(BIZ.reviews)} sub="RESEÑAS EN GOOGLE" />
+                Ver las {BIZ.reviews} reseñas en Google →
               </a>
             </Reveal>
           </div>
@@ -473,15 +476,7 @@ export default function CabanasVistaHermosaPage() {
             </Reveal>
             <Reveal delay={140}>
               <div className="flex flex-col items-center gap-6 lg:pt-16">
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Ver la ficha de Cabañas Vista Hermosa en Google Maps"
-                  className="inline-block transition-transform hover:scale-105"
-                >
-                  <Sello size={168} top="LO QUE DICEN LAS VISITAS ·" center={String(BIZ.reviews)} sub="RESEÑAS EN GOOGLE" />
-                </a>
+                <Sello size={168} top="LO QUE DICEN LAS VISITAS ·" center={String(BIZ.reviews)} sub="RESEÑAS EN GOOGLE" />
                 <a
                   href={MAPS_URL}
                   target="_blank"

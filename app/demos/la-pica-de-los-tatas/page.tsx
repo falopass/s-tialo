@@ -179,7 +179,7 @@ export default function LaPicaDeLosTatasPage() {
               <br />
               <span style={{ color: C.sand }}>mesa sin apuro</span>
             </h1>
-            <p className="mt-7 mx-auto max-w-[36rem] text-base md:text-lg leading-relaxed text-[#E8DCC8]/85">
+            <p className="mt-7 mx-auto max-w-[36rem] text-base md:text-lg leading-relaxed" style={{ color: 'rgba(232,220,200,0.85)' }}>
               Almuerzos caseros, horno encendido y atención de la casa en
               Independencia 1843. Llega, siéntate tranquilo y déjate atender.
             </p>
@@ -188,12 +188,12 @@ export default function LaPicaDeLosTatasPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${BTN_GLOW} text-base px-8 py-4`}
+                className={`${BTN_GLOW} text-base px-8 py-3 md:py-4`}
                 style={{ backgroundColor: C.terra, color: C.coal }}
               >
                 Reservar por WhatsApp
               </a>
-              <a href="#carta" className={`${BTN_GHOST} text-base px-8 py-4`} style={{ color: C.sand }}>
+              <a href="#carta" className={`${BTN_GHOST} text-base px-8 py-3 md:py-4`} style={{ color: C.sand }}>
                 Ver la carta
               </a>
             </div>
@@ -211,7 +211,7 @@ export default function LaPicaDeLosTatasPage() {
                     <span className={`${display.className} block text-2xl md:text-3xl`} style={{ color: C.white }}>
                       {s.v}
                     </span>
-                    <span className="block mt-1 text-[11px] md:text-xs text-[#E8DCC8]/65">{s.k}</span>
+                    <span className="block mt-1 text-[11px] md:text-xs" style={{ color: 'rgba(232,220,200,0.65)' }}>{s.k}</span>
                   </dd>
                 </div>
               ))}
@@ -233,7 +233,7 @@ export default function LaPicaDeLosTatasPage() {
             <h2 className={`${display.className} mt-4 text-[clamp(2rem,5vw,3.4rem)] leading-[1.08]`} style={{ color: C.white }}>
               Lo que sale de nuestra cocina
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#E8DCC8]/75">
+            <p className="mt-5 text-base leading-relaxed" style={{ color: 'rgba(232,220,200,0.75)' }}>
               Tres razones para sentarse a la mesa. Carta de muestra: al
               publicar van los platos reales de la picá.
             </p>
@@ -257,7 +257,8 @@ export default function LaPicaDeLosTatasPage() {
                       aria-hidden="true"
                     />
                     <span
-                      className={`${display.className} absolute right-5 top-4 text-sm tracking-[0.2em] text-[#E8DCC8]/70`}
+                      className={`${display.className} absolute right-5 top-4 text-sm tracking-[0.2em]`}
+                      style={{ color: 'rgba(232,220,200,0.7)' }}
                       aria-hidden="true"
                     >
                       {item.num}
@@ -271,7 +272,7 @@ export default function LaPicaDeLosTatasPage() {
                       </h3>
                     </div>
                   </div>
-                  <p className="p-6 pt-5 text-base leading-relaxed text-[#E8DCC8]/80">{item.text}</p>
+                  <p className="p-6 pt-5 text-base leading-relaxed" style={{ color: 'rgba(232,220,200,0.8)' }}>{item.text}</p>
                 </article>
               </Reveal>
             ))}
@@ -433,7 +434,7 @@ export default function LaPicaDeLosTatasPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${BTN_GLOW} mt-10 text-lg px-10 py-4`}
+              className={`${BTN_GLOW} mt-10 text-base md:text-lg px-10 py-3 md:py-4`}
               style={{ backgroundColor: C.terra, color: C.coal }}
             >
               Escribir por WhatsApp

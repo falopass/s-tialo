@@ -32,7 +32,7 @@ function WaButton({ children, big = false }: { children: React.ReactNode; big?: 
       target="_blank"
       rel="noopener noreferrer"
       className={`inline-flex items-center justify-center gap-2 rounded-full font-bold transition-transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 ${
-        big ? 'min-h-[60px] px-8 text-lg' : 'min-h-[48px] px-6 text-base'
+        big ? 'min-h-[48px] px-6 text-base md:min-h-[60px] md:px-8 md:text-lg' : 'min-h-[48px] px-6 text-base'
       }`}
       style={{ backgroundColor: C.lime, color: C.ink, outlineColor: C.lime }}
     >

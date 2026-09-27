@@ -182,7 +182,7 @@ export default function DistribuidoraRenatoMolina() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${focusRing} group inline-flex items-center justify-between gap-6 min-h-[56px] px-6 text-base font-bold transition-transform active:scale-[0.98]`}
+              className={`${focusRing} group inline-flex items-center justify-between gap-6 min-h-[48px] px-6 text-base font-bold transition-transform active:scale-[0.98]`}
               style={{ backgroundColor: C.blanco, color: C.rojo }}
             >
               Pedir por WhatsApp
@@ -382,12 +382,12 @@ export default function DistribuidoraRenatoMolina() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${focusRing} group mt-8 flex w-full max-w-md items-center justify-between gap-4 min-h-[64px] py-2 px-6 md:px-8 text-lg md:text-xl font-bold shadow-[8px_8px_0_#1E2022] transition-transform active:translate-x-[4px] active:translate-y-[4px] active:shadow-[4px_4px_0_#1E2022]`}
+              className={`${focusRing} group mt-8 flex w-full max-w-md items-center justify-between gap-4 min-h-[48px] py-1 px-6 md:px-8 text-base md:text-lg font-bold shadow-[8px_8px_0_#1E2022] transition-transform active:translate-x-[4px] active:translate-y-[4px] active:shadow-[4px_4px_0_#1E2022]`}
               style={{ backgroundColor: C.blanco, color: C.rojo }}
             >
               <span>
                 WhatsApp
-                <span className="block text-sm font-semibold" style={{ color: C.gris }}>{BIZ.phoneDisplay}</span>
+                <span className="block text-xs md:text-sm font-semibold" style={{ color: C.gris }}>{BIZ.phoneDisplay}</span>
               </span>
               <Arrow className="w-7 h-7 transition-transform group-hover:translate-x-1" />
             </a>

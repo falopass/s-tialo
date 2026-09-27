@@ -309,7 +309,7 @@ export default function CafeLaFrancesaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm md:text-base font-semibold transition-transform active:scale-95`}
+                className={`${FOCUS} inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm md:text-base font-semibold transition-transform active:scale-95`}
                 style={{ backgroundColor: C.campo, color: C.crema }}
               >
                 <WaIcon className="h-5 w-5" />
@@ -317,18 +317,16 @@ export default function CafeLaFrancesaPage() {
               </a>
               <a
                 href="#carta"
-                className={`${FOCUS} px-6 py-3.5 rounded-full text-sm md:text-base font-semibold border-2 transition-colors hover:bg-[#DDE7C7]`}
+                className={`${FOCUS} px-6 py-3 rounded-full text-sm md:text-base font-semibold border-2 transition-colors hover:bg-[#DDE7C7]`}
                 style={{ borderColor: C.campo, color: C.campoInk }}
               >
                 Ver la carta
               </a>
             </div>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${FOCUS} absolute -right-4 -bottom-10 md:-right-16 md:-bottom-8 rotate-[10deg] w-[108px] h-[108px] md:w-[124px] md:h-[124px] rounded-full grid place-items-center text-center shadow-lg transition-transform hover:rotate-0`}
+            <div
+              className="absolute -right-4 -bottom-10 md:-right-16 md:-bottom-8 rotate-[10deg] w-[108px] h-[108px] md:w-[124px] md:h-[124px] rounded-full grid place-items-center text-center shadow-lg"
               style={{ backgroundColor: C.tierra, color: C.crema }}
+              aria-hidden="true"
             >
               <span className="absolute inset-[6px] rounded-full border-2 border-dashed border-[#FBF7EF]/60" aria-hidden="true" />
               <span className="leading-tight">
@@ -339,7 +337,7 @@ export default function CafeLaFrancesaPage() {
                   en Google
                 </span>
               </span>
-            </a>
+            </div>
           </div>
         </div>
       </section>
@@ -569,7 +567,7 @@ export default function CafeLaFrancesaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative -rotate-1 inline-flex items-center gap-3 px-7 py-4 rounded-full text-lg md:text-xl font-semibold shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] transition-transform hover:rotate-0 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
+                className="relative -rotate-1 inline-flex items-center gap-3 px-7 py-3 rounded-full text-base md:text-lg font-semibold shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] transition-transform hover:rotate-0 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
                 style={{ backgroundColor: C.crema, color: C.campoInk }}
               >
                 <WaIcon className="h-6 w-6" />

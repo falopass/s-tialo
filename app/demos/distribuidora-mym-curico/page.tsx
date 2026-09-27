@@ -660,9 +660,9 @@ export default function DistribuidoraMymCuricoPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: C.arena }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <p className={`${display.className} font-bold uppercase text-2xl mb-2 flex items-center gap-3`}>
+            <p className={`${display.className} font-bold uppercase text-xl md:text-2xl mb-2 flex items-center gap-3`}>
               <span className="inline-block w-3 h-3" style={{ backgroundColor: C.orange }} aria-hidden="true" />
               {BIZ.name}
             </p>
@@ -679,7 +679,7 @@ export default function DistribuidoraMymCuricoPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(237,230,218,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.7)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.7)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
             Textos, productos, precios, horarios y fotos son de muestra;
             el nombre, la dirección, las reseñas y el contacto son datos

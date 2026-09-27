@@ -638,9 +638,9 @@ export default function ProSaludDentalPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.inkDeep, color: C.white }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8 border-t-2 border-dashed" style={{ borderColor: C.lineDark }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4 border-t-2 border-dashed" style={{ borderColor: C.lineDark }}>
           <div>
-            <p className={`${display.className} text-2xl font-extrabold mb-2 flex items-center gap-3`}>
+            <p className={`${display.className} text-xl md:text-2xl font-extrabold mb-2 flex items-center gap-3`}>
               <Motif motif="tooth" className="w-5 h-5" />
               {BIZ.name}
             </p>
@@ -660,7 +660,7 @@ export default function ProSaludDentalPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: C.white }}>
               Sitiazo

@@ -590,7 +590,7 @@ export default function LaGranjaPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} block text-center font-bold text-base md:text-lg px-7 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#10152B]`}
+                    className={`${display.className} block text-center font-bold text-sm md:text-lg leading-tight md:leading-normal px-4 py-2 md:px-7 md:py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#10152B]`}
                     style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
                   >
                     Agendar por WhatsApp — {BIZ.phoneDisplay}

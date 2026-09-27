@@ -274,14 +274,14 @@ export default function LaTerrazaPage() {
                   href={f.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-4 px-5 py-4 bg-white transition-colors hover:bg-[#F4EEE3] ${focusRing}`}
+                  className={`flex items-center gap-4 px-5 py-2.5 bg-white transition-colors hover:bg-[#F4EEE3] ${focusRing}`}
                 >
-                  <span className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: C.arena }}>
+                  <span className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: C.arena }}>
                     <Icon name={f.icon} className="w-5 h-5" color={C.terracotaDeep} />
                   </span>
                   <span>
-                    <span className="block text-[11px] uppercase tracking-[0.16em] font-bold" style={{ color: C.muted }}>{f.k}</span>
-                    <span className="block text-sm md:text-[15px] font-bold">{f.v}</span>
+                    <span className="block text-[11px] uppercase tracking-[0.16em] font-bold leading-tight" style={{ color: C.muted }}>{f.k}</span>
+                    <span className="block text-sm md:text-[15px] font-bold leading-tight">{f.v}</span>
                   </span>
                 </a>
               ))}
@@ -474,15 +474,15 @@ export default function LaTerrazaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-4 rounded-xl px-5 py-3.5 mb-6 transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing}`}
+              className={`flex items-center gap-4 rounded-xl px-5 py-2 md:py-3.5 mb-6 transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing}`}
               style={{ backgroundColor: C.terracotaDeep, color: C.blanco }}
             >
-              <span className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
+              <span className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
                 <Icon name="chat" className="w-5 h-5" />
               </span>
               <span>
-                <span className="block text-lg md:text-xl font-extrabold">Pedir por WhatsApp</span>
-                <span className="block text-sm" style={{ color: 'rgba(255,255,255,0.85)' }}>{BIZ.phoneDisplay}</span>
+                <span className="block text-base md:text-xl font-extrabold leading-tight">Pedir por WhatsApp</span>
+                <span className="block text-xs md:text-sm leading-tight" style={{ color: 'rgba(255,255,255,0.85)' }}>{BIZ.phoneDisplay}</span>
               </span>
             </a>
             <div className="flex items-start gap-3 mb-6">

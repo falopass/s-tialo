@@ -560,7 +560,7 @@ export default function FerreteriaWilliamsPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.vinoDeep, color: '#F5EFE6' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8">
           <div>
             <p className={`${display.className} font-bold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(245,239,230,0.62)' }}>
@@ -578,7 +578,7 @@ export default function FerreteriaWilliamsPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.78)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.78)' }}>
             Sitio de ejemplo preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.oroSoft }}>Sitiazo</a>{' '}
             para {BIZ.name}. Textos, precios, horarios y fotos son de muestra.{' '}

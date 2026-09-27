@@ -471,12 +471,12 @@ export default function IusAbogadosLinaresPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} flex items-center justify-between gap-4 w-full max-w-md px-5 py-3 md:py-4 mb-8 transition-transform hover:-translate-y-0.5 active:scale-[0.98] ${focusRing}`}
+              className={`${display.className} flex items-center justify-between gap-4 w-full max-w-md px-5 py-2 md:py-4 mb-8 transition-transform hover:-translate-y-0.5 active:scale-[0.98] ${focusRing}`}
               style={{ backgroundColor: C.mostaza, color: C.verdeDeep, borderRadius: '3px', boxShadow: `6px 6px 0 ${C.madera}` }}
             >
               <span>
                 <span className="block text-[11px] leading-tight font-bold uppercase tracking-[0.18em]">Escribir por WhatsApp</span>
-                <span className="block text-xl md:text-2xl leading-tight font-black">{BIZ.phoneDisplay}</span>
+                <span className="block text-xl md:text-2xl leading-none font-black">{BIZ.phoneDisplay}</span>
               </span>
               <span className="text-2xl font-black" aria-hidden="true">→</span>
             </a>

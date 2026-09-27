@@ -427,21 +427,20 @@ export default function CsfVeterinariaPage() {
                 { v: BIZ.followers, l: 'seguidores en Instagram', href: BIZ.instagram },
                 { v: 'Directo', l: 'hablas con el equipo', href: WA_LINK },
               ].map((s) => (
-                <a
+                <div
                   key={s.l}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="px-4 py-4 sm:border-r-[3px] last:border-r-0 border-b-[3px] sm:border-b-0 last:border-b-0 hover:bg-[#F0F0EA] transition-colors"
                   style={{ borderColor: C.ink }}
                 >
                   <p className={`${display.className} font-black text-2xl leading-none`} style={{ color: C.blue }}>
-                    {s.v}
+                    <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 decoration-[3px]">
+                      {s.v}
+                    </a>
                   </p>
                   <p className="font-mono text-[10px] uppercase tracking-[0.14em] mt-1.5" style={{ color: 'rgba(14,14,14,0.6)' }}>
                     {s.l}
                   </p>
-                </a>
+                </div>
               ))}
             </div>
           </Reveal>
@@ -474,22 +473,31 @@ export default function CsfVeterinariaPage() {
       </section>
 
       {/* ── Instagram ── */}
-      <a
-        href={BIZ.instagram}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block border-b-[3px] bg-[#2251FF] hover:bg-[#0E0E0E] transition-colors"
+      <div
+        className="border-b-[3px] bg-[#2251FF]"
         style={{ borderColor: C.ink }}
       >
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 md:py-8 flex flex-wrap items-center justify-between gap-4">
-          <p className={`${display.className} font-black uppercase text-xl md:text-3xl`} style={{ color: C.white }}>
+          <a
+            href={BIZ.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${display.className} font-black uppercase text-xl md:text-3xl hover:underline underline-offset-4`}
+            style={{ color: C.white }}
+          >
             {BIZ.instagramHandle}
-          </p>
-          <p className="font-mono text-[11px] md:text-xs uppercase tracking-[0.2em] font-bold px-3 py-2 border-[3px]" style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.ink }}>
+          </a>
+          <a
+            href={BIZ.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[11px] md:text-xs uppercase tracking-[0.2em] font-bold px-3 py-2 border-[3px] transition-colors hover:bg-[#0E0E0E] hover:text-white"
+            style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.ink }}
+          >
             {BIZ.followers} seguidores → seguir
-          </p>
+          </a>
         </div>
-      </a>
+      </div>
 
       {/* ── Precios de referencia ── */}
       <section id="precios" className="scroll-mt-24 border-b-[3px]" style={{ borderColor: C.ink }}>
@@ -573,7 +581,7 @@ export default function CsfVeterinariaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} flex items-center justify-between gap-3 font-black uppercase text-sm sm:text-base md:text-2xl whitespace-nowrap px-4 md:px-8 py-3.5 md:py-5 border-[3px] transition-[transform,box-shadow] shadow-[8px_8px_0_#2251FF] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0_#2251FF] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none mb-8`}
+                className={`${display.className} flex items-center justify-between gap-3 font-black uppercase text-sm sm:text-base md:text-2xl whitespace-nowrap px-4 md:px-8 py-2.5 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[8px_8px_0_#2251FF] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0_#2251FF] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none mb-8`}
                 style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.lime }}
               >
                 <span>WhatsApp</span>
@@ -621,7 +629,7 @@ export default function CsfVeterinariaPage() {
 
       {/* ── Footer ── */}
       <footer className="border-t-[3px]" style={{ backgroundColor: C.ink, borderColor: C.lime, color: C.white }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <p className={`${display.className} font-black uppercase text-xl md:text-2xl mb-2`}>
               <span style={{ color: C.lime }}>CSF</span> Especialidades Veterinarias
@@ -639,7 +647,7 @@ export default function CsfVeterinariaPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 font-mono text-[10px] uppercase tracking-[0.12em] leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 font-mono text-[10px] uppercase tracking-[0.12em] leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2" style={{ color: C.lime }}>
               Sitiazo

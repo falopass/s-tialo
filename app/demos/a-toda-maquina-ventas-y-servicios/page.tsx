@@ -641,9 +641,9 @@ export default function ATodaMaquinaPage() {
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.verdeDeep, color: C.paper }}>
         <div className="border-t" style={{ borderColor: 'rgba(244,237,225,0.14)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <p className={`${display.className} font-bold text-2xl mb-2`}>
+              <p className={`${display.className} font-bold text-xl md:text-2xl mb-2`}>
                 {BIZ.name}
               </p>
               <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,237,225,0.62)' }}>
@@ -660,7 +660,7 @@ export default function ATodaMaquinaPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(244,237,225,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 md:pb-8 text-xs leading-relaxed" style={{ color: 'rgba(244,237,225,0.75)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(244,237,225,0.75)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-80 ${focusRing}`} style={{ color: C.paper }}>
               Sitiazo

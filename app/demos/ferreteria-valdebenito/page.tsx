@@ -23,8 +23,8 @@ const C = {
   cyan: '#45D5E8',
   ink: '#EEF4F9',
   muted: '#93A0AF',
-  glass: 'rgba(255,255,255,0.055)',
-  glassHi: 'rgba(255,255,255,0.09)',
+  glass: 'rgba(10,13,18,0.72)',
+  glassHi: 'rgba(10,13,18,0.82)',
   line: 'rgba(255,255,255,0.1)',
 } as const
 
@@ -443,13 +443,13 @@ export default function FerreteriaValdebenitoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 flex items-center gap-4 rounded-2xl px-5 py-3 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]"
+              className="mt-5 flex items-center gap-4 rounded-2xl px-5 py-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]"
               style={{ ...GLASS, boxShadow: '0 0 24px rgba(69,213,232,0.1)' }}
             >
               <span className={`${display.className} font-extrabold text-2xl leading-none shrink-0`} style={{ color: C.cyan }}>
                 {BIZ.reviews}
               </span>
-              <span className="text-xs md:text-sm leading-snug" style={{ color: C.muted }}>
+              <span className="text-[11px] md:text-sm leading-snug" style={{ color: C.muted }}>
                 reseñas en Google · ver la ficha en Google Maps →
               </span>
             </a>
@@ -516,7 +516,7 @@ export default function FerreteriaValdebenitoPage() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <div className="rounded-2xl overflow-hidden" style={{ ...GLASS, backgroundColor: 'rgba(255,255,255,0.035)' }}>
+            <div className="rounded-2xl overflow-hidden" style={{ ...GLASS, backgroundColor: 'rgba(10,13,18,0.6)' }}>
               <ul>
                 {PRECIOS.map((p, i) => (
                   <li

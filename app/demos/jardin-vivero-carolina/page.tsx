@@ -306,7 +306,7 @@ export default function JardinViveroCarolinaPage() {
         <ol className="max-w-6xl mx-auto px-5 md:px-8 grid grid-cols-2 md:grid-cols-4">
           {NAV_LINKS.map((l, i) => (
             <li key={l.href} className="border-white/10 border-b md:border-b-0 md:border-r last:border-r-0 odd:border-r md:odd:border-r">
-              <a href={l.href} className="flex items-center gap-3 py-5 px-1 md:px-5 text-sm font-semibold transition-colors hover:text-white" style={{ color: C.sand }}>
+              <a href={l.href} className="flex items-center gap-3 py-3 md:py-5 px-1 md:px-5 text-sm font-semibold transition-colors hover:text-white" style={{ color: C.sand }}>
                 <span className="text-xs tabular-nums" style={{ color: C.terraLight }}>0{i + 1}</span>
                 {l.label}
               </a>
@@ -491,10 +491,10 @@ export default function JardinViveroCarolinaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 min-h-[56px] py-2 pl-2 pr-6 rounded-full transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-3 min-h-[48px] py-2 pl-2 pr-6 rounded-full transition-transform hover:-translate-y-0.5"
                 style={{ backgroundColor: C.terraDeep, color: C.white }}
               >
-                <span className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
+                <span className="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
                   <WaIcon className="w-5 h-5" />
                 </span>
                 <span className="text-sm font-semibold">WhatsApp</span>

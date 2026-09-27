@@ -417,9 +417,9 @@ export default function ComercialRioClaroPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <p className={`${display.className} text-2xl mb-2`}>{BIZ.name}</p>
+            <p className={`${display.className} text-xl md:text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.8)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
@@ -439,7 +439,7 @@ export default function ComercialRioClaroPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 flex flex-col gap-3">
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 flex flex-col gap-3">
             <p className="text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.75)' }}>
               Textos, productos, precios y fotos son de muestra.
             </p>

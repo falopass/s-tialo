@@ -594,9 +594,9 @@ export default function AtlantixPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.nightDeep, color: C.sand }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8 border-t" style={{ borderColor: C.lineDark }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4 border-t" style={{ borderColor: C.lineDark }}>
           <div>
-            <p className={`${display.className} text-2xl mb-2 flex items-center gap-3`}>
+            <p className={`${display.className} text-xl md:text-2xl mb-2 flex items-center gap-3`}>
               <Motif motif="tooth" className="w-5 h-5" />
               {BIZ.name}
             </p>
@@ -613,7 +613,7 @@ export default function AtlantixPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(232,220,200,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 text-xs leading-relaxed" style={{ color: 'rgba(232,220,200,0.78)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-5 text-xs leading-relaxed" style={{ color: 'rgba(232,220,200,0.78)' }}>
             Sitio de ejemplo preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.terraSoft }}>Sitiazo</a>{' '}
             para {BIZ.name}. Textos, servicios, precios, horarios, reseñas y
