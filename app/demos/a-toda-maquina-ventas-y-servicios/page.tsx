@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Epilogue, Work_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import {
   BIZ,
@@ -641,7 +641,7 @@ export default function ATodaMaquinaPage() {
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.verdeDeep, color: C.paper }}>
         <div className="border-t" style={{ borderColor: 'rgba(244,237,225,0.14)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
             <div>
               <p className={`${display.className} font-bold text-2xl mb-2`}>
                 {BIZ.name}
@@ -660,16 +660,20 @@ export default function ATodaMaquinaPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(244,237,225,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(244,237,225,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios, horarios y fotos son de muestra; la
-            dirección, el WhatsApp, el Facebook y las {BIZ.googleReviews}{' '}
-            reseñas de Google Maps son los datos reales del negocio.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 md:pb-8 text-xs leading-relaxed" style={{ color: 'rgba(244,237,225,0.75)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-80 ${focusRing}`} style={{ color: C.paper }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name} — así se vería tu sitio. Textos, precios y fotos
+            son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-80 ${focusRing}`} style={{ color: C.mostaza }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
