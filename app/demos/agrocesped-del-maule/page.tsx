@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Unbounded, Onest } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -76,6 +76,48 @@ const PRECIOS = [
   { name: 'Macetero terracota nº 8', unit: 'por 24 un', price: 'desde $2.200 c/u' },
 ]
 
+/**
+ * Aviso de Sitiazo en el flujo (no fijo): así nunca tapa texto ni
+ * botones. Fondo en rgba() inline — con bg-ink/90 Chrome serializa
+ * color-mix como oklab() y los chequeos de contraste no lo leen.
+ */
+function SitiazoStrip() {
+  return (
+    <div
+      className="text-[11px] leading-tight"
+      style={{ backgroundColor: 'rgba(10,10,10,0.92)', color: '#FAFAF7' }}
+    >
+      <div className="max-w-6xl mx-auto px-5 md:px-8 py-3.5 pr-20 flex items-center gap-2.5">
+        <span
+          className="inline-block w-[6px] h-[6px] rounded-full shrink-0"
+          style={{ backgroundColor: '#FFD60A' }}
+          aria-hidden="true"
+        />
+        <span>
+          Mockup preparado por{' '}
+          <a
+            href={SITE.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2 hover:text-yellow"
+          >
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name} — así se vería tu sitio.{' '}
+          <a
+            href={whatsappLink('contacto')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2 hover:text-yellow"
+          >
+            ¿Lo hacemos realidad?
+          </a>
+        </span>
+      </div>
+    </div>
+  )
+}
+
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
@@ -94,20 +136,23 @@ export default function AgroCespedPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(244,248,250,0.94)',
-          ink: C.deep,
-          line: C.line,
-          btnBg: C.blue,
-          btnInk: '#FFFFFF',
-        }}
-      />
+      {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
+      <div style={{ backgroundColor: C.deep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(244,248,250,0.94)',
+            ink: C.deep,
+            line: C.line,
+            btnBg: C.blue,
+            btnInk: '#FFFFFF',
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
@@ -510,7 +555,7 @@ export default function AgroCespedPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#F4F8FA' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <p className={`${display.className} font-semibold text-lg mb-1`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,248,250,0.8)' }}>
@@ -527,7 +572,7 @@ export default function AgroCespedPage() {
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <SitiazoStrip />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
