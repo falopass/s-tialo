@@ -78,6 +78,14 @@ const BLITZ = [
     tagline: 'Delicado y premium: rosa empolvado, berenjena y dorado suave.',
     gradient: 'linear-gradient(135deg, #4A1F33 0%, #C9A227 140%)',
   },
+  {
+    slug: 'wow-park',
+    name: 'Wow Park Talca',
+    rubro: 'Parque infantil y cumpleaños',
+    city: 'Talca',
+    tagline: 'Juguetón y familiar: azul confiable, amarillo festivo y coral.',
+    gradient: 'linear-gradient(135deg, #0E2F5E 0%, #1E6FD9 55%, #FF6B4A 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
