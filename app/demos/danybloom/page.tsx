@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Bricolage_Grotesque, Inter } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -83,7 +83,7 @@ const FICHA = [
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
-      className="font-mono text-[11px] uppercase tracking-[0.26em] mb-4 flex items-center gap-3 font-medium"
+      className="font-mono text-[11px] uppercase tracking-[0.26em] mb-4 flex w-fit items-center gap-3 font-medium"
       style={{ color: light ? C.signal : C.muted }}
     >
       <span
@@ -215,6 +215,7 @@ export default function DanybloomPage() {
                   src={s.src}
                   alt={s.alt}
                   fill
+                  loading="eager"
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover"
                 />
@@ -482,16 +483,20 @@ export default function DanybloomPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-            Servicios, precios, horarios y fotos son de muestra; el
-            nombre, la dirección, el WhatsApp, el Instagram y el estado
-            de las reseñas son datos reales de su ficha pública.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signal }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}: servicios, precios y fotos son de muestra; nombre,
+            dirección, WhatsApp e Instagram son reales.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signal }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
