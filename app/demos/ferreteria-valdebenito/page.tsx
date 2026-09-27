@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Unbounded, Onest } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -22,7 +23,6 @@ const C = {
   cyan: '#45D5E8',
   ink: '#EEF4F9',
   muted: '#93A0AF',
-  dim: '#5E6A78',
   glass: 'rgba(255,255,255,0.055)',
   glassHi: 'rgba(255,255,255,0.09)',
   line: 'rgba(255,255,255,0.1)',
@@ -53,12 +53,14 @@ const NAV_LINKS = [
   { label: 'El surtido', href: '#surtido' },
   { label: 'Por volumen', href: '#volumen' },
   { label: 'La tienda', href: '#tienda' },
+  { label: 'Precios', href: '#precios' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
 const SURTIDO = [
   {
     src: `${IMG}/detalle3.webp`,
+    alt: 'Estante con fittings de PVC y galvanizados ordenados por medida',
     span: 'md:col-span-7',
     tag: 'agua y campo',
     name: 'Riego, agua y agro',
@@ -66,6 +68,7 @@ const SURTIDO = [
   },
   {
     src: `${IMG}/detalle1.webp`,
+    alt: 'Mesón con herramientas manuales: martillos, alicates y huinchas de medir',
     span: 'md:col-span-5',
     tag: 'de banco',
     name: 'Herramientas manuales',
@@ -73,6 +76,7 @@ const SURTIDO = [
   },
   {
     src: `${IMG}/detalle2.webp`,
+    alt: 'Cajones de tornillería y ferretería fina para vender por unidad o al peso',
     span: 'md:col-span-5',
     tag: 'a granel',
     name: 'Tornillería y ferretería fina',
@@ -80,6 +84,7 @@ const SURTIDO = [
   },
   {
     src: `${IMG}/hero.webp`,
+    alt: 'Pasillo de la ferretería con estantería de materiales de construcción',
     span: 'md:col-span-7',
     tag: 'de obra',
     name: 'Construcción y materiales',
@@ -180,11 +185,13 @@ export default function FerreteriaValdebenitoPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.carbon }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de Ferretería Valdebenito: pasillo con estantería de fittings, herramientas y materiales"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: 'saturate(0.95) contrast(1.06) brightness(0.82)' }}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover saturate-[0.95] contrast-[1.06] brightness-[0.82]"
         />
         <div
           className="absolute inset-0"
@@ -209,7 +216,7 @@ export default function FerreteriaValdebenitoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]"
               style={{ ...GLASS, color: C.ink, boxShadow: '0 0 20px rgba(69,213,232,0.15)' }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.cyan} stroke={C.cyan} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -219,7 +226,7 @@ export default function FerreteriaValdebenitoPage() {
             </a>
           </Reveal>
         </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-40">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-24">
           <Reveal>
             <p className="text-[11px] uppercase tracking-[0.3em] mb-6 font-semibold flex items-center gap-3" style={{ color: C.muted }}>
               <Nut className="w-[18px] h-[18px]" color={C.cyan} />
@@ -233,23 +240,22 @@ export default function FerreteriaValdebenitoPage() {
               <span style={{ color: C.cyan }}>al precio de siempre</span>
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(238,244,249,0.82)' }}>
-              Surtido completo para la obra, el campo y la casa en{' '}
-              {BIZ.address}, {BIZ.city}. Venta por unidad y por volumen,
-              con atención directa en el mesón.
+              Herramientas y materiales para la obra, el campo y la casa
+              en {BIZ.address}, {BIZ.city}. Por unidad o por volumen.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
                 style={GLOW_BTN}
               >
-                Consultar por WhatsApp
+                Escribir por WhatsApp
               </a>
               <a
                 href="#surtido"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-colors hover:bg-white/10`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
                 style={{ ...GLASS, color: C.ink }}
               >
                 Ver el surtido
@@ -274,14 +280,13 @@ export default function FerreteriaValdebenitoPage() {
       {/* ── El surtido por pasillo ── */}
       <section id="surtido" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <Eyebrow>El surtido, por pasillo</Eyebrow>
-          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
-            <h2 className={`${display.className} font-extrabold text-3xl md:text-5xl leading-[1.12]`}>
+          <div className="max-w-3xl mb-10 md:mb-14">
+            <h2 className={`${display.className} font-extrabold text-3xl md:text-5xl leading-[1.12] mb-5`}>
               Todo lo que la obra pide,
               <br />
               <span style={{ color: C.cyan }}>en un solo paso</span>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
+            <p className="text-sm md:text-base leading-relaxed max-w-xl" style={{ color: C.muted }}>
               Una muestra del surtido por familia. Al publicar van las
               líneas y marcas reales de la tienda.
             </p>
@@ -291,12 +296,12 @@ export default function FerreteriaValdebenitoPage() {
           {SURTIDO.map((s, i) => (
             <Reveal key={s.name} delay={i * 90} className={s.span}>
               <li className="group relative rounded-2xl overflow-hidden h-full min-h-[260px] md:min-h-[300px]" style={{ border: `1px solid ${C.line}` }}>
-                <img
+                <Image
                   src={s.src}
-                  alt={s.name}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  style={{ filter: 'saturate(0.95) contrast(1.05) brightness(0.9)' }}
+                  alt={s.alt}
+                  fill
+                  sizes="(min-width: 768px) 60vw, 100vw"
+                  className="object-cover saturate-[0.95] contrast-[1.05] brightness-[0.9] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
                 <div
                   className="absolute inset-0"
@@ -348,7 +353,6 @@ export default function FerreteriaValdebenitoPage() {
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <div className="grid lg:grid-cols-[1fr_1.3fr] gap-10 md:gap-14 items-center">
             <Reveal>
-              <Eyebrow>Por unidad y por volumen</Eyebrow>
               <h2 className={`${display.className} font-extrabold text-3xl md:text-5xl leading-[1.12] mb-6`}>
                 Compra poco
                 <br />
@@ -363,7 +367,7 @@ export default function FerreteriaValdebenitoPage() {
                 href={WA_LINK_BULTO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
                 style={GLOW_BTN}
               >
                 Cotizar por volumen
@@ -414,13 +418,13 @@ export default function FerreteriaValdebenitoPage() {
       <section id="tienda" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-start">
           <Reveal>
-            <div className="relative rounded-2xl overflow-hidden" style={{ border: `1px solid ${C.line}` }}>
-              <img
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3]" style={{ border: `1px solid ${C.line}` }}>
+              <Image
                 src={`${IMG}/ambiente.webp`}
                 alt="Fachada de Ferretería Valdebenito desde la calle: cortina abierta y estantería con herramientas"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[4/3]"
-                style={{ filter: 'saturate(0.95) contrast(1.05) brightness(0.9)' }}
+                fill
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="object-cover saturate-[0.95] contrast-[1.05] brightness-[0.9]"
               />
               <div
                 className="absolute inset-0"
@@ -437,7 +441,7 @@ export default function FerreteriaValdebenitoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 grid grid-cols-2 rounded-2xl p-5 md:p-6 text-center items-center gap-3"
+              className="mt-5 grid grid-cols-2 rounded-2xl p-5 md:p-6 text-center items-center gap-3 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]"
               style={{ ...GLASS, boxShadow: '0 0 24px rgba(69,213,232,0.1)' }}
             >
               <div>
@@ -478,7 +482,7 @@ export default function FerreteriaValdebenitoPage() {
                 </li>
               ))}
             </ul>
-            <p className="text-xs leading-relaxed mb-6" style={{ color: C.dim }}>
+            <p className="text-xs leading-relaxed mb-6" style={{ color: C.gray }}>
               Los textos a continuación son de muestra: al publicar van
               las reseñas reales de la ficha de Google.
             </p>
@@ -502,14 +506,13 @@ export default function FerreteriaValdebenitoPage() {
       <section id="precios" className="scroll-mt-20" style={{ backgroundColor: C.panel }}>
         <div className="max-w-4xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
-            <Eyebrow>Del estante a la lista</Eyebrow>
-            <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
-              <h2 className={`${display.className} font-extrabold text-3xl md:text-5xl leading-[1.12]`}>
+            <div className="max-w-3xl mb-10 md:mb-14">
+              <h2 className={`${display.className} font-extrabold text-3xl md:text-5xl leading-[1.12] mb-5`}>
                 Precios
                 <br />
                 <span style={{ color: C.cyan }}>de referencia</span>
               </h2>
-              <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
+              <p className="text-sm md:text-base leading-relaxed max-w-xl" style={{ color: C.muted }}>
                 Valores de muestra para dimensionar el sitio. El precio
                 real y el stock se confirman por WhatsApp.
               </p>
@@ -521,7 +524,7 @@ export default function FerreteriaValdebenitoPage() {
                 {PRECIOS.map((p, i) => (
                   <li
                     key={p.name}
-                    className="flex items-baseline gap-4 px-6 md:px-8 py-4 md:py-5 text-sm md:text-base"
+                    className="flex items-baseline gap-4 px-6 md:px-8 py-4 md:py-5 text-sm md:text-base transition-colors hover:bg-white/[0.04]"
                     style={{ borderTop: i > 0 ? `1px solid ${C.line}` : 'none' }}
                   >
                     <span style={{ color: 'rgba(238,244,249,0.88)' }}>{p.name}</span>
@@ -539,7 +542,7 @@ export default function FerreteriaValdebenitoPage() {
             </div>
           </Reveal>
           <Reveal delay={180}>
-            <p className="text-xs md:text-sm mt-6 text-center" style={{ color: C.dim }}>
+            <p className="text-xs md:text-sm mt-6 text-center" style={{ color: C.gray }}>
               Lista de muestra — al publicar van los productos y precios reales de la tienda.
             </p>
           </Reveal>
@@ -550,7 +553,6 @@ export default function FerreteriaValdebenitoPage() {
       <section id="contacto" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
-            <Eyebrow>Contacto y ubicación</Eyebrow>
             <h2 className={`${display.className} font-extrabold text-4xl md:text-5xl leading-[1.08] mb-6`}>
               Rengo 435,
               <br />
@@ -561,6 +563,20 @@ export default function FerreteriaValdebenitoPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
             </address>
+            <p className="flex items-center gap-3 text-sm md:text-base mb-8" style={{ color: C.muted }}>
+              <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="none" stroke={C.cyan} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+              </svg>
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold underline underline-offset-4 decoration-[rgba(69,213,232,0.4)] transition-colors hover:decoration-[#45D5E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]"
+                style={{ color: C.ink }}
+              >
+                {BIZ.phoneDisplay}
+              </a>
+            </p>
             <ul className="space-y-2.5 mb-8">
               {HORAS.map((h) => (
                 <li key={h.days} className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.muted }}>
@@ -574,7 +590,7 @@ export default function FerreteriaValdebenitoPage() {
                 </li>
               ))}
             </ul>
-            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: C.dim }}>
+            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: C.gray }}>
               Horario referencial: al publicar van los horarios reales
               de la tienda.
             </p>
@@ -583,7 +599,7 @@ export default function FerreteriaValdebenitoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
                 style={GLOW_BTN}
               >
                 Escribir por WhatsApp
@@ -592,7 +608,7 @@ export default function FerreteriaValdebenitoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3.5 rounded-full transition-colors hover:bg-white/10`}
+                className={`${display.className} font-semibold text-sm px-6 py-3.5 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
                 style={{ ...GLASS, color: C.ink }}
               >
                 Cómo llegar →
@@ -647,10 +663,10 @@ export default function FerreteriaValdebenitoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
               style={GLOW_BTN}
             >
-              Cotizar por WhatsApp
+              Escribir por WhatsApp
             </a>
           </Reveal>
         </div>
@@ -670,7 +686,7 @@ export default function FerreteriaValdebenitoPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(238,244,249,0.55)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]">
                 {l.label}
               </a>
             ))}
