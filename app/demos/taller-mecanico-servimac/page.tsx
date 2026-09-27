@@ -28,6 +28,8 @@ const C = {
   fleet: '#4A4E52',
   fleetDeep: '#2A2D30',
   signal: '#E8631A',
+  signalHi: '#F07A2E',
+  signalDeep: '#A8440F',
   signalSoft: '#FDEBDD',
 }
 
@@ -59,7 +61,7 @@ const OTS = [
   {
     num: 'OT-02',
     status: 'En diagnóstico',
-    statusColor: C.signal,
+    statusColor: C.signalDeep,
     src: `${IMG}/detalle3.webp`,
     alt: 'Auto sobre torres de apoyo con la rueda fuera: disco de freno y suspensión a la vista',
     name: 'Frenos y suspensión',
@@ -79,7 +81,7 @@ const OTS = [
   {
     num: 'OT-04',
     status: 'Listo para entrega',
-    statusColor: C.signal,
+    statusColor: C.signalDeep,
     src: `${IMG}/detalle2.webp`,
     alt: 'Recepción del taller: mostrador con tablero de llaves y repuestos ordenados',
     name: 'Recepción directa y repuestos',
@@ -151,20 +153,29 @@ export default function TallerServimacPage() {
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(244,244,242,0.94)',
-          ink: C.ink,
-          line: C.line,
-          btnBg: C.red,
-          btnInk: '#FFFFFF',
+      {/* Velo oscuro detrás del nav: el texto blanco va sobre la foto del hero */}
+      <div
+        className="fixed top-0 inset-x-0 z-40 h-[60px] md:h-[68px]"
+        style={{
+          backgroundImage:
+            'linear-gradient(180deg, rgba(42,45,48,0.82) 0%, rgba(42,45,48,0.55) 100%)',
         }}
-      />
+      >
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(244,244,242,0.94)',
+            ink: C.ink,
+            line: C.line,
+            btnBg: C.red,
+            btnInk: '#FFFFFF',
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.fleetDeep }}>
@@ -201,7 +212,8 @@ export default function TallerServimacPage() {
           </Reveal>
         </div>
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
+          {/* pr reserva la franja de la burbuja flotante de WhatsApp */}
+          <Reveal className="pr-24 md:pr-28">
             <Eyebrow light>Taller de reparación · Molina</Eyebrow>
             <h1
               className={`${display.className} uppercase leading-[0.95] tracking-[0.005em] text-[clamp(3rem,10.5vw,6.5rem)] mb-6`}
@@ -209,7 +221,7 @@ export default function TallerServimacPage() {
             >
               Entra con un ruido,
               <br />
-              <span style={{ color: C.signal }}>sale a la hora acordada</span>
+              <span style={{ color: C.signalHi }}>sale a la hora acordada</span>
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(244,244,242,0.88)' }}>
               Taller mecánico de barrio en {BIZ.address}, {BIZ.city}:
@@ -244,7 +256,7 @@ export default function TallerServimacPage() {
               atención directa del mecánico
             </span>
             <span>Presupuesto cerrado</span>
-            <span className="hidden md:inline" style={{ color: C.signal }}>sitio de ejemplo</span>
+            <span className="hidden md:inline" style={{ color: C.signalHi }}>sitio de ejemplo</span>
           </div>
         </div>
       </section>
@@ -456,7 +468,7 @@ export default function TallerServimacPage() {
               <h2 className={`${display.className} uppercase text-4xl md:text-5xl leading-[1.0]`} style={{ color: '#F4F4F2' }}>
                 Precios claros,
                 <br />
-                <span style={{ color: C.signal }}>antes de abrir el capó</span>
+                <span style={{ color: C.signalHi }}>antes de abrir el capó</span>
               </h2>
               <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: 'rgba(244,244,242,0.85)' }}>
                 Todos los valores son de muestra para mostrar el
@@ -476,7 +488,7 @@ export default function TallerServimacPage() {
                   <span className="text-base md:text-lg font-medium" style={{ color: '#F4F4F2' }}>
                     {p.name}
                   </span>
-                  <span className={`${mono.className} text-sm md:text-base font-bold shrink-0`} style={{ color: C.signal }}>
+                  <span className={`${mono.className} text-sm md:text-base font-bold shrink-0`} style={{ color: C.signalHi }}>
                     {p.price}
                   </span>
                 </li>
@@ -493,7 +505,7 @@ export default function TallerServimacPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
-                style={{ backgroundColor: C.signal, color: C.fleetDeep }}
+                style={{ backgroundColor: C.signalHi, color: C.fleetDeep }}
               >
                 Pedir presupuesto real
               </a>
@@ -584,7 +596,7 @@ export default function TallerServimacPage() {
             <h2 className={`${display.className} uppercase text-[clamp(2.2rem,6.5vw,4.2rem)] leading-[0.98] mb-6`} style={{ color: '#F4F4F2' }}>
               Trae el auto,
               <br />
-              <span style={{ color: C.signal }}>retíralo a la hora</span>
+              <span style={{ color: C.signalHi }}>retíralo a la hora</span>
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(244,244,242,0.78)' }}>
               Escríbenos por WhatsApp, cuéntanos qué le pasa a tu auto y
@@ -605,17 +617,17 @@ export default function TallerServimacPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.ink, color: '#F4F4F2' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-7 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <p className={`${display.className} uppercase text-2xl mb-2 flex items-center gap-3`}>
-              <Wrench className="w-5 h-5" color={C.signal} />
+            <p className={`${display.className} uppercase text-xl mb-1 flex items-center gap-2.5`}>
+              <Wrench className="w-4 h-4" color={C.signalHi} />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,244,242,0.8)' }}>
+            <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(244,244,242,0.85)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,244,242,0.8)' }}>
+          <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs" style={{ color: 'rgba(244,244,242,0.85)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white focus-visible:text-white transition-colors">
                 {l.label}
@@ -627,15 +639,15 @@ export default function TallerServimacPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(244,244,242,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(244,244,242,0.8)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-3 pb-5 text-[11px] leading-snug" style={{ color: 'rgba(244,244,242,0.85)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signal }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signalHi }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Servicios, precios, horarios y reseñas son de
             muestra; nombre, dirección, teléfono y redes son datos públicos
             del taller.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signal }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signalHi }}>
               ¿Lo hacemos realidad?
             </a>
           </p>
