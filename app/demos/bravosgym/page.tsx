@@ -23,6 +23,8 @@ const C = {
   terracotta: '#C1663F',
   // terracota oscuro: texto y links sobre fondos claros (AA en tamaño chico)
   terraDeep: '#8F4A2A',
+  // fondo de botones con texto blanco (≥4.5:1)
+  terraBtn: '#A9552F',
   white: '#FFFFFF',
   ink: '#232B36',
   muted: '#5A6068',
@@ -124,7 +126,7 @@ function BleedPanel({
 export default function BravosgymPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`${body.className} min-h-screen antialiased pb-20`}
       style={{ backgroundColor: C.deep, color: C.ink }}
     >
       <BlitzNav
@@ -134,10 +136,10 @@ export default function BravosgymPage() {
         fontClass={display.className}
         theme={{
           over: 'dark',
-          bar: 'rgba(232,220,200,0.94)',
-          ink: C.navy,
-          line: C.line,
-          btnBg: C.terracotta,
+          bar: 'rgba(16,26,41,0.94)',
+          ink: C.sand,
+          line: 'rgba(232,220,200,0.16)',
+          btnBg: C.terraBtn,
           btnInk: '#FFFFFF',
         }}
       />
@@ -172,7 +174,7 @@ export default function BravosgymPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5`}
-                style={{ backgroundColor: C.terracotta, color: C.white }}
+                style={{ backgroundColor: C.terraBtn, color: C.white }}
               >
                 Consultar por WhatsApp
               </a>
@@ -367,7 +369,7 @@ export default function BravosgymPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5`}
-                style={{ backgroundColor: C.terracotta, color: C.white }}
+                style={{ backgroundColor: C.terraBtn, color: C.white }}
               >
                 Consultar precios por WhatsApp
               </a>
@@ -416,7 +418,7 @@ export default function BravosgymPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${display.className} ${BTN_SOLID} text-sm px-6 py-3`}
-                  style={{ backgroundColor: C.terracotta, color: C.white }}
+                  style={{ backgroundColor: C.terraBtn, color: C.white }}
                 >
                   Agendar visita
                 </a>
@@ -457,31 +459,19 @@ export default function BravosgymPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: C.sand }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(232,220,200,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 md:py-8 border-t" style={{ borderColor: 'rgba(232,220,200,0.14)' }}>
+          <p className={`${display.className} text-xl mb-1`}>{BIZ.name}</p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(232,220,200,0.72)' }}>
+              {BIZ.address} · {BIZ.city}
+              {' · '}
               <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]">{BIZ.phoneDisplay}</a>
               {' · '}
               <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]">
                 @{BIZ.instagram}
               </a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(232,220,200,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="transition-colors hover:text-white focus-visible:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(232,220,200,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(232,220,200,0.55)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios y fotos son de muestra.
+          </address>
+          <p className="text-xs leading-relaxed mt-3" style={{ color: 'rgba(232,220,200,0.6)' }}>
+            Sitio de ejemplo de Sitiazo: textos, precios y fotos de muestra.
           </p>
         </div>
       </footer>

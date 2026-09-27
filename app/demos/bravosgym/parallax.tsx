@@ -65,6 +65,7 @@ export function ParallaxImg({
       fill
       sizes="100vw"
       priority={eager}
+      loading={eager ? undefined : 'eager'}
       className={className}
       style={{ top: '-10%', height: '120%' }}
     />
