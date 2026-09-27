@@ -494,6 +494,22 @@ const BLITZ = [
     tagline: 'Jardín botánico: vino, hueso y oro viejo, arcos y hojas con luz cálida, con fotos.',
     gradient: 'linear-gradient(135deg, #441722 0%, #6B2737 55%, #B98B4E 140%)',
   },
+  {
+    slug: 'ferreteria-la-ruta',
+    name: 'Ferretería La Ruta',
+    rubro: 'Tienda de herramientas',
+    city: 'Pencahue',
+    tagline: 'Carta tipográfica de mostrador: azul eléctrico, lima y puntos guía, con fotos.',
+    gradient: 'linear-gradient(135deg, #0A1A5C 0%, #2251FF 55%, #C6F24E 140%)',
+  },
+  {
+    slug: 'bravosgym',
+    name: 'Bravosgym',
+    rubro: 'Gimnasio',
+    city: 'Molina',
+    tagline: 'Foto a sangre inmersiva: azul noche, arena y terracota, parallax sutil y casi sin cromo.',
+    gradient: 'linear-gradient(135deg, #101A29 0%, #1B2A41 55%, #C1663F 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
