@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Epilogue, Work_Sans } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -19,10 +20,14 @@ const C = {
   mustard: '#D9A441',
   mustardSoft: '#F0DBA8',
   wood: '#8C6239',
+  woodDeep: '#74522C',
   ink: '#22271F',
   muted: '#68705F',
   line: 'rgba(34,39,31,0.14)',
 }
+
+const FOCUS =
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D9A441]'
 
 export const metadata: Metadata = {
   title: 'Brutal Curicó — Gimnasio en Yungay 1065, Curicó',
@@ -62,9 +67,9 @@ const SERVICE_CARDS = [
 ]
 
 const METRICS = [
-  { value: `${BIZ.reviews}`, label: 'reseñas en Google', note: 'Dato real de su ficha' },
-  { value: 'Yungay 1065', label: 'en pleno centro de Curicó', note: 'A pasos de todo' },
-  { value: 'Directa', label: 'atención del propio equipo', note: 'Sin call center' },
+  { value: '6', label: 'años en el centro de Curicó', note: 'cifra de muestra' },
+  { value: '+800', label: 'socios entrenando', note: 'cifra de muestra' },
+  { value: `${BIZ.reviews}`, label: 'reseñas en Google', note: 'dato real de su ficha' },
 ]
 
 const PLANS = [
@@ -136,13 +141,18 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: light ? C.mustardSoft : C.wood }}
+      style={{ color: light ? C.mustardSoft : C.woodDeep }}
     >
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
     </p>
   )
 }
+
+const CAPTION_STYLE = {
+  backgroundColor: 'rgba(29,47,38,0.88)',
+  color: '#F4EFE4',
+} as const
 
 export default function BrutalCuricoPage() {
   return (
@@ -165,87 +175,120 @@ export default function BrutalCuricoPage() {
         }}
       />
 
-      {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
-          src={`${IMG}/hero.webp`}
-          alt="Sala de entrenamiento de Brutal Curicó: racks, barras y zona funcional"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(29,47,38,0.45) 0%, rgba(29,47,38,0.10) 38%, rgba(29,47,38,0.82) 100%)',
-          }}
-        />
-        {/* sello de reseñas */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8">
-          <Reveal>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
-              style={{ backgroundColor: 'rgba(244,239,228,0.94)', color: C.deep }}
+      {/* ── Bento de apertura: titular + foto grande + métricas ── */}
+      <section id="inicio" className="max-w-6xl mx-auto px-5 md:px-8 pt-24 md:pt-32 pb-4 md:pb-6">
+        <div className="grid md:grid-cols-12 gap-4 md:gap-5">
+          {/* tarjeta titular */}
+          <Reveal className="md:col-span-5 md:row-span-2">
+            <article
+              className="rounded-3xl p-6 md:p-9 h-full flex flex-col justify-between gap-8 min-h-[320px]"
+              style={{ backgroundColor: C.forest }}
             >
-              <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.wood} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11Z" />
-                <circle cx="12" cy="10" r="2.4" />
-              </svg>
-              {BIZ.reviews} reseñas en Google
-            </a>
+              <div>
+                <Eyebrow light>Gimnasio · Yungay 1065 · Curicó</Eyebrow>
+                <h1
+                  className={`${display.className} font-extrabold leading-[1.0] tracking-[-0.02em] uppercase text-[clamp(2.4rem,6vw,4rem)] mb-5`}
+                  style={{ color: '#F4EFE4' }}
+                >
+                  Acá se entrena
+                  <br />
+                  <span style={{ color: C.mustard }}>en serio</span>
+                </h1>
+                <p className="text-base md:text-lg leading-relaxed max-w-md" style={{ color: 'rgba(244,239,228,0.85)' }}>
+                  Pesas libres, zona funcional, máquinas y clases en un
+                  solo piso, en pleno centro de Curicó. Ven a conocerlo:
+                  la primera clase se agenda por WhatsApp.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={WA_LINK_CLASE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${display.className} ${FOCUS} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]`}
+                  style={{ backgroundColor: C.mustard, color: '#241A08' }}
+                >
+                  Agendar clase de prueba
+                </a>
+                <a
+                  href="#el-gym"
+                  className={`${display.className} ${FOCUS} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                  style={{ borderColor: 'rgba(244,239,228,0.55)', color: '#F4EFE4' }}
+                >
+                  Conocer el gym
+                </a>
+              </div>
+            </article>
           </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
-            <Eyebrow light>Gimnasio · Yungay 1065 · Curicó</Eyebrow>
-            <h1
-              className={`${display.className} font-extrabold leading-[0.98] tracking-[-0.02em] uppercase text-[clamp(2.7rem,10vw,6rem)] mb-6`}
-              style={{ color: '#F4EFE4' }}
+
+          {/* tarjeta foto grande */}
+          <Reveal delay={90} className="md:col-span-7 md:row-span-2">
+            <figure
+              className="group relative rounded-3xl overflow-hidden h-full min-h-[300px] md:min-h-[480px]"
+              style={{ boxShadow: '0 2px 8px rgba(29,47,38,0.08)' }}
             >
-              Acá se entrena
-              <br />
-              <span style={{ color: C.mustard }}>en serio</span>
-            </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(244,239,228,0.88)' }}>
-              Pesas libres, zona funcional, máquinas y clases en pleno
-              centro de Curicó. Todo lo que necesitas para entrenar,
-              en un solo piso.
-            </p>
-            <div className="flex flex-wrap gap-3">
+              <Image
+                src={`${IMG}/hero.webp`}
+                alt="Sala de entrenamiento de Brutal Curicó: racks, barras y zona funcional"
+                fill
+                priority
+                sizes="(min-width: 768px) 58vw, 100vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(29,47,38,0.28) 0%, rgba(29,47,38,0) 40%, rgba(29,47,38,0.55) 100%)',
+                }}
+                aria-hidden="true"
+              />
               <a
-                href={WA_LINK_CLASE}
+                href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.mustard, color: '#241A08' }}
+                className={`${FOCUS} absolute top-4 right-4 flex items-center gap-2 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-[0.97]`}
+                style={{ backgroundColor: 'rgba(244,239,228,0.94)', color: C.deep }}
               >
-                Agendar clase de prueba
+                <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.wood} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11Z" />
+                  <circle cx="12" cy="10" r="2.4" />
+                </svg>
+                {BIZ.reviews} reseñas en Google
               </a>
-              <a
-                href="#el-gym"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
-                style={{ borderColor: 'rgba(244,239,228,0.55)', color: '#F4EFE4' }}
+              <figcaption
+                className={`${display.className} absolute bottom-4 left-4 text-xs md:text-sm font-bold px-4 py-2 rounded-full`}
+                style={CAPTION_STYLE}
               >
-                Conocer el gym
-              </a>
-            </div>
+                La sala, tal cual es
+              </figcaption>
+            </figure>
           </Reveal>
-        </div>
-        {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(244,239,228,0.22)', backgroundColor: 'rgba(29,47,38,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(244,239,228,0.78)' }}>
-            <span>Yungay 1065, Curicó</span>
-            <span>{BIZ.reviews} reseñas</span>
-            <span>{BIZ.instagramHandle}</span>
-            <span className="hidden md:inline" style={{ color: C.mustardSoft }}>sitio de ejemplo</span>
-          </div>
+
+          {/* fila de métricas */}
+          {METRICS.map((m, i) => (
+            <Reveal key={m.label} delay={140 + i * 80} className="md:col-span-4">
+              <div
+                className="rounded-3xl border p-5 md:p-6 h-full"
+                style={{ backgroundColor: C.card, borderColor: C.line }}
+              >
+                <p className={`${display.className} font-extrabold text-3xl md:text-4xl leading-none mb-2`} style={{ color: C.forest }}>
+                  {m.value}
+                </p>
+                <p className="text-sm font-medium" style={{ color: C.ink }}>
+                  {m.label}
+                </p>
+                <p className="text-[11px] uppercase tracking-[0.16em] mt-1.5" style={{ color: C.muted }}>
+                  {m.note}
+                </p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
       {/* ── Bento: el gym ── */}
-      <section id="el-gym" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      <section id="el-gym" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <Reveal>
           <Eyebrow>El gym por dentro</Eyebrow>
           <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-12">
@@ -265,15 +308,16 @@ export default function BrutalCuricoPage() {
           {/* tarjeta foto grande */}
           <Reveal className="md:col-span-4 md:row-span-2">
             <figure className="group relative rounded-3xl overflow-hidden h-full min-h-[300px] md:min-h-0" style={{ boxShadow: '0 2px 8px rgba(29,47,38,0.08)' }}>
-              <img
+              <Image
                 src={`${IMG}/detalle3.webp`}
                 alt="Zona funcional de Brutal Curicó con saco de boxeo y kettlebells"
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                fill
+                sizes="(min-width: 768px) 66vw, 100vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
               <figcaption
                 className={`${display.className} absolute bottom-4 left-4 text-xs md:text-sm font-bold px-4 py-2 rounded-full`}
-                style={{ backgroundColor: 'rgba(29,47,38,0.88)', color: '#F4EFE4' }}
+                style={CAPTION_STYLE}
               >
                 Zona funcional y boxeo
               </figcaption>
@@ -284,7 +328,7 @@ export default function BrutalCuricoPage() {
           {SERVICE_CARDS.slice(0, 2).map((s, i) => (
             <Reveal key={s.name} delay={80 + i * 90} className="md:col-span-2">
               <article
-                className="rounded-3xl border p-5 md:p-6 h-full flex flex-col justify-between gap-4"
+                className="rounded-3xl border p-5 md:p-6 h-full flex flex-col justify-between gap-4 transition-colors"
                 style={{ backgroundColor: C.card, borderColor: C.line }}
               >
                 <span
@@ -308,15 +352,16 @@ export default function BrutalCuricoPage() {
           {/* tarjeta foto mediana */}
           <Reveal delay={60} className="md:col-span-2">
             <figure className="group relative rounded-3xl overflow-hidden h-full min-h-[200px]" style={{ boxShadow: '0 2px 8px rgba(29,47,38,0.08)' }}>
-              <img
+              <Image
                 src={`${IMG}/detalle1.webp`}
                 alt="Barra cargada en plataforma de levantamiento"
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
               <figcaption
                 className={`${display.className} absolute bottom-4 left-4 text-xs font-bold px-3.5 py-1.5 rounded-full`}
-                style={{ backgroundColor: 'rgba(29,47,38,0.88)', color: '#F4EFE4' }}
+                style={CAPTION_STYLE}
               >
                 Plataformas de levantamiento
               </figcaption>
@@ -346,34 +391,31 @@ export default function BrutalCuricoPage() {
               </article>
             </Reveal>
           ))}
-        </div>
 
-        {/* fila de métricas */}
-        <div className="grid sm:grid-cols-3 gap-4 md:gap-5 mt-4 md:mt-5">
-          {METRICS.map((m, i) => (
-            <Reveal key={m.label} delay={i * 90}>
-              <div
-                className="rounded-3xl p-5 md:p-6 h-full"
-                style={{ backgroundColor: C.forest }}
+          {/* tarjeta foto horizontal de cierre */}
+          <Reveal delay={80} className="md:col-span-6">
+            <figure className="group relative rounded-3xl overflow-hidden h-full min-h-[220px]" style={{ boxShadow: '0 2px 8px rgba(29,47,38,0.08)' }}>
+              <Image
+                src={`${IMG}/detalle2.webp`}
+                alt="Mancuernas ordenadas en el rack de la sala de pesas"
+                fill
+                sizes="(min-width: 768px) calc(100vw - 64px), calc(100vw - 40px)"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              />
+              <figcaption
+                className={`${display.className} absolute bottom-4 left-4 text-xs md:text-sm font-bold px-4 py-2 rounded-full`}
+                style={CAPTION_STYLE}
               >
-                <p className={`${display.className} font-extrabold text-3xl md:text-4xl leading-none mb-2`} style={{ color: C.mustard }}>
-                  {m.value}
-                </p>
-                <p className="text-sm font-medium" style={{ color: 'rgba(244,239,228,0.92)' }}>
-                  {m.label}
-                </p>
-                <p className="text-[11px] uppercase tracking-[0.16em] mt-1.5" style={{ color: 'rgba(244,239,228,0.55)' }}>
-                  {m.note}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+                Mancuernas de todos los pesos
+              </figcaption>
+            </figure>
+          </Reveal>
         </div>
       </section>
 
       {/* ── Sobre el negocio ── */}
       <section id="el-negocio" className="scroll-mt-20" style={{ backgroundColor: C.soft }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
           <Reveal>
             <Eyebrow>El negocio</Eyebrow>
             <h2 className={`${display.className} font-extrabold text-4xl md:text-5xl leading-[1.02] tracking-[-0.01em] mb-10 md:mb-12`} style={{ color: C.forest }}>
@@ -385,15 +427,16 @@ export default function BrutalCuricoPage() {
           <div className="grid md:grid-cols-6 gap-4 md:gap-5">
             <Reveal className="md:col-span-4 md:row-span-2">
               <figure className="rounded-3xl overflow-hidden h-full min-h-[280px] relative" style={{ boxShadow: '0 2px 8px rgba(29,47,38,0.08)' }}>
-                <img
+                <Image
                   src={`${IMG}/ambiente.webp`}
                   alt="Fachada de Brutal Curicó desde la calle Yungay"
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill
+                  sizes="(min-width: 768px) 66vw, 100vw"
+                  className="object-cover"
                 />
                 <figcaption
                   className={`${display.className} absolute bottom-4 left-4 text-xs md:text-sm font-bold px-4 py-2 rounded-full`}
-                  style={{ backgroundColor: 'rgba(244,239,228,0.92)', color: C.deep }}
+                  style={CAPTION_STYLE}
                 >
                   La fachada sobre calle Yungay
                 </figcaption>
@@ -430,7 +473,7 @@ export default function BrutalCuricoPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-semibold underline underline-offset-4 decoration-2"
+                  className={`${FOCUS} text-sm font-semibold underline underline-offset-4 decoration-2 hover:text-white transition-colors`}
                   style={{ color: C.mustardSoft, textDecorationColor: 'rgba(217,164,65,0.4)' }}
                 >
                   Ver la ficha en Google →
@@ -453,12 +496,12 @@ export default function BrutalCuricoPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-3xl p-5 md:p-6 h-full flex items-center justify-between gap-4 transition-transform active:scale-[0.99]"
+                className={`${FOCUS} group rounded-3xl p-5 md:p-6 h-full flex items-center justify-between gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.99]`}
                 style={{ backgroundColor: C.mustard }}
               >
                 <div>
                   <h3 className={`${display.className} font-bold text-xl mb-1`} style={{ color: '#241A08' }}>
-                    Síguelos en Instagram
+                    Síguenos en Instagram
                   </h3>
                   <p className="text-sm font-medium" style={{ color: 'rgba(36,26,8,0.72)' }}>
                     {BIZ.instagramHandle} — entrenamientos y vida del gym
@@ -474,7 +517,7 @@ export default function BrutalCuricoPage() {
       </section>
 
       {/* ── Planes de referencia ── */}
-      <section id="planes" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      <section id="planes" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <Reveal>
           <Eyebrow>Planes</Eyebrow>
           <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-12">
@@ -539,7 +582,7 @@ export default function BrutalCuricoPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} text-center font-bold text-sm px-5 py-3 rounded-full transition-transform active:scale-95`}
+                  className={`${display.className} ${FOCUS} text-center font-bold text-sm px-5 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]`}
                   style={
                     p.highlight
                       ? { backgroundColor: C.mustard, color: '#241A08' }
@@ -562,7 +605,7 @@ export default function BrutalCuricoPage() {
 
       {/* ── Ubicación y contacto ── */}
       <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.deep }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
             <Eyebrow light>Ubicación y contacto</Eyebrow>
             <h2 className={`${display.className} font-extrabold text-4xl md:text-5xl leading-[1.02] tracking-[-0.01em] mb-6`} style={{ color: '#F4EFE4' }}>
@@ -585,7 +628,7 @@ export default function BrutalCuricoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} ${FOCUS} font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]`}
                 style={{ backgroundColor: C.mustard, color: '#241A08' }}
               >
                 Escribir por WhatsApp
@@ -594,7 +637,7 @@ export default function BrutalCuricoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} ${FOCUS} font-bold text-sm px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
                 style={{ borderColor: 'rgba(244,239,228,0.45)', color: '#F4EFE4' }}
               >
                 Cómo llegar →
@@ -641,7 +684,7 @@ export default function BrutalCuricoPage() {
               href={WA_LINK_CLASE}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} ${FOCUS} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]`}
               style={{ backgroundColor: C.mustard, color: '#241A08' }}
             >
               Agendar clase de prueba
@@ -658,14 +701,14 @@ export default function BrutalCuricoPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,239,228,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 hover:text-white transition-colors`}>{BIZ.phoneDisplay}</a>
               {' · '}
-              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{BIZ.instagramHandle}</a>
+              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} underline underline-offset-2 hover:text-white transition-colors`}>{BIZ.instagramHandle}</a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,239,228,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors`}>
                 {l.label}
               </a>
             ))}
