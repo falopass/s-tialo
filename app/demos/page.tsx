@@ -342,6 +342,22 @@ const BLITZ = [
     tagline: 'Panel de datos patrimonial: verde bosque, crema y latón, tabla de prestaciones con fotos.',
     gradient: 'linear-gradient(135deg, #132A1F 0%, #1E3D2F 55%, #C8A24B 140%)',
   },
+  {
+    slug: 'ferreteria-williams-pencahue',
+    name: 'Ferreteria Williams Pencahue',
+    rubro: 'Ferretería y maderas',
+    city: 'Pencahue',
+    tagline: 'Mosaico fotográfico de mesón: vino, hueso y oro viejo, con fotos.',
+    gradient: 'linear-gradient(135deg, #3A1520 0%, #6B2737 55%, #B98B4E 140%)',
+  },
+  {
+    slug: 'taller-mecanico-servimac',
+    name: 'Taller Mecánico Servimac',
+    rubro: 'Taller de reparación de automóviles',
+    city: 'Molina',
+    tagline: 'Órdenes de trabajo apiladas al hacer scroll: rojo, gris flota y naranja señal, con fotos.',
+    gradient: 'linear-gradient(135deg, #4A4E52 0%, #C1272D 55%, #E8631A 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
