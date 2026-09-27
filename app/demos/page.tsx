@@ -478,6 +478,14 @@ const BLITZ = [
     tagline: 'Retro de almacén de barrio: petróleo, menta y blanco roto, sellos y boleta con fotos.',
     gradient: 'linear-gradient(135deg, #093540 0%, #0E4C5C 55%, #9FD8CB 140%)',
   },
+  {
+    slug: 'forastero-sabor-en-cada-bocado',
+    name: 'FORASTERO sabor en cada bocado',
+    rubro: 'Restaurante',
+    city: 'Pencahue',
+    tagline: 'Neón nocturno de ruta: azul distribución, gris y cian con glow, letrero luminoso y fichas de cocina.',
+    gradient: 'linear-gradient(135deg, #060D15 0%, #1F5673 55%, #3CD9EC 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
