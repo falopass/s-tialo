@@ -302,6 +302,14 @@ const BLITZ = [
     tagline: 'Cuadrícula suiza utilitaria: mostaza, verde oscuro y hueso, reglas finas y tipografía de cartel.',
     gradient: 'linear-gradient(135deg, #17231C 0%, #2E4A3C 55%, #D9A441 140%)',
   },
+  {
+    slug: 'muebleria-comercial-sofia',
+    name: 'Mueblería Comercial Sofia',
+    rubro: 'Fábrica de muebles',
+    city: 'Talca',
+    tagline: 'Bento modular de taller: verde campo, tierra y crema, con fotos.',
+    gradient: 'linear-gradient(135deg, #2C3F22 0%, #4C6B3C 55%, #8C6239 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
