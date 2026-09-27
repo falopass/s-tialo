@@ -518,6 +518,30 @@ const BLITZ = [
     tagline: 'Oscuro premium mayorista: carbón, vidrio y cian con glow, surtido por pasillo y precio por volumen.',
     gradient: 'linear-gradient(135deg, #0A0D12 0%, #1F5673 60%, #45D5E8 140%)',
   },
+  {
+    slug: 'peluqueria-gloria',
+    name: 'Peluquería Gloria',
+    rubro: 'Peluquería',
+    city: 'Río Claro',
+    tagline: 'Carta tipográfica de campo: verde campo, tierra y crema, servicios con puntos guía y foto a sangre.',
+    gradient: 'linear-gradient(135deg, #2F4226 0%, #4C6B3C 55%, #8C6239 140%)',
+  },
+  {
+    slug: 'servicio-tecnico-automotriz-millycar',
+    name: 'Servicio Técnico Automotriz Millycar',
+    rubro: 'Taller mecánico',
+    city: 'Curicó',
+    tagline: 'Manual del taller: azul pizarra y amarillo lápiz, doble columna con sidebar pegajoso y fotos.',
+    gradient: 'linear-gradient(135deg, #22353F 0%, #2F4858 55%, #F2B705 140%)',
+  },
+  {
+    slug: 'bxtraining-1',
+    name: 'Bxtraining 1',
+    rubro: 'Gimnasio',
+    city: 'San Clemente',
+    tagline: 'Mosaico fotográfico de sala: negro taller, amarillo señal y acero, con fotos.',
+    gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
