@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Instrument_Serif, Inter } from 'next/font/google'
 import { SITE, whatsappLink } from '@/lib/config'
-import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -32,7 +31,7 @@ const C = {
   tierra: '#8C6239',
   tierraSoft: '#C9AE8C',
   ink: '#2B2A1F',
-  muted: '#6E6A55',
+  muted: '#5E5A47',
   line: 'rgba(43,42,31,0.18)',
 }
 
@@ -167,6 +166,7 @@ export default function PeluqueriaGloriaPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.crema, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -196,10 +196,10 @@ export default function PeluqueriaGloriaPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(47,66,38,0.62) 0%, rgba(47,66,38,0.14) 42%, rgba(47,66,38,0.88) 100%)',
+              'linear-gradient(180deg, rgba(47,66,38,0.62) 0%, rgba(47,66,38,0.5) 42%, rgba(47,66,38,0.88) 100%)',
           }}
         />
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-12 pt-40">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-20 md:pb-16 pt-40">
           <Reveal>
             <Eyebrow light>Peluquería · Cumpeo · Río Claro</Eyebrow>
             <h1
@@ -291,6 +291,7 @@ export default function PeluqueriaGloriaPage() {
                     alt={s.alt}
                     width={168}
                     height={168}
+                    loading="eager"
                     className="w-[84px] h-[84px] md:w-[104px] md:h-[104px] object-cover"
                   />
                 </div>
@@ -325,6 +326,7 @@ export default function PeluqueriaGloriaPage() {
                     alt="El salón de Peluquería Gloria en Cumpeo, con su sillón y mesa de trabajo"
                     fill
                     sizes="(min-width: 1024px) 44vw, 100vw"
+                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -526,7 +528,7 @@ export default function PeluqueriaGloriaPage() {
                 </li>
               ))}
             </ul>
-            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: 'rgba(251,247,239,0.55)' }}>
+            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: 'rgba(251,247,239,0.78)' }}>
               Horario referencial: al publicar van los horarios reales de
               la peluquería.
             </p>
@@ -589,40 +591,22 @@ export default function PeluqueriaGloriaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.verdeDeep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
           <div>
-            <p className={`${display.className} italic text-2xl mb-2 flex items-center gap-3`}>
+            <p className={`${display.className} italic text-2xl mb-1 flex items-center gap-3`}>
               <Scissors className="w-5 h-5" color={C.tierraSoft} />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              {BIZ.phoneDisplay}
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.8)' }}>
+              {BIZ.address} · {BIZ.city} · {BIZ.phoneDisplay}
             </address>
           </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,247,239,0.62)' }} aria-label="Pie">
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors`}>
-                {l.label}
-              </a>
-            ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className={`${FOCUS} hover:text-white transition-colors`}>
-              Facebook
-            </a>
-          </nav>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 pb-20 md:pb-5 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Nombre,
-            dirección, teléfono, las {BIZ.reviews} reseñas de Google y la página
-            de Facebook son datos públicos reales; servicios, precios, horarios
-            y reseñas citadas son de muestra.
+          <p className="text-xs leading-relaxed max-w-sm" style={{ color: 'rgba(251,247,239,0.78)' }}>
+            Sitio de ejemplo: servicios, precios, horarios y reseñas citadas son de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
