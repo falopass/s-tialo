@@ -649,11 +649,14 @@ export default function RestobarLosLeonesPage() {
             </div>
             <div className="col-span-12 lg:col-span-6">
               <Reveal delay={140} className="h-full">
-                <div className="overflow-hidden border-2 min-h-[320px] h-full" style={{ borderColor: 'rgba(255,255,255,0.35)' }}>
+                <div
+                  className="relative w-full max-w-full overflow-hidden border-2 aspect-[4/3] lg:aspect-auto lg:h-full min-h-[320px]"
+                  style={{ borderColor: 'rgba(255,255,255,0.35)' }}
+                >
                   <iframe
                     title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                     src={MAPS_EMBED}
-                    className="w-full h-full min-h-[320px]"
+                    className="absolute inset-0 block w-full h-full"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
