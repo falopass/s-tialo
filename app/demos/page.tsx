@@ -495,6 +495,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #441722 0%, #6B2737 55%, #B98B4E 140%)',
   },
   {
+    slug: 'italo-vet-linares',
+    name: 'Italo Vet Linares',
+    rubro: 'Veterinario',
+    city: 'Linares',
+    tagline: 'Historia por pasos: línea de tiempo vertical 01-04 en azul eléctrico y lima, con fotos.',
+    gradient: 'linear-gradient(135deg, #0B1E6B 0%, #2251FF 55%, #C6F24E 140%)',
+  },
+  {
     slug: 'ferreteria-la-ruta',
     name: 'Ferretería La Ruta',
     rubro: 'Tienda de herramientas',
