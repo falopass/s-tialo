@@ -196,7 +196,7 @@ export default function IssaBellaPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(9,51,61,0.72) 0%, rgba(9,51,61,0.18) 34%, rgba(9,51,61,0.22) 58%, rgba(9,51,61,0.88) 100%)',
+              'linear-gradient(180deg, rgba(9,51,61,0.8) 0%, rgba(9,51,61,0.64) 34%, rgba(9,51,61,0.72) 58%, rgba(9,51,61,0.92) 100%)',
           }}
           aria-hidden="true"
         />
@@ -206,7 +206,7 @@ export default function IssaBellaPage() {
           <Reveal>
             <div
               className={`${KICKER} flex flex-wrap justify-between gap-x-6 gap-y-1 border-y py-2.5`}
-              style={{ color: 'rgba(247,249,249,0.78)', borderColor: 'rgba(247,249,249,0.35)' }}
+              style={{ color: 'rgba(247,249,249,0.92)', borderColor: 'rgba(247,249,249,0.35)' }}
             >
               <span>Edición especial · {BIZ.city}</span>
               <span>{BIZ.rubro} · Nº 01</span>
@@ -241,7 +241,7 @@ export default function IssaBellaPage() {
                 como se debe.
               </em>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-md mb-8" style={{ color: 'rgba(247,249,249,0.85)' }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-md mb-8" style={{ color: 'rgba(247,249,249,0.94)' }}>
               Centro de estética facial en Sarajevo, {BIZ.city}. Atención
               con hora, en una sala luminosa y sin apuro.
             </p>
@@ -302,11 +302,11 @@ export default function IssaBellaPage() {
         {/* franja de datos al pie de portada */}
         <div
           className="relative border-t"
-          style={{ borderColor: C.lineLight, backgroundColor: 'rgba(9,51,61,0.55)', backdropFilter: 'blur(6px)' }}
+          style={{ borderColor: C.lineLight, backgroundColor: 'rgba(9,51,61,0.85)', backdropFilter: 'blur(6px)' }}
         >
           <div
             className={`${WRAP} pr-20 md:pr-24 py-3.5 flex flex-wrap gap-x-8 gap-y-1 text-[11px] uppercase tracking-[0.18em]`}
-            style={{ color: 'rgba(247,249,249,0.75)' }}
+            style={{ color: 'rgba(247,249,249,0.9)' }}
           >
             <span>{BIZ.address}, {BIZ.city}</span>
             <span className="hidden md:inline">Atención con hora</span>
@@ -437,7 +437,7 @@ export default function IssaBellaPage() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(90deg, rgba(9,51,61,0.78) 0%, rgba(9,51,61,0.45) 55%, rgba(9,51,61,0.35) 100%)',
+                'linear-gradient(90deg, rgba(9,51,61,0.82) 0%, rgba(9,51,61,0.66) 55%, rgba(9,51,61,0.55) 100%)',
             }}
             aria-hidden="true"
           />
