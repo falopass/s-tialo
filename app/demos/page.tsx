@@ -230,6 +230,14 @@ const BLITZ = [
     tagline: 'Portada de revista pastelera: petróleo, menta y blanco roto, con foto a sangre.',
     gradient: 'linear-gradient(135deg, #093540 0%, #0E4C5C 55%, #9FD8CB 140%)',
   },
+  {
+    slug: 'centro-san-ricardo',
+    name: 'Centro San Ricardo',
+    rubro: 'Piscina cubierta',
+    city: 'San Rafael',
+    tagline: 'Línea de tiempo educativa: azul pizarra y amarillo lápiz, con fotos.',
+    gradient: 'linear-gradient(135deg, #22353F 0%, #2F4858 55%, #F2B705 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
