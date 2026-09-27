@@ -166,20 +166,23 @@ export default function DamianStylePage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.tinta }}
     >
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(245,239,230,0.94)',
-          ink: C.tinta,
-          line: C.line,
-          btnBg: C.vino,
-          btnInk: '#F5EFE6',
-        }}
-      />
+      {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
+      <div style={{ backgroundColor: C.vinoDeep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(245,239,230,0.94)',
+            ink: C.tinta,
+            line: C.line,
+            btnBg: C.vino,
+            btnInk: '#F5EFE6',
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.vinoDeep }}>
@@ -188,6 +191,7 @@ export default function DamianStylePage() {
           alt="Interior de la barbería DamianStyle: sillas de cuero, plantas y luz cálida"
           fill
           priority
+          loading="eager"
           sizes="100vw"
           className="object-cover"
         />
@@ -195,7 +199,7 @@ export default function DamianStylePage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(44,23,32,0.6) 0%, rgba(44,23,32,0.12) 42%, rgba(44,23,32,0.88) 100%)',
+              'linear-gradient(180deg, rgba(44,23,32,0.7) 0%, rgba(44,23,32,0.55) 35%, rgba(44,23,32,0.92) 100%)',
           }}
         />
         {/* hojas decorativas */}
@@ -220,7 +224,7 @@ export default function DamianStylePage() {
             </a>
           </Reveal>
         </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-8 md:pb-10 pt-40">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-24 pt-40">
           <Reveal>
             <Eyebrow light>Barbería · Pelarco · Villa Altos del Bosque</Eyebrow>
             <h1
@@ -262,7 +266,7 @@ export default function DamianStylePage() {
 
       {/* ── Servicios ── */}
       <section id="servicios" className="relative scroll-mt-20 overflow-hidden" style={{ backgroundColor: C.paper }}>
-        <Leaf className="absolute -top-2 right-[6%] w-[120px] md:w-[170px] opacity-[0.07] rotate-[24deg]" color={C.hoja} />
+        <Leaf className="absolute -top-2 right-[12%] w-[120px] md:w-[170px] opacity-[0.07] rotate-[24deg]" color={C.hoja} />
         <div className="max-w-6xl mx-auto px-5 md:px-8 pt-14 md:pt-20 pb-16 md:pb-24">
           <Reveal>
             <Eyebrow>Servicios</Eyebrow>
@@ -298,6 +302,7 @@ export default function DamianStylePage() {
                       src={s.src}
                       alt={s.alt}
                       fill
+                      loading="eager"
                       sizes="(min-width: 640px) 45vw, 100vw"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
@@ -343,12 +348,13 @@ export default function DamianStylePage() {
                     src={`${IMG}/ambiente.webp`}
                     alt="Fachada de la barbería DamianStyle en una calle arbolada de Pelarco"
                     fill
+                    loading="eager"
                     sizes="(min-width: 1024px) 45vw, 100vw"
                     className="object-cover"
                   />
                 </div>
                 <Leaf className="absolute -bottom-5 -left-4 w-[84px] opacity-60 -rotate-[18deg]" color={C.hoja} />
-                <Sprig className="absolute -top-4 -right-3 w-[72px] opacity-50 rotate-[14deg]" color={C.hoja} />
+                <Sprig className="absolute -top-4 right-0 w-[72px] opacity-50 rotate-[14deg]" color={C.hoja} />
               </div>
             </Reveal>
             <Reveal delay={120}>
@@ -484,7 +490,7 @@ export default function DamianStylePage() {
                   borderRadius: '5rem 1.75rem 1.75rem 1.75rem',
                 }}
               >
-                <Leaf className="absolute -top-6 -right-6 w-[140px] opacity-[0.08] rotate-[30deg]" color={C.oroSoft} />
+                <Leaf className="absolute -top-6 right-0 w-[140px] opacity-[0.08] rotate-[30deg]" color={C.oroSoft} />
                 <div
                   className="px-6 md:px-8 py-4 flex items-center justify-between gap-4"
                   style={{ backgroundColor: 'rgba(245,239,230,0.08)' }}
@@ -599,6 +605,7 @@ export default function DamianStylePage() {
           src={`${IMG}/detalle2.webp`}
           alt=""
           fill
+          loading="eager"
           sizes="100vw"
           className="object-cover opacity-[0.14]"
           aria-hidden="true"
@@ -627,7 +634,7 @@ export default function DamianStylePage() {
             >
               Escribir a DamianStyle
             </a>
-            <p className="text-xs mt-5" style={{ color: 'rgba(245,239,230,0.55)' }}>
+            <p className="text-xs mt-5" style={{ color: 'rgba(245,239,230,0.8)' }}>
               {BIZ.phoneDisplay} · @{BIZ.instagram}
             </p>
           </Reveal>
@@ -637,32 +644,19 @@ export default function DamianStylePage() {
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.vinoDeep, color: C.paper }}>
         <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.14)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div>
-              <p className={`${display.className} font-bold text-2xl mb-2 flex items-center gap-3`}>
-                <Sprig className="w-5 h-5" color={C.oroSoft} />
-                {BIZ.name}
-              </p>
-              <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(245,239,230,0.62)' }}>
-                {BIZ.address} · {BIZ.city}, {BIZ.region}
-              </address>
-            </div>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(245,239,230,0.62)' }}>
-              {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing}`}>
-                  {l.label}
-                </a>
-              ))}
-            </div>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24">
+            <p className={`${display.className} font-bold text-xl mb-1 flex items-center gap-3`}>
+              <Sprig className="w-5 h-5" color={C.oroSoft} />
+              {BIZ.name}
+            </p>
+            <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(245,239,230,0.8)' }}>
+              {BIZ.address} · {BIZ.city}
+            </address>
+            <p className="text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.8)' }}>
+              Sitio de ejemplo de Sitiazo: dirección, WhatsApp e Instagram son
+              reales; servicios, precios, horarios y fotos son de muestra.
+            </p>
           </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios, horarios y fotos son de muestra; la
-            dirección, el WhatsApp, el Instagram y sus {BIZ.instagramFollowers}{' '}
-            seguidores son los datos reales del negocio.
-          </p>
         </div>
       </footer>
 
