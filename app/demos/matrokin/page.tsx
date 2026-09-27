@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Marcellus, Karla } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -11,10 +11,10 @@ const C = {
   paper: '#FBF8F1',
   sand: '#EFE7DA',
   sage: '#7C8F7B',
-  sageDeep: '#5A6B59',
+  sageDeep: '#4F5F4E',
   charcoal: '#2B2B27',
   ink: '#2B2B27',
-  muted: '#70706A',
+  muted: '#5C5C56',
   line: 'rgba(43,43,39,0.14)',
 }
 
@@ -138,27 +138,29 @@ export default function MatrokinPage() {
       />
 
       {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.charcoal }}>
+      <section id="inicio" className="relative min-h-svh flex flex-col overflow-hidden" style={{ backgroundColor: C.charcoal }}>
         <img
           src={`${IMG}/hero.webp`}
           alt="Cabina de masajes de Matrokin SPA: camilla con toallas blancas, velas encendidas y vista al jardín"
+          loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(43,43,39,0.45) 0%, rgba(43,43,39,0.10) 40%, rgba(43,43,39,0.80) 100%)',
+              'linear-gradient(180deg, rgba(43,43,39,0.6) 0%, rgba(43,43,39,0.5) 40%, rgba(43,43,39,0.9) 100%)',
           }}
         />
-        {/* sello de reseñas */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8">
+        <div className="relative mt-auto w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-28 md:pt-36">
           <Reveal>
+            {/* sello de reseñas */}
             <a
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
+              className="inline-flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg mb-6"
               style={{ backgroundColor: 'rgba(251,248,241,0.94)', color: C.charcoal }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.sageDeep} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -167,10 +169,6 @@ export default function MatrokinPage() {
               </svg>
               {BIZ.reviews} reseñas en Google
             </a>
-          </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
             <Eyebrow light>Spa &amp; terapias · Molina · Región del Maule</Eyebrow>
             <h1
               className={`${display.className} leading-[1.04] tracking-[0.01em] text-[clamp(2.8rem,9.5vw,5.8rem)] mb-6`}
@@ -180,7 +178,7 @@ export default function MatrokinPage() {
               <br />
               <span style={{ color: C.sand }}>a tu ritmo</span>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(251,248,241,0.88)' }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(251,248,241,0.94)' }}>
               Un spa pequeño y tranquilo en el campo de Molina. Masajes,
               faciales y sauna con reserva previa, a tu propio ritmo.
             </p>
@@ -205,8 +203,8 @@ export default function MatrokinPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(251,248,241,0.22)', backgroundColor: 'rgba(43,43,39,0.45)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,248,241,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(251,248,241,0.22)', backgroundColor: 'rgba(43,43,39,0.85)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,248,241,0.9)' }}>
             <span>Camino a Agua Fría 767</span>
             <span>Molina · Maule</span>
             <span>Con reserva previa</span>
@@ -235,14 +233,12 @@ export default function MatrokinPage() {
           </Reveal>
         </div>
         <ul className="grid sm:grid-cols-3 gap-6 md:gap-8">
-          {RITUALS.map((r, i) => (
-            <Reveal key={r.name} delay={i * 110}>
-              <li className="group h-full">
+          {RITUALS.map((r) => (
+              <li key={r.name} className="group h-full">
                 <div className="relative overflow-hidden rounded-t-[999px] aspect-[4/5] border" style={{ borderColor: C.line }}>
                   <img
                     src={r.src}
                     alt={r.name}
-                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.05]"
                   />
                 </div>
@@ -255,7 +251,6 @@ export default function MatrokinPage() {
                   </p>
                 </div>
               </li>
-            </Reveal>
           ))}
         </ul>
       </section>
@@ -263,16 +258,13 @@ export default function MatrokinPage() {
       {/* ── Detalle de la experiencia ── */}
       <section id="experiencia" className="scroll-mt-20" style={{ backgroundColor: C.charcoal }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-          <Reveal>
             <div className="rounded-[2rem] overflow-hidden" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}>
               <img
                 src={`${IMG}/te.webp`}
                 alt="Té de hierbas humeante junto a toallas blancas, lavanda y manzanilla"
-                loading="lazy"
                 className="w-full h-full object-cover aspect-[4/3]"
               />
             </div>
-          </Reveal>
           <Reveal delay={140}>
             <Eyebrow light>La experiencia</Eyebrow>
             <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.08] mb-6`} style={{ color: '#FBF8F1' }}>
@@ -280,7 +272,7 @@ export default function MatrokinPage() {
               <br />
               <span style={{ color: C.sand }}>en los detalles</span>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: 'rgba(251,248,241,0.75)' }}>
+            <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: 'rgba(251,248,241,0.88)' }}>
               Un spa no son solo las manos de quien te atiende: es todo
               lo que rodea la hora. Esto es lo que prepara cada visita.
             </p>
@@ -292,7 +284,7 @@ export default function MatrokinPage() {
                     <p className={`${display.className} text-lg leading-snug mb-1`} style={{ color: '#FBF8F1' }}>
                       {d.title}
                     </p>
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(251,248,241,0.68)' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(251,248,241,0.85)' }}>
                       {d.desc}
                     </p>
                   </div>
@@ -362,7 +354,7 @@ export default function MatrokinPage() {
           {STEPS.map((s, i) => (
             <Reveal key={s.title} delay={i * 120}>
               <article className="border-t-2 pt-6" style={{ borderColor: C.sage }}>
-                <p className={`${display.className} text-5xl md:text-6xl leading-none mb-3`} style={{ color: C.sage }}>
+                <p className={`${display.className} text-5xl md:text-6xl leading-none mb-3`} style={{ color: C.sageDeep }}>
                   {String(i + 1).padStart(2, '0')}
                 </p>
                 <h3 className={`${display.className} text-xl md:text-2xl mb-2.5`} style={{ color: C.ink }}>
@@ -381,7 +373,7 @@ export default function MatrokinPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-base md:text-lg px-10 py-5 rounded-full shadow-lg transition-transform hover:scale-[1.03] active:scale-95`}
+              className={`${display.className} inline-block text-base md:text-lg px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-[1.03] active:scale-95`}
               style={{ backgroundColor: C.sageDeep, color: '#FBF8F1' }}
             >
               Reservar mi hora por WhatsApp
@@ -503,7 +495,7 @@ export default function MatrokinPage() {
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.sageDeep }}>
         <div
-          className="absolute inset-0 opacity-[0.14]"
+          className="absolute inset-0 opacity-[0.08]"
           style={{
             backgroundImage: `url(${IMG}/hero.webp)`,
             backgroundSize: 'cover',
@@ -518,7 +510,7 @@ export default function MatrokinPage() {
               <br />
               <span style={{ color: C.sand }}>empieza aquí</span>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(251,248,241,0.80)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(251,248,241,0.94)' }}>
               Escríbenos por WhatsApp y agendamos tu masaje, facial o
               tarde de sauna. Respondemos el mismo día.
             </p>
@@ -537,32 +529,28 @@ export default function MatrokinPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.charcoal, color: '#FBF8F1' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,248,241,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,248,241,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10">
+          <p className={`${display.className} text-2xl mb-2`}>{BIZ.name}</p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,248,241,0.82)' }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region}
+            <br />
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,248,241,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,248,241,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            precios, horarios y fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,248,241,0.82)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.sand }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Textos, precios, horarios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.sand }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
