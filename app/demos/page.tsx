@@ -486,6 +486,14 @@ const BLITZ = [
     tagline: 'Neón nocturno de ruta: azul distribución, gris y cian con glow, letrero luminoso y fichas de cocina.',
     gradient: 'linear-gradient(135deg, #060D15 0%, #1F5673 55%, #3CD9EC 140%)',
   },
+  {
+    slug: 'damianstyle',
+    name: 'DamianStyle',
+    rubro: 'Barbería',
+    city: 'Pelarco',
+    tagline: 'Jardín botánico: vino, hueso y oro viejo, arcos y hojas con luz cálida, con fotos.',
+    gradient: 'linear-gradient(135deg, #441722 0%, #6B2737 55%, #B98B4E 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
