@@ -24,7 +24,8 @@ const C = {
   goldSoft: '#EFD8A8',
   berry: '#A33B44',
   ink: '#3B2A1B',
-  muted: '#7D6A55',
+  muted: '#65523F',
+  goldText: '#8A5A12',
   line: 'rgba(59,42,27,0.16)',
 }
 
@@ -141,13 +142,14 @@ export default function PanaderiaBravoPage() {
         <img
           src={`${IMG}/hero.webp`}
           alt="Interior de Panadería Bravo: vitrina con panes y masas dulces recién horneadas"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(33,18,4,0.5) 0%, rgba(33,18,4,0.12) 38%, rgba(33,18,4,0.82) 100%)',
+              'linear-gradient(180deg, rgba(33,18,4,0.6) 0%, rgba(33,18,4,0.45) 38%, rgba(33,18,4,0.9) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -178,7 +180,7 @@ export default function PanaderiaBravoPage() {
               <br />
               <em className="font-bold" style={{ color: C.goldSoft }}>sale de madrugada</em>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(251,245,233,0.88)' }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: '#FBF5E9' }}>
               Panadería y pastelería de barrio en Avenida Pte. 2123,
               Molina: pan amasado, marraquetas, masas dulces y tortas
               por encargo.
@@ -204,8 +206,8 @@ export default function PanaderiaBravoPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(251,245,233,0.22)', backgroundColor: 'rgba(33,18,4,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,245,233,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(251,245,233,0.22)', backgroundColor: 'rgba(33,18,4,0.8)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 md:pb-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,245,233,0.92)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.gold }} aria-hidden="true" />
@@ -225,7 +227,7 @@ export default function PanaderiaBravoPage() {
             <h2 className={`${display.className} font-black text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.choco }}>
               Del horno
               <br />
-              <em className="font-bold" style={{ color: C.gold }}>a tu mesa</em>
+              <em className="font-bold" style={{ color: C.goldText }}>a tu mesa</em>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
               Esto es una muestra de la vitrina: al publicar van los
@@ -244,7 +246,6 @@ export default function PanaderiaBravoPage() {
                   <img
                     src={p.src}
                     alt={p.name}
-                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
@@ -286,7 +287,6 @@ export default function PanaderiaBravoPage() {
               <img
                 src={`${IMG}/torta.webp`}
                 alt="Torta de crema y nuez con fruta fresca de Panadería Bravo"
-                loading="lazy"
                 className="w-full h-full object-cover aspect-[4/3]"
               />
             </div>
@@ -298,7 +298,7 @@ export default function PanaderiaBravoPage() {
               <br />
               <em className="font-bold" style={{ color: C.goldSoft }}>hecha a pedido</em>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: 'rgba(251,245,233,0.75)' }}>
+            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: 'rgba(251,245,233,0.88)' }}>
               Para cumpleaños, celebraciones y esas fechas que no se
               pueden olvidar: cuéntanos para cuántas personas es y qué
               sabor te tinca, y la preparamos con anticipación.
@@ -341,19 +341,19 @@ export default function PanaderiaBravoPage() {
         <Reveal delay={120}>
           <div className="grid grid-cols-2 md:grid-cols-6 md:auto-rows-[215px] lg:auto-rows-[250px] gap-3">
             <figure className="col-span-2 md:col-span-4 md:row-span-2 rounded-3xl overflow-hidden">
-              <img src={`${IMG}/hero.webp`} alt="Interior de la panadería con vitrina de panes" loading="lazy" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
+              <img src={`${IMG}/hero.webp`} alt="Interior de la panadería con vitrina de panes" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
             </figure>
             <figure className="rounded-3xl overflow-hidden">
-              <img src={`${IMG}/panes.webp`} alt="Pan amasado y marraquetas recién horneadas" loading="lazy" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+              <img src={`${IMG}/panes.webp`} alt="Pan amasado y marraquetas recién horneadas" className="w-full h-full object-cover aspect-square md:aspect-auto" />
             </figure>
             <figure className="rounded-3xl overflow-hidden">
-              <img src={`${IMG}/cafe.webp`} alt="Café humeante con pastelito en la mesa de la panadería" loading="lazy" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+              <img src={`${IMG}/cafe.webp`} alt="Café humeante con pastelito en la mesa de la panadería" className="w-full h-full object-cover aspect-square md:aspect-auto" />
             </figure>
             <figure className="col-span-2 md:col-span-3 rounded-3xl overflow-hidden">
-              <img src={`${IMG}/dulces.webp`} alt="Berlines con manjar, alfajores y hojarascas" loading="lazy" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+              <img src={`${IMG}/dulces.webp`} alt="Berlines con manjar, alfajores y hojarascas" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
             </figure>
             <figure className="col-span-2 md:col-span-3 rounded-3xl overflow-hidden">
-              <img src={`${IMG}/torta.webp`} alt="Torta de celebración con crema y fruta" loading="lazy" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+              <img src={`${IMG}/torta.webp`} alt="Torta de celebración con crema y fruta" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
             </figure>
           </div>
         </Reveal>
@@ -492,7 +492,7 @@ export default function PanaderiaBravoPage() {
               <br />
               <em className="font-bold" style={{ color: C.goldSoft }}>con pan caliente</em>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(251,245,233,0.78)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(251,245,233,0.9)' }}>
               Escríbenos por WhatsApp para encargar tu torta o reservar
               el pan del fin de semana. Respondemos el mismo día.
             </p>
@@ -511,17 +511,17 @@ export default function PanaderiaBravoPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.chocoDeep, color: '#FBF5E9' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
           <div>
             <p className={`${display.className} font-extrabold text-2xl mb-2 flex items-center gap-3`}>
               <Wheat className="w-5 h-5" color={C.gold} />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,245,233,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,245,233,0.8)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,245,233,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,245,233,0.8)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white transition-colors">
                 {l.label}
@@ -530,15 +530,15 @@ export default function PanaderiaBravoPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,245,233,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,245,233,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            productos, horarios y fotos son de muestra; el número de
-            contacto es referencial.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-24 text-xs leading-relaxed" style={{ color: 'rgba(251,245,233,0.8)' }}>
+            Sitio de ejemplo de Sitiazo: textos, productos, horarios y fotos son de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <div className="contents [&>div]:bg-[#0A0A0A]">
+        <DemoBand name={BIZ.name} />
+      </div>
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
