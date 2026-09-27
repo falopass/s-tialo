@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Prata, Mulish } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -17,8 +18,9 @@ const C = {
   arena: '#E8DCC8',
   arenaSoft: '#F3EDE0',
   terracota: '#C1663F',
+  terracotaInk: '#9E5227',
   paper: '#FFFFFF',
-  muted: 'rgba(27,42,65,0.64)',
+  muted: 'rgba(27,42,65,0.72)',
   line: 'rgba(27,42,65,0.14)',
 }
 
@@ -110,7 +112,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-bold"
-      style={{ color: light ? C.arena : C.terracota }}
+      style={{ color: light ? C.arena : C.terracotaInk }}
     >
       <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
         <path d="M12 21 C12 14 12 8 12 3" />
@@ -147,6 +149,39 @@ function SectionCap({ color }: { color: string }) {
   )
 }
 
+/** Borde de follaje: lomas redondas como un arbusto visto de lejos */
+function CanopyCap({ color }: { color: string }) {
+  return (
+    <div className="relative h-[44px] md:h-[64px] -mb-px" aria-hidden="true">
+      <svg viewBox="0 0 1440 64" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
+        <path
+          d="M0 64 C70 26 150 38 230 30 C310 22 390 44 480 34 C570 24 650 42 740 32 C830 22 910 44 1000 36 C1090 28 1170 42 1260 34 C1330 28 1390 34 1440 26 L1440 64 Z"
+          fill={color}
+        />
+      </svg>
+    </div>
+  )
+}
+
+/** Sendero de hojas: ornamenta un título o separa bloques de texto */
+function LeafTrail({ className = '', color = C.terracota }: { className?: string; color?: string }) {
+  return (
+    <svg viewBox="0 0 160 24" className={className} fill="none" aria-hidden="true">
+      <path d="M4 18 C50 8 110 8 156 16" stroke={color} strokeWidth="1.4" strokeLinecap="round" />
+      {[
+        { x: 24, r: -34 },
+        { x: 56, r: 30 },
+        { x: 88, r: -26 },
+        { x: 120, r: 32 },
+      ].map((l) => (
+        <g key={l.x} transform={`translate(${l.x} 12) rotate(${l.r})`}>
+          <path d="M0 7 C-4 2 -4 -4 0 -8 C4 -4 4 2 0 7 Z" fill={color} />
+        </g>
+      ))}
+    </svg>
+  )
+}
+
 export default function VasquezMueblesPage() {
   return (
     <div
@@ -170,10 +205,13 @@ export default function VasquezMueblesPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Taller de Vasquez Muebles en Linares: mesa de comedor de madera junto a un ventanal con vista al bosque"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -206,14 +244,14 @@ export default function VasquezMueblesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm md:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] active:scale-95`}
                 style={{ backgroundColor: C.terracota, color: '#FFFFFF' }}
               >
                 Cotizar mi mueble
               </a>
               <a
                 href="#muebles"
-                className={`${display.className} text-sm md:text-base px-8 py-4 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} text-sm md:text-base px-8 py-4 rounded-full border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8]`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver el trabajo
@@ -223,11 +261,22 @@ export default function VasquezMueblesPage() {
         </div>
 
         <div className="relative border-t" style={{ borderColor: 'rgba(255,255,255,0.2)', backgroundColor: 'rgba(19,31,49,0.45)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            <span>Callejón Los Zárate, parcela 2</span>
-            <span>Diseño y confección a medida</span>
-            <span>Atención directa en el taller</span>
-            <span className="hidden md:inline" style={{ color: C.arena }}>sitio de ejemplo</span>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.75)' }}>
+            {[
+              'Callejón Los Zárate, parcela 2',
+              'Diseño y confección a medida',
+              'Atención directa en el taller',
+            ].map((item, i) => (
+              <span key={item} className="flex items-center gap-5">
+                {i > 0 && (
+                  <svg viewBox="0 0 10 14" className="w-[8px] h-[11px]" fill={C.arena} aria-hidden="true">
+                    <path d="M5 13 C1 9 1 4 5 1 C9 4 9 9 5 13 Z" />
+                  </svg>
+                )}
+                {item}
+              </span>
+            ))}
+            <span className="hidden md:inline ml-auto" style={{ color: C.arena }}>sitio de ejemplo</span>
           </div>
         </div>
       </section>
@@ -245,12 +294,13 @@ export default function VasquezMueblesPage() {
                 style={{ borderRadius: '999px 999px 32px 32px', border: `2px solid ${C.terracota}` }}
                 aria-hidden="true"
               />
-              <div className="relative overflow-hidden" style={{ borderRadius: '999px 999px 32px 32px' }}>
-                <img
+              <div className="relative overflow-hidden aspect-[4/5]" style={{ borderRadius: '999px 999px 32px 32px' }}>
+                <Image
                   src={`${IMG}/ambiente.webp`}
                   alt="Fachada del taller en Callejón Los Zárate: galpón de ladrillo con maderas apiladas, en una calle tranquila de Linares"
-                  loading="lazy"
-                  className="w-full aspect-[4/5] object-cover"
+                  fill
+                  sizes="(min-width: 768px) 45vw, 100vw"
+                  className="object-cover"
                 />
               </div>
               <Sprig className="absolute -bottom-6 -right-3 w-[44px] rotate-[24deg]" color={C.noche} />
@@ -261,15 +311,15 @@ export default function VasquezMueblesPage() {
             <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.08] mb-6`}>
               Un taller de barrio,
               <br />
-              <span style={{ color: C.terracota }}>con nombre y apellido</span>
+              <span style={{ color: C.terracotaInk }}>con nombre y apellido</span>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-5" style={{ color: C.muted }}>
+            <p className="text-[15px] md:text-base leading-relaxed mb-5" style={{ color: C.muted }}>
               En la parcela 2 de Callejón Los Zárate, a las afueras de Linares,
               funciona la fábrica de {BIZ.name}. Aquí no hay vitrina ni
               vendedores: conversas directo con quien corta, arma y termina
               cada mueble.
             </p>
-            <p className="text-sm md:text-base leading-relaxed mb-7" style={{ color: C.muted }}>
+            <p className="text-[15px] md:text-base leading-relaxed mb-7" style={{ color: C.muted }}>
               El taller todavía no acumula reseñas en Google — los encargos
               llegan por el boca a boca y por los {BIZ.facebookFollowers} vecinos
               que siguen el trabajo en Facebook.
@@ -280,7 +330,7 @@ export default function VasquezMueblesPage() {
                 'Cada mueble se hace a pedido, a tu medida',
                 'Visita y medición sin costo dentro de Linares',
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm md:text-base font-medium">
+                <li key={item} className="flex items-center gap-3 text-[15px] md:text-base font-medium">
                   <svg viewBox="0 0 24 24" className="w-[18px] h-[18px] shrink-0" fill={C.terracota} aria-hidden="true">
                     <path d="M12 21 C12 14 12 8 12 4" fill="none" stroke={C.terracota} strokeWidth="1.6" strokeLinecap="round" />
                     <path d="M12 17 C7 15 4 11 4 7 C9 8 11 12 12 17 Z" />
@@ -294,7 +344,7 @@ export default function VasquezMueblesPage() {
               href={BIZ.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-bold underline underline-offset-4 decoration-2"
+              className="text-[15px] font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#C1663F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F]"
               style={{ color: C.noche, textDecorationColor: 'rgba(193,102,63,0.5)' }}
             >
               Ver el trabajo en Facebook →
@@ -305,7 +355,7 @@ export default function VasquezMueblesPage() {
 
       {/* ── Los muebles ── */}
       <div style={{ backgroundColor: C.arena }}>
-        <SectionCap color={C.paper} />
+        <CanopyCap color={C.paper} />
       </div>
       <section id="muebles" className="scroll-mt-20" style={{ backgroundColor: C.paper }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
@@ -315,22 +365,22 @@ export default function VasquezMueblesPage() {
               <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.08]`}>
                 Lo que sale del taller
               </h2>
-              <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
+              <p className="text-[15px] max-w-sm leading-relaxed" style={{ color: C.muted }}>
                 Productos de ejemplo: al publicar van los trabajos y
                 especialidades reales del taller.
               </p>
             </div>
           </Reveal>
 
-          <div className="space-y-14 md:space-y-20">
+          <div className="space-y-16 md:space-y-24">
             {MUEBLES.map((m, i) => (
               <Reveal key={m.name} delay={i * 60}>
                 <article
                   className={`grid md:grid-cols-2 gap-8 md:gap-14 items-center ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}
                 >
-                  <div className="relative">
+                  <div className={`relative ${i % 2 === 1 ? 'md:pt-6' : 'md:pb-6'}`}>
                     <div
-                      className="overflow-hidden"
+                      className="relative overflow-hidden aspect-[5/4] group"
                       style={{
                         borderRadius:
                           i % 2 === 0
@@ -338,16 +388,21 @@ export default function VasquezMueblesPage() {
                             : '56% 44% 52% 48% / 46% 50% 50% 54%',
                       }}
                     >
-                      <img
+                      <Image
                         src={m.src}
                         alt={m.alt}
-                        loading="lazy"
-                        className="w-full aspect-[5/4] object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
+                        fill
+                        sizes="(min-width: 768px) 46vw, 100vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
                     </div>
                     <span
-                      className={`${display.className} absolute -top-5 ${i % 2 === 0 ? '-left-3' : '-right-3'} w-14 h-14 rounded-full flex items-center justify-center text-xl shadow-md`}
-                      style={{ backgroundColor: C.noche, color: C.arena }}
+                      className={`${display.className} absolute -top-5 ${i % 2 === 0 ? '-left-3' : '-right-3'} w-14 h-14 flex items-center justify-center text-xl shadow-md`}
+                      style={{
+                        backgroundColor: C.noche,
+                        color: C.arena,
+                        borderRadius: '62% 38% 55% 45% / 48% 60% 40% 52%',
+                      }}
                       aria-hidden="true"
                     >
                       {String(i + 1).padStart(2, '0')}
@@ -357,15 +412,15 @@ export default function VasquezMueblesPage() {
                     <h3 className={`${display.className} text-3xl md:text-4xl mb-4`}>
                       {m.name}
                     </h3>
-                    <p className="text-sm md:text-base leading-relaxed max-w-md mb-6" style={{ color: C.muted }}>
+                    <p className="text-[15px] md:text-base leading-relaxed max-w-md mb-6" style={{ color: C.muted }}>
                       {m.desc}
                     </p>
                     <a
                       href={WA_LINK_ENCARGO}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-bold"
-                      style={{ color: C.terracota }}
+                      className="inline-flex items-center gap-2 text-[15px] font-bold underline decoration-transparent underline-offset-4 transition-all hover:decoration-current hover:gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F]"
+                      style={{ color: C.terracotaInk }}
                     >
                       Cotizar algo así
                       <span aria-hidden="true">→</span>
@@ -394,17 +449,35 @@ export default function VasquezMueblesPage() {
               <span style={{ color: C.arena }}>en cuatro pasos</span>
             </h2>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7">
             {PROCESO.map((p, i) => (
-              <Reveal key={p.title} delay={i * 110}>
-                <article className="border-t-2 pt-6" style={{ borderColor: C.terracota }}>
-                  <p className={`${display.className} text-5xl md:text-6xl leading-none mb-4`} style={{ color: C.arena }}>
+              <Reveal key={p.title} delay={i * 110} className={i % 2 === 1 ? 'lg:translate-y-8' : ''}>
+                <article
+                  className="h-full p-6 md:p-7 border"
+                  style={{
+                    backgroundColor: 'rgba(255,255,255,0.055)',
+                    borderColor: 'rgba(255,255,255,0.14)',
+                    borderRadius:
+                      i % 2 === 0
+                        ? '40px 40px 40px 12px'
+                        : '40px 40px 12px 40px',
+                  }}
+                >
+                  <p
+                    className={`${display.className} w-12 h-12 flex items-center justify-center text-xl mb-5`}
+                    style={{
+                      backgroundColor: C.terracota,
+                      color: '#FFFFFF',
+                      borderRadius: '62% 38% 55% 45% / 48% 60% 40% 52%',
+                    }}
+                    aria-hidden="true"
+                  >
                     {String(i + 1).padStart(2, '0')}
                   </p>
                   <h3 className={`${display.className} text-xl md:text-2xl mb-3`} style={{ color: '#FFFFFF' }}>
                     {p.title}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>
+                  <p className="text-[15px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
                     {p.desc}
                   </p>
                 </article>
@@ -416,16 +489,17 @@ export default function VasquezMueblesPage() {
 
       {/* ── Precios de referencia ── */}
       <div style={{ backgroundColor: C.noche }}>
-        <SectionCap color={C.arenaSoft} />
+        <CanopyCap color={C.arenaSoft} />
       </div>
       <section id="precios" className="scroll-mt-20" style={{ backgroundColor: C.arenaSoft }}>
         <div className="max-w-4xl mx-auto px-5 md:px-8 py-14 md:py-20">
           <Reveal>
             <Eyebrow>Precios de referencia</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.08] mb-4`}>
+            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.08] mb-3`}>
               Para hacerse una idea
             </h2>
-            <p className="text-sm md:text-base leading-relaxed max-w-xl mb-10" style={{ color: C.muted }}>
+            <LeafTrail className="w-[130px] md:w-[160px] h-auto mb-5" />
+            <p className="text-[15px] md:text-base leading-relaxed max-w-xl mb-10" style={{ color: C.muted }}>
               Valores de muestra para mostrar cómo se vería una tabla de
               precios. Cada encargo se cotiza según medidas, material y
               terminaciones.
@@ -433,13 +507,13 @@ export default function VasquezMueblesPage() {
           </Reveal>
           <Reveal delay={120}>
             <ul
-              className="rounded-3xl border overflow-hidden"
-              style={{ backgroundColor: C.paper, borderColor: C.line }}
+              className="border overflow-hidden"
+              style={{ backgroundColor: C.paper, borderColor: C.line, borderRadius: '36px 36px 36px 12px' }}
             >
               {PRECIOS.map((p) => (
                 <li
                   key={p.name}
-                  className="flex items-baseline justify-between gap-4 px-5 md:px-8 py-5 border-t first:border-t-0"
+                  className="flex items-baseline justify-between gap-4 px-5 md:px-8 py-5 border-t first:border-t-0 transition-colors duration-300 hover:bg-[#FBF7EE]"
                   style={{ borderColor: C.line }}
                 >
                   <div>
@@ -448,7 +522,7 @@ export default function VasquezMueblesPage() {
                       <p className="text-xs md:text-sm mt-1" style={{ color: C.muted }}>{p.desc}</p>
                     )}
                   </div>
-                  <p className="shrink-0 text-sm md:text-base font-bold" style={{ color: C.terracota }}>
+                  <p className="shrink-0 text-sm md:text-base font-bold" style={{ color: C.terracotaInk }}>
                     {p.price}
                   </p>
                 </li>
@@ -476,7 +550,7 @@ export default function VasquezMueblesPage() {
               <h2 className={`${display.className} text-3xl md:text-4xl leading-tight mb-4`}>
                 Lo que valoran los clientes
               </h2>
-              <p className="text-sm leading-relaxed mb-5" style={{ color: C.muted }}>
+              <p className="text-[15px] leading-relaxed mb-5" style={{ color: C.muted }}>
                 {BIZ.name} aún no tiene reseñas en Google — estos textos son
                 de muestra. Al publicar van las reseñas reales del taller.
               </p>
@@ -484,8 +558,8 @@ export default function VasquezMueblesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
-                style={{ color: C.terracota, textDecorationColor: 'rgba(193,102,63,0.35)' }}
+                className="text-[15px] font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2A41] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F]"
+                style={{ color: C.terracotaInk, textDecorationColor: 'rgba(158,82,39,0.4)' }}
               >
                 Ver la ubicación en Google →
               </a>
@@ -498,7 +572,10 @@ export default function VasquezMueblesPage() {
                     style={{
                       backgroundColor: C.arenaSoft,
                       borderColor: C.line,
-                      borderRadius: '32px 32px 32px 8px',
+                      borderRadius:
+                        i % 2 === 0
+                          ? '32px 32px 32px 8px'
+                          : '32px 32px 8px 32px',
                     }}
                   >
                     <blockquote className={`${display.className} text-base md:text-lg leading-relaxed mb-4`}>
@@ -518,7 +595,7 @@ export default function VasquezMueblesPage() {
 
       {/* ── Contacto y ubicación ── */}
       <div style={{ backgroundColor: C.paper }}>
-        <SectionCap color={C.arena} />
+        <CanopyCap color={C.arena} />
       </div>
       <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.arena }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
@@ -527,14 +604,14 @@ export default function VasquezMueblesPage() {
             <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.08] mb-6`}>
               El taller te espera
               <br />
-              <span style={{ color: C.terracota }}>en Los Zárate</span>
+              <span style={{ color: C.terracotaInk }}>en Los Zárate</span>
             </h2>
-            <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
+            <address className="not-italic text-[15px] md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
               {BIZ.address}
               <br />
               {BIZ.city}, {BIZ.region}, Chile
             </address>
-            <p className="text-sm md:text-base leading-relaxed mb-8 max-w-sm" style={{ color: C.muted }}>
+            <p className="text-[15px] md:text-base leading-relaxed mb-8 max-w-sm" style={{ color: C.muted }}>
               Para visitar el taller conviene avisar antes por WhatsApp: así
               el maestro deja la máquina y te atiende con calma.
             </p>
@@ -543,7 +620,7 @@ export default function VasquezMueblesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B2A41] active:scale-95`}
                 style={{ backgroundColor: C.terracota, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
@@ -552,14 +629,19 @@ export default function VasquezMueblesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-7 py-3.5 rounded-full border transition-colors`}
+                className={`${display.className} text-sm px-7 py-3.5 rounded-full border transition-colors duration-300 hover:bg-white/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B2A41]`}
                 style={{ borderColor: 'rgba(27,42,65,0.35)', color: C.noche }}
               >
                 Cómo llegar →
               </a>
             </div>
-            <p className="text-sm mt-6 font-semibold" style={{ color: C.noche }}>
-              {BIZ.phoneDisplay}
+            <p className="text-[15px] mt-6 font-semibold" style={{ color: C.noche }}>
+              <a
+                href={`tel:${BIZ.phoneTel}`}
+                className="underline decoration-transparent underline-offset-4 transition-colors hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F]"
+              >
+                {BIZ.phoneDisplay}
+              </a>
             </p>
           </Reveal>
           <Reveal delay={140}>
@@ -601,12 +683,13 @@ export default function VasquezMueblesPage() {
         <Sprig className="absolute bottom-12 right-8 md:right-20 w-[40px] -rotate-[18deg] opacity-40" color={C.arena} />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
+            <LeafTrail className="w-[150px] md:w-[190px] h-auto mx-auto mb-7" color={C.arena} />
             <h2 className={`${display.className} text-[clamp(2.1rem,6.5vw,4rem)] leading-[1.06] mb-6`} style={{ color: '#FFFFFF' }}>
               ¿Tienes un mueble
               <br />
               <span style={{ color: C.arena }}>en mente?</span>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
+            <p className="text-[15px] md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
               Mándanos una foto o las medidas por WhatsApp y te respondemos
               con una propuesta. Sin compromiso.
             </p>
@@ -614,7 +697,7 @@ export default function VasquezMueblesPage() {
               href={WA_LINK_ENCARGO}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-9 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block text-sm md:text-base px-9 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] active:scale-95`}
               style={{ backgroundColor: C.terracota, color: '#FFFFFF' }}
             >
               Cotizar por WhatsApp
