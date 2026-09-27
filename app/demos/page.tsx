@@ -462,6 +462,14 @@ const BLITZ = [
     tagline: 'Diagonales dinámicas: naranja construcción, hormigón y arena, cortes en ángulo y fotos inclinadas.',
     gradient: 'linear-gradient(135deg, #3A3F44 0%, #3A3F44 55%, #E4572E 140%)',
   },
+  {
+    slug: 'hair-home-studio-claudia-beltran',
+    name: 'Hair Home studio Claudia Beltrán',
+    rubro: 'Centro de estética',
+    city: 'Linares',
+    tagline: 'Collage artesanal utilitario: mostaza, verde oscuro y papel, tarjetas con cinta adhesiva.',
+    gradient: 'linear-gradient(135deg, #1F3229 0%, #2E4A3C 55%, #D9A441 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
