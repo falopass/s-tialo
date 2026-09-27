@@ -431,29 +431,24 @@ export default function GirlsHousePage() {
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#0E0F11', color: '#FFFFFF' }}>
         <div style={{ background: HAZARD, height: '4px' }} aria-hidden="true" />
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-center gap-6 justify-between">
-          <div>
-            <p className={`${display.className} font-extrabold uppercase text-xl mb-1`}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-6 pb-16 flex flex-col gap-3">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+            <p className={`${display.className} font-extrabold uppercase text-lg`}>
               {BIZ.name}
             </p>
-            <p className="text-xs" style={{ color: C.steelDark }}>
-              {BIZ.rubro} · {BIZ.address}, {BIZ.city}
-            </p>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs" style={{ color: C.steelDark }}>
+              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                @{BIZ.instagram}
+              </a>
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                Cómo llegar
+              </a>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                {BIZ.phoneDisplay}
+              </a>
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs" style={{ color: C.steelDark }}>
-            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              @{BIZ.instagram}
-            </a>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              Cómo llegar
-            </a>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              {BIZ.phoneDisplay}
-            </a>
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+          <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#FFFFFF' }}>
               Sitiazo
