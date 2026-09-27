@@ -650,7 +650,7 @@ export default function SanClementeHeladeriaPage() {
             />
           </div>
           <div className="px-5 md:px-8">
-            <div className="relative -mt-20 md:mt-0 md:absolute md:top-1/2 md:left-8 md:-translate-y-1/2 md:w-[380px] z-10">
+            <div className="relative mt-6 md:mt-0 md:absolute md:top-1/2 md:left-8 md:-translate-y-1/2 md:w-[380px] z-10">
               <Reveal>
                 <div
                   className="rounded-[28px] border p-6 md:p-7 max-w-[380px] mx-auto md:mx-0 md:max-w-none shadow-xl"
