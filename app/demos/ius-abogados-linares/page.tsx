@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Epilogue, Work_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, INSTAGRAM_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -134,6 +134,7 @@ function Label({ children, light = false }: { children: React.ReactNode; light?:
 export default function IusAbogadosLinaresPage() {
   return (
     <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.hueso, color: C.tinta }}>
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -156,10 +157,10 @@ export default function IusAbogadosLinaresPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(29,49,40,0.7) 0%, rgba(29,49,40,0.25) 40%, rgba(29,49,40,0.94) 100%)',
+              'linear-gradient(180deg, rgba(29,49,40,0.75) 0%, rgba(29,49,40,0.55) 30%, rgba(29,49,40,0.9) 60%, rgba(29,49,40,0.96) 100%)',
           }}
         />
-        <div className="relative w-full max-w-7xl mx-auto px-5 md:px-8 pt-40 pb-10 md:pb-14">
+        <div className="relative w-full max-w-7xl mx-auto px-5 md:px-8 pt-32 md:pt-40 pb-10 md:pb-14">
           <Reveal>
             <Label light>Abogados · Linares · Maipú 461, Ofi 405</Label>
             <h1
@@ -179,14 +180,14 @@ export default function IusAbogadosLinaresPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-4 transition-transform hover:-translate-y-0.5 active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-6 py-3 md:px-7 md:py-4 transition-transform hover:-translate-y-0.5 active:scale-95 ${focusRing}`}
                 style={{ backgroundColor: C.mostaza, color: C.verdeDeep, borderRadius: '3px', boxShadow: `4px 4px 0 ${C.madera}` }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#proceso"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-4 border-2 transition-colors hover:bg-white/10 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-6 py-3 md:px-7 md:py-4 border-2 transition-colors hover:bg-white/10 ${focusRing}`}
                 style={{ borderColor: 'rgba(244,239,228,0.6)', color: C.hueso, borderRadius: '3px' }}
               >
                 Ver cómo trabajamos
@@ -196,7 +197,7 @@ export default function IusAbogadosLinaresPage() {
         </div>
         {/* ficha rápida */}
         <div className="relative border-t" style={{ borderColor: 'rgba(244,239,228,0.18)', backgroundColor: 'rgba(29,49,40,0.85)' }}>
-          <dl className="max-w-7xl mx-auto px-5 md:px-8 grid grid-cols-2 md:grid-cols-4 text-sm">
+          <dl className="max-w-7xl mx-auto pl-5 pr-16 md:px-8 grid grid-cols-2 md:grid-cols-4 text-sm">
             {[
               ['Dirección', `${BIZ.address}`],
               ['Comuna', `${BIZ.city}, Maule`],
@@ -241,36 +242,34 @@ export default function IusAbogadosLinaresPage() {
           >
             {HITOS.map((h, i) => (
               <li key={h.title} className="snap-start shrink-0 w-[78vw] sm:w-[340px] lg:w-auto">
-                <Reveal delay={i * 90}>
-                  <div className="flex items-center gap-3 mb-6">
-                    <span
-                      className={`${display.className} relative grid place-items-center w-[52px] h-[52px] text-lg font-black shrink-0`}
-                      style={{ backgroundColor: C.verde, color: C.mostaza, borderRadius: '50%', boxShadow: `0 0 0 5px ${C.hueso}` }}
-                    >
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span
-                      className="text-[10px] uppercase tracking-[0.18em] font-bold px-2 py-1"
-                      style={{ backgroundColor: C.hueso, color: C.madera }}
-                    >
-                      Hito {i + 1} de {HITOS.length}
-                    </span>
-                  </div>
-                  <div className="relative aspect-[4/3] overflow-hidden mb-5 border" style={{ borderColor: C.line, borderRadius: '3px' }}>
-                    <Image src={h.src} alt={h.alt} fill sizes="(min-width: 1024px) 18vw, (min-width: 640px) 340px, 78vw" className="object-cover" />
-                  </div>
-                  <h3 className={`${display.className} font-extrabold text-xl md:text-2xl mb-2`}>{h.title}</h3>
-                  <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>{h.desc}</p>
-                  <p
-                    className="text-xs leading-snug px-3 py-2.5 border-l-[3px]"
-                    style={{ backgroundColor: C.huesoSoft, borderColor: C.mostaza, color: C.tinta }}
+                <div className="flex items-center gap-3 mb-6">
+                  <span
+                    className={`${display.className} relative grid place-items-center w-[52px] h-[52px] text-lg font-black shrink-0`}
+                    style={{ backgroundColor: C.verdeDeep, color: C.mostaza, borderRadius: '50%', boxShadow: `0 0 0 5px ${C.hueso}` }}
                   >
-                    <strong className="font-bold uppercase tracking-[0.12em] text-[10px] block mb-0.5" style={{ color: C.madera }}>
-                      {i === HITOS.length - 1 ? 'Qué necesita' : 'Qué traer'}
-                    </strong>
-                    {h.lleva}
-                  </p>
-                </Reveal>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span
+                    className="text-[10px] uppercase tracking-[0.18em] font-bold px-2 py-1"
+                    style={{ backgroundColor: C.hueso, color: C.madera }}
+                  >
+                    Hito {i + 1} de {HITOS.length}
+                  </span>
+                </div>
+                <div className="relative aspect-[4/3] overflow-hidden mb-5 border" style={{ borderColor: C.line, borderRadius: '3px' }}>
+                  <Image src={h.src} alt={h.alt} fill sizes="(min-width: 1024px) 18vw, (min-width: 640px) 340px, 78vw" loading="eager" className="object-cover" />
+                </div>
+                <h3 className={`${display.className} font-extrabold text-xl md:text-2xl mb-2`}>{h.title}</h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>{h.desc}</p>
+                <p
+                  className="text-xs leading-snug px-3 py-2.5 border-l-[3px]"
+                  style={{ backgroundColor: C.huesoSoft, borderColor: C.mostaza, color: C.tinta }}
+                >
+                  <strong className="font-bold uppercase tracking-[0.12em] text-[10px] block mb-0.5" style={{ color: C.madera }}>
+                    {i === HITOS.length - 1 ? 'Qué necesita' : 'Qué traer'}
+                  </strong>
+                  {h.lleva}
+                </p>
               </li>
             ))}
           </ol>
@@ -281,7 +280,7 @@ export default function IusAbogadosLinaresPage() {
       </section>
 
       {/* ── Áreas ── */}
-      <section id="areas" className="scroll-mt-20" style={{ backgroundColor: C.verde, color: C.hueso }}>
+      <section id="areas" className="scroll-mt-20" style={{ backgroundColor: C.verdeDeep, color: C.hueso }}>
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <Label light>Áreas de trabajo</Label>
@@ -298,40 +297,38 @@ export default function IusAbogadosLinaresPage() {
             </div>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-            {AREAS.map((a, i) => (
-              <Reveal key={a.name} delay={i * 100}>
-                <article className="h-full flex flex-col" style={{ backgroundColor: C.hueso, color: C.tinta, borderRadius: '3px' }}>
-                  <div className="relative aspect-[16/10] overflow-hidden" style={{ borderRadius: '3px 3px 0 0' }}>
-                    <Image src={a.src} alt={a.alt} fill sizes="(min-width: 768px) 32vw, 100vw" className="object-cover" />
-                    <span
-                      className={`${display.className} absolute top-0 left-0 text-xs font-black tracking-[0.15em] px-3 py-2`}
-                      style={{ backgroundColor: C.mostaza, color: C.verdeDeep }}
-                    >
-                      {a.code}
-                    </span>
-                  </div>
-                  <div className="p-6 md:p-7 flex-1 flex flex-col">
-                    <h3 className={`${display.className} font-extrabold text-2xl mb-4`}>{a.name}</h3>
-                    <ul className="space-y-2.5 mb-6 flex-1">
-                      {a.items.map((it) => (
-                        <li key={it} className="flex items-start gap-3 text-sm md:text-[15px]">
-                          <span className="mt-1.5 w-2.5 h-2.5 shrink-0" style={{ backgroundColor: C.madera }} aria-hidden="true" />
-                          {it}
-                        </li>
-                      ))}
-                    </ul>
-                    <a
-                      href={`https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(`Hola, quiero consultar por un tema de ${a.name.toLowerCase()}`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${display.className} text-sm font-bold underline underline-offset-4 decoration-2 ${focusRing}`}
-                      style={{ color: C.verde, textDecorationColor: C.mostaza }}
-                    >
-                      Consultar {a.name.toLowerCase()} →
-                    </a>
-                  </div>
-                </article>
-              </Reveal>
+            {AREAS.map((a) => (
+              <article key={a.name} className="h-full flex flex-col" style={{ backgroundColor: C.hueso, color: C.tinta, borderRadius: '3px' }}>
+                <div className="relative aspect-[16/10] overflow-hidden" style={{ borderRadius: '3px 3px 0 0' }}>
+                  <Image src={a.src} alt={a.alt} fill sizes="(min-width: 768px) 32vw, 100vw" className="object-cover" />
+                  <span
+                    className={`${display.className} absolute top-0 left-0 text-xs font-black tracking-[0.15em] px-3 py-2`}
+                    style={{ backgroundColor: C.mostaza, color: C.verdeDeep }}
+                  >
+                    {a.code}
+                  </span>
+                </div>
+                <div className="p-6 md:p-7 flex-1 flex flex-col">
+                  <h3 className={`${display.className} font-extrabold text-2xl mb-4`}>{a.name}</h3>
+                  <ul className="space-y-2.5 mb-6 flex-1">
+                    {a.items.map((it) => (
+                      <li key={it} className="flex items-start gap-3 text-sm md:text-[15px]">
+                        <span className="mt-1.5 w-2.5 h-2.5 shrink-0" style={{ backgroundColor: C.madera }} aria-hidden="true" />
+                        {it}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={`https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(`Hola, quiero consultar por un tema de ${a.name.toLowerCase()}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${display.className} text-sm font-bold underline underline-offset-4 decoration-2 ${focusRing}`}
+                    style={{ color: C.verde, textDecorationColor: C.mostaza }}
+                  >
+                    Consultar {a.name.toLowerCase()} →
+                  </a>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -340,19 +337,17 @@ export default function IusAbogadosLinaresPage() {
       {/* ── Sobre el estudio ── */}
       <section id="estudio" className="scroll-mt-20" style={{ backgroundColor: C.hueso }}>
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center">
-          <Reveal>
-            <div className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden" style={{ borderRadius: '3px', boxShadow: `10px 10px 0 ${C.madera}` }}>
-                <Image src={`${IMG}/ambiente.webp`} alt="Calle arbolada del centro de Linares" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
-              </div>
-              <span
-                className={`${display.className} absolute -bottom-4 left-5 text-xs font-bold uppercase tracking-[0.16em] px-4 py-2.5`}
-                style={{ backgroundColor: C.mostaza, color: C.verdeDeep }}
-              >
-                Centro de Linares
-              </span>
+          <div className="relative">
+            <div className="relative aspect-[4/3] overflow-hidden" style={{ borderRadius: '3px', boxShadow: `10px 10px 0 ${C.madera}` }}>
+              <Image src={`${IMG}/ambiente.webp`} alt="Calle arbolada del centro de Linares" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
-          </Reveal>
+            <span
+              className={`${display.className} absolute -bottom-4 left-5 text-xs font-bold uppercase tracking-[0.16em] px-4 py-2.5`}
+              style={{ backgroundColor: C.mostaza, color: C.verdeDeep }}
+            >
+              Centro de Linares
+            </span>
+          </div>
           <Reveal delay={120}>
             <Label>El estudio</Label>
             <h2 className={`${display.className} font-extrabold text-4xl md:text-5xl leading-[1.02] tracking-[-0.02em] mb-6`}>
@@ -435,7 +430,7 @@ export default function IusAbogadosLinaresPage() {
                 >
                   <span
                     className={`${display.className} grid place-items-center px-3 text-[11px] font-black tracking-[0.1em] [writing-mode:vertical-rl] rotate-180`}
-                    style={{ backgroundColor: C.verde, color: C.mostaza }}
+                    style={{ backgroundColor: C.verdeDeep, color: C.mostaza }}
                   >
                     {v.code}
                   </span>
@@ -474,14 +469,14 @@ export default function IusAbogadosLinaresPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} flex items-center justify-between gap-4 w-full max-w-md px-6 py-5 mb-8 transition-transform hover:-translate-y-0.5 active:scale-[0.98] ${focusRing}`}
+              className={`${display.className} flex items-center justify-between gap-4 w-full max-w-md px-5 py-3 md:py-4 mb-8 transition-transform hover:-translate-y-0.5 active:scale-[0.98] ${focusRing}`}
               style={{ backgroundColor: C.mostaza, color: C.verdeDeep, borderRadius: '3px', boxShadow: `6px 6px 0 ${C.madera}` }}
             >
               <span>
-                <span className="block text-xs font-bold uppercase tracking-[0.18em] opacity-80">Escribir por WhatsApp</span>
-                <span className="block text-2xl md:text-3xl font-black">{BIZ.phoneDisplay}</span>
+                <span className="block text-[11px] leading-tight font-bold uppercase tracking-[0.18em]">Escribir por WhatsApp</span>
+                <span className="block text-xl md:text-2xl leading-tight font-black">{BIZ.phoneDisplay}</span>
               </span>
-              <span className="text-3xl font-black" aria-hidden="true">→</span>
+              <span className="text-2xl font-black" aria-hidden="true">→</span>
             </a>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: 'rgba(244,239,228,0.85)' }}>
               <strong className={`${display.className} block text-lg`} style={{ color: C.hueso }}>{BIZ.address}</strong>
@@ -514,14 +509,14 @@ export default function IusAbogadosLinaresPage() {
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.verdeDeep, color: C.hueso }}>
         <div className="h-[14px]" style={tape} aria-hidden="true" />
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <p className={`${display.className} font-black text-2xl mb-1`}>{BIZ.name}</p>
-            <address className="not-italic text-sm" style={{ color: 'rgba(244,239,228,0.62)' }}>
+            <address className="not-italic text-sm" style={{ color: 'rgba(244,239,228,0.75)' }}>
               {BIZ.address} · {BIZ.postal} {BIZ.city}, Maule
             </address>
           </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,239,228,0.62)' }} aria-label="Pie de página">
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,239,228,0.75)' }} aria-label="Pie de página">
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing}`}>
                 {l.label}
@@ -530,17 +525,21 @@ export default function IusAbogadosLinaresPage() {
           </nav>
         </div>
         <p
-          className="max-w-7xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed border-t"
-          style={{ color: 'rgba(244,239,228,0.45)', borderColor: 'rgba(244,239,228,0.14)' }}
+          className="max-w-7xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed border-t"
+          style={{ color: 'rgba(244,239,228,0.75)', borderColor: 'rgba(244,239,228,0.14)' }}
         >
-          Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos, áreas,
-          proceso, valores y fotos son de muestra; la dirección, el WhatsApp, el
-          Instagram, sus {BIZ.instagramFollowers} seguidores y las {BIZ.reviews} reseñas en Google son
-          datos reales del negocio.
+          Mockup preparado por{' '}
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing}`} style={{ color: C.mostaza }}>
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name}. Textos y fotos son de muestra; dirección, WhatsApp,
+          Instagram y reseñas son datos reales.{' '}
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing}`} style={{ color: C.mostaza }}>
+            ¿Lo hacemos realidad?
+          </a>
         </p>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
