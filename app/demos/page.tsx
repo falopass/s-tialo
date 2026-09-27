@@ -566,6 +566,14 @@ const BLITZ = [
     tagline: 'Logístico y puntual: rojo señal, gris flota y hero tipográfico sin foto.',
     gradient: 'linear-gradient(135deg, #8E1B20 0%, #C1272D 55%, #F26722 140%)',
   },
+  {
+    slug: 'a-toda-maquina-ventas-y-servicios',
+    name: 'A Toda Maquina Ventas y Servicios',
+    rubro: 'Tienda de máquinas de coser',
+    city: 'Linares',
+    tagline: 'Ferretero y utilitario: mostaza, verde oscuro y madera, línea de tiempo horizontal con fotos.',
+    gradient: 'linear-gradient(135deg, #1E332A 0%, #2E4A3C 55%, #D9A441 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
