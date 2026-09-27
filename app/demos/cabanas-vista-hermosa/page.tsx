@@ -21,11 +21,11 @@ const C = {
   paper: '#F7F9F9',
   soft: '#E7F1EE',
   mint: '#9FD8CB',
-  mintDeep: '#6FBBA9',
+  mintDeep: '#256B5C',
   petro: '#0E4C5C',
   deep: '#093540',
   ink: '#2A363C',
-  muted: '#60747C',
+  muted: '#566A72',
   line: 'rgba(14,76,92,0.22)',
 }
 
@@ -222,9 +222,6 @@ export default function CabanasVistaHermosaPage() {
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`
-        @keyframes cvh-ticker { from { transform: translateX(0) } to { transform: translateX(-50%) } }
-        .cvh-ticker { animation: cvh-ticker 26s linear infinite }
-        @media (prefers-reduced-motion: reduce) { .cvh-ticker { animation: none } }
         .cvh a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px }
       `}</style>
 
@@ -260,22 +257,22 @@ export default function CabanasVistaHermosaPage() {
               'linear-gradient(180deg, rgba(9,53,64,0.4) 0%, rgba(9,53,64,0.1) 42%, rgba(9,53,64,0.66) 100%)',
           }}
         />
-        {/* sello de reseñas */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-10">
-          <Reveal>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Ver las ${BIZ.reviews} reseñas de Cabañas Vista Hermosa en Google`}
-              className="inline-block transition-transform hover:scale-105"
-            >
-              <Sello top="RÍO CLARO · MAULE ·" center={String(BIZ.reviews)} sub="RESEÑAS EN GOOGLE" />
-            </a>
-          </Reveal>
-        </div>
         {/* letrero pintado */}
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-36">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-24">
+          {/* sello de reseñas */}
+          <div className="flex justify-end mb-6">
+            <Reveal>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ver las ${BIZ.reviews} reseñas de Cabañas Vista Hermosa en Google`}
+                className="inline-block transition-transform hover:scale-105"
+              >
+                <Sello size={128} top="RÍO CLARO · MAULE ·" center={String(BIZ.reviews)} sub="RESEÑAS EN GOOGLE" />
+              </a>
+            </Reveal>
+          </div>
           <Reveal>
             <div className="max-w-3xl">
               <Teeth color={C.paper} className="mx-0" />
@@ -322,27 +319,14 @@ export default function CabanasVistaHermosaPage() {
         </div>
         {/* cortina de almacén */}
         <div className="relative mt-10 md:mt-14" style={{ backgroundColor: C.petro }}>
-          <div className="overflow-hidden py-3">
-            <div className="cvh-ticker flex whitespace-nowrap w-max">
-              {[0, 1].map((n) => (
-                <span
-                  key={n}
-                  aria-hidden={n === 1}
-                  className="text-[11px] md:text-xs font-black uppercase tracking-[0.24em] flex items-center"
-                  style={{ color: C.mint }}
-                >
-                  {['Reserva directa', 'Sin comisiones', 'Atendido por sus dueños', 'Río Claro · Región del Maule'].map(
-                    (t) => (
-                      <span key={t} className="flex items-center">
-                        <span className="px-6">{t}</span>
-                        <span aria-hidden="true" style={{ color: 'rgba(159,216,203,0.5)' }}>✳</span>
-                      </span>
-                    ),
-                  )}
-                </span>
-              ))}
-            </div>
-          </div>
+          <ul
+            className="max-w-6xl mx-auto px-5 md:px-8 py-3 flex flex-wrap justify-center gap-x-6 gap-y-1.5 text-[11px] md:text-xs font-black uppercase tracking-[0.2em] text-center"
+            style={{ color: C.mint }}
+          >
+            {['Reserva directa', 'Sin comisiones', 'Atendido por sus dueños', 'Río Claro · Región del Maule'].map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -669,7 +653,7 @@ export default function CabanasVistaHermosaPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.45)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.7)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
             tarifas, reseñas y fotos son de muestra; el WhatsApp, la
             dirección, el Instagram y el número de reseñas son reales.
