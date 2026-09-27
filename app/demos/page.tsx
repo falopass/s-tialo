@@ -246,6 +246,22 @@ const BLITZ = [
     tagline: 'Sobrio y patrimonial: verde bosque, crema y latón, fichas apiladas al hacer scroll.',
     gradient: 'linear-gradient(135deg, #142A20 0%, #1E3D2F 55%, #C8A24B 140%)',
   },
+  {
+    slug: 'nativa-curico',
+    name: 'Nativa Curicó',
+    rubro: 'Centro de estética',
+    city: 'Curicó',
+    tagline: 'Neón nocturno: tinta vino, hueso y oro viejo con glow, marquesina y carta de precios.',
+    gradient: 'linear-gradient(135deg, #150A0F 0%, #6B2737 55%, #B98B4E 140%)',
+  },
+  {
+    slug: 'restobar-los-leones',
+    name: 'Restobar Los Leones',
+    rubro: 'Restobar',
+    city: 'Pelarco',
+    tagline: 'Editorial de revista: azul eléctrico, lima y titulares gigantes en grilla de 12 columnas.',
+    gradient: 'linear-gradient(135deg, #141518 0%, #2251FF 55%, #C6F24E 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
