@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Lato } from 'next/font/google'
+import Image from 'next/image'
+import { Passion_One, Lato } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Playfair_Display({
+const display = Passion_One({
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
-  style: ['normal', 'italic'],
+  weight: ['400', '700', '900'],
 })
 const body = Lato({ subsets: ['latin'], weight: ['400', '700', '900'] })
 
@@ -15,6 +15,7 @@ const body = Lato({ subsets: ['latin'], weight: ['400', '700', '900'] })
  * Dirección de arte: «retro de almacén de barrio» — sellos circulares,
  * etiquetas colgantes perforadas, bordes de ticket y letrero pintado,
  * ejecutado limpio y luminoso en petróleo, menta y blanco roto.
+ * Passion One hace de letra pintada a mano en el letrero; Lato es el papel.
  */
 const C = {
   paper: '#F7F9F9',
@@ -217,13 +218,14 @@ function Letrero({ children, light = false }: { children: React.ReactNode; light
 export default function CabanasVistaHermosaPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`${body.className} cvh min-h-screen antialiased overflow-x-hidden`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`
         @keyframes cvh-ticker { from { transform: translateX(0) } to { transform: translateX(-50%) } }
         .cvh-ticker { animation: cvh-ticker 26s linear infinite }
         @media (prefers-reduced-motion: reduce) { .cvh-ticker { animation: none } }
+        .cvh a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px }
       `}</style>
 
       <BlitzNav
@@ -243,10 +245,13 @@ export default function CabanasVistaHermosaPage() {
 
       {/* ── Hero a sangre con letrero ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de madera de una cabaña de Vista Hermosa con ventanal a los cerros del Maule"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -258,8 +263,14 @@ export default function CabanasVistaHermosaPage() {
         {/* sello de reseñas */}
         <div className="absolute top-24 md:top-28 right-5 md:right-10">
           <Reveal>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" aria-label="Ver las 13 reseñas de Cabañas Vista Hermosa en Google">
-              <Sello top="RÍO CLARO · MAULE ·" center="13" sub="RESEÑAS EN GOOGLE" />
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Ver las ${BIZ.reviews} reseñas de Cabañas Vista Hermosa en Google`}
+              className="inline-block transition-transform hover:scale-105"
+            >
+              <Sello top="RÍO CLARO · MAULE ·" center={String(BIZ.reviews)} sub="RESEÑAS EN GOOGLE" />
             </a>
           </Reveal>
         </div>
@@ -277,11 +288,10 @@ export default function CabanasVistaHermosaPage() {
               >
                 <Letrero>Cabañas · Río Claro · VII Región</Letrero>
                 <h1
-                  className={`${display.className} font-bold leading-[0.98] tracking-[-0.01em] text-[clamp(2.8rem,10vw,6rem)] mb-5`}
+                  className={`${display.className} uppercase font-black leading-[0.95] tracking-[0.01em] text-[clamp(3rem,11vw,6.5rem)] mb-5`}
                   style={{ color: C.petro }}
                 >
-                  Vista
-                  <em className="font-semibold" style={{ color: C.mintDeep }}> Hermosa</em>
+                  Vista <span style={{ color: C.mintDeep }}>Hermosa</span>
                 </h1>
                 <p className="text-base md:text-lg leading-relaxed max-w-xl mb-8" style={{ color: C.muted }}>
                   Cabañas de madera entre árboles, con la vista que da nombre
@@ -293,14 +303,14 @@ export default function CabanasVistaHermosaPage() {
                     href={WA_LINK_RESERVA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                    className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 transition-all hover:brightness-110 active:scale-95`}
                     style={{ backgroundColor: C.petro, color: '#F7F9F9' }}
                   >
                     Reservar por WhatsApp
                   </a>
                   <a
                     href="#cabanas"
-                    className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-[#E7F1EE]`}
+                    className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-[#E7F1EE]`}
                     style={{ borderColor: C.petro, color: C.petro }}
                   >
                     Ver las cabañas
@@ -341,10 +351,10 @@ export default function CabanasVistaHermosaPage() {
         <Reveal>
           <Letrero>En el catálogo</Letrero>
           <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-14">
-            <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.petro }}>
+            <h2 className={`${display.className} uppercase font-bold tracking-[0.02em] text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.petro }}>
               Lo que hay
               <br />
-              <em className="font-semibold" style={{ color: C.mintDeep }}>en la casa</em>
+              <span style={{ color: C.mintDeep }}>en la casa</span>
             </h2>
             <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
               Etiquetas de muestra para mostrar el formato: al publicar van
@@ -354,34 +364,36 @@ export default function CabanasVistaHermosaPage() {
         </Reveal>
         <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-5">
           {CABANAS.map((c, i) => (
-            <Reveal key={c.num} delay={i * 100} className="h-full">
-              <li
-                className="group relative h-full pt-6 pb-5 px-4 flex flex-col"
-                style={{
-                  backgroundColor: '#FDFEFE',
-                  clipPath: 'polygon(0 5%, 18% 0, 82% 0, 100% 5%, 100% 100%, 0 100%)',
-                  rotate: i % 2 === 0 ? '-1deg' : '0.8deg',
-                  boxShadow: '0 3px 10px rgba(9,53,64,0.1)',
-                }}
-              >
-                {/* perforación de etiqueta */}
-                <span
-                  className="absolute top-2.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full"
-                  style={{ backgroundColor: C.paper, boxShadow: `inset 0 0 0 2px ${C.line}` }}
-                  aria-hidden="true"
-                />
+            <li
+              key={c.num}
+              className="group relative h-full pt-6 pb-5 px-4"
+              style={{
+                backgroundColor: '#FDFEFE',
+                clipPath: 'polygon(0 5%, 18% 0, 82% 0, 100% 5%, 100% 100%, 0 100%)',
+                rotate: i % 2 === 0 ? '-1deg' : '0.8deg',
+                boxShadow: '0 3px 10px rgba(9,53,64,0.1)',
+              }}
+            >
+              {/* perforación de etiqueta */}
+              <span
+                className="absolute top-2.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full"
+                style={{ backgroundColor: C.paper, boxShadow: `inset 0 0 0 2px ${C.line}` }}
+                aria-hidden="true"
+              />
+              <Reveal delay={i * 100} className="h-full flex flex-col">
                 <div className="relative overflow-hidden aspect-[4/3] mb-4">
-                  <img
+                  <Image
                     src={c.src}
                     alt={`${c.name} — Cabañas Vista Hermosa`}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, calc(100vw - 2.5rem)"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                   />
                 </div>
                 <p className="text-[10px] font-black uppercase tracking-[0.22em] mb-1.5" style={{ color: C.mintDeep }}>
                   {c.num}
                 </p>
-                <h3 className={`${display.className} font-bold text-xl md:text-[22px] mb-2 leading-tight`} style={{ color: C.petro }}>
+                <h3 className={`${display.className} uppercase font-bold tracking-[0.03em] text-xl md:text-[22px] mb-2 leading-tight`} style={{ color: C.petro }}>
                   {c.name}
                 </h3>
                 <p className="text-[13px] leading-relaxed mb-4 flex-1" style={{ color: C.muted }}>
@@ -393,8 +405,8 @@ export default function CabanasVistaHermosaPage() {
                 >
                   {c.spec}
                 </p>
-              </li>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
         </ul>
       </section>
@@ -405,10 +417,10 @@ export default function CabanasVistaHermosaPage() {
           <div className="grid lg:grid-cols-[1.3fr_1fr] gap-10 md:gap-16 items-start">
             <Reveal>
               <Letrero>La casa</Letrero>
-              <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.petro }}>
+              <h2 className={`${display.className} uppercase font-bold tracking-[0.02em] text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.petro }}>
                 Atendido por
                 <br />
-                <em className="font-semibold" style={{ color: C.mintDeep }}>sus dueños</em>
+                <span style={{ color: C.mintDeep }}>sus dueños</span>
               </h2>
               <p className="text-base md:text-lg leading-relaxed mb-5 max-w-xl" style={{ color: C.ink }}>
                 Vista Hermosa es un proyecto familiar en Río Claro, en el
@@ -434,14 +446,20 @@ export default function CabanasVistaHermosaPage() {
             </Reveal>
             <Reveal delay={140}>
               <div className="flex flex-col items-center gap-6 lg:pt-16">
-                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" aria-label="Ver la ficha de Cabañas Vista Hermosa en Google Maps">
-                  <Sello size={168} top="LO QUE DICEN LAS VISITAS ·" center="13" sub="RESEÑAS EN GOOGLE" />
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ver la ficha de Cabañas Vista Hermosa en Google Maps"
+                  className="inline-block transition-transform hover:scale-105"
+                >
+                  <Sello size={168} top="LO QUE DICEN LAS VISITAS ·" center={String(BIZ.reviews)} sub="RESEÑAS EN GOOGLE" />
                 </a>
                 <a
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
                   style={{ color: C.petro, textDecorationColor: C.mint }}
                 >
                   Ver la ficha en Google →
@@ -450,7 +468,7 @@ export default function CabanasVistaHermosaPage() {
                   href={IG_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
                   style={{ color: C.petro, textDecorationColor: C.mint }}
                 >
                   {BIZ.igHandle} · {BIZ.igFollowers} seguidores →
@@ -466,7 +484,7 @@ export default function CabanasVistaHermosaPage() {
                   className="h-full p-5 md:p-6 border-2 border-dashed relative"
                   style={{ backgroundColor: '#FDFEFE', borderColor: C.line, rotate: i === 1 ? '0.8deg' : '-0.7deg' }}
                 >
-                  <blockquote className={`${display.className} text-[15px] md:text-base leading-relaxed mb-5`} style={{ color: C.ink }}>
+                  <blockquote className="text-[15px] md:text-base leading-relaxed mb-5" style={{ color: C.ink }}>
                     “{t}”
                   </blockquote>
                   <figcaption
@@ -486,9 +504,9 @@ export default function CabanasVistaHermosaPage() {
       <section id="tarifas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
           <Letrero>La boleta</Letrero>
-          <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.05] mb-12 md:mb-16`} style={{ color: C.petro }}>
+          <h2 className={`${display.className} uppercase font-bold tracking-[0.02em] text-4xl md:text-5xl leading-[1.05] mb-12 md:mb-16`} style={{ color: C.petro }}>
             Tarifas
-            <em className="font-semibold" style={{ color: C.mintDeep }}> de referencia</em>
+            <span style={{ color: C.mintDeep }}> de referencia</span>
           </h2>
         </Reveal>
         <Reveal delay={120}>
@@ -534,7 +552,7 @@ export default function CabanasVistaHermosaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} uppercase inline-block font-bold tracking-[0.05em] text-sm md:text-base px-8 py-3.5 transition-all hover:brightness-110 active:scale-95`}
                 style={{ backgroundColor: C.petro, color: '#F7F9F9' }}
               >
                 Consultar tarifa real →
@@ -549,10 +567,10 @@ export default function CabanasVistaHermosaPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
           <Reveal>
             <Letrero light>Reservas</Letrero>
-            <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: '#F7F9F9' }}>
+            <h2 className={`${display.className} uppercase font-bold tracking-[0.02em] text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: '#F7F9F9' }}>
               Aparta tu fecha
               <br />
-              <em className="font-semibold" style={{ color: C.mint }}>por WhatsApp</em>
+              <span style={{ color: C.mint }}>por WhatsApp</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: 'rgba(247,249,249,0.75)' }}>
               Dinos cuántos son y qué fechas tienes en mente: te
@@ -563,7 +581,7 @@ export default function CabanasVistaHermosaPage() {
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 transition-all hover:brightness-105 active:scale-95`}
                 style={{ backgroundColor: C.mint, color: C.deep }}
               >
                 {BIZ.phoneDisplay}
@@ -572,7 +590,7 @@ export default function CabanasVistaHermosaPage() {
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
                 style={{ borderColor: 'rgba(247,249,249,0.5)', color: '#F7F9F9' }}
               >
                 Instagram
@@ -599,14 +617,14 @@ export default function CabanasVistaHermosaPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-4 decoration-2"
+                    className="underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
                     style={{ color: C.mint, textDecorationColor: 'rgba(159,216,203,0.4)' }}
                   >
                     Cómo llegar →
                   </a>
                   <a
                     href={`tel:${BIZ.phoneTel}`}
-                    className="underline underline-offset-4 decoration-2"
+                    className="underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
                     style={{ color: C.mint, textDecorationColor: 'rgba(159,216,203,0.4)' }}
                   >
                     Llamar
@@ -635,9 +653,9 @@ export default function CabanasVistaHermosaPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">{BIZ.phoneDisplay}</a>
               {' · '}
-              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors">
                 {BIZ.igHandle}
               </a>
             </address>
