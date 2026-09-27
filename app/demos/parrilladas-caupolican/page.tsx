@@ -23,7 +23,7 @@ const C = {
   mustardSoft: '#EFDCA9',
   wood: '#8A5A33',
   ink: '#22281F',
-  muted: '#69675A',
+  muted: '#57554A',
   line: 'rgba(46,74,60,0.22)',
   lineSoft: 'rgba(46,74,60,0.14)',
 }
@@ -146,7 +146,7 @@ export default function ParrilladasCaupolicanPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(27,46,36,0.55) 0%, rgba(27,46,36,0.12) 40%, rgba(27,46,36,0.85) 100%)',
+              'linear-gradient(180deg, rgba(27,46,36,0.7) 0%, rgba(27,46,36,0.45) 40%, rgba(27,46,36,0.92) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -204,8 +204,8 @@ export default function ParrilladasCaupolicanPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(246,241,228,0.22)', backgroundColor: 'rgba(27,46,36,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,228,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(246,241,228,0.22)', backgroundColor: 'rgba(27,46,36,0.92)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,228,0.9)' }}>
             <span>K-60 36</span>
             <span>Pencahue, Maule</span>
             <span>Parrilla a leña</span>
@@ -279,10 +279,7 @@ export default function ParrilladasCaupolicanPage() {
                 >
                   {s.num}
                 </span>
-                <Reveal
-                  delay={i * 70}
-                  className={`ml-16 md:ml-0 ${i % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}
-                >
+                <div className={`ml-16 md:ml-0 ${i % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}>
                   <figure
                     className="relative aspect-[4/3] overflow-hidden border-2"
                     style={{ borderColor: C.green }}
@@ -292,10 +289,11 @@ export default function ParrilladasCaupolicanPage() {
                       alt={s.alt}
                       fill
                       sizes="(min-width: 768px) 42vw, 74vw"
+                      loading="eager"
                       className="object-cover"
                     />
                   </figure>
-                </Reveal>
+                </div>
                 <Reveal
                   delay={i * 70 + 90}
                   className={`ml-16 md:ml-0 mt-5 md:mt-0 ${i % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}
@@ -455,7 +453,7 @@ export default function ParrilladasCaupolicanPage() {
               <br />
               <span style={{ color: C.mustardSoft }}>para llevar</span>
             </h2>
-            <address className="not-italic text-sm md:text-base leading-relaxed mb-7" style={{ color: 'rgba(246,241,228,0.72)' }}>
+            <address className="not-italic text-sm md:text-base leading-relaxed mb-7" style={{ color: 'rgba(246,241,228,0.85)' }}>
               {BIZ.address}
               <br />
               {BIZ.city}, {BIZ.region}, Chile
@@ -484,7 +482,7 @@ export default function ParrilladasCaupolicanPage() {
                 Facebook
               </a>
             </div>
-            <p className="text-xs md:text-sm leading-relaxed max-w-sm" style={{ color: 'rgba(246,241,228,0.6)' }}>
+            <p className="text-xs md:text-sm leading-relaxed max-w-sm" style={{ color: 'rgba(246,241,228,0.82)' }}>
               En la K-60 camino a San Rafael, antes de llegar al centro
               de Pencahue. Estacionamiento a la orilla del local.
             </p>
@@ -510,7 +508,8 @@ export default function ParrilladasCaupolicanPage() {
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-[0.18]"
+          loading="eager"
+          className="object-cover opacity-[0.12]"
           aria-hidden="true"
         />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
@@ -520,7 +519,7 @@ export default function ParrilladasCaupolicanPage() {
               <br />
               <span style={{ color: C.mustardSoft }}>está prendida</span>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(246,241,228,0.78)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(246,241,228,0.9)' }}>
               Escríbenos por WhatsApp para reservar mesa o encargar
               para llevar. Respondemos el mismo día.
             </p>
@@ -539,16 +538,16 @@ export default function ParrilladasCaupolicanPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#F6F1E4' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
           <div>
             <p className={`${display.className} font-extrabold tracking-tight text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,228,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,228,0.82)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
               <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,228,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,228,0.82)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white transition-colors">
                 {l.label}
@@ -557,14 +556,14 @@ export default function ParrilladasCaupolicanPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,228,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(246,241,228,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            carta, precios y fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,241,228,0.75)' }}>
+            Textos, carta, precios y fotos son de muestra.
           </p>
         </div>
+        <div className="px-5 pt-1 pb-20 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+          <DemoBand name={BIZ.name} />
+        </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
