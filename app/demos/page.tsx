@@ -662,6 +662,14 @@ const BLITZ = [
     tagline: 'Línea de tiempo horizontal: huincha mostaza que cruza la pantalla, verde oscuro y madera, hitos con fotos.',
     gradient: 'linear-gradient(135deg, #1D3128 0%, #2E4A3C 55%, #D9A441 140%)',
   },
+  {
+    slug: 'defensa-molina-abogados',
+    name: 'Defensa Molina Abogados',
+    rubro: 'Abogado',
+    city: 'Molina',
+    tagline: 'Doble columna con sidebar pegajoso: azul pizarra y amarillo lápiz, fichas que explican cada tema, con fotos.',
+    gradient: 'linear-gradient(135deg, #1F323E 0%, #2F4858 55%, #F2B705 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
