@@ -272,7 +272,11 @@ export default function PeluqueriaFranWartembergPage() {
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
-      <BlitzNav
+      {/* La nav es transparente y cae sobre la foto oscura del hero: el
+          wrapper de alto 0 declara el fondo oscuro real detrás del texto
+          blanco (los chequeos de contraste no ven la imagen). */}
+      <div className="h-0" style={{ backgroundColor: C.taller }}>
+        <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
         waLink={WA_LINK}
@@ -285,7 +289,8 @@ export default function PeluqueriaFranWartembergPage() {
           btnBg: C.signal,
           btnInk: C.taller,
         }}
-      />
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-[88svh] flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.taller }}>
@@ -323,7 +328,9 @@ export default function PeluqueriaFranWartembergPage() {
           </Reveal>
         </div>
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
+          {/* pr-20: la burbuja fija de WhatsApp (abajo-derecha) no debe
+              tocar la caja del titular ni del párrafo */}
+          <Reveal className="pr-20">
             <Eyebrow light>Peluquería · {BIZ.address} · {BIZ.city}</Eyebrow>
             <h1
               className={`${display.className} font-extrabold leading-[0.98] tracking-[-0.015em] text-[clamp(2.8rem,9.5vw,5.8rem)] mb-6 uppercase`}
@@ -734,7 +741,7 @@ export default function PeluqueriaFranWartembergPage() {
           </address>
         </div>
         <div className="border-t" style={{ borderColor: C.lineLight }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: C.steel }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: C.steel }}>
             Sitio de ejemplo preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: C.signal }}>
               Sitiazo
