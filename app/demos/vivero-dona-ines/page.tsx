@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Gloock, Work_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_FRUTAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -13,10 +13,10 @@ const C = {
   card: '#FFFDF6',
   leaf: '#3E6B3A',
   leafDeep: '#24381F',
-  terra: '#C1663F',
+  terra: '#9E4B2B',
   terraSoft: '#EDD0B8',
   ink: '#2F3226',
-  muted: '#6F6A58',
+  muted: '#5F5A4A',
   line: 'rgba(47,50,38,0.16)',
 }
 
@@ -93,6 +93,7 @@ export default function ViveroDonaInesPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -113,13 +114,15 @@ export default function ViveroDonaInesPage() {
         <img
           src={`${IMG}/hero.webp`}
           alt="Hileras de plantas en maceta en el vivero, con los cerros del Maule al atardecer"
+          loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(36,56,31,0.48) 0%, rgba(36,56,31,0.1) 38%, rgba(36,56,31,0.8) 100%)',
+              'linear-gradient(180deg, rgba(36,56,31,0.55) 0%, rgba(36,56,31,0.4) 38%, rgba(36,56,31,0.88) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -176,8 +179,8 @@ export default function ViveroDonaInesPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(251,247,239,0.22)', backgroundColor: 'rgba(36,56,31,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,247,239,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(251,247,239,0.22)', backgroundColor: 'rgba(36,56,31,0.85)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,247,239,0.9)' }}>
             <span>{BIZ.address}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.terraSoft }} aria-hidden="true" />
@@ -216,7 +219,7 @@ export default function ViveroDonaInesPage() {
                   <img
                     src={p.src}
                     alt={p.name}
-                    loading="lazy"
+                    loading="eager"
                     className="w-full h-full object-cover aspect-[3/2] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                   <span
@@ -258,7 +261,7 @@ export default function ViveroDonaInesPage() {
               <img
                 src={`${IMG}/jardin.webp`}
                 alt="Frutal joven recién plantado en un jardín con regadera y maceteros de terracota"
-                loading="lazy"
+                loading="eager"
                 className="w-full h-full object-cover aspect-[4/3]"
               />
             </div>
@@ -270,7 +273,7 @@ export default function ViveroDonaInesPage() {
               <br />
               <em style={{ color: C.terraSoft }}>y buena tierra</em>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: 'rgba(251,247,239,0.75)' }}>
+            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: 'rgba(251,247,239,0.85)' }}>
               Texto de muestra: aquí va la oferta real del vivero —
               frutales enraizados, plantas de interior y las bolsas de
               sustrato y tierra preparada que se venden en el local.
@@ -429,7 +432,7 @@ export default function ViveroDonaInesPage() {
               <br />
               <em style={{ color: '#FBE4CF' }}>que le falta a tu casa</em>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(251,247,239,0.85)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: '#FBF7EF' }}>
               Escríbenos por WhatsApp y te contamos qué hay en stock,
               cuánto vale y cómo llegar. Respondemos el mismo día.
             </p>
@@ -447,37 +450,30 @@ export default function ViveroDonaInesPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.leafDeep, color: '#FBF7EF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} text-2xl mb-2 flex items-center gap-3`}>
-              <Leaf className="w-5 h-5" color={C.terraSoft} />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,247,239,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
+      <footer className="pb-20" style={{ backgroundColor: C.leafDeep, color: '#FBF7EF' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+          <p className={`${display.className} text-xl mb-1.5 flex items-center gap-3`}>
+            <Leaf className="w-5 h-5" color={C.terraSoft} />
+            {BIZ.name}
+          </p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.85)' }}>
+            {BIZ.address} · {BIZ.city} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            productos, horarios y fotos son de muestra; los datos de
-            contacto sí son reales.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.8)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.terraSoft }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}: productos, horarios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.terraSoft }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
