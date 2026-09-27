@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Outfit, Manrope } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import {
   BIZ,
@@ -135,7 +135,7 @@ export default function EluneyPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
-      <style>{`@keyframes eluney-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }`}</style>
+      <style>{`html { scroll-behavior: auto }`}</style>
 
       <BlitzNav
         name={BIZ.short}
@@ -184,7 +184,7 @@ export default function EluneyPage() {
             </a>
           </Reveal>
         </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-40">
+        <div className="relative w-full max-w-6xl mx-auto pl-5 pr-[4.5rem] md:px-8 pb-10 md:pb-14 pt-40">
           <Reveal>
             <Eyebrow light>Pastelería · Panadería · Pelarco</Eyebrow>
             <h1
@@ -223,26 +223,19 @@ export default function EluneyPage() {
       </section>
 
       {/* ── Cinta en movimiento ── */}
-      <div className="overflow-hidden py-3.5 border-b" style={{ backgroundColor: C.lime, borderColor: 'rgba(11,16,48,0.15)' }}>
-        <div
-          className="flex whitespace-nowrap w-max"
-          style={{ animation: 'eluney-marquee 26s linear infinite' }}
-        >
-          {[0, 1].map((half) => (
-            <div key={half} className="flex items-center" aria-hidden={half === 1}>
-              {MARQUEE.map((item) => (
-                <span
-                  key={`${half}-${item}`}
-                  className={`${display.className} flex items-center gap-5 pr-5 text-sm md:text-base font-bold uppercase tracking-[0.14em]`}
-                  style={{ color: C.blueDeep }}
-                >
-                  {item}
-                  <Bolt className="w-3.5 h-3.5" color={C.blue} />
-                </span>
-              ))}
-            </div>
+      <div className="py-3.5 px-5 border-b" style={{ backgroundColor: C.lime, borderColor: 'rgba(11,16,48,0.15)' }}>
+        <ul className="max-w-6xl mx-auto flex flex-wrap justify-center gap-x-5 gap-y-2">
+          {MARQUEE.map((item) => (
+            <li
+              key={item}
+              className={`${display.className} flex items-center gap-2 text-sm md:text-base font-bold uppercase tracking-[0.14em]`}
+              style={{ color: C.blueDeep }}
+            >
+              <Bolt className="w-3.5 h-3.5 shrink-0" color={C.blue} />
+              {item}
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       {/* ── Historia por pasos ── */}
@@ -300,6 +293,7 @@ export default function EluneyPage() {
                         alt={p.alt}
                         fill
                         sizes="(min-width: 768px) 45vw, 100vw"
+                        loading="eager"
                         className="object-cover"
                       />
                       <span
@@ -351,6 +345,7 @@ export default function EluneyPage() {
                     alt="Fachada de la pastelería Eluney en una calle de Pelarco, con la vitrina a la vista"
                     fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
+                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -549,12 +544,13 @@ export default function EluneyPage() {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: C.blue }}>
+      <section className="relative overflow-hidden" style={{ backgroundColor: '#1A3EC6' }}>
         <Image
           src={`${IMG}/detalle3.webp`}
           alt=""
           fill
           sizes="100vw"
+          loading="eager"
           className="object-cover opacity-[0.16]"
           aria-hidden="true"
         />
@@ -566,7 +562,7 @@ export default function EluneyPage() {
               <br />
               <span style={{ color: C.lime }}>Tu pedido, listo hoy.</span>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.92)' }}>
               Escríbenos por WhatsApp con lo que necesitas — una torta,
               pan para la semana o dulces para la once — y te confirmamos
               al tiro.
@@ -580,7 +576,7 @@ export default function EluneyPage() {
             >
               Escribir a Eluney
             </a>
-            <p className="text-xs mt-5" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <p className="text-xs mt-5" style={{ color: 'rgba(255,255,255,0.92)' }}>
               {BIZ.phoneDisplay} · {BIZ.address}
             </p>
           </Reveal>
@@ -589,37 +585,26 @@ export default function EluneyPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.blueDeep, color: C.paper }}>
-        <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div>
-              <p className={`${display.className} font-bold text-2xl mb-2 flex items-center gap-3`}>
-                <Bolt className="w-5 h-5" color={C.lime} />
-                {BIZ.name}
-              </p>
-              <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
-                {BIZ.address} · {BIZ.city}, {BIZ.region}
-              </address>
-            </div>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.62)' }}>
-              {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing}`}>
-                  {l.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            productos, precios, horarios y fotos son de muestra; la
-            dirección, el WhatsApp, el Facebook y las {BIZ.googleReviews}{' '}
-            reseñas de Google son los datos reales del negocio.
+        <div className="max-w-6xl mx-auto pl-5 pr-[4.5rem] md:px-8 pt-8 pb-20 md:pb-8">
+          <p className={`${display.className} font-bold text-xl mb-1 flex items-center gap-3`}>
+            <Bolt className="w-5 h-5 shrink-0" color={C.lime} />
+            {BIZ.name}
+          </p>
+          <address className="not-italic text-sm leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region}
+          </address>
+          <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.paper }}>
+              Sitiazo
+            </a>
+            : textos, precios, horarios y fotos de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.lime }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
