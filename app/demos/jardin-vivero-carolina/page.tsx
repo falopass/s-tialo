@@ -263,7 +263,7 @@ function SampleChip({ light = false }: { light?: boolean }) {
 export default function JardinViveroCarolinaPage() {
   return (
     <div className={`${body.className} min-h-screen`} style={{ backgroundColor: C.white, color: C.ink }}>
-      <div style={{ backgroundColor: C.night }}>
+      <div className="[&>header]:absolute!" style={{ backgroundColor: C.night }}>
         <BlitzNav
           name={BIZ.short}
           links={NAV_LINKS}
@@ -550,13 +550,14 @@ export default function JardinViveroCarolinaPage() {
           <p>
             <span className={`${display.className} text-base`} style={{ color: C.night }}>{BIZ.name}</span> · {BIZ.rubro} en {BIZ.city}. Fotos y precios de muestra.
           </p>
-          <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex!">
+          <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex! [&>div]:bg-ink!">
             <DemoBand name={BIZ.name} />
+          </div>
+          <div className="[&>a]:static! self-start md:self-auto">
+            <WaFab href={WA_LINK} label={`Escribir a ${BIZ.name} por WhatsApp`} />
           </div>
         </div>
       </footer>
-
-      <WaFab href={WA_LINK} label={`Escribir a ${BIZ.name} por WhatsApp`} />
     </div>
   )
 }
