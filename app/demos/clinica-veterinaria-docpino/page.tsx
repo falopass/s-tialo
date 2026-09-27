@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { DM_Serif_Display, DM_Sans } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -21,6 +22,7 @@ const C = {
   forestDeep: '#142A20',
   brass: '#C8A24B',
   brassSoft: '#E8D9B4',
+  brassDeep: '#7A5D1C',
   ink: '#2A2922',
   muted: '#6E675A',
   line: 'rgba(30,61,47,0.16)',
@@ -112,7 +114,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-bold"
-      style={{ color: light ? C.brassSoft : C.brass }}
+      style={{ color: light ? C.brassSoft : C.brassDeep }}
     >
       <Paw className="w-[18px] h-[18px]" />
       {children}
@@ -143,10 +145,13 @@ export default function ClinicaVeterinariaDocpinoPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.forestDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Box de atención de Clínica Veterinaria Docpino: mesa de acero, instrumental y luz de tarde"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -162,7 +167,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-[#E8D9B4]"
               style={{ backgroundColor: 'rgba(246,241,231,0.95)', color: C.forestDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.brass} stroke={C.brass} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -192,14 +197,14 @@ export default function ClinicaVeterinariaDocpinoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus-visible:outline-[#E8D9B4]`}
                 style={{ backgroundColor: C.brass, color: '#142A20' }}
               >
                 Agendar hora por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-[#E8D9B4]`}
                 style={{ borderColor: 'rgba(246,241,231,0.55)', color: '#F6F1E7' }}
               >
                 Ver servicios
@@ -222,7 +227,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
       </section>
 
       {/* ── Doble columna: contenido + sidebar pegajoso ── */}
-      <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 lg:grid lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-12">
+      <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12">
 
         <div>
           {/* Servicios */}
@@ -232,7 +237,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
               <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-4`} style={{ color: C.forest }}>
                 Todo lo que tu mascota necesita,
                 <br />
-                <em style={{ color: C.brass }}>bajo un mismo techo</em>
+                <em style={{ color: C.brassDeep }}>bajo un mismo techo</em>
               </h2>
               <p className="text-sm md:text-base leading-relaxed max-w-xl mb-10 md:mb-12" style={{ color: C.muted }}>
                 Esto es una muestra del catálogo: al publicar van los
@@ -243,15 +248,16 @@ export default function ClinicaVeterinariaDocpinoPage() {
               {SERVICIOS.map((s, i) => (
                 <Reveal key={s.name} delay={i * 80}>
                   <li
-                    className="group rounded-3xl overflow-hidden border md:grid md:grid-cols-[240px_1fr]"
-                    style={{ backgroundColor: C.card, borderColor: C.line, boxShadow: '0 2px 4px rgba(20,42,32,0.05)' }}
+                    className="group rounded-3xl overflow-hidden border shadow-[0_2px_4px_rgba(20,42,32,0.05)] transition-shadow duration-300 hover:shadow-[0_14px_36px_rgba(20,42,32,0.12)] md:grid md:grid-cols-[240px_1fr]"
+                    style={{ backgroundColor: C.card, borderColor: C.line }}
                   >
                     <div className="relative overflow-hidden aspect-[16/10] md:aspect-auto md:min-h-[190px]">
-                      <img
+                      <Image
                         src={s.src}
                         alt={s.alt}
-                        loading="lazy"
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                        fill
+                        sizes="(min-width: 768px) 240px, 100vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
                     </div>
                     <div className="p-5 md:p-7">
@@ -264,7 +270,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                       <h3 className={`${display.className} text-xl md:text-2xl mb-2`} style={{ color: C.forest }}>
                         {s.name}
                       </h3>
-                      <p className="text-sm md:text-[15px] leading-relaxed" style={{ color: C.muted }}>
+                      <p className="text-[15px] leading-relaxed" style={{ color: C.muted }}>
                         {s.desc}
                       </p>
                     </div>
@@ -281,9 +287,9 @@ export default function ClinicaVeterinariaDocpinoPage() {
               <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-5`} style={{ color: C.forest }}>
                 Atención de barrio,
                 <br />
-                <em style={{ color: C.brass }}>en pleno centro de Linares</em>
+                <em style={{ color: C.brassDeep }}>en pleno centro de Linares</em>
               </h2>
-              <div className="space-y-4 text-sm md:text-base leading-relaxed max-w-2xl" style={{ color: C.muted }}>
+              <div className="space-y-4 text-[15px] md:text-base leading-relaxed max-w-2xl" style={{ color: C.muted }}>
                 <p>
                   Clínica Veterinaria Docpino atiende en {BIZ.address}, a pasos
                   del centro de Linares. Es la veterinaria que los vecinos
@@ -324,7 +330,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                       “{t.text}”
                     </blockquote>
                     <figcaption className="flex items-center justify-between gap-3">
-                      <span className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.brass }}>
+                      <span className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.brassDeep }}>
                         {t.author} · Reseña de ejemplo
                       </span>
                       <Paw className="w-4 h-4 shrink-0" color={C.brass} />
@@ -342,7 +348,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
               <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-4`} style={{ color: C.forest }}>
                 Precios claros,
                 <br />
-                <em style={{ color: C.brass }}>antes de atender</em>
+                <em style={{ color: C.brassDeep }}>antes de atender</em>
               </h2>
               <p className="text-sm md:text-base leading-relaxed max-w-xl mb-10" style={{ color: C.muted }}>
                 Valores de muestra para mostrar cómo se vería la lista de
@@ -357,7 +363,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                     className="flex items-baseline justify-between gap-4 px-5 md:px-7 py-4 border-b last:border-b-0"
                     style={{ borderColor: C.line }}
                   >
-                    <span className="text-sm md:text-base" style={{ color: C.ink }}>
+                    <span className="text-sm md:text-base min-w-0" style={{ color: C.ink }}>
                       {p.name}
                     </span>
                     <span className={`${display.className} text-base md:text-lg whitespace-nowrap`} style={{ color: C.forest }}>
@@ -380,17 +386,18 @@ export default function ClinicaVeterinariaDocpinoPage() {
               <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-8`} style={{ color: C.forest }}>
                 {BIZ.address},
                 <br />
-                <em style={{ color: C.brass }}>Linares</em>
+                <em style={{ color: C.brassDeep }}>Linares</em>
               </h2>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-6 items-stretch">
               <Reveal>
-                <div className="rounded-3xl overflow-hidden border h-full min-h-[260px]" style={{ borderColor: C.line }}>
-                  <img
+                <div className="relative rounded-3xl overflow-hidden border h-full min-h-[260px]" style={{ borderColor: C.line }}>
+                  <Image
                     src={`${IMG}/ambiente.webp`}
                     alt="Fachada de la clínica en una esquina de Linares, con el cerro de fondo"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
                   />
                 </div>
               </Reveal>
@@ -410,7 +417,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
         </div>
 
         {/* Sidebar pegajoso */}
-        <aside className="mt-14 lg:mt-0">
+        <aside className="mt-14 lg:mt-0 lg:border-l lg:pl-10" style={{ borderColor: C.line }}>
           <div className="lg:sticky lg:top-24 space-y-4">
             <Reveal>
               <div
@@ -428,7 +435,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} block text-center text-sm px-5 py-3.5 rounded-full transition-transform active:scale-95 mb-3`}
+                  className={`${display.className} block text-center text-sm px-5 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 mb-3 focus-visible:outline-[#E8D9B4]`}
                   style={{ backgroundColor: C.brass, color: '#142A20' }}
                 >
                   Escribir por WhatsApp
@@ -437,12 +444,12 @@ export default function ClinicaVeterinariaDocpinoPage() {
                   href={WA_LINK_URGENCIA}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-center text-xs font-bold uppercase tracking-[0.14em] py-2 rounded-full border"
+                  className="block text-center text-xs font-bold uppercase tracking-[0.14em] py-2 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-[#E8D9B4]"
                   style={{ borderColor: 'rgba(246,241,231,0.35)', color: 'rgba(246,241,231,0.85)' }}
                 >
                   Es una urgencia
                 </a>
-                <p className="text-[11px] mt-4 text-center" style={{ color: 'rgba(246,241,231,0.55)' }}>
+                <p className="text-[11px] mt-4 text-center" style={{ color: 'rgba(246,241,231,0.7)' }}>
                   {BIZ.phoneDisplay}
                 </p>
               </div>
@@ -450,7 +457,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
 
             <Reveal delay={80}>
               <div className="rounded-3xl border p-6" style={{ backgroundColor: C.card, borderColor: C.line }}>
-                <p className="text-[11px] uppercase tracking-[0.2em] font-bold mb-4" style={{ color: C.brass }}>
+                <p className="text-[11px] uppercase tracking-[0.2em] font-bold mb-4" style={{ color: C.brassDeep }}>
                   Horario de atención
                 </p>
                 <ul className="space-y-2.5 mb-4">
@@ -475,7 +482,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
 
             <Reveal delay={140}>
               <div className="rounded-3xl border p-6" style={{ backgroundColor: C.card, borderColor: C.line }}>
-                <p className="text-[11px] uppercase tracking-[0.2em] font-bold mb-4" style={{ color: C.brass }}>
+                <p className="text-[11px] uppercase tracking-[0.2em] font-bold mb-4" style={{ color: C.brassDeep }}>
                   Dirección
                 </p>
                 <address className="not-italic text-sm leading-relaxed mb-5" style={{ color: C.ink }}>
@@ -487,7 +494,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-[#1E3D2F]"
                   style={{ color: C.forest, textDecorationColor: 'rgba(200,162,75,0.6)' }}
                 >
                   Abrir en Google Maps →
@@ -497,7 +504,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                     href={BIZ.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 text-sm font-bold"
+                    className="flex items-center gap-2.5 text-sm font-bold transition-opacity hover:opacity-75 focus-visible:outline-[#1E3D2F]"
                     style={{ color: C.forest }}
                   >
                     <svg viewBox="0 0 24 24" className="w-4 h-4" fill={C.forest} aria-hidden="true">
@@ -550,7 +557,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus-visible:outline-[#E8D9B4]`}
               style={{ backgroundColor: C.brass, color: '#142A20' }}
             >
               Agendar por WhatsApp
@@ -580,7 +587,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.45)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.55)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
             servicios, horarios, precios y fotos son de muestra; la dirección,
             el número de contacto y las reseñas son reales.
