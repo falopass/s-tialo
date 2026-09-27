@@ -318,6 +318,14 @@ const BLITZ = [
     tagline: 'Clínico y luminoso: azul petróleo, menta y blanco roto, línea de tiempo horizontal con fotos.',
     gradient: 'linear-gradient(135deg, #093540 0%, #0E4C5C 55%, #9FD8CB 140%)',
   },
+  {
+    slug: 'victoria-nail-school',
+    name: 'Victoria Nail School',
+    rubro: 'Salón de manicura y pedicura',
+    city: 'Pencahue',
+    tagline: 'Split-screen logístico: rojo, gris flota y naranja señal, con fotos.',
+    gradient: 'linear-gradient(135deg, #C1272D 0%, #4A4E52 55%, #E8631A 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
