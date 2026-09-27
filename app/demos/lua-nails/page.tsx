@@ -555,7 +555,7 @@ export default function LuaNailsPage() {
       <footer style={{ backgroundColor: C.plumDeep, color: C.cream }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8 border-t" style={{ borderColor: 'rgba(255,249,246,0.12)' }}>
           <div>
-            <p className={`${display.className} font-semibold text-2xl mb-2 flex items-center gap-3`}>
+            <p className={`${display.className} font-semibold text-xl md:text-2xl mb-2 flex items-center gap-3`}>
               <Moon className="w-5 h-5" color={C.gold} />
               {BIZ.name}
             </p>
@@ -563,7 +563,7 @@ export default function LuaNailsPage() {
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-light" style={{ color: 'rgba(255,249,246,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs md:text-sm font-light" style={{ color: 'rgba(255,249,246,0.62)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white transition-colors">
                 {l.label}
