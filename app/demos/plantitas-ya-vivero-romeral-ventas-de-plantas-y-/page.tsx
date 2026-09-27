@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Playfair_Display, Lato } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab, FaqList } from '../blitz-kit'
@@ -22,6 +23,9 @@ const C = {
   line: 'rgba(14,76,92,0.16)',
 }
 
+const FOCUS =
+  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
+
 export const metadata: Metadata = {
   title: 'Plantitas Yá! & Vivero Romeral — Plantas y árboles en Romeral',
   description:
@@ -30,8 +34,8 @@ export const metadata: Metadata = {
 }
 
 const NAV_LINKS = [
-  { label: 'Qué vendemos', href: '#productos' },
-  { label: 'Listado', href: '#listado' },
+  { label: 'Listado y precios', href: '#listado' },
+  { label: 'Fotos', href: '#productos' },
   { label: 'El vivero', href: '#vivero' },
   { label: 'Preguntas', href: '#faq' },
   { label: 'Contacto', href: '#contacto' },
@@ -171,16 +175,19 @@ const CATALOGO: { icon: keyof typeof ICON_PATHS; name: string; desc: string; pri
 const PRODUCTOS = [
   {
     src: `${IMG}/detalle3.webp`,
+    alt: 'Hileras de ejemplares jóvenes en bolsa bajo la malla del vivero',
     name: 'Árboles y frutales',
-    desc: 'Hileras de ejemplares jóvenes en bolsa: frutales, ornamentales y de sombra, crecidos al aire libre con la cordillera de fondo.',
+    desc: 'Ejemplares en bolsa: frutales, ornamentales y de sombra, crecidos al aire libre con la cordillera de fondo.',
   },
   {
     src: `${IMG}/detalle1.webp`,
+    alt: 'Mesa de trabajo del vivero con albahaca, romero y semilleros',
     name: 'Plantas de temporada y aromáticas',
-    desc: 'La mesa de trabajo del vivero: albahaca, romero y semilleros que cambian con cada temporada del año.',
+    desc: 'La mesa de trabajo del vivero: aromáticas y semilleros que cambian con cada temporada del año.',
   },
   {
     src: `${IMG}/detalle2.webp`,
+    alt: 'Pedido armado a mano: plantas escogidas, macetero y sustrato',
     name: 'Pedidos preparados con calma',
     desc: 'Tu pedido se arma a mano: plantas escogidas, macetero y sustrato, listos para retirar camino a Romeral.',
   },
@@ -233,7 +240,7 @@ export default function PlantitasYaPage() {
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
-          over: 'dark',
+          over: 'light',
           bar: 'rgba(247,249,249,0.95)',
           ink: C.petrol,
           line: C.line,
@@ -242,135 +249,147 @@ export default function PlantitasYaPage() {
         }}
       />
 
-      {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
-          src={`${IMG}/hero.webp`}
-          alt="Pasillo del vivero con hileras de plantas en bolsas, bajo malla de sombreo y cerros de fondo"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(9,51,65,0.5) 0%, rgba(9,51,65,0.1) 40%, rgba(9,51,65,0.82) 100%)',
-          }}
-        />
-        {/* sello de reseñas */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8">
+      {/* ── Ficha del vivero (directorio) ── */}
+      <section id="inicio" className="border-b" style={{ borderColor: C.line }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-[84px] md:pt-[104px] pb-14 md:pb-20">
           <Reveal>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
-              style={{ backgroundColor: 'rgba(247,249,249,0.94)', color: C.deep }}
+            <div
+              className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1.5 py-2.5 mb-10 md:mb-14 text-[10px] md:text-[11px] uppercase tracking-[0.18em] font-bold"
+              style={{
+                borderTop: `2px solid ${C.petrol}`,
+                borderBottom: `1px solid ${C.line}`,
+                color: C.muted,
+              }}
             >
-              <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.petrol} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11Z" />
-                <circle cx="12" cy="10" r="2.4" />
-              </svg>
-              {BIZ.reviews} reseñas en Google
-            </a>
-          </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
-            <Eyebrow light>Vivero y venta de plantas · Romeral · Región del Maule</Eyebrow>
-            <h1
-              className={`${display.className} font-medium leading-[1.0] tracking-[-0.01em] text-[clamp(2.7rem,9vw,5.6rem)] mb-6`}
-              style={{ color: C.paper }}
-            >
-              El vivero del cruce:
-              <br />
-              <em className="font-normal" style={{ color: C.mint }}>plantitas, yá</em>
-            </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(247,249,249,0.88)' }}>
-              Plantas, aromáticas, frutales y árboles a un costado de la
-              J-55, camino a Romeral. Pides por WhatsApp y retiras en el
-              vivero, con el consejo de quien las produce.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.mint, color: C.deep }}
-              >
-                Pedir por WhatsApp
-              </a>
-              <a
-                href="#listado"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
-                style={{ borderColor: 'rgba(247,249,249,0.55)', color: C.paper }}
-              >
-                Ver el listado
-              </a>
+              <span>
+                {BIZ.rubro} · {BIZ.city} · {BIZ.region}
+              </span>
+              <span className="hidden sm:inline">Cruce J-55 · km 1</span>
+              <span style={{ color: C.petrol }}>Sitio de ejemplo</span>
             </div>
           </Reveal>
-        </div>
-        {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(247,249,249,0.22)', backgroundColor: 'rgba(9,51,65,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(247,249,249,0.78)' }}>
-            <span>J-55 km 1 · Romeral</span>
-            <span>{BIZ.reviews} reseñas en Google</span>
-            <span>{BIZ.followers} seguidores en Facebook</span>
-            <span className="hidden md:inline" style={{ color: C.mint }}>sitio de ejemplo</span>
-          </div>
-        </div>
-      </section>
 
-      {/* ── Qué vendemos (bloques con foto) ── */}
-      <section id="productos" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <Reveal>
-          <Eyebrow>Qué vendemos</Eyebrow>
-          <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-14">
-            <h2 className={`${display.className} font-medium text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.petrol }}>
-              Del semillero
-              <br />
-              <em className="font-normal" style={{ color: C.muted }}>a tu jardín</em>
-            </h2>
-            <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
-              Categorías de ejemplo: al publicar va la oferta real del
-              vivero, con fotos de las hileras y la temporada en curso.
-            </p>
-          </div>
-        </Reveal>
-        <ul className="grid sm:grid-cols-3 gap-5 md:gap-6">
-          {PRODUCTOS.map((p, i) => (
-            <Reveal key={p.name} delay={i * 100}>
-              <li
-                className="group rounded-2xl overflow-hidden border h-full bg-white"
-                style={{ borderColor: C.line, boxShadow: '0 1px 2px rgba(9,51,65,0.05)' }}
+          <div className="grid md:grid-cols-[1.1fr_1fr] gap-10 md:gap-14 items-center">
+            <Reveal>
+              <h1
+                className={`${display.className} font-medium leading-[1.04] tracking-[-0.01em] text-[clamp(2.3rem,6vw,4.2rem)] mb-5`}
+                style={{ color: C.petrol }}
               >
-                <div className="relative overflow-hidden aspect-[4/3]">
-                  <img
-                    src={p.src}
-                    alt={p.name}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                  />
-                  <span
-                    className={`${display.className} absolute top-4 left-4 text-xs font-semibold w-8 h-8 rounded-full flex items-center justify-center`}
-                    style={{ backgroundColor: 'rgba(247,249,249,0.92)', color: C.petrol }}
-                    aria-hidden="true"
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                </div>
-                <div className="p-5 md:p-6">
-                  <h3 className={`${display.className} font-semibold text-xl md:text-[1.35rem] mb-2`} style={{ color: C.petrol }}>
-                    {p.name}
-                  </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
-                    {p.desc}
-                  </p>
-                </div>
-              </li>
+                {BIZ.name}
+              </h1>
+              <p className="text-base md:text-lg leading-relaxed max-w-xl mb-7" style={{ color: C.muted }}>
+                Plantas, aromáticas, frutales y árboles al costado de la
+                J-55, camino a Romeral. Pides por WhatsApp y retiras en el
+                vivero, con el consejo de quien las produce.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-8">
+                <a
+                  href={WA_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS}`}
+                  style={{ backgroundColor: C.petrol, color: C.paper, outlineColor: C.petrol }}
+                >
+                  Pedir por WhatsApp
+                </a>
+                <a
+                  href="#listado"
+                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-[rgba(14,76,92,0.07)] ${FOCUS}`}
+                  style={{ borderColor: 'rgba(14,76,92,0.35)', color: C.petrol, outlineColor: C.petrol }}
+                >
+                  Ver listado y precios
+                </a>
+              </div>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`font-semibold underline underline-offset-4 decoration-2 transition-colors ${FOCUS}`}
+                  style={{ color: C.petrol, textDecorationColor: 'rgba(14,76,92,0.3)', outlineColor: C.petrol }}
+                >
+                  {BIZ.reviews} reseñas en Google →
+                </a>
+                <a
+                  href={BIZ.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`font-semibold underline underline-offset-4 decoration-2 transition-colors ${FOCUS}`}
+                  style={{ color: C.petrol, textDecorationColor: 'rgba(14,76,92,0.3)', outlineColor: C.petrol }}
+                >
+                  {BIZ.followers} seguidores en Facebook →
+                </a>
+              </div>
             </Reveal>
-          ))}
-        </ul>
+            <Reveal delay={140}>
+              <figure className="rounded-2xl overflow-hidden border bg-white" style={{ borderColor: C.line }}>
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={`${IMG}/hero.webp`}
+                    alt="Pasillo del vivero con hileras de plantas en bolsas, bajo malla de sombreo y cerros de fondo"
+                    fill
+                    sizes="(min-width: 768px) 42vw, 100vw"
+                    priority
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption
+                  className="px-4 py-3 text-xs md:text-sm leading-snug border-t"
+                  style={{ borderColor: C.line, color: C.muted }}
+                >
+                  El vivero al costado de la carretera, camino a Romeral.
+                </figcaption>
+              </figure>
+            </Reveal>
+          </div>
+
+          {/* fila de datos de la ficha */}
+          <Reveal delay={200}>
+            <dl
+              className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-6 mt-12 md:mt-16 border-t pt-8"
+              style={{ borderColor: C.line }}
+            >
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.18em] font-bold mb-1.5" style={{ color: C.muted }}>
+                  Dirección
+                </dt>
+                <dd className="text-sm md:text-base leading-snug" style={{ color: C.ink }}>
+                  {BIZ.address}, {BIZ.city}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.18em] font-bold mb-1.5" style={{ color: C.muted }}>
+                  Teléfono
+                </dt>
+                <dd className="text-sm md:text-base leading-snug">
+                  <a
+                    href={`tel:${BIZ.phoneTel}`}
+                    className={`underline underline-offset-2 ${FOCUS}`}
+                    style={{ color: C.ink, outlineColor: C.petrol }}
+                  >
+                    {BIZ.phoneDisplay}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.18em] font-bold mb-1.5" style={{ color: C.muted }}>
+                  Reseñas
+                </dt>
+                <dd className="text-sm md:text-base leading-snug" style={{ color: C.ink }}>
+                  {BIZ.reviews} en Google Maps
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.18em] font-bold mb-1.5" style={{ color: C.muted }}>
+                  Retiro
+                </dt>
+                <dd className="text-sm md:text-base leading-snug" style={{ color: C.ink }}>
+                  En el vivero, junto a la J-55
+                </dd>
+              </div>
+            </dl>
+          </Reveal>
+        </div>
       </section>
 
       {/* ── Listado con precios (directorio funcional) ── */}
@@ -396,7 +415,7 @@ export default function PlantitasYaPage() {
               {CATALOGO.map((item, i) => (
                 <li
                   key={item.name}
-                  className="flex items-center gap-4 md:gap-6 py-4 md:py-5 border-b"
+                  className="flex items-center gap-4 md:gap-6 py-4 md:py-5 px-3 md:px-4 -mx-3 md:-mx-4 rounded-xl border-b transition-colors hover:bg-white/70"
                   style={{ borderColor: C.line }}
                 >
                   <span className="hidden sm:block font-mono text-[11px] w-7 shrink-0" style={{ color: C.muted }} aria-hidden="true">
@@ -411,7 +430,7 @@ export default function PlantitasYaPage() {
                       {item.desc}
                     </p>
                   </div>
-                  <p className="ml-auto shrink-0 text-right font-bold text-sm md:text-base tabular-nums" style={{ color: C.ink }}>
+                  <p className="ml-auto shrink-0 text-right font-bold text-sm md:text-base tabular-nums" style={{ color: C.petrol }}>
                     {item.price}
                   </p>
                 </li>
@@ -428,8 +447,8 @@ export default function PlantitasYaPage() {
                 href={WA_LINK_PEDIDO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.petrol, color: C.paper }}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS}`}
+                style={{ backgroundColor: C.petrol, color: C.paper, outlineColor: C.petrol }}
               >
                 Consultar stock por WhatsApp
               </a>
@@ -438,16 +457,70 @@ export default function PlantitasYaPage() {
         </div>
       </section>
 
+      {/* ── Fotos del vivero ── */}
+      <section id="productos" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <Reveal>
+          <Eyebrow>Qué vendemos</Eyebrow>
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-14">
+            <h2 className={`${display.className} font-medium text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.petrol }}>
+              Del semillero
+              <br />
+              <em className="font-normal" style={{ color: C.muted }}>a tu jardín</em>
+            </h2>
+            <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
+              Categorías de ejemplo: al publicar va la oferta real del
+              vivero, con fotos de las hileras y la temporada en curso.
+            </p>
+          </div>
+        </Reveal>
+        <ul className="grid sm:grid-cols-3 gap-5 md:gap-6">
+          {PRODUCTOS.map((p, i) => (
+            <Reveal key={p.name} delay={i * 100}>
+              <li
+                className="group rounded-2xl overflow-hidden border h-full bg-white"
+                style={{ borderColor: C.line, boxShadow: '0 1px 2px rgba(9,51,65,0.05)' }}
+              >
+                <div className="relative overflow-hidden aspect-[4/3]">
+                  <Image
+                    src={p.src}
+                    alt={p.alt}
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                  <span
+                    className={`${display.className} absolute top-4 left-4 text-xs font-semibold w-8 h-8 rounded-full flex items-center justify-center`}
+                    style={{ backgroundColor: 'rgba(247,249,249,0.92)', color: C.petrol }}
+                    aria-hidden="true"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                </div>
+                <div className="p-5 md:p-6">
+                  <h3 className={`${display.className} font-semibold text-xl md:text-[1.35rem] mb-2`} style={{ color: C.petrol }}>
+                    {p.name}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
+                    {p.desc}
+                  </p>
+                </div>
+              </li>
+            </Reveal>
+          ))}
+        </ul>
+      </section>
+
       {/* ── Sobre el vivero ── */}
-      <section id="vivero" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      <section id="vivero" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 border-t" style={{ borderColor: C.line }}>
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <Reveal>
-            <div className="rounded-2xl overflow-hidden" style={{ boxShadow: '0 20px 50px rgba(9,51,65,0.18)' }}>
-              <img
+            <div className="rounded-2xl overflow-hidden relative aspect-[4/3]" style={{ boxShadow: '0 20px 50px rgba(9,51,65,0.18)' }}>
+              <Image
                 src={`${IMG}/ambiente.webp`}
                 alt="Entrada del vivero al costado de la carretera, junto al canal, con malla de sombreo y cerros de fondo"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[4/3]"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
           </Reveal>
@@ -480,8 +553,8 @@ export default function PlantitasYaPage() {
               href={BIZ.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold underline underline-offset-4 decoration-2"
-              style={{ color: C.petrol, textDecorationColor: 'rgba(14,76,92,0.3)' }}
+              className={`text-sm font-semibold underline underline-offset-4 decoration-2 ${FOCUS}`}
+              style={{ color: C.petrol, textDecorationColor: 'rgba(14,76,92,0.3)', outlineColor: C.petrol }}
             >
               Ver la página en Facebook →
             </a>
@@ -504,8 +577,8 @@ export default function PlantitasYaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold underline underline-offset-4 decoration-2"
-                style={{ color: C.petrol, textDecorationColor: 'rgba(14,76,92,0.3)' }}
+                className={`text-sm font-semibold underline underline-offset-4 decoration-2 ${FOCUS}`}
+                style={{ color: C.petrol, textDecorationColor: 'rgba(14,76,92,0.3)', outlineColor: C.petrol }}
               >
                 Ver la ficha en Google →
               </a>
@@ -549,7 +622,7 @@ export default function PlantitasYaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block shrink-0 font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block shrink-0 font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS} focus-visible:outline-white`}
               style={{ backgroundColor: C.mint, color: C.deep }}
             >
               Escribir por WhatsApp
@@ -591,7 +664,11 @@ export default function PlantitasYaPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+              <a
+                href={`tel:${BIZ.phoneTel}`}
+                className={`underline underline-offset-2 ${FOCUS}`}
+                style={{ outlineColor: C.petrol }}
+              >
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -605,8 +682,8 @@ export default function PlantitasYaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.petrol, color: C.paper }}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS}`}
+                style={{ backgroundColor: C.petrol, color: C.paper, outlineColor: C.petrol }}
               >
                 Escribir por WhatsApp
               </a>
@@ -614,8 +691,8 @@ export default function PlantitasYaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors`}
-                style={{ borderColor: 'rgba(14,76,92,0.35)', color: C.petrol }}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors hover:bg-[rgba(14,76,92,0.07)] ${FOCUS}`}
+                style={{ borderColor: 'rgba(14,76,92,0.35)', color: C.petrol, outlineColor: C.petrol }}
               >
                 Cómo llegar →
               </a>
@@ -643,12 +720,14 @@ export default function PlantitasYaPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className={`underline underline-offset-2 ${FOCUS} focus-visible:outline-white`}>
+                {BIZ.phoneDisplay}
+              </a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS} focus-visible:outline-white`}>
                 {l.label}
               </a>
             ))}
