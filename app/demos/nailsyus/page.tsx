@@ -18,6 +18,10 @@ const C = {
   sand: '#EDE6DA',
   white: '#FFFFFF',
   orange: '#E4572E',
+  orangeInk: '#B23A17',
+  orangeLight: '#F0875A',
+  orangeBtn: '#C2491F',
+  orangeBtnHover: '#A83813',
   concrete: '#3A3F44',
   concreteDeep: '#2B2F33',
   ink: '#3A3F44',
@@ -27,7 +31,7 @@ const C = {
   sandSoft: 'rgba(237,230,218,0.72)',
 }
 
-const BTN_SOLID = `${display.className} font-bold uppercase tracking-[0.06em] text-sm md:text-base px-8 py-3.5 bg-[#E4572E] text-white transition hover:bg-[#C2491F] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`
+const BTN_SOLID = `${display.className} font-bold uppercase tracking-[0.06em] text-sm md:text-base px-8 py-3.5 bg-[#C2491F] text-white transition hover:bg-[#A83813] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`
 const BTN_GHOST = `${display.className} font-bold uppercase tracking-[0.06em] text-sm md:text-base px-8 py-3.5 border transition hover:bg-white/10 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2'
 
@@ -129,7 +133,7 @@ function SectionHead({
         <div className="flex items-baseline gap-4">
           <span
             className={`${display.className} font-bold text-sm md:text-base`}
-            style={{ color: C.orange }}
+            style={{ color: dark ? C.orangeLight : C.orangeInk }}
           >
             {num}
           </span>
@@ -163,21 +167,26 @@ export default function NailsyusPage() {
         html { scroll-behavior: auto }
         .ny-band { display: flex; justify-content: center; padding: 0 5rem 1.25rem 1.25rem; background-color: #2B2F33 }
         .ny-band > div { position: static; max-width: 100%; background-color: rgba(10,10,10,0.94) }
+        .ny-nav header { background-color: rgba(237,230,218,0.94) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; box-shadow: 0 1px 0 rgba(58,63,68,0.18) !important }
+        .ny-nav header a, .ny-nav header nav a { color: #3A3F44 !important }
+        .ny-nav header a[href^="https://wa.me"] { background-color: #C2491F !important; color: #fff !important; border: 0 !important }
       `}</style>
-      <BlitzNav
-        name={BIZ.name}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={`${display.className} font-bold tracking-tight`}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(237,230,218,0.94)',
-          ink: C.ink,
-          line: C.line,
-          btnBg: C.orange,
-          btnInk: '#FFFFFF',
-        }}
-      />
+      <div className="ny-nav">
+        <BlitzNav
+          name={BIZ.name}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={`${display.className} font-bold tracking-tight`}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(237,230,218,0.94)',
+            ink: C.ink,
+            line: C.line,
+            btnBg: C.orangeBtn,
+            btnInk: '#FFFFFF',
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.concreteDeep }}>
@@ -206,14 +215,14 @@ export default function NailsyusPage() {
             >
               <span>{BIZ.rubro}</span>
               <span className="hidden md:inline">{BIZ.city}, {BIZ.region}</span>
-              <span style={{ color: C.orange }}>Sitio de ejemplo</span>
+              <span style={{ color: C.orangeLight }}>Sitio de ejemplo</span>
             </div>
 
             <h1
               className={`${display.className} font-extrabold uppercase leading-[0.88] tracking-[-0.02em] text-[clamp(3rem,13vw,10.5rem)] mb-6`}
               style={{ color: C.white }}
             >
-              Nails<span style={{ color: C.orange }}>yus</span>
+              Nails<span style={{ color: C.orangeLight }}>yus</span>
             </h1>
 
             <div className="grid md:grid-cols-[1.3fr_1fr] gap-6 md:gap-14 items-end mb-8">
@@ -280,10 +289,10 @@ export default function NailsyusPage() {
                 href={l.href}
                 className={`group flex items-baseline gap-3 h-full py-4 md:py-5 px-4 md:px-5 transition-colors hover:bg-white ${FOCUS} focus-visible:outline-[#E4572E]`}
               >
-                <span className={`${display.className} font-bold text-xs md:text-sm`} style={{ color: C.orange }}>
+                <span className={`${display.className} font-bold text-xs md:text-sm`} style={{ color: C.orangeInk }}>
                   {l.num}
                 </span>
-                <span className="text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold transition-colors group-hover:text-[#E4572E]">
+                <span className="text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold transition-colors group-hover:text-[#B23A17]">
                   {l.label}
                 </span>
               </a>
@@ -311,7 +320,7 @@ export default function NailsyusPage() {
                   </div>
                   <div className="p-5 flex-1" style={{ borderTop: `1px solid ${C.line}` }}>
                     <div className="flex items-baseline justify-between gap-3 mb-2">
-                      <p className={`${display.className} font-bold text-xs`} style={{ color: C.orange }}>
+                      <p className={`${display.className} font-bold text-xs`} style={{ color: C.orangeInk }}>
                         {s.num}
                       </p>
                       <p className="text-[10px] uppercase tracking-[0.22em] font-medium" style={{ color: C.muted }}>
@@ -331,24 +340,27 @@ export default function NailsyusPage() {
           ))}
           {/* celda CTA: bloque sólido de la retícula */}
           <li>
-            <a
-              href={WA_LINK_SERVICIO}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`h-full min-h-[280px] flex flex-col justify-between p-5 bg-[#E4572E] text-white transition hover:bg-[#C2491F] ${FOCUS} focus-visible:-outline-offset-4 focus-visible:outline-white`}
-            >
+            <div className="h-full min-h-[280px] flex flex-col justify-between p-5 bg-[#C2491F] text-white">
               <p className="text-[10px] uppercase tracking-[0.22em] font-semibold opacity-80">
                 Y lo que necesites
               </p>
               <div>
                 <p className={`${display.className} font-bold uppercase text-2xl md:text-3xl leading-[1.05] mb-3`}>
-                  Consulta por tu diseño →
+                  Consulta por tu diseño
                 </p>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.85)' }}>
                   Nail art, kapping o algo que viste en Instagram: pregúntanos por WhatsApp.
                 </p>
+                <a
+                  href={WA_LINK_SERVICIO}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${display.className} inline-block font-bold uppercase tracking-[0.06em] text-xs px-5 py-3 border border-white/70 text-white transition hover:bg-white/10 active:scale-95 ${FOCUS} focus-visible:outline-white`}
+                >
+                  Consultar →
+                </a>
               </div>
-            </a>
+            </div>
           </li>
         </ul>
       </section>
@@ -362,7 +374,7 @@ export default function NailsyusPage() {
               <h3 className={`${display.className} font-bold text-3xl md:text-4xl leading-[1.08] mb-6`}>
                 Un salón de barrio,
                 <br />
-                <span style={{ color: C.orange }}>prolijo como taller.</span>
+                <span style={{ color: C.orangeInk }}>prolijo como taller.</span>
               </h3>
               <p className="text-base leading-relaxed mb-5 max-w-[60ch]" style={{ color: C.muted }}>
                 NAILSYUS atiende en Calle 24 1/2 Norte, en Talca. El trato es
@@ -382,7 +394,7 @@ export default function NailsyusPage() {
                     </dt>
                     <dd className="text-sm font-medium">
                       {f.href ? (
-                        <a href={f.href} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:text-[#E4572E] transition-colors ${FOCUS} focus-visible:outline-[#E4572E]`}>
+                        <a href={f.href} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:text-[#B23A17] transition-colors ${FOCUS} focus-visible:outline-[#E4572E]`}>
                           {f.v}
                         </a>
                       ) : (
@@ -430,7 +442,7 @@ export default function NailsyusPage() {
                 className="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4 md:gap-x-8 py-4 md:py-5 border-b"
                 style={{ borderColor: C.line }}
               >
-                <span className={`${display.className} font-bold text-sm w-8`} style={{ color: C.orange }}>
+                <span className={`${display.className} font-bold text-sm w-8`} style={{ color: C.orangeInk }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div className="min-w-0">
@@ -462,7 +474,7 @@ export default function NailsyusPage() {
             <Reveal>
               <h3 className={`${display.className} font-bold uppercase leading-[0.92] tracking-[-0.01em] text-[clamp(2.6rem,6.5vw,4.6rem)] mb-7`}>
                 Agenda<br />
-                <span style={{ color: C.orange }}>tu hora</span>
+                <span style={{ color: C.orangeLight }}>tu hora</span>
               </h3>
               <p className="text-base leading-relaxed max-w-md mb-8" style={{ color: C.sandSoft }}>
                 Escríbenos por WhatsApp, cuéntanos qué necesitas y te
@@ -540,16 +552,16 @@ export default function NailsyusPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.concreteDeep, color: C.sand }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-end justify-between gap-6 border-t" style={{ borderColor: C.lineDark }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-5 flex flex-col md:flex-row md:items-end justify-between gap-3 border-t" style={{ borderColor: C.lineDark }}>
           <div>
-            <p className={`${display.className} font-bold uppercase tracking-[-0.01em] text-2xl mb-1`}>
-              Nails<span style={{ color: C.orange }}>yus</span>
+            <p className={`${display.className} font-bold uppercase tracking-[-0.01em] text-xl mb-0.5`}>
+              Nails<span style={{ color: C.orangeLight }}>yus</span>
             </p>
-            <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.75)' }}>
+            <address className="not-italic text-[11px] leading-relaxed" style={{ color: 'rgba(237,230,218,0.75)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.75)' }}>
+          <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-[11px] uppercase tracking-[0.16em]" style={{ color: 'rgba(237,230,218,0.75)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS} focus-visible:outline-[#EDE6DA]`}>
                 {l.label}
@@ -558,7 +570,7 @@ export default function NailsyusPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: C.lineDark }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-[11px] leading-relaxed" style={{ color: 'rgba(237,230,218,0.72)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-3 text-[10px] leading-snug" style={{ color: 'rgba(237,230,218,0.72)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Servicios,
             precios, horarios y fotos son de muestra; el nombre, la dirección,
             el WhatsApp, el Instagram y las reseñas son datos reales de su
