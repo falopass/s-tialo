@@ -286,6 +286,14 @@ const BLITZ = [
     tagline: 'Catálogo de taller: negro, amarillo señal y acero, vitrina con filtros y precios.',
     gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
   },
+  {
+    slug: 'restaurant-el-encuentro',
+    name: 'Restaurant El Encuentro',
+    rubro: 'Restaurante',
+    city: 'Pencahue',
+    tagline: 'Cuadrícula suiza utilitaria: mostaza, verde oscuro y hueso, reglas finas y tipografía de cartel.',
+    gradient: 'linear-gradient(135deg, #17231C 0%, #2E4A3C 55%, #D9A441 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
