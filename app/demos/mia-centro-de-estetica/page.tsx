@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Instrument_Serif, Inter } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -109,7 +109,7 @@ function Sidebar() {
         <p className={`${display.className} text-2xl leading-tight mb-2`} style={{ color: '#FBF7EF' }}>
           Agenda tu hora
         </p>
-        <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(251,247,239,0.78)' }}>
+        <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(251,247,239,0.94)' }}>
           Te confirmamos hora el mismo día. Cuéntanos qué servicio buscas.
         </p>
         <a
@@ -124,7 +124,7 @@ function Sidebar() {
         <a
           href={`tel:${BIZ.phoneTel}`}
           className="block text-center text-sm mt-3 underline underline-offset-4 decoration-2 transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2"
-          style={{ color: 'rgba(251,247,239,0.85)', textDecorationColor: 'rgba(251,247,239,0.35)' }}
+          style={{ color: '#FBF7EF', textDecorationColor: 'rgba(251,247,239,0.45)' }}
         >
           {BIZ.phoneDisplay}
         </a>
@@ -218,6 +218,7 @@ export default function MiaCentroDeEsteticaPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
@@ -247,7 +248,7 @@ export default function MiaCentroDeEsteticaPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(46,66,36,0.45) 0%, rgba(46,66,36,0.10) 40%, rgba(46,66,36,0.82) 100%)',
+              'linear-gradient(180deg, rgba(46,66,36,0.55) 0%, rgba(46,66,36,0.30) 35%, rgba(46,66,36,0.88) 100%)',
           }}
         />
         <div className="absolute top-24 md:top-28 right-5 md:right-8">
@@ -304,7 +305,7 @@ export default function MiaCentroDeEsteticaPage() {
           </Reveal>
         </div>
         <div className="relative border-t" style={{ borderColor: 'rgba(251,247,239,0.22)', backgroundColor: 'rgba(46,66,36,0.45)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,247,239,0.78)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,247,239,0.94)' }}>
             <span>{BIZ.address}, Curicó</span>
             <span>Atención con hora agendada</span>
             <span>{BIZ.reviews} reseñas en Google</span>
@@ -341,6 +342,7 @@ export default function MiaCentroDeEsteticaPage() {
                           alt={s.alt}
                           fill
                           sizes="(min-width: 640px) 240px, 100vw"
+                          loading="eager"
                           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                         />
                       </figure>
@@ -403,6 +405,7 @@ export default function MiaCentroDeEsteticaPage() {
                     alt="Recepción y sala de espera del centro, con plantas y vista a la calle"
                     fill
                     sizes="(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 100vw"
+                    loading="eager"
                     className="object-cover"
                   />
                 </figure>
@@ -490,7 +493,7 @@ export default function MiaCentroDeEsteticaPage() {
                 <br />
                 <em style={{ color: C.earthSoft }}>te lo mereces</em>
               </h2>
-              <p className="text-sm md:text-base max-w-md mb-9 leading-relaxed" style={{ color: 'rgba(251,247,239,0.78)' }}>
+              <p className="text-sm md:text-base max-w-md mb-9 leading-relaxed" style={{ color: 'rgba(251,247,239,0.9)' }}>
                 Escríbenos por WhatsApp, cuéntanos qué necesitas y te
                 confirmamos la hora el mismo día. Estamos en {BIZ.address},
                 Curicó.
@@ -522,10 +525,10 @@ export default function MiaCentroDeEsteticaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#24331C', color: '#FBF7EF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
           <div>
             <p className={`${display.className} text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.85)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
               <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2">{BIZ.phoneDisplay}</a>
@@ -535,23 +538,21 @@ export default function MiaCentroDeEsteticaPage() {
               </a>
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,247,239,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2">
-                {l.label}
-              </a>
-            ))}
-          </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Servicios,
-            precios, horarios y reseñas citadas son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.8)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2" style={{ color: '#FBF7EF' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Servicios, precios, horarios y reseñas citadas son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2" style={{ color: C.earthSoft }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
