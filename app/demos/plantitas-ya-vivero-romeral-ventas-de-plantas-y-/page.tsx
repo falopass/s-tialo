@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Playfair_Display, Lato } from 'next/font/google'
-import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab, FaqList } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_PEDIDO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -234,6 +233,7 @@ export default function PlantitasYaPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -485,6 +485,7 @@ export default function PlantitasYaPage() {
                     src={p.src}
                     alt={p.alt}
                     fill
+                    loading="eager"
                     sizes="(min-width: 640px) 33vw, 100vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
@@ -519,6 +520,7 @@ export default function PlantitasYaPage() {
                 src={`${IMG}/ambiente.webp`}
                 alt="Entrada del vivero al costado de la carretera, junto al canal, con malla de sombreo y cerros de fondo"
                 fill
+                loading="eager"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
@@ -714,35 +716,22 @@ export default function PlantitasYaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: C.paper }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
+            <p className={`${display.className} font-semibold text-2xl mb-1`}>{BIZ.name}</p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.85)' }}>
+              {BIZ.address}, {BIZ.city} ·{' '}
               <a href={`tel:${BIZ.phoneTel}`} className={`underline underline-offset-2 ${FOCUS} focus-visible:outline-white`}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS} focus-visible:outline-white`}>
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-            Catálogo, precios, reseñas y textos son de muestra; los datos
-            de contacto y la ficha de Google son reales.
+          <p className="text-xs leading-relaxed md:max-w-[26rem] md:pr-16" style={{ color: 'rgba(247,249,249,0.78)' }}>
+            Mockup de Sitiazo: datos del vivero reales; catálogo, precios, reseñas y textos de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
