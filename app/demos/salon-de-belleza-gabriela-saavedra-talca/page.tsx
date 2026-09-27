@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
-import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, waServicio, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -25,7 +24,7 @@ const C = {
   brassSoft: '#E0CD9B',
   coal: '#23211C',
   ink: '#2B2A24',
-  muted: '#6F6A5B',
+  muted: '#5E594C',
   line: 'rgba(43,42,36,0.16)',
   lineLight: 'rgba(246,241,231,0.22)',
 }
@@ -254,7 +253,7 @@ export default function SalonGabrielaSaavedraPage() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center px-5 md:px-12 lg:px-20 py-16 md:py-24">
+        <div className="flex flex-col justify-center px-5 md:px-12 lg:px-20 py-16 md:pt-32 md:pb-24">
           <Reveal>
             <Eyebrow light>
               {BIZ.rubro} · {BIZ.city} · {BIZ.region}
@@ -366,7 +365,7 @@ export default function SalonGabrielaSaavedraPage() {
                   <div className="flex items-center gap-4 mb-6">
                     <span
                       className={`${display.className} text-5xl md:text-6xl leading-none`}
-                      style={{ color: dark ? 'rgba(200,162,75,0.5)' : 'rgba(30,61,47,0.26)' }}
+                      style={{ color: dark ? C.brass : C.brassDeep }}
                     >
                       {s.n}
                     </span>
@@ -433,7 +432,7 @@ export default function SalonGabrielaSaavedraPage() {
               {TAMBIEN.map((t, i) => (
                 <Reveal key={t.name} delay={i * 90}>
                   <li className="border-t pt-5" style={{ borderColor: C.lineLight }}>
-                    <p className={`${display.className} text-2xl mb-1`} style={{ color: 'rgba(200,162,75,0.75)' }}>
+                    <p className={`${display.className} text-2xl mb-1`} style={{ color: C.brass }}>
                       {t.n}
                     </p>
                     <h3 className={`${display.className} text-xl md:text-2xl mb-2`} style={{ color: C.cream }}>
@@ -663,7 +662,7 @@ export default function SalonGabrielaSaavedraPage() {
         className="scroll-mt-20 grid md:grid-cols-2 border-t"
         style={{ backgroundColor: C.cream, borderColor: C.line }}
       >
-        <div className="flex flex-col justify-center px-5 md:px-12 lg:px-20 py-16 md:py-24">
+        <div className="flex flex-col justify-center px-5 md:px-12 lg:px-20 py-16 md:pt-32 md:pb-24">
           <Reveal>
             <Eyebrow>Contacto</Eyebrow>
             <h2
@@ -827,7 +826,7 @@ export default function SalonGabrielaSaavedraPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.45)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.7)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
             servicios, precios, horarios y fotos son de muestra; el número
             de contacto y la dirección son datos públicos del negocio.
@@ -835,7 +834,6 @@ export default function SalonGabrielaSaavedraPage() {
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
