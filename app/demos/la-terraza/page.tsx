@@ -274,7 +274,7 @@ export default function LaTerrazaPage() {
                   href={f.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-4 px-5 py-5 bg-white transition-colors hover:bg-[#F4EEE3] ${focusRing}`}
+                  className={`flex items-center gap-4 px-5 py-4 bg-white transition-colors hover:bg-[#F4EEE3] ${focusRing}`}
                 >
                   <span className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: C.arena }}>
                     <Icon name={f.icon} className="w-5 h-5" color={C.terracotaDeep} />
@@ -474,11 +474,11 @@ export default function LaTerrazaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-4 rounded-xl p-5 md:p-6 mb-6 transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing}`}
+              className={`flex items-center gap-4 rounded-xl px-5 py-3.5 mb-6 transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing}`}
               style={{ backgroundColor: C.terracotaDeep, color: C.blanco }}
             >
-              <span className="w-12 h-12 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
-                <Icon name="chat" className="w-6 h-6" />
+              <span className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
+                <Icon name="chat" className="w-5 h-5" />
               </span>
               <span>
                 <span className="block text-lg md:text-xl font-extrabold">Pedir por WhatsApp</span>
@@ -519,31 +519,20 @@ export default function LaTerrazaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.nocheDeep, color: C.blanco }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-16 md:pb-12 flex flex-col md:flex-row md:items-end justify-between gap-5">
           <div>
-            <p className={`${title.className} text-2xl mb-2`}>{BIZ.name}</p>
+            <p className={`${title.className} text-2xl mb-1`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
               {BIZ.rubro} · {BIZ.address}, {BIZ.city}
             </address>
           </div>
-          <nav aria-label="Secciones" className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing}`}>
-                {l.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-        <div style={{ backgroundColor: C.terracotaDeep }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 pb-20 text-xs md:text-sm leading-relaxed font-semibold">
+          <p className="text-xs leading-relaxed md:max-w-xs" style={{ color: 'rgba(255,255,255,0.62)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing}`}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.blanco }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name}. La carta, los precios, las preguntas y los textos son
-            de muestra; la dirección, el WhatsApp, el Instagram ({BIZ.instagramFollowers} seguidores)
-            y las {BIZ.googleReviews} reseñas en Google Maps son datos reales del negocio.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing}`}>
+            para {BIZ.name}, así se vería tu sitio.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.blanco }}>
               ¿Lo hacemos realidad?
             </a>
           </p>
