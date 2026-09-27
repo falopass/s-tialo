@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Familjen_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -114,6 +115,9 @@ const HORAS = [
   { days: 'Domingo', time: 'Horario de almuerzo' },
 ]
 
+const FOCUS =
+  'focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2'
+
 function Cross({ className = '', color = C.line }: { className?: string; color?: string }) {
   return (
     <svg viewBox="0 0 12 12" className={className} aria-hidden="true">
@@ -176,7 +180,7 @@ export default function RestaurantElEncuentroPage() {
         waLink={WA_LINK}
         fontClass={`${display.className} uppercase tracking-wide`}
         theme={{
-          over: 'dark',
+          over: 'light',
           bar: 'rgba(244,241,232,0.96)',
           ink: C.ink,
           line: C.lineSoft,
@@ -185,55 +189,39 @@ export default function RestaurantElEncuentroPage() {
         }}
       />
 
-      {/* ── Hero a sangre ── */}
-      <section
-        id="inicio"
-        className="relative min-h-svh flex flex-col overflow-hidden"
-        style={{ backgroundColor: C.deep }}
-      >
-        <img
-          src={`${IMG}/hero.webp`}
-          alt="Comedor del Restaurant El Encuentro: mesas de madera y cocina abierta al fondo"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(23,35,28,0.62) 0%, rgba(23,35,28,0.28) 42%, rgba(23,35,28,0.88) 100%)',
-          }}
-        />
-        {/* retícula suiza sobre la foto */}
+      {/* ── Cartel tipográfico ── */}
+      <section id="inicio" className="relative overflow-hidden">
+        {/* retícula de columnas corrida */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="max-w-6xl mx-auto h-full px-5 md:px-8 grid grid-cols-2 md:grid-cols-4">
             {[0, 1, 2, 3].map((i) => (
               <div
                 key={i}
                 className={`border-l ${i === 3 ? 'md:border-r' : ''} ${i > 1 ? 'hidden md:block' : ''}`}
-                style={{ borderColor: 'rgba(244,241,232,0.14)' }}
+                style={{ borderColor: C.lineSoft }}
               />
             ))}
           </div>
         </div>
 
-        {/* regla superior de datos */}
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-24 md:pt-28">
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-24 md:pt-28">
+          {/* regla superior de datos */}
           <div
             className="flex items-baseline justify-between gap-4 border-t border-b py-2.5"
-            style={{ borderColor: C.lineLight }}
+            style={{ borderColor: C.line }}
           >
-            <span className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.24em]`} style={{ color: C.mustardSoft }}>
+            <span className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.24em]`} style={{ color: C.green }}>
               Restaurant — cocina casera
             </span>
-            <span className={`${mono.className} hidden md:inline text-[10px] md:text-xs uppercase tracking-[0.24em]`} style={{ color: 'rgba(244,241,232,0.7)' }}>
+            <span className={`${mono.className} hidden md:inline text-[10px] md:text-xs uppercase tracking-[0.24em]`} style={{ color: C.muted }}>
               Pencahue · Maule · Chile
             </span>
             <a
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${mono.className} flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[0.2em] shrink-0`}
-              style={{ color: 'rgba(244,241,232,0.85)' }}
+              className={`${mono.className} ${FOCUS} flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[0.2em] shrink-0 hover:text-[#2E4A3C] transition-colors`}
+              style={{ color: C.ink }}
             >
               <svg viewBox="0 0 20 20" className="w-3.5 h-3.5" fill={C.mustard} aria-hidden="true">
                 <path d="M10 1.8 L12.6 7 L18.2 7.6 L14 11.5 L15.3 17 L10 14 L4.7 17 L6 11.5 L1.8 7.6 L7.4 7 Z" />
@@ -241,64 +229,110 @@ export default function RestaurantElEncuentroPage() {
               {BIZ.reviews} reseñas
             </a>
           </div>
-        </div>
 
-        {/* titular de cartel */}
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 mt-auto pb-10 md:pb-14">
+          {/* titular de cartel */}
           <Reveal>
-            <p
-              className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em] mb-5`}
-              style={{ color: C.mustardSoft }}
-            >
-              {BIZ.rubro} · {BIZ.city}, {BIZ.region}
-            </p>
             <h1
-              className={`${display.className} font-bold uppercase leading-[0.88] tracking-[-0.01em] text-[clamp(3rem,11.5vw,7.5rem)] mb-6`}
-              style={{ color: C.paper }}
+              className={`${display.className} font-bold uppercase leading-[0.88] tracking-[-0.01em] text-[clamp(3rem,11vw,7.5rem)] mt-10 md:mt-14 mb-10 md:mb-14`}
+              style={{ color: C.ink }}
             >
               La mesa grande
               <br />
               de{' '}
-              <span style={{ color: C.mustard }}>Pencahue</span>
-            </h1>
-            <p className="text-sm md:text-base leading-relaxed max-w-lg mb-8" style={{ color: 'rgba(244,241,232,0.85)' }}>
-              Comida casera chilena en plato de greda: cazuelas, pastel de
-              choclo y pan recién hecho, atendido por sus propios dueños.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={WA_LINK_RESERVA}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${display.className} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+              <span
+                className="inline-block px-3 md:px-4"
                 style={{ backgroundColor: C.mustard, color: C.deep }}
               >
-                Reservar por WhatsApp
-              </a>
-              <a
-                href="#carta"
-                className={`${display.className} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10`}
-                style={{ borderColor: 'rgba(244,241,232,0.5)', color: C.paper }}
-              >
-                Ver la carta
-              </a>
-            </div>
+                Pencahue
+              </span>
+            </h1>
           </Reveal>
-        </div>
 
-        {/* regla inferior de datos */}
-        <div
-          className="relative border-t"
-          style={{ borderColor: C.lineLight, backgroundColor: 'rgba(23,35,28,0.55)', backdropFilter: 'blur(6px)' }}
-        >
+          {/* texto + foto dentro de la grilla */}
+          <div className="grid md:grid-cols-12 gap-8 md:gap-10 pb-10 md:pb-14">
+            <Reveal className="md:col-span-5 flex flex-col justify-between gap-8">
+              <div>
+                <p
+                  className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em] mb-5`}
+                  style={{ color: C.wood }}
+                >
+                  {BIZ.rubro} · {BIZ.city}, {BIZ.region}
+                </p>
+                <p className="text-sm md:text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
+                  Comida casera chilena en plato de greda: cazuelas, pastel de
+                  choclo y pan recién hecho, atendido por sus propios dueños.
+                </p>
+              </div>
+              <div>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={WA_LINK_RESERVA}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-colors hover:bg-[#2E4A3C] hover:text-[#F4F1E8] active:scale-95`}
+                    style={{ backgroundColor: C.mustard, color: C.deep }}
+                  >
+                    Reservar por WhatsApp
+                  </a>
+                  <a
+                    href="#carta"
+                    className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-[#1F2B24] hover:text-[#F4F1E8]`}
+                    style={{ borderColor: C.ink, color: C.ink }}
+                  >
+                    Ver la carta
+                  </a>
+                </div>
+                <dl className="border-t mt-8 max-w-md" style={{ borderColor: C.line }}>
+                  <div className="flex items-baseline justify-between gap-4 border-b py-3" style={{ borderColor: C.lineSoft }}>
+                    <dt className={`${mono.className} text-[10px] md:text-[11px] uppercase tracking-[0.2em]`} style={{ color: C.muted }}>
+                      Dirección
+                    </dt>
+                    <dd className={`${display.className} font-semibold uppercase tracking-[0.04em] text-sm md:text-base text-right`} style={{ color: C.green }}>
+                      {BIZ.city}, Maule
+                    </dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-4 border-b py-3" style={{ borderColor: C.lineSoft }}>
+                    <dt className={`${mono.className} text-[10px] md:text-[11px] uppercase tracking-[0.2em]`} style={{ color: C.muted }}>
+                      Ficha de Google
+                    </dt>
+                    <dd className={`${display.className} font-semibold uppercase tracking-[0.04em] text-sm md:text-base text-right`} style={{ color: C.green }}>
+                      {BIZ.reviews} reseñas
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </Reveal>
+            <Reveal delay={120} className="md:col-span-7">
+              <figure className="border" style={{ borderColor: C.line }}>
+                <div className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={`${IMG}/hero.webp`}
+                    alt="Comedor del Restaurant El Encuentro: mesas de madera y cocina abierta al fondo"
+                    fill
+                    priority
+                    sizes="(min-width: 768px) 58vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption
+                  className={`${mono.className} flex items-baseline justify-between gap-4 border-t px-4 py-2.5 text-[10px] md:text-[11px] uppercase tracking-[0.2em]`}
+                  style={{ borderColor: C.line, backgroundColor: C.card, color: C.muted }}
+                >
+                  <span style={{ color: C.wood }}>F—01</span>
+                  <span>El comedor, antes del almuerzo</span>
+                </figcaption>
+              </figure>
+            </Reveal>
+          </div>
+
+          {/* regla inferior de datos */}
           <div
-            className={`${mono.className} max-w-6xl mx-auto px-5 md:px-8 py-3.5 flex flex-wrap gap-x-8 gap-y-1.5 text-[10px] md:text-[11px] uppercase tracking-[0.2em]`}
-            style={{ color: 'rgba(244,241,232,0.72)' }}
+            className={`${mono.className} flex flex-wrap gap-x-8 gap-y-1.5 border-t py-3.5 text-[10px] md:text-[11px] uppercase tracking-[0.2em]`}
+            style={{ borderColor: C.line, color: C.muted }}
           >
             <span>{BIZ.address}</span>
-            <span>{BIZ.reviews} reseñas en Google</span>
             <span className="hidden sm:inline">FB · {BIZ.fbFollowers} seguidores</span>
-            <span className="md:ml-auto" style={{ color: C.mustardSoft }}>Sitio de ejemplo</span>
+            <span className="md:ml-auto" style={{ color: C.wood }}>Sitio de ejemplo</span>
           </div>
         </div>
       </section>
@@ -316,11 +350,12 @@ export default function RestaurantElEncuentroPage() {
             {CARTA.map((p) => (
               <article key={p.idx} className="group flex flex-col" style={{ backgroundColor: C.card }}>
                 <div className="relative overflow-hidden aspect-[4/3]">
-                  <img
+                  <Image
                     src={p.src}
                     alt={p.alt}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
                     className={`${mono.className} absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] px-2 py-1`}
@@ -399,7 +434,7 @@ export default function RestaurantElEncuentroPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${mono.className} inline-block mt-6 text-[11px] uppercase tracking-[0.2em] underline underline-offset-4 decoration-2`}
+              className={`${mono.className} ${FOCUS} inline-block mt-6 text-[11px] uppercase tracking-[0.2em] underline underline-offset-4 decoration-2 hover:decoration-[#7C5230] transition-colors`}
               style={{ color: C.wood, textDecorationColor: 'rgba(124,82,48,0.4)' }}
             >
               Ver la ficha en Google →
@@ -456,7 +491,7 @@ export default function RestaurantElEncuentroPage() {
             {PRECIOS.map((p, i) => (
               <div
                 key={p.name}
-                className="grid grid-cols-[40px_1fr_auto] md:grid-cols-[64px_1fr_auto] gap-4 md:gap-6 items-baseline px-5 md:px-6 py-4 border-b last:border-b-0 transition-colors"
+                className="grid grid-cols-[40px_1fr_auto] gap-4 md:grid-cols-[64px_1fr_auto] md:gap-6 items-baseline px-5 md:px-6 py-4 border-b last:border-b-0"
                 style={{ borderColor: C.lineSoft, backgroundColor: i % 2 ? C.soft : C.card }}
               >
                 <span className={`${mono.className} text-[10px] md:text-xs`} style={{ color: C.wood }}>
@@ -493,8 +528,37 @@ export default function RestaurantElEncuentroPage() {
         </Reveal>
       </section>
 
+      {/* ── Banda reserva ── */}
+      <a
+        href={WA_LINK_RESERVA}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`group block mt-20 md:mt-28 transition-colors duration-300 bg-[#D9A441] hover:bg-[#17231C] ${FOCUS} focus-visible:outline-offset-0`}
+      >
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 md:py-14 flex items-center justify-between gap-6">
+          <div>
+            <p
+              className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.28em] mb-3 text-[#17231C]/70 group-hover:text-[#EDD9A0] transition-colors duration-300`}
+            >
+              Reserva directa — WhatsApp
+            </p>
+            <p
+              className={`${display.className} font-bold uppercase leading-[0.95] tracking-[-0.01em] text-3xl md:text-5xl text-[#17231C] group-hover:text-[#F4F1E8] transition-colors duration-300`}
+            >
+              ¿Almorzamos? Reserva tu mesa
+            </p>
+          </div>
+          <span
+            className={`${display.className} shrink-0 text-4xl md:text-6xl leading-none text-[#17231C] group-hover:text-[#D9A441] transition-all duration-300 group-hover:translate-x-2`}
+            aria-hidden="true"
+          >
+            →
+          </span>
+        </div>
+      </a>
+
       {/* ── 04 / Contacto ── */}
-      <section id="contacto" className="scroll-mt-20 mt-20 md:mt-28" style={{ backgroundColor: C.deep }}>
+      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.deep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <SectionHead num="04" title="Contacto y ubicación" note="Respuesta el mismo día" light />
@@ -534,7 +598,7 @@ export default function RestaurantElEncuentroPage() {
                   href={WA_LINK_RESERVA}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                  className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-colors hover:bg-[#F4F1E8] active:scale-95`}
                   style={{ backgroundColor: C.mustard, color: C.deep }}
                 >
                   WhatsApp {BIZ.phoneDisplay}
@@ -543,7 +607,7 @@ export default function RestaurantElEncuentroPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10`}
+                  className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10`}
                   style={{ borderColor: 'rgba(244,241,232,0.4)', color: C.paper }}
                 >
                   Cómo llegar →
@@ -553,7 +617,7 @@ export default function RestaurantElEncuentroPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${mono.className} inline-block mt-6 text-[11px] uppercase tracking-[0.2em] underline underline-offset-4 decoration-2`}
+                className={`${mono.className} ${FOCUS} inline-block mt-6 text-[11px] uppercase tracking-[0.2em] underline underline-offset-4 decoration-2 hover:text-[#F4F1E8] transition-colors`}
                 style={{ color: 'rgba(244,241,232,0.6)', textDecorationColor: 'rgba(244,241,232,0.25)' }}
               >
                 Facebook · {BIZ.fbFollowers} seguidores →
@@ -588,7 +652,7 @@ export default function RestaurantElEncuentroPage() {
             </div>
             <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,241,232,0.6)' }} aria-label="Pie">
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+                <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors`}>
                   {l.label}
                 </a>
               ))}
