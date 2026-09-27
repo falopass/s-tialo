@@ -135,20 +135,23 @@ export default function IusAbogadosLinaresPage() {
   return (
     <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.hueso, color: C.tinta }}>
       <style>{`html { scroll-behavior: auto }`}</style>
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(244,239,228,0.95)',
-          ink: C.tinta,
-          line: C.line,
-          btnBg: C.verde,
-          btnInk: C.hueso,
-        }}
-      />
+      {/* el nav fijo es transparente arriba: este wrapper declara el fondo oscuro real detrás (hero) */}
+      <div style={{ backgroundColor: C.verdeDeep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(244,239,228,0.95)',
+            ink: C.tinta,
+            line: C.line,
+            btnBg: C.verde,
+            btnInk: C.hueso,
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.verdeDeep }}>
@@ -160,7 +163,7 @@ export default function IusAbogadosLinaresPage() {
               'linear-gradient(180deg, rgba(29,49,40,0.75) 0%, rgba(29,49,40,0.55) 30%, rgba(29,49,40,0.9) 60%, rgba(29,49,40,0.96) 100%)',
           }}
         />
-        <div className="relative w-full max-w-7xl mx-auto px-5 md:px-8 pt-32 md:pt-40 pb-10 md:pb-14">
+        <div className="relative w-full max-w-7xl mx-auto px-5 md:px-8 pr-20 md:pr-28 pt-32 md:pt-40 pb-10 md:pb-14">
           <Reveal>
             <Label light>Abogados · Linares · Maipú 461, Ofi 405</Label>
             <h1
@@ -197,7 +200,7 @@ export default function IusAbogadosLinaresPage() {
         </div>
         {/* ficha rápida */}
         <div className="relative border-t" style={{ borderColor: 'rgba(244,239,228,0.18)', backgroundColor: 'rgba(29,49,40,0.85)' }}>
-          <dl className="max-w-7xl mx-auto pl-5 pr-16 md:px-8 grid grid-cols-2 md:grid-cols-4 text-sm">
+          <dl className="max-w-7xl mx-auto pl-5 pr-20 md:pl-8 md:pr-28 grid grid-cols-2 md:grid-cols-4 text-sm">
             {[
               ['Dirección', `${BIZ.address}`],
               ['Comuna', `${BIZ.city}, Maule`],
@@ -226,8 +229,7 @@ export default function IusAbogadosLinaresPage() {
               </h2>
               <p className="text-sm md:text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
                 Así avanza un caso desde el primer mensaje hasta el cierre. En
-                cada etapa sabe qué traer y qué va a recibir.{' '}
-                <span className="lg:hidden font-semibold" style={{ color: C.madera }}>Deslice hacia el lado →</span>
+                cada etapa sabe qué traer y qué va a recibir.
               </p>
             </div>
           </Reveal>
@@ -237,12 +239,12 @@ export default function IusAbogadosLinaresPage() {
           {/* la huincha cruza toda la pantalla */}
           <div className="absolute left-0 right-0 top-[19px] h-[14px]" style={tape} aria-hidden="true" />
           <ol
-            className="relative flex lg:grid lg:grid-cols-5 gap-6 lg:gap-8 overflow-x-auto lg:overflow-visible snap-x snap-mandatory px-5 md:px-8 lg:max-w-7xl lg:mx-auto pb-4 [scrollbar-width:thin]"
+            className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 px-5 md:px-8 max-w-7xl mx-auto pb-4"
             aria-label="Etapas de un caso"
           >
             {HITOS.map((h, i) => (
-              <li key={h.title} className="snap-start shrink-0 w-[78vw] sm:w-[340px] lg:w-auto">
-                <div className="flex items-center gap-3 mb-6">
+              <li key={h.title} className="min-w-0">
+                <div className="flex flex-wrap items-center gap-3 mb-6">
                   <span
                     className={`${display.className} relative grid place-items-center w-[52px] h-[52px] text-lg font-black shrink-0`}
                     style={{ backgroundColor: C.verdeDeep, color: C.mostaza, borderRadius: '50%', boxShadow: `0 0 0 5px ${C.hueso}` }}
@@ -257,7 +259,7 @@ export default function IusAbogadosLinaresPage() {
                   </span>
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden mb-5 border" style={{ borderColor: C.line, borderRadius: '3px' }}>
-                  <Image src={h.src} alt={h.alt} fill sizes="(min-width: 1024px) 18vw, (min-width: 640px) 340px, 78vw" loading="eager" className="object-cover" />
+                  <Image src={h.src} alt={h.alt} fill sizes="(min-width: 1024px) 18vw, (min-width: 640px) 30vw, 45vw" loading="eager" className="object-cover" />
                 </div>
                 <h3 className={`${display.className} font-extrabold text-xl md:text-2xl mb-2`}>{h.title}</h3>
                 <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>{h.desc}</p>
@@ -509,14 +511,14 @@ export default function IusAbogadosLinaresPage() {
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.verdeDeep, color: C.hueso }}>
         <div className="h-[14px]" style={tape} aria-hidden="true" />
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <p className={`${display.className} font-black text-2xl mb-1`}>{BIZ.name}</p>
-            <address className="not-italic text-sm" style={{ color: 'rgba(244,239,228,0.75)' }}>
+            <p className={`${display.className} font-black text-xl mb-1`}>{BIZ.name}</p>
+            <address className="not-italic text-xs" style={{ color: 'rgba(244,239,228,0.75)' }}>
               {BIZ.address} · {BIZ.postal} {BIZ.city}, Maule
             </address>
           </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,239,228,0.75)' }} aria-label="Pie de página">
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-xs" style={{ color: 'rgba(244,239,228,0.75)' }} aria-label="Pie de página">
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing}`}>
                 {l.label}
@@ -524,8 +526,9 @@ export default function IusAbogadosLinaresPage() {
             ))}
           </nav>
         </div>
+        {/* pb-16 + el respiro del layout dejan libre la burbuja de WhatsApp */}
         <p
-          className="max-w-7xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed border-t"
+          className="max-w-7xl mx-auto px-5 md:px-8 pt-4 pb-16 text-xs leading-relaxed border-t"
           style={{ color: 'rgba(244,239,228,0.75)', borderColor: 'rgba(244,239,228,0.14)' }}
         >
           Mockup preparado por{' '}
