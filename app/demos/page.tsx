@@ -86,6 +86,14 @@ const BLITZ = [
     tagline: 'Juguetón y familiar: azul confiable, amarillo festivo y coral.',
     gradient: 'linear-gradient(135deg, #0E2F5E 0%, #1E6FD9 55%, #FF6B4A 140%)',
   },
+  {
+    slug: 'matrokin',
+    name: 'Matrokin SPA',
+    rubro: 'Spa y terapias',
+    city: 'Molina',
+    tagline: 'Calmo y natural: verde salvia, arena y carbón.',
+    gradient: 'linear-gradient(135deg, #2B2B27 0%, #7C8F7B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
