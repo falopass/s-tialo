@@ -109,7 +109,7 @@ function Eyebrow({
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: light ? 'rgba(255,255,255,0.75)' : C.red }}
+      style={{ color: light ? '#FFFFFF' : C.red }}
     >
       <span className="inline-block w-8 h-px bg-current" aria-hidden="true" />
       {children}
@@ -123,6 +123,10 @@ export default function VictoriaNailSchoolPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`
+        html { scroll-behavior: auto }
+        .vns-band > div { position: static; max-width: none; width: fit-content; box-shadow: none; background-color: rgba(28,30,32,0.94) }
+      `}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -144,11 +148,11 @@ export default function VictoriaNailSchoolPage() {
         className="grid lg:grid-cols-2 lg:min-h-svh"
         style={{ backgroundColor: C.red }}
       >
-        <div className="flex flex-col justify-between px-5 md:px-10 lg:px-12 pt-28 md:pt-36 pb-8 lg:pb-10">
+        <div className="min-w-0 flex flex-col justify-between px-5 md:px-10 lg:px-12 pt-28 md:pt-36 pb-8 lg:pb-10">
           <Reveal>
             <Eyebrow light>Manicura y pedicura · Pencahue, Maule</Eyebrow>
             <h1
-              className={`${display.className} font-extrabold uppercase leading-[0.98] tracking-[-0.01em] text-[clamp(2.7rem,8.5vw,5.6rem)] mb-7`}
+              className={`${display.className} font-extrabold uppercase leading-[0.98] tracking-[-0.01em] text-[clamp(1.75rem,7vw,5.6rem)] lg:text-[3.3vw] mb-7`}
               style={{ color: '#FFFFFF' }}
             >
               Agendada.
@@ -160,7 +164,7 @@ export default function VictoriaNailSchoolPage() {
                 Lista a tiempo.
               </span>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-md mb-9" style={{ color: 'rgba(255,255,255,0.85)' }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-md mb-9" style={{ color: '#FFFFFF' }}>
               Salón de manicura y pedicura en Pencahue. Agenda por
               WhatsApp, atención directa de su dueña y una hora que
               se respeta.
@@ -186,7 +190,7 @@ export default function VictoriaNailSchoolPage() {
           </Reveal>
           <div
             className="flex flex-wrap gap-x-6 gap-y-1.5 pt-10 mt-10 border-t text-[11px] md:text-xs uppercase tracking-[0.18em]"
-            style={{ borderColor: 'rgba(255,255,255,0.25)', color: 'rgba(255,255,255,0.8)' }}
+            style={{ borderColor: 'rgba(255,255,255,0.25)', color: '#FFFFFF' }}
           >
             <span>{BIZ.reviews} reseñas en Google</span>
             <a
@@ -197,7 +201,7 @@ export default function VictoriaNailSchoolPage() {
             >
               {BIZ.instagram} · {BIZ.followers}
             </a>
-            <span className="hidden md:inline" style={{ color: 'rgba(255,255,255,0.55)' }}>
+            <span className="hidden md:inline" style={{ color: '#FFFFFF' }}>
               sitio de ejemplo
             </span>
           </div>
@@ -267,6 +271,7 @@ export default function VictoriaNailSchoolPage() {
                   alt={s.alt}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
+                  loading="eager"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
@@ -365,6 +370,7 @@ export default function VictoriaNailSchoolPage() {
             alt="Fachada de Victoria Nail School: local a pie de calle con toldo y vitrina, en un barrio de Pencahue"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
+            loading="eager"
             className="object-cover"
           />
         </div>
@@ -602,9 +608,11 @@ export default function VictoriaNailSchoolPage() {
             servicios, precios y fotos son de muestra.
           </p>
         </div>
+        <div className="vns-band max-w-6xl mx-auto px-5 md:px-8 pb-20">
+          <DemoBand name={BIZ.name} />
+        </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
