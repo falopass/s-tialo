@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Libre_Franklin, Source_Serif_4 } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -30,11 +31,14 @@ const C = {
   vinoDeep: '#441722',
   oro: '#B98B4E',
   oroSoft: '#D8BC8F',
-  hoja: '#5B7553',
+  hoja: '#4F6748',
+  hojaDeep: '#3F5238',
   tinta: '#2C1B20',
-  muted: '#7C6A60',
+  muted: '#695847',
   line: 'rgba(44,27,32,0.14)',
 }
+
+const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
 export const metadata: Metadata = {
   title: 'DamianStyle — Barbería en Pelarco',
@@ -53,24 +57,28 @@ const NAV_LINKS = [
 const SERVICIOS = [
   {
     src: `${IMG}/detalle1.webp`,
+    alt: 'Barbero terminando un fade con máquina en la silla de DamianStyle',
     tag: 'el clásico',
     name: 'Corte clásico y fade',
     desc: 'Tijera y máquina, con terminación a navaja en los contornos. Sales ordenado para la semana, sin apuro.',
   },
   {
     src: `${IMG}/detalle3.webp`,
+    alt: 'Afeitado tradicional con toalla caliente y navaja libre',
     tag: 'ritual de casa',
     name: 'Afeitado con toalla caliente',
     desc: 'Toalla tibia, espuma batida a mano y navaja libre. El servicio de antes, hecho con calma.',
   },
   {
     src: `${IMG}/detalle2.webp`,
+    alt: 'Perfilado de barba con navaja y aceite en DamianStyle',
     tag: 'perfil prolijo',
     name: 'Arreglo de barba',
     desc: 'Perfilado, rebaje de volumen y puntas a navaja, con aceite para cerrar. La barba queda donde tiene que quedar.',
   },
   {
     src: `${IMG}/hero.webp`,
+    alt: 'Interior de la barbería con sillas de cuero y plantas',
     tag: 'para la familia',
     name: 'Corte para niños',
     desc: 'Los chicos de la villa también tienen su silla. Paciencia, buena conversación y salida a tiempo.',
@@ -175,10 +183,13 @@ export default function DamianStylePage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.vinoDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de la barbería DamianStyle: sillas de cuero, plantas y luz cálida"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -197,7 +208,7 @@ export default function DamianStylePage() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing}`}
               style={{ backgroundColor: 'rgba(245,239,230,0.95)', color: C.vino }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.vino} strokeWidth="1.8" aria-hidden="true">
@@ -213,7 +224,7 @@ export default function DamianStylePage() {
           <Reveal>
             <Eyebrow light>Barbería · Pelarco · Villa Altos del Bosque</Eyebrow>
             <h1
-              className={`${display.className} font-extrabold leading-[1.04] tracking-[-0.01em] text-[clamp(2.5rem,8.5vw,5.2rem)] mb-6`}
+              className={`${display.className} font-extrabold leading-[1.04] tracking-[-0.01em] text-[clamp(2.35rem,9vw,5.2rem)] mb-6`}
               style={{ color: C.paper }}
             >
               Corte fino, toalla caliente
@@ -229,14 +240,14 @@ export default function DamianStylePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
                 style={{ backgroundColor: C.oro, color: C.vinoDeep }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 ${focusRing}`}
                 style={{ borderColor: 'rgba(245,239,230,0.55)', color: C.paper }}
               >
                 Ver servicios
@@ -267,10 +278,10 @@ export default function DamianStylePage() {
               </p>
             </div>
           </Reveal>
-          <ul className="grid sm:grid-cols-2 gap-6 md:gap-8">
+          <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
             {SERVICIOS.map((s, i) => (
               <Reveal key={s.name} delay={i * 90} className={i % 2 ? 'md:translate-y-10' : ''}>
-                <li
+                <article
                   className="group overflow-hidden h-full border"
                   style={{
                     backgroundColor: C.card,
@@ -283,15 +294,16 @@ export default function DamianStylePage() {
                     className="relative overflow-hidden aspect-[4/3]"
                     style={{ borderRadius: '9rem 9rem 0 0' }}
                   >
-                    <img
+                    <Image
                       src={s.src}
-                      alt={s.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      alt={s.alt}
+                      fill
+                      sizes="(min-width: 640px) 45vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
                     <span
                       className={`${display.className} absolute top-5 left-1/2 -translate-x-1/2 text-xs font-bold px-4 py-1.5 rounded-full shadow-sm whitespace-nowrap`}
-                      style={{ backgroundColor: 'rgba(245,239,230,0.94)', color: C.vino }}
+                      style={{ backgroundColor: 'rgba(230,233,219,0.95)', color: C.hojaDeep }}
                     >
                       {s.tag}
                     </span>
@@ -305,10 +317,10 @@ export default function DamianStylePage() {
                       {s.desc}
                     </p>
                   </div>
-                </li>
+                </article>
               </Reveal>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
@@ -320,18 +332,19 @@ export default function DamianStylePage() {
             <Reveal>
               <div className="relative">
                 <div
-                  className="overflow-hidden border"
+                  className="relative overflow-hidden border aspect-[4/3]"
                   style={{
                     borderRadius: '12rem 12rem 2rem 2rem',
-                    borderColor: 'rgba(91,117,83,0.35)',
+                    borderColor: 'rgba(79,103,72,0.35)',
                     boxShadow: '0 18px 40px rgba(44,27,32,0.14)',
                   }}
                 >
-                  <img
+                  <Image
                     src={`${IMG}/ambiente.webp`}
                     alt="Fachada de la barbería DamianStyle en una calle arbolada de Pelarco"
-                    loading="lazy"
-                    className="w-full h-full object-cover aspect-[4/3]"
+                    fill
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    className="object-cover"
                   />
                 </div>
                 <Leaf className="absolute -bottom-5 -left-4 w-[84px] opacity-60 -rotate-[18deg]" color={C.hoja} />
@@ -361,7 +374,7 @@ export default function DamianStylePage() {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
                   style={{ backgroundColor: C.vino, color: C.paper }}
                 >
                   Ver Instagram →
@@ -370,7 +383,7 @@ export default function DamianStylePage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors`}
+                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing}`}
                   style={{ borderColor: 'rgba(44,27,32,0.3)', color: C.tinta }}
                 >
                   Agendar hora
@@ -401,7 +414,7 @@ export default function DamianStylePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
+                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
                 style={{ color: C.vino, textDecorationColor: 'rgba(107,39,55,0.3)' }}
               >
                 Ver la ficha en Google →
@@ -456,7 +469,7 @@ export default function DamianStylePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
+                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
                 style={{ color: C.oroSoft, textDecorationColor: 'rgba(216,188,143,0.4)' }}
               >
                 Consultar valor exacto por WhatsApp →
@@ -543,7 +556,7 @@ export default function DamianStylePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
                 style={{ backgroundColor: C.vino, color: C.paper }}
               >
                 Agendar por WhatsApp
@@ -552,7 +565,7 @@ export default function DamianStylePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing}`}
                 style={{ borderColor: 'rgba(44,27,32,0.3)', color: C.tinta }}
               >
                 Cómo llegar →
@@ -582,13 +595,12 @@ export default function DamianStylePage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.vinoDeep }}>
-        <div
-          className="absolute inset-0 opacity-[0.14]"
-          style={{
-            backgroundImage: `url(${IMG}/detalle2.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+        <Image
+          src={`${IMG}/detalle2.webp`}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.14]"
           aria-hidden="true"
         />
         <Sprig className="absolute bottom-10 left-[8%] w-[90px] opacity-[0.16] -rotate-[16deg]" color={C.oroSoft} />
@@ -610,7 +622,7 @@ export default function DamianStylePage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing}`}
               style={{ backgroundColor: C.oro, color: C.vinoDeep }}
             >
               Escribir a DamianStyle
@@ -637,7 +649,7 @@ export default function DamianStylePage() {
             </div>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(245,239,230,0.62)' }}>
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+                <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing}`}>
                   {l.label}
                 </a>
               ))}
