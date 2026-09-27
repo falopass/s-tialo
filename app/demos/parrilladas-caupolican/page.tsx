@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Epilogue, Work_Sans } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -133,10 +134,13 @@ export default function ParrilladasCaupolicanPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Comedor de Parrilladas Caupolican: mesas de madera, parrilla de ladrillo encendida y vista a los cerros de Pencahue"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -152,7 +156,7 @@ export default function ParrilladasCaupolicanPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 shadow-lg transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               style={{ backgroundColor: 'rgba(246,241,228,0.95)', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.wood} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -176,22 +180,22 @@ export default function ParrilladasCaupolicanPage() {
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(246,241,228,0.88)' }}>
               Parrilladas a la leña, marraqueta caliente y pebre recién
-              molido, a la orilla del camino en Pencahue. Todo lo que
-              se necesita.
+              molido, a la orilla del camino en Pencahue. El resto lo
+              pone el fuego.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-[transform,filter] hover:brightness-95 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ backgroundColor: C.mustard, color: C.deep }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#carta"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ borderColor: 'rgba(246,241,228,0.55)', color: '#F6F1E4' }}
               >
                 Ver la carta
@@ -250,53 +254,74 @@ export default function ParrilladasCaupolicanPage() {
           </Reveal>
         </div>
 
-        <ol>
-          {STEPS.map((s, i) => (
-            <li
-              key={s.num}
-              className="relative md:grid md:grid-cols-[96px_1fr] md:gap-x-10 pb-14 md:pb-20 last:pb-0"
-            >
-              {/* riel vertical con el número */}
-              <div className="hidden md:flex flex-col items-center" aria-hidden="true">
+        {/* Línea de tiempo: riel a la izquierda en móvil, al centro en escritorio */}
+        <div className="relative">
+          <span
+            aria-hidden="true"
+            className="absolute left-[23px] md:left-1/2 top-3 bottom-8 w-[2px] md:-translate-x-1/2"
+            style={{ backgroundColor: C.line }}
+          />
+          <ol>
+            {STEPS.map((s, i) => (
+              <li
+                key={s.num}
+                className="relative pb-14 md:pb-24 last:pb-0 md:grid md:grid-cols-2 md:items-center md:gap-x-16 lg:gap-x-24"
+              >
+                {/* nodo numerado sobre la línea */}
                 <span
-                  className={`${display.className} w-[72px] h-[72px] border-2 flex items-center justify-center font-extrabold text-2xl tracking-tight shrink-0`}
-                  style={{ borderColor: C.green, color: C.green, backgroundColor: C.paper }}
+                  aria-hidden="true"
+                  className={`${display.className} absolute left-0 top-0 z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 font-extrabold tracking-tight text-lg md:left-1/2 md:top-1/2 md:h-16 md:w-16 md:-translate-x-1/2 md:-translate-y-1/2 md:text-2xl`}
+                  style={{
+                    borderColor: C.green,
+                    backgroundColor: i === STEPS.length - 1 ? C.mustard : C.paper,
+                    color: i === STEPS.length - 1 ? C.deep : C.green,
+                  }}
                 >
                   {s.num}
                 </span>
-                {i < STEPS.length - 1 && (
-                  <span className="w-[2px] flex-1 mt-0" style={{ backgroundColor: C.line }} />
-                )}
-              </div>
-              <Reveal delay={i * 60}>
-                <div className={`grid md:grid-cols-2 gap-6 md:gap-8 items-stretch ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}>
-                  <figure className="relative overflow-hidden border-2 min-h-[240px]" style={{ borderColor: C.green }}>
-                    <img
+                <Reveal
+                  delay={i * 70}
+                  className={`ml-16 md:ml-0 ${i % 2 === 1 ? 'md:order-2' : 'md:order-1'}`}
+                >
+                  <figure
+                    className="relative aspect-[4/3] overflow-hidden border-2"
+                    style={{ borderColor: C.green }}
+                  >
+                    <Image
                       src={s.src}
                       alt={s.alt}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="(min-width: 768px) 42vw, 74vw"
+                      className="object-cover"
                     />
                   </figure>
-                  <div
-                    className="border-2 p-6 md:p-8 flex flex-col justify-center"
-                    style={{ borderColor: C.green, backgroundColor: i % 2 === 1 ? C.soft : C.paper }}
-                  >
-                    <p className="text-[11px] uppercase tracking-[0.22em] font-semibold mb-3 md:hidden" style={{ color: C.wood }}>
-                      Paso {s.num}
+                </Reveal>
+                <Reveal
+                  delay={i * 70 + 90}
+                  className={`ml-16 md:ml-0 mt-5 md:mt-0 ${i % 2 === 1 ? 'md:order-1' : 'md:order-2'}`}
+                >
+                  <div className={`max-w-md ${i % 2 === 1 ? 'md:ml-auto md:text-right' : ''}`}>
+                    <p
+                      className="text-[11px] uppercase tracking-[0.22em] font-semibold mb-3"
+                      style={{ color: C.wood }}
+                    >
+                      Paso {s.num} de {String(STEPS.length).padStart(2, '0')}
                     </p>
-                    <h3 className={`${display.className} font-bold tracking-tight text-2xl md:text-3xl mb-3`} style={{ color: C.green }}>
+                    <h3
+                      className={`${display.className} font-bold tracking-tight text-2xl md:text-3xl mb-3`}
+                      style={{ color: C.green }}
+                    >
                       {s.title}
                     </h3>
                     <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
                       {s.text}
                     </p>
                   </div>
-                </div>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+        </div>
       </section>
 
       {/* ── Carta de referencia ── */}
@@ -325,7 +350,7 @@ export default function ParrilladasCaupolicanPage() {
               {CARTA.map((item) => (
                 <li
                   key={item.name}
-                  className="flex items-baseline gap-3 px-5 md:px-7 py-4 md:py-5"
+                  className="flex items-baseline gap-3 px-5 md:px-7 py-4 md:py-5 transition-colors hover:bg-[rgba(46,74,60,0.06)]"
                   style={{ borderColor: C.lineSoft }}
                 >
                   <div className="min-w-0">
@@ -377,7 +402,7 @@ export default function ParrilladasCaupolicanPage() {
                   href={BIZ.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold underline underline-offset-4 decoration-2"
+                  className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2E24] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                   style={{ color: C.green, textDecorationColor: 'rgba(217,164,65,0.5)' }}
                 >
                   {BIZ.fbFollowers} seguidores en Facebook
@@ -389,7 +414,7 @@ export default function ParrilladasCaupolicanPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2"
+              className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#5d3c20] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               style={{ color: C.wood, textDecorationColor: 'rgba(138,90,51,0.35)' }}
             >
               Ver la ficha en Google →
@@ -435,7 +460,7 @@ export default function ParrilladasCaupolicanPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 decoration-2" style={{ textDecorationColor: 'rgba(217,164,65,0.5)' }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 decoration-2 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ textDecorationColor: 'rgba(217,164,65,0.5)' }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -444,7 +469,7 @@ export default function ParrilladasCaupolicanPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-[transform,filter] hover:brightness-95 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ backgroundColor: C.mustard, color: C.deep }}
               >
                 Escribir por WhatsApp
@@ -453,7 +478,7 @@ export default function ParrilladasCaupolicanPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ borderColor: 'rgba(246,241,228,0.45)', color: '#F6F1E4' }}
               >
                 Facebook
@@ -480,13 +505,12 @@ export default function ParrilladasCaupolicanPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.green }}>
-        <div
-          className="absolute inset-0 opacity-[0.18]"
-          style={{
-            backgroundImage: `url(${IMG}/detalle1.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+        <Image
+          src={`${IMG}/detalle1.webp`}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.18]"
           aria-hidden="true"
         />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
@@ -504,7 +528,7 @@ export default function ParrilladasCaupolicanPage() {
               href={WA_LINK_RESERVA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-[transform,filter] hover:brightness-95 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
               style={{ backgroundColor: C.mustard, color: C.deep }}
             >
               Reservar por WhatsApp
