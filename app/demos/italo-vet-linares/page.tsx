@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Outfit, Manrope } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, STEPS, SERVICES, PRICES } from './content'
 
@@ -58,6 +58,8 @@ export default function ItaloVetLinaresPage() {
 
   return (
     <div className={body.className} style={{ backgroundColor: '#fff', color: C.ink }}>
+      {/* Hero a sangre */}
+      <section className="relative min-h-screen flex items-end overflow-hidden" style={{ backgroundColor: C.blueDeep }}>
       <header className="absolute top-0 inset-x-0 z-20">
         <div className="max-w-6xl mx-auto px-5 py-5 flex items-center justify-between gap-4">
           <span className={`${h} text-white text-xl font-extrabold tracking-tight`}>
@@ -73,9 +75,6 @@ export default function ItaloVetLinaresPage() {
           </a>
         </div>
       </header>
-
-      {/* Hero a sangre */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden">
         <Image
           src="/demos/italo-vet-linares/hero.webp"
           alt="Box de atención veterinaria con mesa de acero, balanza y luz natural"
@@ -87,7 +86,7 @@ export default function ItaloVetLinaresPage() {
         <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(180deg, rgba(11,30,107,0.35) 0%, rgba(11,30,107,0.55) 45%, ${C.blueDeep} 100%)`,
+            background: `linear-gradient(180deg, rgba(11,30,107,0.6) 0%, rgba(11,30,107,0.7) 45%, ${C.blueDeep} 100%)`,
           }}
           aria-hidden="true"
         />
@@ -284,15 +283,17 @@ export default function ItaloVetLinaresPage() {
 
       {/* Franja Sitiazo */}
       <div className="py-4 px-5 text-center text-sm font-bold" style={{ backgroundColor: C.lime, color: C.ink }}>
-        Sitio de ejemplo de Sitiazo · textos de servicios y precios son de muestra
+        Mockup preparado por{' '}
+        <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">Sitiazo</a>{' '}
+        para {BIZ.name}: textos de servicios y precios son de muestra.{' '}
+        <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">¿Lo hacemos realidad?</a>
       </div>
 
-      <footer className="py-8 px-5 text-center text-xs" style={{ color: C.muted }}>
+      <footer className="pt-8 pb-24 px-5 text-center text-xs" style={{ color: C.muted }}>
         {BIZ.name} · {BIZ.address}
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir a ${BIZ.name} por WhatsApp`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }
