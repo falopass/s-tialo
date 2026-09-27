@@ -1,10 +1,17 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Bricolage_Grotesque, Inter } from 'next/font/google'
-import { DemoBand } from '../kit'
+import type { CSSProperties } from 'react'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
-import { Vitrina, C, HAZARD } from './vitrina'
-import { BIZ, WA_LINK, waLinkServicio, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import { Vitrina } from './vitrina'
+import { BIZ, WA_LINK, waLinkServicio, IG_URL, MAPS_URL, MAPS_EMBED, IMG, C, HAZARD } from './content'
+
+// globals.css redefine --spacing-5…12 (gap-10 = 128px, py-12 = 240px); este demo
+// se diseñó con la escala por defecto de Tailwind (n × 4px), así que se restaura aquí.
+const SPACING = Object.fromEntries(
+  [5, 6, 7, 8, 9, 10, 11, 12].map((n) => [`--spacing-${n}`, `${n * 4}px`]),
+) as CSSProperties
 
 const display = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -60,30 +67,24 @@ export default function GirlsHousePage() {
   return (
     <div
       className={`${body.className} min-h-screen antialiased`}
-      style={{ backgroundColor: C.paper, color: C.ink }}
+      style={{ ...SPACING, backgroundColor: C.paper, color: C.ink }}
     >
-      <style>{`
-        @keyframes gh-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .gh-marquee-track { animation: gh-marquee 36s linear infinite; }
-        @media (prefers-reduced-motion: reduce) { .gh-marquee-track { animation: none; } }
-      `}</style>
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(23,24,26,0.95)',
-          ink: '#FFFFFF',
-          line: 'rgba(255,255,255,0.14)',
-          btnBg: C.signal,
-          btnInk: C.ink,
-        }}
-      />
-
-      {/* ── Escaparate ── */}
+      {/* ── Escaparate (el nav fijo va dentro: flota sobre este fondo oscuro) ── */}
       <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.ink }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(23,24,26,0.95)',
+            ink: '#FFFFFF',
+            line: 'rgba(255,255,255,0.14)',
+            btnBg: C.signal,
+            btnInk: C.ink,
+          }}
+        />
         <div
           aria-hidden="true"
           className="absolute inset-0 opacity-[0.05]"
@@ -213,30 +214,23 @@ export default function GirlsHousePage() {
       </section>
 
       {/* ── Cinta de precios ── */}
-      <section aria-label="Servicios y precios de muestra" className="overflow-hidden" style={{ backgroundColor: C.signal }}>
-        <div className="gh-marquee-track flex w-max items-center py-3 md:py-3.5">
-          {[0, 1].map((copy) => (
-            <ul
-              key={copy}
-              aria-hidden={copy === 1}
-              className={`${display.className} flex items-center whitespace-nowrap`}
+      <section aria-label="Servicios y precios de muestra" style={{ backgroundColor: C.signal }}>
+        <ul
+          className={`${display.className} max-w-6xl mx-auto px-5 md:px-8 py-3 md:py-3.5 flex flex-wrap justify-center gap-x-6 gap-y-2`}
+        >
+          {PRICES.map((p) => (
+            <li
+              key={p.name}
+              className="flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-[0.12em]"
+              style={{ color: C.ink }}
             >
-              {PRICES.map((p) => (
-                <li
-                  key={p.name}
-                  className="flex items-center text-xs md:text-sm font-bold uppercase tracking-[0.12em]"
-                  style={{ color: C.ink }}
-                >
-                  <span className="px-4">{p.name}</span>
-                  <span className="px-2 py-0.5" style={{ backgroundColor: C.ink, color: C.signal }}>
-                    {p.price}
-                  </span>
-                  <span className="pl-4" aria-hidden="true">✦</span>
-                </li>
-              ))}
-            </ul>
+              <span>{p.name}</span>
+              <span className="px-2 py-0.5" style={{ backgroundColor: C.ink, color: C.signal }}>
+                {p.price}
+              </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
       {/* ── La vitrina ── */}
@@ -272,6 +266,7 @@ export default function GirlsHousePage() {
                   alt="Fachada de Girls House Estética en Quechereguas, Molina: vitrina encendida al atardecer"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -359,7 +354,7 @@ export default function GirlsHousePage() {
                       </span>
                       <span className="flex-1 border-b border-dotted translate-y-[-4px]" style={{ borderColor: 'rgba(138,145,153,0.5)' }} aria-hidden="true" />
                       {p.before && (
-                        <span className="text-xs line-through" style={{ color: C.steel }}>
+                        <span className="text-xs line-through" style={{ color: C.steelDark }}>
                           {p.before}
                         </span>
                       )}
@@ -370,7 +365,7 @@ export default function GirlsHousePage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-[11px] uppercase tracking-[0.18em]" style={{ color: C.steel }}>
+              <p className="mt-4 text-[11px] uppercase tracking-[0.18em]" style={{ color: C.steelDark }}>
                 Lista de muestra · toca un servicio para reservarlo por WhatsApp
               </p>
             </Reveal>
@@ -441,11 +436,11 @@ export default function GirlsHousePage() {
             <p className={`${display.className} font-extrabold uppercase text-xl mb-1`}>
               {BIZ.name}
             </p>
-            <p className="text-xs" style={{ color: C.steel }}>
+            <p className="text-xs" style={{ color: C.steelDark }}>
               {BIZ.rubro} · {BIZ.address}, {BIZ.city}
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs" style={{ color: C.steel }}>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs" style={{ color: C.steelDark }}>
             <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               @{BIZ.instagram}
             </a>
@@ -457,10 +452,21 @@ export default function GirlsHousePage() {
             </a>
           </div>
         </div>
+        <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#FFFFFF' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}: servicios y precios de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signal }}>
+              ¿Lo hacemos realidad?
+            </a>
+          </p>
+        </div>
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }

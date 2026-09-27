@@ -10,18 +10,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { IMG, waLinkServicio } from './content'
-
-export const C = {
-  ink: '#17181A',
-  signal: '#FFC300',
-  steel: '#8A9199',
-  paper: '#F4F5F6',
-  line: 'rgba(23,24,26,0.14)',
-} as const
-
-export const HAZARD =
-  'repeating-linear-gradient(-45deg, #FFC300 0 9px, #17181A 9px 18px)'
+import { IMG, waLinkServicio, C, HAZARD } from './content'
 
 type Cat = 'rostro' | 'cejas-pestanas' | 'maquillaje'
 
@@ -137,7 +126,7 @@ export function Vitrina({ fontClass }: { fontClass: string }) {
               type="button"
               onClick={() => setFilter(f.key)}
               aria-pressed={active}
-              className={`text-[11px] md:text-xs font-semibold uppercase tracking-[0.14em] px-4 py-2 border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]${active ? '' : ' hover:border-[#8A9199] hover:text-[#17181A]'}`}
+              className={`text-[11px] md:text-xs font-semibold uppercase tracking-[0.14em] px-4 py-2 border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]${active ? '' : ' hover:border-[#5A6169] hover:text-[#17181A]'}`}
               style={{
                 backgroundColor: active ? C.signal : 'transparent',
                 borderColor: active ? C.signal : C.line,
@@ -170,6 +159,7 @@ export function Vitrina({ fontClass }: { fontClass: string }) {
                 alt={p.name}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                loading="eager"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 style={p.pos ? { objectPosition: p.pos } : undefined}
               />

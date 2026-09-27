@@ -43,3 +43,17 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
 )}&output=embed`
 
 export const IMG = '/demos/girls-house-estetica'
+
+// Paleta en un módulo sin 'use client': si vive en vitrina.tsx, page.tsx
+// (server) recibe referencias de cliente y los estilos inline quedan vacíos.
+export const C = {
+  ink: '#17181A',
+  signal: '#FFC300',
+  steel: '#5A6169',
+  steelDark: 'rgba(255,255,255,0.62)',
+  paper: '#F4F5F6',
+  line: 'rgba(23,24,26,0.14)',
+} as const
+
+export const HAZARD =
+  'repeating-linear-gradient(-45deg, #FFC300 0 9px, #17181A 9px 18px)'
