@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Bricolage_Grotesque, Inter } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, FaqList } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -271,6 +271,7 @@ export default function PeluqueriaFranWartembergPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -725,32 +726,27 @@ export default function PeluqueriaFranWartembergPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.taller, color: '#FFFFFF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-bold text-2xl mb-2 uppercase`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: C.steel }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: C.steel }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+          <p className={`${display.className} font-bold text-xl mb-2 uppercase`}>{BIZ.name}</p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: C.steel }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: C.lineLight }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: C.steel }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios y fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: C.steel }}>
+            Sitio de ejemplo preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: C.signal }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Textos, servicios, precios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: C.signal }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
