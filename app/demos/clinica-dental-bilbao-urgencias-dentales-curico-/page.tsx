@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Space_Grotesk, DM_Sans } from 'next/font/google'
 import { SITE, whatsappLink } from '@/lib/config'
-import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
+import { Reveal, BlitzNav, Stars } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = Space_Grotesk({ subsets: ['latin'], weight: ['500', '600', '700'] })
@@ -138,37 +138,34 @@ export default function ClinicaDentalBilbaoPage() {
           style={{ backgroundColor: C.line, borderColor: C.line }}
           aria-label="Datos destacados de la clínica"
         >
-          {METRICS.map((m) => {
-            const cell = (
-              <>
-                <dt
-                  className={`${display.className} text-3xl md:text-4xl leading-none mb-2 tabular-nums transition-colors`}
-                  style={{ color: C.forest }}
-                >
-                  {m.value}
-                </dt>
-                <dd className="text-[11px] md:text-xs leading-snug" style={{ color: C.muted }}>
-                  {m.label}
-                </dd>
-              </>
-            )
-            return (
-              <div key={m.label} style={{ backgroundColor: C.paper }}>
+          {METRICS.map((m) => (
+            <div
+              key={m.label}
+              className={`px-5 md:px-7 py-5 md:py-6 transition-colors ${m.href ? 'hover:bg-[#FCFAF3]' : ''}`}
+              style={{ backgroundColor: C.paper }}
+            >
+              <dt
+                className={`${display.className} text-3xl md:text-4xl leading-none mb-2 tabular-nums transition-colors`}
+                style={{ color: C.forest }}
+              >
+                {m.value}
+              </dt>
+              <dd className="text-[11px] md:text-xs leading-snug" style={{ color: C.muted }}>
                 {m.href ? (
                   <a
                     href={m.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block px-5 md:px-7 py-5 md:py-6 transition-colors hover:bg-[#FCFAF3] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#C8A24B]"
+                    className="underline-offset-2 decoration-[#C8A24B]/60 hover:underline focus-visible:outline-2 focus-visible:outline-[#C8A24B]"
                   >
-                    {cell}
+                    {m.label}
                   </a>
                 ) : (
-                  <div className="px-5 md:px-7 py-5 md:py-6">{cell}</div>
+                  m.label
                 )}
-              </div>
-            )
-          })}
+              </dd>
+            </div>
+          ))}
         </dl>
 
         {/* Hero en panel: texto + ficha con foto */}
@@ -590,20 +587,43 @@ export default function ClinicaDentalBilbaoPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="pb-20" style={{ backgroundColor: C.deep, color: '#F6F1E7' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
-          <p className={`${display.className} font-semibold text-xl mb-1`}>{BIZ.name}</p>
-          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
-            {BIZ.address} · {BIZ.city}
-            <br />
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">
-              {BIZ.phoneDisplay}
-            </a>
-            {' · '}
-            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors">
-              Instagram
-            </a>
-          </address>
+      <footer style={{ backgroundColor: C.deep, color: '#F6F1E7' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 md:py-7 flex items-center justify-between gap-6">
+          <div>
+            <p className={`${display.className} font-semibold text-xl mb-1`}>{BIZ.name}</p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
+              {BIZ.address} · {BIZ.city}
+              <br />
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">
+                {BIZ.phoneDisplay}
+              </a>
+              {' · '}
+              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors">
+                Instagram
+              </a>
+            </address>
+          </div>
+          <a
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Escribir por WhatsApp a ${BIZ.name}`}
+            className="shrink-0 w-[48px] h-[48px] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95"
+            style={{ backgroundColor: '#25D366' }}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="w-[24px] h-[24px]"
+              fill="none"
+              stroke="#fff"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+            </svg>
+          </a>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
@@ -618,8 +638,6 @@ export default function ClinicaDentalBilbaoPage() {
           </p>
         </div>
       </footer>
-
-      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
 }
