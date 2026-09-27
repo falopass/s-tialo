@@ -125,22 +125,26 @@ export default function VictoriaNailSchoolPage() {
     >
       <style>{`
         html { scroll-behavior: auto }
+        .vns-nav header, .vns-nav header * { transition: none !important }
         .vns-band > div { position: static; max-width: none; width: fit-content; box-shadow: none; background-color: rgba(28,30,32,0.94) }
       `}</style>
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(255,255,255,0.95)',
-          ink: C.ink,
-          line: C.line,
-          btnBg: C.red,
-          btnInk: '#FFFFFF',
-        }}
-      />
+      {/* fondo rojo del hero bajo el nav transparente (el wrapper no ocupa alto) */}
+      <div className="vns-nav" style={{ backgroundColor: C.red }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(255,255,255,0.95)',
+            ink: C.ink,
+            line: C.line,
+            btnBg: C.red,
+            btnInk: '#FFFFFF',
+          }}
+        />
+      </div>
 
       {/* ── Hero split: texto | foto ── */}
       <section
