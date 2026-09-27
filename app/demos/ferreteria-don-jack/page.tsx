@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Instrument_Serif, Inter } from 'next/font/google'
 import { SITE, whatsappLink } from '@/lib/config'
-import { BlitzNav, WaFab } from '../blitz-kit'
+import { WaFab } from '../blitz-kit'
+import { TopNav } from './nav'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, CARTA, PRECIOS } from './content'
 
 const serif = Instrument_Serif({ subsets: ['latin'], weight: '400', style: ['normal', 'italic'] })
@@ -33,12 +34,12 @@ const NAV_LINKS = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-function Leader({ label, value, serifValue = false }: { label: string; value: string; serifValue?: boolean }) {
+function Leader({ label, value, serifValue = false, valueColor = C.tierra }: { label: string; value: string; serifValue?: boolean; valueColor?: string }) {
   return (
     <li className="flex items-baseline gap-2 py-2">
       <span>{label}</span>
       <span aria-hidden="true" className="flex-1 border-b-2 border-dotted translate-y-[-4px]" style={{ borderColor: C.line }} />
-      <span className={serifValue ? `${serif.className} text-[20px]` : 'text-[13px] uppercase tracking-[0.12em]'} style={{ color: C.tierra }}>
+      <span className={serifValue ? `${serif.className} text-[20px]` : 'text-[13px] uppercase tracking-[0.12em]'} style={{ color: valueColor }}>
         {value}
       </span>
     </li>
@@ -63,12 +64,12 @@ export default function Page() {
   return (
     <main className={`${sans.className} min-h-screen`} style={{ background: C.crema, color: C.ink }}>
       <style>{`html { scroll-behavior: auto }`}</style>
-      <BlitzNav
+      <TopNav
         name={BIZ.name}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={serif.className}
-        theme={{ over: 'dark', bar: C.crema, ink: C.ink, line: C.line, btnBg: C.campo, btnInk: C.crema }}
+        theme={{ bar: C.crema, ink: C.ink, line: C.line, btnBg: C.campo, btnInk: C.crema }}
       />
 
       {/* Portada a sangre */}
@@ -155,14 +156,14 @@ export default function Page() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
               <Image src={`${IMG}/detalle1.webp`} alt="Local de ferretería con cortina abierta en una calle de pueblo con cerros al fondo" fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover" />
             </div>
-            <p className="mt-2 text-[12px]" style={{ color: C.muted }}>Imagen referencial.</p>
+            <p className="mt-2 text-[12px]" style={{ color: C.campoDeep }}>Imagen referencial.</p>
             <h3 className={`${serif.className} mt-8 text-[30px]`}>Lo que se valora en el mesón</h3>
             <ul className="mt-3 text-[15px]">
-              <Leader label="Atención directa" value="i" serifValue />
-              <Leader label="Consejo para elegir la pieza" value="ii" serifValue />
-              <Leader label="Cerca de casa, en Pencahue" value="iii" serifValue />
+              <Leader label="Atención directa" value="i" serifValue valueColor={C.campoDeep} />
+              <Leader label="Consejo para elegir la pieza" value="ii" serifValue valueColor={C.campoDeep} />
+              <Leader label="Cerca de casa, en Pencahue" value="iii" serifValue valueColor={C.campoDeep} />
             </ul>
-            <p className="mt-6 text-[15px]" style={{ color: C.muted }}>
+            <p className="mt-6 text-[15px]" style={{ color: C.campoDeep }}>
               <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" style={{ color: C.campo }}>{BIZ.reviews} reseñas en Google Maps</a>
               {' '}y{' '}
               <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" style={{ color: C.campo }}>{BIZ.followers.toLocaleString('es-CL')} seguidores en Facebook</a>.
