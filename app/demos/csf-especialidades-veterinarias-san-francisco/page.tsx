@@ -347,6 +347,7 @@ export default function CsfVeterinariaPage() {
                         alt={s.alt}
                         fill
                         sizes="(min-width: 640px) 44vw, 92vw"
+                        loading="eager"
                         className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                       />
                       <span
@@ -395,6 +396,7 @@ export default function CsfVeterinariaPage() {
                   alt="Fachada de la clínica veterinaria a nivel de calle, con vitrina y perritos en la ventana"
                   fill
                   sizes="(min-width: 1024px) 45vw, 92vw"
+                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -621,7 +623,7 @@ export default function CsfVeterinariaPage() {
 
       {/* ── Footer ── */}
       <footer className="border-t-[3px]" style={{ backgroundColor: C.ink, borderColor: C.lime, color: C.white }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <p className={`${display.className} font-black uppercase text-xl md:text-2xl mb-2`}>
               <span style={{ color: C.lime }}>CSF</span> Especialidades Veterinarias
