@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Familjen_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -171,7 +171,7 @@ function SectionHead({
 export default function RestaurantElEncuentroPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`${body.className} relative min-h-screen antialiased overflow-x-clip [&>header]:!absolute`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <BlitzNav
@@ -354,6 +354,7 @@ export default function RestaurantElEncuentroPage() {
                     src={p.src}
                     alt={p.alt}
                     fill
+                    loading="eager"
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
@@ -529,33 +530,34 @@ export default function RestaurantElEncuentroPage() {
       </section>
 
       {/* ── Banda reserva ── */}
-      <a
-        href={WA_LINK_RESERVA}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`group block mt-20 md:mt-28 transition-colors duration-300 bg-[#D9A441] hover:bg-[#17231C] ${FOCUS} focus-visible:outline-offset-0`}
-      >
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 md:py-14 flex items-center justify-between gap-6">
+      <div className="mt-20 md:mt-28" style={{ backgroundColor: C.mustard }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 md:py-14 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <p
-              className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.28em] mb-3 text-[#17231C]/70 group-hover:text-[#EDD9A0] transition-colors duration-300`}
+              className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.28em] mb-3`}
+              style={{ color: C.deep }}
             >
               Reserva directa — WhatsApp
             </p>
             <p
-              className={`${display.className} font-bold uppercase leading-[0.95] tracking-[-0.01em] text-3xl md:text-5xl text-[#17231C] group-hover:text-[#F4F1E8] transition-colors duration-300`}
+              className={`${display.className} font-bold uppercase leading-[0.95] tracking-[-0.01em] text-3xl md:text-5xl`}
+              style={{ color: C.deep }}
             >
               ¿Almorzamos? Reserva tu mesa
             </p>
           </div>
-          <span
-            className={`${display.className} shrink-0 text-4xl md:text-6xl leading-none text-[#17231C] group-hover:text-[#D9A441] transition-all duration-300 group-hover:translate-x-2`}
-            aria-hidden="true"
+          <a
+            href={WA_LINK_RESERVA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${display.className} ${FOCUS} group self-start md:self-auto shrink-0 inline-flex items-center gap-3 font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-colors hover:bg-[#2E4A3C] active:scale-95`}
+            style={{ backgroundColor: C.deep, color: C.paper }}
           >
-            →
-          </span>
+            Reservar mesa
+            <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+          </a>
         </div>
-      </a>
+      </div>
 
       {/* ── 04 / Contacto ── */}
       <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.deep }}>
@@ -659,17 +661,20 @@ export default function RestaurantElEncuentroPage() {
             </nav>
           </div>
           <div className="border-t" style={{ borderColor: 'rgba(244,241,232,0.12)' }}>
-            <p className={`${mono.className} max-w-6xl mx-auto px-5 md:px-8 py-5 text-[10px] md:text-[11px] uppercase tracking-[0.16em] leading-relaxed`} style={{ color: 'rgba(244,241,232,0.4)' }}>
-              Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-              Carta, precios, horarios y fotos son de muestra; nombre,
-              dirección, reseñas y contacto corresponden a la ficha
-              pública del negocio.
+            <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 md:pb-8 text-xs leading-relaxed" style={{ color: 'rgba(244,241,232,0.75)' }}>
+              Mockup preparado por{' '}
+              <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:text-[#D9A441]`} style={{ color: C.paper }}>
+                Sitiazo
+              </a>{' '}
+              para {BIZ.name} — así se vería tu sitio. Carta, precios y
+              horarios son de muestra.{' '}
+              <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:text-[#D9A441]`} style={{ color: C.mustard }}>
+                ¿Lo hacemos realidad?
+              </a>
             </p>
           </div>
         </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
