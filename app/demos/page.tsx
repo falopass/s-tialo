@@ -654,6 +654,14 @@ const BLITZ = [
     tagline: 'Hero tipográfico sin foto: rojo logística, gris flota y naranja señal, andenes numerados y guía de precios.',
     gradient: 'linear-gradient(135deg, #9A1E23 0%, #C1272D 55%, #F26B1D 140%)',
   },
+  {
+    slug: 'ius-abogados-linares',
+    name: 'IUS Abogados Linares',
+    rubro: 'Abogado',
+    city: 'Linares',
+    tagline: 'Línea de tiempo horizontal: huincha mostaza que cruza la pantalla, verde oscuro y madera, hitos con fotos.',
+    gradient: 'linear-gradient(135deg, #1D3128 0%, #2E4A3C 55%, #D9A441 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
