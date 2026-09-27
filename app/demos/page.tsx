@@ -438,6 +438,14 @@ const BLITZ = [
     tagline: 'Minimal de lujo: blanco, líneas de 1px, rojo logística y dorado discreto, con fotos.',
     gradient: 'linear-gradient(135deg, #4A4E52 0%, #C1272D 55%, #E8631A 140%)',
   },
+  {
+    slug: 'danybloom',
+    name: 'danybloom',
+    rubro: 'Salón de manicura y pedicura',
+    city: 'Talca',
+    tagline: 'Split-screen de taller: negro, amarillo señal y acero, bloques alternados con fotos.',
+    gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
