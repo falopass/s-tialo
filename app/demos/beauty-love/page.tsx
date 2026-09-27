@@ -105,6 +105,7 @@ export default function BeautyLovePage() {
         .bl-card:hover { box-shadow: ${TUBE} }
         .bl-cta:hover { box-shadow: 0 0 0 1px ${C.mint}, 0 0 28px rgba(159,216,203,.7), 0 0 70px rgba(159,216,203,.35) }
         a:focus-visible { outline: 2px solid ${C.mint}; outline-offset: 3px }
+        header a { transition-property: transform }
         @media (prefers-reduced-motion: reduce) { .bl-flicker { animation: none } }
       `}</style>
 
@@ -312,20 +313,20 @@ export default function BeautyLovePage() {
             </ul>
 
             <div className="mt-10 grid grid-cols-2 gap-4">
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl p-5"
-                style={{ boxShadow: `0 0 0 1px ${C.line}` }}
-              >
-                <p className={`${display.className} text-4xl font-extrabold`} style={{ color: C.mint, textShadow: GLOW }}>
+              <div className="rounded-2xl p-5" style={{ boxShadow: `0 0 0 1px ${C.line}` }}>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${display.className} inline-block text-4xl font-extrabold`}
+                  style={{ color: C.mint, textShadow: GLOW }}
+                >
                   {BIZ.instagramFollowers}
-                </p>
+                </a>
                 <p className="mt-1 text-xs uppercase tracking-[0.18em] font-bold" style={{ color: C.muted }}>
                   seguidores en Instagram
                 </p>
-              </a>
+              </div>
               <div className="rounded-2xl p-5" style={{ boxShadow: `0 0 0 1px ${C.line}` }}>
                 <p className={`${display.className} text-2xl font-extrabold leading-tight`}>Recién partiendo en Google</p>
                 <p className="mt-1 text-xs uppercase tracking-[0.18em] font-bold" style={{ color: C.muted }}>
