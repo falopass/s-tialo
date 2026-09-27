@@ -121,7 +121,7 @@ function Chevrons({ color }: { color: string }) {
 
 export default function DistribuidoraRenatoMolina() {
   return (
-    <div className={`${body.className} antialiased`} style={{ backgroundColor: C.blanco, color: C.tinta }}>
+    <div className={`${body.className} antialiased`} style={{ backgroundColor: C.rojo, color: C.tinta }}>
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
@@ -152,7 +152,9 @@ export default function DistribuidoraRenatoMolina() {
           <h1 className={`${display.className} font-extrabold uppercase leading-[0.86] tracking-[-0.04em] text-[17vw] md:text-[12.5vw] lg:text-[164px]`}>
             <span className="block">Tu pedido,</span>
             <span className="block">listo y</span>
-            <span className="block" style={{ color: C.tinta }}>a tiempo.</span>
+            <span className="block">
+              <span className="inline-block px-[0.06em]" style={{ backgroundColor: C.tinta }}>a tiempo.</span>
+            </span>
           </h1>
 
           <div className="mt-10 md:mt-14 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
@@ -189,7 +191,7 @@ export default function DistribuidoraRenatoMolina() {
         </div>
 
         <div className="relative border-t border-white/25">
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1 text-xs md:text-sm font-medium text-white/85">
+          <div className="max-w-6xl mx-auto pl-5 pr-20 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1 text-xs md:text-sm font-medium text-white/85">
             <span>{BIZ.address}, {BIZ.city}</span>
             <span>@{BIZ.instagram} · {BIZ.instagramFollowers} seguidores</span>
             <span>{BIZ.phoneDisplay}</span>
@@ -204,6 +206,7 @@ export default function DistribuidoraRenatoMolina() {
           alt="Pasillo con estanterías metálicas llenas de baldes, ollas, escobas y cajas organizadoras"
           fill
           sizes="100vw"
+          priority
           className="object-cover"
         />
         <div className="absolute left-0 bottom-0 flex items-stretch">
@@ -215,7 +218,7 @@ export default function DistribuidoraRenatoMolina() {
       </section>
 
       {/* ── Productos / andenes ───────────────────────────── */}
-      <section id="productos" className="scroll-mt-16 py-20 md:py-28">
+      <section id="productos" className="scroll-mt-16 py-20 md:py-28" style={{ backgroundColor: C.blanco }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
@@ -233,7 +236,7 @@ export default function DistribuidoraRenatoMolina() {
               <Reveal key={a.n} delay={i * 110}>
                 <article className="group">
                   <div className="relative aspect-[4/5] overflow-hidden" style={{ backgroundColor: C.grisSoft }}>
-                    <Image src={a.src} alt={a.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                    <Image src={a.src} alt={a.alt} fill sizes="(min-width: 768px) 33vw, 100vw" loading="eager" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                     <span
                       className={`${display.className} absolute top-0 left-0 px-4 py-2 text-sm font-bold tracking-wider text-white`}
                       style={{ backgroundColor: C.rojo }}
@@ -262,6 +265,7 @@ export default function DistribuidoraRenatoMolina() {
               alt="Fachada de un local con la cortina abierta y escobas y baldes a la entrada, en una calle con árboles"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
+              loading="eager"
               className="object-cover"
             />
           </div>
@@ -368,7 +372,7 @@ export default function DistribuidoraRenatoMolina() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 grid gap-12 md:grid-cols-2 md:items-center">
           <Reveal>
             <h2 className={`${display.className} font-extrabold uppercase leading-[0.88] tracking-[-0.04em] text-6xl md:text-8xl`}>
-              ¿Qué<br />te<br /><span style={{ color: C.tinta }}>falta?</span>
+              ¿Qué<br />te<br /><span className="inline-block px-[0.06em]" style={{ backgroundColor: C.tinta }}>falta?</span>
             </h2>
             <p className="mt-6 max-w-md text-base md:text-lg text-white/90 leading-relaxed">
               Escribe lo que necesitas y te confirman disponibilidad antes de que salgas de la casa.
@@ -377,7 +381,7 @@ export default function DistribuidoraRenatoMolina() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${focusRing} group mt-8 flex w-full max-w-md items-center justify-between gap-4 min-h-[72px] px-6 md:px-8 text-lg md:text-xl font-bold shadow-[8px_8px_0_#1E2022] transition-transform active:translate-x-[4px] active:translate-y-[4px] active:shadow-[4px_4px_0_#1E2022]`}
+              className={`${focusRing} group mt-8 flex w-full max-w-md items-center justify-between gap-4 min-h-[64px] py-2 px-6 md:px-8 text-lg md:text-xl font-bold shadow-[8px_8px_0_#1E2022] transition-transform active:translate-x-[4px] active:translate-y-[4px] active:shadow-[4px_4px_0_#1E2022]`}
               style={{ backgroundColor: C.blanco, color: C.rojo }}
             >
               <span>
@@ -422,15 +426,18 @@ export default function DistribuidoraRenatoMolina() {
 
       {/* ── Franja Sitiazo ────────────────────────────────── */}
       <footer className="text-white" style={{ backgroundColor: C.grisDeep }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 pb-24 md:pb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm">
-          <p className={`${display.className} text-lg font-bold`}>{BIZ.name}</p>
-          <p className="text-white/70">
-            Sitio de ejemplo de Sitiazo · Datos de contacto reales; categorías, textos y precios de muestra; fotos referenciales.
-          </p>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-6 pb-20 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-sm">
+          <div>
+            <p className={`${display.className} text-lg font-bold`}>{BIZ.name}</p>
+            <p className="text-xs text-white/70">
+              Sitio de ejemplo de Sitiazo · Datos de contacto reales; categorías, textos y precios de muestra; fotos referenciales.
+            </p>
+          </div>
+          <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex!">
+            <DemoBand name={BIZ.name} />
+          </div>
         </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir a ${BIZ.name} por WhatsApp`} />
     </div>
   )
