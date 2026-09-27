@@ -43,7 +43,13 @@ export function Reveal({
       { threshold: 0.15, rootMargin: '0px 0px -40px' },
     )
     io.observe(el)
-    return () => io.disconnect()
+    // Red de seguridad: si el observador no dispara (móviles lentos, navegadores raros),
+    // el contenido se muestra igual pasado un momento — nunca debe quedar invisible.
+    const salvavidas = window.setTimeout(() => setVisible(true), 2200 + delay)
+    return () => {
+      io.disconnect()
+      window.clearTimeout(salvavidas)
+    }
   }, [])
 
   return (
