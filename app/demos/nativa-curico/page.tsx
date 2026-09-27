@@ -132,18 +132,11 @@ export default function NativaCuricoPage() {
       style={{ backgroundColor: C.night, color: C.bone }}
     >
       <style>{`
-        @keyframes nativa-marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
         @keyframes nativa-flicker {
           0%, 5.5%, 7.5%, 53%, 55%, 81%, 83.5%, 100% { opacity: 1; }
           6.5% { opacity: 0.55; }
           54% { opacity: 0.72; }
           82% { opacity: 0.85; }
-        }
-        .nativa-marquee-track {
-          animation: nativa-marquee 26s linear infinite;
         }
         .nativa-neon {
           animation: nativa-flicker 4.4s linear infinite;
@@ -180,7 +173,7 @@ export default function NativaCuricoPage() {
           outline-offset: 3px;
         }
         @media (prefers-reduced-motion: reduce) {
-          .nativa-marquee-track, .nativa-neon { animation: none; }
+          .nativa-neon { animation: none; }
         }
       `}</style>
 
@@ -219,7 +212,7 @@ export default function NativaCuricoPage() {
         />
         {/* halo de neón detrás del titular */}
         <div
-          className="absolute left-1/2 bottom-0 w-[120%] h-[46%] -translate-x-1/2 pointer-events-none"
+          className="absolute inset-x-0 bottom-0 h-[46%] pointer-events-none"
           style={{
             background:
               'radial-gradient(ellipse 60% 60% at 50% 100%, rgba(107,39,55,0.55) 0%, rgba(185,139,78,0.12) 45%, transparent 75%)',
@@ -310,34 +303,30 @@ export default function NativaCuricoPage() {
 
       {/* ── Marquesina neón ── */}
       <div
-        className="overflow-hidden border-b"
+        className="border-b"
         style={{ borderColor: C.line, backgroundColor: C.night2 }}
         aria-hidden="true"
       >
-        <div className="nativa-marquee-track flex w-max py-3.5">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex shrink-0 items-center">
-              {MARQUEE.concat(MARQUEE).map((item, i) => (
-                <span
-                  key={`${copy}-${i}`}
-                  className={`${display.className} uppercase font-semibold text-sm tracking-[0.22em] px-6 whitespace-nowrap`}
-                  style={{ color: 'rgba(245,239,230,0.55)' }}
-                >
-                  {item}
-                  <span
-                    className="ml-6"
-                    style={
-                      i % 2 === 0
-                        ? { color: C.gold, textShadow: GLOW_TEXT }
-                        : { color: C.rose, textShadow: GLOW_ROSE }
-                    }
-                    aria-hidden="true"
-                  >
-                    ✦
-                  </span>
-                </span>
-              ))}
-            </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-3.5 flex flex-wrap justify-center gap-x-5 gap-y-2">
+          {MARQUEE.map((item, i) => (
+            <span
+              key={item}
+              className={`${display.className} uppercase font-semibold text-xs md:text-sm tracking-[0.22em] whitespace-nowrap`}
+              style={{ color: 'rgba(245,239,230,0.7)' }}
+            >
+              {item}
+              <span
+                className="ml-5"
+                style={
+                  i % 2 === 0
+                    ? { color: C.gold, textShadow: GLOW_TEXT }
+                    : { color: C.rose, textShadow: GLOW_ROSE }
+                }
+                aria-hidden="true"
+              >
+                ✦
+              </span>
+            </span>
           ))}
         </div>
       </div>
@@ -382,6 +371,7 @@ export default function NativaCuricoPage() {
                       alt={`${s.name} en ${BIZ.name}`}
                       fill
                       sizes="(min-width: 768px) 58vw, 100vw"
+                      loading="eager"
                       className="object-cover"
                       style={{ filter: 'contrast(1.12) saturate(1.05)' }}
                     />
