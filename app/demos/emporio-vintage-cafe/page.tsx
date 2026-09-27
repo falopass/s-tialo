@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Fraunces, Nunito_Sans } from 'next/font/google'
 import { SITE, whatsappLink } from '@/lib/config'
 import { DemoBand } from '../kit'
@@ -91,8 +92,8 @@ const CARTA = [
     ],
   },
   {
-    src: `${IMG}/ambiente.webp`,
-    alt: 'Fachada del emporio con toldo y mesas en la vereda de Tres Norte',
+    src: `${IMG}/hero.webp`,
+    alt: 'Interior del emporio: mesas de madera, vitrina con kuchen y ventanal a la calle',
     title: 'Del emporio, para llevar',
     items: [
       { name: 'Café en grano 250 g', desc: 'molido al momento si lo pides', price: '$9.900' },
@@ -165,7 +166,7 @@ export default function EmporioVintageCafePage() {
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
-          over: 'dark',
+          over: 'light',
           bar: 'rgba(253,246,236,0.94)',
           ink: C.ink,
           line: C.line,
@@ -174,81 +175,88 @@ export default function EmporioVintageCafePage() {
         }}
       />
 
-      {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.verdeDeep }}>
-        <img
-          src={`${IMG}/hero.webp`}
-          alt="Interior de Emporio Vintage Café: mesas de madera, vitrina con kuchen y ventanal a la calle"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(23,62,50,0.5) 0%, rgba(23,62,50,0.12) 38%, rgba(23,62,50,0.85) 100%)',
-          }}
-        />
-        <div className="absolute top-24 md:top-28 right-5 md:right-8">
-          <Reveal>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${FOCUS} flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg`}
-              style={{ backgroundColor: 'rgba(253,246,236,0.95)', color: C.ink }}
-            >
-              <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.ambar} stroke={C.ambar} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
-              </svg>
-              {BIZ.reviews} reseñas en Google
-            </a>
-          </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
-            <Eyebrow light>Cafetería · Centro de Talca</Eyebrow>
-            <h1
-              className={`${display.className} font-medium leading-[1.04] tracking-[-0.01em] text-[clamp(2.8rem,9vw,5.6rem)] mb-6`}
-              style={{ color: C.crema }}
-            >
-              El café que se sirve
-              <br />
-              <em className="italic font-normal" style={{ color: C.ambarSoft }}>con calma</em>
-            </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(253,246,236,0.88)' }}>
-              Cafetería en {BIZ.address}, {BIZ.city}: café de grano,
-              kuchen del día y mesas para quedarse conversando sin
-              mirar el reloj.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
-                style={{ backgroundColor: C.ambar, color: C.ink }}
+      {/* ── Portada: la página abre como la tapa de un menú impreso ── */}
+      <section id="inicio" className="px-3 md:px-6 pt-[72px] md:pt-[84px] pb-4 md:pb-6">
+        <div className="border-2 p-1.5 md:p-2" style={{ borderColor: C.verde }}>
+          <div
+            className="border min-h-[calc(100svh-130px)] flex flex-col px-5 md:px-10 pt-6 pb-8 md:pt-8 md:pb-9"
+            style={{ borderColor: C.verde, backgroundColor: C.cremaCard }}
+          >
+            <Reveal>
+              <div
+                className="flex items-baseline justify-between gap-4 text-[10px] md:text-[11px] uppercase tracking-[0.24em] font-bold"
+                style={{ color: C.muted }}
               >
-                Escribir por WhatsApp
-              </a>
-              <a
-                href="#carta"
-                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
-                style={{ borderColor: 'rgba(253,246,236,0.55)', color: C.crema }}
-              >
-                Ver la carta
-              </a>
+                <span>Cafetería</span>
+                <Diamond color={C.ambar} className="w-2 h-2 shrink-0 self-center" />
+                <span className="text-right">{BIZ.address} · {BIZ.city}</span>
+              </div>
+            </Reveal>
+
+            <div className="flex-1 flex flex-col items-center justify-center text-center py-10 md:py-14">
+              <Reveal>
+                <div className="flex justify-center">
+                  <Eyebrow>café de grano · kuchen · once</Eyebrow>
+                </div>
+                <h1
+                  className={`${display.className} font-medium leading-[0.98] tracking-[-0.015em] text-[clamp(2.9rem,10vw,6.4rem)]`}
+                  style={{ color: C.ink }}
+                >
+                  Emporio Vintage
+                  <br />
+                  <em className="italic font-normal" style={{ color: C.verde }}>Café</em>
+                </h1>
+                <Rule className="mt-8 md:mt-10 max-w-md mx-auto" />
+                <p className="mt-8 text-base md:text-lg leading-relaxed max-w-xl mx-auto" style={{ color: C.muted }}>
+                  Café de grano molido al momento, kuchen recién salido del
+                  horno y mesas para quedarse conversando sin mirar el
+                  reloj, a pasos del centro de {BIZ.city}.
+                </p>
+                <div className="mt-9 flex flex-wrap justify-center gap-3">
+                  <a
+                    href={WA_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95`}
+                    style={{ backgroundColor: C.ambar, color: C.ink }}
+                  >
+                    Escribir por WhatsApp
+                  </a>
+                  <a
+                    href="#carta"
+                    className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:text-[#FDF6EC] hover:bg-[#2A7F62]`}
+                    style={{ borderColor: C.verde, color: C.verde }}
+                  >
+                    Ver la carta
+                  </a>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
-        </div>
-        <div className="relative border-t" style={{ borderColor: 'rgba(253,246,236,0.22)', backgroundColor: 'rgba(23,62,50,0.55)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(253,246,236,0.78)' }}>
-            <span>{BIZ.address} · {BIZ.city}</span>
-            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} hover:underline underline-offset-4`}>
-              {BIZ.followers} seguidores en Instagram
-            </a>
-            <span className="hidden md:inline" style={{ color: C.ambarSoft }}>sitio de ejemplo</span>
+
+            <Reveal delay={120}>
+              <div
+                className="border-t pt-5 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[10px] md:text-[11px] uppercase tracking-[0.18em] font-bold text-center"
+                style={{ borderColor: C.line, color: C.muted }}
+              >
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${FOCUS} hover:underline underline-offset-4`}
+                >
+                  <span style={{ color: C.ambar }} aria-hidden="true">★</span> {BIZ.reviews} reseñas en Google
+                </a>
+                <a
+                  href={BIZ.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${FOCUS} hover:underline underline-offset-4`}
+                >
+                  {BIZ.followers} seguidores en Instagram
+                </a>
+                <span style={{ color: C.verde }}>sitio de ejemplo</span>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -276,11 +284,11 @@ export default function EmporioVintageCafePage() {
                   <Reveal key={g.title} delay={i * 90}>
                     <div>
                       <div className="flex items-center gap-4 mb-1">
-                        <img
+                        <Image
                           src={g.src}
                           alt={g.alt}
-                          loading="lazy"
-                          decoding="async"
+                          width={144}
+                          height={144}
                           className="w-16 h-16 md:w-[72px] md:h-[72px] object-cover border"
                           style={{ borderColor: C.verde }}
                         />
@@ -304,7 +312,7 @@ export default function EmporioVintageCafePage() {
                               className="h-[0.6em] border-b-2 border-dotted"
                               style={{ borderColor: 'rgba(37,42,34,0.3)' }}
                             />
-                            <span className={`${display.className} text-base md:text-lg font-semibold`} style={{ color: C.verde }}>
+                            <span className={`${display.className} text-base md:text-lg font-semibold whitespace-nowrap`} style={{ color: C.verde }}>
                               {item.price}
                             </span>
                           </li>
@@ -316,7 +324,21 @@ export default function EmporioVintageCafePage() {
               </div>
 
               <Rule className="mt-12" />
-              <p className="mt-5 text-center text-xs md:text-sm leading-relaxed max-w-xl mx-auto" style={{ color: C.muted }}>
+              <div className="mt-8 text-center">
+                <p className={`${display.className} italic font-medium text-xl md:text-2xl mb-5`} style={{ color: C.ink }}>
+                  ¿Se te antojó algo de la carta?
+                </p>
+                <a
+                  href={WA_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${FOCUS} ${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95`}
+                  style={{ backgroundColor: C.verde, color: C.crema }}
+                >
+                  Pedir por WhatsApp
+                </a>
+              </div>
+              <p className="mt-8 text-center text-xs md:text-sm leading-relaxed max-w-xl mx-auto" style={{ color: C.muted }}>
                 Carta y precios de muestra: al publicar van los productos
                 y valores reales de {BIZ.name}.
               </p>
@@ -331,13 +353,15 @@ export default function EmporioVintageCafePage() {
           <Reveal>
             <figure>
               <div className="border-[3px] p-1.5" style={{ borderColor: C.verde }}>
-                <img
-                  src={`${IMG}/ambiente.webp`}
-                  alt="Fachada de Emporio Vintage Café en Tres Norte, con toldo y mesas en la vereda"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full aspect-[4/3] object-cover"
-                />
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={`${IMG}/ambiente.webp`}
+                    alt="Fachada de Emporio Vintage Café en Tres Norte, con toldo y mesas en la vereda"
+                    fill
+                    sizes="(min-width: 1024px) 44vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
               <figcaption className="mt-3 text-center text-[11px] uppercase tracking-[0.22em] font-bold" style={{ color: C.muted }}>
                 {BIZ.address} · {BIZ.city}
@@ -478,7 +502,7 @@ export default function EmporioVintageCafePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95`}
                 style={{ backgroundColor: C.ambar, color: C.ink }}
               >
                 Escribir por WhatsApp
@@ -546,11 +570,11 @@ export default function EmporioVintageCafePage() {
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(253,246,236,0.62)' }} aria-label="Pie">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors`}>
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} hover:text-white transition-colors`}>
               Instagram
             </a>
           </nav>
