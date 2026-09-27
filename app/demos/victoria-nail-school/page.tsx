@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Syne, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -16,6 +17,7 @@ const C = {
   gray: '#4A4E52',
   grayDeep: '#2E3134',
   orange: '#E8631A',
+  orangeHi: '#F58634',
   paper: '#FFFFFF',
   soft: '#F3F4F5',
   ink: '#1C1E20',
@@ -153,7 +155,10 @@ export default function VictoriaNailSchoolPage() {
               <br />
               Confirmada.
               <br />
-              <span style={{ color: C.orange }}>Lista a tiempo.</span>
+              <span style={{ color: '#FFFFFF' }}>
+                <span style={{ color: C.orangeHi }} aria-hidden="true">→&#160;</span>
+                Lista a tiempo.
+              </span>
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-md mb-9" style={{ color: 'rgba(255,255,255,0.85)' }}>
               Salón de manicura y pedicura en Pencahue. Agenda por
@@ -165,14 +170,14 @@ export default function VictoriaNailSchoolPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                 style={{ backgroundColor: C.orange, color: '#1C1E20' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver servicios
@@ -197,11 +202,14 @@ export default function VictoriaNailSchoolPage() {
             </span>
           </div>
         </div>
-        <div className="relative min-h-[52vh] lg:min-h-svh overflow-hidden">
-          <img
+        <div className="relative min-h-[52vh] lg:min-h-svh overflow-hidden lg:border-l-[6px]" style={{ borderColor: C.orange }}>
+          <Image
             src={`${IMG}/hero.webp`}
             alt="Interior de Victoria Nail School: estaciones de manicura, repisas de esmaltes y sillón de pedicura con vista a la calle de Pencahue"
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            priority
+            className="object-cover"
           />
           <div
             className="absolute inset-x-0 top-0 h-28"
@@ -247,18 +255,19 @@ export default function VictoriaNailSchoolPage() {
           {SERVICES.map((s, i) => (
             <article
               key={s.num}
-              className="grid lg:grid-cols-2 border-b"
+              className="group grid lg:grid-cols-2 border-b"
               style={{
                 borderColor: C.line,
                 backgroundColor: i % 2 === 0 ? C.paper : C.soft,
               }}
             >
-              <div className={`relative overflow-hidden ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <img
+              <div className={`relative overflow-hidden aspect-[4/3] lg:aspect-auto lg:min-h-[420px] ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <Image
                   src={s.src}
                   alt={s.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover aspect-[4/3] lg:aspect-auto lg:absolute lg:inset-0"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
               <div className="px-5 md:px-10 lg:px-16 py-12 md:py-20 lg:py-24 flex flex-col justify-center">
@@ -303,7 +312,7 @@ export default function VictoriaNailSchoolPage() {
             <h2
               className={`${display.className} font-extrabold uppercase text-3xl md:text-5xl leading-[0.98] mb-12 md:mb-16`}
             >
-              Tu hora, <span style={{ color: C.orange }}>confirmada</span>
+              Tu hora, <span style={{ color: C.orangeHi }}>confirmada</span>
             </h2>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-10 md:gap-8">
@@ -312,7 +321,7 @@ export default function VictoriaNailSchoolPage() {
                 <div className="border-t-2 pt-6" style={{ borderColor: i === 2 ? C.orange : 'rgba(255,255,255,0.35)' }}>
                   <p
                     className={`${display.className} font-extrabold text-5xl md:text-6xl leading-none mb-3`}
-                    style={{ color: C.orange }}
+                    style={{ color: C.orangeHi }}
                   >
                     {r.num}
                   </p>
@@ -326,17 +335,37 @@ export default function VictoriaNailSchoolPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal delay={320}>
+            <div
+              className="mt-12 md:mt-16 pt-8 border-t flex flex-wrap items-center gap-x-6 gap-y-4"
+              style={{ borderColor: 'rgba(255,255,255,0.25)' }}
+            >
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                style={{ backgroundColor: C.orange, color: '#1C1E20' }}
+              >
+                Agendar mi hora
+              </a>
+              <p className="text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                Te confirmamos la hora exacta por mensaje.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── El salón: split con fachada ── */}
       <section id="salon" className="scroll-mt-20 grid lg:grid-cols-2 border-b" style={{ borderColor: C.line }}>
-        <div className="relative overflow-hidden min-h-[320px]">
-          <img
+        <div className="relative overflow-hidden aspect-[4/3] lg:aspect-auto lg:min-h-[480px]">
+          <Image
             src={`${IMG}/ambiente.webp`}
             alt="Fachada de Victoria Nail School: local a pie de calle con toldo y vitrina, en un barrio de Pencahue"
-            loading="lazy"
-            className="w-full h-full object-cover aspect-[4/3] lg:aspect-auto lg:absolute lg:inset-0"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
           />
         </div>
         <div className="px-5 md:px-10 lg:px-16 py-14 md:py-24 flex flex-col justify-center">
@@ -376,8 +405,8 @@ export default function VictoriaNailSchoolPage() {
               href={BIZ.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block self-start font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-black/5`}
-              style={{ borderColor: C.red, color: C.red }}
+              className={`${display.className} inline-block self-start font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2`}
+              style={{ borderColor: C.red, color: C.red, outlineColor: C.red }}
             >
               Ver Instagram →
             </a>
@@ -405,8 +434,8 @@ export default function VictoriaNailSchoolPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold underline underline-offset-4 decoration-2"
-              style={{ color: C.red, textDecorationColor: 'rgba(193,39,45,0.35)' }}
+              className="text-sm font-semibold underline underline-offset-4 decoration-2 transition-colors hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2"
+              style={{ color: C.red, textDecorationColor: 'rgba(193,39,45,0.35)', outlineColor: C.red }}
             >
               Ver la ficha en Google →
             </a>
@@ -450,7 +479,7 @@ export default function VictoriaNailSchoolPage() {
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <ul style={{ backgroundColor: C.paper }} className="border" >
+            <ul className="border" style={{ backgroundColor: C.paper, borderColor: C.line }}>
               {PRICES.map((p, i) => (
                 <li
                   key={p.name}
@@ -502,14 +531,14 @@ export default function VictoriaNailSchoolPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                 style={{ backgroundColor: C.orange, color: '#1C1E20' }}
               >
                 Escribir por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                 style={{ borderColor: 'rgba(255,255,255,0.4)', color: '#FFFFFF' }}
               >
                 {BIZ.phoneDisplay}
@@ -554,7 +583,7 @@ export default function VictoriaNailSchoolPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">
                 {BIZ.phoneDisplay}
               </a>
             </address>
