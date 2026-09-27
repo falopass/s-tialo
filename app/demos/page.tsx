@@ -399,6 +399,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
   },
   {
+    slug: 'hostal-josefa',
+    name: 'Hostal Josefa',
+    rubro: 'Hostal y hospedaje',
+    city: 'Curicó',
+    tagline: 'Historia por pasos industrial: naranja construcción, hormigón y arena, con fotos.',
+    gradient: 'linear-gradient(135deg, #3A3F44 0%, #E4572E 140%)',
+  },
+  {
     slug: 'brutal-curico',
     name: 'Brutal Curicó',
     rubro: 'Gimnasio',
