@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Epilogue, Work_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_CLASE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -166,7 +166,7 @@ export default function BrutalCuricoPage() {
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
-          over: 'dark',
+          over: 'light',
           bar: 'rgba(244,239,228,0.94)',
           ink: C.deep,
           line: C.line,
@@ -492,11 +492,8 @@ export default function BrutalCuricoPage() {
               </article>
             </Reveal>
             <Reveal delay={200} className="md:col-span-3">
-              <a
-                href={BIZ.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${FOCUS} group rounded-3xl p-5 md:p-6 h-full flex items-center justify-between gap-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.99]`}
+              <article
+                className="rounded-3xl p-5 md:p-6 h-full flex items-center justify-between gap-4"
                 style={{ backgroundColor: C.mustard }}
               >
                 <div>
@@ -507,10 +504,17 @@ export default function BrutalCuricoPage() {
                     {BIZ.instagramHandle} — entrenamientos y vida del gym
                   </p>
                 </div>
-                <span className={`${display.className} text-2xl font-extrabold transition-transform group-hover:translate-x-1`} style={{ color: '#241A08' }} aria-hidden="true">
+                <a
+                  href={BIZ.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Abrir ${BIZ.instagramHandle} en Instagram`}
+                  className={`${display.className} ${FOCUS} shrink-0 w-11 h-11 rounded-full flex items-center justify-center text-xl font-extrabold transition-transform hover:translate-x-1`}
+                  style={{ backgroundColor: '#241A08', color: C.mustard }}
+                >
                   →
-                </span>
-              </a>
+                </a>
+              </article>
             </Reveal>
           </div>
         </div>
@@ -694,35 +698,27 @@ export default function BrutalCuricoPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.deep, color: '#F4EFE4' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-extrabold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,239,228,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 hover:text-white transition-colors`}>{BIZ.phoneDisplay}</a>
-              {' · '}
-              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} underline underline-offset-2 hover:text-white transition-colors`}>{BIZ.instagramHandle}</a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,239,228,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors`}>
-                {l.label}
-              </a>
-            ))}
-          </div>
+      <footer className="pb-20" style={{ backgroundColor: C.deep, color: '#F4EFE4' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+          <p className={`${display.className} font-extrabold text-xl mb-1.5`}>{BIZ.name}</p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,239,228,0.78)' }}>
+            {BIZ.address} · {BIZ.city} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 hover:text-white transition-colors`}>{BIZ.phoneDisplay}</a>
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(244,239,228,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(244,239,228,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Servicios,
-            precios, horarios y fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(244,239,228,0.72)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2`} style={{ color: C.mustardSoft }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}: servicios, precios, horarios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2`} style={{ color: C.mustardSoft }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
