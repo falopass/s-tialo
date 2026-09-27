@@ -550,6 +550,14 @@ const BLITZ = [
     tagline: 'Historia por pasos: azul eléctrico, lima y línea de tiempo vertical con fotos.',
     gradient: 'linear-gradient(135deg, #0A1A5C 0%, #2251FF 55%, #C6F24E 140%)',
   },
+  {
+    slug: 'clinica-dental-san-jose',
+    name: 'Clínica Dental San José',
+    rubro: 'Clínica dental',
+    city: 'Molina',
+    tagline: 'Neón nocturno clínico: petróleo oscuro, menta con glow y fotos de alto contraste.',
+    gradient: 'linear-gradient(135deg, #07141A 0%, #0E4C5C 55%, #9FD8CB 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
