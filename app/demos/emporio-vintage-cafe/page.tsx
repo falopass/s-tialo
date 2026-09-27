@@ -160,6 +160,7 @@ export default function EmporioVintageCafePage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.crema, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -289,6 +290,7 @@ export default function EmporioVintageCafePage() {
                           alt={g.alt}
                           width={144}
                           height={144}
+                          loading="eager"
                           className="w-16 h-16 md:w-[72px] md:h-[72px] object-cover border"
                           style={{ borderColor: C.verde }}
                         />
@@ -359,6 +361,7 @@ export default function EmporioVintageCafePage() {
                     alt="Fachada de Emporio Vintage Café en Tres Norte, con toldo y mesas en la vereda"
                     fill
                     sizes="(min-width: 1024px) 44vw, 100vw"
+                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -556,7 +559,7 @@ export default function EmporioVintageCafePage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.verdeDeep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
           <div>
             <p className={`${display.className} font-medium italic text-2xl mb-2 flex items-center gap-3`}>
               <Diamond color={C.ambar} className="w-3 h-3" />
@@ -580,11 +583,8 @@ export default function EmporioVintageCafePage() {
           </nav>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(253,246,236,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 pb-20 md:pb-5 text-xs leading-relaxed" style={{ color: 'rgba(253,246,236,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Nombre,
-            dirección, teléfono, reseñas de Google y seguidores de Instagram
-            son datos públicos reales; carta, precios, horarios y reseñas
-            citadas son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(253,246,236,0.7)' }}>
+            Datos del local reales; carta, precios, horarios y reseñas citadas de muestra.
           </p>
         </div>
       </footer>
