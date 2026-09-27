@@ -21,6 +21,7 @@ const C = {
   ink: '#1D1F21',
   muted: '#62666B',
   signal: '#F28C28',
+  signalInk: '#9A4A0B',
   line: 'rgba(74,78,82,0.18)',
 }
 
@@ -112,7 +113,7 @@ function Sample({ children = 'Muestra' }: { children?: React.ReactNode }) {
   return (
     <span
       className="inline-flex items-center text-[10px] font-semibold uppercase tracking-[0.16em] px-2 py-1 rounded border"
-      style={{ color: C.signal, borderColor: 'rgba(242,140,40,0.45)', backgroundColor: 'rgba(242,140,40,0.08)' }}
+      style={{ color: C.signalInk, borderColor: 'rgba(242,140,40,0.45)', backgroundColor: C.white }}
     >
       {children}
     </span>
@@ -122,33 +123,38 @@ function Sample({ children = 'Muestra' }: { children?: React.ReactNode }) {
 export default function LasViejasCochinasPage() {
   return (
     <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.bg, color: C.ink }}>
-      <BlitzNav
-        name={BIZ.name}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(255,255,255,0.96)',
-          ink: C.ink,
-          line: C.line,
-          btnBg: C.red,
-          btnInk: C.white,
-        }}
-      />
+      {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
+      <div style={{ backgroundColor: C.ink }}>
+        <BlitzNav
+          name={BIZ.name}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(255,255,255,0.96)',
+            ink: C.ink,
+            line: C.line,
+            btnBg: C.red,
+            btnInk: C.white,
+          }}
+        />
+      </div>
 
-      {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-[88svh] flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.fleet }}>
+      {/* ── Hero a sangre (64px extra para que la fila de métricas quede bajo el pliegue) ── */}
+      <section id="inicio" className="relative min-h-[calc(100svh+4rem)] md:min-h-[calc(100svh+5rem)] flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.ink }}>
         <img
           src={`${IMG}/hero.webp`}
           alt="Comedor del restaurante con mesas de madera, manteles blancos y piso de baldosa bañado de sol"
+          fetchPriority="high"
+          loading="eager"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
           className="absolute inset-0"
-          style={{ background: 'linear-gradient(180deg, rgba(29,31,33,0.55) 0%, rgba(29,31,33,0.15) 40%, rgba(29,31,33,0.88) 100%)' }}
+          style={{ background: 'linear-gradient(180deg, rgba(29,31,33,0.7) 0%, rgba(29,31,33,0.5) 40%, rgba(29,31,33,0.9) 100%)' }}
         />
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-36 pb-28 md:pb-36">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-36 pb-44 md:pb-52">
           <Reveal>
             <Label light>{BIZ.rubro} · {BIZ.city}, Maule</Label>
             <h1
@@ -240,7 +246,7 @@ export default function LasViejasCochinasPage() {
                   <img
                     src={s.src}
                     alt={s.alt}
-                    loading="lazy"
+                    loading="eager"
                     className="w-full aspect-[3/2] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
@@ -283,7 +289,7 @@ export default function LasViejasCochinasPage() {
               <img
                 src={`${IMG}/ambiente.webp`}
                 alt="Fachada del restaurante con ventanales, jardineras y árboles en la vereda"
-                loading="lazy"
+                loading="eager"
                 className="w-full aspect-[3/2] object-cover"
               />
             </div>
@@ -388,7 +394,7 @@ export default function LasViejasCochinasPage() {
                 Mesa para hoy, almuerzo de grupo o pedido para llevar: escribe
                 y te confirmamos por el mismo chat.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 mb-8">
+              <div className="flex flex-wrap gap-3 mb-8">
                 <a
                   href={WA_LINK}
                   target="_blank"
@@ -403,7 +409,7 @@ export default function LasViejasCochinasPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-center text-base font-semibold px-6 py-4 rounded-md border transition-colors hover:bg-white/10"
-                  style={{ borderColor: 'rgba(255,255,255,0.55)' }}
+                  style={{ borderColor: 'rgba(255,255,255,0.55)', color: C.white }}
                 >
                   Reservar para grupo
                 </a>
@@ -444,35 +450,17 @@ export default function LasViejasCochinasPage() {
         </div>
       </section>
 
-      {/* ── Franja: sitio de ejemplo ── */}
-      <section aria-label="Sitio de ejemplo" style={{ backgroundColor: C.signal, color: C.ink }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-sm">
-          <p className="font-semibold">Sitio de ejemplo de Sitiazo</p>
-          <p>Platos, formatos y precios son de muestra; nombre, dirección, contacto y cifras de reseñas son reales.</p>
-        </div>
-      </section>
-
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.fleet, color: C.white }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 pb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-bold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              Facebook
-            </a>
-          </div>
+      <footer className="border-t-4" style={{ backgroundColor: C.ink, color: C.white, borderColor: C.signal }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24">
+          <p className={`${display.className} font-bold text-xl mb-1`}>{BIZ.name}</p>
+          <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(255,255,255,0.82)' }}>
+            {BIZ.address} · {BIZ.city} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+          </address>
+          <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>
+            Sitio de ejemplo de Sitiazo: platos y precios son de muestra; nombre, dirección, contacto y reseñas son reales.
+          </p>
         </div>
       </footer>
 
