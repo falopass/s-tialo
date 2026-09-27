@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Lato } from 'next/font/google'
 import { SITE, whatsappLink } from '@/lib/config'
-import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_CONSULTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -128,7 +127,7 @@ function Folio({
       </span>
       <span
         className="text-[11px] uppercase tracking-[0.24em] font-bold"
-        style={{ color: light ? 'rgba(247,249,249,0.7)' : C.muted }}
+        style={{ color: light ? 'rgba(247,249,249,0.82)' : C.muted }}
       >
         {label}
       </span>
@@ -147,6 +146,7 @@ export default function CentroSpaRoxanaPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -171,6 +171,8 @@ export default function CentroSpaRoxanaPage() {
         <img
           src={`${IMG}/hero.webp`}
           alt="Sala de tratamiento del centro con camilla, toallas y luz natural"
+          loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -293,7 +295,7 @@ export default function CentroSpaRoxanaPage() {
                 <img
                   src={s.src}
                   alt={s.alt}
-                  loading="lazy"
+                  loading="eager"
                   className={`w-full ${s.aspect} object-cover`}
                 />
                 <h3
@@ -443,7 +445,7 @@ export default function CentroSpaRoxanaPage() {
             <img
               src={`${IMG}/detalle2.webp`}
               alt="Recepción del centro con flores, productos y vista a la sala de tratamiento"
-              loading="lazy"
+              loading="eager"
               className="w-full h-[64vw] max-h-[560px] object-cover"
             />
             <div className="max-w-6xl mx-auto px-5 md:px-8">
@@ -563,7 +565,7 @@ export default function CentroSpaRoxanaPage() {
                   </li>
                 ))}
               </ul>
-              <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: 'rgba(247,249,249,0.6)' }}>
+              <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: 'rgba(247,249,249,0.82)' }}>
                 Horario referencial: al publicar van los horarios reales del
                 centro.
               </p>
@@ -606,10 +608,10 @@ export default function CentroSpaRoxanaPage() {
             <img
               src={`${IMG}/ambiente.webp`}
               alt="Fachada del centro sobre la calle, con vitrina y vista a la calle Julio Montt"
-              loading="lazy"
+              loading="eager"
               className="w-full h-[44vw] max-h-[440px] object-cover"
             />
-            <figcaption className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(247,249,249,0.6)' }}>
+            <figcaption className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(247,249,249,0.82)' }}>
               La entrada, sobre Julio Montt
             </figcaption>
           </figure>
@@ -639,32 +641,19 @@ export default function CentroSpaRoxanaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.petrolDeep, color: '#F7F9F9' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <p className={`${display.className} text-2xl md:text-3xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
+            <p className={`${display.className} text-2xl mb-1`}>{BIZ.name}</p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.85)' }}>
+              {BIZ.address}, {BIZ.city}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.6)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Servicios,
-            precios, horarios, reseñas y fotos son de muestra; el nombre,
-            la dirección, el WhatsApp y las {BIZ.reviews} reseñas son datos
-            públicos de la ficha del centro.
+          <p className="text-xs leading-relaxed md:max-w-[26rem]" style={{ color: 'rgba(247,249,249,0.82)' }}>
+            Mockup de Sitiazo: datos del centro reales; servicios, precios, reseñas y fotos de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
