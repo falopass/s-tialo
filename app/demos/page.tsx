@@ -447,6 +447,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
   },
   {
+    slug: 'mia-centro-de-estetica',
+    name: 'Mía Centro De Estética',
+    rubro: 'Centro de estética',
+    city: 'Curicó',
+    tagline: 'Doble columna con sidebar pegajoso: verde campo, tierra y crema, con fotos.',
+    gradient: 'linear-gradient(135deg, #2E4224 0%, #4C6B3C 55%, #8C6239 140%)',
+  },
+  {
     slug: 'muebleria-infinity-muebles-talca',
     name: 'Infinity Muebles',
     rubro: 'Carpintería y mueblería',
