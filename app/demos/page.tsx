@@ -638,6 +638,22 @@ const BLITZ = [
     tagline: 'Cartel suizo de taller: verde, crema y ámbar, grilla estricta, reglas finas y tabla de precios de muestra.',
     gradient: 'linear-gradient(135deg, #1D2521 0%, #2A7F62 55%, #E8A33D 140%)',
   },
+  {
+    slug: 'beauty-love',
+    name: 'Beauty Love',
+    rubro: 'Salón de manicura y pedicura',
+    city: 'Molina',
+    tagline: 'Neón nocturno clínico: azul petróleo, menta con glow y blanco roto, fotos de alto contraste.',
+    gradient: 'linear-gradient(135deg, #061E25 0%, #0E4C5C 55%, #9FD8CB 140%)',
+  },
+  {
+    slug: 'distribuidora-renato-molina',
+    name: 'Distribuidora Renato Molina',
+    rubro: 'Mercado',
+    city: 'Molina',
+    tagline: 'Hero tipográfico sin foto: rojo logística, gris flota y naranja señal, andenes numerados y guía de precios.',
+    gradient: 'linear-gradient(135deg, #9A1E23 0%, #C1272D 55%, #F26B1D 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
