@@ -186,20 +186,23 @@ export default function MillycarPage() {
       style={{ backgroundColor: C.paper, color: C.slate }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={`${display.className} font-bold`}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(251,251,248,0.94)',
-          ink: C.slate,
-          line: C.line,
-          btnBg: C.yellow,
-          btnInk: C.slateDeep,
-        }}
-      />
+      {/* el nav fijo es transparente arriba: este wrapper declara el fondo oscuro real detrás (hero) */}
+      <div style={{ backgroundColor: C.slateDeep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={`${display.className} font-bold`}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(251,251,248,0.94)',
+            ink: C.slate,
+            line: C.line,
+            btnBg: C.yellow,
+            btnInk: C.slateDeep,
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.slateDeep }}>
@@ -672,36 +675,30 @@ export default function MillycarPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.slate, color: '#FBFBF8' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-bold text-2xl mb-2 flex items-center gap-3`}>
-              <span className="inline-block w-5 h-5 rounded-sm" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,251,248,0.8)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,251,248,0.8)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white focus-visible:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white focus-visible:text-white transition-colors">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
+          <p className={`${display.className} font-bold text-lg flex items-center gap-2.5`}>
+            <span className="inline-block w-4 h-4 rounded-sm" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
+            {BIZ.name}
+          </p>
+          <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(251,251,248,0.85)' }}>
+            {BIZ.address} · {BIZ.city} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white focus-visible:text-white transition-colors">
+              {BIZ.phoneDisplay}
+            </a>
+            {' · '}
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white focus-visible:text-white transition-colors">
               Facebook
             </a>
-          </div>
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,251,248,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,251,248,0.8)' }}>
-            Mockup preparado por{' '}
+          {/* pb-20 deja libre la zona de la burbuja de WhatsApp */}
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,251,248,0.85)' }}>
+            Mockup de{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellow }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name}. Servicios, precios, horarios y reseñas son de
-            muestra; nombre, dirección, teléfono y redes son datos públicos
-            del taller.{' '}
+            para {BIZ.name}; servicios, precios y reseñas de muestra.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellow }}>
               ¿Lo hacemos realidad?
             </a>
