@@ -406,6 +406,22 @@ const BLITZ = [
     tagline: 'Bento modular ferretero: mostaza, verde oscuro y madera, con fotos.',
     gradient: 'linear-gradient(135deg, #1D2F26 0%, #2E4A3C 55%, #D9A441 140%)',
   },
+  {
+    slug: 'comercial-rio-claro',
+    name: 'Comercial Río Claro',
+    rubro: 'Mayorista de artículos para la higiene',
+    city: 'Talca',
+    tagline: 'Vitrina de almacén patrimonial: verde bosque, crema y latón, catálogo con filtros y precios.',
+    gradient: 'linear-gradient(135deg, #132318 0%, #1E3D2F 55%, #C8A24B 140%)',
+  },
+  {
+    slug: 'le-petit-pasteleria',
+    name: 'Le Petit Pasteleria',
+    rubro: 'Pastelería',
+    city: 'Talca',
+    tagline: 'Editorial de revista: azul pizarra, amarillo lápiz y titulares serif gigantes.',
+    gradient: 'linear-gradient(135deg, #22353F 0%, #2F4858 55%, #F2B705 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
