@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Sora, Source_Sans_3 } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { HeroBackdrop } from './scenes'
@@ -495,14 +495,26 @@ export default function TriadentPage() {
               </a>
             </address>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.45)' }}>
+          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>
             © {new Date().getFullYear()} {BIZ.name}
+          </p>
+        </div>
+        {/* Aviso de mockup en el flujo (no flotante) para no tapar contenido; pb deja libre la burbuja de WhatsApp */}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}, así se vería tu sitio.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }
