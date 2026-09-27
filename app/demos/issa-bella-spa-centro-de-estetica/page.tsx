@@ -32,11 +32,11 @@ const BTN_MINT = `${BTN} bg-[#9FD8CB] text-[#09333D] hover:bg-[#F7F9F9]`
 const BTN_PETROL = `${BTN} bg-[#0E4C5C] text-[#F7F9F9] hover:bg-[#09333D]`
 const LINK = `${FOCUS} underline underline-offset-4 decoration-2 decoration-[#9FD8CB] hover:decoration-[#0E4C5C] transition-colors`
 const KICKER = 'text-[11px] uppercase tracking-[0.24em] font-bold'
-const H2 = `${display.className} font-medium leading-[1.0] tracking-[-0.02em] text-[clamp(2.4rem,6.5vw,5.5rem)]`
+const H2 = `${display.className} font-medium leading-[1.06] tracking-[-0.02em] text-[clamp(2.6rem,7vw,6.5rem)]`
 const WRAP = 'max-w-6xl mx-auto px-5 md:px-8'
 
 export const metadata: Metadata = {
-  title: 'Issa-bella SpA — Centro de estética facial en Curicó',
+  title: 'Issa-bella SpA, centro de estética facial en Curicó',
   description:
     'Centro de estética facial en Sarajevo 1576, Curicó. Limpieza facial, fototerapia LED y más, con atención directa por WhatsApp.',
   robots: { index: false, follow: false },
@@ -102,6 +102,12 @@ const QUOTES = [
   'Agendé por WhatsApp y me respondieron al tiro. Atención de verdad personalizada.',
 ]
 
+const QUOTE_BOX = [
+  'md:col-span-5',
+  'md:col-span-4 md:mt-12',
+  'md:col-span-3 md:mt-24',
+]
+
 const PRECIOS = [
   { name: 'Limpieza facial profunda', price: 'desde $25.000' },
   { name: 'Sesión de fototerapia LED', price: 'desde $18.000' },
@@ -128,11 +134,8 @@ function Folio({
   return (
     <Reveal className="flex items-center gap-4 md:gap-6">
       <span
-        className={`${display.className} shrink-0 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-xl md:text-2xl border`}
-        style={{
-          borderColor: light ? C.mint : C.petrol,
-          color: light ? C.mint : C.petrol,
-        }}
+        className={`${display.className} italic shrink-0 leading-none text-5xl md:text-6xl`}
+        style={{ color: light ? C.mint : C.petrol }}
         aria-hidden="true"
       >
         {n}
@@ -198,7 +201,7 @@ export default function IssaBellaPage() {
         />
 
         {/* masthead */}
-        <div className={`relative ${WRAP} pt-24 md:pt-28`}>
+        <div className={`relative ${WRAP} pt-20 md:pt-24`}>
           <Reveal>
             <div
               className={`${KICKER} flex flex-wrap justify-between gap-x-6 gap-y-1 border-y py-2.5`}
@@ -277,7 +280,7 @@ export default function IssaBellaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} text-xs font-bold px-3.5 py-2 border`}
+                className={`${FOCUS} text-xs font-bold px-3.5 py-2 border hover:bg-white/10 transition-colors`}
                 style={{ borderColor: 'rgba(247,249,249,0.4)', color: C.paper }}
               >
                 {BIZ.reviews} reseñas en Google
@@ -286,7 +289,7 @@ export default function IssaBellaPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} text-xs font-bold px-3.5 py-2 border`}
+                className={`${FOCUS} text-xs font-bold px-3.5 py-2 border hover:bg-white/10 transition-colors`}
                 style={{ borderColor: 'rgba(247,249,249,0.4)', color: C.paper }}
               >
                 {BIZ.instagramHandle} · {BIZ.followers} seguidores
@@ -381,7 +384,7 @@ export default function IssaBellaPage() {
                 className={`${LINK} font-bold text-base`}
                 style={{ color: C.petrol }}
               >
-                Pregunta por WhatsApp →
+                Consulta por WhatsApp →
               </a>
               <p className="mt-5 text-xs leading-relaxed" style={{ color: C.muted }}>
                 Lista de muestra: al publicar va la carta real.
@@ -459,7 +462,7 @@ export default function IssaBellaPage() {
       {/* ── 02 · El centro ── */}
       <section id="el-centro" className={`scroll-mt-20 ${WRAP} pt-20 md:pt-28`}>
         <Folio n="02" kicker="El centro" />
-        <h2 className={`${H2} mt-8 md:mt-12 lg:w-[75%]`} style={{ color: C.petrol }}>
+        <h2 className={`${H2} mt-8 md:mt-12 lg:w-[90%]`} style={{ color: C.petrol }}>
           En Sarajevo, con hora
           <br />
           <em className="font-normal">y sin apuro</em>
@@ -529,9 +532,9 @@ export default function IssaBellaPage() {
         </div>
 
         {/* marginalia: reseñas */}
-        <div className="mt-14 md:mt-20 grid gap-8 md:grid-cols-3 md:gap-10">
+        <div className="mt-14 md:mt-20 grid gap-8 md:grid-cols-12 md:gap-x-10 md:gap-y-0 items-start">
           {QUOTES.map((q, i) => (
-            <Reveal key={i} delay={i * 110}>
+            <Reveal key={i} delay={i * 110} className={QUOTE_BOX[i]}>
               <figure className="border-t pt-6" style={{ borderColor: C.ink }}>
                 <span
                   className={`${display.className} block text-5xl leading-[0.6] mb-4`}
@@ -540,7 +543,10 @@ export default function IssaBellaPage() {
                 >
                   “
                 </span>
-                <blockquote className={`${display.className} italic text-lg md:text-xl leading-snug mb-4`} style={{ color: C.ink }}>
+                <blockquote
+                  className={`${display.className} italic leading-snug mb-4 ${i === 0 ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'}`}
+                  style={{ color: C.ink }}
+                >
                   {q}
                 </blockquote>
                 <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.petrol }}>
@@ -566,7 +572,7 @@ export default function IssaBellaPage() {
           <Folio n="03" kicker="Precios de referencia" />
           <div className="mt-8 md:mt-12 grid gap-10 lg:grid-cols-12 lg:gap-x-10">
             <div className="lg:col-span-4">
-              <h2 className={`${display.className} font-medium leading-[1.0] tracking-[-0.02em] text-[clamp(2.2rem,4.5vw,3.75rem)] mb-5`} style={{ color: C.petrol }}>
+              <h2 className={`${display.className} font-medium leading-[1.06] tracking-[-0.02em] text-[clamp(2.3rem,5vw,4.5rem)] mb-5`} style={{ color: C.petrol }}>
                 El tarifario,
                 <br />
                 <em className="font-normal">al punto</em>
@@ -622,7 +628,7 @@ export default function IssaBellaPage() {
               </figure>
             </Reveal>
             <Reveal className="lg:col-span-6 lg:col-start-7" delay={120}>
-              <h2 className={`${display.className} font-medium leading-[1.02] tracking-[-0.02em] text-[clamp(2.2rem,4.5vw,3.75rem)] mb-6`} style={{ color: C.paper }}>
+              <h2 className={`${display.className} font-medium leading-[1.06] tracking-[-0.02em] text-[clamp(2.3rem,5vw,4.5rem)] mb-6`} style={{ color: C.paper }}>
                 {BIZ.address},
                 <br />
                 <em className="font-normal" style={{ color: C.mint }}>{BIZ.city}</em>
