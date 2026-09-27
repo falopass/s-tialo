@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Lora, Mulish } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { HomePanel, PawPanel, HeartPanel } from './scenes'
@@ -16,7 +16,7 @@ const C = {
   boneDeep: '#EDE4D2',
   paper: '#FCFAF4',
   mustard: '#D9A02B',
-  mustardDeep: '#A97E1B',
+  mustardInk: '#7C5B0F',
   mustardSoft: '#F0D9A8',
   navy: '#1E2C4E',
   navyDeep: '#16223E',
@@ -160,7 +160,7 @@ export default function HomyvetPage() {
       <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.bone }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-16 md:pb-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
           <Reveal>
-            <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] mb-5 flex items-center gap-3 font-semibold" style={{ color: C.mustardDeep }}>
+            <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] mb-5 flex items-center gap-3 font-semibold" style={{ color: C.mustardInk }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: C.mustard }} aria-hidden="true" />
               Clínica veterinaria en Talca
             </p>
@@ -335,7 +335,7 @@ export default function HomyvetPage() {
                   <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.navy }}>
                     “{t}”
                   </blockquote>
-                  <figcaption className="text-xs uppercase tracking-[0.15em] font-bold" style={{ color: C.mustardDeep }}>
+                  <figcaption className="text-xs uppercase tracking-[0.15em] font-bold" style={{ color: C.mustardInk }}>
                     Reseña de ejemplo
                   </figcaption>
                 </figure>
@@ -424,7 +424,7 @@ export default function HomyvetPage() {
             <h2 className={`${display.className} font-semibold text-[clamp(2rem,6vw,3.8rem)] leading-[1.06] mb-6`} style={{ color: C.navyDeep }}>
               Reserva una hora para tu mascota
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: C.muted }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: 'rgba(30,44,78,0.78)' }}>
               Escríbenos por WhatsApp y te confirmamos la hora más
               cercana disponible.
             </p>
@@ -463,14 +463,26 @@ export default function HomyvetPage() {
               </a>
             </address>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(247,242,231,0.45)' }}>
+          <p className="text-xs" style={{ color: 'rgba(247,242,231,0.7)' }}>
             © {new Date().getFullYear()} {BIZ.name}
+          </p>
+        </div>
+        {/* Aviso de mockup en el flujo (no flotante) para no tapar contenido; pb deja libre la burbuja de WhatsApp */}
+        <div style={{ borderTop: '1px solid rgba(247,242,231,0.15)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(247,242,231,0.75)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}, así se vería tu sitio.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }
