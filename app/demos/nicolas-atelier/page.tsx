@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Instrument_Serif, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -41,6 +42,7 @@ const NAV_LINKS = [
 const SERVICES = [
   {
     src: `${IMG}/estacion.webp`,
+    alt: 'Estación de trabajo del atelier: silla de peluquería frente al espejo',
     tilt: 'group-hover:rotate-0 rotate-[-2.5deg]',
     num: '01',
     name: 'Corte a tu medida',
@@ -48,6 +50,7 @@ const SERVICES = [
   },
   {
     src: `${IMG}/color.webp`,
+    alt: 'Aplicación de color y matiz sobre el pelo de un cliente',
     tilt: 'group-hover:rotate-0 rotate-[2deg]',
     num: '02',
     name: 'Color y matiz',
@@ -55,6 +58,7 @@ const SERVICES = [
   },
   {
     src: `${IMG}/herramientas.webp`,
+    alt: 'Tijeras, navaja y máquinas ordenadas sobre la mesa de trabajo',
     tilt: 'group-hover:rotate-0 rotate-[-2deg]',
     num: '03',
     name: 'Barba y perfilado',
@@ -100,7 +104,7 @@ function Arrow() {
 export default function NicolasAtelierPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`${body.className} min-h-screen antialiased overflow-x-clip`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <BlitzNav
@@ -127,10 +131,13 @@ export default function NicolasAtelierPage() {
           clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw))',
         }}
       >
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de Nicolás Atelier: sillas de peluquería, espejos de madera y plantas"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -191,14 +198,14 @@ export default function NicolasAtelierPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-lg px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} text-lg px-7 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
                 style={{ backgroundColor: C.paper, color: C.deep }}
               >
                 Reservar hora
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} text-lg px-7 py-3.5 border transition-colors hover:bg-white/10`}
+                className={`${display.className} text-lg px-7 py-3.5 border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: C.paper }}
               >
                 Ver servicios
@@ -251,17 +258,18 @@ export default function NicolasAtelierPage() {
           </Reveal>
           <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6 lg:gap-8">
             {SERVICES.map((s, i) => (
-              <Reveal key={s.name} delay={i * 110} className={i === 1 ? 'lg:translate-y-10' : ''}>
-                <li className="group h-full">
+              <li key={s.name} className={i === 1 ? 'lg:translate-y-10' : ''}>
+                <Reveal delay={i * 110} className="group h-full">
                   <figure
-                    className={`relative overflow-hidden border-4 shadow-lg transition-transform duration-500 ease-out ${s.tilt}`}
+                    className={`relative aspect-[4/3] overflow-hidden border-4 shadow-lg transition-transform duration-500 ease-out ${s.tilt}`}
                     style={{ borderColor: '#FFFFFF', boxShadow: '0 18px 40px rgba(46,66,36,0.18)' }}
                   >
-                    <img
+                    <Image
                       src={s.src}
-                      alt={s.name}
-                      loading="lazy"
-                      className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      alt={s.alt}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
                     <span
                       className={`${display.className} absolute top-3 left-3 w-9 h-9 flex items-center justify-center text-sm rotate-[-6deg]`}
@@ -283,10 +291,28 @@ export default function NicolasAtelierPage() {
                       {s.desc}
                     </p>
                   </div>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ul>
+          <Reveal delay={200}>
+            <div className="mt-12 md:mt-16 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${display.className} inline-flex items-center gap-3 text-lg px-7 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4`}
+                style={{ backgroundColor: C.green, color: C.paper, outlineColor: C.green }}
+              >
+                Agenda por WhatsApp
+                <Arrow />
+              </a>
+              <p className="text-sm leading-relaxed max-w-xs" style={{ color: C.muted }}>
+                Los cupos de la semana se confirman por mensaje. Respuesta
+                el mismo día.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -303,14 +329,15 @@ export default function NicolasAtelierPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <Reveal>
               <figure
-                className="relative rotate-[-2.5deg] border-4 shadow-2xl"
+                className="relative aspect-[4/3] rotate-[-2.5deg] border-4 shadow-2xl"
                 style={{ borderColor: C.paper }}
               >
-                <img
+                <Image
                   src={`${IMG}/fachada.webp`}
                   alt="Fachada de Nicolás Atelier en Neuquén 384, entre plátanos de Linares"
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
                 />
                 <figcaption
                   className="absolute -bottom-3 left-6 rotate-[-2deg] text-[11px] font-semibold uppercase tracking-[0.2em] px-3 py-1.5"
@@ -338,7 +365,7 @@ export default function NicolasAtelierPage() {
                 el estilo, se corta con calma y se sale listo. Nada de
                 filas ni turnos raros — una silla, un peluquero, tu pelo.
               </p>
-              <p className="text-xs italic mb-8" style={{ color: 'rgba(251,247,239,0.55)' }}>
+              <p className="text-xs italic mb-8" style={{ color: 'rgba(251,247,239,0.66)' }}>
                 Texto de muestra: al publicar va la descripción real del
                 atelier.
               </p>
@@ -347,7 +374,7 @@ export default function NicolasAtelierPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs md:text-sm font-semibold px-4 py-2 rounded-full border"
+                  className="text-xs md:text-sm font-semibold px-4 py-2 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
                   style={{ borderColor: 'rgba(251,247,239,0.35)', color: C.paper }}
                 >
                   {BIZ.reviews} reseñas en Google
@@ -356,7 +383,7 @@ export default function NicolasAtelierPage() {
                   href={BIZ.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs md:text-sm font-semibold px-4 py-2 rounded-full border"
+                  className="text-xs md:text-sm font-semibold px-4 py-2 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
                   style={{ borderColor: 'rgba(251,247,239,0.35)', color: C.paper }}
                 >
                   {BIZ.igHandle} · {BIZ.igFollowers} seguidores
@@ -400,7 +427,7 @@ export default function NicolasAtelierPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-8 text-sm font-semibold underline underline-offset-4 decoration-2"
+                className="inline-block mt-8 text-sm font-semibold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
                 style={{ color: C.leaf, textDecorationColor: 'rgba(220,228,200,0.4)' }}
               >
                 Ver las {BIZ.reviews} reseñas en Google →
@@ -484,7 +511,7 @@ export default function NicolasAtelierPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-lg px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} text-lg px-7 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
                 style={{ backgroundColor: C.paper, color: C.deep }}
               >
                 Reservar hora
@@ -493,28 +520,28 @@ export default function NicolasAtelierPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-lg px-7 py-3.5 border transition-colors hover:bg-white/10`}
+                className={`${display.className} text-lg px-7 py-3.5 border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: C.paper }}
               >
                 Ver Instagram
               </a>
             </div>
-            <address className="not-italic text-sm md:text-base leading-relaxed" style={{ color: 'rgba(251,247,239,0.7)' }}>
+            <address className="not-italic text-sm md:text-base leading-relaxed" style={{ color: 'rgba(251,247,239,0.78)' }}>
               {BIZ.address}
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 decoration-2" style={{ textDecorationColor: 'rgba(220,228,200,0.4)' }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]" style={{ textDecorationColor: 'rgba(220,228,200,0.4)' }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
           </Reveal>
           <Reveal delay={140}>
-            <div className="border-4 shadow-2xl" style={{ borderColor: C.paper }}>
+            <div className="border-4 shadow-2xl rotate-[1.2deg]" style={{ borderColor: C.paper }}>
               <iframe
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
-                className="w-full h-full min-h-[340px]"
+                className="block w-full h-full min-h-[340px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -523,7 +550,7 @@ export default function NicolasAtelierPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-sm font-semibold underline underline-offset-4 decoration-2"
+              className="inline-flex items-center gap-2 mt-4 text-sm font-semibold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
               style={{ color: C.leaf, textDecorationColor: 'rgba(220,228,200,0.4)' }}
             >
               Cómo llegar →
@@ -537,10 +564,10 @@ export default function NicolasAtelierPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <p className={`${display.className} text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.72)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-opacity hover:opacity-75">{BIZ.phoneDisplay}</a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,247,239,0.62)' }}>
@@ -552,7 +579,7 @@ export default function NicolasAtelierPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.45)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.62)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
             servicios, precios y fotos son de muestra.
           </p>
