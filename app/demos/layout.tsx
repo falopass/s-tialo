@@ -23,10 +23,16 @@ const SPACING_DEFAULT = Object.fromEntries(
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => [`--spacing-${n}`, `${n * 4}px`]),
 ) as CSSProperties
 
+/**
+ * El aviso flotante de Sitiazo y la burbuja de WhatsApp van fijos abajo: sin este respiro
+ * tapan el último texto de la página (footer). El padding deja libre la franja inferior.
+ */
+const WRAP: CSSProperties = { ...SPACING_DEFAULT, paddingBottom: '84px' }
+
 export default function DemosLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return <div style={SPACING_DEFAULT}>{children}</div>
+  return <div style={WRAP}>{children}</div>
 }
