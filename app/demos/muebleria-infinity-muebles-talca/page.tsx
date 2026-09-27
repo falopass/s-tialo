@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -48,6 +49,7 @@ const TRABAJOS = [
     tag: 'a medida',
     name: 'Muebles para el hogar',
     desc: 'Racks de TV, mesas, estanterías y repisas hechos a la medida de tu espacio, no al revés.',
+    alt: 'Rack de TV y repisas de melamina fabricados a medida en el taller',
   },
   {
     src: `${IMG}/detalle1.webp`,
@@ -55,6 +57,7 @@ const TRABAJOS = [
     tag: 'carpintería fina',
     name: 'Cocinas y closets',
     desc: 'Muebles de cocina, closets y organizadores con terminaciones prolijas y herrajes firmes.',
+    alt: 'Mueble de cocina y closet de melamina con terminaciones prolijas',
   },
   {
     src: `${IMG}/detalle3.webp`,
@@ -62,6 +65,7 @@ const TRABAJOS = [
     tag: 'obra gruesa y fina',
     name: 'Proyectos en madera',
     desc: 'Trabajos en madera y melamina para casas y locales: cotizamos según medida y material.',
+    alt: 'Proyecto de carpintería en madera para casa o local comercial',
   },
 ]
 
@@ -127,7 +131,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 export default function InfinityMueblesPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`${body.className} min-h-screen antialiased overflow-x-clip`}
       style={{ backgroundColor: C.arenaSoft, color: C.ink }}
     >
       <BlitzNav
@@ -147,10 +151,13 @@ export default function InfinityMueblesPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.concretoDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Taller de Infinity Muebles: repisas con herramientas, madera y materiales de carpintería"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -158,6 +165,15 @@ export default function InfinityMueblesPage() {
             background:
               'linear-gradient(200deg, rgba(43,47,51,0.45) 0%, rgba(43,47,51,0.25) 40%, rgba(43,47,51,0.9) 100%)',
           }}
+        />
+        {/* líneas de velocidad: energía del arquetipo diagonal */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(-55deg, transparent 0 26px, rgba(237,230,218,0.05) 26px 27px)',
+          }}
+          aria-hidden="true"
         />
         {/* líneas de movimiento */}
         <div className="absolute top-28 right-6 md:right-14 flex flex-col items-end gap-1" aria-hidden="true">
@@ -172,7 +188,7 @@ export default function InfinityMueblesPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]"
               style={{ backgroundColor: C.arena, color: C.concretoDeep, clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)' }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.naranja} stroke={C.naranja} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -212,14 +228,14 @@ export default function InfinityMueblesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-transform active:scale-95 hover:translate-x-0.5`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`}
                 style={{ backgroundColor: C.naranja, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
               >
                 Cotizar por WhatsApp
               </a>
               <a
                 href="#trabajos"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`}
                 style={{ borderColor: 'rgba(237,230,218,0.55)', color: C.arena, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
               >
                 Ver trabajos
@@ -246,15 +262,15 @@ export default function InfinityMueblesPage() {
               <span style={{ color: C.naranja }}>a tu casa</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
-              Esto es una muestra de los trabajos: al publicar van los
+              Estos trabajos son de muestra: al publicar van los
               proyectos y fotos reales de la mueblería.
             </p>
           </div>
         </Reveal>
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {TRABAJOS.map((p, i) => (
-            <Reveal key={p.name} delay={i * 100}>
-              <li className="group h-full">
+            <li key={p.name} className="group h-full">
+              <Reveal delay={i * 100} className="h-full">
                 <div className="relative mb-[-18px]">
                   {/* bloque naranja detrás, inclinado al revés */}
                   <div
@@ -262,12 +278,13 @@ export default function InfinityMueblesPage() {
                     style={{ backgroundColor: C.naranja }}
                     aria-hidden="true"
                   />
-                  <div className="relative overflow-hidden rotate-[-2deg]" style={{ boxShadow: '0 16px 40px rgba(43,47,51,0.28)' }}>
-                    <img
+                  <div className="relative aspect-[4/3] overflow-hidden rotate-[-2deg]" style={{ boxShadow: '0 16px 40px rgba(43,47,51,0.28)' }}>
+                    <Image
                       src={p.src}
-                      alt={p.name}
-                      loading="lazy"
-                      className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                      alt={p.alt}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                     />
                     <span
                       className={`${display.className} absolute top-4 left-4 text-[11px] font-bold uppercase tracking-[0.18em] px-3 py-1.5`}
@@ -296,8 +313,8 @@ export default function InfinityMueblesPage() {
                   </p>
                   <Chevron className="w-4 h-4 mt-4 transition-transform duration-300 group-hover:translate-x-2" color={C.naranja} />
                 </div>
-              </li>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
         </ul>
       </section>
@@ -314,13 +331,18 @@ export default function InfinityMueblesPage() {
                 style={{ backgroundColor: C.concreto }}
                 aria-hidden="true"
               />
-              <img
-                src={`${IMG}/ambiente.webp`}
-                alt="Local de Infinity Muebles abierto a la calle en Once Sur, Talca"
-                loading="lazy"
-                className="relative w-full aspect-[4/3] object-cover rotate-[-1.5deg]"
+              <div
+                className="relative aspect-[4/3] rotate-[-1.5deg] overflow-hidden"
                 style={{ boxShadow: '0 20px 50px rgba(43,47,51,0.3)' }}
-              />
+              >
+                <Image
+                  src={`${IMG}/ambiente.webp`}
+                  alt="Local de Infinity Muebles abierto a la calle en Once Sur, Talca"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </Reveal>
           <Reveal delay={140}>
@@ -332,8 +354,8 @@ export default function InfinityMueblesPage() {
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-6 max-w-md" style={{ color: C.muted }}>
               {BIZ.legal} trabaja en {BIZ.address}, {BIZ.city}. Acá
-              hablas directo con quien fabrica: sin intermediarios, sin
-              vueltas y con la medida exacta de tu espacio.
+              hablas directo con quien fabrica: sin intermediarios y
+              con la medida exacta de tu espacio.
             </p>
             <ul className="space-y-3 mb-9">
               {[
@@ -348,7 +370,7 @@ export default function InfinityMueblesPage() {
               ))}
             </ul>
             <div className="flex flex-wrap gap-x-10 gap-y-5">
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="group">
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]">
                 <p className={`${display.className} font-bold text-3xl md:text-4xl leading-none`} style={{ color: C.concretoDeep }}>
                   {BIZ.reviews}
                 </p>
@@ -356,7 +378,7 @@ export default function InfinityMueblesPage() {
                   reseñas en Google →
                 </p>
               </a>
-              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="group">
+              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]">
                 <p className={`${display.className} font-bold text-3xl md:text-4xl leading-none`} style={{ color: C.concretoDeep }}>
                   4.050
                 </p>
@@ -389,7 +411,7 @@ export default function InfinityMueblesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]"
                 style={{ color: C.naranja, textDecorationColor: 'rgba(228,87,46,0.35)' }}
               >
                 Ver la ficha en Google →
@@ -438,8 +460,8 @@ export default function InfinityMueblesPage() {
           </Reveal>
           <ol className="grid md:grid-cols-4 gap-8 md:gap-6">
             {PROCESO.map((s, i) => (
-              <Reveal key={s.num} delay={i * 110}>
-                <li className="relative border-t-2 pt-6" style={{ borderColor: C.naranja }}>
+              <li key={s.num} className="relative border-t-2 pt-6" style={{ borderColor: C.naranja }}>
+                <Reveal delay={i * 110}>
                   <span
                     className={`${display.className} block text-5xl md:text-6xl font-bold leading-none mb-4 select-none`}
                     style={{ color: 'transparent', WebkitTextStroke: `1.5px ${C.arena}` }}
@@ -459,8 +481,8 @@ export default function InfinityMueblesPage() {
                       color={C.naranja}
                     />
                   )}
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ol>
         </div>
@@ -552,7 +574,7 @@ export default function InfinityMueblesPage() {
                 <Chevron className="w-4 h-4 shrink-0" color={C.naranja} />
                 <span>
                   Instagram:{' '}
-                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-4 decoration-2" style={{ color: C.naranja, textDecorationColor: 'rgba(228,87,46,0.35)' }}>
+                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]" style={{ color: C.naranja, textDecorationColor: 'rgba(228,87,46,0.35)' }}>
                     {BIZ.instagramUser}
                   </a>
                 </span>
@@ -567,7 +589,7 @@ export default function InfinityMueblesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm px-7 py-3.5 transition-transform active:scale-95 hover:translate-x-0.5`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm px-7 py-3.5 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2F33]`}
                 style={{ backgroundColor: C.naranja, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)' }}
               >
                 Escribir por WhatsApp
@@ -576,7 +598,7 @@ export default function InfinityMueblesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm px-7 py-3.5 border-2 transition-colors hover:bg-black/5`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm px-7 py-3.5 border-2 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2F33]`}
                 style={{ borderColor: C.concreto, color: C.concretoDeep, clipPath: 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)' }}
               >
                 Cómo llegar →
@@ -604,13 +626,12 @@ export default function InfinityMueblesPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.concretoDeep }}>
-        <div
-          className="absolute inset-0 opacity-[0.16]"
-          style={{
-            backgroundImage: `url(${IMG}/hero.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+        <Image
+          src={`${IMG}/hero.webp`}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.16]"
           aria-hidden="true"
         />
         <div className="absolute top-10 left-6 md:left-14 flex flex-col gap-1 rotate-180" aria-hidden="true">
@@ -638,7 +659,7 @@ export default function InfinityMueblesPage() {
               href={WA_LINK_MEDIDA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold uppercase tracking-wide text-sm md:text-base px-9 py-4 transition-transform active:scale-95 hover:translate-x-0.5`}
+              className={`${display.className} inline-block font-bold uppercase tracking-wide text-sm md:text-base px-9 py-4 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`}
               style={{ backgroundColor: C.naranja, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
             >
               Agendar medición →
@@ -661,7 +682,7 @@ export default function InfinityMueblesPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(237,230,218,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:text-white focus-visible:underline">
                 {l.label}
               </a>
             ))}
