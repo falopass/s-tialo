@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Prata, Mulish } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import {
   BIZ,
@@ -535,16 +535,21 @@ export default function LaTerrazaPage() {
           </nav>
         </div>
         <div style={{ backgroundColor: C.terracotaDeep }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 pb-20 md:pb-4 text-xs md:text-sm leading-relaxed font-semibold">
-            Sitio de ejemplo de Sitiazo para {BIZ.name}. La carta, los precios,
-            las preguntas y los textos son de muestra; la dirección, el WhatsApp,
-            el Instagram ({BIZ.instagramFollowers} seguidores) y las {BIZ.googleReviews} reseñas
-            en Google Maps son datos reales del negocio.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 pb-20 text-xs md:text-sm leading-relaxed font-semibold">
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing}`}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. La carta, los precios, las preguntas y los textos son
+            de muestra; la dirección, el WhatsApp, el Instagram ({BIZ.instagramFollowers} seguidores)
+            y las {BIZ.googleReviews} reseñas en Google Maps son datos reales del negocio.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing}`}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
