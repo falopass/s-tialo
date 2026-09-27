@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Passion_One, Lato } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -215,6 +215,48 @@ function Letrero({ children, light = false }: { children: React.ReactNode; light
   )
 }
 
+/**
+ * Aviso de Sitiazo en el flujo (no fijo): así nunca tapa texto ni
+ * botones. Fondo en rgba() inline — con bg-ink/90 Chrome serializa
+ * color-mix como oklab() y los chequeos de contraste no lo leen.
+ */
+function SitiazoStrip() {
+  return (
+    <div
+      className="text-[11px] leading-tight"
+      style={{ backgroundColor: 'rgba(10,10,10,0.92)', color: '#FAFAF7' }}
+    >
+      <div className="max-w-6xl mx-auto px-5 md:px-8 py-3.5 pr-20 flex items-center gap-2.5">
+        <span
+          className="inline-block w-[6px] h-[6px] rounded-full shrink-0"
+          style={{ backgroundColor: '#FFD60A' }}
+          aria-hidden="true"
+        />
+        <span>
+          Mockup preparado por{' '}
+          <a
+            href={SITE.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2"
+          >
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name} — así se vería tu sitio.{' '}
+          <a
+            href={whatsappLink('contacto')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2"
+          >
+            ¿Lo hacemos realidad?
+          </a>
+        </span>
+      </div>
+    </div>
+  )
+}
+
 export default function CabanasVistaHermosaPage() {
   return (
     <div
@@ -222,6 +264,7 @@ export default function CabanasVistaHermosaPage() {
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`
+        html { scroll-behavior: auto }
         .cvh a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px }
       `}</style>
 
@@ -631,7 +674,7 @@ export default function CabanasVistaHermosaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#F7F9F9' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-12 pb-10 border-t flex flex-col md:flex-row md:items-end justify-between gap-8" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 border-t flex flex-col md:flex-row md:items-end justify-between gap-6" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
           <div>
             <p className={`${display.className} font-bold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
@@ -653,15 +696,14 @@ export default function CabanasVistaHermosaPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.7)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            tarifas, reseñas y fotos son de muestra; el WhatsApp, la
-            dirección, el Instagram y el número de reseñas son reales.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.7)' }}>
+            Textos, tarifas, reseñas y fotos son de muestra; el WhatsApp,
+            la dirección, el Instagram y el número de reseñas son reales.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <SitiazoStrip />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
