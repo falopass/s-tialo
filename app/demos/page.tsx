@@ -510,6 +510,14 @@ const BLITZ = [
     tagline: 'Foto a sangre inmersiva: azul noche, arena y terracota, parallax sutil y casi sin cromo.',
     gradient: 'linear-gradient(135deg, #101A29 0%, #1B2A41 55%, #C1663F 140%)',
   },
+  {
+    slug: 'ferreteria-valdebenito',
+    name: 'Ferretería Valdebenito',
+    rubro: 'Tienda de herramientas',
+    city: 'Linares',
+    tagline: 'Oscuro premium mayorista: carbón, vidrio y cian con glow, surtido por pasillo y precio por volumen.',
+    gradient: 'linear-gradient(135deg, #0A0D12 0%, #1F5673 60%, #45D5E8 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
