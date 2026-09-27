@@ -149,6 +149,7 @@ export const PRODUCTS: {
   // Escolares y manualidades
   { cat: 'escolar', name: 'Block Liceo 60, 20 hojas', price: '$900', mayor: '$700' },
   { cat: 'escolar', name: 'Pegamento en barra Giotto', price: '$1.000', mayor: '$800' },
+  { cat: 'escolar', name: 'Pegamento en barra Artel', price: '$800', mayor: '$600' },
   { cat: 'escolar', name: 'Cartulina española 10 pliegos', price: '$2.000', mayor: '$1.800' },
   { cat: 'escolar', name: 'Block médium 99 1/8 hojas', price: '$1.500', mayor: '$1.300' },
   { cat: 'escolar', name: 'Pegamento en barra', price: '$1.000' },
