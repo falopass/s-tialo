@@ -2,20 +2,24 @@
  * app/demos/que-barato-lf/content.ts
  *
  * Datos del mockup. REALES: nombre, dirección (34 Ote. 3404, Talca),
- * WhatsApp, las 133 reseñas de Google Maps y el catálogo con precios,
- * incluido el precio «mayor» por 3 unidades. Los horarios son de
- * referencia y las fotos, referenciales.
+ * los dos WhatsApp del flyer, las 133 reseñas de Google Maps, los pasos
+ * de «¿Cómo comprar?» y el catálogo con precios, incluido el precio
+ * «mayor» por 3 unidades. Los horarios son de referencia y las fotos,
+ * referenciales.
  */
 
 export const BIZ = {
   name: 'QUE BARATO LF',
-  rubro: 'Botiquín, escolar y hogar',
+  rubro: 'De todo un poco',
   address: '34 Ote. 3404',
   city: 'Talca',
   region: 'Región del Maule',
   phoneDisplay: '+56 9 8445 2626',
   phoneTel: '+56984452626',
   whatsapp: '56984452626',
+  phone2Display: '+56 9 3412 8754',
+  phone2Tel: '+56934128754',
+  whatsapp2: '56934128754',
   reviews: '133',
 } as const
 
@@ -32,11 +36,16 @@ export const C = {
   lineOnDark: 'rgba(255,255,255,0.16)',
 } as const
 
-export const waLink = (text: string) =>
-  `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(text)}`
+export const waLink = (text: string, phone: string = BIZ.whatsapp) =>
+  `https://wa.me/${phone}?text=${encodeURIComponent(text)}`
 
 export const WA_LINK = waLink(
   'Hola QUE BARATO LF! Vi su sitio y quiero cotizar',
+)
+
+export const WA_LINK2 = waLink(
+  'Hola QUE BARATO LF! Vi su sitio y quiero cotizar',
+  BIZ.whatsapp2,
 )
 
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
