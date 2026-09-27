@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Baloo_2, Nunito } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { HeroScene } from './scenes'
@@ -125,6 +125,7 @@ export default function OneHealthPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -460,7 +461,7 @@ export default function OneHealthPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
               Comuna de {BIZ.comuna} · {BIZ.region}
               <br />
               <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
@@ -468,14 +469,26 @@ export default function OneHealthPage() {
               </a>
             </address>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
+          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.8)' }}>
             © {new Date().getFullYear()} {BIZ.name}
+          </p>
+        </div>
+        {/* Aviso de mockup en el flujo (no flotante) para no tapar contenido; pb deja libre la burbuja de WhatsApp */}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}, así se vería tu sitio.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }

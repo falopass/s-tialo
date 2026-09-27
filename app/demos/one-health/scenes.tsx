@@ -14,68 +14,71 @@ const C = {
   sageDeep: '#4E6B50',
 }
 
+const PAW = (
+  <>
+    <ellipse cx="12" cy="15.5" rx="4.6" ry="3.6" />
+    <circle cx="6.4" cy="9.6" r="1.7" />
+    <circle cx="12" cy="7.4" r="1.7" />
+    <circle cx="17.6" cy="9.6" r="1.7" />
+  </>
+)
+
+// Fondo estirado (preserveAspectRatio="none") para que ninguna forma
+// sobresalga del ancho de pantalla; los motivos van aparte, en % del hero.
 export function HeroScene({ className = '' }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 1200 800"
-      preserveAspectRatio="xMidYMid slice"
-      className={className}
-      aria-hidden="true"
-      focusable="false"
-    >
-      <defs>
-        <linearGradient id="oh-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#FDFAF3" />
-          <stop offset="60%" stopColor={C.cream} />
-          <stop offset="100%" stopColor="#F5EAD9" />
-        </linearGradient>
-      </defs>
-      <rect width="1200" height="800" fill="url(#oh-sky)" />
+    <div className={className} aria-hidden="true">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="none" className="absolute inset-0 w-full h-full" focusable="false">
+        <defs>
+          <linearGradient id="oh-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#FDFAF3" />
+            <stop offset="60%" stopColor={C.cream} />
+            <stop offset="100%" stopColor="#F5EAD9" />
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#oh-sky)" />
+        {/* nubes suaves */}
+        <g fill="#FFFFFF" opacity="0.8">
+          <ellipse cx="330" cy="170" rx="90" ry="26" />
+          <ellipse cx="400" cy="155" rx="70" ry="22" />
+          <ellipse cx="150" cy="290" rx="60" ry="16" />
+        </g>
+        {/* colinas salvia */}
+        <path
+          d="M0 560 C 220 480 420 620 640 550 C 840 488 1030 590 1200 530 L1200 800 L0 800 Z"
+          fill={C.sage}
+          opacity="0.6"
+        />
+        <path
+          d="M0 650 C 260 580 480 700 740 640 C 960 592 1100 660 1200 620 L1200 800 L0 800 Z"
+          fill={C.sageMid}
+          opacity="0.75"
+        />
+        <path
+          d="M0 730 C 300 680 560 760 820 715 C 1020 682 1130 730 1200 705 L1200 800 L0 800 Z"
+          fill={C.sageDeep}
+          opacity="0.9"
+        />
+      </svg>
       {/* sol durazno */}
-      <circle cx="880" cy="200" r="110" fill={C.peach} opacity="0.85" />
-      <circle cx="880" cy="200" r="150" fill={C.peach} opacity="0.22" />
-      {/* nubes suaves */}
-      <g fill="#FFFFFF" opacity="0.8">
-        <ellipse cx="330" cy="170" rx="90" ry="26" />
-        <ellipse cx="400" cy="155" rx="70" ry="22" />
-        <ellipse cx="150" cy="290" rx="60" ry="16" />
-      </g>
-      {/* colinas salvia */}
-      <path
-        d="M0 560 C 220 480 420 620 640 550 C 840 488 1030 590 1200 530 L1200 800 L0 800 Z"
-        fill={C.sage}
-        opacity="0.6"
-      />
-      <path
-        d="M0 650 C 260 580 480 700 740 640 C 960 592 1100 660 1200 620 L1200 800 L0 800 Z"
-        fill={C.sageMid}
-        opacity="0.75"
-      />
-      <path
-        d="M0 730 C 300 680 560 760 820 715 C 1020 682 1130 730 1200 705 L1200 800 L0 800 Z"
-        fill={C.sageDeep}
-        opacity="0.9"
-      />
+      <svg viewBox="0 0 300 300" className="absolute right-[14%] top-[6%] w-[clamp(140px,25%,300px)] aspect-square" focusable="false">
+        <circle cx="150" cy="150" r="110" fill={C.peach} opacity="0.85" />
+        <circle cx="150" cy="150" r="150" fill={C.peach} opacity="0.22" />
+      </svg>
       {/* huella decorativa */}
-      <g transform="translate(150 150) scale(6)" fill={C.sageDeep} opacity="0.12">
-        <ellipse cx="12" cy="15.5" rx="4.6" ry="3.6" />
-        <circle cx="6.4" cy="9.6" r="1.7" />
-        <circle cx="12" cy="7.4" r="1.7" />
-        <circle cx="17.6" cy="9.6" r="1.7" />
-      </g>
-      <g transform="translate(1020 430) scale(3.4)" fill={C.peachDeep} opacity="0.25">
-        <ellipse cx="12" cy="15.5" rx="4.6" ry="3.6" />
-        <circle cx="6.4" cy="9.6" r="1.7" />
-        <circle cx="12" cy="7.4" r="1.7" />
-        <circle cx="17.6" cy="9.6" r="1.7" />
-      </g>
+      <svg viewBox="0 0 24 24" className="absolute left-[12.5%] top-[18.75%] w-[min(12%,144px)] aspect-square" fill={C.sageDeep} opacity="0.12" focusable="false">
+        {PAW}
+      </svg>
+      <svg viewBox="0 0 24 24" className="absolute left-[85%] top-[53.75%] w-[min(6.8%,82px)] aspect-square" fill={C.peachDeep} opacity="0.25" focusable="false">
+        {PAW}
+      </svg>
       {/* árbol simple */}
-      <g transform="translate(190 490)" opacity="0.7">
+      <svg viewBox="-70 -76 140 166" className="absolute left-[10%] top-[51.75%] h-[20.75%] w-auto" opacity="0.7" focusable="false">
         <rect x="-6" y="0" width="12" height="90" rx="6" fill={C.sageDeep} />
         <circle cx="0" cy="-24" r="52" fill={C.sage} />
         <circle cx="-38" cy="4" r="32" fill={C.sage} />
         <circle cx="36" cy="2" r="34" fill={C.sageMid} />
-      </g>
-    </svg>
+      </svg>
+    </div>
   )
 }
