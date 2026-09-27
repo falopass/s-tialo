@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Playfair_Display, Lato } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -128,10 +129,13 @@ export default function PatagoniaDulcePage() {
 
       {/* ── Portada a sangre ── */}
       <header id="inicio" className="relative min-h-svh flex flex-col overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Cocina de pastelería luminosa: una torta de frutas frescas sobre un mesón de acero, con el pueblo y los cerros por la ventana"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -157,8 +161,9 @@ export default function PatagoniaDulcePage() {
             style={{ color: C.paper }}
           >
             <span className="block">Patagonia</span>
-            <span className="block pl-[8%]">
-              dulce <em className="font-normal" style={{ color: C.mint }}>pastelería</em>
+            <span className="block pl-[9%]">dulce</span>
+            <span className="block pl-[22%]">
+              <em className="font-normal" style={{ color: C.mint }}>pastelería</em>
             </span>
           </h1>
         </div>
@@ -195,7 +200,7 @@ export default function PatagoniaDulcePage() {
               <div>
                 <dt className={`${KICKER} mb-1`} style={{ color: C.mint }}>Instagram</dt>
                 <dd className={`${display.className} text-3xl md:text-4xl`} style={{ color: C.paper }}>
-                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={FOCUS}>
+                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} transition-colors hover:text-[#9FD8CB]`}>
                     {BIZ.followers}
                   </a>
                 </dd>
@@ -246,11 +251,12 @@ export default function PatagoniaDulcePage() {
               <article className="grid gap-6 lg:grid-cols-12 lg:items-center lg:gap-x-10">
                 <figure className={s.fig}>
                   <div className={`relative overflow-hidden ${s.aspect}`}>
-                    <img
+                    <Image
                       src={s.src}
                       alt={s.alt}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="(min-width:1024px) 58vw, 100vw"
+                      className="object-cover"
                     />
                   </div>
                   <figcaption className="pt-3 text-xs" style={{ color: C.muted }}>
@@ -278,11 +284,12 @@ export default function PatagoniaDulcePage() {
       <Reveal>
         <figure className="relative">
           <div className="relative aspect-[16/9] md:aspect-[21/8] overflow-hidden">
-            <img
+            <Image
               src={`${IMG}/ambiente.webp`}
               alt="Fachada de la pastelería al atardecer: vitrina encendida con tortas y kuchen, y la cordillera al fondo"
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="100vw"
+              className="object-cover"
             />
           </div>
           <figcaption
@@ -351,7 +358,7 @@ export default function PatagoniaDulcePage() {
                   <div>
                     <dt className="font-bold mb-1" style={{ color: C.petrol }}>WhatsApp</dt>
                     <dd style={{ color: C.muted }}>
-                      <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${FOCUS} underline underline-offset-4 decoration-2`} style={{ textDecorationColor: C.mint }}>
+                      <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#0E4C5C]`} style={{ textDecorationColor: C.mint }}>
                         {BIZ.phoneDisplay}
                       </a>
                     </dd>
@@ -359,7 +366,7 @@ export default function PatagoniaDulcePage() {
                   <div>
                     <dt className="font-bold mb-1" style={{ color: C.petrol }}>Instagram</dt>
                     <dd style={{ color: C.muted }}>
-                      <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} underline underline-offset-4 decoration-2`} style={{ textDecorationColor: C.mint }}>
+                      <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#0E4C5C]`} style={{ textDecorationColor: C.mint }}>
                         @patagoniadulcepasteleria
                       </a>
                     </dd>
@@ -384,15 +391,17 @@ export default function PatagoniaDulcePage() {
         </div>
 
         <Reveal delay={160}>
-          <blockquote className="mt-16 md:mt-24 max-w-4xl mx-auto text-center">
-            <p className={`${display.className} italic font-normal text-[clamp(1.6rem,4vw,2.75rem)] leading-[1.2]`} style={{ color: C.petrol }}>
-              “La repostería sureña no se apura: la masa lleva su
-              tiempo y el horno no perdona la prisa.”
-            </p>
+          <figure className="mt-16 md:mt-24 max-w-4xl mx-auto text-center">
+            <blockquote>
+              <p className={`${display.className} italic font-normal text-[clamp(1.6rem,4vw,2.75rem)] leading-[1.2]`} style={{ color: C.petrol }}>
+                “La repostería sureña no se apura: la masa lleva su
+                tiempo y el horno no perdona la prisa.”
+              </p>
+            </blockquote>
             <figcaption className={`${KICKER} mt-6`} style={{ color: C.muted }}>
               Texto de muestra
             </figcaption>
-          </blockquote>
+          </figure>
         </Reveal>
       </section>
 
@@ -420,7 +429,7 @@ export default function PatagoniaDulcePage() {
               {PRECIOS.map((p) => (
                 <li
                   key={p.name}
-                  className="flex items-baseline gap-4 py-4 md:py-5 border-b"
+                  className="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-4 md:py-5 border-b"
                   style={{ borderColor: 'rgba(159,216,203,0.35)' }}
                 >
                   <span className={`${display.className} text-xl md:text-2xl`} style={{ color: C.paper }}>
@@ -440,11 +449,22 @@ export default function PatagoniaDulcePage() {
           </Reveal>
 
           <Reveal delay={180}>
-            <p className="mt-8 text-sm" style={{ color: 'rgba(247,249,249,0.65)' }}>
-              ¿Encargo especial? La torta se cotiza según tamaño, relleno
-              y decoración — escribe con la fecha y el número de
-              personas.
-            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-6">
+              <p className="text-sm max-w-[52ch]" style={{ color: 'rgba(247,249,249,0.65)' }}>
+                ¿Encargo especial? La torta se cotiza según tamaño,
+                relleno y decoración — escribe con la fecha y el número
+                de personas.
+              </p>
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold transition-colors hover:bg-[#F7F9F9]`}
+                style={{ backgroundColor: C.mint, color: C.deep }}
+              >
+                Hacer un pedido por WhatsApp
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -471,7 +491,7 @@ export default function PatagoniaDulcePage() {
                 href={WA_LINK_TORTA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold transition-colors`}
+                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold transition-colors hover:bg-[#093540]`}
                 style={{ backgroundColor: C.petrol, color: C.paper }}
               >
                 Encargar una torta
@@ -480,7 +500,7 @@ export default function PatagoniaDulcePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold border transition-colors`}
+                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold border transition-colors hover:bg-[#0E4C5C] hover:text-[#F7F9F9]`}
                 style={{ borderColor: C.petrol, color: C.petrol }}
               >
                 Cómo llegar →
@@ -491,7 +511,7 @@ export default function PatagoniaDulcePage() {
               <br />
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4 decoration-2`} style={{ textDecorationColor: C.mint, color: C.petrol }}>
+              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#5FAE9C]`} style={{ textDecorationColor: C.mint, color: C.petrol }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -518,7 +538,7 @@ export default function PatagoniaDulcePage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2`}>
+              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 transition-colors hover:text-white`}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -535,7 +555,7 @@ export default function PatagoniaDulcePage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.45)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.6)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
             Fotos, productos, precios y horarios son de muestra; el
             nombre, la dirección, el WhatsApp y el Instagram son los
