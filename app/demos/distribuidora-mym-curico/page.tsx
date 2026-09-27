@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -27,6 +28,7 @@ const C = {
 }
 
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E4572E]'
+const FOCUS_LIGHT = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#EDE6DA]'
 
 export const metadata: Metadata = {
   title: 'Distribuidora MyM Curicó — Artículos para el hogar en Av. O’Higgins',
@@ -140,6 +142,11 @@ export default function DistribuidoraMymCuricoPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.arena, color: C.ink }}
     >
+      <style>{`
+        @keyframes mym-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .mym-marquee-track { animation: mym-marquee 30s linear infinite; }
+        @media (prefers-reduced-motion: reduce) { .mym-marquee-track { animation: none; } }
+      `}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -189,7 +196,7 @@ export default function DistribuidoraMymCuricoPage() {
         {/* Fila de datos superior */}
         <div className="relative max-w-6xl mx-auto w-full px-5 md:px-8 pt-24 md:pt-28">
           <div
-            className="flex items-center justify-between gap-4 border-y py-2.5 text-[10px] md:text-xs uppercase tracking-[0.2em] font-semibold"
+            className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-y py-2.5 text-[10px] md:text-xs uppercase tracking-[0.18em] font-semibold"
             style={{ borderColor: C.lineLight, color: 'rgba(237,230,218,0.7)' }}
           >
             <span>{BIZ.rubro}</span>
@@ -202,8 +209,14 @@ export default function DistribuidoraMymCuricoPage() {
         <div className="relative flex-1 flex items-center">
           <div className="max-w-6xl mx-auto w-full px-5 md:px-8 py-12">
             <Reveal>
+              <p
+                className={`${display.className} font-bold uppercase tracking-[0.32em] text-xs md:text-sm mb-5 md:mb-7`}
+                style={{ color: C.orange }}
+              >
+                {BIZ.name}
+              </p>
               <h1
-                className={`${display.className} font-bold uppercase leading-[0.92] tracking-[-0.02em] text-[clamp(2.9rem,11vw,8.5rem)]`}
+                className={`${display.className} font-bold uppercase leading-[0.92] tracking-[-0.02em] text-[clamp(2.5rem,10.5vw,8.5rem)]`}
               >
                 <span style={{ color: C.arena }}>De la escoba</span>
                 <br />
@@ -222,7 +235,7 @@ export default function DistribuidoraMymCuricoPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                  className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95`}
                   style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
                 >
                   Escribir por WhatsApp
@@ -249,7 +262,7 @@ export default function DistribuidoraMymCuricoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${FOCUS} flex items-center gap-2 font-semibold`}
+              className={`${FOCUS} flex items-center gap-2 font-semibold transition-colors hover:text-white`}
             >
               <Star color={C.orange} className="w-[13px] h-[13px]" />
               {BIZ.reviews} reseñas en Google
@@ -258,11 +271,17 @@ export default function DistribuidoraMymCuricoPage() {
               href={BIZ.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${FOCUS} font-semibold`}
+              className={`${FOCUS} font-semibold transition-colors hover:text-white`}
             >
               +{BIZ.followers} seguidores en Facebook
             </a>
-            <span>Atención directa, sin intermediarios</span>
+            <a
+              href={`tel:${BIZ.phoneTel}`}
+              className={`${FOCUS} font-semibold transition-colors hover:text-white`}
+            >
+              {BIZ.phoneDisplay}
+            </a>
+            <span className="hidden sm:inline">Atención directa, sin intermediarios</span>
             <span className="hidden md:inline" style={{ color: 'rgba(237,230,218,0.45)' }}>
               sitio de ejemplo
             </span>
@@ -270,20 +289,24 @@ export default function DistribuidoraMymCuricoPage() {
         </div>
       </section>
 
-      {/* ── Cinta de categorías ── */}
-      <section aria-label="Categorías" style={{ backgroundColor: C.orange }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-4">
-          <ul
-            className={`${display.className} flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[12px] md:text-sm font-bold uppercase tracking-[0.14em]`}
-            style={{ color: C.deep }}
-          >
-            {CATEGORIAS.map((cat, i) => (
-              <li key={cat} className="flex items-center gap-5">
-                {i > 0 && <span aria-hidden="true" className="opacity-50">▸</span>}
-                {cat}
-              </li>
-            ))}
-          </ul>
+      {/* ── Cinta marquee de categorías ── */}
+      <section aria-label="Categorías" className="overflow-hidden" style={{ backgroundColor: C.orange }}>
+        <div className="mym-marquee-track flex w-max items-center py-3.5 md:py-4">
+          {[0, 1].map((copy) => (
+            <ul
+              key={copy}
+              aria-hidden={copy === 1}
+              className={`${display.className} flex items-center gap-6 pr-6 text-[12px] md:text-sm font-bold uppercase tracking-[0.14em] whitespace-nowrap`}
+              style={{ color: C.deep }}
+            >
+              {CATEGORIAS.map((cat) => (
+                <li key={cat} className="flex items-center gap-6">
+                  {cat}
+                  <span aria-hidden="true" className="opacity-50">▸</span>
+                </li>
+              ))}
+            </ul>
+          ))}
         </div>
       </section>
 
@@ -308,11 +331,11 @@ export default function DistribuidoraMymCuricoPage() {
         </Reveal>
         <ul>
           {PRODUCTOS.map((p, i) => (
-            <li key={p.name} className="border-t last:border-b" style={{ borderColor: C.line }}>
+            <li key={p.name} className="group border-t last:border-b" style={{ borderColor: C.line }}>
               <Reveal delay={i * 60}>
                 <div className="grid md:grid-cols-[72px_1fr_300px] lg:grid-cols-[90px_1fr_360px] gap-5 md:gap-8 items-center py-6 md:py-8">
                   <span
-                    className={`${display.className} font-bold text-3xl md:text-4xl leading-none`}
+                    className={`${display.className} font-bold text-3xl md:text-4xl leading-none transition-transform duration-300 group-hover:translate-x-1`}
                     style={{ color: C.orange }}
                     aria-hidden="true"
                   >
@@ -340,12 +363,13 @@ export default function DistribuidoraMymCuricoPage() {
                       ))}
                     </div>
                   </div>
-                  <div className="overflow-hidden">
-                    <img
+                  <div className="relative overflow-hidden aspect-[4/3]">
+                    <Image
                       src={p.src}
                       alt={p.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover aspect-[4/3] transition-transform duration-700 ease-out hover:scale-[1.03]"
+                      fill
+                      sizes="(min-width: 1024px) 360px, (min-width: 768px) 300px, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
                 </div>
@@ -360,11 +384,12 @@ export default function DistribuidoraMymCuricoPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
             <div className="relative h-full min-h-[320px]">
-              <img
+              <Image
                 src={`${IMG}/hero.webp`}
                 alt="Pasillo interior de Distribuidora MyM Curicó: estantes metálicos llenos de artículos para el hogar"
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
               />
               <div
                 className="absolute bottom-0 left-0 px-4 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.18em] font-bold"
@@ -493,7 +518,7 @@ export default function DistribuidoraMymCuricoPage() {
                 href={WA_LINK_PRECIO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} font-bold text-sm px-6 py-3 transition-transform active:scale-95`}
+                className={`${FOCUS_LIGHT} ${display.className} font-bold text-sm px-6 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95`}
                 style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
               >
                 Consultar precio real por WhatsApp
@@ -549,7 +574,7 @@ export default function DistribuidoraMymCuricoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95`}
                 style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
@@ -558,7 +583,7 @@ export default function DistribuidoraMymCuricoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-black/5`}
+                className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-all duration-200 hover:-translate-y-0.5 hover:bg-black/5`}
                 style={{ borderColor: 'rgba(58,63,68,0.35)', color: C.concrete }}
               >
                 Cómo llegar →
@@ -570,7 +595,7 @@ export default function DistribuidoraMymCuricoPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold underline underline-offset-4 decoration-2"
+                className={`${FOCUS} font-semibold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70`}
                 style={{ color: C.concrete, textDecorationColor: 'rgba(228,87,46,0.4)' }}
               >
                 Facebook
@@ -628,7 +653,7 @@ export default function DistribuidoraMymCuricoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${FOCUS} ${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-transform active:scale-95`}
+              className={`${FOCUS_LIGHT} ${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-125 active:scale-95`}
               style={{ backgroundColor: C.deep, color: C.arena }}
             >
               Hablar con MyM por WhatsApp
