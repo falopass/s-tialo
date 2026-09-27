@@ -446,6 +446,14 @@ const BLITZ = [
     tagline: 'Split-screen de taller: negro, amarillo señal y acero, bloques alternados con fotos.',
     gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
   },
+  {
+    slug: 'muebleria-infinity-muebles-talca',
+    name: 'Infinity Muebles',
+    rubro: 'Carpintería y mueblería',
+    city: 'Talca',
+    tagline: 'Diagonales dinámicas: naranja construcción, hormigón y arena, cortes en ángulo y fotos inclinadas.',
+    gradient: 'linear-gradient(135deg, #3A3F44 0%, #3A3F44 55%, #E4572E 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
