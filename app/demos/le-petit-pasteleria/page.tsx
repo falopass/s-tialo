@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Bitter, Rubik } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -44,6 +45,7 @@ const NAV_LINKS = [
 const VITRINA = [
   {
     src: `${IMG}/detalle1.webp`,
+    alt: 'Tarteletas de fruta fresca con crema, recién armadas en la vitrina',
     num: 'a',
     name: 'Tarteletas de fruta',
     desc: 'Masa quebrada, crema y fruta fresca de temporada: berries, durazno y lo que dé la semana.',
@@ -51,6 +53,7 @@ const VITRINA = [
   },
   {
     src: `${IMG}/detalle2.webp`,
+    alt: 'Alfajores, milhojas y dulces clásicos de vitrina listos para llevar',
     num: 'b',
     name: 'Clásicos de vitrina',
     desc: 'Alfajores, milhojas, trozos de torta y dulces para llevar, listos para la once.',
@@ -58,6 +61,7 @@ const VITRINA = [
   },
   {
     src: `${IMG}/detalle3.webp`,
+    alt: 'Torta de celebración por encargo con crema y fruta fresca',
     num: 'c',
     name: 'Tortas por encargo',
     desc: 'Milhojas, crema y manjar, o el sabor que tú pidas. Se encargan con anticipación por WhatsApp.',
@@ -65,6 +69,7 @@ const VITRINA = [
   },
   {
     src: `${IMG}/hero.webp`,
+    alt: 'Mostrador de Le Petit Pasteleria con merengues, pan de la casa y el dulce del día',
     num: 'd',
     name: 'La vitrina completa',
     desc: 'Merengues, pan de la casa y el dulce del día. El mostrador se renueva cada mañana.',
@@ -134,10 +139,13 @@ export default function LePetitPage() {
 
       {/* ── Portada: hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col overflow-hidden" style={{ backgroundColor: C.slateDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Vitrina iluminada de Le Petit Pasteleria con tortas, merengues y dulces"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -154,12 +162,12 @@ export default function LePetitPage() {
               style={{ borderColor: 'rgba(255,255,255,0.55)', color: 'rgba(255,255,255,0.9)' }}
             >
               <span>Pastelería · Talca</span>
-              <span className="hidden md:inline">Edición de muestra · Sitiazo</span>
+              <span className="hidden md:inline">Edición N° 01 · Sitio de muestra</span>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 underline underline-offset-4 decoration-2"
+                className="flex items-center gap-2 underline underline-offset-4 decoration-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]"
                 style={{ textDecorationColor: C.yellow }}
               >
                 <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]" fill={C.yellow} stroke={C.yellow} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -190,14 +198,14 @@ export default function LePetitPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]`}
                   style={{ backgroundColor: C.yellow, color: C.slateInk }}
                 >
                   Encargar por WhatsApp
                 </a>
                 <a
                   href="#vitrina"
-                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]`}
                   style={{ borderColor: 'rgba(255,255,255,0.6)', color: C.white }}
                 >
                   Ver la vitrina
@@ -210,7 +218,7 @@ export default function LePetitPage() {
         <div className="relative border-t" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(27,41,51,0.55)', backdropFilter: 'blur(6px)' }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.78)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
-            <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1" style={{ textDecorationColor: C.yellow }}>
+            <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]" style={{ textDecorationColor: C.yellow }}>
               {BIZ.instagram}
             </a>
             <span className="hidden md:inline">Atención directa por WhatsApp</span>
@@ -252,11 +260,12 @@ export default function LePetitPage() {
               <Reveal key={p.name} delay={i * 80} className={spans[i]}>
                 <li className="group">
                   <figure className={`relative overflow-hidden ${aspects[i]}`}>
-                    <img
+                    <Image
                       src={p.src}
-                      alt={p.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      alt={p.alt}
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
                     <span
                       className={`${display.className} absolute top-4 left-4 text-sm font-black italic px-3 py-1`}
@@ -285,15 +294,18 @@ export default function LePetitPage() {
 
       {/* ── Foto que rompe la grilla: la casa ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.slateDeep }}>
-        <img
-          src={`${IMG}/ambiente.webp`}
-          alt="Fachada de Le Petit Pasteleria en 2 Oriente, Talca, con la vitrina a la calle"
-          loading="lazy"
-          className="w-full h-[52vh] md:h-[72vh] object-cover"
-        />
+        <div className="relative h-[52vh] md:h-[72vh]">
+          <Image
+            src={`${IMG}/ambiente.webp`}
+            alt="Fachada de Le Petit Pasteleria en 2 Oriente, Talca, con la vitrina a la calle"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
         <div
           className="absolute inset-x-0 bottom-0"
-          style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(27,41,51,0.78) 100%)' }}
+          style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(27,41,51,0.85) 100%)' }}
         >
           <div className="max-w-6xl mx-auto px-5 md:px-8 pb-8 md:pb-10 pt-24">
             <p className={`${display.className} font-black text-2xl md:text-4xl leading-tight`} style={{ color: C.white }}>
@@ -336,13 +348,21 @@ export default function LePetitPage() {
           </div>
           <div className="lg:col-span-7">
             <Reveal delay={120}>
-              <div className="md:columns-2 md:gap-10 space-y-4 text-sm md:text-[15px] leading-relaxed" style={{ color: C.muted }}>
+              <div className="md:columns-2 md:gap-10 md:[column-rule:1px_solid_rgba(47,72,88,0.16)] space-y-4 text-sm md:text-[15px] leading-relaxed" style={{ color: C.muted }}>
                 <p>
-                  <strong className="font-semibold" style={{ color: C.slate }}>Le Petit Pasteleria</strong> atiende
-                  en 2 Oriente 1133, a pasos del centro de Talca. Es de esas
-                  vitrinas chicas donde todo se ve de cerca: las tarteletas
-                  recién armadas, los alfajores apilados y las tortas que
-                  esperan a su dueño.
+                  <strong className="font-semibold" style={{ color: C.slate }}>
+                    <span
+                      className={`${display.className} float-left font-black leading-[0.78] text-[3.6rem] mr-2.5 mt-1`}
+                      style={{ color: C.slate }}
+                    >
+                      L
+                    </span>
+                    e Petit Pasteleria
+                  </strong>{' '}
+                  atiende en 2 Oriente 1133, a pasos del centro de Talca. Es
+                  de esas vitrinas chicas donde todo se ve de cerca: las
+                  tarteletas recién armadas, los alfajores apilados y las
+                  tortas que esperan a su dueño.
                 </p>
                 <p>
                   Aquí la atención es directa: quien te atiende es quien
@@ -381,7 +401,7 @@ export default function LePetitPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2"
+                  className="inline-block text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#22353F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858]"
                   style={{ color: C.slate, textDecorationColor: C.yellow }}
                 >
                   Leer las {BIZ.reviews} reseñas reales en Google →
@@ -416,11 +436,11 @@ export default function LePetitPage() {
                   className="flex items-baseline justify-between gap-4 py-4 md:py-5 border-b"
                   style={{ borderColor: C.lineLight }}
                 >
-                  <span className={`${display.className} font-bold text-lg md:text-2xl`} style={{ color: C.white }}>
+                  <span className={`${display.className} font-bold text-base leading-snug md:text-2xl`} style={{ color: C.white }}>
                     {p.name}
                   </span>
                   <span className="flex-1 border-b border-dotted mx-2 translate-y-[-4px] min-w-[24px]" style={{ borderColor: 'rgba(255,255,255,0.3)' }} aria-hidden="true" />
-                  <span className={`${display.className} font-black text-lg md:text-2xl whitespace-nowrap`} style={{ color: C.yellow }}>
+                  <span className={`${display.className} font-black text-base md:text-2xl whitespace-nowrap`} style={{ color: C.yellow }}>
                     {p.price}
                   </span>
                 </li>
@@ -433,7 +453,7 @@ export default function LePetitPage() {
                 href={WA_LINK_TORTA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]`}
                 style={{ backgroundColor: C.yellow, color: C.slateInk }}
               >
                 Encargar una torta
@@ -473,7 +493,7 @@ export default function LePetitPage() {
                   <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
                   <span>
                     <strong className="font-semibold" style={{ color: C.slate }}>Instagram:</strong>{' '}
-                    <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-2" style={{ textDecorationColor: C.yellow }}>
+                    <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-2 transition-colors hover:text-[#22353F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858]" style={{ textDecorationColor: C.yellow }}>
                       {BIZ.instagram}
                     </a>
                   </span>
@@ -488,7 +508,7 @@ export default function LePetitPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858]`}
                   style={{ backgroundColor: C.slate, color: C.white }}
                 >
                   Escribir por WhatsApp
@@ -497,7 +517,7 @@ export default function LePetitPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors`}
+                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-[rgba(47,72,88,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858]`}
                   style={{ borderColor: C.slate, color: C.slate }}
                 >
                   Cómo llegar →
@@ -546,7 +566,7 @@ export default function LePetitPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]`}
               style={{ backgroundColor: C.yellow, color: C.slateInk }}
             >
               Hacer un pedido por WhatsApp
@@ -568,11 +588,11 @@ export default function LePetitPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]">
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]">
               Instagram
             </a>
           </div>
