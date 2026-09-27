@@ -118,6 +118,14 @@ const BLITZ = [
     tagline: 'Limpio y rápido: azul agua, grafito y blanco.',
     gradient: 'linear-gradient(135deg, #1C1F22 0%, #00A6C4 140%)',
   },
+  {
+    slug: 'salon-de-belleza-gabriela-saavedra-talca',
+    name: 'Salón de Belleza Gabriela Saavedra',
+    rubro: 'Centro de estética',
+    city: 'Talca',
+    tagline: 'Sobrio y de confianza: verde bosque, crema y latón, en bloques partidos.',
+    gradient: 'linear-gradient(135deg, #1E3D2F 0%, #C8A24B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
