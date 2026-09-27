@@ -125,6 +125,10 @@ export const PRODUCTS: {
   { cat: 'botiquin', name: 'Jeringa 5 ml Venotek (100 un.)', price: '$6.500', mayor: '$5.500' },
   { cat: 'botiquin', name: 'Manguillas blancas (100 un.)', price: '$2.500', mayor: '$2.000' },
   { cat: 'botiquin', name: 'Plantilla talón', price: null, mayor: '$1.200' },
+  { cat: 'botiquin', name: 'Cotonito 500 unidades', price: '$1.650', mayor: '$1.000' },
+  { cat: 'botiquin', name: 'Toma presión de niños', price: '$3.000', mayor: '$2.500' },
+  { cat: 'botiquin', name: 'Jeringa 3 cc Venotek (100 un.)', price: '$6.200', mayor: '$5.900' },
+  { cat: 'botiquin', name: 'Elastomull 6 cm x 20 un.', price: '$8.000', mayor: '$7.000' },
   // Curas y botiquín
   { cat: 'botiquin', name: 'Apósito corriente 11 cm', price: '$100' },
   { cat: 'botiquin', name: 'Venda elasticada blanca', price: '$300' },
