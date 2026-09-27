@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Prata, Mulish } from 'next/font/google'
 import { DemoBand, Motif } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -197,7 +198,7 @@ export default function AtlantixPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                    className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]`}
                     style={{ backgroundColor: C.terra, color: '#FCFAF4' }}
                   >
                     <WaIcon />
@@ -205,7 +206,7 @@ export default function AtlantixPage() {
                   </a>
                   <a
                     href="#servicios"
-                    className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                    className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]`}
                     style={{ borderColor: 'rgba(232,220,200,0.45)', color: C.sand }}
                   >
                     Ver servicios
@@ -223,7 +224,7 @@ export default function AtlantixPage() {
                 ].map((s) => (
                   <div key={s.label}>
                     <dt
-                      className={`${display.className} text-lg md:text-2xl leading-none mb-1.5`}
+                      className={`${display.className} text-base md:text-2xl leading-none mb-1.5`}
                       style={{ color: C.sand }}
                     >
                       {s.value}
@@ -282,11 +283,12 @@ export default function AtlantixPage() {
                 style={{ backgroundColor: C.white, borderColor: C.lineLight, boxShadow: '0 2px 6px rgba(27,42,65,0.05)' }}
               >
                 <div className="relative overflow-hidden aspect-[4/3]">
-                  <img
+                  <Image
                     src={s.src}
                     alt={s.name}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
                     className={`${display.className} absolute top-4 left-4 text-lg w-11 h-11 rounded-full flex items-center justify-center shadow-sm`}
@@ -346,7 +348,7 @@ export default function AtlantixPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]`}
                 style={{ backgroundColor: C.sand, color: C.night }}
               >
                 Ver las {BIZ.reviews} reseñas en Google →
@@ -354,20 +356,22 @@ export default function AtlantixPage() {
             </Reveal>
             <Reveal delay={140}>
               <div className="grid grid-cols-5 gap-3 md:gap-4">
-                <figure className="col-span-3 rounded-3xl overflow-hidden rotate-[-1.4deg]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
-                  <img
+                <figure className="col-span-3 relative rounded-3xl overflow-hidden rotate-[-1.4deg] aspect-[4/3]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
+                  <Image
                     src={`${IMG}/hero.webp`}
                     alt="Box de atención de la clínica: sillón dental azul junto a un ventanal con vista al pueblo"
-                    loading="lazy"
-                    className="w-full h-full object-cover aspect-[4/3]"
+                    fill
+                    sizes="(min-width: 1024px) 30vw, 60vw"
+                    className="object-cover"
                   />
                 </figure>
-                <figure className="col-span-2 rounded-3xl overflow-hidden self-end rotate-[1.6deg]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
-                  <img
+                <figure className="col-span-2 relative rounded-3xl overflow-hidden self-end rotate-[1.6deg] aspect-[3/4]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
+                  <Image
                     src={`${IMG}/ambiente.webp`}
                     alt="Fachada de la clínica en la calle principal de San Javier, con cerros de fondo"
-                    loading="lazy"
-                    className="w-full h-full object-cover aspect-[3/4]"
+                    fill
+                    sizes="(min-width: 1024px) 20vw, 40vw"
+                    className="object-cover"
                   />
                 </figure>
               </div>
@@ -391,8 +395,7 @@ export default function AtlantixPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2"
-                  style={{ color: C.terraSoft, textDecorationColor: 'rgba(228,176,143,0.35)' }}
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 text-[#E4B08F] decoration-[rgba(228,176,143,0.35)] transition-colors hover:text-[#FCFAF4] hover:decoration-[#FCFAF4] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]"
                 >
                   Ver la ficha en Google →
                 </a>
@@ -443,7 +446,7 @@ export default function AtlantixPage() {
             {PRECIOS.map((p) => (
               <li
                 key={p.name}
-                className="grid grid-cols-[1fr_auto] md:grid-cols-[1fr_1.2fr_auto] gap-x-6 gap-y-1 items-baseline border-b py-5 md:py-6"
+                className="grid grid-cols-[1fr_auto] md:grid-cols-[1fr_1.2fr_auto] gap-x-6 gap-y-1 items-baseline border-b py-5 md:py-6 -mx-3 px-3 rounded-xl transition-colors hover:bg-[rgba(27,42,65,0.04)]"
                 style={{ borderColor: C.lineLight }}
               >
                 <div>
@@ -498,7 +501,7 @@ export default function AtlantixPage() {
                 </svg>
                 <span>
                   <strong className="font-bold" style={{ color: C.night }}>Instagram:</strong>{' '}
-                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">
+                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 transition-colors hover:text-[#C1663F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B2A41]">
                     @clinicaatlantix
                   </a>
                 </span>
@@ -519,7 +522,7 @@ export default function AtlantixPage() {
                 href={WA_LINK_EVAL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-flex items-center gap-2.5 text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} inline-flex items-center gap-2.5 text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B2A41]`}
                 style={{ backgroundColor: C.terra, color: '#FCFAF4' }}
               >
                 <WaIcon />
@@ -529,7 +532,7 @@ export default function AtlantixPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-6 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-[rgba(27,42,65,0.06)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B2A41]`}
                 style={{ borderColor: 'rgba(27,42,65,0.3)', color: C.night }}
               >
                 Cómo llegar →
@@ -569,14 +572,14 @@ export default function AtlantixPage() {
               <span style={{ color: C.terraSoft }}>parte por un mensaje</span>
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(232,220,200,0.78)' }}>
-              Escríbenos por WhatsApp para agendar tu evaluación.
-              Respondemos el mismo día.
+              Escríbenos por WhatsApp para agendar tu evaluación:
+              agenda directa, sin formularios ni esperas.
             </p>
             <a
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]`}
               style={{ backgroundColor: C.terra, color: '#FCFAF4' }}
             >
               <WaIcon />
