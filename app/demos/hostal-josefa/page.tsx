@@ -137,6 +137,7 @@ export default function HostalJosefaPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.concrete }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
       <div style={{ backgroundColor: C.concreteDeep }}>
         <BlitzNav
@@ -581,14 +582,16 @@ export default function HostalJosefaPage() {
           <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(237,230,218,0.8)' }}>
             {BIZ.address} · {BIZ.city}, {BIZ.region}
           </address>
-          <p className="text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.8)' }}>
+          <p className="text-xs leading-relaxed mb-6" style={{ color: 'rgba(237,230,218,0.8)' }}>
             Sitio de ejemplo de Sitiazo: dirección, teléfono y reseñas son
             reales; textos, tarifas y fotos son de muestra.
           </p>
+          <div className="[&>div]:static [&>div]:max-w-full [&>div]:w-fit">
+            <DemoBand name={BIZ.name} />
+          </div>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
