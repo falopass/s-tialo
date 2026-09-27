@@ -22,6 +22,7 @@ const C = {
   creamSoft: '#EFE7D6',
   brass: '#C8A24B',
   brassSoft: '#E6D5A8',
+  brassText: '#7A5F1E',
   charcoal: '#23211C',
   ink: '#2B2A24',
   muted: '#5F5847',
@@ -54,7 +55,7 @@ const FICHAS = [
     bg: C.cream,
     ink: C.ink,
     sub: C.muted,
-    accent: C.brass,
+    accent: C.brassText,
     border: C.line,
   },
   {
@@ -93,7 +94,7 @@ const FICHAS = [
     bg: C.creamSoft,
     ink: C.ink,
     sub: C.muted,
-    accent: C.brass,
+    accent: C.brassText,
     border: C.line,
   },
 ]
@@ -176,7 +177,7 @@ export default function MyFusionGymPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(20,42,32,0.55) 0%, rgba(20,42,32,0.15) 38%, rgba(20,42,32,0.88) 100%)',
+              'linear-gradient(180deg, rgba(20,42,32,0.7) 0%, rgba(20,42,32,0.45) 38%, rgba(20,42,32,0.92) 100%)',
           }}
         />
         {/* sello de reseñas + instagram */}
@@ -201,7 +202,7 @@ export default function MyFusionGymPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-[11px] md:text-xs font-bold px-3.5 py-2 rounded-full transition-colors hover:bg-[rgba(20,42,32,0.85)] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]"
-              style={{ backgroundColor: 'rgba(20,42,32,0.65)', color: C.brassSoft, border: `1px solid ${C.lineLight}` }}
+              style={{ backgroundColor: 'rgba(20,42,32,0.92)', color: C.brassSoft, border: `1px solid ${C.lineLight}` }}
             >
               <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
                 <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
@@ -248,8 +249,8 @@ export default function MyFusionGymPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(20,42,32,0.55)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,231,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(20,42,32,0.92)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,231,0.9)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.brass }} aria-hidden="true" />
@@ -318,6 +319,7 @@ export default function MyFusionGymPage() {
                     alt={`${f.name} — ${BIZ.name}`}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
+                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -432,7 +434,7 @@ export default function MyFusionGymPage() {
                     <h3 className={`${display.className} text-xl md:text-2xl`} style={{ color: C.cream }}>
                       {v.name}
                     </h3>
-                    <p className="text-sm" style={{ color: 'rgba(246,241,231,0.66)' }}>{v.desc}</p>
+                    <p className="text-sm" style={{ color: 'rgba(246,241,231,0.8)' }}>{v.desc}</p>
                   </div>
                   <span className="text-sm md:text-base font-bold uppercase tracking-[0.14em]" style={{ color: C.brassSoft }}>
                     {v.price}
@@ -452,7 +454,7 @@ export default function MyFusionGymPage() {
               >
                 Consultar valores reales
               </a>
-              <p className="text-xs" style={{ color: 'rgba(246,241,231,0.6)' }}>
+              <p className="text-xs" style={{ color: 'rgba(246,241,231,0.8)' }}>
                 Tabla referencial — precios de muestra del demo.
               </p>
             </div>
@@ -527,17 +529,17 @@ export default function MyFusionGymPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.forestDeep }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 md:py-14 grid md:grid-cols-2 gap-6 items-start">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 grid md:grid-cols-2 gap-5 items-start">
           <div>
             <p className={`${display.className} text-2xl mb-2 flex items-center gap-3`} style={{ color: C.cream }}>
               <Dumbbell className="w-5 h-5" color={C.brass} />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.82)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.82)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white transition-colors">
                 {l.label}
@@ -546,15 +548,15 @@ export default function MyFusionGymPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, valores, horarios y fotos son de muestra; los datos
-            de contacto y reseñas son públicos.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.75)' }}>
+            Servicios, valores, horarios y fotos son de muestra; contacto
+            y reseñas son públicos.
           </p>
         </div>
+        <div className="px-5 pt-1 pb-20 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+          <DemoBand name={BIZ.name} />
+        </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
