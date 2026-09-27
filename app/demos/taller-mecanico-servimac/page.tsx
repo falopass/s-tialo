@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Anton, Heebo, Roboto_Mono } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -24,7 +25,6 @@ const C = {
   muted: '#5C6267',
   line: 'rgba(30,32,35,0.16)',
   red: '#C1272D',
-  redDeep: '#8E1B20',
   fleet: '#4A4E52',
   fleetDeep: '#2A2D30',
   signal: '#E8631A',
@@ -147,7 +147,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 export default function TallerServimacPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`${body.className} min-h-screen antialiased overflow-x-clip`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <BlitzNav
@@ -167,10 +167,13 @@ export default function TallerServimacPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.fleetDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior del Taller Servimac: auto elevado en la rampa del box de trabajo"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -186,7 +189,7 @@ export default function TallerServimacPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${mono.className} flex items-center gap-2.5 text-xs md:text-sm font-medium px-4 py-2.5 rounded-full shadow-lg`}
+              className={`${mono.className} flex items-center gap-2.5 text-xs md:text-sm font-medium px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
               style={{ backgroundColor: 'rgba(244,244,242,0.95)', color: C.ink }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.red} stroke={C.red} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -216,14 +219,14 @@ export default function TallerServimacPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ backgroundColor: C.red, color: '#FFFFFF' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 border-2 transition-all hover:bg-white/10 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ borderColor: 'rgba(244,244,242,0.55)', color: '#F4F4F2' }}
               >
                 Ver servicios
@@ -268,13 +271,13 @@ export default function TallerServimacPage() {
           {OTS.map((ot, i) => (
             <article
               key={ot.num}
-              className="sticky mb-6 md:mb-10 overflow-hidden border-2"
+              className="sticky mb-8 md:mb-12 overflow-hidden border-2"
               style={{
-                top: `calc(88px + ${i * 22}px)`,
+                top: `calc(88px + ${i * 26}px)`,
                 zIndex: i + 1,
                 backgroundColor: C.card,
                 borderColor: C.fleet,
-                boxShadow: '0 -16px 44px rgba(30,32,35,0.22)',
+                boxShadow: '0 -18px 48px rgba(30,32,35,0.28)',
               }}
             >
               {/* cinta de orden de trabajo */}
@@ -299,26 +302,28 @@ export default function TallerServimacPage() {
                   {ot.status}
                 </span>
               </div>
-              <div className="relative overflow-hidden aspect-[16/8]">
-                <img
+              <div className="relative overflow-hidden aspect-[16/10] md:aspect-[16/8]">
+                <Image
                   src={ot.src}
                   alt={ot.alt}
-                  loading="lazy"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(min-width: 1024px) 960px, calc(100vw - 40px)"
+                  className="object-cover"
                 />
-              </div>
-              <div className="px-4 md:px-6 py-5 md:py-6 flex flex-col md:flex-row md:items-end gap-4 md:gap-8">
-                <div className="flex-1 min-w-0">
-                  <h3 className={`${display.className} uppercase text-2xl md:text-3xl leading-[1.05] mb-2`} style={{ color: C.ink }}>
-                    {ot.name}
-                  </h3>
-                  <p className="text-sm md:text-[15px] leading-relaxed max-w-xl" style={{ color: C.muted }}>
-                    {ot.desc}
-                  </p>
-                </div>
-                <p className={`${mono.className} shrink-0 flex items-center gap-2.5 text-xs md:text-sm font-bold uppercase tracking-[0.08em]`} style={{ color: C.red }}>
-                  <Check className="w-4 h-4" color={C.signal} />
+                <p
+                  className={`${mono.className} absolute left-4 bottom-4 md:left-6 max-w-[calc(100%-2rem)] flex items-center gap-2.5 px-3 py-2 text-[11px] md:text-xs font-bold uppercase tracking-[0.08em]`}
+                  style={{ backgroundColor: 'rgba(30,32,35,0.86)', color: '#F4F4F2', backdropFilter: 'blur(4px)' }}
+                >
+                  <Check className="w-3.5 h-3.5 shrink-0" color={C.signal} />
                   {ot.datum}
+                </p>
+              </div>
+              <div className="px-4 md:px-6 py-5 md:py-6">
+                <h3 className={`${display.className} uppercase text-2xl md:text-3xl leading-[1.05] mb-2`} style={{ color: C.ink }}>
+                  {ot.name}
+                </h3>
+                <p className="text-sm md:text-[15px] leading-relaxed max-w-xl" style={{ color: C.muted }}>
+                  {ot.desc}
                 </p>
               </div>
             </article>
@@ -330,12 +335,13 @@ export default function TallerServimacPage() {
       <section id="taller" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-start">
           <Reveal>
-            <div className="border-2 overflow-hidden" style={{ borderColor: C.fleet, boxShadow: '8px 8px 0 ' + C.red }}>
-              <img
+            <div className="relative border-2 overflow-hidden aspect-[4/3]" style={{ borderColor: C.fleet, boxShadow: '8px 8px 0 ' + C.red }}>
+              <Image
                 src={`${IMG}/ambiente.webp`}
                 alt="Fachada del taller a nivel de calle en Molina, con los cerros de fondo"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[4/3]"
+                fill
+                sizes="(min-width: 1024px) 46vw, calc(100vw - 40px)"
+                className="object-cover"
               />
             </div>
             <dl className={`${mono.className} grid grid-cols-3 gap-4 mt-8`}>
@@ -383,7 +389,7 @@ export default function TallerServimacPage() {
               href={BIZ.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${mono.className} text-xs md:text-sm font-medium underline underline-offset-4 decoration-2`}
+              className={`${mono.className} text-xs md:text-sm font-medium underline underline-offset-4 decoration-2 transition-all hover:decoration-[3px] focus-visible:outline-2 focus-visible:outline-offset-2`}
               style={{ color: C.fleet, textDecorationColor: 'rgba(74,78,82,0.35)' }}
             >
               Ver la página en Facebook →
@@ -410,7 +416,7 @@ export default function TallerServimacPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${mono.className} text-xs md:text-sm font-medium underline underline-offset-4 decoration-2`}
+                className={`${mono.className} text-xs md:text-sm font-medium underline underline-offset-4 decoration-2 transition-all hover:decoration-[3px] focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ color: C.red, textDecorationColor: 'rgba(193,39,45,0.35)' }}
               >
                 Ver la ficha en Google →
@@ -485,7 +491,7 @@ export default function TallerServimacPage() {
                 href={WA_LINK_PRESUPUESTO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ backgroundColor: C.signal, color: C.fleetDeep }}
               >
                 Pedir presupuesto real
@@ -532,7 +538,7 @@ export default function TallerServimacPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm px-6 py-3 transition-transform active:scale-95`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ backgroundColor: C.red, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
@@ -541,7 +547,7 @@ export default function TallerServimacPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm px-6 py-3 border-2 transition-colors`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm px-6 py-3 border-2 transition-all hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ borderColor: C.fleet, color: C.fleet }}
               >
                 Cómo llegar →
@@ -564,13 +570,12 @@ export default function TallerServimacPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.fleetDeep }}>
-        <div
-          className="absolute inset-0 opacity-[0.14]"
-          style={{
-            backgroundImage: `url(${IMG}/hero.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+        <Image
+          src={`${IMG}/hero.webp`}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.14]"
           aria-hidden="true"
         />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
@@ -588,7 +593,7 @@ export default function TallerServimacPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} uppercase tracking-[0.04em] inline-block text-sm md:text-base px-8 py-4 transition-transform active:scale-95`}
+              className={`${display.className} uppercase tracking-[0.04em] inline-block text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
               style={{ backgroundColor: C.red, color: '#FFFFFF' }}
             >
               Agendar por WhatsApp
@@ -611,11 +616,11 @@ export default function TallerServimacPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,244,242,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white focus-visible:text-white transition-colors">
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white focus-visible:text-white transition-colors">
               Facebook
             </a>
           </div>
