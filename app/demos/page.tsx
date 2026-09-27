@@ -94,6 +94,14 @@ const BLITZ = [
     tagline: 'Calmo y natural: verde salvia, arena y carbón.',
     gradient: 'linear-gradient(135deg, #2B2B27 0%, #7C8F7B 140%)',
   },
+  {
+    slug: 'sigel',
+    name: 'Eléctrico Domiciliario Sigel',
+    rubro: 'Electricista a domicilio',
+    city: 'Talca',
+    tagline: 'Técnico y directo: azul eléctrico, grafito y amarillo de seguridad.',
+    gradient: 'linear-gradient(135deg, #15171C 0%, #1B4DFF 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
