@@ -15,8 +15,9 @@ const C = {
   card: '#FFFFFF',
   deep: '#26292D',
   ink: '#3A3F44',
-  muted: '#70767C',
+  muted: '#5A6066',
   orange: '#E4572E',
+  orangeDark: '#B93A17',
   orangeSoft: '#F9DED4',
   orangeLite: '#F4A98E',
   line: 'rgba(58,63,68,0.14)',
@@ -135,7 +136,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: light ? C.orangeLite : C.orange }}
+      style={{ color: light ? C.orangeLite : C.orangeDark }}
     >
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
@@ -250,33 +251,38 @@ export default function BarberiaRulosStylePage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK_HORA}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(237,230,218,0.94)',
-          ink: C.ink,
-          line: C.line,
-          btnBg: C.orange,
-          btnInk: '#FFFFFF',
-        }}
-      />
+      {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
+      <div style={{ backgroundColor: C.deep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK_HORA}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(237,230,218,0.94)',
+            ink: C.ink,
+            line: C.line,
+            btnBg: C.orangeDark,
+            btnInk: '#FFFFFF',
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <img
           src={`${IMG}/hero.webp`}
           alt="Interior de la barbería: sillones de cuero frente al espejo grande, con el ventanal a la calle"
+          loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(38,41,45,0.55) 0%, rgba(38,41,45,0.12) 40%, rgba(38,41,45,0.88) 100%)',
+              'linear-gradient(180deg, rgba(38,41,45,0.65) 0%, rgba(38,41,45,0.5) 35%, rgba(38,41,45,0.92) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -316,7 +322,7 @@ export default function BarberiaRulosStylePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.orangeDark, color: '#FFFFFF' }}
               >
                 Reservar por WhatsApp
               </a>
@@ -331,8 +337,8 @@ export default function BarberiaRulosStylePage() {
           </Reveal>
         </div>
         {/* franja de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(237,230,218,0.22)', backgroundColor: 'rgba(38,41,45,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(237,230,218,0.22)', backgroundColor: 'rgba(38,41,45,0.85)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.9)' }}>
             <span>Av. Rauquén 1967 · Curicó</span>
             <span>Corte · barba · afeitado</span>
             <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
@@ -351,7 +357,7 @@ export default function BarberiaRulosStylePage() {
             <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.deep }}>
               De la calle
               <br />
-              <span style={{ color: C.orange }}>al sillón</span>
+              <span style={{ color: C.orangeDark }}>al sillón</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm" style={{ color: C.muted }}>
               Local a la calle sobre Av. Rauquén, con el ventanal que da a
@@ -367,14 +373,14 @@ export default function BarberiaRulosStylePage() {
               <img
                 src={`${IMG}/ambiente.webp`}
                 alt="Fachada de la barbería en Av. Rauquén 1967: ventanal grande, toldo negro y vereda arbolada de Curicó"
-                loading="lazy"
+                loading="eager"
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(38,41,45,0) 42%, rgba(38,41,45,0.85) 100%)' }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(38,41,45,0.2) 0%, rgba(38,41,45,0.65) 40%, rgba(38,41,45,0.94) 100%)' }} />
               <figcaption className="relative h-full flex flex-col justify-end p-5 md:p-7">
                 <span
                   className="self-start text-[11px] uppercase tracking-[0.18em] font-semibold px-3 py-1.5 rounded-full mb-3"
-                  style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                  style={{ backgroundColor: C.orangeDark, color: '#FFFFFF' }}
                 >
                   El local
                 </span>
@@ -408,7 +414,7 @@ export default function BarberiaRulosStylePage() {
               >
                 <span
                   className="w-[44px] h-[44px] shrink-0 rounded-2xl flex items-center justify-center"
-                  style={{ backgroundColor: C.orangeSoft, color: C.orange }}
+                  style={{ backgroundColor: C.orangeSoft, color: C.orangeDark }}
                   aria-hidden="true"
                 >
                   {b.icon}
@@ -440,14 +446,14 @@ export default function BarberiaRulosStylePage() {
                   className="self-start text-[9px] md:text-[10px] uppercase tracking-[0.14em] font-semibold px-2.5 py-1 rounded-full mb-3"
                   style={{
                     backgroundColor: i < 2 ? 'rgba(228,87,46,0.24)' : C.orangeSoft,
-                    color: i < 2 ? C.orangeLite : C.orange,
+                    color: i < 2 ? C.orangeLite : C.orangeDark,
                   }}
                 >
                   {m.tag}
                 </span>
                 <span
                   className={`${display.className} text-2xl md:text-3xl lg:text-4xl font-semibold leading-none mb-2.5`}
-                  style={{ color: i < 2 ? '#FFFFFF' : C.orange }}
+                  style={{ color: i < 2 ? '#FFFFFF' : C.orangeDark }}
                 >
                   {m.value}
                 </span>
@@ -490,14 +496,14 @@ export default function BarberiaRulosStylePage() {
                   <img
                     src={s.src}
                     alt={s.alt}
-                    loading="lazy"
+                    loading="eager"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(38,41,45,0.05) 38%, rgba(38,41,45,0.88) 100%)' }} />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(38,41,45,0.2) 0%, rgba(38,41,45,0.65) 40%, rgba(38,41,45,0.94) 100%)' }} />
                   <div className="relative h-full flex flex-col justify-end p-5 md:p-6">
                     <span
                       className="self-start text-[11px] uppercase tracking-[0.18em] font-semibold px-3 py-1.5 rounded-full mb-3"
-                      style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                      style={{ backgroundColor: C.orangeDark, color: '#FFFFFF' }}
                     >
                       {s.tag}
                     </span>
@@ -525,7 +531,7 @@ export default function BarberiaRulosStylePage() {
                 <article className="h-full rounded-3xl p-5 md:p-6 flex flex-col" style={{ backgroundColor: C.card }}>
                   <span
                     className="w-[44px] h-[44px] rounded-2xl flex items-center justify-center mb-3"
-                    style={{ backgroundColor: C.orangeSoft, color: C.orange }}
+                    style={{ backgroundColor: C.orangeSoft, color: C.orangeDark }}
                     aria-hidden="true"
                   >
                     {s.icon}
@@ -541,7 +547,7 @@ export default function BarberiaRulosStylePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${display.className} mt-auto text-sm font-semibold underline underline-offset-4 decoration-2`}
-                    style={{ color: C.orange, textDecorationColor: 'rgba(228,87,46,0.35)' }}
+                    style={{ color: C.orangeDark, textDecorationColor: 'rgba(185,58,23,0.35)' }}
                   >
                     Agendar por WhatsApp →
                   </a>
@@ -552,7 +558,7 @@ export default function BarberiaRulosStylePage() {
             <Reveal className="col-span-2 lg:col-span-6">
               <article
                 className="h-full rounded-3xl p-5 md:p-7 flex flex-col md:flex-row md:items-center gap-5 md:gap-8"
-                style={{ backgroundColor: C.orange }}
+                style={{ backgroundColor: C.orangeDark }}
               >
                 <span
                   className="w-[48px] h-[48px] rounded-2xl flex items-center justify-center shrink-0"
@@ -575,7 +581,7 @@ export default function BarberiaRulosStylePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${display.className} shrink-0 text-sm md:text-base font-semibold px-6 py-3 rounded-full transition-transform active:scale-95`}
-                  style={{ backgroundColor: '#FFFFFF', color: C.orange }}
+                  style={{ backgroundColor: '#FFFFFF', color: C.orangeDark }}
                 >
                   Agendar el combo
                 </a>
@@ -593,7 +599,7 @@ export default function BarberiaRulosStylePage() {
             <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.deep }}>
               La carta,
               <br />
-              <span style={{ color: C.orange }}>a la vista</span>
+              <span style={{ color: C.orangeDark }}>a la vista</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm" style={{ color: C.muted }}>
               Valores de muestra para mostrar el formato de la carta. Al
@@ -612,7 +618,7 @@ export default function BarberiaRulosStylePage() {
                   </h3>
                   <span
                     className="shrink-0 text-[10px] uppercase tracking-[0.14em] font-semibold px-2.5 py-1 rounded-full"
-                    style={{ backgroundColor: C.orangeSoft, color: C.orange }}
+                    style={{ backgroundColor: C.orangeSoft, color: C.orangeDark }}
                   >
                     muestra
                   </span>
@@ -624,7 +630,7 @@ export default function BarberiaRulosStylePage() {
                   <span className="text-xs uppercase tracking-[0.14em]" style={{ color: C.muted }}>
                     desde
                   </span>
-                  <span className={`${display.className} text-2xl md:text-3xl font-semibold`} style={{ color: C.orange }}>
+                  <span className={`${display.className} text-2xl md:text-3xl font-semibold`} style={{ color: C.orangeDark }}>
                     {p.price}
                   </span>
                 </p>
@@ -648,7 +654,7 @@ export default function BarberiaRulosStylePage() {
             <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.deep }}>
               Atención directa,
               <br />
-              <span style={{ color: C.orange }}>sin vueltas</span>
+              <span style={{ color: C.orangeDark }}>sin vueltas</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
               Rulos Style atiende en Av. Rauquén 1967, en Curicó, con hora
@@ -690,7 +696,7 @@ export default function BarberiaRulosStylePage() {
                   <blockquote className="text-base md:text-lg leading-relaxed mb-4" style={{ color: C.ink }}>
                     “{r}”
                   </blockquote>
-                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.orange }}>
+                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.orangeDark }}>
                     Reseña de ejemplo
                   </figcaption>
                 </figure>
@@ -708,7 +714,7 @@ export default function BarberiaRulosStylePage() {
             <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.deep }}>
               Av. Rauquén 1967,
               <br />
-              <span style={{ color: C.orange }}>Curicó</span>
+              <span style={{ color: C.orangeDark }}>Curicó</span>
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
               {BIZ.address}
@@ -735,7 +741,7 @@ export default function BarberiaRulosStylePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} text-sm md:text-base font-semibold px-6 py-3 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.orangeDark, color: '#FFFFFF' }}
               >
                 Reservar por WhatsApp
               </a>
@@ -774,7 +780,7 @@ export default function BarberiaRulosStylePage() {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: C.orange }}>
+      <section className="relative overflow-hidden" style={{ backgroundColor: C.orangeDark }}>
         <div
           className="absolute inset-0 opacity-[0.16]"
           style={{
@@ -800,7 +806,7 @@ export default function BarberiaRulosStylePage() {
               target="_blank"
               rel="noopener noreferrer"
               className={`${display.className} inline-block text-sm md:text-base font-semibold px-8 py-4 rounded-full transition-transform active:scale-95`}
-              style={{ backgroundColor: '#FFFFFF', color: C.orange }}
+              style={{ backgroundColor: '#FFFFFF', color: C.orangeDark }}
             >
               Escribir por WhatsApp
             </a>
@@ -810,33 +816,15 @@ export default function BarberiaRulosStylePage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#EDE6DA' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,230,218,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
-              {' · '}
-              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
-                {BIZ.instagramHandle}
-              </a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(237,230,218,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(237,230,218,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Servicios,
-            precios, horarios y reseñas citadas son de muestra; la dirección,
-            el WhatsApp, las reseñas de Google y los seguidores de Instagram
-            son datos públicos del negocio.
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24">
+          <p className={`${display.className} font-semibold text-xl mb-1`}>{BIZ.name}</p>
+          <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(237,230,218,0.8)' }}>
+            {BIZ.address} · {BIZ.city} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+          </address>
+          <p className="text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.8)' }}>
+            Sitio de ejemplo de Sitiazo: dirección, WhatsApp, reseñas y
+            seguidores son reales; servicios, precios y horarios son de muestra.
           </p>
         </div>
       </footer>
