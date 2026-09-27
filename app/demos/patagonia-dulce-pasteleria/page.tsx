@@ -16,7 +16,7 @@ const C = {
   paper: '#F7F9F9',
   soft: '#E9F1EF',
   mint: '#9FD8CB',
-  mintDeep: '#5FAE9C',
+  mintDeep: '#2F7A6A',
   petrol: '#0E4C5C',
   deep: '#093540',
   ink: '#242B2E',
@@ -98,7 +98,7 @@ function Folio({ n, kicker, light = false }: { n: string; kicker: string; light?
   return (
     <div
       className="flex items-baseline justify-between gap-6 border-t pt-4"
-      style={{ borderColor: light ? C.lineLight : C.ink, color: light ? 'rgba(247,249,249,0.75)' : C.muted }}
+      style={{ borderColor: light ? C.lineLight : C.ink, color: light ? 'rgba(247,249,249,0.85)' : C.muted }}
     >
       <span className={KICKER}>N.º {n}</span>
       <span className={`${KICKER} text-right`}>{kicker}</span>
@@ -141,7 +141,7 @@ export default function PatagoniaDulcePage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(9,53,64,0.55) 0%, rgba(9,53,64,0.05) 30%, rgba(9,53,64,0.15) 58%, rgba(9,53,64,0.85) 100%)',
+              'linear-gradient(180deg, rgba(9,53,64,0.6) 0%, rgba(9,53,64,0.4) 35%, rgba(9,53,64,0.5) 60%, rgba(9,53,64,0.9) 100%)',
           }}
           aria-hidden="true"
         />
@@ -215,9 +215,9 @@ export default function PatagoniaDulcePage() {
           </div>
           <div
             className="border-t text-[10px] md:text-[11px] uppercase tracking-[0.2em]"
-            style={{ borderColor: C.lineLight, color: 'rgba(247,249,249,0.7)', backgroundColor: 'rgba(9,53,64,0.5)', backdropFilter: 'blur(6px)' }}
+            style={{ borderColor: C.lineLight, color: 'rgba(247,249,249,0.85)', backgroundColor: 'rgba(9,53,64,0.7)', backdropFilter: 'blur(6px)' }}
           >
-            <div className="max-w-6xl mx-auto px-5 md:px-8 py-3.5 flex flex-wrap gap-x-8 gap-y-1">
+            <div className="max-w-6xl mx-auto px-5 md:px-8 pt-3.5 pb-20 flex flex-wrap gap-x-8 gap-y-1">
               <span>{BIZ.address}</span>
               <span>Pedidos por WhatsApp</span>
               <span className="hidden md:inline">Retiro en tienda</span>
@@ -256,6 +256,7 @@ export default function PatagoniaDulcePage() {
                       alt={s.alt}
                       fill
                       sizes="(min-width:1024px) 58vw, 100vw"
+                      loading="eager"
                       className="object-cover"
                     />
                   </div>
@@ -289,6 +290,7 @@ export default function PatagoniaDulcePage() {
               alt="Fachada de la pastelería al atardecer: vitrina encendida con tortas y kuchen, y la cordillera al fondo"
               fill
               sizes="100vw"
+              loading="eager"
               className="object-cover"
             />
           </div>
@@ -416,7 +418,7 @@ export default function PatagoniaDulcePage() {
                 <br />
                 <em className="font-normal" style={{ color: C.mint }}>en referencia</em>
               </h2>
-              <p className="lg:col-span-4 text-base leading-relaxed max-w-[46ch] lg:pb-3" style={{ color: 'rgba(247,249,249,0.75)' }}>
+              <p className="lg:col-span-4 text-base leading-relaxed max-w-[46ch] lg:pb-3" style={{ color: 'rgba(247,249,249,0.85)' }}>
                 Valores de muestra para el demo — no son los precios
                 reales de la pastelería. Al publicar va la carta
                 definitiva.
@@ -450,7 +452,7 @@ export default function PatagoniaDulcePage() {
 
           <Reveal delay={180}>
             <div className="mt-8 flex flex-wrap items-center justify-between gap-6">
-              <p className="text-sm max-w-[52ch]" style={{ color: 'rgba(247,249,249,0.65)' }}>
+              <p className="text-sm max-w-[52ch]" style={{ color: 'rgba(247,249,249,0.8)' }}>
                 ¿Encargo especial? La torta se cotiza según tamaño,
                 relleno y decoración — escribe con la fecha y el número
                 de personas.
@@ -511,7 +513,7 @@ export default function PatagoniaDulcePage() {
               <br />
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#5FAE9C]`} style={{ textDecorationColor: C.mint, color: C.petrol }}>
+              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#2F7A6A]`} style={{ textDecorationColor: C.mint, color: C.petrol }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -532,10 +534,10 @@ export default function PatagoniaDulcePage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: C.paper }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.78)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
               <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 transition-colors hover:text-white`}>
@@ -543,7 +545,7 @@ export default function PatagoniaDulcePage() {
               </a>
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.78)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors`}>
                 {l.label}
@@ -555,16 +557,15 @@ export default function PatagoniaDulcePage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.6)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-            Fotos, productos, precios y horarios son de muestra; el
-            nombre, la dirección, el WhatsApp y el Instagram son los
-            datos públicos reales del negocio.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-24 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.78)' }}>
+            Sitio de ejemplo de Sitiazo: fotos, productos, precios y horarios son de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <div className="contents [&>div]:bg-[#0A0A0A]">
+        <DemoBand name={BIZ.name} />
+      </div>
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
