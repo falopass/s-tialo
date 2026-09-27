@@ -16,13 +16,15 @@ const body = Inter({
 
 const C = {
   orange: '#E4572E',
-  orangeDeep: '#C0431E',
+  orangeDeep: '#B03C1A',
+  orangeLight: '#FF8A5C',
+  onOrange: '#16181A',
   concrete: '#3A3F44',
   deep: '#2B2F33',
   arena: '#EDE6DA',
   card: '#F7F3EB',
   ink: '#3A3F44',
-  muted: '#706A5E',
+  muted: '#645E53',
   line: 'rgba(58,63,68,0.16)',
   lineLight: 'rgba(237,230,218,0.22)',
 }
@@ -143,9 +145,7 @@ export default function DistribuidoraMymCuricoPage() {
       style={{ backgroundColor: C.arena, color: C.ink }}
     >
       <style>{`
-        @keyframes mym-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .mym-marquee-track { animation: mym-marquee 30s linear infinite; }
-        @media (prefers-reduced-motion: reduce) { .mym-marquee-track { animation: none; } }
+        .mym-band > div { position: static; max-width: none; border-radius: 0; box-shadow: none; background: transparent; justify-content: center; padding: 14px 20px; }
       `}</style>
       <BlitzNav
         name={BIZ.short}
@@ -157,7 +157,7 @@ export default function DistribuidoraMymCuricoPage() {
           bar: 'rgba(237,230,218,0.94)',
           ink: C.concrete,
           line: C.line,
-          btnBg: C.orange,
+          btnBg: C.orangeDeep,
           btnInk: '#FFFFFF',
         }}
       />
@@ -183,7 +183,7 @@ export default function DistribuidoraMymCuricoPage() {
         {/* MYM gigante en contorno */}
         <div
           aria-hidden="true"
-          className={`${display.className} absolute -right-6 -bottom-10 select-none pointer-events-none font-bold leading-none`}
+          className={`${display.className} absolute right-0 -bottom-10 select-none pointer-events-none font-bold leading-none`}
           style={{
             fontSize: 'clamp(11rem, 30vw, 26rem)',
             color: 'transparent',
@@ -211,7 +211,7 @@ export default function DistribuidoraMymCuricoPage() {
             <Reveal>
               <p
                 className={`${display.className} font-bold uppercase tracking-[0.32em] text-xs md:text-sm mb-5 md:mb-7`}
-                style={{ color: C.orange }}
+                style={{ color: C.orangeLight }}
               >
                 {BIZ.name}
               </p>
@@ -220,7 +220,7 @@ export default function DistribuidoraMymCuricoPage() {
               >
                 <span style={{ color: C.arena }}>De la escoba</span>
                 <br />
-                <span style={{ color: C.orange }}>a la olla.</span>
+                <span style={{ color: C.orangeLight }}>a la olla.</span>
               </h1>
               <p
                 className="mt-6 md:mt-8 max-w-xl text-base md:text-lg leading-relaxed"
@@ -236,7 +236,7 @@ export default function DistribuidoraMymCuricoPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95`}
-                  style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                  style={{ backgroundColor: C.orangeDeep, color: '#FFFFFF' }}
                 >
                   Escribir por WhatsApp
                 </a>
@@ -282,7 +282,7 @@ export default function DistribuidoraMymCuricoPage() {
               {BIZ.phoneDisplay}
             </a>
             <span className="hidden sm:inline">Atención directa, sin intermediarios</span>
-            <span className="hidden md:inline" style={{ color: 'rgba(237,230,218,0.45)' }}>
+            <span className="hidden md:inline" style={{ color: 'rgba(237,230,218,0.7)' }}>
               sitio de ejemplo
             </span>
           </div>
@@ -290,24 +290,18 @@ export default function DistribuidoraMymCuricoPage() {
       </section>
 
       {/* ── Cinta marquee de categorías ── */}
-      <section aria-label="Categorías" className="overflow-hidden" style={{ backgroundColor: C.orange }}>
-        <div className="mym-marquee-track flex w-max items-center py-3.5 md:py-4">
-          {[0, 1].map((copy) => (
-            <ul
-              key={copy}
-              aria-hidden={copy === 1}
-              className={`${display.className} flex items-center gap-6 pr-6 text-[12px] md:text-sm font-bold uppercase tracking-[0.14em] whitespace-nowrap`}
-              style={{ color: C.deep }}
-            >
-              {CATEGORIAS.map((cat) => (
-                <li key={cat} className="flex items-center gap-6">
-                  {cat}
-                  <span aria-hidden="true" className="opacity-50">▸</span>
-                </li>
-              ))}
-            </ul>
+      <section aria-label="Categorías" style={{ backgroundColor: C.orange }}>
+        <ul
+          className={`${display.className} max-w-6xl mx-auto px-5 md:px-8 py-3.5 md:py-4 flex flex-wrap justify-center items-center gap-x-5 gap-y-1.5 text-[12px] md:text-sm font-bold uppercase tracking-[0.14em]`}
+          style={{ color: C.onOrange }}
+        >
+          {CATEGORIAS.map((cat, i) => (
+            <li key={cat} className="flex items-center gap-5">
+              {i > 0 && <span aria-hidden="true">▸</span>}
+              {cat}
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
       {/* ── Productos: índice numerado ── */}
@@ -321,7 +315,7 @@ export default function DistribuidoraMymCuricoPage() {
             >
               Todo para
               <br />
-              <span style={{ color: C.orange }}>la casa</span>
+              <span style={{ color: C.orangeDeep }}>la casa</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
               Una muestra de las líneas principales: al publicar van los
@@ -369,6 +363,7 @@ export default function DistribuidoraMymCuricoPage() {
                       alt={p.alt}
                       fill
                       sizes="(min-width: 1024px) 360px, (min-width: 768px) 300px, 100vw"
+                      loading="eager"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
@@ -390,10 +385,11 @@ export default function DistribuidoraMymCuricoPage() {
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
+                priority
               />
               <div
                 className="absolute bottom-0 left-0 px-4 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.18em] font-bold"
-                style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.orangeDeep, color: '#FFFFFF' }}
               >
                 {BIZ.address} · {BIZ.city}
               </div>
@@ -407,7 +403,7 @@ export default function DistribuidoraMymCuricoPage() {
             >
               De Curicó,
               <br />
-              <span style={{ color: C.orange }}>para Curicó</span>
+              <span style={{ color: C.orangeDeep }}>para Curicó</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-4 max-w-md" style={{ color: C.muted }}>
               Distribuidora MyM es una tienda de artículos para el hogar
@@ -443,7 +439,7 @@ export default function DistribuidoraMymCuricoPage() {
                   </blockquote>
                   <figcaption
                     className="text-[10px] uppercase tracking-[0.16em] font-bold mt-1.5"
-                    style={{ color: C.orange }}
+                    style={{ color: C.orangeDeep }}
                   >
                     {t.author} · Reseña de ejemplo
                   </figcaption>
@@ -471,10 +467,10 @@ export default function DistribuidoraMymCuricoPage() {
                 >
                   Precios de
                   <br />
-                  <span style={{ color: C.orange }}>referencia</span>
+                  <span style={{ color: C.orangeLight }}>referencia</span>
                 </h2>
               </div>
-              <p className="text-sm max-w-sm leading-relaxed" style={{ color: 'rgba(237,230,218,0.65)' }}>
+              <p className="text-sm max-w-sm leading-relaxed" style={{ color: 'rgba(237,230,218,0.8)' }}>
                 Valores de muestra para que veas cómo se lee la lista.
                 Los precios reales se confirman en tienda o por WhatsApp.
               </p>
@@ -487,7 +483,7 @@ export default function DistribuidoraMymCuricoPage() {
             >
               <span
                 className={`${display.className} absolute -top-3 left-6 md:left-10 px-3 text-[10px] md:text-xs font-bold uppercase tracking-[0.22em]`}
-                style={{ backgroundColor: C.deep, color: C.orange }}
+                style={{ backgroundColor: C.deep, color: C.orangeLight }}
               >
                 Lista de muestra
               </span>
@@ -503,7 +499,7 @@ export default function DistribuidoraMymCuricoPage() {
                     </span>
                     <span
                       className={`${display.className} font-bold text-base md:text-xl shrink-0`}
-                      style={{ color: C.orange }}
+                      style={{ color: C.orangeLight }}
                     >
                       {p.price}
                     </span>
@@ -519,11 +515,11 @@ export default function DistribuidoraMymCuricoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${FOCUS_LIGHT} ${display.className} font-bold text-sm px-6 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95`}
-                style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.orangeDeep, color: '#FFFFFF' }}
               >
                 Consultar precio real por WhatsApp
               </a>
-              <p className="text-xs" style={{ color: 'rgba(237,230,218,0.55)' }}>
+              <p className="text-xs" style={{ color: 'rgba(237,230,218,0.78)' }}>
                 También vendemos por mayor: consulta por volumen.
               </p>
             </div>
@@ -542,7 +538,7 @@ export default function DistribuidoraMymCuricoPage() {
             >
               Pasa por el local
               <br />
-              <span style={{ color: C.orange }}>o escribe al tiro</span>
+              <span style={{ color: C.orangeDeep }}>o escribe al tiro</span>
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
               {BIZ.address}
@@ -575,7 +571,7 @@ export default function DistribuidoraMymCuricoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95`}
-                style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.orangeDeep, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
               </a>
@@ -636,15 +632,15 @@ export default function DistribuidoraMymCuricoPage() {
           <Reveal>
             <h2
               className={`${display.className} font-bold uppercase text-[clamp(2.2rem,7vw,4.5rem)] leading-[0.95] tracking-[-0.01em] mb-6`}
-              style={{ color: C.deep }}
+              style={{ color: C.onOrange }}
             >
               ¿Algo pa’ la casa?
               <br />
-              <span style={{ color: C.arena }}>Acá está.</span>
+              <span className="inline-block mt-2 px-3 py-1" style={{ backgroundColor: C.onOrange, color: C.arena }}>Acá está.</span>
             </h2>
             <p
               className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed font-medium"
-              style={{ color: 'rgba(43,47,51,0.85)' }}
+              style={{ color: C.onOrange }}
             >
               Escríbenos por WhatsApp y te confirmamos stock y precio al
               momento. Respondemos el mismo día.
@@ -670,11 +666,11 @@ export default function DistribuidoraMymCuricoPage() {
               <span className="inline-block w-3 h-3" style={{ backgroundColor: C.orange }} aria-hidden="true" />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,230,218,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,230,218,0.78)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(237,230,218,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(237,230,218,0.78)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white transition-colors">
                 {l.label}
@@ -683,7 +679,7 @@ export default function DistribuidoraMymCuricoPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(237,230,218,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.45)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.7)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
             Textos, productos, precios, horarios y fotos son de muestra;
             el nombre, la dirección, las reseñas y el contacto son datos
@@ -692,7 +688,9 @@ export default function DistribuidoraMymCuricoPage() {
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <div className="mym-band pb-20" style={{ backgroundColor: C.onOrange }}>
+        <DemoBand name={BIZ.name} />
+      </div>
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
