@@ -678,6 +678,14 @@ const BLITZ = [
     tagline: 'Directorio funcional: azul noche, arena y terracota, lista con fotos, precios a la derecha y FAQ en bloques.',
     gradient: 'linear-gradient(135deg, #1B2A41 0%, #26395A 55%, #C1663F 140%)',
   },
+  {
+    slug: 'que-barato-lf',
+    name: 'QUE BARATO LF',
+    rubro: 'Distribuidora de insumos médicos',
+    city: 'Talca',
+    tagline: 'Catálogo mayorista con cotizador: azul clínico, celeste y verde salud, buscador y tabla de precios.',
+    gradient: 'linear-gradient(135deg, #0E3A5C 0%, #1D5E8A 55%, #7FC6E8 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
