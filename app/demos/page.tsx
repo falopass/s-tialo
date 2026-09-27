@@ -71,6 +71,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #2E1C0E 0%, #D59A33 140%)',
   },
   {
+    slug: 'vivero-dona-ines',
+    name: 'Vivero Doña Inés',
+    rubro: 'Vivero y plantas',
+    city: 'Molina',
+    tagline: 'El vivero de siempre: verde hoja, terracota y crema, con fotos.',
+    gradient: 'linear-gradient(135deg, #24381F 0%, #C1663F 140%)',
+  },
+  {
     slug: 'lua-nails',
     name: 'Lua Nails Home',
     rubro: 'Manicure y uñas',
