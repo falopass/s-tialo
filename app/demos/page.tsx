@@ -262,6 +262,14 @@ const BLITZ = [
     tagline: 'Editorial de revista: azul eléctrico, lima y titulares gigantes en grilla de 12 columnas.',
     gradient: 'linear-gradient(135deg, #141518 0%, #2251FF 55%, #C6F24E 140%)',
   },
+  {
+    slug: 'clinica-veterinaria-docpino',
+    name: 'Clínica Veterinaria Docpino',
+    rubro: 'Clínica veterinaria',
+    city: 'Linares',
+    tagline: 'Sobrio y patrimonial: verde bosque, crema y latón, doble columna con sidebar pegajoso.',
+    gradient: 'linear-gradient(135deg, #142A20 0%, #1E3D2F 55%, #C8A24B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
