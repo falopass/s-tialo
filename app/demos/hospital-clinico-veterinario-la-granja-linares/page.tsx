@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Outfit, Manrope } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -197,8 +197,8 @@ export default function LaGranjaPage() {
         </div>
 
         {/* cinta corrida azul */}
-        <div className="mt-4 overflow-hidden" style={{ backgroundColor: C.blue }} aria-hidden="true">
-          <div className="hcv-ticker-track flex w-max whitespace-nowrap py-2">
+        <div className="mt-4 max-w-full overflow-x-auto snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" style={{ backgroundColor: C.blue }} aria-hidden="true">
+          <div className="hcv-ticker-track flex w-max whitespace-nowrap py-2 snap-start">
             {[0, 1].map((half) => (
               <div key={half} className="flex items-center">
                 {TICKER.map((t) => (
@@ -247,7 +247,7 @@ export default function LaGranjaPage() {
             {BIZ.reviews} reseñas en Google
           </a>
           <div className="absolute inset-x-0 bottom-0">
-            <div className="max-w-6xl mx-auto px-5 md:px-8 pb-8 md:pb-10">
+            <div className="max-w-6xl mx-auto pl-5 pr-[4.5rem] md:px-8 pb-8 md:pb-10">
               <Reveal>
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.28em] mb-3" style={{ color: C.lime }}>
                   Portada · Colo Colo 1634
@@ -360,6 +360,7 @@ export default function LaGranjaPage() {
                       src={n.src}
                       alt={n.alt}
                       fill
+                      loading="eager"
                       sizes="(min-width: 640px) 50vw, 100vw"
                       className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
                     />
@@ -623,37 +624,31 @@ export default function LaGranjaPage() {
 
       {/* ── Colofón ── */}
       <footer style={{ backgroundColor: C.ink, color: '#FFFFFF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-extrabold text-2xl tracking-[-0.02em] mb-2`}>
-              La Granja
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
-              Hospital Clínico Veterinario · {BIZ.address}
-              <br />
-              {BIZ.city}, {BIZ.region} ·{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]">
-                {BIZ.phoneDisplay}
-              </a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]">
-                {l.label}
-              </a>
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-7">
+          <p className={`${display.className} font-extrabold text-xl tracking-[-0.02em] mb-1`}>
+            La Granja
+          </p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            {BIZ.address}, {BIZ.city} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]">
+              {BIZ.phoneDisplay}
+            </a>
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios y fotos son de muestra.
+          <p className="max-w-6xl mx-auto pl-5 pr-20 md:px-8 py-4 pb-20 md:pb-4 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.lime }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Textos, servicios, precios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.lime }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
