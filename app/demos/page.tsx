@@ -357,7 +357,15 @@ const BLITZ = [
     city: 'Molina',
     tagline: 'Órdenes de trabajo apiladas al hacer scroll: rojo, gris flota y naranja señal, con fotos.',
     gradient: 'linear-gradient(135deg, #4A4E52 0%, #C1272D 55%, #E8631A 140%)',
+  },  {
+    slug: 'nicolas-atelier',
+    name: 'Nicolás Atelier',
+    rubro: 'Peluquería',
+    city: 'Linares',
+    tagline: 'Diagonales dinámicas: verde campo, tierra y crema, cortes en ángulo y fotos inclinadas.',
+    gradient: 'linear-gradient(135deg, #2E4224 0%, #4C6B3C 55%, #8C6239 140%)',
   },
+
 ]
 
 export const metadata: Metadata = {
