@@ -310,6 +310,14 @@ const BLITZ = [
     tagline: 'Bento modular de taller: verde campo, tierra y crema, con fotos.',
     gradient: 'linear-gradient(135deg, #2C3F22 0%, #4C6B3C 55%, #8C6239 140%)',
   },
+  {
+    slug: 'clinica-t-renova-spa',
+    name: 'Clínica T-Renova SPA',
+    rubro: 'Tienda de belleza y salud',
+    city: 'Linares',
+    tagline: 'Clínico y luminoso: azul petróleo, menta y blanco roto, línea de tiempo horizontal con fotos.',
+    gradient: 'linear-gradient(135deg, #093540 0%, #0E4C5C 55%, #9FD8CB 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
