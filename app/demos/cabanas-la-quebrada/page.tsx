@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Fraunces } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { Reveal, SiteNav, WhatsAppFab } from './chrome'
 import {
@@ -602,25 +602,52 @@ export default function CabanasLaQuebrada() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.bosqueDeep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-12 pb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-10 pb-8 flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(250,247,240,0.65)' }}>
               {BIZ.address} · {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2" style={{ color: C.crema }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(250,247,240,0.65)' }}>
-            © {new Date().getFullYear()} {BIZ.name}
+          <div className="flex items-center gap-6">
+            <p className="text-xs" style={{ color: 'rgba(250,247,240,0.65)' }}>
+              © {new Date().getFullYear()} {BIZ.name}
+            </p>
+            <WhatsAppFab />
+          </div>
+        </div>
+        <div className="border-t" style={{ borderColor: 'rgba(250,247,240,0.14)' }}>
+          <p
+            className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed"
+            style={{ color: 'rgba(250,247,240,0.75)' }}
+          >
+            Mockup preparado por{' '}
+            <a
+              href={SITE.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold underline underline-offset-2"
+              style={{ color: C.crema }}
+            >
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name} — así se vería tu sitio.{' '}
+            <a
+              href={whatsappLink('contacto')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold underline underline-offset-2"
+              style={{ color: C.crema }}
+            >
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
-
-      <WhatsAppFab />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }

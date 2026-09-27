@@ -3,9 +3,9 @@
 /**
  * app/demos/cabanas-la-quebrada/chrome.tsx
  *
- * Piezas con estado del navegador: nav sticky que cambia de fondo al
- * bajar, revelado al hacer scroll (IntersectionObserver) y botón
- * flotante de WhatsApp.
+ * Piezas con estado del navegador: barra superior sobre el hero,
+ * revelado al hacer scroll (IntersectionObserver) y botón de WhatsApp
+ * para el footer (en flujo, nada flotante que tape el contenido).
  */
 
 import { useEffect, useRef, useState } from 'react'
@@ -74,7 +74,7 @@ export function SiteNav({ name, fontClass }: { name: string; fontClass: string }
 
   return (
     <header
-      className="fixed top-0 inset-x-0 z-40 transition-colors duration-500"
+      className="absolute top-0 inset-x-0 z-40 transition-colors duration-500"
       style={{
         backgroundColor: scrolled ? 'rgba(250,247,240,0.92)' : 'transparent',
         backgroundImage: scrolled ? 'none' : 'linear-gradient(180deg, rgba(14,36,27,0.6), rgba(14,36,27,0))',
@@ -128,7 +128,7 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escribir por WhatsApp a Cabañas La Quebrada"
-      className="fixed bottom-4 right-4 z-50 w-[48px] h-[48px] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95"
+      className="shrink-0 w-[48px] h-[48px] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95"
       style={{ backgroundColor: '#25D366' }}
     >
       <svg
