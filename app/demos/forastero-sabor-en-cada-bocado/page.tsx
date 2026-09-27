@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Unbounded, Onest } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -36,6 +37,9 @@ const NEON_BOX = {
   boxShadow: `0 0 14px rgba(60,217,236,0.35), inset 0 0 14px rgba(60,217,236,0.10)`,
 } as const
 
+const FOCUS =
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3CD9EC]'
+
 export const metadata: Metadata = {
   title: 'FORASTERO sabor en cada bocado — Restaurante en Pencahue',
   description:
@@ -54,6 +58,7 @@ const FICHAS = [
   {
     num: '01',
     src: `${IMG}/detalle3.webp`,
+    alt: 'Pastel de choclo gratinado servido en paila de greda sobre mesa de madera',
     tag: 'clásico de la casa',
     name: 'Pastel de choclo en paila de greda',
     desc: 'Choclo molido con pino jugoso, gratinado al punto, servido en greda caliente con ensalada chilena y pan amasado.',
@@ -61,6 +66,7 @@ const FICHAS = [
   {
     num: '02',
     src: `${IMG}/detalle1.webp`,
+    alt: 'Pebre fresco y aliños del día preparados en la cocina de FORASTERO',
     tag: 'hecho al día',
     name: 'Pebre y aliños del día',
     desc: 'Cada mañana se pica fresco: el pebre de ají, las verduras de la olla y los aliños de la cocina. Lo que llega a la mesa se preparó ese día.',
@@ -68,6 +74,7 @@ const FICHAS = [
   {
     num: '03',
     src: `${IMG}/detalle2.webp`,
+    alt: 'Cocina abierta de FORASTERO con ollas de cobre y mesón a la vista del comedor',
     tag: 'a la vista',
     name: 'Cocina abierta al mesón',
     desc: 'Del fuego al plato sin intermediarios: la cocina queda a la vista, con ollas de cobre y la vajilla de greda lista para el servicio.',
@@ -167,10 +174,13 @@ export default function ForasteroPage() {
 
       {/* ── Hero a sangre: el letrero de la ruta ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.night }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de FORASTERO: comedor de madera con cocina abierta al fuego y vista a los cerros del Maule"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
           style={{ filter: 'saturate(1.05) contrast(1.08) brightness(0.9)' }}
         />
         <div
@@ -196,7 +206,7 @@ export default function ForasteroPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full"
+              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS}`}
               style={{ backgroundColor: 'rgba(6,13,21,0.85)', color: C.ink, ...NEON_BOX }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.cyan} stroke={C.cyan} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -210,7 +220,7 @@ export default function ForasteroPage() {
               href={BIZ.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs md:text-sm font-bold px-4 py-2.5 rounded-full"
+              className={`text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS}`}
               style={{ backgroundColor: 'rgba(6,13,21,0.85)', color: C.muted, border: `1px solid ${C.line}` }}
             >
               {BIZ.fbFollowers} seguidores en Facebook
@@ -246,21 +256,21 @@ export default function ForasteroPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS}`}
                 style={{ backgroundColor: C.cyan, color: '#041019', boxShadow: '0 0 24px rgba(60,217,236,0.45)' }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#carta"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-colors hover:bg-white/5`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-colors hover:bg-white/5 ${FOCUS}`}
                 style={{ border: '1.5px solid rgba(60,217,236,0.55)', color: C.cyan }}
               >
                 Ver la carta
               </a>
               <span className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] font-semibold ml-1" style={{ color: C.muted }}>
                 <span className="inline-block w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: C.cyan, boxShadow: '0 0 10px rgba(60,217,236,0.9)' }} aria-hidden="true" />
-                abierto hoy
+                reserva directa
               </span>
             </div>
           </Reveal>
@@ -301,11 +311,12 @@ export default function ForasteroPage() {
                 style={{ backgroundColor: C.panel, border: `1px solid ${C.line}` }}
               >
                 <div className="relative overflow-hidden aspect-[16/10] md:aspect-auto md:min-h-[240px]">
-                  <img
+                  <Image
                     src={f.src}
-                    alt={f.name}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    alt={f.alt}
+                    fill
+                    sizes="(min-width: 768px) 340px, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     style={{ filter: 'saturate(1.05) contrast(1.08)' }}
                   />
                   <span
@@ -349,12 +360,13 @@ export default function ForasteroPage() {
       <section id="la-casa" className="scroll-mt-20" style={{ backgroundColor: C.panel }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-start">
           <Reveal>
-            <div className="relative rounded-2xl overflow-hidden" style={{ ...NEON_BOX, transform: 'rotate(-1deg)' }}>
-              <img
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3]" style={{ ...NEON_BOX, transform: 'rotate(-1deg)' }}>
+              <Image
                 src={`${IMG}/ambiente.webp`}
                 alt="Terraza de FORASTERO con mesas de madera y vista a los cerros de Pencahue"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[4/3]"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
                 style={{ filter: 'saturate(1.05) contrast(1.08)' }}
               />
             </div>
@@ -363,7 +375,7 @@ export default function ForasteroPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl p-4 md:p-5 text-center transition-colors"
+                className={`rounded-xl p-4 md:p-5 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
                 style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
               >
                 <p className={`${display.className} font-extrabold text-2xl md:text-3xl`} style={NEON_TEXT}>
@@ -377,7 +389,7 @@ export default function ForasteroPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl p-4 md:p-5 text-center transition-colors"
+                className={`rounded-xl p-4 md:p-5 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
                 style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
               >
                 <p className={`${display.className} font-extrabold text-2xl md:text-3xl`} style={NEON_TEXT}>
@@ -494,7 +506,7 @@ export default function ForasteroPage() {
               href={WA_LINK_LLEVAR}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-colors hover:bg-white/5 ${FOCUS}`}
               style={{ border: '1.5px solid rgba(60,217,236,0.55)', color: C.cyan }}
             >
               Preguntar por la carta →
@@ -550,7 +562,7 @@ export default function ForasteroPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS}`}
                   style={{ backgroundColor: C.cyan, color: '#041019', boxShadow: '0 0 20px rgba(60,217,236,0.4)' }}
                 >
                   Reservar mesa
@@ -559,7 +571,7 @@ export default function ForasteroPage() {
                   href={WA_LINK_LLEVAR}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-colors hover:bg-white/5`}
+                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-colors hover:bg-white/5 ${FOCUS}`}
                   style={{ border: '1.5px solid rgba(60,217,236,0.55)', color: C.cyan }}
                 >
                   Pedir para llevar
@@ -567,11 +579,11 @@ export default function ForasteroPage() {
               </div>
               <p className="text-xs mt-5" style={{ color: C.dim }}>
                 También nos encuentras en{' '}
-                <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.cyan }}>
+                <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:brightness-125 ${FOCUS}`} style={{ color: C.cyan }}>
                   Facebook
                 </a>{' '}
                 y en{' '}
-                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.cyan }}>
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:brightness-125 ${FOCUS}`} style={{ color: C.cyan }}>
                   Google Maps
                 </a>
                 .
@@ -622,7 +634,7 @@ export default function ForasteroPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS}`}
               style={{ backgroundColor: C.cyan, color: '#041019', boxShadow: '0 0 28px rgba(60,217,236,0.5)' }}
             >
               Escribir por WhatsApp
@@ -645,7 +657,7 @@ export default function ForasteroPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: C.muted }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS}`}>
                 {l.label}
               </a>
             ))}
