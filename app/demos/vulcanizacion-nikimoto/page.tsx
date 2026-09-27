@@ -121,6 +121,7 @@ function WaIcon({ className = 'w-5 h-5' }: { className?: string }) {
 export default function VulcanizacionNikimotoPage() {
   return (
     <main className={`${body.className} min-h-screen`} style={{ backgroundColor: C.negro, color: C.blanco }}>
+      <style>{`html{scroll-behavior:auto}`}</style>
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
@@ -197,7 +198,7 @@ export default function VulcanizacionNikimotoPage() {
         <div className="grid grid-cols-2 md:grid-cols-6 auto-rows-[150px] md:auto-rows-[170px] gap-2 md:gap-3">
           {TRABAJOS.slice(0, 2).map((t) => (
             <figure key={t.n} className={`relative overflow-hidden rounded-sm group ${t.span}`}>
-              <Image src={t.src} alt={t.alt} fill sizes="(min-width: 768px) 66vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+              <Image src={t.src} alt={t.alt} fill loading="eager" sizes="(min-width: 768px) 66vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
               <Caption t={t} />
             </figure>
           ))}
@@ -209,7 +210,7 @@ export default function VulcanizacionNikimotoPage() {
           </div>
           {TRABAJOS.slice(2).map((t) => (
             <figure key={t.n} className={`relative overflow-hidden rounded-sm group ${t.span}`}>
-              <Image src={t.src} alt={t.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+              <Image src={t.src} alt={t.alt} fill loading="eager" sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
               <Caption t={t} />
             </figure>
           ))}
@@ -237,7 +238,7 @@ export default function VulcanizacionNikimotoPage() {
               </div>
             </Reveal>
             <figure className="relative col-span-2 md:col-span-2 md:row-span-2 min-h-[260px] overflow-hidden rounded-sm">
-              <Image src={`${IMG}/detalle3.webp`} alt="Recepción del taller con mesón de madera y el área de trabajo al fondo" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+              <Image src={`${IMG}/detalle3.webp`} alt="Recepción del taller con mesón de madera y el área de trabajo al fondo" fill loading="eager" sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
             </figure>
             {[
               { k: 'Directo', v: 'Sin intermediarios: presupuesto y trabajo con la misma persona.' },
@@ -249,17 +250,21 @@ export default function VulcanizacionNikimotoPage() {
                 <p className="mt-2 text-sm leading-relaxed" style={{ color: '#C9CDD2' }}>{x.v}</p>
               </div>
             ))}
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`col-span-1 md:col-span-3 rounded-sm p-5 flex flex-col justify-between ${focusRing}`}
+            <div
+              className="col-span-1 md:col-span-3 rounded-sm p-5 flex flex-col justify-between"
               style={{ backgroundColor: C.blanco, color: C.negro }}
             >
-              <span className="text-xs uppercase tracking-[0.18em] text-neutral-500">Instagram</span>
+              <span className="text-xs uppercase tracking-[0.18em] text-neutral-600">Instagram</span>
               <p className={`${display.className} text-3xl md:text-4xl font-extrabold`}>{BIZ.instagramFollowers}</p>
-              <p className="text-sm">seguidores en @{BIZ.instagram}</p>
-            </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#17181A]"
+              >
+                seguidores en @{BIZ.instagram}
+              </a>
+            </div>
             <div className="col-span-1 md:col-span-3 rounded-sm p-5 flex flex-col justify-between border" style={{ borderColor: C.line }}>
               <span className="text-xs uppercase tracking-[0.18em]" style={{ color: C.acero }}>Google Maps</span>
               <p className={`${display.className} text-xl md:text-2xl font-bold leading-tight`}>Aún sin reseñas.</p>
@@ -298,11 +303,8 @@ export default function VulcanizacionNikimotoPage() {
       {/* Contacto */}
       <section id="contacto" className="max-w-6xl mx-auto px-5 pb-16 md:pb-24 scroll-mt-20">
         <div className="grid grid-cols-1 md:grid-cols-6 gap-2 md:gap-3">
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`md:col-span-3 md:row-span-2 rounded-sm p-7 md:p-10 flex flex-col justify-between gap-10 transition-transform hover:-translate-y-0.5 ${focusRing}`}
+          <div
+            className="md:col-span-3 md:row-span-2 rounded-sm p-7 md:p-10 flex flex-col justify-between gap-10"
             style={{ backgroundColor: C.amarillo, color: C.negro }}
           >
             <span className="font-mono text-[11px] tracking-[0.2em]">CONTACTO</span>
@@ -310,11 +312,17 @@ export default function VulcanizacionNikimotoPage() {
               <p className={`${display.className} text-4xl md:text-6xl font-extrabold tracking-tight leading-[0.95]`}>
                 ¿Pinchaste? Escríbenos.
               </p>
-              <p className="mt-6 inline-flex items-center gap-2 min-h-[52px] px-6 rounded-sm font-semibold" style={{ backgroundColor: C.negro, color: C.amarillo }}>
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 min-h-[52px] px-6 rounded-sm font-semibold transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#17181A]"
+                style={{ backgroundColor: C.negro, color: C.amarillo }}
+              >
                 <WaIcon /> WhatsApp {BIZ.phoneDisplay}
-              </p>
+              </a>
             </div>
-          </a>
+          </div>
           <div className="md:col-span-3 rounded-sm p-6 border" style={{ borderColor: C.line }}>
             <span className="text-xs uppercase tracking-[0.18em]" style={{ color: C.acero }}>Dirección</span>
             <p className={`${display.className} mt-2 text-2xl font-bold`}>{BIZ.address}</p>
@@ -337,7 +345,7 @@ export default function VulcanizacionNikimotoPage() {
       {/* Franja Sitiazo */}
       <footer>
         <div className="h-3" style={hazard} aria-hidden="true" />
-        <div className="px-5 py-8 text-center text-sm" style={{ backgroundColor: C.negroSoft, color: C.acero }}>
+        <div className="px-5 pt-8 pb-24 text-center text-sm" style={{ backgroundColor: C.negroSoft, color: C.acero }}>
           <p>
             <strong className="text-white">Sitio de ejemplo de Sitiazo</strong> para {BIZ.name}. Servicios, textos y tabla de precios son de muestra.
           </p>
