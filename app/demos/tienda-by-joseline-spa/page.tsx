@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { BIZ, WA_LINK, waLinkProducto, WA_CATALOG, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -23,9 +23,10 @@ const C = {
   red: '#C1272D',
   fleet: '#4A4E52',
   ink: '#232628',
-  muted: '#8A8E93',
+  muted: '#6B6F74',
   orange: '#E8631A',
   gold: '#B99A5F',
+  goldInk: '#8A6D35',
   paper: '#FFFFFF',
   soft: '#FAF8F5',
   line: 'rgba(35,38,40,0.14)',
@@ -148,6 +149,7 @@ function Btn({
 export default function TiendaByJoselineSpaPage() {
   return (
     <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.paper, color: C.ink }}>
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
@@ -249,6 +251,7 @@ export default function TiendaByJoselineSpaPage() {
                         src={`${IMG}/${p.img}`}
                         alt={p.alt}
                         fill
+                        loading="eager"
                         sizes="(min-width: 1024px) 460px, (min-width: 640px) 45vw, 100vw"
                         className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.035]"
                       />
@@ -256,7 +259,7 @@ export default function TiendaByJoselineSpaPage() {
                   </div>
                   <span
                     className={`${display.className} italic absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] tracking-[0.32em] px-4 py-1 border`}
-                    style={{ backgroundColor: C.paper, borderColor: 'rgba(185,154,95,0.5)', color: C.gold }}
+                    style={{ backgroundColor: C.paper, borderColor: 'rgba(185,154,95,0.5)', color: C.goldInk }}
                     aria-hidden="true"
                   >
                     {p.n}
@@ -330,7 +333,7 @@ export default function TiendaByJoselineSpaPage() {
                   <p className={`${display.className} italic text-xl md:text-2xl leading-[1.5] mb-4`} style={{ color: C.fleet }}>
                     “{t}”
                   </p>
-                  <cite className="not-italic text-[10px] uppercase tracking-[0.3em] font-semibold" style={{ color: C.gold }}>
+                  <cite className="not-italic text-[10px] uppercase tracking-[0.3em] font-semibold" style={{ color: C.goldInk }}>
                     Reseña de ejemplo
                   </cite>
                 </blockquote>
@@ -376,7 +379,7 @@ export default function TiendaByJoselineSpaPage() {
                 style={{ borderColor: C.line }}
               >
                 <div className="flex items-baseline gap-4 min-w-0">
-                  <span className={`${display.className} italic text-xs tracking-[0.2em] shrink-0`} style={{ color: C.gold }}>
+                  <span className={`${display.className} italic text-xs tracking-[0.2em] shrink-0`} style={{ color: C.goldInk }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div className="min-w-0">
@@ -469,10 +472,10 @@ export default function TiendaByJoselineSpaPage() {
 
       {/* ── Footer ── */}
       <footer className="border-t" style={{ borderColor: C.line }}>
-        <div className="max-w-4xl mx-auto px-5 md:px-8 py-14 text-center">
-          <p className={`${display.className} uppercase tracking-[0.14em] text-xl mb-2`}>{BIZ.name}</p>
-          <p className="text-xs leading-[1.75] mb-7" style={{ color: C.muted }}>
-            {BIZ.rubro} · {BIZ.city}, {BIZ.region} ·{' '}
+        <div className="max-w-4xl mx-auto pl-5 pr-20 md:px-8 pt-8 pb-24 md:pb-8 text-center">
+          <p className={`${display.className} uppercase tracking-[0.14em] text-xl mb-1`}>{BIZ.name}</p>
+          <p className="text-xs leading-[1.75] mb-4" style={{ color: C.muted }}>
+            {BIZ.rubro} · {BIZ.city} ·{' '}
             <a
               href={`tel:${BIZ.phoneTel}`}
               className="underline underline-offset-2 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F]"
@@ -480,25 +483,19 @@ export default function TiendaByJoselineSpaPage() {
               {BIZ.phoneDisplay}
             </a>
           </p>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs mb-9" style={{ color: C.muted }}>
-            {NAV_LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="hover:text-ink transition-colors uppercase tracking-[0.16em] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F]"
-              >
-                {l.label}
-              </a>
-            ))}
-          </div>
-          <p className="text-[11px] leading-[1.75] border-t pt-7" style={{ color: C.muted, borderColor: C.line }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            productos, precios y fotos son de muestra.
+          <p className="text-[11px] leading-[1.75] border-t pt-4" style={{ color: C.muted, borderColor: C.line }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.red }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Textos, productos, precios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.red }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
