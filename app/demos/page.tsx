@@ -686,6 +686,14 @@ const BLITZ = [
     tagline: 'Catálogo de barrio con cotizador: precio unitario y mayor desde 3 unidades, buscador y tablas por sección.',
     gradient: 'linear-gradient(135deg, #0E3A5C 0%, #1D5E8A 55%, #7FC6E8 140%)',
   },
+  {
+    slug: 'san-clemente-heladeria',
+    name: 'Heladería San Clemente',
+    rubro: 'Heladería artesanal',
+    city: 'San Clemente',
+    tagline: 'Vitrina de sabores: crema, chocolate, frambuesa, pistacho y vainilla, carta por familias con fotos.',
+    gradient: 'linear-gradient(135deg, #3B2416 0%, #B01E52 55%, #F2B441 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
