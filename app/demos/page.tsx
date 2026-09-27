@@ -95,6 +95,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #4A1F33 0%, #C9A227 140%)',
   },
   {
+    slug: 'nailsyus',
+    name: 'NAILSYUS',
+    rubro: 'Salón de manicura y pedicura',
+    city: 'Talca',
+    tagline: 'Cuadrícula suiza: naranja construcción, hormigón y arena, cartel moderno con fotos.',
+    gradient: 'linear-gradient(135deg, #3A3F44 0%, #E4572E 140%)',
+  },
+  {
     slug: 'wow-park',
     name: 'Wow Park Talca',
     rubro: 'Parque infantil y cumpleaños',
