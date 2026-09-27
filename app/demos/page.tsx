@@ -174,6 +174,14 @@ const BLITZ = [
     tagline: 'Carta tipográfica de cafetería: verde emporio, crema y ámbar, con puntos guía.',
     gradient: 'linear-gradient(135deg, #173E32 0%, #2A7F62 55%, #E8A33D 140%)',
   },
+  {
+    slug: 'plantitas-ya-vivero-romeral-ventas-de-plantas-y-',
+    name: 'Plantitas Yá! & Vivero Romeral',
+    rubro: 'Vivero y venta de plantas',
+    city: 'Romeral',
+    tagline: 'Directorio funcional: azul petróleo, menta y blanco roto, con fotos.',
+    gradient: 'linear-gradient(135deg, #093341 0%, #0E4C5C 55%, #9FD8CB 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
