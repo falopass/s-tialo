@@ -574,6 +574,14 @@ const BLITZ = [
     tagline: 'Ferretero y utilitario: mostaza, verde oscuro y madera, línea de tiempo horizontal con fotos.',
     gradient: 'linear-gradient(135deg, #1E332A 0%, #2E4A3C 55%, #D9A441 140%)',
   },
+  {
+    slug: 'agrocesped-del-maule',
+    name: 'AgroCesped Del Maule',
+    rubro: 'Vivero mayorista',
+    city: 'San Clemente',
+    tagline: 'Tarjetas apiladas al hacer scroll: azul distribución, gris y cian, con fotos.',
+    gradient: 'linear-gradient(135deg, #0E2A39 0%, #1F5673 55%, #3CD9EC 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
