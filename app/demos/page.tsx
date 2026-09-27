@@ -470,6 +470,14 @@ const BLITZ = [
     tagline: 'Collage artesanal utilitario: mostaza, verde oscuro y papel, tarjetas con cinta adhesiva.',
     gradient: 'linear-gradient(135deg, #1F3229 0%, #2E4A3C 55%, #D9A441 140%)',
   },
+  {
+    slug: 'cabanas-vista-hermosa',
+    name: 'Cabañas Vista Hermosa',
+    rubro: 'Cabañas y hospedaje',
+    city: 'Río Claro',
+    tagline: 'Retro de almacén de barrio: petróleo, menta y blanco roto, sellos y boleta con fotos.',
+    gradient: 'linear-gradient(135deg, #093540 0%, #0E4C5C 55%, #9FD8CB 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
