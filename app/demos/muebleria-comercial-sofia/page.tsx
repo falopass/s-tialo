@@ -91,11 +91,11 @@ function Leaf({ className = 'w-4 h-4', color = 'currentColor' }: { className?: s
   )
 }
 
-function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+function Eyebrow({ children, light = false, color }: { children: React.ReactNode; light?: boolean; color?: string }) {
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: light ? C.earthSoft : C.green }}
+      style={{ color: color ?? (light ? C.earthSoft : C.green) }}
     >
       <Leaf className="w-[18px] h-[18px]" />
       {children}
@@ -139,20 +139,23 @@ export default function MuebleriaSofiaPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(251,247,239,0.94)',
-          ink: C.greenDeep,
-          line: C.line,
-          btnBg: C.green,
-          btnInk: '#FBF7EF',
-        }}
-      />
+      {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
+      <div style={{ backgroundColor: C.greenDeep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(251,247,239,0.94)',
+            ink: C.greenDeep,
+            line: C.line,
+            btnBg: C.green,
+            btnInk: '#FBF7EF',
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.greenDeep }}>
@@ -168,7 +171,7 @@ export default function MuebleriaSofiaPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(44,63,34,0.55) 0%, rgba(44,63,34,0.15) 40%, rgba(44,63,34,0.85) 100%)',
+              'linear-gradient(180deg, rgba(44,63,34,0.7) 0%, rgba(44,63,34,0.55) 40%, rgba(44,63,34,0.92) 100%)',
           }}
         />
         {/* sellos: reseña real + Facebook real */}
@@ -238,7 +241,7 @@ export default function MuebleriaSofiaPage() {
           </Reveal>
         </div>
         <div className="relative border-t" style={{ borderColor: 'rgba(251,247,239,0.22)', backgroundColor: 'rgba(44,63,34,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,247,239,0.78)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,247,239,0.9)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.leaf }} aria-hidden="true" />
@@ -276,6 +279,7 @@ export default function MuebleriaSofiaPage() {
                 alt="Silla y gabinetes de madera terminados dentro del taller de la mueblería"
                 fill
                 sizes="(min-width:768px) 50vw, 100vw"
+                loading="eager"
                 className="object-cover"
               />
               <span
@@ -324,6 +328,7 @@ export default function MuebleriaSofiaPage() {
                   alt={f.alt}
                   fill
                   sizes="(min-width:768px) 33vw, 50vw"
+                  loading="eager"
                   className="object-cover"
                 />
               </figure>
@@ -354,20 +359,23 @@ export default function MuebleriaSofiaPage() {
 
           {/* tarjeta CTA dentro del bento */}
           <Reveal delay={120} className="col-span-2 md:col-span-4">
-            <a
-              href={WA_LINK_MEDIDA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-[28px] p-4 md:p-5 h-full flex flex-col justify-between gap-3 transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4C6B3C]"
+            <div
+              className="rounded-[28px] p-4 md:p-5 h-full flex flex-col justify-between items-start gap-3"
               style={{ backgroundColor: C.earth }}
             >
               <p className={`${display.className} italic text-lg md:text-2xl leading-tight`} style={{ color: '#FBF7EF' }}>
                 ¿Tienes una idea? Cotízala al tiro por WhatsApp
               </p>
-              <span className="text-xs md:text-sm font-semibold flex items-center gap-2 transition-transform group-hover:translate-x-1" style={{ color: '#FBF7EF' }}>
-                Escribir ahora <span aria-hidden="true">→</span>
-              </span>
-            </a>
+              <a
+                href={WA_LINK_MEDIDA}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 min-h-[44px] px-5 rounded-full text-xs md:text-sm font-semibold transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
+                style={{ backgroundColor: '#FBF7EF', color: C.greenDeep }}
+              >
+                Escribir ahora <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
           </Reveal>
 
           {/* fila de métricas */}
@@ -384,7 +392,7 @@ export default function MuebleriaSofiaPage() {
               ].map((m) => (
                 <div key={m.label} className="flex flex-col">
                   <dt className={`${display.className} text-2xl md:text-4xl leading-none`}>{m.value}</dt>
-                  <dd className="text-[11px] md:text-xs uppercase tracking-[0.14em] mt-1.5" style={{ color: 'rgba(251,247,239,0.72)' }}>
+                  <dd className="text-[11px] md:text-xs uppercase tracking-[0.14em] mt-1.5" style={{ color: '#FBF7EF' }}>
                     {m.label}
                   </dd>
                 </div>
@@ -421,11 +429,8 @@ export default function MuebleriaSofiaPage() {
             </Reveal>
             <div className="lg:col-span-2 grid gap-3 md:gap-4">
               <Reveal delay={120}>
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block rounded-[28px] border p-6 h-full transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4C6B3C]"
+                <div
+                  className="rounded-[28px] border p-6 h-full"
                   style={{ backgroundColor: C.card, borderColor: C.line }}
                 >
                   <svg viewBox="0 0 24 24" className="w-[22px] h-[22px] mb-3" fill={C.earth} stroke={C.earth} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -435,16 +440,22 @@ export default function MuebleriaSofiaPage() {
                     {BIZ.reviews} reseña
                   </p>
                   <p className="text-xs md:text-sm leading-snug" style={{ color: C.muted }}>
-                    en la ficha de Google Maps. Ver la ficha →
+                    en la ficha de Google Maps.{' '}
+                    <a
+                      href={MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4C6B3C] rounded-sm"
+                      style={{ color: C.greenDeep }}
+                    >
+                      Ver la ficha →
+                    </a>
                   </p>
-                </a>
+                </div>
               </Reveal>
               <Reveal delay={200}>
-                <a
-                  href={BIZ.fbUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block rounded-[28px] border p-6 h-full transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4C6B3C]"
+                <div
+                  className="rounded-[28px] border p-6 h-full"
                   style={{ backgroundColor: C.green, borderColor: C.green }}
                 >
                   <svg viewBox="0 0 24 24" className="w-[22px] h-[22px] mb-3" fill={C.leaf} aria-hidden="true">
@@ -453,10 +464,18 @@ export default function MuebleriaSofiaPage() {
                   <p className={`${display.className} text-2xl md:text-3xl leading-tight mb-1`} style={{ color: '#FBF7EF' }}>
                     {BIZ.fbFollowers} seguidores
                   </p>
-                  <p className="text-xs md:text-sm leading-snug" style={{ color: 'rgba(251,247,239,0.75)' }}>
-                    siguen los trabajos del taller en Facebook →
+                  <p className="text-xs md:text-sm leading-snug" style={{ color: '#FBF7EF' }}>
+                    siguen los trabajos del taller en{' '}
+                    <a
+                      href={BIZ.fbUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] rounded-sm"
+                    >
+                      Facebook →
+                    </a>
                   </p>
-                </a>
+                </div>
               </Reveal>
             </div>
           </div>
@@ -470,6 +489,7 @@ export default function MuebleriaSofiaPage() {
                   alt="Frontis del taller de mueblería con tablas de madera apiladas y banco de trabajo"
                   fill
                   sizes="(min-width:1024px) 33vw, 100vw"
+                  loading="eager"
                   className="object-cover"
                 />
               </figure>
@@ -548,19 +568,19 @@ export default function MuebleriaSofiaPage() {
       <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.earthSoft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
-            <Eyebrow>Contacto y ubicación</Eyebrow>
+            <Eyebrow color={C.greenDeep}>Contacto y ubicación</Eyebrow>
             <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.greenDeep }}>
               {BIZ.address},
               <br />
-              <em style={{ color: C.green }}>{BIZ.city}</em>
+              <em style={{ color: C.greenDeep }}>{BIZ.city}</em>
             </h2>
-            <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
+            <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.ink }}>
               {BIZ.address}
               <br />
               {BIZ.city}, {BIZ.region}, Chile
             </address>
             <ul className="space-y-2.5 mb-8">
-              <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.muted }}>
+              <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.ink }}>
                 <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="none" stroke={C.green} strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                   <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
                 </svg>
@@ -568,7 +588,7 @@ export default function MuebleriaSofiaPage() {
                   WhatsApp y llamadas: <strong className="font-semibold" style={{ color: C.ink }}>{BIZ.phoneDisplay}</strong>
                 </span>
               </li>
-              <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.muted }}>
+              <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.ink }}>
                 <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill={C.green} aria-hidden="true">
                   <path d="M13.5 21 v-7.5 h2.6 l0.4 -3 h-3 V8.6 c0 -0.9 0.3 -1.5 1.6 -1.5 h1.5 V4.4 c-0.3 -0.04 -1.2 -0.15 -2.3 -0.15 c-2.3 0 -3.9 1.4 -3.9 4 v2.2 H8 v3 h2.4 V21 Z" />
                 </svg>
@@ -619,6 +639,7 @@ export default function MuebleriaSofiaPage() {
           alt=""
           fill
           sizes="100vw"
+          loading="eager"
           className="object-cover opacity-[0.14]"
           aria-hidden="true"
         />
@@ -629,7 +650,7 @@ export default function MuebleriaSofiaPage() {
               <br />
               <em style={{ color: C.earthSoft }}>le falta a tu casa</em>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(251,247,239,0.78)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(251,247,239,0.9)' }}>
               Escríbenos por WhatsApp con la idea y las medidas: el
               taller te responde con una cotización directa.
             </p>
@@ -648,34 +669,23 @@ export default function MuebleriaSofiaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.greenDeep, color: '#FBF7EF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} text-2xl mb-2 flex items-center gap-3`}>
-              <Leaf className="w-5 h-5" color={C.leaf} />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,247,239,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] rounded-sm">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios y fotos son de muestra; los datos de contacto
-            son los publicados por el negocio.
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
+          <p className={`${display.className} text-xl mb-1 flex items-center gap-3`}>
+            <Leaf className="w-5 h-5" color={C.leaf} />
+            {BIZ.name}
           </p>
+          <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(251,247,239,0.85)' }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region}
+          </address>
+          <p className="text-xs leading-relaxed mb-3" style={{ color: 'rgba(251,247,239,0.85)' }}>
+            Sitio de ejemplo de Sitiazo: contacto real; textos, precios y fotos de muestra.
+          </p>
+          <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex!">
+            <DemoBand name={BIZ.name} />
+          </div>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
