@@ -278,6 +278,14 @@ const BLITZ = [
     tagline: 'Sobrio y patrimonial: verde bosque, crema y latón, doble columna con sidebar pegajoso.',
     gradient: 'linear-gradient(135deg, #142A20 0%, #1E3D2F 55%, #C8A24B 140%)',
   },
+  {
+    slug: 'girls-house-estetica',
+    name: 'Girls House Estética',
+    rubro: 'Centro de estética',
+    city: 'Molina',
+    tagline: 'Catálogo de taller: negro, amarillo señal y acero, vitrina con filtros y precios.',
+    gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
