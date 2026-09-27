@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Instrument_Serif, Inter } from 'next/font/google'
 import { SITE, whatsappLink } from '@/lib/config'
-import { DemoBand } from '../kit'
 import { WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -255,7 +254,11 @@ export default function CafeLaFrancesaPage() {
           >
             {BIZ.name}
           </a>
-          <nav className="hidden md:flex items-center gap-7" aria-label="Principal">
+          <nav
+            className="hidden md:flex items-center gap-7 px-6 py-2.5 rounded-full shadow-md"
+            style={{ backgroundColor: 'rgba(39,54,31,0.88)' }}
+            aria-label="Principal"
+          >
             {NAV_LINKS.map((l) => (
               <a
                 key={l.href}
@@ -361,6 +364,7 @@ export default function CafeLaFrancesaPage() {
                     src={c.src}
                     alt={c.alt}
                     fill
+                    loading="eager"
                     sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)"
                     className="object-cover"
                   />
@@ -403,6 +407,7 @@ export default function CafeLaFrancesaPage() {
                   src={`${IMG}/ambiente.webp`}
                   alt="Fachada del café con grandes ventanales, puerta de madera y mesas a la vista desde la vereda"
                   fill
+                  loading="eager"
                   sizes="(min-width: 1024px) 560px, calc(100vw - 2.5rem)"
                   className="object-cover"
                 />
@@ -564,7 +569,7 @@ export default function CafeLaFrancesaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative -rotate-1 inline-flex items-center gap-3 px-8 py-5 rounded-full text-lg md:text-xl font-semibold shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] transition-transform hover:rotate-0 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
+                className="relative -rotate-1 inline-flex items-center gap-3 px-7 py-4 rounded-full text-lg md:text-xl font-semibold shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] transition-transform hover:rotate-0 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
                 style={{ backgroundColor: C.crema, color: C.campoInk }}
               >
                 <WaIcon className="h-6 w-6" />
@@ -644,45 +649,19 @@ export default function CafeLaFrancesaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.campoInk, color: C.crema }}>
-        <div className="max-w-[1300px] mx-auto px-5 md:px-10 py-14 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-[1300px] mx-auto px-5 md:px-10 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <p className={`${display.className} text-3xl mb-3`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.7)' }}>
-              {BIZ.address}, {BIZ.city}, {BIZ.region}
-              <br />
-              {BIZ.phoneDisplay}
+            <p className={`${display.className} text-2xl mb-1`}>{BIZ.name}</p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.85)' }}>
+              {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
             </address>
           </div>
-          <nav className="flex flex-wrap gap-x-7 gap-y-2 text-sm" style={{ color: 'rgba(251,247,239,0.7)' }} aria-label="Pie">
-            {NAV_LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="transition-colors hover:text-[#FBF7EF] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
-              >
-                {l.label}
-              </a>
-            ))}
-            <a
-              href={BIZ.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-[#FBF7EF] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
-            >
-              Facebook
-            </a>
-          </nav>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.16)' }}>
-          <p className="max-w-[1300px] mx-auto px-5 md:px-10 py-5 pb-20 md:pb-5 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.55)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Nombre,
-            dirección, teléfono, reseñas de Google y seguidores de Facebook son
-            datos públicos reales; carta, precios, reseñas y textos son de muestra.
+          <p className="text-xs leading-relaxed md:max-w-[26rem]" style={{ color: 'rgba(251,247,239,0.78)' }}>
+            Datos del café reales; carta, precios y reseñas de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
