@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Instrument_Serif, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -24,7 +25,7 @@ const C = {
   earth: '#8C6239',
   earthSoft: '#E9DAC3',
   ink: '#26301D',
-  muted: '#6E7362',
+  muted: '#5D6252',
   line: 'rgba(38,48,29,0.14)',
 }
 
@@ -155,10 +156,13 @@ export default function MuebleriaSofiaPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.greenDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Taller de mueblería: muebles de madera en proceso, sillas y gabinetes recién armados"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -174,7 +178,7 @@ export default function MuebleriaSofiaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
               style={{ backgroundColor: 'rgba(251,247,239,0.95)', color: C.greenDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.earth} stroke={C.earth} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -188,7 +192,7 @@ export default function MuebleriaSofiaPage() {
               href={BIZ.fbUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
               style={{ backgroundColor: 'rgba(251,247,239,0.95)', color: C.greenDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.green} aria-hidden="true">
@@ -218,14 +222,14 @@ export default function MuebleriaSofiaPage() {
                 href={WA_LINK_MEDIDA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
                 style={{ backgroundColor: C.leaf, color: C.greenDeep }}
               >
                 Encargar un mueble a medida
               </a>
               <a
                 href="#trabajos"
-                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: '#FBF7EF' }}
               >
                 Ver el taller
@@ -267,11 +271,12 @@ export default function MuebleriaSofiaPage() {
           {/* tarjeta grande de foto */}
           <Reveal className="col-span-2 md:col-span-3 row-span-2">
             <figure className="relative rounded-[28px] overflow-hidden h-full border" style={{ borderColor: C.line }}>
-              <img
+              <Image
                 src={`${IMG}/detalle3.webp`}
                 alt="Silla y gabinetes de madera terminados dentro del taller de la mueblería"
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                sizes="(min-width:768px) 50vw, 100vw"
+                className="object-cover"
               />
               <span
                 className={`${display.className} italic absolute bottom-4 left-4 text-xs md:text-sm px-3.5 py-1.5 rounded-full shadow-sm`}
@@ -307,17 +312,23 @@ export default function MuebleriaSofiaPage() {
             </Reveal>
           ))}
 
-          {/* foto horizontal */}
-          <Reveal className="col-span-2">
-            <figure className="rounded-[28px] overflow-hidden h-full border" style={{ borderColor: C.line }}>
-              <img
-                src={`${IMG}/detalle1.webp`}
-                alt="Banco de trabajo del carpintero con uniones de madera, cepillo y herramientas"
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-            </figure>
-          </Reveal>
+          {/* par de fotos chicas */}
+          {[
+            { src: 'detalle1', alt: 'Banco de trabajo del carpintero con uniones de madera, cepillo y herramientas' },
+            { src: 'detalle2', alt: 'Detalle de la veta de una tabla de madera lustrada a mano en el taller' },
+          ].map((f, i) => (
+            <Reveal key={f.src} delay={60 + i * 80} className="col-span-1 md:col-span-2">
+              <figure className="relative rounded-[28px] overflow-hidden h-full border" style={{ borderColor: C.line }}>
+                <Image
+                  src={`${IMG}/${f.src}.webp`}
+                  alt={f.alt}
+                  fill
+                  sizes="(min-width:768px) 33vw, 50vw"
+                  className="object-cover"
+                />
+              </figure>
+            </Reveal>
+          ))}
 
           {SERVICIOS.slice(2).map((s, i) => (
             <Reveal key={s.name} delay={80 + i * 90} className="col-span-1 md:col-span-2">
@@ -340,6 +351,24 @@ export default function MuebleriaSofiaPage() {
               </div>
             </Reveal>
           ))}
+
+          {/* tarjeta CTA dentro del bento */}
+          <Reveal delay={120} className="col-span-2 md:col-span-4">
+            <a
+              href={WA_LINK_MEDIDA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-[28px] p-4 md:p-5 h-full flex flex-col justify-between gap-3 transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4C6B3C]"
+              style={{ backgroundColor: C.earth }}
+            >
+              <p className={`${display.className} italic text-lg md:text-2xl leading-tight`} style={{ color: '#FBF7EF' }}>
+                ¿Tienes una idea? Cotízala al tiro por WhatsApp
+              </p>
+              <span className="text-xs md:text-sm font-semibold flex items-center gap-2 transition-transform group-hover:translate-x-1" style={{ color: '#FBF7EF' }}>
+                Escribir ahora <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          </Reveal>
 
           {/* fila de métricas */}
           <Reveal className="col-span-2 row-span-2 md:col-span-6 md:row-span-1">
@@ -396,7 +425,7 @@ export default function MuebleriaSofiaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block rounded-[28px] border p-6 h-full transition-shadow hover:shadow-md"
+                  className="block rounded-[28px] border p-6 h-full transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4C6B3C]"
                   style={{ backgroundColor: C.card, borderColor: C.line }}
                 >
                   <svg viewBox="0 0 24 24" className="w-[22px] h-[22px] mb-3" fill={C.earth} stroke={C.earth} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -415,7 +444,7 @@ export default function MuebleriaSofiaPage() {
                   href={BIZ.fbUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block rounded-[28px] border p-6 h-full transition-shadow hover:shadow-md"
+                  className="block rounded-[28px] border p-6 h-full transition-shadow hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4C6B3C]"
                   style={{ backgroundColor: C.green, borderColor: C.green }}
                 >
                   <svg viewBox="0 0 24 24" className="w-[22px] h-[22px] mb-3" fill={C.leaf} aria-hidden="true">
@@ -435,12 +464,13 @@ export default function MuebleriaSofiaPage() {
           {/* cita de muestra + foto */}
           <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-3 md:gap-4 mt-3 md:mt-4">
             <Reveal className="lg:col-span-2">
-              <figure className="rounded-[28px] overflow-hidden h-full border min-h-[220px]" style={{ borderColor: C.line }}>
-                <img
+              <figure className="relative rounded-[28px] overflow-hidden h-full border min-h-[220px]" style={{ borderColor: C.line }}>
+                <Image
                   src={`${IMG}/ambiente.webp`}
                   alt="Frontis del taller de mueblería con tablas de madera apiladas y banco de trabajo"
-                  loading="lazy"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(min-width:1024px) 33vw, 100vw"
+                  className="object-cover"
                 />
               </figure>
             </Reveal>
@@ -552,7 +582,7 @@ export default function MuebleriaSofiaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2C3F22]`}
                 style={{ backgroundColor: C.green, color: '#FBF7EF' }}
               >
                 Escribir por WhatsApp
@@ -561,7 +591,7 @@ export default function MuebleriaSofiaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full border-2 transition-colors`}
+                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2C3F22]`}
                 style={{ borderColor: 'rgba(38,48,29,0.3)', color: C.greenDeep }}
               >
                 Cómo llegar →
@@ -584,13 +614,12 @@ export default function MuebleriaSofiaPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.greenDeep }}>
-        <div
-          className="absolute inset-0 opacity-[0.14]"
-          style={{
-            backgroundImage: `url(${IMG}/detalle3.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+        <Image
+          src={`${IMG}/detalle3.webp`}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-[0.14]"
           aria-hidden="true"
         />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
@@ -608,7 +637,7 @@ export default function MuebleriaSofiaPage() {
               href={WA_LINK_MEDIDA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} italic inline-block text-base md:text-lg px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} italic inline-block text-base md:text-lg px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
               style={{ backgroundColor: C.leaf, color: C.greenDeep }}
             >
               Cotizar por WhatsApp
@@ -631,7 +660,7 @@ export default function MuebleriaSofiaPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,247,239,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] rounded-sm">
                 {l.label}
               </a>
             ))}
