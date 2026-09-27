@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Space_Grotesk, Inter } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK_HORA, waServicio, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -132,6 +132,48 @@ function IconInstagram({ className = 'w-5 h-5', color = 'currentColor' }: IconPr
   )
 }
 
+/**
+ * Aviso de Sitiazo en el flujo (no fijo): así nunca tapa texto ni
+ * botones. Fondo en rgba() inline — con bg-ink/90 Chrome serializa
+ * color-mix como oklab() y los chequeos de contraste no lo leen.
+ */
+function SitiazoStrip() {
+  return (
+    <div
+      className="text-[11px] leading-tight"
+      style={{ backgroundColor: 'rgba(10,10,10,0.92)', color: '#FAFAF7' }}
+    >
+      <div className="max-w-6xl mx-auto px-5 md:px-8 py-3.5 pr-20 flex items-center gap-2.5">
+        <span
+          className="inline-block w-[6px] h-[6px] rounded-full shrink-0"
+          style={{ backgroundColor: '#FFD60A' }}
+          aria-hidden="true"
+        />
+        <span>
+          Mockup preparado por{' '}
+          <a
+            href={SITE.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2 hover:text-yellow"
+          >
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name} — así se vería tu sitio.{' '}
+          <a
+            href={whatsappLink('contacto')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2 hover:text-yellow"
+          >
+            ¿Lo hacemos realidad?
+          </a>
+        </span>
+      </div>
+    </div>
+  )
+}
+
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
@@ -251,6 +293,7 @@ export default function BarberiaRulosStylePage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
       <div style={{ backgroundColor: C.deep }}>
         <BlitzNav
@@ -338,7 +381,7 @@ export default function BarberiaRulosStylePage() {
         </div>
         {/* franja de datos al pie del hero */}
         <div className="relative border-t" style={{ borderColor: 'rgba(237,230,218,0.22)', backgroundColor: 'rgba(38,41,45,0.85)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.9)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-24 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.9)' }}>
             <span>Av. Rauquén 1967 · Curicó</span>
             <span>Corte · barba · afeitado</span>
             <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
@@ -816,7 +859,7 @@ export default function BarberiaRulosStylePage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#EDE6DA' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-10">
           <p className={`${display.className} font-semibold text-xl mb-1`}>{BIZ.name}</p>
           <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(237,230,218,0.8)' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
@@ -829,7 +872,7 @@ export default function BarberiaRulosStylePage() {
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <SitiazoStrip />
       <WaFab href={WA_LINK_HORA} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
