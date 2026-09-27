@@ -430,6 +430,14 @@ const BLITZ = [
     tagline: 'Editorial de revista: azul pizarra, amarillo lápiz y titulares serif gigantes.',
     gradient: 'linear-gradient(135deg, #22353F 0%, #2F4858 55%, #F2B705 140%)',
   },
+  {
+    slug: 'tienda-by-joseline-spa',
+    name: 'Tienda By Joseline Spa',
+    rubro: 'Tienda de lencería',
+    city: 'Pencahue',
+    tagline: 'Minimal de lujo: blanco, líneas de 1px, rojo logística y dorado discreto, con fotos.',
+    gradient: 'linear-gradient(135deg, #4A4E52 0%, #C1272D 55%, #E8631A 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

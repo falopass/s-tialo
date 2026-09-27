@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Playfair_Display, Lato } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -27,7 +28,7 @@ const C = {
 }
 
 export const metadata: Metadata = {
-  title: 'Clínica T-Renova SPA — Belleza y salud en Linares, Maule',
+  title: 'Clínica T-Renova SPA · Belleza y salud en Linares, Maule',
   description:
     'Tienda de belleza y salud en Kurt Moller 23, Linares: tratamientos, productos y un plan de cuidado paso a paso. Agenda por WhatsApp.',
   robots: { index: false, follow: false },
@@ -41,10 +42,11 @@ const NAV_LINKS = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-// El proceso en línea de tiempo: hitos numerados y foto por etapa.
+// El proceso en línea de tiempo: hitos numerados, foto y tiempo por etapa.
 const TIMELINE = [
   {
     fase: 'El primer contacto',
+    tiempo: 'un mensaje',
     title: 'Agenda por WhatsApp',
     text: 'Escríbenos y coordinamos tu hora directo con quienes atienden. Sin formularios ni espera.',
     src: `${IMG}/detalle2.webp`,
@@ -52,6 +54,7 @@ const TIMELINE = [
   },
   {
     fase: 'Al llegar',
+    tiempo: 'unos 15 min',
     title: 'Evaluación tranquila',
     text: 'Miramos tu piel y tu objetivo, y te proponemos un plan honesto: lo que necesitas, ni más ni menos.',
     src: `${IMG}/detalle3.webp`,
@@ -59,6 +62,7 @@ const TIMELINE = [
   },
   {
     fase: 'En cabina',
+    tiempo: '60 a 90 min',
     title: 'Tu sesión de tratamiento',
     text: 'El servicio agendado en un ambiente ordenado y luminoso, con la calma que pide el cuerpo.',
     src: `${IMG}/ambiente.webp`,
@@ -66,6 +70,7 @@ const TIMELINE = [
   },
   {
     fase: 'De vuelta en casa',
+    tiempo: 'rutina diaria',
     title: 'Cuidado que continúa',
     text: 'Te llevas la rutina recomendada y los productos para mantener el resultado entre visitas.',
     src: `${IMG}/detalle1.webp`,
@@ -97,7 +102,7 @@ const SERVICIOS = [
   },
   {
     name: 'Dermocosmética y productos',
-    desc: 'Líneas de cuidado para la casa, elegidas según tu evaluación — no por empuje.',
+    desc: 'Líneas de cuidado para la casa, elegidas según tu evaluación, no por empuje.',
     price: 'según producto',
     src: `${IMG}/detalle1.webp`,
     alt: 'Repisas con frascos y cremas de la tienda ordenados por línea',
@@ -135,12 +140,15 @@ function StepCard({ s }: { s: (typeof TIMELINE)[number] }) {
       className="w-full rounded-xl border p-3.5"
       style={{ backgroundColor: C.card, borderColor: C.line, boxShadow: '0 1px 3px rgba(9,53,64,0.07)' }}
     >
-      <img
-        src={s.src}
-        alt={s.alt}
-        loading="lazy"
-        className="w-full aspect-[16/9] object-cover rounded-lg mb-3"
-      />
+      <div className="relative aspect-[16/9] rounded-lg overflow-hidden mb-3">
+        <Image
+          src={s.src}
+          alt={s.alt}
+          fill
+          sizes="(min-width: 768px) 300px, 270px"
+          className="object-cover"
+        />
+      </div>
       <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-1" style={{ color: C.petrol }}>
         {s.fase}
       </p>
@@ -177,10 +185,13 @@ export default function ClinicaTRenovaPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior luminoso de Clínica T-Renova: camilla, productos y luz natural en tonos verde agua"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -196,7 +207,7 @@ export default function ClinicaTRenovaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]"
               style={{ backgroundColor: 'rgba(247,249,249,0.95)', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.mint} stroke={C.petrol} strokeWidth="1.4" strokeLinejoin="round" aria-hidden="true">
@@ -206,7 +217,7 @@ export default function ClinicaTRenovaPage() {
             </a>
           </Reveal>
         </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-24">
           <Reveal>
             <Eyebrow light>Tienda de belleza y salud · Linares · Región del Maule</Eyebrow>
             <h1
@@ -218,23 +229,22 @@ export default function ClinicaTRenovaPage() {
               <em className="font-normal inline-block pb-1" style={{ color: C.mint }}>es un proceso</em>
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(247,249,249,0.88)' }}>
-              En Kurt Moller 23, pleno centro de Linares: tratamientos,
-              productos y un plan de cuidado pensado paso a paso, con la
-              calma que tu piel necesita.
+              Tratamientos, productos y un plan de cuidado paso a paso,
+              en pleno centro de Linares.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F7F9F9]`}
                 style={{ backgroundColor: C.mint, color: C.deep }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#tu-visita"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F7F9F9]`}
                 style={{ borderColor: 'rgba(247,249,249,0.55)', color: '#F7F9F9' }}
               >
                 Ver cómo es la visita
@@ -255,24 +265,20 @@ export default function ClinicaTRenovaPage() {
 
       {/* ── Línea de tiempo horizontal: tu visita ── */}
       <section id="tu-visita" className="scroll-mt-20 py-16 md:py-24" style={{ backgroundColor: C.mintSoft }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8">
-          <div className="grid lg:grid-cols-[1fr_2fr] gap-8 md:gap-14 items-start mb-10 md:mb-14">
-            <Reveal>
-              <Eyebrow>Tu visita</Eyebrow>
-              <h2 className={`${display.className} font-medium text-4xl md:text-5xl leading-[1.08]`} style={{ color: C.petrol }}>
-                De la agenda
-                <br />
-                al <em className="font-normal" style={{ color: '#4E8E80' }}>resultado</em>
-              </h2>
-            </Reveal>
-            <Reveal delay={120}>
-              <p className="text-base md:text-lg leading-relaxed max-w-xl lg:pt-12" style={{ color: C.muted }}>
-                Una visita a T-Renova tiene su recorrido: así se ve, paso a
-                paso. Las etapas son de muestra — el proceso real lo
-                conversan contigo al agendar.
-              </p>
-            </Reveal>
-          </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 mb-10 md:mb-14">
+          <Reveal>
+            <Eyebrow>Tu visita</Eyebrow>
+            <h2 className={`${display.className} font-medium text-4xl md:text-5xl leading-[1.08] mb-6`} style={{ color: C.petrol }}>
+              De la agenda
+              <br />
+              al <em className="font-normal" style={{ color: C.petrol }}>resultado</em>
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed max-w-xl" style={{ color: C.muted }}>
+              Una visita a T-Renova tiene su recorrido: así se ve, paso a
+              paso. Las etapas son de muestra; el proceso real lo
+              conversan contigo al agendar.
+            </p>
+          </Reveal>
         </div>
 
         {/* la línea cruza la pantalla; los hitos se alternan arriba/abajo */}
@@ -280,18 +286,31 @@ export default function ClinicaTRenovaPage() {
           <div className="relative">
             <div
               aria-hidden="true"
-              className="absolute left-0 right-0 h-[2px]"
-              style={{ top: '324px', backgroundColor: 'rgba(14,76,92,0.35)' }}
+              className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[2px]"
+              style={{
+                backgroundImage:
+                  'linear-gradient(90deg, transparent 0%, rgba(14,76,92,0.35) 6%, rgba(14,76,92,0.35) 94%, transparent 100%)',
+              }}
             />
-            <ol className="relative flex w-max min-w-full overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-              {TIMELINE.map((s, i) => (
+            <div
+              className="relative overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              tabIndex={0}
+              role="region"
+              aria-label="Recorrido de tu visita en cuatro etapas"
+            >
+              <ol className="flex w-max min-w-full [justify-content:safe_center]">
+                {TIMELINE.map((s, i) => (
                 <li key={s.fase} className="w-[270px] md:w-[300px] shrink-0 snap-start px-4">
                   <div className="h-[300px] flex flex-col justify-end pb-6">
-                    {i % 2 === 0 && (
+                    {i % 2 === 0 ? (
                       <>
                         <StepCard s={s} />
                         <span className="w-px h-5 mx-auto mt-3" style={{ backgroundColor: 'rgba(14,76,92,0.35)' }} aria-hidden="true" />
                       </>
+                    ) : (
+                      <p className="text-[11px] uppercase tracking-[0.18em] font-bold text-center mb-3" style={{ color: C.petrol }}>
+                        {s.tiempo}
+                      </p>
                     )}
                   </div>
                   <div className="h-12 flex items-center justify-center">
@@ -309,16 +328,21 @@ export default function ClinicaTRenovaPage() {
                     </span>
                   </div>
                   <div className="h-[300px] flex flex-col justify-start pt-6">
-                    {i % 2 === 1 && (
+                    {i % 2 === 1 ? (
                       <>
                         <span className="w-px h-5 mx-auto mb-3" style={{ backgroundColor: 'rgba(14,76,92,0.35)' }} aria-hidden="true" />
                         <StepCard s={s} />
                       </>
+                    ) : (
+                      <p className="text-[11px] uppercase tracking-[0.18em] font-bold text-center mt-3" style={{ color: C.petrol }}>
+                        {s.tiempo}
+                      </p>
                     )}
                   </div>
                 </li>
-              ))}
-            </ol>
+                ))}
+              </ol>
+            </div>
           </div>
           <p className="md:hidden text-center text-[11px] uppercase tracking-[0.2em] font-bold mt-6" style={{ color: C.muted }}>
             Desliza para ver el proceso →
@@ -330,16 +354,13 @@ export default function ClinicaTRenovaPage() {
       <section id="servicios" className="scroll-mt-20">
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
-            <Eyebrow>Servicios y tienda</Eyebrow>
-            <div className="flex flex-wrap items-end justify-between gap-4 mb-8 md:mb-10">
-              <h2 className={`${display.className} font-medium text-4xl md:text-5xl leading-[1.08]`} style={{ color: C.petrol }}>
-                Lo que encuentras aquí
-              </h2>
-              <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
-                Servicios de muestra: al publicar van los tratamientos,
-                líneas de productos y valores reales de la tienda.
-              </p>
-            </div>
+            <h2 className={`${display.className} font-medium text-4xl md:text-5xl leading-[1.08] mb-4`} style={{ color: C.petrol }}>
+              Lo que encuentras aquí
+            </h2>
+            <p className="text-sm md:text-base max-w-xl leading-relaxed mb-8 md:mb-10" style={{ color: C.muted }}>
+              Servicios de muestra: al publicar van los tratamientos,
+              líneas de productos y valores reales de la tienda.
+            </p>
           </Reveal>
           <ul>
             {SERVICIOS.map((s, i) => (
@@ -348,13 +369,18 @@ export default function ClinicaTRenovaPage() {
                   className="grid grid-cols-[88px_1fr] md:grid-cols-[150px_1fr_auto] gap-4 md:gap-8 items-center border-t py-5 md:py-6"
                   style={{ borderColor: C.line }}
                 >
-                  <img
-                    src={s.src}
-                    alt={s.alt}
-                    loading="lazy"
-                    className="w-[88px] h-[88px] md:w-[150px] md:h-[100px] object-cover rounded-lg border"
+                  <div
+                    className="relative w-[88px] h-[88px] md:w-[150px] md:h-[100px] rounded-lg border overflow-hidden"
                     style={{ borderColor: C.line }}
-                  />
+                  >
+                    <Image
+                      src={s.src}
+                      alt={s.alt}
+                      fill
+                      sizes="(min-width: 768px) 150px, 88px"
+                      className="object-cover"
+                    />
+                  </div>
                   <div>
                     <h3 className={`${display.className} font-semibold text-xl md:text-2xl leading-tight mb-1.5`} style={{ color: C.petrol }}>
                       {s.name}
@@ -380,10 +406,10 @@ export default function ClinicaTRenovaPage() {
               href={WA_LINK_SERVICIO}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block mt-8 font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block mt-8 font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]`}
               style={{ backgroundColor: C.petrol, color: '#F7F9F9' }}
             >
-              Consultar por un tratamiento
+              Agendar por WhatsApp
             </a>
           </Reveal>
         </div>
@@ -395,20 +421,22 @@ export default function ClinicaTRenovaPage() {
           <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
             <Reveal>
               <div className="rounded-2xl overflow-hidden border" style={{ borderColor: C.line, boxShadow: '0 18px 50px rgba(9,53,64,0.14)' }}>
-                <img
-                  src={`${IMG}/detalle2.webp`}
-                  alt="Mesa de consulta de T-Renova con espejo, productos y vista a la calle de Linares"
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
-                />
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={`${IMG}/detalle2.webp`}
+                    alt="Mesa de consulta de T-Renova con espejo, productos y vista a la calle de Linares"
+                    fill
+                    sizes="(min-width: 1024px) 480px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </Reveal>
             <Reveal delay={140}>
-              <Eyebrow>La tienda</Eyebrow>
               <h2 className={`${display.className} font-medium text-4xl md:text-5xl leading-[1.08] mb-6`} style={{ color: C.petrol }}>
                 En el centro de Linares,
                 <br />
-                <em className="font-normal" style={{ color: '#4E8E80' }}>atendida por su gente</em>
+                <em className="font-normal inline-block pb-1" style={{ color: C.petrol }}>atendida por su gente</em>
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-5 max-w-md" style={{ color: C.muted }}>
                 Clínica T-Renova funciona en Kurt Moller 23, a pasos del
@@ -420,7 +448,7 @@ export default function ClinicaTRenovaPage() {
                 <strong className="font-bold" style={{ color: C.petrol }}>
                   {BIZ.reviews} reseñas
                 </strong>{' '}
-                de clientes de la comuna — una vitrina que existe hoy y que
+                de clientes de la comuna. Una vitrina que existe hoy y que
                 un sitio propio puede aprovechar.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -428,7 +456,7 @@ export default function ClinicaTRenovaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]`}
                   style={{ backgroundColor: C.petrol, color: '#F7F9F9' }}
                 >
                   Ver reseñas en Google →
@@ -437,7 +465,7 @@ export default function ClinicaTRenovaPage() {
                   href={BIZ.waChannel}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors`}
+                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]`}
                   style={{ borderColor: 'rgba(14,76,92,0.35)', color: C.petrol }}
                 >
                   wa.me/{BIZ.waChannelUser}
@@ -450,7 +478,7 @@ export default function ClinicaTRenovaPage() {
           <div className="mt-16 md:mt-20 border-t pt-12" style={{ borderColor: 'rgba(14,76,92,0.2)' }}>
             <Reveal>
               <p className="text-[11px] uppercase tracking-[0.22em] font-bold mb-8" style={{ color: C.muted }}>
-                Lo que valoran los clientes — textos de muestra basados en el tipo de comentarios que recibe la tienda
+                Lo que valoran los clientes · textos de muestra basados en el tipo de comentarios que recibe la tienda
               </p>
             </Reveal>
             <div className="grid md:grid-cols-3 gap-5 md:gap-6">
@@ -466,7 +494,7 @@ export default function ClinicaTRenovaPage() {
                     <blockquote className={`${display.className} text-base leading-relaxed mb-4`} style={{ color: C.graphite }}>
                       “{t}”
                     </blockquote>
-                    <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: '#4E8E80' }}>
+                    <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.petrol }}>
                       Reseña de ejemplo
                     </figcaption>
                   </figure>
@@ -490,17 +518,17 @@ export default function ClinicaTRenovaPage() {
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: 'rgba(247,249,249,0.72)' }}>
                 Tabla de muestra para mostrar el formato. Los valores
-                reales — por sesión, tratamiento o producto — se confirman
+                reales, por sesión, tratamiento o producto, se confirman
                 por WhatsApp al publicar el sitio.
               </p>
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]`}
                 style={{ backgroundColor: C.mint, color: C.deep }}
               >
-                Consultar valores reales
+                Agendar por WhatsApp
               </a>
             </Reveal>
             <Reveal delay={140}>
@@ -539,18 +567,17 @@ export default function ClinicaTRenovaPage() {
       <section id="contacto" className="scroll-mt-20">
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
-            <Eyebrow>Contacto</Eyebrow>
             <h2 className={`${display.className} font-medium text-4xl md:text-5xl leading-[1.08] mb-6`} style={{ color: C.petrol }}>
               Agenda tu hora
               <br />
-              en <em className="font-normal" style={{ color: '#4E8E80' }}>Linares</em>
+              en <em className="font-normal" style={{ color: C.petrol }}>Linares</em>
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
               {BIZ.addressFull}
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2" style={{ color: C.petrol }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]" style={{ color: C.petrol }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -564,16 +591,16 @@ export default function ClinicaTRenovaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]`}
                 style={{ backgroundColor: C.petrol, color: '#F7F9F9' }}
               >
-                Escribir por WhatsApp
+                Agendar por WhatsApp
               </a>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3.5 rounded-full border transition-colors`}
+                className={`${display.className} font-semibold text-sm px-6 py-3.5 rounded-full border transition-colors hover:bg-[#E4F2EE] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]`}
                 style={{ borderColor: 'rgba(14,76,92,0.35)', color: C.petrol }}
               >
                 Cómo llegar →
@@ -620,7 +647,7 @@ export default function ClinicaTRenovaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]`}
               style={{ backgroundColor: C.mint, color: C.deep }}
             >
               Agendar por WhatsApp
@@ -637,12 +664,12 @@ export default function ClinicaTRenovaPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
               {BIZ.addressFull}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]">{BIZ.phoneDisplay}</a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]">
                 {l.label}
               </a>
             ))}
