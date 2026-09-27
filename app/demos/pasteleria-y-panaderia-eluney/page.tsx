@@ -133,7 +133,7 @@ export default function EluneyPage() {
   return (
     <div
       className={`${body.className} min-h-screen antialiased`}
-      style={{ backgroundColor: C.paper, color: C.ink }}
+      style={{ backgroundColor: C.blueDeep, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
 
