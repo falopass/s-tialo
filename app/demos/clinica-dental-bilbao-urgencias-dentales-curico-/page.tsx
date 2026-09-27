@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Space_Grotesk, DM_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -21,7 +21,8 @@ const C = {
   brassDark: '#A8863A',
   brassSoft: '#E4D3A8',
   ink: '#22241F',
-  muted: '#6B6F62',
+  muted: '#595D51',
+  brassText: '#7A5F22',
   line: 'rgba(34,36,31,0.16)',
 }
 
@@ -95,13 +96,13 @@ const TESTIMONIALS = [
 ]
 
 const waBtn =
-  'inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]'
+  'inline-block text-center font-semibold text-sm md:text-base px-6 py-3 rounded-full transition-all active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]'
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: light ? C.brassSoft : C.brassDark }}
+      style={{ color: light ? C.brassSoft : C.brassText }}
     >
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
@@ -131,7 +132,7 @@ export default function ClinicaDentalBilbaoPage() {
       />
 
       {/* ── Panel de datos arriba ── */}
-      <section id="inicio" className="scroll-mt-20 border-b pt-[60px] md:pt-[68px]" style={{ borderColor: C.line }}>
+      <section id="inicio" className="scroll-mt-20 border-b pt-[72px] md:pt-[80px]" style={{ borderColor: C.line }}>
         <dl
           className="grid grid-cols-2 lg:grid-cols-4 gap-px border-b"
           style={{ backgroundColor: C.line, borderColor: C.line }}
@@ -179,7 +180,7 @@ export default function ClinicaDentalBilbaoPage() {
               style={{ color: C.forest }}
             >
               El dolor de muelas{' '}
-              <span style={{ color: C.brassDark }}>no espera hasta mañana</span>
+              <span style={{ color: C.brassText }}>no espera hasta mañana</span>
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: C.muted }}>
               Clínica dental en el centro de Curicó con urgencias las 24
@@ -266,7 +267,7 @@ export default function ClinicaDentalBilbaoPage() {
                     className="grid md:grid-cols-[3.5rem_1.1fr_1.6fr_7rem] gap-x-6 gap-y-1 px-6 md:px-8 py-5 md:py-6 border-t first:border-t-0 transition-colors hover:bg-[#F6F1E7]"
                     style={{ borderColor: C.line }}
                   >
-                    <span className={`${display.className} text-2xl tabular-nums leading-none self-start`} style={{ color: C.brass }}>
+                    <span className={`${display.className} text-2xl tabular-nums leading-none self-start`} style={{ color: C.brassText }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>
@@ -283,7 +284,7 @@ export default function ClinicaDentalBilbaoPage() {
                     <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
                       {s.desc}
                     </p>
-                    <span className={`text-xs font-semibold md:text-right uppercase tracking-[0.14em] ${s.hours === '24/7' ? 'text-[#A8863A]' : ''}`} style={s.hours === '24/7' ? undefined : { color: C.muted }}>
+                    <span className={`text-xs font-semibold md:text-right uppercase tracking-[0.14em] ${s.hours === '24/7' ? 'text-[#7A5F22]' : ''}`} style={s.hours === '24/7' ? undefined : { color: C.muted }}>
                       {s.hours}
                     </span>
                   </li>
@@ -303,6 +304,7 @@ export default function ClinicaDentalBilbaoPage() {
                       alt={g.alt}
                       fill
                       sizes="(min-width: 640px) 33vw, 100vw"
+                      loading="eager"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
                   </div>
@@ -349,7 +351,7 @@ export default function ClinicaDentalBilbaoPage() {
                     <td className="px-5 md:px-7 py-4 text-sm hidden md:table-cell" style={{ color: C.muted }}>
                       {p.desc}
                     </td>
-                    <td className={`${display.className} px-5 md:px-7 py-4 text-base md:text-lg text-right whitespace-nowrap tabular-nums`} style={{ color: C.brassDark }}>
+                    <td className={`${display.className} px-5 md:px-7 py-4 text-base md:text-lg text-right whitespace-nowrap tabular-nums`} style={{ color: C.brassText }}>
                       {p.price}
                     </td>
                   </tr>
@@ -447,7 +449,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold underline underline-offset-4 decoration-2 text-[#A8863A] decoration-[#C8A24B]/40 hover:text-[#1E3D2F] transition-colors focus-visible:outline-2 focus-visible:outline-[#C8A24B]"
+                className="text-sm font-semibold underline underline-offset-4 decoration-2 text-[#7A5F22] decoration-[#C8A24B]/40 hover:text-[#1E3D2F] transition-colors focus-visible:outline-2 focus-visible:outline-[#C8A24B]"
               >
                 Ver la ficha en Google →
               </a>
@@ -455,7 +457,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold underline underline-offset-4 decoration-2 text-[#A8863A] decoration-[#C8A24B]/40 hover:text-[#1E3D2F] transition-colors focus-visible:outline-2 focus-visible:outline-[#C8A24B]"
+                className="text-sm font-semibold underline underline-offset-4 decoration-2 text-[#7A5F22] decoration-[#C8A24B]/40 hover:text-[#1E3D2F] transition-colors focus-visible:outline-2 focus-visible:outline-[#C8A24B]"
               >
                 @{BIZ.instagram} en Instagram →
               </a>
@@ -469,6 +471,7 @@ export default function ClinicaDentalBilbaoPage() {
                   alt="Fachada de Clínica Dental Bilbao en Curicó"
                   width={900}
                   height={560}
+                  loading="eager"
                   className="w-full object-cover aspect-[16/10]"
                 />
               </figure>
@@ -479,7 +482,7 @@ export default function ClinicaDentalBilbaoPage() {
                   <blockquote className="text-sm md:text-base leading-relaxed mb-3" style={{ color: C.ink }}>
                     “{t}”
                   </blockquote>
-                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.brassDark }}>
+                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.brassText }}>
                     Reseña de ejemplo
                   </figcaption>
                 </figure>
@@ -578,7 +581,7 @@ export default function ClinicaDentalBilbaoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#D8B868] px-8 py-4`}
+              className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#D8B868]`}
             >
               Escribir a {BIZ.short}
             </a>
@@ -587,38 +590,35 @@ export default function ClinicaDentalBilbaoPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.deep, color: '#F6F1E7' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">
-                {BIZ.phoneDisplay}
-              </a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+      <footer className="pb-20" style={{ backgroundColor: C.deep, color: '#F6F1E7' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+          <p className={`${display.className} font-semibold text-xl mb-1`}>{BIZ.name}</p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
+            {BIZ.address} · {BIZ.city}
+            <br />
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">
+              {BIZ.phoneDisplay}
+            </a>
+            {' · '}
+            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors">
               Instagram
             </a>
-          </div>
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios y fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#F6F1E7' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}: textos, servicios, precios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.brassSoft }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
