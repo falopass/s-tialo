@@ -20,6 +20,8 @@ const C = {
   yellow: '#FFC300',
   yellowDeep: '#E0AC00',
   steel: '#8A9199',
+  // acero oscuro: texto secundario sobre fondos claros (≥4.5:1)
+  steelDeep: '#565D63',
   steelSoft: '#E9EBED',
   paper: '#FFFFFF',
   line: 'rgba(23,24,26,0.12)',
@@ -255,7 +257,7 @@ export default function BxtrainingPage() {
   return (
     <div
       className={`${body.className} min-h-screen antialiased`}
-      style={{ backgroundColor: C.paper, color: C.ink }}
+      style={{ backgroundColor: C.ink, color: C.ink }}
     >
       <style>{'html{scroll-behavior:auto}'}</style>
       <BlitzNav
@@ -299,7 +301,7 @@ export default function BxtrainingPage() {
           <span className="w-[18%] h-full" style={{ backgroundColor: C.yellow }} />
           <span className="w-[4%] h-full" style={{ backgroundColor: C.steel }} />
         </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-24 md:pb-16 pt-44">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pr-20 md:pr-28 pb-24 md:pb-16 pt-44">
           <Reveal>
             <Eyebrow light>Gimnasio · San Clemente · Región del Maule</Eyebrow>
             <h1
@@ -372,7 +374,7 @@ export default function BxtrainingPage() {
               <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-5xl leading-[1.0] mb-6`} style={{ color: C.ink }}>
                 De barrio,
                 <br />
-                <span style={{ color: C.steel }}>con estándar</span>
+                <span style={{ color: C.steelDeep }}>con estándar</span>
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-5 max-w-md" style={{ color: 'rgba(23,24,26,0.7)' }}>
                 {BIZ.name} atiende en {BIZ.city}: llegas, te reciben por
@@ -437,7 +439,7 @@ export default function BxtrainingPage() {
                     >
                       <span
                         className={`${display.className} font-extrabold text-lg leading-none pt-0.5`}
-                        style={{ color: C.steel }}
+                        style={{ color: C.steelDeep }}
                         aria-hidden="true"
                       >
                         {String(i + 1).padStart(2, '0')}
@@ -454,7 +456,7 @@ export default function BxtrainingPage() {
                   ))}
                 </ul>
               </div>
-              <p className="text-xs mt-4 leading-relaxed" style={{ color: 'rgba(23,24,26,0.5)' }}>
+              <p className="text-xs mt-4 leading-relaxed" style={{ color: 'rgba(23,24,26,0.65)' }}>
                 Textos de muestra: al publicar van los comentarios reales
                 de los alumnos.
               </p>
@@ -538,7 +540,7 @@ export default function BxtrainingPage() {
             <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-5xl leading-[1.0] mb-6`} style={{ color: C.ink }}>
               {BIZ.address},
               <br />
-              <span style={{ color: C.steel }}>{BIZ.city}</span>
+              <span style={{ color: C.steelDeep }}>{BIZ.city}</span>
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: 'rgba(23,24,26,0.7)' }}>
               {BIZ.address}
@@ -555,7 +557,7 @@ export default function BxtrainingPage() {
                 </li>
               ))}
             </ul>
-            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: 'rgba(23,24,26,0.5)' }}>
+            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: 'rgba(23,24,26,0.65)' }}>
               Horario referencial: al publicar van los horarios reales
               del gimnasio.
             </p>
@@ -642,14 +644,14 @@ export default function BxtrainingPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.ink, color: '#FFFFFF' }}>
-        <div className="border-t" style={{ borderColor: C.lineLight }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 border-t" style={{ borderColor: C.lineLight }}>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-8 mb-4">
             <div>
-              <p className={`${display.className} font-bold text-2xl mb-2 flex items-center gap-3`}>
-                <Bolt className="w-5 h-5" color={C.yellow} />
+              <p className={`${display.className} font-bold text-xl mb-1 flex items-center gap-2.5`}>
+                <Bolt className="w-4 h-4" color={C.yellow} />
                 {BIZ.name}
               </p>
-              <address className="not-italic text-sm leading-relaxed" style={{ color: C.steel }}>
+              <address className="not-italic text-sm leading-snug" style={{ color: C.steel }}>
                 {BIZ.address} · {BIZ.city}, {BIZ.region}
               </address>
             </div>
@@ -661,9 +663,7 @@ export default function BxtrainingPage() {
               ))}
             </div>
           </div>
-        </div>
-        <div className="border-t" style={{ borderColor: C.lineLight }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 md:pb-8 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
+          <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-75 ${focusRing}`} style={{ color: '#FFFFFF' }}>
               Sitiazo
