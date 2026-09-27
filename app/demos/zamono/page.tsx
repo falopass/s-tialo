@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Sora, Inter } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_ACEITE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -135,7 +135,7 @@ export default function ZamonoPage() {
           bar: 'rgba(255,255,255,0.94)',
           ink: C.graphite,
           line: C.line,
-          btnBg: C.aqua,
+          btnBg: C.aquaDeep,
           btnInk: '#FFFFFF',
         }}
       />
@@ -145,6 +145,7 @@ export default function ZamonoPage() {
         <img
           src={`${IMG}/hero.webp`}
           alt="Auto cubierto de espuma en la bahía de lavado de Lubricentro Zamono"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -192,7 +193,7 @@ export default function ZamonoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.aqua, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.aquaDeep, color: '#FFFFFF' }}
               >
                 Agendar por WhatsApp
               </a>
@@ -247,7 +248,6 @@ export default function ZamonoPage() {
                   <img
                     src={s.src}
                     alt={s.name}
-                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
@@ -294,7 +294,6 @@ export default function ZamonoPage() {
                 <img
                   src={`${IMG}/espuma.webp`}
                   alt="Auto cubierto de espuma activa durante el lavado"
-                  loading="lazy"
                   className="w-full h-full object-cover aspect-[16/10]"
                 />
                 <figcaption
@@ -308,12 +307,11 @@ export default function ZamonoPage() {
                 <img
                   src={`${IMG}/brillo.webp`}
                   alt="Carrocería limpia y brillante después del lavado y secado"
-                  loading="lazy"
                   className="w-full h-full object-cover aspect-[16/10]"
                 />
                 <figcaption
                   className={`${display.className} absolute bottom-4 left-4 text-xs md:text-sm font-bold px-4 py-2 rounded-full`}
-                  style={{ backgroundColor: C.aqua, color: '#FFFFFF' }}
+                  style={{ backgroundColor: C.aquaDeep, color: '#FFFFFF' }}
                 >
                   02 · Brillo parejo, sin marcas
                 </figcaption>
@@ -408,11 +406,11 @@ export default function ZamonoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.aqua, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.aquaDeep, color: '#FFFFFF' }}
               >
                 Agendar mi lavado
               </a>
-              <p className="text-xs mt-4" style={{ color: 'rgba(255,255,255,0.55)' }}>
+              <p className="text-xs mt-4" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 {BIZ.phoneDisplay} · respondemos en horario de atención
               </p>
             </Reveal>
@@ -426,7 +424,7 @@ export default function ZamonoPage() {
                   <li key={s.n} className="flex gap-5 py-5 border-b last:border-b-0" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
                     <span
                       className={`${display.className} shrink-0 w-[38px] h-[38px] rounded-full flex items-center justify-center font-bold text-sm`}
-                      style={{ backgroundColor: i === 1 ? C.aqua : 'rgba(0,166,196,0.18)', color: i === 1 ? '#FFFFFF' : C.aquaSoft }}
+                      style={{ backgroundColor: i === 1 ? C.aquaDeep : 'rgba(0,166,196,0.18)', color: i === 1 ? '#FFFFFF' : C.aquaSoft }}
                     >
                       {s.n}
                     </span>
@@ -526,7 +524,7 @@ export default function ZamonoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.aqua, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.aquaDeep, color: '#FFFFFF' }}
               >
                 Cómo llegar →
               </a>
@@ -582,7 +580,7 @@ export default function ZamonoPage() {
               target="_blank"
               rel="noopener noreferrer"
               className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
-              style={{ backgroundColor: C.aqua, color: '#FFFFFF' }}
+              style={{ backgroundColor: C.aquaDeep, color: '#FFFFFF' }}
             >
               Agendar por WhatsApp
             </a>
@@ -592,35 +590,29 @@ export default function ZamonoPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.graphiteDeep, color: '#FFFFFF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-bold text-2xl mb-2 flex items-center gap-3`}>
-              <Drop className="w-5 h-5" color={C.aqua} />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+          <p className={`${display.className} font-bold text-2xl mb-2 flex items-center gap-3`}>
+            <Drop className="w-5 h-5" color={C.aqua} />
+            {BIZ.name}
+          </p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region}
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios, horarios y fotos son de muestra; la
-            dirección, el teléfono y las {BIZ.reviews} reseñas de Google
-            son los datos reales de la ficha.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#FFFFFF' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Servicios, precios, horarios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.aquaSoft }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
