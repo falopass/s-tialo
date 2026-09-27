@@ -542,6 +542,14 @@ const BLITZ = [
     tagline: 'Mosaico fotográfico de sala: negro taller, amarillo señal y acero, con fotos.',
     gradient: 'linear-gradient(135deg, #17181A 0%, #8A9199 55%, #FFC300 140%)',
   },
+  {
+    slug: 'pasteleria-y-panaderia-eluney',
+    name: 'Pasteleria y panaderia Eluney',
+    rubro: 'Pastelería',
+    city: 'Pelarco',
+    tagline: 'Historia por pasos: azul eléctrico, lima y línea de tiempo vertical con fotos.',
+    gradient: 'linear-gradient(135deg, #0A1A5C 0%, #2251FF 55%, #C6F24E 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
