@@ -206,7 +206,7 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
                       {s.label}
                     </h3>
                     <div className="overflow-x-auto rounded-xl" style={{ border: `1px solid ${C.line}`, backgroundColor: C.white }}>
-                      <table className="w-full text-left text-sm min-w-[420px]">
+                      <table className="w-full text-left text-sm">
                         <caption className="sr-only">
                           {s.label}: precio unitario y precio mayor por 3 unidades
                         </caption>
@@ -222,7 +222,7 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
                             const inList = sel.includes(p.name)
                             return (
                               <tr key={p.name} style={{ borderTop: `1px solid ${C.line}` }}>
-                                <td className="py-3.5 pl-4 md:pl-5 font-semibold" style={{ color: C.navy }}>
+                                <td className="py-3.5 pl-3 md:pl-5 font-semibold break-words" style={{ color: C.navy }}>
                                   {p.name}
                                 </td>
                                 <td className="py-3 text-right whitespace-nowrap">
@@ -243,12 +243,12 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
                                     </span>
                                   )}
                                 </td>
-                                <td className="py-3.5 pr-4 md:pr-5 text-right">
+                                <td className="py-3.5 pr-3 md:pr-5 text-right">
                                   <button
                                     type="button"
                                     onClick={() => toggle(p.name)}
                                     aria-pressed={inList}
-                                    className="inline-flex items-center gap-1.5 min-h-[36px] px-3 rounded-full text-xs font-bold transition-colors"
+                                    className="inline-flex items-center gap-1 md:gap-1.5 min-h-[36px] px-2.5 md:px-3 rounded-full text-[11px] md:text-xs font-bold transition-colors whitespace-nowrap"
                                     style={
                                       inList
                                         ? { backgroundColor: C.green, color: C.greenInk }
