@@ -18,8 +18,9 @@ export const C = {
   crema: '#F6F1E7',
   brass: '#C8A24B',
   brassSoft: '#E9D9AE',
+  brassInk: '#7A5E1E',
   ink: '#26282C',
-  muted: '#6E6A5E',
+  muted: '#5E5A4F',
   line: 'rgba(38,40,44,0.16)',
   card: '#FCF9F1',
 } as const
@@ -147,6 +148,7 @@ function Card({ p, fontClass }: { p: (typeof PRODUCTS)[number]; fontClass: strin
           src={`${IMG}/${p.img}`}
           alt={`${p.name}: repisa de ${CAT_LABEL[p.cat]} en Comercial Río Claro`}
           fill
+          loading="eager"
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
           style={p.pos ? { objectPosition: p.pos } : undefined}
@@ -170,7 +172,7 @@ function Card({ p, fontClass }: { p: (typeof PRODUCTS)[number]; fontClass: strin
       <div className="flex flex-col flex-1 p-4 md:p-5">
         <p
           className="text-[10px] uppercase tracking-[0.2em] font-semibold mb-1.5"
-          style={{ color: C.brass }}
+          style={{ color: C.brassInk }}
         >
           {CAT_LABEL[p.cat]}
         </p>

@@ -45,7 +45,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: light ? C.brassSoft : C.brass }}
+      style={{ color: light ? C.brassSoft : C.brassInk }}
     >
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
@@ -59,6 +59,7 @@ export default function ComercialRioClaroPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.crema, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
@@ -88,7 +89,7 @@ export default function ComercialRioClaroPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(19,35,24,0.45) 0%, rgba(19,35,24,0.10) 40%, rgba(19,35,24,0.82) 100%)',
+              'linear-gradient(180deg, rgba(19,35,24,0.55) 0%, rgba(19,35,24,0.35) 35%, rgba(19,35,24,0.88) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -204,7 +205,7 @@ export default function ComercialRioClaroPage() {
                   style={{ borderColor: C.line, backgroundColor: i % 2 ? 'transparent' : 'rgba(30,61,47,0.03)' }}
                 >
                   <div className="flex items-baseline gap-4 min-w-0">
-                    <span className={`${display.className} text-sm w-6 shrink-0`} style={{ color: C.brass }}>
+                    <span className={`${display.className} text-sm w-6 shrink-0`} style={{ color: C.brassInk }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div className="min-w-0">
@@ -235,6 +236,7 @@ export default function ComercialRioClaroPage() {
                 src={`${IMG}/ambiente.webp`}
                 alt="Fachada de Comercial Río Claro en Carrera Pinto: cortina levantada, escobas y baldes asomando a la calle"
                 fill
+                loading="eager"
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
               />
@@ -296,7 +298,7 @@ export default function ComercialRioClaroPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-semibold underline underline-offset-4 decoration-2"
-              style={{ color: C.brass, textDecorationColor: 'rgba(200,162,75,0.35)' }}
+              style={{ color: C.brassInk, textDecorationColor: 'rgba(122,94,30,0.35)' }}
             >
               Ver la ficha en Google →
             </a>
@@ -311,7 +313,7 @@ export default function ComercialRioClaroPage() {
                   <blockquote className={`${display.className} text-base md:text-lg leading-relaxed mb-4`} style={{ color: C.ink }}>
                     “{t}”
                   </blockquote>
-                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.brass }}>
+                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.brassInk }}>
                     Reseña de ejemplo
                   </figcaption>
                 </figure>
@@ -413,10 +415,10 @@ export default function ComercialRioClaroPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <p className={`${display.className} text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.8)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
               <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
@@ -426,7 +428,7 @@ export default function ComercialRioClaroPage() {
               </a>
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.8)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white transition-colors">
                 {l.label}
@@ -435,14 +437,17 @@ export default function ComercialRioClaroPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            productos, precios y fotos son de muestra.
-          </p>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 flex flex-col gap-3">
+            <p className="text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.75)' }}>
+              Textos, productos, precios y fotos son de muestra.
+            </p>
+            <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex!">
+              <DemoBand name={BIZ.name} />
+            </div>
+          </div>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
