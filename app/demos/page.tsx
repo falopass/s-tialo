@@ -334,6 +334,14 @@ const BLITZ = [
     tagline: 'Split-screen logístico: rojo, gris flota y naranja señal, con fotos.',
     gradient: 'linear-gradient(135deg, #C1272D 0%, #4A4E52 55%, #E8631A 140%)',
   },
+  {
+    slug: 'clinica-dental-bilbao-urgencias-dentales-curico-',
+    name: 'Clínica Dental Bilbao',
+    rubro: 'Dentista y urgencias 24/7',
+    city: 'Curicó',
+    tagline: 'Panel de datos patrimonial: verde bosque, crema y latón, tabla de prestaciones con fotos.',
+    gradient: 'linear-gradient(135deg, #132A1F 0%, #1E3D2F 55%, #C8A24B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
