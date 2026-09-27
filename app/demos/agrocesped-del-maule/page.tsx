@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Unbounded, Onest } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -18,7 +19,7 @@ const C = {
   cyan: '#3CD9EC',
   cyanSoft: '#DDF4F9',
   ink: '#152930',
-  muted: '#6E7B8B',
+  muted: '#56626F',
   line: 'rgba(21,41,48,0.12)',
 }
 
@@ -110,16 +111,19 @@ export default function AgroCespedPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Hileras de maceteros con arbustos y árboles jóvenes en un vivero mayorista de San Clemente, con cerros del Maule al fondo"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(14,42,57,0.5) 0%, rgba(14,42,57,0.12) 38%, rgba(14,42,57,0.85) 100%)',
+              'linear-gradient(180deg, rgba(14,42,57,0.6) 0%, rgba(14,42,57,0.35) 35%, rgba(14,42,57,0.92) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -177,8 +181,8 @@ export default function AgroCespedPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(244,248,250,0.22)', backgroundColor: 'rgba(14,42,57,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(244,248,250,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(244,248,250,0.22)', backgroundColor: 'rgba(14,42,57,0.85)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 md:pb-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(244,248,250,0.9)' }}>
             <span>Av. Huamachuco, San Clemente</span>
             <span>Venta por volumen</span>
             <span>Retiro en vivero · despacho en la región</span>
@@ -227,7 +231,7 @@ export default function AgroCespedPage() {
                   <div className="p-7 md:p-11 flex flex-col justify-center order-2 md:order-1">
                     <span
                       className={`${display.className} font-medium text-[13px] tracking-[0.2em] mb-5 inline-flex items-center gap-3`}
-                      style={{ color: C.cyan }}
+                      style={{ color: C.blue }}
                       aria-hidden="true"
                     >
                       {String(i + 1).padStart(2, '0')}
@@ -248,11 +252,13 @@ export default function AgroCespedPage() {
                     </span>
                   </div>
                   <div className="relative order-1 md:order-2 min-h-[220px] md:min-h-0">
-                    <img
+                    <Image
                       src={l.src}
                       alt={l.alt}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover md:rounded-l-[2rem]"
+                      fill
+                      loading="eager"
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover md:rounded-l-[2rem]"
                     />
                     <span
                       className="absolute inset-0 md:rounded-l-[2rem] pointer-events-none"
@@ -485,7 +491,7 @@ export default function AgroCespedPage() {
               <br />
               <span style={{ color: C.cyan }}>Abastece tu local</span>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(244,248,250,0.78)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(244,248,250,0.9)' }}>
               Cuéntanos qué líneas mueves y te armamos una cotización
               por volumen. Respondemos el mismo día.
             </p>
@@ -504,30 +510,19 @@ export default function AgroCespedPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#F4F8FA' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,248,250,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
+            <p className={`${display.className} font-semibold text-lg mb-1`}>{BIZ.name}</p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,248,250,0.8)' }}>
+              {BIZ.address} ·{' '}
               <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,248,250,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+          <p className="text-xs" style={{ color: 'rgba(244,248,250,0.75)' }}>
+            Sitio de ejemplo por Sitiazo · textos y precios de muestra ·{' '}
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white">
               Facebook
             </a>
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(244,248,250,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(244,248,250,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            productos, precios y fotos son de muestra.
           </p>
         </div>
       </footer>
