@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Libre_Franklin, Source_Serif_4 } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_PEDIDO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -185,7 +185,7 @@ export default function FerreteriaWilliamsPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(58,21,32,0.45) 0%, rgba(58,21,32,0.10) 38%, rgba(58,21,32,0.80) 100%)',
+              'linear-gradient(180deg, rgba(58,21,32,0.60) 0%, rgba(58,21,32,0.45) 38%, rgba(58,21,32,0.90) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -243,8 +243,8 @@ export default function FerreteriaWilliamsPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(245,239,230,0.22)', backgroundColor: 'rgba(58,21,32,0.45)', backdropFilter: 'blur(6px)' }}>
-          <div className={`${display.className} max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]`} style={{ color: 'rgba(245,239,230,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(245,239,230,0.22)', backgroundColor: 'rgba(58,21,32,0.85)', backdropFilter: 'blur(6px)' }}>
+          <div className={`${display.className} max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]`} style={{ color: 'rgba(245,239,230,0.9)' }}>
             <span>{BIZ.address}</span>
             <span>{BIZ.city} · {BIZ.region}</span>
             <span>Pedidos por WhatsApp</span>
@@ -290,7 +290,7 @@ export default function FerreteriaWilliamsPage() {
                   >
                     Nº {t.num}
                   </span>
-                  <figcaption className="absolute inset-x-0 bottom-0 p-4 md:p-5" style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(58,21,32,0.82) 100%)' }}>
+                  <figcaption className="absolute inset-x-0 bottom-0 p-4 md:p-5" style={{ background: 'linear-gradient(180deg, rgba(58,21,32,0.55) 0%, rgba(58,21,32,0.92) 100%)' }}>
                     <p className={`${display.className} text-[10px] uppercase tracking-[0.2em] font-bold mb-1`} style={{ color: C.oroSoft }}>
                       {t.tag}
                     </p>
@@ -310,7 +310,7 @@ export default function FerreteriaWilliamsPage() {
                 >
                   <p
                     className={`${display.className} text-[10px] uppercase tracking-[0.2em] font-bold mb-2`}
-                    style={{ color: t.dark ? C.oroSoft : C.oro }}
+                    style={{ color: t.dark ? C.oroSoft : C.vino }}
                   >
                     {t.tag}
                   </p>
@@ -578,14 +578,15 @@ export default function FerreteriaWilliamsPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            precios, horarios y fotos son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.78)' }}>
+            Sitio de ejemplo preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.oroSoft }}>Sitiazo</a>{' '}
+            para {BIZ.name}. Textos, precios, horarios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.oroSoft }}>¿Lo hacemos realidad?</a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
