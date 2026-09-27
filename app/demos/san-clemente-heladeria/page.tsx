@@ -79,7 +79,7 @@ const FAMILIAS = [
     tint: C.tintFrambuesa,
     deep: C.frambuesaFuerte,
     flavors: [
-      { name: 'Yogur melón', color: '#EFC25E', desc: 'melón con calma y yogur', real: true },
+      { name: 'Yogur melón', color: '#EFC25E', desc: 'melón con crema y yogur', real: true },
       { name: 'Frutilla', color: '#E2477E', desc: 'dulce y rosada, pura fruta' },
       { name: 'Mora', color: '#5B2A4A', desc: 'intenso, casi vino' },
       { name: 'Frambuesa', color: '#D6336C', desc: 'ácido y fresco' },
