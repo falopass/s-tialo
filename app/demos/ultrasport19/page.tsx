@@ -129,6 +129,28 @@ function Tag({ children, dark = false }: { children: React.ReactNode; dark?: boo
   )
 }
 
+function SpecStrip({ left, right }: { left: string; right: string }) {
+  return (
+    <div className="border-b-[3px]" style={{ borderColor: C.ink, backgroundColor: C.white }}>
+      <div className="max-w-6xl mx-auto px-5 md:px-8 h-[38px] flex items-center gap-4 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold whitespace-nowrap" style={{ color: 'rgba(16,20,24,0.55)' }}>
+        <span>{left}</span>
+        <span
+          aria-hidden="true"
+          className="flex-1 h-[12px] self-end mb-[7px]"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(90deg, rgba(16,20,24,0.45) 0 1.5px, transparent 1.5px 14px)',
+            backgroundSize: '100% 12px',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'bottom',
+          }}
+        />
+        <span>{right}</span>
+      </div>
+    </div>
+  )
+}
+
 function Mark({ children }: { children: React.ReactNode }) {
   return (
     <span
@@ -187,7 +209,13 @@ export default function Ultrasport19Page() {
   return (
     <div
       className={`us19-page ${body.className} ${mono.variable} min-h-screen antialiased`}
-      style={{ backgroundColor: C.paper, color: C.ink }}
+      style={{
+        backgroundColor: C.paper,
+        color: C.ink,
+        backgroundImage:
+          'linear-gradient(rgba(16,20,24,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(16,20,24,0.045) 1px, transparent 1px)',
+        backgroundSize: '72px 72px',
+      }}
     >
       <style>{`
         .us19-page .font-mono { font-family: var(--font-us19-mono), monospace; }
@@ -318,6 +346,7 @@ export default function Ultrasport19Page() {
 
       {/* ── Entrenamiento: índice numerado con foto por bloque ── */}
       <section id="entrenamiento" className="scroll-mt-24 border-b-[3px]" style={{ borderColor: C.ink }}>
+        <SpecStrip left="Ficha — Entrenamiento" right="U19 · Pencahue" />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <SectionHead
             num="01"
@@ -476,6 +505,7 @@ export default function Ultrasport19Page() {
 
       {/* ── Precios de referencia ── */}
       <section id="precios" className="scroll-mt-24 border-b-[3px]" style={{ borderColor: C.ink }}>
+        <SpecStrip left="Lista — Precios" right="Valores de muestra" />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <SectionHead
             num="03"
@@ -500,19 +530,19 @@ export default function Ultrasport19Page() {
               {PRECIOS.map((p) => (
                 <div
                   key={p.num}
-                  className="grid md:grid-cols-[80px_1.2fr_1.6fr_180px] gap-1.5 md:gap-4 px-5 md:px-7 py-5 border-b-[3px] last:border-b-0 items-baseline"
+                  className="grid grid-cols-[auto_1fr] md:grid-cols-[80px_1.2fr_1.6fr_180px] gap-x-4 gap-y-1.5 md:gap-4 px-5 md:px-7 py-5 border-b-[3px] last:border-b-0 items-baseline"
                   style={{ borderColor: C.ink, backgroundColor: p.highlight ? C.yellow : C.white }}
                 >
-                  <span className="font-mono text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: p.highlight ? C.ink : C.slate }}>
+                  <span className="max-md:order-1 font-mono text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: p.highlight ? C.ink : C.slate }}>
                     {p.num}
                   </span>
-                  <h3 className={`${display.className} font-black uppercase text-lg md:text-xl leading-tight`}>
+                  <h3 className={`${display.className} max-md:order-3 max-md:col-span-2 font-black uppercase text-lg md:text-xl leading-tight`}>
                     {p.name}
                   </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(16,20,24,0.65)' }}>
+                  <p className="max-md:order-4 max-md:col-span-2 text-sm leading-relaxed" style={{ color: 'rgba(16,20,24,0.65)' }}>
                     {p.desc}
                   </p>
-                  <p className={`${display.className} font-black text-lg md:text-xl md:text-right`}>
+                  <p className={`${display.className} max-md:order-2 max-md:justify-self-end font-black text-lg md:text-xl md:text-right`}>
                     {p.price}
                   </p>
                 </div>
@@ -527,6 +557,7 @@ export default function Ultrasport19Page() {
 
       {/* ── Contacto ── */}
       <section id="contacto" className="scroll-mt-24 border-b-[3px]" style={{ borderColor: C.ink, backgroundColor: C.gray }}>
+        <SpecStrip left="Cómo llegar" right="WA directo" />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <SectionHead
             num="04"
