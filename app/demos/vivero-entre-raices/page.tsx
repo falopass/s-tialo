@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Playfair_Display, Lato } from 'next/font/google'
-import { DemoBand } from '../kit'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_FRUTAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -193,7 +192,7 @@ export default function ViveroEntreRaicesPage() {
             En Los Cardenales 848, la primavera se cultiva en maceta
           </h2>
           <div className="grid md:grid-cols-[1.5fr_1fr] gap-6 md:gap-12 items-end mb-8 md:mb-10">
-            <p className="text-base md:text-xl leading-relaxed" style={{ color: C.muted }}>
+            <p className="text-base md:text-xl leading-relaxed max-w-[calc(100%-3.5rem)] md:max-w-none" style={{ color: C.muted }}>
               Centro de jardinería de atención directa en Linares: plantas de
               temporada, aromáticas, frutales, maceteros y sustratos — y la
               palabra de quien las cría para que cada una llegue bien a tu casa.
@@ -298,6 +297,7 @@ export default function ViveroEntreRaicesPage() {
                   src={`${IMG}/flores.webp`}
                   alt="Macetas con lavanda, margaritas y geranios en flor"
                   fill
+                  loading="eager"
                   sizes="(min-width: 1024px) 55vw, 100vw"
                   className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
                 />
@@ -327,6 +327,7 @@ export default function ViveroEntreRaicesPage() {
                       src={n.src}
                       alt={n.alt}
                       fill
+                      loading="eager"
                       sizes="(min-width: 768px) 140px, 112px"
                       className="object-cover"
                     />
@@ -594,38 +595,23 @@ export default function ViveroEntreRaicesPage() {
 
       {/* ── Colofón ── */}
       <footer style={{ backgroundColor: C.petrolDeep, color: C.paper }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div>
-              <p className={`${display.className} font-bold text-2xl mb-2 flex items-center gap-3`}>
-                <Leaf className="w-5 h-5" color={C.mint} />
-                {BIZ.name}
-              </p>
-              <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
-                {BIZ.address} · {BIZ.city}, {BIZ.region}
-                <br />
-                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9FD8CB]">{BIZ.phoneDisplay}</a>
-              </address>
-            </div>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.62)' }}>
-              {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9FD8CB]">
-                  {l.label}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="mt-8 pt-5" style={{ borderTop: `1px solid rgba(247,249,249,0.14)` }}>
-            <p className="text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.45)' }}>
-              Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-              productos, precios, horarios y fotos son de muestra; los datos de
-              contacto, la dirección y las reseñas sí son reales.
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <p className={`${display.className} font-bold text-2xl mb-1 flex items-center gap-3`}>
+              <Leaf className="w-5 h-5" color={C.mint} />
+              {BIZ.name}
             </p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.85)' }}>
+              {BIZ.address}, {BIZ.city} ·{' '}
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9FD8CB]">{BIZ.phoneDisplay}</a>
+            </address>
           </div>
+          <p className="text-xs leading-relaxed md:max-w-[26rem]" style={{ color: 'rgba(247,249,249,0.78)' }}>
+            Mockup de Sitiazo: datos del vivero reales; textos, precios y fotos de muestra.
+          </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
