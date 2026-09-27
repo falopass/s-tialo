@@ -377,7 +377,7 @@ export default function ForasteroPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-xl px-3 py-2 flex items-center justify-center gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
+                className={`rounded-xl px-2.5 py-1.5 md:px-3 md:py-3 flex items-center justify-center gap-1.5 md:gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
                 style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
               >
                 <p className={`${display.className} font-extrabold text-xl md:text-2xl leading-none`} style={NEON_TEXT}>
@@ -391,7 +391,7 @@ export default function ForasteroPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-xl px-3 py-2 flex items-center justify-center gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
+                className={`rounded-xl px-2.5 py-1.5 md:px-3 md:py-3 flex items-center justify-center gap-1.5 md:gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
                 style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
               >
                 <p className={`${display.className} font-extrabold text-xl md:text-2xl leading-none`} style={NEON_TEXT}>
