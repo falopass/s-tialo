@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Epilogue, Work_Sans } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -139,6 +140,22 @@ function Tape({
   )
 }
 
+function Torn() {
+  return (
+    <svg
+      viewBox="0 0 1200 48"
+      preserveAspectRatio="none"
+      className="relative block w-full h-[30px] md:h-[44px]"
+      aria-hidden="true"
+    >
+      <path
+        d="M0 48 L0 26 L34 18 L78 30 L120 16 L176 28 L230 14 L288 30 L344 18 L402 32 L458 20 L520 30 L576 14 L640 28 L700 18 L762 32 L820 20 L884 30 L940 16 L1004 28 L1060 18 L1120 30 L1200 20 L1200 48 Z"
+        fill={C.paper}
+      />
+    </svg>
+  )
+}
+
 function Scissors({ className = 'w-6 h-6', color = 'currentColor' }: { className?: string; color?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -233,10 +250,13 @@ export default function HairHomeStudioPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.greenDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Cabina de Hair Home studio: camilla, lupa, vaporizador y ventanal con vista a Linares"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -252,7 +272,7 @@ export default function HairHomeStudioPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative inline-flex items-center gap-2 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg"
+              className="relative inline-flex items-center gap-2 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition duration-300 hover:scale-[1.05] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1F3229]"
               style={{
                 backgroundColor: C.mustard,
                 color: C.greenDeep,
@@ -298,14 +318,14 @@ export default function HairHomeStudioPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0]`}
                 style={{ backgroundColor: C.mustard, color: C.greenDeep, boxShadow: '0 6px 18px rgba(0,0,0,0.3)' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0]`}
                 style={{ borderColor: 'rgba(246,239,224,0.6)', color: '#F6EFE0' }}
               >
                 Ver los servicios
@@ -314,17 +334,7 @@ export default function HairHomeStudioPage() {
           </Reveal>
         </div>
         {/* borde rasgado hacia el papel */}
-        <svg
-          viewBox="0 0 1200 48"
-          preserveAspectRatio="none"
-          className="relative block w-full h-[30px] md:h-[44px]"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 48 L0 26 L34 18 L78 30 L120 16 L176 28 L230 14 L288 30 L344 18 L402 32 L458 20 L520 30 L576 14 L640 28 L700 18 L762 32 L820 20 L884 30 L940 16 L1004 28 L1060 18 L1120 30 L1200 20 L1200 48 Z"
-            fill={C.paper}
-          />
-        </svg>
+        <Torn />
       </section>
 
       {/* ── Servicios: tarjetas pegadas con cinta ── */}
@@ -345,11 +355,11 @@ export default function HairHomeStudioPage() {
             }
             note="Servicios de muestra: al publicar van los tratamientos reales del estudio, con sus tiempos y valores."
           />
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7 items-start">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7 items-start">
             {SERVICIOS.map((s, i) => (
               <Reveal key={s.name} delay={i * 90}>
-                <li
-                  className="relative p-3 pb-5 pt-6"
+                <article
+                  className="relative p-3 pb-5 pt-6 transition duration-300 hover:-translate-y-1.5"
                   style={{
                     backgroundColor: C.card,
                     transform: `rotate(${s.rot})`,
@@ -357,8 +367,14 @@ export default function HairHomeStudioPage() {
                   }}
                 >
                   <Tape className="left-1/2 -translate-x-1/2 -top-3" rot={i % 2 === 0 ? '-5deg' : '4deg'} />
-                  <div className="overflow-hidden aspect-[4/3]" style={{ backgroundColor: C.paper }}>
-                    <img src={s.src} alt={s.alt} loading="lazy" className="w-full h-full object-cover" />
+                  <div className="relative overflow-hidden aspect-[4/3]" style={{ backgroundColor: C.paper }}>
+                    <Image
+                      src={s.src}
+                      alt={s.alt}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
                   </div>
                   <div className="px-2 pt-4">
                     <span className={`${display.className} inline-block text-[10px] uppercase tracking-[0.2em] font-extrabold mb-2`} style={{ color: C.wood }}>
@@ -371,13 +387,13 @@ export default function HairHomeStudioPage() {
                       {s.desc}
                     </p>
                   </div>
-                </li>
+                </article>
               </Reveal>
             ))}
             {/* nota adhesiva con el resto */}
             <Reveal delay={280}>
-              <li
-                className="relative p-6 pt-8 lg:mt-10"
+              <article
+                className="relative p-6 pt-8 lg:mt-10 transition duration-300 hover:-translate-y-1.5"
                 style={{
                   backgroundColor: C.mustardSoft,
                   transform: 'rotate(2.2deg)',
@@ -400,14 +416,15 @@ export default function HairHomeStudioPage() {
                 <p className="mt-4 text-[11px] uppercase tracking-[0.14em] font-bold" style={{ color: C.wood }}>
                   lista de muestra
                 </p>
-              </li>
+              </article>
             </Reveal>
-          </ul>
+          </div>
         </div>
       </section>
 
       {/* ── El estudio: collage de fotos + ficha ── */}
       <section id="estudio" className="scroll-mt-20" style={{ backgroundColor: C.green }}>
+        <Torn />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           <Reveal>
             <div className="relative pb-10">
@@ -420,12 +437,15 @@ export default function HairHomeStudioPage() {
                 }}
               >
                 <Tape className="left-1/2 -translate-x-1/2 -top-3" rot="-4deg" />
-                <img
-                  src={`${IMG}/ambiente.webp`}
-                  alt="Fachada de Hair Home studio: local de esquina con ventanales y puerta de madera en Linares"
-                  loading="lazy"
-                  className="w-full object-cover aspect-[4/3]"
-                />
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={`${IMG}/ambiente.webp`}
+                    alt="Fachada de Hair Home studio: local de esquina con ventanales y puerta de madera en Linares"
+                    fill
+                    sizes="(min-width: 1024px) 44vw, 84vw"
+                    className="object-cover"
+                  />
+                </div>
                 <figcaption className={`${display.className} absolute bottom-2.5 left-0 right-0 text-center text-xs font-bold`} style={{ color: C.muted }}>
                   el local, en Los Andes
                 </figcaption>
@@ -439,12 +459,15 @@ export default function HairHomeStudioPage() {
                 }}
               >
                 <Tape className="left-1/2 -translate-x-1/2 -top-3" rot="5deg" tone="mustard" />
-                <img
-                  src={`${IMG}/detalle2.webp`}
-                  alt="Mesón de madera del estudio con plantas junto al ventanal"
-                  loading="lazy"
-                  className="w-full object-cover aspect-[5/4]"
-                />
+                <div className="relative aspect-[5/4]">
+                  <Image
+                    src={`${IMG}/detalle2.webp`}
+                    alt="Mesón de madera del estudio con plantas junto al ventanal"
+                    fill
+                    sizes="(min-width: 1024px) 26vw, 55vw"
+                    className="object-cover"
+                  />
+                </div>
                 <figcaption className={`${display.className} absolute bottom-1.5 left-0 right-0 text-center text-[10px] font-bold`} style={{ color: C.muted }}>
                   adentro: madera y plantas
                 </figcaption>
@@ -486,7 +509,7 @@ export default function HairHomeStudioPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 text-sm font-bold px-5 py-3 rounded-full transition-transform active:scale-95"
+              className="inline-flex items-center gap-2.5 text-sm font-bold px-5 py-3 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0]"
               style={{ backgroundColor: 'rgba(246,239,224,0.12)', color: '#F6EFE0', border: '1.5px solid rgba(246,239,224,0.4)' }}
             >
               <Star className="w-4 h-4" color={C.mustard} />
@@ -494,6 +517,7 @@ export default function HairHomeStudioPage() {
             </a>
           </Reveal>
         </div>
+        <Torn />
       </section>
 
       {/* ── Lo que valoran + reseñas de muestra ── */}
@@ -516,8 +540,7 @@ export default function HairHomeStudioPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
-                style={{ color: C.green, textDecorationColor: 'rgba(46,74,60,0.35)' }}
+                className="text-sm font-bold underline underline-offset-4 decoration-2 text-[#2E4A3C] decoration-[#2e4a3c59] transition-colors hover:text-[#1F3229] hover:decoration-[#1F3229] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9A441]"
               >
                 Ver la ficha en Google →
               </a>
@@ -526,7 +549,7 @@ export default function HairHomeStudioPage() {
               {TESTIMONIOS.map((t, i) => (
                 <Reveal key={i} delay={120 + i * 110}>
                   <figure
-                    className="relative p-6 pt-9"
+                    className="relative p-6 pt-9 transition duration-300 hover:-translate-y-1.5"
                     style={{
                       backgroundColor: C.card,
                       transform: `rotate(${i % 2 === 0 ? '-1.6deg' : '1.8deg'})`,
@@ -553,6 +576,7 @@ export default function HairHomeStudioPage() {
 
       {/* ── Precios: lista pegada al tablero verde ── */}
       <section id="precios" className="scroll-mt-20" style={{ backgroundColor: C.greenDeep }}>
+        <Torn />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-[1fr_1.3fr] gap-10 md:gap-16 items-center">
           <Reveal>
             <Chip rot="-2deg">Precios</Chip>
@@ -569,7 +593,7 @@ export default function HairHomeStudioPage() {
               href={WA_LINK_HORA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0]`}
               style={{ backgroundColor: C.mustard, color: C.greenDeep }}
             >
               Consultar por WhatsApp
@@ -615,6 +639,7 @@ export default function HairHomeStudioPage() {
             </div>
           </Reveal>
         </div>
+        <Torn />
       </section>
 
       {/* ── Dónde estamos ── */}
@@ -668,8 +693,7 @@ export default function HairHomeStudioPage() {
                   href={BIZ.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold underline underline-offset-4 decoration-2"
-                  style={{ color: C.green, textDecorationColor: 'rgba(46,74,60,0.35)' }}
+                  className="font-bold underline underline-offset-4 decoration-2 text-[#2E4A3C] decoration-[#2e4a3c59] transition-colors hover:text-[#1F3229] hover:decoration-[#1F3229] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9A441]"
                 >
                   {BIZ.instagramUser}
                 </a>
@@ -683,7 +707,7 @@ export default function HairHomeStudioPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-extrabold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-extrabold text-sm px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2E4A3C]`}
                 style={{ backgroundColor: C.green, color: '#F6EFE0' }}
               >
                 Agendar por WhatsApp
@@ -692,7 +716,7 @@ export default function HairHomeStudioPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-white/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2E4A3C]`}
                 style={{ borderColor: 'rgba(46,74,60,0.4)', color: C.greenDeep }}
               >
                 Cómo llegar →
@@ -732,6 +756,7 @@ export default function HairHomeStudioPage() {
           }}
           aria-hidden="true"
         />
+        <Torn />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <div className="flex justify-center mb-6">
@@ -760,7 +785,7 @@ export default function HairHomeStudioPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-extrabold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-extrabold text-sm md:text-base px-8 py-4 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0]`}
               style={{ backgroundColor: C.mustard, color: C.greenDeep, boxShadow: '0 8px 24px rgba(0,0,0,0.35)' }}
             >
               Escribir por WhatsApp
@@ -783,7 +808,11 @@ export default function HairHomeStudioPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,239,224,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a
+                key={l.href}
+                href={l.href}
+                className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9A441]"
+              >
                 {l.label}
               </a>
             ))}
