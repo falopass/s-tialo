@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Instrument_Serif, Inter } from 'next/font/google'
 import { SITE, whatsappLink } from '@/lib/config'
 import { DemoBand } from '../kit'
@@ -229,12 +230,13 @@ export default function CafeLaFrancesaPage() {
     >
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col overflow-hidden">
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior del café con mesas de madera, un capuchino junto a la ventana y la vitrina con tortas y croissants"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -354,13 +356,15 @@ export default function CafeLaFrancesaPage() {
                 className={`relative ${c.tilt} ${TILT} bg-white p-3 pb-6 shadow-[0_14px_30px_-14px_rgba(42,44,34,0.45)]`}
               >
                 <Tape className={c.tape} />
-                <img
-                  src={c.src}
-                  alt={c.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full aspect-[4/3] object-cover"
-                />
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={c.src}
+                    alt={c.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)"
+                    className="object-cover"
+                  />
+                </div>
                 <div className="px-2 pt-5">
                   <h3 className={`${display.className} text-[2rem] leading-none`} style={{ color: C.campoInk }}>
                     {c.title}
@@ -394,13 +398,15 @@ export default function CafeLaFrancesaPage() {
             <figure className={`relative rotate-2 ${TILT} bg-white p-3 pb-12 shadow-[0_18px_36px_-14px_rgba(42,44,34,0.5)]`}>
               <Tape className="bg-[#F3E3C7]/90 -top-3 -left-6 -rotate-[30deg]" />
               <Tape className="bg-[#F3E3C7]/90 -top-3 -right-6 rotate-[30deg]" />
-              <img
-                src={`${IMG}/ambiente.webp`}
-                alt="Fachada del café con grandes ventanales, puerta de madera y mesas a la vista desde la vereda"
-                loading="lazy"
-                decoding="async"
-                className="w-full aspect-[4/3] object-cover"
-              />
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={`${IMG}/ambiente.webp`}
+                  alt="Fachada del café con grandes ventanales, puerta de madera y mesas a la vista desde la vereda"
+                  fill
+                  sizes="(min-width: 1024px) 560px, calc(100vw - 2.5rem)"
+                  className="object-cover"
+                />
+              </div>
               <figcaption
                 className={`${display.className} italic absolute bottom-3 left-0 right-0 text-center text-xl`}
                 style={{ color: C.muted }}
@@ -649,11 +655,20 @@ export default function CafeLaFrancesaPage() {
           </div>
           <nav className="flex flex-wrap gap-x-7 gap-y-2 text-sm" style={{ color: 'rgba(251,247,239,0.7)' }} aria-label="Pie">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="transition-colors hover:text-[#FBF7EF]">
+              <a
+                key={l.href}
+                href={l.href}
+                className="transition-colors hover:text-[#FBF7EF] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
+              >
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#FBF7EF]">
+            <a
+              href={BIZ.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-[#FBF7EF] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
+            >
               Facebook
             </a>
           </nav>
