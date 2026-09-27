@@ -137,7 +137,7 @@ export default function ClinicaDentalSanJosePage() {
       />
 
       {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-[100svh] flex flex-col overflow-hidden">
+      <section id="inicio" className="relative min-h-[100svh] flex flex-col overflow-hidden pb-24">
         <div className="absolute inset-0" aria-hidden="true">
           <Image
             src={`${IMG}/hero.webp`}
@@ -266,6 +266,7 @@ export default function ClinicaDentalSanJosePage() {
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
                       className="object-cover"
+                      loading="eager"
                       style={{ filter: 'contrast(1.1) saturate(1.05)' }}
                     />
                     <div
@@ -362,6 +363,7 @@ export default function ClinicaDentalSanJosePage() {
                   fill
                   sizes="(min-width: 1024px) 44vw, 100vw"
                   className="object-cover"
+                  loading="eager"
                   style={{ filter: 'contrast(1.1) saturate(1.05)' }}
                 />
               </div>
@@ -582,35 +584,23 @@ export default function ClinicaDentalSanJosePage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: '#050F14', color: C.bone }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-semibold text-2xl mb-2`} style={NEON_TEXT}>
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm font-light leading-relaxed" style={{ color: C.muted }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className={`underline underline-offset-2 hover:text-white transition-colors ${FOCUS}`}>
-                {BIZ.phoneDisplay}
-              </a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: C.muted }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS}`}>
-                {l.label}
-              </a>
-            ))}
-            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className={`hover:text-white transition-colors ${FOCUS}`}>
+      <footer className="pb-24" style={{ backgroundColor: '#050F14', color: C.bone }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+          <p className={`${display.className} font-semibold text-xl mb-2`} style={NEON_TEXT}>
+            {BIZ.name}
+          </p>
+          <address className="not-italic text-sm font-light leading-relaxed" style={{ color: C.muted }}>
+            {BIZ.address} · {BIZ.city} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className={`underline underline-offset-2 hover:text-white transition-colors ${FOCUS}`}>
+              {BIZ.phoneDisplay}
+            </a>{' '}
+            ·{' '}
+            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 hover:text-white transition-colors ${FOCUS}`}>
               Instagram
             </a>
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: C.lineSoft }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs font-light leading-relaxed" style={{ color: C.faint }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios y fotos son de muestra.
+          </address>
+          <p className="mt-3 text-xs font-light" style={{ color: 'rgba(247,249,249,0.6)' }}>
+            Sitio de ejemplo de Sitiazo: textos, precios y fotos son de muestra.
           </p>
         </div>
       </footer>
