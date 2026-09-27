@@ -268,7 +268,7 @@ export default function BeautyLovePage() {
           <Reveal>
             <div className="relative">
               <div
-                className="absolute -inset-3 md:-inset-4 rounded-[30px] translate-x-3 translate-y-3"
+                className="absolute -inset-2 md:-inset-4 rounded-[30px] translate-x-1 translate-y-2 md:translate-x-3 md:translate-y-3"
                 style={{ boxShadow: TUBE }}
                 aria-hidden="true"
               />
