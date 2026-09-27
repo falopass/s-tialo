@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter } from 'next/font/google'
+import Image from 'next/image'
+import { Archivo, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Space_Grotesk({
+const display = Archivo({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['500', '600', '700', '800'],
 })
 const body = Inter({
   subsets: ['latin'],
@@ -26,18 +27,22 @@ const C = {
   sandSoft: 'rgba(237,230,218,0.72)',
 }
 
+const BTN_SOLID = `${display.className} font-bold uppercase tracking-[0.06em] text-sm md:text-base px-8 py-3.5 bg-[#E4572E] text-white transition hover:bg-[#C2491F] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`
+const BTN_GHOST = `${display.className} font-bold uppercase tracking-[0.06em] text-sm md:text-base px-8 py-3.5 border transition hover:bg-white/10 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2'
+
 export const metadata: Metadata = {
-  title: 'NAILSYUS — Salón de manicura y pedicura en Talca',
+  title: 'NAILSYUS · Salón de manicura y pedicura en Talca',
   description:
     'Salón de manicura y pedicura en Calle 24 1/2 Nte. J 4126, Talca. Agenda tu hora por WhatsApp.',
   robots: { index: false, follow: false },
 }
 
 const NAV_LINKS = [
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'El salón', href: '#salon' },
-  { label: 'Precios', href: '#precios' },
-  { label: 'Contacto', href: '#contacto' },
+  { num: '01', label: 'Servicios', href: '#servicios' },
+  { num: '02', label: 'El salón', href: '#salon' },
+  { num: '03', label: 'Precios', href: '#precios' },
+  { num: '04', label: 'Contacto', href: '#contacto' },
 ]
 
 const SERVICIOS = [
@@ -82,8 +87,8 @@ const FICHA = [
 ]
 
 const HORAS = [
-  { days: 'Lunes a viernes', time: '10:00–19:00' },
-  { days: 'Sábado', time: '10:00–14:00' },
+  { days: 'Lunes a viernes', time: '10:00-19:00' },
+  { days: 'Sábado', time: '10:00-14:00' },
 ]
 
 /** Marca de registro «+» para las esquinas de la retícula */
@@ -171,10 +176,13 @@ export default function NailsyusPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.concreteDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de NAILSYUS: estaciones de manicura con lámparas, repisas de esmaltes y vitrina a la calle"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -184,7 +192,7 @@ export default function NailsyusPage() {
           }}
         />
 
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-36 pb-10 md:pb-12">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-10 md:pb-12">
           <Reveal>
             {/* fila de registro: rótulos en mayúsculas pequeñas */}
             <div
@@ -192,12 +200,12 @@ export default function NailsyusPage() {
               style={{ borderColor: 'rgba(237,230,218,0.4)', color: 'rgba(237,230,218,0.85)' }}
             >
               <span>{BIZ.rubro}</span>
-              <span className="hidden md:inline">{BIZ.city} — {BIZ.region}</span>
+              <span className="hidden md:inline">{BIZ.city}, {BIZ.region}</span>
               <span style={{ color: C.orange }}>Sitio de ejemplo</span>
             </div>
 
             <h1
-              className={`${display.className} font-bold uppercase leading-[0.88] tracking-[-0.02em] text-[clamp(3.6rem,13vw,10.5rem)] mb-6`}
+              className={`${display.className} font-extrabold uppercase leading-[0.88] tracking-[-0.02em] text-[clamp(3rem,13vw,10.5rem)] mb-6`}
               style={{ color: C.white }}
             >
               Nails<span style={{ color: C.orange }}>yus</span>
@@ -214,14 +222,13 @@ export default function NailsyusPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold uppercase tracking-[0.06em] text-sm md:text-base px-8 py-3.5 transition-transform active:scale-95`}
-                  style={{ backgroundColor: C.orange, color: C.white }}
+                  className={BTN_SOLID}
                 >
                   Agendar por WhatsApp
                 </a>
                 <a
                   href="#servicios"
-                  className={`${display.className} font-bold uppercase tracking-[0.06em] text-sm md:text-base px-8 py-3.5 border transition-colors hover:bg-white/10`}
+                  className={BTN_GHOST}
                   style={{ borderColor: 'rgba(237,230,218,0.55)', color: C.sand }}
                 >
                   Ver servicios
@@ -239,13 +246,13 @@ export default function NailsyusPage() {
                 { k: 'Instagram', v: `@${BIZ.igUser}`, href: IG_URL },
                 { k: 'Agenda', v: 'Con hora reservada' },
               ].map((f) => (
-                <div key={f.k} className="border-l first:border-l-0 pl-4 first:pl-0 py-4" style={{ borderColor: 'rgba(237,230,218,0.35)' }}>
+                <div key={f.k} className="py-4 even:border-l even:pl-4 md:border-l md:pl-4 md:first:border-l-0 md:first:pl-0" style={{ borderColor: 'rgba(237,230,218,0.35)' }}>
                   <dt className="text-[10px] uppercase tracking-[0.28em] mb-1.5" style={{ color: 'rgba(237,230,218,0.6)' }}>
                     {f.k}
                   </dt>
                   <dd className="text-xs md:text-sm font-medium" style={{ color: C.sand }}>
                     {f.href ? (
-                      <a href={f.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 hover:opacity-80">
+                      <a href={f.href} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:opacity-80 ${FOCUS} focus-visible:outline-[#EDE6DA]`}>
                         {f.v}
                       </a>
                     ) : (
@@ -259,6 +266,27 @@ export default function NailsyusPage() {
         </div>
       </section>
 
+      {/* ── Índice: tabla de contenidos con anclas ── */}
+      <nav aria-label="Índice" className="border-b" style={{ borderColor: C.line }}>
+        <ul className="max-w-6xl mx-auto px-5 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-px" style={{ backgroundColor: C.line }}>
+          {NAV_LINKS.map((l) => (
+            <li key={l.href} style={{ backgroundColor: C.sand }}>
+              <a
+                href={l.href}
+                className={`group flex items-baseline gap-3 h-full py-4 md:py-5 px-4 md:px-5 transition-colors hover:bg-white ${FOCUS} focus-visible:outline-[#E4572E]`}
+              >
+                <span className={`${display.className} font-bold text-xs md:text-sm`} style={{ color: C.orange }}>
+                  {l.num}
+                </span>
+                <span className="text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold transition-colors group-hover:text-[#E4572E]">
+                  {l.label}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       {/* ── 01 · Servicios ── */}
       <section id="servicios" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <SectionHead num="01" title="Servicios" note="Carta de muestra" />
@@ -268,23 +296,23 @@ export default function NailsyusPage() {
               <Reveal delay={i * 80} className="h-full">
                 <div className="h-full flex flex-col">
                   <div className="relative overflow-hidden aspect-[4/5]">
-                    <img
+                    <Image
                       src={s.src}
                       alt={s.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-[1.04]"
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out hover:scale-[1.04]"
                     />
-                    <span
-                      className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.22em] font-semibold px-2.5 py-1"
-                      style={{ backgroundColor: C.sand, color: C.ink }}
-                    >
-                      {s.tag}
-                    </span>
                   </div>
                   <div className="p-5 flex-1" style={{ borderTop: `1px solid ${C.line}` }}>
-                    <p className={`${display.className} font-bold text-xs mb-2`} style={{ color: C.orange }}>
-                      {s.num}
-                    </p>
+                    <div className="flex items-baseline justify-between gap-3 mb-2">
+                      <p className={`${display.className} font-bold text-xs`} style={{ color: C.orange }}>
+                        {s.num}
+                      </p>
+                      <p className="text-[10px] uppercase tracking-[0.22em] font-medium" style={{ color: C.muted }}>
+                        {s.tag}
+                      </p>
+                    </div>
                     <h3 className={`${display.className} font-bold uppercase tracking-[0.02em] text-lg md:text-xl leading-tight mb-2`}>
                       {s.name}
                     </h3>
@@ -302,8 +330,7 @@ export default function NailsyusPage() {
               href={WA_LINK_SERVICIO}
               target="_blank"
               rel="noopener noreferrer"
-              className="h-full min-h-[280px] flex flex-col justify-between p-5 transition-colors"
-              style={{ backgroundColor: C.orange, color: C.white }}
+              className={`h-full min-h-[280px] flex flex-col justify-between p-5 bg-[#E4572E] text-white transition hover:bg-[#C2491F] ${FOCUS} focus-visible:-outline-offset-4 focus-visible:outline-white`}
             >
               <p className="text-[10px] uppercase tracking-[0.22em] font-semibold opacity-80">
                 Y lo que necesites
@@ -332,25 +359,25 @@ export default function NailsyusPage() {
                 <br />
                 <span style={{ color: C.orange }}>prolijo como taller.</span>
               </h3>
-              <p className="text-base leading-relaxed mb-5" style={{ color: C.muted }}>
+              <p className="text-base leading-relaxed mb-5 max-w-[60ch]" style={{ color: C.muted }}>
                 NAILSYUS atiende en Calle 24 1/2 Norte, en Talca. El trato es
                 directo: agenda por WhatsApp, te confirmamos la hora y el
                 puesto de trabajo está listo cuando llegas.
               </p>
-              <p className="text-base leading-relaxed mb-8" style={{ color: C.muted }}>
+              <p className="text-base leading-relaxed mb-8 max-w-[60ch]" style={{ color: C.muted }}>
                 Tiene {BIZ.reviews} reseña publicada en Google Maps y una
                 comunidad de {BIZ.igFollowers} seguidores en Instagram, donde
                 muestra los trabajos terminados.
               </p>
               <dl className="border-t" style={{ borderColor: C.line }}>
                 {FICHA.map((f) => (
-                  <div key={f.k} className="grid grid-cols-[130px_1fr] gap-4 py-3.5 border-b" style={{ borderColor: C.line }}>
+                  <div key={f.k} className="grid grid-cols-[110px_1fr] sm:grid-cols-[130px_1fr] gap-4 py-3.5 border-b" style={{ borderColor: C.line }}>
                     <dt className="text-[10px] uppercase tracking-[0.24em] font-medium pt-0.5" style={{ color: C.muted }}>
                       {f.k}
                     </dt>
                     <dd className="text-sm font-medium">
                       {f.href ? (
-                        <a href={f.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 hover:text-[#E4572E] transition-colors">
+                        <a href={f.href} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:text-[#E4572E] transition-colors ${FOCUS} focus-visible:outline-[#E4572E]`}>
                           {f.v}
                         </a>
                       ) : (
@@ -365,17 +392,20 @@ export default function NailsyusPage() {
               <figure className="relative border" style={{ borderColor: C.line }}>
                 <Mark className="-top-1.5 -left-1.5" />
                 <Mark className="-top-1.5 -right-1.5" />
-                <img
-                  src={`${IMG}/ambiente.webp`}
-                  alt="Fachada de NAILSYUS al atardecer: vitrina del salón a pie de calle en Talca"
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
-                />
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={`${IMG}/ambiente.webp`}
+                    alt="Fachada de NAILSYUS al atardecer: vitrina del salón a pie de calle en Talca"
+                    fill
+                    sizes="(min-width: 1024px) 55vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
                 <figcaption
                   className="flex items-center justify-between px-4 py-2.5 border-t text-[10px] uppercase tracking-[0.22em] font-medium"
                   style={{ borderColor: C.line, color: C.muted }}
                 >
-                  <span>Fig. 01 — El local</span>
+                  <span>Fig. 01 · El local</span>
                   <span>{BIZ.address}</span>
                 </figcaption>
               </figure>
@@ -388,41 +418,30 @@ export default function NailsyusPage() {
       <section id="precios" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <SectionHead num="03" title="Precios" note="Valores de muestra" />
         <Reveal>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse min-w-[560px]">
-              <thead>
-                <tr className="border-b" style={{ borderColor: C.line }}>
-                  {['Nº', 'Servicio', 'Incluye', 'Precio ref.'].map((h, i) => (
-                    <th
-                      key={h}
-                      className={`text-left text-[10px] uppercase tracking-[0.24em] font-semibold py-3 ${i > 0 ? 'pl-4' : ''} ${i === 3 ? 'text-right' : ''}`}
-                      style={{ color: C.muted }}
-                    >
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {PRECIOS.map((p, i) => (
-                  <tr key={p.name} className="border-b" style={{ borderColor: C.line }}>
-                    <td className={`${display.className} font-bold text-sm py-4 pr-4`} style={{ color: C.orange }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </td>
-                    <td className={`${display.className} font-bold uppercase text-base md:text-lg py-4 pl-0 pr-4`}>
-                      {p.name}
-                    </td>
-                    <td className="text-sm py-4 pl-4 pr-4" style={{ color: C.muted }}>
-                      {p.desc}
-                    </td>
-                    <td className="text-sm font-semibold py-4 pl-4 text-right whitespace-nowrap">
-                      {p.price} <span className="font-normal" style={{ color: C.muted }}>*</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <ul className="border-t" style={{ borderColor: C.line }}>
+            {PRECIOS.map((p, i) => (
+              <li
+                key={p.name}
+                className="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4 md:gap-x-8 py-4 md:py-5 border-b"
+                style={{ borderColor: C.line }}
+              >
+                <span className={`${display.className} font-bold text-sm w-8`} style={{ color: C.orange }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div className="min-w-0">
+                  <h3 className={`${display.className} font-bold uppercase text-base md:text-lg leading-tight`}>
+                    {p.name}
+                  </h3>
+                  <p className="text-sm mt-1" style={{ color: C.muted }}>
+                    {p.desc}
+                  </p>
+                </div>
+                <p className="text-sm font-semibold whitespace-nowrap">
+                  {p.price} <span className="font-normal" style={{ color: C.muted }}>*</span>
+                </p>
+              </li>
+            ))}
+          </ul>
           <p className="text-xs leading-relaxed mt-4 max-w-lg" style={{ color: C.muted }}>
             * Valores de muestra para mostrar el formato de la carta: al
             publicar van los precios reales de cada servicio.
@@ -449,8 +468,7 @@ export default function NailsyusPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold uppercase tracking-[0.06em] text-sm md:text-base px-8 py-4 transition-transform active:scale-95`}
-                  style={{ backgroundColor: C.orange, color: C.white }}
+                  className={BTN_SOLID}
                 >
                   WhatsApp {BIZ.phoneDisplay}
                 </a>
@@ -458,7 +476,7 @@ export default function NailsyusPage() {
                   href={IG_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold uppercase tracking-[0.06em] text-sm md:text-base px-8 py-4 border transition-colors hover:bg-white/10`}
+                  className={BTN_GHOST}
                   style={{ borderColor: C.lineDark, color: C.sand }}
                 >
                   @{BIZ.igUser}
@@ -504,8 +522,8 @@ export default function NailsyusPage() {
                   className="flex items-center justify-between gap-4 px-4 py-2.5 border-t text-[10px] uppercase tracking-[0.22em] font-medium"
                   style={{ borderColor: C.lineDark, color: 'rgba(237,230,218,0.55)' }}
                 >
-                  <span>Fig. 02 — Cómo llegar</span>
-                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 hover:text-white transition-colors shrink-0">
+                  <span>Fig. 02 · Cómo llegar</span>
+                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:text-white transition-colors shrink-0 ${FOCUS} focus-visible:outline-[#EDE6DA]`}>
                     Abrir en Maps →
                   </a>
                 </figcaption>
@@ -528,7 +546,7 @@ export default function NailsyusPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.55)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS} focus-visible:outline-[#EDE6DA]`}>
                 {l.label}
               </a>
             ))}
