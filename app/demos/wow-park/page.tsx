@@ -131,6 +131,7 @@ export default function WowParkPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -150,6 +151,7 @@ export default function WowParkPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.blueInk }}>
         <img
           src={`${IMG}/hero.webp`}
+          fetchPriority="high"
           alt="Interior del parque infantil Wow Park Talca: toboganes, laberinto de juegos y zonas acolchadas de colores"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -157,7 +159,7 @@ export default function WowParkPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(14,47,94,0.55) 0%, rgba(14,47,94,0.15) 38%, rgba(14,47,94,0.85) 100%)',
+              'linear-gradient(180deg, rgba(14,47,94,0.6) 0%, rgba(14,47,94,0.4) 38%, rgba(14,47,94,0.92) 100%)',
           }}
         />
         {/* globos decorativos */}
@@ -177,7 +179,7 @@ export default function WowParkPage() {
               <br />
               <span style={{ color: C.yellow }}>se cansan de verdad</span>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9 font-semibold" style={{ color: 'rgba(255,255,255,0.88)' }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9 font-semibold" style={{ color: 'rgba(255,255,255,0.95)' }}>
               Wow Park Talca: un parque infantil con juegos, inflables y
               cumpleaños en la capital del Maule. Ellos juegan, tú
               descansas.
@@ -203,8 +205,8 @@ export default function WowParkPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(255,255,255,0.22)', backgroundColor: 'rgba(14,47,94,0.55)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap items-center gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em] font-bold" style={{ color: 'rgba(255,255,255,0.8)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(255,255,255,0.22)', backgroundColor: 'rgba(14,47,94,0.88)', backdropFilter: 'blur(6px)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-16 flex flex-wrap items-center gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em] font-bold" style={{ color: 'rgba(255,255,255,0.92)' }}>
             <span>{BIZ.city} · {BIZ.region}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
@@ -297,7 +299,7 @@ export default function WowParkPage() {
               <br />
               <span style={{ color: C.yellow }}>tú solo llegas</span>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md font-semibold" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md font-semibold" style={{ color: 'rgba(255,255,255,0.92)' }}>
               Reservas el horario, cuentas cuántos invitados son y el
               equipo arma la mesa, la decoración y el juego. Los datos
               de abajo son de muestra: al publicar van los paquetes
@@ -308,7 +310,7 @@ export default function WowParkPage() {
                 <li key={item} className="flex items-center gap-3 text-sm md:text-base font-bold" style={{ color: 'rgba(255,255,255,0.92)' }}>
                   <Balloon className="w-4 h-4 shrink-0" color={C.yellow} />
                   {item}
-                  <span className="text-[10px] uppercase tracking-[0.14em] font-extrabold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(255,255,255,0.16)', color: '#FFFFFF' }}>
+                  <span className="text-[10px] uppercase tracking-[0.14em] font-extrabold px-2 py-0.5 rounded-full" style={{ backgroundColor: C.blueInk, color: '#FFFFFF' }}>
                     muestra
                   </span>
                 </li>
@@ -525,7 +527,7 @@ export default function WowParkPage() {
               <br />
               <span style={{ color: C.yellow }}>y que empiece el juego</span>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed font-semibold" style={{ color: 'rgba(255,255,255,0.8)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed font-semibold" style={{ color: 'rgba(255,255,255,0.92)' }}>
               Escríbenos por WhatsApp para reservar un cumpleaños o
               consultar por entradas y horarios. Respondemos el mismo día.
             </p>
@@ -544,29 +546,18 @@ export default function WowParkPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.blueInk, color: '#FFFFFF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 md:pb-20 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <p className={`${display.className} font-extrabold text-2xl mb-2 flex items-center gap-3`}>
+            <p className={`${display.className} font-extrabold text-xl mb-1 flex items-center gap-3`}>
               <Balloon className="w-5 h-5" color={C.yellow} />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.92)' }}>
               {BIZ.rubro} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            zonas, valores, horarios y fotos son de muestra; el nombre,
-            la comuna y el WhatsApp son datos públicos reales.
+          <p className="text-xs leading-relaxed max-w-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>
+            Sitio de ejemplo de Sitiazo: textos, valores y fotos son de muestra.
           </p>
         </div>
       </footer>
