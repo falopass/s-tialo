@@ -182,6 +182,14 @@ const BLITZ = [
     tagline: 'Directorio funcional: azul petróleo, menta y blanco roto, con fotos.',
     gradient: 'linear-gradient(135deg, #093341 0%, #0E4C5C 55%, #9FD8CB 140%)',
   },
+  {
+    slug: 'distribuidora-mym-curico',
+    name: 'Distribuidora MyM Curicó',
+    rubro: 'Tienda de artículos para el hogar',
+    city: 'Curicó',
+    tagline: 'Tipográfico industrial: hormigón, naranja construcción y arena, con fotos.',
+    gradient: 'linear-gradient(135deg, #3A3F44 0%, #E4572E 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
