@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Barlow_Condensed, Source_Serif_4 } from 'next/font/google'
-import { DemoBand } from '../kit'
+import type { CSSProperties } from 'react'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_HORA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -34,6 +35,12 @@ const GLOW_TEXT = '0 0 14px rgba(232,188,119,0.5), 0 0 44px rgba(185,139,78,0.3)
 const GLOW_ROSE = '0 0 14px rgba(226,112,143,0.55), 0 0 46px rgba(226,112,143,0.32)'
 const GLOW_FRAME =
   '0 0 0 1px rgba(185,139,78,0.45), 0 0 34px rgba(185,139,78,0.18), 0 22px 60px rgba(0,0,0,0.5)'
+
+// globals.css redefine --spacing-5…12 (gap-10 = 128px, py-12 = 240px); este demo
+// se diseñó con la escala por defecto de Tailwind (n × 4px), así que se restaura aquí.
+const SPACING = Object.fromEntries(
+  [5, 6, 7, 8, 9, 10, 11, 12].map((n) => [`--spacing-${n}`, `${n * 4}px`]),
+) as CSSProperties
 
 export const metadata: Metadata = {
   title: 'Nativa Curicó — Centro de estética en Carmen 775, Curicó',
@@ -129,7 +136,7 @@ export default function NativaCuricoPage() {
   return (
     <div
       className={`${body.className} nativa-page min-h-screen antialiased`}
-      style={{ backgroundColor: C.night, color: C.bone }}
+      style={{ ...SPACING, backgroundColor: C.night, color: C.bone }}
     >
       <style>{`
         @keyframes nativa-flicker {
@@ -671,14 +678,20 @@ export default function NativaCuricoPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.1)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.4)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Los
-            servicios, precios, horarios y textos de reseñas son de muestra.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.7)' }}>
+            Sitio de ejemplo preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.bone }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Los servicios, precios, horarios y textos de
+            reseñas son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.goldGlow }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
