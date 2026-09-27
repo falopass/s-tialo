@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Fraunces, Nunito_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import {
   BIZ,
@@ -26,7 +26,7 @@ const body = Nunito_Sans({
 const C = {
   cream: '#FDF6EC',
   creamSoft: '#F4EADA',
-  green: '#2A7F62',
+  green: '#257459',
   greenDeep: '#16493A',
   amber: '#E8A33D',
   ink: '#20261F',
@@ -34,7 +34,7 @@ const C = {
   line: 'rgba(32,38,31,0.18)',
   lineLight: 'rgba(253,246,236,0.3)',
   creamDim: 'rgba(253,246,236,0.78)',
-  creamFaint: 'rgba(253,246,236,0.55)',
+  creamFaint: 'rgba(253,246,236,0.74)',
 }
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
@@ -174,7 +174,7 @@ export default function JohnBarberPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(22,73,58,0.62) 0%, rgba(22,73,58,0.1) 45%, rgba(22,73,58,0.9) 100%)',
+              'linear-gradient(180deg, rgba(22,73,58,0.75) 0%, rgba(22,73,58,0.5) 40%, rgba(22,73,58,0.92) 100%)',
           }}
         />
         <div className="absolute top-20 md:top-24 left-5 md:left-8">
@@ -182,7 +182,7 @@ export default function JohnBarberPage() {
             <Label light>Barbería — Pencahue, Región del Maule</Label>
           </Reveal>
         </div>
-        <div className="absolute top-20 md:top-24 right-5 md:right-8">
+        <div className="hidden sm:block absolute top-20 md:top-24 right-5 md:right-8">
           <Reveal>
             <a
               href={INSTAGRAM_URL}
@@ -498,7 +498,7 @@ export default function JohnBarberPage() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-stretch">
             <Reveal>
               <div className="border h-full flex flex-col" style={{ borderColor: C.ink }}>
-                <div className="px-6 md:px-8 py-8 md:py-10 border-b" style={{ borderColor: C.line, backgroundColor: C.green }}>
+                <div className="px-6 md:px-8 py-8 md:py-10 border-b" style={{ borderColor: C.line, backgroundColor: C.greenDeep }}>
                   <Label className="mb-4" light>WhatsApp directo</Label>
                   <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-[1.08] mb-3`} style={{ color: C.cream }}>
                     La silla está lista.
@@ -581,10 +581,10 @@ export default function JohnBarberPage() {
 
       {/* ── Footer ── */}
       <footer className="border-t-2" style={{ backgroundColor: C.cream, borderColor: C.ink }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-8">
+        <div className="max-w-6xl mx-auto pl-5 pr-[4.5rem] md:px-8 pt-8 pb-20 md:pb-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-8 mb-5">
             <div>
-              <p className={`${display.className} font-semibold text-3xl md:text-4xl mb-2`} style={{ color: C.ink }}>
+              <p className={`${display.className} font-semibold text-2xl md:text-3xl mb-1`} style={{ color: C.ink }}>
                 {BIZ.name}
               </p>
               <address className="not-italic text-sm leading-relaxed" style={{ color: C.muted }}>
@@ -599,19 +599,21 @@ export default function JohnBarberPage() {
               ))}
             </nav>
           </div>
-          <div className="border-t pt-5" style={{ borderColor: C.line }}>
+          <div className="border-t pt-4" style={{ borderColor: C.line }}>
             <p className="text-xs leading-relaxed" style={{ color: C.muted }}>
-              Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-              servicios, precios, horarios y fotos son de muestra; la
-              dirección, el WhatsApp, el Instagram, sus{' '}
-              {BIZ.instagramFollowers} seguidores y las {BIZ.googleReviews}{' '}
-              reseñas en Google son los datos reales del negocio.
+              Mockup preparado por{' '}
+              <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.ink }}>
+                Sitiazo
+              </a>
+              : textos, precios, horarios y fotos de muestra.{' '}
+              <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.green }}>
+                ¿Lo hacemos realidad?
+              </a>
             </p>
           </div>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
