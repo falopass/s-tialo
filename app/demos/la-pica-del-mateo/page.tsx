@@ -46,7 +46,7 @@ export default function LaPicaDelMateoPage() {
   return (
     <div className={`${body.className} bg-[#EEF3F6] text-[#123547] antialiased`}>
       {/* ── Hero a sangre ── */}
-      <header className="relative min-h-[100svh] overflow-hidden">
+      <header className="relative min-h-[100svh] overflow-hidden bg-[#123547]">
         <Image src={`${IMG}/hero.webp`} alt="" fill priority sizes="100vw" className="object-cover" />
         <div
           className="absolute inset-0"
@@ -88,15 +88,15 @@ export default function LaPicaDelMateoPage() {
 
           <dl className="mt-14 grid grid-cols-3 max-w-[34rem] divide-x divide-white/20 border-y border-white/20 text-white">
             <div className="py-4 pr-4">
-              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/60">Google Maps</dt>
+              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/80">Google Maps</dt>
               <dd className={`${display.className} mt-1 text-2xl font-bold`}>{BIZ.reviews} <span className="text-sm font-medium">reseñas</span></dd>
             </div>
             <div className="py-4 px-4">
-              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/60">Facebook</dt>
+              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/80">Facebook</dt>
               <dd className={`${display.className} mt-1 text-2xl font-bold`}>{BIZ.followers}</dd>
             </div>
             <div className="py-4 pl-4">
-              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/60">Comuna</dt>
+              <dt className="text-[11px] uppercase tracking-[0.16em] text-white/80">Comuna</dt>
               <dd className={`${display.className} mt-1 text-base md:text-lg font-bold leading-tight`}>{BIZ.city}</dd>
             </div>
           </dl>
@@ -108,7 +108,7 @@ export default function LaPicaDelMateoPage() {
         <Reveal className="max-w-[44rem]">
           <p className={`${TAG} bg-[#1F5673] text-white`}>La carta · formatos de muestra</p>
           <h2 className={`${display.className} mt-5 text-3xl md:text-5xl font-bold tracking-tight leading-[1.05]`}>
-            Una capa por pedido. <span className="text-[#6E7B8B]">Del plato suelto a la bandeja.</span>
+            Una capa por pedido. <span className="text-[#556270]">Del plato suelto a la bandeja.</span>
           </h2>
         </Reveal>
 
@@ -124,21 +124,21 @@ export default function LaPicaDelMateoPage() {
                 style={{ backgroundColor: i % 2 ? C.blue : C.white, color: i % 2 ? C.white : C.deep }}
               >
                 <div className="relative min-h-[16rem] md:min-h-full">
-                  <Image src={`${IMG}/${c.img}`} alt={c.alt} fill sizes="(min-width: 768px) 55vw, 100vw" className="object-cover" />
-                  <span className={`${display.className} absolute top-5 left-5 rounded-full bg-[#123547]/80 text-white text-xs font-bold px-3 py-1.5 backdrop-blur`}>
+                  <Image src={`${IMG}/${c.img}`} alt={c.alt} fill loading="eager" sizes="(min-width: 768px) 55vw, 100vw" className="object-cover" />
+                  <span className={`${display.className} absolute top-5 left-5 rounded-full bg-[#123547] text-white text-xs font-bold px-3 py-1.5`}>
                     {c.n} / 0{STACK.length}
                   </span>
                 </div>
                 <div className="p-7 md:p-12 flex flex-col">
                   <div className="flex items-center gap-2">
                     <span className={`${TAG} ${i % 2 ? 'bg-white/15 text-white' : 'bg-[#EEF3F6] text-[#1F5673]'}`}>{c.tag}</span>
-                    <span className={`text-[11px] uppercase tracking-[0.16em] ${i % 2 ? 'text-white/60' : 'text-[#6E7B8B]'}`}>Muestra</span>
+                    <span className={`text-[11px] uppercase tracking-[0.16em] ${i % 2 ? 'text-white/80' : 'text-[#556270]'}`}>Muestra</span>
                   </div>
                   <h3 className={`${display.className} mt-5 text-2xl md:text-4xl font-bold tracking-tight leading-tight`}>{c.title}</h3>
-                  <p className={`mt-4 text-base md:text-lg leading-relaxed ${i % 2 ? 'text-white/80' : 'text-[#6E7B8B]'}`}>{c.desc}</p>
+                  <p className={`mt-4 text-base md:text-lg leading-relaxed ${i % 2 ? 'text-white/80' : 'text-[#556270]'}`}>{c.desc}</p>
                   <div className={`mt-auto pt-8 flex items-end gap-4 border-t ${i % 2 ? 'border-white/20' : 'border-[#123547]/10'}`}>
                     <span className={`${display.className} text-5xl md:text-6xl font-extrabold leading-none ${i % 2 ? 'text-[#3CC4DC]' : 'text-[#1F5673]'}`}>{c.stat}</span>
-                    <span className={`pb-1 text-sm leading-snug ${i % 2 ? 'text-white/70' : 'text-[#6E7B8B]'}`}>{c.statLabel}</span>
+                    <span className={`pb-1 text-sm leading-snug ${i % 2 ? 'text-white/80' : 'text-[#556270]'}`}>{c.statLabel}</span>
                   </div>
                 </div>
               </article>
@@ -156,6 +156,7 @@ export default function LaPicaDelMateoPage() {
                 src={`${IMG}/detalle1.webp`}
                 alt="Fachada de La Pica del Mateo en San Clemente, con árboles en la vereda"
                 fill
+                loading="eager"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
@@ -183,7 +184,7 @@ export default function LaPicaDelMateoPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-10 text-sm text-white/55">
+            <p className="mt-10 text-sm text-white/75">
               {BIZ.reviews} reseñas en Google Maps y {BIZ.followers} seguidores en{' '}
               <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 hover:text-white rounded-sm ${FOCUS}`}>
                 Facebook
@@ -203,7 +204,7 @@ export default function LaPicaDelMateoPage() {
               Mientras más pides, mejor sale.
             </h2>
           </div>
-          <p className="max-w-[22rem] text-sm text-[#6E7B8B] leading-relaxed">
+          <p className="max-w-[22rem] text-sm text-[#556270] leading-relaxed">
             Tabla de muestra: los productos y montos reales los define {BIZ.name}. Aquí se ve cómo se
             ordenarían por tramo de cantidad.
           </p>
@@ -228,7 +229,7 @@ export default function LaPicaDelMateoPage() {
                     {p.tiers.map((t) => (
                       <td key={t} className="px-6 py-5">
                         <p className="text-sm font-semibold">{t}</p>
-                        <p className="text-xs text-[#6E7B8B]">Precio a confirmar</p>
+                        <p className="text-xs text-[#556270]">Precio a confirmar</p>
                       </td>
                     ))}
                   </tr>
@@ -250,11 +251,11 @@ export default function LaPicaDelMateoPage() {
             <p className="mt-6 text-base md:text-lg text-white/75 leading-relaxed">
               Escribe por WhatsApp con la cantidad y la hora de retiro. Te confirman el pedido directo.
             </p>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} mt-9 px-8 py-5 text-lg self-start`}>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} mt-9 px-8 py-4 text-lg self-start`}>
               WhatsApp {BIZ.phoneDisplay}
             </a>
             <address className="not-italic mt-auto pt-12 text-white/80 leading-relaxed">
-              <span className="block text-[11px] uppercase tracking-[0.16em] text-white/55 mb-2">Dirección</span>
+              <span className="block text-[11px] uppercase tracking-[0.16em] text-white/80 mb-2">Dirección</span>
               {BIZ.address}
               <br />
               {BIZ.postal} {BIZ.city}, {BIZ.region}
@@ -300,26 +301,13 @@ export default function LaPicaDelMateoPage() {
       </section>
 
       <footer className="bg-[#123547] text-white">
-        <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-14 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} text-xl font-bold mb-3`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed text-white/60">
-              {BIZ.address}, {BIZ.city}, {BIZ.region}
-              <br />
-              {BIZ.phoneDisplay}
-            </address>
-          </div>
-          <nav className="flex flex-wrap gap-x-7 gap-y-2 text-sm text-white/60" aria-label="Pie">
-            {NAV.map((l) => (
-              <a key={l.href} href={l.href} className={`hover:text-white rounded-sm ${FOCUS}`}>{l.label}</a>
-            ))}
-          </nav>
-        </div>
-        <div className="border-t border-white/10">
-          <p className="max-w-[1200px] mx-auto px-5 md:px-8 py-5 pb-20 text-xs leading-relaxed text-white/45">
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Nombre, dirección, WhatsApp, reseñas de
-            Google y seguidores de Facebook son datos públicos reales; carta, formatos, precios y textos son
-            de muestra.
+        <div className="max-w-[1200px] mx-auto px-5 md:px-8 pt-10 pb-28">
+          <p className={`${display.className} text-lg font-bold`}>{BIZ.name}</p>
+          <address className="not-italic mt-2 text-sm leading-relaxed text-white/80">
+            {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
+          </address>
+          <p className="mt-4 text-xs leading-relaxed text-white/70">
+            Datos de contacto y reseñas reales; carta, precios y textos de muestra.
           </p>
         </div>
       </footer>
