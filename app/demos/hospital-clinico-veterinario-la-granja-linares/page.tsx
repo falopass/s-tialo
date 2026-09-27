@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Outfit, Manrope } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, WaFab } from '../blitz-kit'
@@ -55,28 +56,28 @@ const PACIENTES = [
     alt: 'Recepción de la clínica veterinaria con mesón de madera, transportadora y retratos de mascotas',
     kicker: 'atención general',
     title: 'Consulta completa, sin apuro y con el carnet al día',
-    desc: 'Evaluación general, plan de tratamiento y seguimiento. Texto de muestra: al publicar va la descripción real del servicio.',
+    desc: 'Evaluación general, plan de tratamiento y seguimiento, con el carnet sanitario siempre a la mano.',
   },
   {
     src: `${IMG}/detalle1.webp`,
     alt: 'Sala de diagnóstico con ecógrafo y mesa de examen de acero',
     kicker: 'diagnóstico por imagen',
     title: 'Ecografía en la casa: resultados sin derivar fuera',
-    desc: 'Diagnóstico por imagen dentro de la clínica para decidir rápido. Texto de muestra para ilustrar la sección.',
+    desc: 'Imágenes tomadas dentro de la clínica para decidir rápido, sin derivar a otra ciudad.',
   },
   {
     src: `${IMG}/detalle2.webp`,
     alt: 'Mesón de atención con correa, premios para mascotas y sala de espera al fondo',
     kicker: 'preventivo',
     title: 'Vacunas y desparasitación, con recordatorio incluido',
-    desc: 'Calendario completo para cachorros y adultos. Texto de muestra: al publicar van los protocolos reales.',
+    desc: 'Calendario completo para cachorros y adultos, con aviso cuando toca el refuerzo.',
   },
   {
     src: `${IMG}/detalle3.webp`,
     alt: 'Interior luminoso de la clínica veterinaria junto a la ventana',
     kicker: 'quirófano',
     title: 'Cirugías programadas con anestesia monitoreada',
-    desc: 'Esterilizaciones y cirugías menores en pabellón propio. Texto de muestra para esta edición de ejemplo.',
+    desc: 'Esterilizaciones y cirugías menores en pabellón propio, con control postoperatorio.',
   },
 ]
 
@@ -184,12 +185,12 @@ export default function LaGranjaPage() {
             <span>Linares, domingo 27 de septiembre de 2026</span>
             <nav className="flex flex-wrap gap-x-5 gap-y-1" aria-label="Secciones">
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className="hover:underline underline-offset-4" style={{ color: C.blue }}>
+                <a key={l.href} href={l.href} className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF]" style={{ color: C.blue }}>
                   {l.label}
                 </a>
               ))}
             </nav>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4" style={{ color: C.blue }}>
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF]" style={{ color: C.blue }}>
               {BIZ.reviews} reseñas en Google
             </a>
           </div>
@@ -216,12 +217,15 @@ export default function LaGranjaPage() {
       </header>
 
       {/* ── Portada: foto a sangre con titular ── */}
-      <section className="relative mt-6 md:mt-8">
+      <figure className="relative mt-6 md:mt-8">
         <div className="relative h-[64vh] md:h-[76vh] overflow-hidden" style={{ backgroundColor: C.blueDeep }}>
-          <img
+          <Image
             src={`${IMG}/hero.webp`}
             alt="Mesa de examen veterinaria con fonendoscopio e instrumental, y los cerros del Maule por la ventana"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div
             className="absolute inset-0"
@@ -234,7 +238,7 @@ export default function LaGranjaPage() {
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-4 md:top-6 right-4 md:right-6 flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg"
+            className="absolute top-4 md:top-6 right-4 md:right-6 flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]"
             style={{ backgroundColor: 'rgba(255,255,255,0.96)', color: C.blue }}
           >
             <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.blue} aria-hidden="true">
@@ -259,14 +263,14 @@ export default function LaGranjaPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 transition-transform active:scale-95`}
+                    className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]`}
                     style={{ backgroundColor: C.lime, color: C.ink }}
                   >
                     Agendar hora por WhatsApp
                   </a>
                   <a
                     href="#pacientes"
-                    className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 border-2 border-white/70 text-white transition-colors hover:bg-white/10`}
+                    className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 border-2 border-white/70 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]`}
                   >
                     Leer la edición
                   </a>
@@ -282,11 +286,12 @@ export default function LaGranjaPage() {
           <span>El box de examen listo para el primer paciente de la jornada.</span>
           <span className="not-italic uppercase tracking-[0.16em] font-bold">Foto de muestra</span>
         </figcaption>
-      </section>
+      </figure>
 
       {/* ── Entradilla en columnas con capitular + por los números ── */}
       <section className="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16">
         <Reveal>
+          <Kicker>Editorial · edición de muestra</Kicker>
           <p
             className="text-[15px] md:text-base leading-[1.75] md:columns-3 gap-8 first-letter:float-left first-letter:font-[family-name:var(--font-display)] first-letter:text-[3.6rem] first-letter:leading-[0.8] first-letter:pr-3 first-letter:pt-1 first-letter:font-extrabold first-letter:text-[#2251FF]"
             style={{ color: C.ink, columnRule: `1px solid ${C.line}` }}
@@ -307,8 +312,8 @@ export default function LaGranjaPage() {
         </Reveal>
         <Reveal delay={140}>
           <div
-            className="mt-10 grid grid-cols-2 md:grid-cols-4 border-t border-b divide-x"
-            style={{ borderColor: C.line }}
+            className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px border"
+            style={{ borderColor: C.line, backgroundColor: C.line }}
           >
             {[
               [`${BIZ.reviews}`, 'reseñas en Google'],
@@ -316,7 +321,7 @@ export default function LaGranjaPage() {
               ['Colo Colo 1634', 'a pasos del centro'],
               ['WhatsApp', 'agenda directa'],
             ].map(([v, l]) => (
-              <div key={l} className="py-5 px-4 text-center" style={{ borderColor: C.line }}>
+              <div key={l} className="py-5 px-4 text-center" style={{ backgroundColor: C.paper }}>
                 <p className={`${display.className} font-extrabold text-xl md:text-2xl leading-none mb-1.5`} style={{ color: C.blue }}>
                   {v}
                 </p>
@@ -350,12 +355,13 @@ export default function LaGranjaPage() {
             {PACIENTES.map((n, i) => (
               <Reveal key={n.title} delay={i * 90}>
                 <article>
-                  <div className="overflow-hidden mb-4" style={{ border: `1px solid ${C.line}` }}>
-                    <img
+                  <div className="relative overflow-hidden mb-4 aspect-[16/10]" style={{ border: `1px solid ${C.line}` }}>
+                    <Image
                       src={n.src}
                       alt={n.alt}
-                      loading="lazy"
-                      className="w-full object-cover aspect-[16/10] transition-transform duration-700 ease-out hover:scale-[1.03]"
+                      fill
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
                     />
                   </div>
                   <p className="text-[10px] font-extrabold uppercase tracking-[0.24em] mb-1.5" style={{ color: C.blue }}>
@@ -465,8 +471,8 @@ export default function LaGranjaPage() {
                   href={BIZ.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 block text-center text-sm font-bold px-4 py-3 border-2 transition-colors"
-                  style={{ borderColor: C.blue, color: C.blue }}
+                  className="mt-5 block text-center text-sm font-bold px-4 py-3 border-2 text-[#2251FF] transition-colors hover:bg-[#2251FF] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF]"
+                  style={{ borderColor: C.blue }}
                 >
                   Ver Instagram →
                 </a>
@@ -526,7 +532,7 @@ export default function LaGranjaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]`}
                 style={{ backgroundColor: C.lime, color: C.ink }}
               >
                 Consultar valor exacto →
@@ -574,8 +580,8 @@ export default function LaGranjaPage() {
                     {BIZ.address}, {BIZ.city}, {BIZ.region}
                   </address>
                   <p className="text-sm leading-relaxed mb-8" style={{ color: 'rgba(16,21,43,0.72)' }}>
-                    Horarios según agenda del día: confirma disponibilidad
-                    escribiendo directo. Texto de muestra.
+                    Atención según la agenda del día: escribe directo y te
+                    confirman la hora al tiro.
                   </p>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -583,7 +589,7 @@ export default function LaGranjaPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} block text-center font-bold text-base md:text-lg px-7 py-4 transition-transform active:scale-95`}
+                    className={`${display.className} block text-center font-bold text-base md:text-lg px-7 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#10152B]`}
                     style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
                   >
                     Agendar por WhatsApp — {BIZ.phoneDisplay}
@@ -592,8 +598,8 @@ export default function LaGranjaPage() {
                     href={WA_LINK_URGENCIA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} block text-center font-bold text-sm px-7 py-3 border-2 transition-colors`}
-                    style={{ borderColor: C.ink, color: C.ink }}
+                    className={`${display.className} block text-center font-bold text-sm px-7 py-3 border-2 text-[#10152B] transition-colors hover:bg-[#10152B] hover:text-[#C6F24E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#10152B]`}
+                    style={{ borderColor: C.ink }}
                   >
                     Tengo una urgencia →
                   </a>
@@ -626,14 +632,14 @@ export default function LaGranjaPage() {
               Hospital Clínico Veterinario · {BIZ.address}
               <br />
               {BIZ.city}, {BIZ.region} ·{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]">
                 {BIZ.phoneDisplay}
               </a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]">
                 {l.label}
               </a>
             ))}
