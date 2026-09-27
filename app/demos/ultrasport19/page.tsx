@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Bitter, Rubik, Space_Mono } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_CLASE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -218,6 +218,7 @@ export default function Ultrasport19Page() {
       }}
     >
       <style>{`
+        html { scroll-behavior: auto }
         .us19-page .font-mono { font-family: var(--font-us19-mono), monospace; }
         .us19-page a:focus-visible, .us19-page button:focus-visible, .us19-page summary:focus-visible {
           outline: 3px solid #F2B705;
@@ -381,6 +382,7 @@ export default function Ultrasport19Page() {
                         alt={s.alt}
                         fill
                         sizes="(min-width: 1024px) 340px, (min-width: 768px) 280px, 92vw"
+                        loading="eager"
                         className="object-cover"
                       />
                     </figure>
@@ -426,6 +428,7 @@ export default function Ultrasport19Page() {
                   alt="Fachada de Ultrasport19: edificio de hormigón a nivel de calle con ventanales donde se ven las máquinas"
                   fill
                   sizes="(min-width: 1024px) 45vw, 92vw"
+                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -663,37 +666,25 @@ export default function Ultrasport19Page() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.ink, color: C.paper }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-black uppercase text-2xl mb-2 flex items-center gap-3`}>
-              <span className="inline-block px-2 py-0.5 border-[3px] text-base" style={{ backgroundColor: C.yellow, color: C.ink, borderColor: C.yellow }}>
-                U19
-              </span>
-              {BIZ.name}
-            </p>
-            <address className="not-italic font-mono text-[11px] uppercase tracking-[0.16em] leading-relaxed" style={{ color: 'rgba(245,244,239,0.6)' }}>
-              {BIZ.city} · {BIZ.region} · {BIZ.postal}
-              <br />
-              {BIZ.email}
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.16em] font-bold" style={{ color: 'rgba(245,244,239,0.65)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(245,244,239,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 font-mono text-[10px] uppercase tracking-[0.14em] leading-relaxed" style={{ color: 'rgba(245,244,239,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios, horarios y fotos son de muestra.
+        <div className="max-w-6xl mx-auto pl-5 pr-20 md:pl-8 py-6 flex flex-col gap-2">
+          <p className={`${display.className} font-black uppercase text-xl flex items-center gap-3`}>
+            <span className="inline-block px-2 py-0.5 border-[3px] text-sm" style={{ backgroundColor: C.yellow, color: C.ink, borderColor: C.yellow }}>
+              U19
+            </span>
+            {BIZ.name}
+          </p>
+          <address className="not-italic font-mono text-[11px] uppercase tracking-[0.16em]" style={{ color: 'rgba(245,244,239,0.75)' }}>
+            {BIZ.city} · {BIZ.region} · {BIZ.email}
+          </address>
+          <p className="text-xs leading-relaxed" style={{ color: 'rgba(245,244,239,0.78)' }}>
+            Sitio de ejemplo preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellow }}>Sitiazo</a>{' '}
+            para {BIZ.name}. Textos, precios, horarios y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellow }}>¿Lo hacemos realidad?</a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
