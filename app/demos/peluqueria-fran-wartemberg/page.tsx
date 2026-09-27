@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Bricolage_Grotesque, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab, FaqList } from '../blitz-kit'
@@ -187,6 +188,15 @@ const CARTA: { icon: keyof typeof ICON_PATHS; name: string; desc: string; price:
   },
 ]
 
+// Ficha rápida al estilo directorio: los datos que se buscan primero.
+// El horario es de muestra; al publicar va el horario real del local.
+const FICHA: { t: string; d: string; href?: string }[] = [
+  { t: 'Dirección', d: `${BIZ.address}, ${BIZ.city}`, href: MAPS_URL },
+  { t: 'WhatsApp', d: BIZ.phoneDisplay, href: WA_LINK },
+  { t: 'Horario de muestra', d: 'Lun a Sáb · 10:00–19:30' },
+  { t: 'Agenda', d: 'Solo con hora por WhatsApp' },
+]
+
 const FAQS = [
   {
     q: '¿Tengo que pedir hora o puedo llegar directo?',
@@ -241,7 +251,9 @@ function WaButton({ href, label, ghost = false }: { href: string; label: string;
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${display.className} inline-block font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+      className={`${display.className} inline-block font-bold text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current ${
+        ghost ? 'hover:bg-white/10' : 'hover:brightness-95'
+      }`}
       style={
         ghost
           ? { border: `1.5px solid rgba(255,255,255,0.55)`, color: '#FFFFFF' }
@@ -275,11 +287,14 @@ export default function PeluqueriaFranWartembergPage() {
       />
 
       {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.taller }}>
-        <img
+      <section id="inicio" className="relative min-h-[88svh] flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.taller }}>
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de la peluquería: sillas negras frente a espejos con marco de madera y ventanales a la calle"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -295,7 +310,7 @@ export default function PeluqueriaFranWartembergPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95"
               style={{ backgroundColor: C.signal, color: C.taller }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -326,7 +341,7 @@ export default function PeluqueriaFranWartembergPage() {
               <WaButton href={WA_LINK} label="Agendar hora por WhatsApp" />
               <a
                 href="#carta"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-[1.5px] transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-[1.5px] transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver carta de servicios
@@ -347,6 +362,37 @@ export default function PeluqueriaFranWartembergPage() {
 
       <HazardBar />
 
+      {/* ── Ficha rápida: los datos del local, estilo directorio ── */}
+      <section aria-label="Datos del local" className="border-b" style={{ borderColor: C.line }}>
+        <dl className="max-w-6xl mx-auto px-5 md:px-8 py-9 md:py-11 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-7">
+          {FICHA.map((f) => (
+            <div key={f.t} className="border-l-[3px] pl-4" style={{ borderColor: C.signal }}>
+              <dt
+                className="text-[11px] uppercase tracking-[0.2em] font-bold mb-1.5"
+                style={{ color: C.muted }}
+              >
+                {f.t}
+              </dt>
+              <dd className="text-sm md:text-base font-semibold leading-snug" style={{ color: C.taller }}>
+                {f.href ? (
+                  <a
+                    href={f.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                    style={{ textDecorationColor: C.signal }}
+                  >
+                    {f.d}
+                  </a>
+                ) : (
+                  f.d
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
       {/* ── Servicios de la casa (con foto) ── */}
       <section id="servicios" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
@@ -355,7 +401,7 @@ export default function PeluqueriaFranWartembergPage() {
             <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.02] uppercase`} style={{ color: C.taller }}>
               Tres estaciones,
               <br />
-              <span style={{ color: C.steel }}>un trabajo bien hecho</span>
+              <span style={{ color: C.muted }}>un trabajo bien hecho</span>
             </h2>
             <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
               Servicios de muestra: al publicar va la oferta real de la
@@ -371,11 +417,13 @@ export default function PeluqueriaFranWartembergPage() {
                 style={{ borderColor: C.line, backgroundColor: i % 2 === 1 ? C.soft : C.paper }}
               >
                 <div className="relative overflow-hidden aspect-[16/10] md:aspect-auto md:min-h-[220px]">
-                  <img
+                  <Image
                     src={s.src}
                     alt={s.alt}
+                    fill
                     loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    sizes="(min-width: 1024px) 340px, (min-width: 768px) 300px, 100vw"
+                    className="object-cover"
                   />
                   <span
                     className="absolute top-0 left-0 font-mono text-[11px] font-bold px-3 py-1.5 tracking-[0.12em]"
@@ -431,7 +479,7 @@ export default function PeluqueriaFranWartembergPage() {
               {CARTA.map((item, i) => (
                 <li
                   key={item.name}
-                  className="flex items-center gap-4 md:gap-6 py-4 md:py-5 border-b"
+                  className="flex items-center gap-4 md:gap-6 py-4 md:py-5 border-b transition-colors hover:bg-white/5"
                   style={{ borderColor: C.lineLight }}
                 >
                   <span className="hidden sm:block font-mono text-[11px] w-7 shrink-0 tracking-[0.1em]" style={{ color: C.steel }} aria-hidden="true">
@@ -470,12 +518,14 @@ export default function PeluqueriaFranWartembergPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
             <Reveal>
-              <div className="relative overflow-hidden border" style={{ borderColor: C.line, boxShadow: '0 18px 44px rgba(23,24,26,0.16)' }}>
-                <img
+              <div className="relative overflow-hidden border aspect-[4/3]" style={{ borderColor: C.line, boxShadow: '0 18px 44px rgba(23,24,26,0.16)' }}>
+                <Image
                   src={`${IMG}/ambiente.webp`}
                   alt="Fachada de la peluquería en un barrio de Curicó: local a pie de vereda con vitrina y sillas visibles"
+                  fill
                   loading="lazy"
-                  className="w-full h-full object-cover aspect-[4/3]"
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
                 />
                 <span
                   className="absolute bottom-0 left-0 font-mono text-[11px] font-bold px-3 py-1.5 tracking-[0.12em]"
@@ -490,7 +540,7 @@ export default function PeluqueriaFranWartembergPage() {
               <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.02] mb-6 uppercase`} style={{ color: C.taller }}>
                 De barrio,
                 <br />
-                <span style={{ color: C.steel }}>como tiene que ser</span>
+                <span style={{ color: C.muted }}>como tiene que ser</span>
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
                 Peluquería Fran Wartemberg atiende en Matilde Pérez 2268,
@@ -514,7 +564,7 @@ export default function PeluqueriaFranWartembergPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
                 style={{ color: C.taller, textDecorationColor: C.signal }}
               >
                 Ver la página en Facebook →
@@ -538,7 +588,7 @@ export default function PeluqueriaFranWartembergPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
                   style={{ color: C.taller, textDecorationColor: C.signal }}
                 >
                   Ver la ficha en Google →
@@ -558,7 +608,7 @@ export default function PeluqueriaFranWartembergPage() {
                       <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.ink }}>
                         “{t}”
                       </blockquote>
-                      <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.steel }}>
+                      <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.muted }}>
                         Reseña de ejemplo
                       </figcaption>
                     </figure>
@@ -597,7 +647,7 @@ export default function PeluqueriaFranWartembergPage() {
             <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.02] mb-6 uppercase`} style={{ color: C.taller }}>
               {BIZ.address},
               <br />
-              <span style={{ color: C.steel }}>{BIZ.city}</span>
+              <span style={{ color: C.muted }}>{BIZ.city}</span>
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
               {BIZ.address}
@@ -615,7 +665,7 @@ export default function PeluqueriaFranWartembergPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current`}
                 style={{ backgroundColor: C.taller, color: C.signal }}
               >
                 Agendar por WhatsApp
@@ -624,7 +674,7 @@ export default function PeluqueriaFranWartembergPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 border-[1.5px] transition-colors`}
+                className={`${display.className} font-bold text-sm px-6 py-3 border-[1.5px] transition-colors hover:bg-[#17181A] hover:text-[#FFC300] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current`}
                 style={{ borderColor: C.taller, color: C.taller }}
               >
                 Cómo llegar →
