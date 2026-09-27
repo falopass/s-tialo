@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Prata, Mulish } from 'next/font/google'
-import { DemoBand, Motif } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
+import { Motif } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_EVAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -22,8 +23,9 @@ const C = {
   sandSoft: '#F6F1E6',
   terra: '#C1663F',
   terraSoft: '#E4B08F',
+  terraInk: '#9A4A28',
   white: '#FCFAF4',
-  muted: '#5E6B7E',
+  muted: '#4E5A6C',
   lineLight: 'rgba(27,42,65,0.14)',
   lineDark: 'rgba(232,220,200,0.22)',
 }
@@ -94,7 +96,7 @@ function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?:
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-bold"
-      style={{ color: dark ? C.terraSoft : C.terra }}
+      style={{ color: dark ? C.terraSoft : C.terraInk }}
     >
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
@@ -138,7 +140,7 @@ export default function AtlantixPage() {
         style={{ backgroundColor: C.night }}
       >
         <div
-          className="absolute -right-16 top-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none"
           style={{ color: C.sand, opacity: 0.05 }}
           aria-hidden="true"
         >
@@ -254,7 +256,7 @@ export default function AtlantixPage() {
               </svg>
               {BIZ.reviews} reseñas en Google
             </span>
-            <span className="hidden md:inline" style={{ color: 'rgba(232,220,200,0.4)' }}>sitio de ejemplo</span>
+            <span className="hidden md:inline" style={{ color: 'rgba(232,220,200,0.72)' }}>sitio de ejemplo</span>
           </div>
         </div>
       </section>
@@ -267,7 +269,7 @@ export default function AtlantixPage() {
             <h2 className={`${display.className} text-4xl md:text-6xl leading-[1.02]`}>
               De la limpieza
               <br />
-              <span style={{ color: C.terra }}>a la ortodoncia</span>
+              <span style={{ color: C.terraInk }}>a la ortodoncia</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
               Esto es una muestra del listado: al publicar van los
@@ -288,18 +290,19 @@ export default function AtlantixPage() {
                     alt={s.name}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
+                    loading="eager"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
                     className={`${display.className} absolute top-4 left-4 text-lg w-11 h-11 rounded-full flex items-center justify-center shadow-sm`}
-                    style={{ backgroundColor: 'rgba(246,241,230,0.95)', color: C.terra }}
+                    style={{ backgroundColor: 'rgba(246,241,230,0.95)', color: C.terraInk }}
                     aria-hidden="true"
                   >
                     {s.num}
                   </span>
                 </div>
                 <div className="p-6 md:p-7 flex flex-col flex-1">
-                  <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-2" style={{ color: C.terra }}>
+                  <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-2" style={{ color: C.terraInk }}>
                     {s.tag}
                   </p>
                   <h3 className={`${display.className} text-xl md:text-2xl leading-snug mb-2.5`}>
@@ -433,7 +436,7 @@ export default function AtlantixPage() {
             <h2 className={`${display.className} text-4xl md:text-6xl leading-[1.02]`}>
               Precios claros,
               <br />
-              <span style={{ color: C.terra }}>antes de partir</span>
+              <span style={{ color: C.terraInk }}>antes de partir</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
               Los valores de esta tabla son de muestra: al publicar van
@@ -454,7 +457,7 @@ export default function AtlantixPage() {
                   <p className="text-xs md:text-sm md:hidden" style={{ color: C.muted }}>{p.desc}</p>
                 </div>
                 <p className="hidden md:block text-sm" style={{ color: C.muted }}>{p.desc}</p>
-                <p className={`${display.className} text-lg md:text-2xl whitespace-nowrap`} style={{ color: C.terra }}>
+                <p className={`${display.className} text-lg md:text-2xl whitespace-nowrap`} style={{ color: C.terraInk }}>
                   {p.price}
                 </p>
               </li>
@@ -478,7 +481,7 @@ export default function AtlantixPage() {
             <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-6`}>
               Sgto. Aldea 2610,
               <br />
-              <span style={{ color: C.terra }}>San Javier</span>
+              <span style={{ color: C.terraInk }}>San Javier</span>
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
               {BIZ.address}
@@ -610,16 +613,16 @@ export default function AtlantixPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(232,220,200,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(232,220,200,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-            Textos, servicios, precios, horarios, reseñas y fotos son de
-            muestra; el nombre, la dirección, el WhatsApp y el conteo de
-            reseñas son datos públicos reales.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 text-xs leading-relaxed" style={{ color: 'rgba(232,220,200,0.78)' }}>
+            Sitio de ejemplo preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.terraSoft }}>Sitiazo</a>{' '}
+            para {BIZ.name}. Textos, servicios, precios, horarios, reseñas y
+            fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.terraSoft }}>¿Lo hacemos realidad?</a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
