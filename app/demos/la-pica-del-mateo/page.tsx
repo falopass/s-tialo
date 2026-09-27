@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Unbounded, Onest } from 'next/font/google'
-import { SITE, whatsappLink } from '@/lib/config'
 import { DemoBand } from '../kit'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, STACK, PRICES, VALUES } from './content'
@@ -163,7 +162,7 @@ export default function LaPicaDelMateoPage() {
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <p className={`${TAG} bg-white/10 text-[#3CC4DC]`}>El local</p>
+            <p className={`${TAG} bg-white/10 text-white`}>El local</p>
             <h2 className={`${display.className} mt-5 text-3xl md:text-5xl font-bold tracking-tight leading-[1.05]`}>
               En San Clemente, a la entrada de la cordillera.
             </h2>
@@ -219,7 +218,7 @@ export default function LaPicaDelMateoPage() {
                   <th scope="col" className="px-6 py-4 font-semibold">Producto</th>
                   <th scope="col" className="px-6 py-4 font-semibold">Tramo 1</th>
                   <th scope="col" className="px-6 py-4 font-semibold">Tramo 2</th>
-                  <th scope="col" className="px-6 py-4 font-semibold text-[#3CC4DC]">Tramo 3 · mejor precio</th>
+                  <th scope="col" className="px-6 py-4 font-semibold bg-[#123547] text-[#3CC4DC]">Tramo 3 · mejor precio</th>
                 </tr>
               </thead>
               <tbody>
@@ -244,7 +243,7 @@ export default function LaPicaDelMateoPage() {
       <section id="contacto" className="bg-[#1F5673] text-white">
         <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-24 md:py-32 grid md:grid-cols-[1fr_1.1fr] gap-12 items-stretch">
           <Reveal className="flex flex-col">
-            <p className={`${TAG} bg-white/10 text-[#3CC4DC] self-start`}>Contacto</p>
+            <p className={`${TAG} bg-white/10 text-white self-start`}>Contacto</p>
             <h2 className={`${display.className} mt-5 text-3xl md:text-5xl font-bold tracking-tight leading-[1.05]`}>
               Dinos cuánto y para cuándo.
             </h2>
@@ -260,7 +259,7 @@ export default function LaPicaDelMateoPage() {
               <br />
               {BIZ.postal} {BIZ.city}, {BIZ.region}
               <br />
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`inline-block mt-3 font-semibold text-[#3CC4DC] underline underline-offset-4 rounded-sm ${FOCUS}`}>
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`inline-block mt-3 font-semibold text-white underline underline-offset-4 rounded-sm ${FOCUS}`}>
                 Cómo llegar en Google Maps
               </a>
             </address>
@@ -279,29 +278,8 @@ export default function LaPicaDelMateoPage() {
         </div>
       </section>
 
-      {/* ── Franja Sitiazo ── */}
-      <section className="bg-[#3CC4DC] text-[#123547]">
-        <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <p className="text-sm md:text-[15px] leading-relaxed">
-            Sitio de ejemplo de{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-4 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123547]">
-              Sitiazo
-            </a>{' '}
-            para {BIZ.name}. Así se vería su página publicada.
-          </p>
-          <a
-            href={whatsappLink('contacto')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 text-sm font-bold underline underline-offset-4 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123547]"
-          >
-            ¿Lo hacemos realidad?
-          </a>
-        </div>
-      </section>
-
       <footer className="bg-[#123547] text-white">
-        <div className="max-w-[1200px] mx-auto px-5 md:px-8 pt-10 pb-28">
+        <div className="max-w-[1200px] mx-auto px-5 md:px-8 pt-8 pb-24">
           <p className={`${display.className} text-lg font-bold`}>{BIZ.name}</p>
           <address className="not-italic mt-2 text-sm leading-relaxed text-white/80">
             {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
