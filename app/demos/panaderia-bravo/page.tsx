@@ -122,24 +122,28 @@ export default function PanaderiaBravoPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(251,245,233,0.94)',
-          ink: C.chocoDeep,
-          line: C.line,
-          btnBg: C.berry,
-          btnInk: '#FBF5E9',
-        }}
-      />
+      {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
+      <div style={{ backgroundColor: C.chocoDeep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(251,245,233,0.94)',
+            ink: C.chocoDeep,
+            line: C.line,
+            btnBg: C.berry,
+            btnInk: '#FBF5E9',
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.chocoDeep }}>
         <img
+          loading="eager"
           src={`${IMG}/hero.webp`}
           alt="Interior de Panadería Bravo: vitrina con panes y masas dulces recién horneadas"
           fetchPriority="high"
@@ -244,6 +248,7 @@ export default function PanaderiaBravoPage() {
               >
                 <div className="relative overflow-hidden aspect-[16/10]">
                   <img
+                    loading="eager"
                     src={p.src}
                     alt={p.name}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
@@ -285,6 +290,7 @@ export default function PanaderiaBravoPage() {
           <Reveal>
             <div className="rounded-3xl overflow-hidden rotate-[-1.2deg]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
               <img
+                loading="eager"
                 src={`${IMG}/torta.webp`}
                 alt="Torta de crema y nuez con fruta fresca de Panadería Bravo"
                 className="w-full h-full object-cover aspect-[4/3]"
@@ -341,19 +347,19 @@ export default function PanaderiaBravoPage() {
         <Reveal delay={120}>
           <div className="grid grid-cols-2 md:grid-cols-6 md:auto-rows-[215px] lg:auto-rows-[250px] gap-3">
             <figure className="col-span-2 md:col-span-4 md:row-span-2 rounded-3xl overflow-hidden">
-              <img src={`${IMG}/hero.webp`} alt="Interior de la panadería con vitrina de panes" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
+              <img loading="eager" src={`${IMG}/hero.webp`} alt="Interior de la panadería con vitrina de panes" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
             </figure>
             <figure className="rounded-3xl overflow-hidden">
-              <img src={`${IMG}/panes.webp`} alt="Pan amasado y marraquetas recién horneadas" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+              <img loading="eager" src={`${IMG}/panes.webp`} alt="Pan amasado y marraquetas recién horneadas" className="w-full h-full object-cover aspect-square md:aspect-auto" />
             </figure>
             <figure className="rounded-3xl overflow-hidden">
-              <img src={`${IMG}/cafe.webp`} alt="Café humeante con pastelito en la mesa de la panadería" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+              <img loading="eager" src={`${IMG}/cafe.webp`} alt="Café humeante con pastelito en la mesa de la panadería" className="w-full h-full object-cover aspect-square md:aspect-auto" />
             </figure>
             <figure className="col-span-2 md:col-span-3 rounded-3xl overflow-hidden">
-              <img src={`${IMG}/dulces.webp`} alt="Berlines con manjar, alfajores y hojarascas" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+              <img loading="eager" src={`${IMG}/dulces.webp`} alt="Berlines con manjar, alfajores y hojarascas" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
             </figure>
             <figure className="col-span-2 md:col-span-3 rounded-3xl overflow-hidden">
-              <img src={`${IMG}/torta.webp`} alt="Torta de celebración con crema y fruta" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+              <img loading="eager" src={`${IMG}/torta.webp`} alt="Torta de celebración con crema y fruta" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
             </figure>
           </div>
         </Reveal>
@@ -511,34 +517,25 @@ export default function PanaderiaBravoPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.chocoDeep, color: '#FBF5E9' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
-          <div>
-            <p className={`${display.className} font-extrabold text-2xl mb-2 flex items-center gap-3`}>
-              <Wheat className="w-5 h-5" color={C.gold} />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,245,233,0.8)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,245,233,0.8)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6">
+          <p className={`${display.className} font-extrabold text-xl mb-1 flex items-center gap-3`}>
+            <Wheat className="w-5 h-5" color={C.gold} />
+            {BIZ.name}
+          </p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,245,233,0.8)' }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region}
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,245,233,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-24 text-xs leading-relaxed" style={{ color: 'rgba(251,245,233,0.8)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-4 text-xs leading-relaxed" style={{ color: 'rgba(251,245,233,0.8)' }}>
             Sitio de ejemplo de Sitiazo: textos, productos, horarios y fotos son de muestra.
           </p>
         </div>
+        {/* aviso de Sitiazo en el flujo (no flotante) para que no tape contenido; pb deja libre la burbuja de WhatsApp */}
+        <div className="px-4 pb-20 [&>div]:static [&>div]:max-w-full [&>div]:w-fit [&>div]:mx-auto [&>div]:rounded-2xl [&>div]:bg-[#0A0A0A]">
+          <DemoBand name={BIZ.name} />
+        </div>
       </footer>
-
-      <div className="contents [&>div]:bg-[#0A0A0A]">
-        <DemoBand name={BIZ.name} />
-      </div>
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
