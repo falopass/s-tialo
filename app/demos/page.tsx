@@ -598,6 +598,14 @@ const BLITZ = [
     tagline: 'Cuadrícula suiza: verde veterinario, crema y ámbar, reglas finas y cartel moderno con fotos.',
     gradient: 'linear-gradient(135deg, #16493A 0%, #2A7F62 55%, #E8A33D 140%)',
   },
+  {
+    slug: 'ferreteria-don-jack',
+    name: 'Ferretería Don Jack',
+    rubro: 'Ferretería',
+    city: 'Pencahue',
+    tagline: 'Carta de la casa: verde campo, tierra y crema, capítulos con numeral romano, puntos guía y carta al vecino.',
+    gradient: 'linear-gradient(135deg, #2A3D21 0%, #4C6B3C 55%, #8C6239 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
