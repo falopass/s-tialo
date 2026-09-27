@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Playfair_Display, Lato } from 'next/font/google'
 import { SITE, whatsappLink } from '@/lib/config'
-import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_FACIAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -27,7 +26,7 @@ const C = {
 }
 
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4'
-const BTN = `${FOCUS} inline-flex items-center justify-center min-h-12 px-7 text-sm md:text-base font-bold tracking-wide transition-colors duration-300`
+const BTN = `${FOCUS} inline-flex items-center justify-center min-h-11 px-5 py-2 text-sm font-bold tracking-wide transition-colors duration-300`
 const BTN_MINT = `${BTN} bg-[#9FD8CB] text-[#09333D] hover:bg-[#F7F9F9]`
 const BTN_PETROL = `${BTN} bg-[#0E4C5C] text-[#F7F9F9] hover:bg-[#09333D]`
 const LINK = `${FOCUS} underline underline-offset-4 decoration-2 decoration-[#9FD8CB] hover:decoration-[#0E4C5C] transition-colors`
@@ -162,6 +161,7 @@ export default function IssaBellaPage() {
       className={`${body.className} min-h-screen antialiased overflow-x-clip`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <div style={{ backgroundColor: C.petrolDeep }}>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -176,6 +176,7 @@ export default function IssaBellaPage() {
           btnInk: C.paper,
         }}
       />
+      </div>
 
       {/* ── Portada: foto a sangre con nameplate de revista ── */}
       <header
@@ -304,7 +305,7 @@ export default function IssaBellaPage() {
           style={{ borderColor: C.lineLight, backgroundColor: 'rgba(9,51,61,0.55)', backdropFilter: 'blur(6px)' }}
         >
           <div
-            className={`${WRAP} py-3.5 flex flex-wrap gap-x-8 gap-y-1 text-[11px] uppercase tracking-[0.18em]`}
+            className={`${WRAP} pr-20 md:pr-24 py-3.5 flex flex-wrap gap-x-8 gap-y-1 text-[11px] uppercase tracking-[0.18em]`}
             style={{ color: 'rgba(247,249,249,0.75)' }}
           >
             <span>{BIZ.address}, {BIZ.city}</span>
@@ -342,6 +343,7 @@ export default function IssaBellaPage() {
                     alt={t.alt}
                     fill
                     sizes={t.sizes}
+                    loading="eager"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
@@ -401,6 +403,7 @@ export default function IssaBellaPage() {
                     alt={t.alt}
                     fill
                     sizes={t.sizes}
+                    loading="eager"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
@@ -421,11 +424,12 @@ export default function IssaBellaPage() {
 
       {/* ── Doble página: foto que rompe la grilla ── */}
       <figure className="relative mt-20 md:mt-28">
-        <div className="relative w-full h-[68vw] max-h-[560px] min-h-[320px]">
+        <div className="relative w-full h-[68vw] max-h-[560px] min-h-[320px]" style={{ backgroundColor: C.petrolDeep }}>
           <Image
             src={`${IMG}/ambiente.webp`}
             alt="Fachada del centro a nivel de calle, con vitrina, puerta de madera y los cerros de Curicó al fondo"
             fill
+            loading="eager"
             sizes="100vw"
             className="object-cover"
           />
@@ -433,7 +437,7 @@ export default function IssaBellaPage() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(90deg, rgba(9,51,61,0.6) 0%, rgba(9,51,61,0.08) 55%, rgba(9,51,61,0.35) 100%)',
+                'linear-gradient(90deg, rgba(9,51,61,0.78) 0%, rgba(9,51,61,0.45) 55%, rgba(9,51,61,0.35) 100%)',
             }}
             aria-hidden="true"
           />
@@ -622,7 +626,7 @@ export default function IssaBellaPage() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
-                <figcaption className="pt-3 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(247,249,249,0.7)' }}>
+                <figcaption className="pt-3 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(247,249,249,0.8)' }}>
                   {BIZ.address}, {BIZ.city}
                 </figcaption>
               </figure>
@@ -650,7 +654,7 @@ export default function IssaBellaPage() {
                   </li>
                 ))}
               </ul>
-              <p className="text-sm mb-8" style={{ color: 'rgba(247,249,249,0.65)' }}>
+              <p className="text-sm mb-8" style={{ color: 'rgba(247,249,249,0.82)' }}>
                 Horario de muestra: al publicar va el horario real.
               </p>
               <div className="flex flex-wrap items-center gap-4 mb-9">
@@ -690,38 +694,22 @@ export default function IssaBellaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.petrolDeep, color: C.paper }}>
-        <div className={`${WRAP} py-12 flex flex-col md:flex-row md:items-end justify-between gap-8`}>
-          <div>
-            <p className={`${display.className} italic text-3xl md:text-4xl mb-2`}>
-              Issa·bella
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.72)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2`}>
-                {BIZ.phoneDisplay}
-              </a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.72)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`${FOCUS} py-1 hover:text-white transition-colors`}>
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
-          <p className={`${WRAP} pt-5 pb-24 text-xs leading-relaxed`} style={{ color: 'rgba(247,249,249,0.7)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-            Servicios, precios, horarios, reseñas y fotos son de muestra;
-            el nombre, la dirección, el WhatsApp, Instagram y las{' '}
-            {BIZ.reviews} reseñas son datos públicos del centro.
+        <div className={`${WRAP} pt-8 pb-20`}>
+          <p className={`${display.className} italic text-2xl md:text-3xl mb-2`}>
+            Issa·bella
+          </p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.8)' }}>
+            {BIZ.address} · {BIZ.city} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2`}>
+              {BIZ.phoneDisplay}
+            </a>
+          </address>
+          <p className="mt-3 text-xs" style={{ color: 'rgba(247,249,249,0.8)' }}>
+            Sitio de ejemplo de Sitiazo: servicios, precios y fotos son de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
