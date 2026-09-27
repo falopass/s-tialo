@@ -128,7 +128,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 }
 
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B93A17]'
-const btnSolid = `${display.className} ${FOCUS} inline-block bg-[#E4572E] text-white font-bold text-sm md:text-base px-7 py-3.5 transition-all hover:bg-[#B93A17] active:scale-95`
+const btnSolid = `${display.className} ${FOCUS} inline-block bg-[#B93A17] text-white font-bold text-sm md:text-base px-7 py-3.5 transition-all hover:bg-[#8F2C11] active:scale-95`
 const btnGhostDark = `${display.className} ${FOCUS} font-bold text-sm md:text-base px-7 py-3.5 border-2 border-[#EDE6DA]/60 text-[#EDE6DA] transition-colors hover:bg-white/10`
 
 export default function HostalJosefaPage() {
@@ -137,20 +137,23 @@ export default function HostalJosefaPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.concrete }}
     >
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(237,230,218,0.94)',
-          ink: C.concreteDeep,
-          line: C.line,
-          btnBg: C.orange,
-          btnInk: '#FFFFFF',
-        }}
-      />
+      {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
+      <div style={{ backgroundColor: C.concreteDeep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(237,230,218,0.94)',
+            ink: C.concreteDeep,
+            line: C.line,
+            btnBg: C.orangeDark,
+            btnInk: '#FFFFFF',
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.concreteDeep }}>
@@ -222,7 +225,7 @@ export default function HostalJosefaPage() {
         </div>
         {/* barra de datos al pie del hero */}
         <div className="relative border-t" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(36,39,43,0.55)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.78)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.78)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 animate-pulse" style={{ backgroundColor: C.orange }} aria-hidden="true" />
@@ -242,7 +245,7 @@ export default function HostalJosefaPage() {
             <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.05]`}>
               Así es quedarse
               <br />
-              <span style={{ color: C.orange }}>en la Josefa</span>
+              <span style={{ color: C.orangeDark }}>en la Josefa</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
               Sin lobby ni protocolo de hotel: tres momentos, de la
@@ -264,7 +267,7 @@ export default function HostalJosefaPage() {
               {/* número sobre la línea */}
               <span
                 className={`${display.className} absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 w-[54px] h-[54px] flex items-center justify-center font-bold text-lg z-10`}
-                style={{ backgroundColor: C.orange, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.orangeDark, color: '#FFFFFF' }}
                 aria-hidden="true"
               >
                 {p.num}
@@ -282,6 +285,7 @@ export default function HostalJosefaPage() {
                         alt={p.alt}
                         fill
                         sizes="(min-width: 768px) 45vw, 100vw"
+                        loading="eager"
                         className="object-cover"
                       />
                     </div>
@@ -322,6 +326,7 @@ export default function HostalJosefaPage() {
                   alt="Calle arbolada y fachada del hostal al atardecer en Curicó"
                   fill
                   sizes="(min-width: 1024px) 45vw, 100vw"
+                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -408,7 +413,7 @@ export default function HostalJosefaPage() {
             <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.05]`}>
               Precios claros,
               <br />
-              <span style={{ color: C.orange }}>sin sorpresas</span>
+              <span style={{ color: C.orangeDark }}>sin sorpresas</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
               Valores de muestra para mostrar cómo se vería la carta.
@@ -427,7 +432,7 @@ export default function HostalJosefaPage() {
                   <p className="text-sm" style={{ color: C.muted }}>{t.desc}</p>
                 </div>
                 <div className="sm:text-right">
-                  <p className={`${display.className} font-bold text-2xl md:text-3xl`} style={{ color: C.orange }}>
+                  <p className={`${display.className} font-bold text-2xl md:text-3xl`} style={{ color: C.orangeDark }}>
                     {t.price}
                   </p>
                   <p className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.muted }}>
@@ -465,7 +470,7 @@ export default function HostalJosefaPage() {
             <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.05] mb-6`}>
               {BIZ.address},
               <br />
-              <span style={{ color: C.orange }}>Curicó</span>
+              <span style={{ color: C.orangeDark }}>Curicó</span>
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
               {BIZ.address}
@@ -568,30 +573,17 @@ export default function HostalJosefaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.concreteDeep, color: '#EDE6DA' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8 border-t" style={{ borderColor: C.lineLight }}>
-          <div>
-            <p className={`${display.className} font-bold text-2xl mb-2 flex items-center gap-3`}>
-              <KeyIcon className="w-5 h-5" color={C.orange} />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,230,218,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(237,230,218,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(237,230,218,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.62)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-            Dirección, teléfono y las {BIZ.reviews} reseñas de Google son
-            datos reales; textos, servicios, tarifas y fotos son de
-            muestra.
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 border-t" style={{ borderColor: C.lineLight }}>
+          <p className={`${display.className} font-bold text-xl mb-1 flex items-center gap-3`}>
+            <KeyIcon className="w-5 h-5" color={C.orange} />
+            {BIZ.name}
+          </p>
+          <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(237,230,218,0.8)' }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region}
+          </address>
+          <p className="text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.8)' }}>
+            Sitio de ejemplo de Sitiazo: dirección, teléfono y reseñas son
+            reales; textos, tarifas y fotos son de muestra.
           </p>
         </div>
       </footer>
