@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Epilogue, Work_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_HORA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -21,9 +21,9 @@ const C = {
   greenDeep: '#1F3229',
   mustard: '#D9A441',
   mustardSoft: '#EFD79A',
-  wood: '#8A5A33',
+  wood: '#7A4E2B',
   ink: '#26332C',
-  muted: '#6B7263',
+  muted: '#555C4E',
   line: 'rgba(46,74,60,0.16)',
 }
 
@@ -239,7 +239,7 @@ export default function HairHomeStudioPage() {
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
-          over: 'light',
+          over: 'dark',
           bar: 'rgba(246,239,224,0.95)',
           ink: C.greenDeep,
           line: C.line,
@@ -262,7 +262,7 @@ export default function HairHomeStudioPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(246,239,224,0.55) 0%, rgba(31,50,41,0.05) 30%, rgba(31,50,41,0.82) 100%)',
+              'linear-gradient(180deg, rgba(31,50,41,0.6) 0%, rgba(31,50,41,0.5) 35%, rgba(31,50,41,0.9) 100%)',
           }}
         />
         {/* sticker de reseñas pegado arriba */}
@@ -373,6 +373,7 @@ export default function HairHomeStudioPage() {
                       alt={s.alt}
                       fill
                       sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      loading="eager"
                       className="object-cover"
                     />
                   </div>
@@ -443,6 +444,7 @@ export default function HairHomeStudioPage() {
                     alt="Fachada de Hair Home studio: local de esquina con ventanales y puerta de madera en Linares"
                     fill
                     sizes="(min-width: 1024px) 44vw, 84vw"
+                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -465,6 +467,7 @@ export default function HairHomeStudioPage() {
                     alt="Mesón de madera del estudio con plantas junto al ventanal"
                     fill
                     sizes="(min-width: 1024px) 26vw, 55vw"
+                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -795,38 +798,29 @@ export default function HairHomeStudioPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.greenDeep, color: '#F6EFE0' }} className="border-t" >
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b" style={{ borderColor: 'rgba(246,239,224,0.14)' }}>
-          <div>
-            <p className={`${display.className} font-extrabold text-2xl mb-2 flex items-center gap-3`}>
-              <Scissors className="w-5 h-5" color={C.mustard} />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,239,224,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,239,224,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9A441]"
-              >
-                {l.label}
-              </a>
-            ))}
-          </div>
+      <footer className="pb-20" style={{ backgroundColor: C.greenDeep, color: '#F6EFE0' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 border-t" style={{ borderColor: 'rgba(246,239,224,0.14)' }}>
+          <p className={`${display.className} font-extrabold text-xl mb-1.5 flex items-center gap-3`}>
+            <Scissors className="w-5 h-5" color={C.mustard} />
+            {BIZ.name}
+          </p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,239,224,0.85)' }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region}
+          </address>
         </div>
-        <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(246,239,224,0.45)' }}>
-          Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Servicios,
-          precios, horarios, reseñas citadas y fotos son de muestra; el
-          nombre, la dirección, el Instagram y el número de contacto son los
-          datos reales de la ficha pública.
-        </p>
+        <div className="border-t" style={{ borderColor: 'rgba(246,239,224,0.14)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,239,224,0.8)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.mustardSoft }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}: servicios, precios, reseñas citadas y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.mustardSoft }}>
+              ¿Lo hacemos realidad?
+            </a>
+          </p>
+        </div>
       </footer>
-
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
