@@ -666,9 +666,9 @@ export default function RestobarLosLeonesPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#0C0D10', color: '#FFFFFF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
           <div>
-            <p className={`${display.className} font-black uppercase text-2xl mb-2`}>{BIZ.name}</p>
+            <p className={`${display.className} font-black uppercase text-xl md:text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
@@ -679,16 +679,9 @@ export default function RestobarLosLeonesPage() {
               </a>
             </address>
           </div>
-          <div className={`${display.className} flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold uppercase tracking-wide`} style={{ color: 'rgba(255,255,255,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Sitio de ejemplo preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#FFFFFF' }}>
               Sitiazo
