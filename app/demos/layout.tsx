@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
+import EagerImages from './eager-images'
 
 /**
  * Las demos son ejemplos para mostrar a pymes, no contenido del sitio:
@@ -34,5 +35,10 @@ export default function DemosLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <div style={WRAP}>{children}</div>
+  return (
+    <div style={WRAP}>
+      <EagerImages />
+      {children}
+    </div>
+  )
 }
