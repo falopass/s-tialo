@@ -126,6 +126,14 @@ const BLITZ = [
     tagline: 'Sobrio y de confianza: verde bosque, crema y latón, en bloques partidos.',
     gradient: 'linear-gradient(135deg, #1E3D2F 0%, #C8A24B 140%)',
   },
+  {
+    slug: 'centro-spa-roxana',
+    name: 'Centro Spa Roxana',
+    rubro: 'Centro de estética',
+    city: 'Curicó',
+    tagline: 'Editorial de revista: petróleo, menta y blanco roto, con fotos.',
+    gradient: 'linear-gradient(135deg, #0A3742 0%, #0E4C5C 55%, #9FD8CB 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
