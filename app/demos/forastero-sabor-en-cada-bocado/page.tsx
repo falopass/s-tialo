@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Unbounded, Onest } from 'next/font/google'
-import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_LLEVAR, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -157,6 +156,7 @@ export default function ForasteroPage() {
       className={`${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.night, color: C.ink }}
     >
+      <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -315,6 +315,7 @@ export default function ForasteroPage() {
                     src={f.src}
                     alt={f.alt}
                     fill
+                    loading="eager"
                     sizes="(min-width: 768px) 340px, 100vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     style={{ filter: 'saturate(1.05) contrast(1.08)' }}
@@ -365,6 +366,7 @@ export default function ForasteroPage() {
                 src={`${IMG}/ambiente.webp`}
                 alt="Terraza de FORASTERO con mesas de madera y vista a los cerros de Pencahue"
                 fill
+                loading="eager"
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
                 style={{ filter: 'saturate(1.05) contrast(1.08)' }}
@@ -375,13 +377,13 @@ export default function ForasteroPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-xl p-4 md:p-5 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
+                className={`rounded-xl px-3 py-3 flex items-center justify-center gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
                 style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
               >
-                <p className={`${display.className} font-extrabold text-2xl md:text-3xl`} style={NEON_TEXT}>
+                <p className={`${display.className} font-extrabold text-xl md:text-2xl leading-none`} style={NEON_TEXT}>
                   {BIZ.reviews}
                 </p>
-                <p className="text-[11px] uppercase tracking-[0.16em] mt-1.5" style={{ color: C.muted }}>
+                <p className="text-[11px] uppercase tracking-[0.12em] leading-tight text-left" style={{ color: C.muted }}>
                   reseñas en Google
                 </p>
               </a>
@@ -389,13 +391,13 @@ export default function ForasteroPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-xl p-4 md:p-5 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
+                className={`rounded-xl px-3 py-3 flex items-center justify-center gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
                 style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
               >
-                <p className={`${display.className} font-extrabold text-2xl md:text-3xl`} style={NEON_TEXT}>
+                <p className={`${display.className} font-extrabold text-xl md:text-2xl leading-none`} style={NEON_TEXT}>
                   {BIZ.fbFollowers}
                 </p>
-                <p className="text-[11px] uppercase tracking-[0.16em] mt-1.5" style={{ color: C.muted }}>
+                <p className="text-[11px] uppercase tracking-[0.12em] leading-tight text-left" style={{ color: C.muted }}>
                   seguidores en Facebook
                 </p>
               </a>
@@ -646,33 +648,21 @@ export default function ForasteroPage() {
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.night, color: C.ink }}>
         <RoadLine />
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <p className={`${display.className} font-extrabold text-2xl mb-2`} style={NEON_TEXT}>
+            <p className={`${display.className} font-extrabold text-2xl mb-1`} style={NEON_TEXT}>
               FORASTERO
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: C.dim }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
+            <address className="not-italic text-sm leading-relaxed" style={{ color: C.muted }}>
+              {BIZ.address}, {BIZ.city}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: C.muted }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS}`}>
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div style={{ borderTop: `1px solid ${C.line}` }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: C.dim }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Platos,
-            precios, horarios y reseñas citadas son de muestra; el nombre,
-            la dirección, el WhatsApp y los datos de redes son reales.
+          <p className="text-xs leading-relaxed md:max-w-[26rem]" style={{ color: C.muted }}>
+            Mockup de Sitiazo: datos del restaurante reales; platos, precios, horarios y reseñas de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
