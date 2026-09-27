@@ -282,7 +282,7 @@ export default function NativaCuricoPage() {
               </a>
               <a
                 href="#menu"
-                className={`${display.className} nativa-ghost uppercase font-semibold text-sm tracking-[0.1em] px-8 py-4 rounded-full`}
+                className={`${display.className} nativa-ghost uppercase font-semibold text-sm tracking-[0.1em] px-8 py-3.5 md:py-4 rounded-full`}
               >
                 Ver el menú
               </a>
@@ -652,7 +652,7 @@ export default function NativaCuricoPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#0D0609', color: C.bone }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
           <div>
             <p className={`${display.className} uppercase font-extrabold tracking-[0.06em] text-2xl mb-2`} style={{ color: C.goldGlow, textShadow: GLOW_TEXT }}>
               {BIZ.name}
@@ -678,7 +678,7 @@ export default function NativaCuricoPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.1)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.7)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.7)' }}>
             Sitio de ejemplo preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.bone }}>
               Sitiazo

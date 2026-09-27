@@ -538,7 +538,7 @@ export default function ParrilladasCaupolicanPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#F6F1E4' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-5">
           <div>
             <p className={`${display.className} font-extrabold tracking-tight text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,228,0.82)' }}>
@@ -556,11 +556,11 @@ export default function ParrilladasCaupolicanPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,228,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,241,228,0.75)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-3 md:py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,241,228,0.75)' }}>
             Textos, carta, precios y fotos son de muestra.
           </p>
         </div>
-        <div className="px-5 pt-1 pb-20 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+        <div className="px-5 pt-1 pb-6 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
           <DemoBand name={BIZ.name} />
         </div>
       </footer>

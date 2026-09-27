@@ -529,7 +529,7 @@ export default function MyFusionGymPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.forestDeep }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 grid md:grid-cols-2 gap-5 items-start">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 grid md:grid-cols-2 gap-4 md:gap-5 items-start">
           <div>
             <p className={`${display.className} text-2xl mb-2 flex items-center gap-3`} style={{ color: C.cream }}>
               <Dumbbell className="w-5 h-5" color={C.brass} />
@@ -548,12 +548,12 @@ export default function MyFusionGymPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.75)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-3 md:py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.75)' }}>
             Servicios, valores, horarios y fotos son de muestra; contacto
             y reseñas son públicos.
           </p>
         </div>
-        <div className="px-5 pt-1 pb-20 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+        <div className="px-5 pt-1 pb-6 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
           <DemoBand name={BIZ.name} />
         </div>
       </footer>

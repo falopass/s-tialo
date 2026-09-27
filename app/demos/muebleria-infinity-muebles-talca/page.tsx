@@ -237,7 +237,7 @@ export default function InfinityMueblesPage() {
               </a>
               <a
                 href="#trabajos"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-3.5 md:py-4 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`}
                 style={{ borderColor: 'rgba(237,230,218,0.55)', color: C.arena, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
               >
                 Ver trabajos
@@ -675,9 +675,9 @@ export default function InfinityMueblesPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.concretoDeep, color: C.arena }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5 border-t" style={{ borderColor: C.lineLight }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-5 border-t" style={{ borderColor: C.lineLight }}>
           <div>
-            <p className={`${display.className} font-bold uppercase text-2xl mb-2 flex items-center gap-3`}>
+            <p className={`${display.className} font-bold uppercase text-2xl mb-1 flex items-center gap-3`}>
               <Chevron className="w-5 h-5" color={C.naranja} />
               {BIZ.name}
             </p>
@@ -694,12 +694,12 @@ export default function InfinityMueblesPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: C.lineLight }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.7)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-3 md:py-4 text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.7)' }}>
             Precios, horarios, reseñas y fotos son de muestra; nombre,
             dirección, Instagram y WhatsApp son reales.
           </p>
         </div>
-        <div className="px-5 pt-1 pb-20 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+        <div className="px-5 pt-0 pb-6 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
           <DemoBand name={BIZ.name} />
         </div>
       </footer>

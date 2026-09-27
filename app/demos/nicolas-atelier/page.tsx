@@ -198,14 +198,14 @@ export default function NicolasAtelierPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-lg px-7 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
+                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
                 style={{ backgroundColor: C.paper, color: C.deep }}
               >
                 Reservar hora
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} text-lg px-7 py-3.5 border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
+                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: C.paper }}
               >
                 Ver servicios
@@ -301,7 +301,7 @@ export default function NicolasAtelierPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-flex items-center gap-3 text-lg px-7 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4`}
+                className={`${display.className} inline-flex items-center gap-3 text-lg px-7 py-2.5 md:py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4`}
                 style={{ backgroundColor: C.green, color: C.paper, outlineColor: C.green }}
               >
                 Agenda por WhatsApp
@@ -511,7 +511,7 @@ export default function NicolasAtelierPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-lg px-7 py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
+                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
                 style={{ backgroundColor: C.paper, color: C.deep }}
               >
                 Reservar hora
@@ -520,7 +520,7 @@ export default function NicolasAtelierPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-lg px-7 py-3.5 border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
+                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: C.paper }}
               >
                 Ver Instagram
@@ -561,7 +561,7 @@ export default function NicolasAtelierPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#232F19', color: C.paper }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
           <div>
             <p className={`${display.className} text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.72)' }}>
@@ -579,7 +579,7 @@ export default function NicolasAtelierPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.75)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.75)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.earthSoft }}>
               Sitiazo

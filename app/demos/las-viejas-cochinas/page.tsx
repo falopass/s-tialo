@@ -397,11 +397,11 @@ export default function LasViejasCochinasPage() {
             <Sample>Precios de muestra</Sample>
           </div>
           <div className="rounded-lg border overflow-x-auto" style={{ backgroundColor: C.white, borderColor: C.line }}>
-            <table className="w-full min-w-[520px] text-sm">
+            <table className="w-full text-sm">
               <thead>
                 <tr style={{ backgroundColor: C.fleet, color: C.white }}>
                   {['Plato', 'Tipo', 'Formato', 'Precio'].map((h, i) => (
-                    <th key={h} scope="col" className={`px-4 md:px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] ${i === 3 ? 'text-right' : 'text-left'}`}>
+                    <th key={h} scope="col" className={`px-4 md:px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] ${i === 3 ? 'text-right' : 'text-left'} ${i === 2 ? 'hidden sm:table-cell' : ''}`}>
                       {h}
                     </th>
                   ))}
@@ -412,7 +412,7 @@ export default function LasViejasCochinasPage() {
                   <tr key={r.plato} className="border-t" style={{ borderColor: C.line }}>
                     <td className="px-4 md:px-5 py-3.5 font-semibold">{r.plato}</td>
                     <td className="px-4 md:px-5 py-3.5" style={{ color: C.muted }}>{r.tipo}</td>
-                    <td className="px-4 md:px-5 py-3.5" style={{ color: C.muted }}>{r.formato}</td>
+                    <td className="hidden sm:table-cell px-4 md:px-5 py-3.5" style={{ color: C.muted }}>{r.formato}</td>
                     <td className="px-4 md:px-5 py-3.5 text-right tabular-nums" style={{ color: C.muted }}>$ —</td>
                   </tr>
                 ))}
@@ -444,7 +444,7 @@ export default function LasViejasCochinasPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-center text-base font-semibold px-6 py-4 rounded-md transition-transform active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  className="text-center text-base font-semibold px-6 py-3 md:py-4 rounded-md transition-transform active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   style={{ backgroundColor: C.white, color: C.red }}
                 >
                   Escribir por WhatsApp
@@ -453,7 +453,7 @@ export default function LasViejasCochinasPage() {
                   href={WA_LINK_GRUPO}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-center text-base font-semibold px-6 py-4 rounded-md border transition-colors hover:bg-white/10"
+                  className="text-center text-base font-semibold px-6 py-3 md:py-4 rounded-md border transition-colors hover:bg-white/10"
                   style={{ borderColor: 'rgba(255,255,255,0.55)', color: C.white }}
                 >
                   Reservar para grupo

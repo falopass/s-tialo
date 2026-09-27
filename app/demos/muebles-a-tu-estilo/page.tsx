@@ -166,14 +166,14 @@ export default function MueblesATuEstiloPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-between px-6 py-4 text-sm font-extrabold uppercase tracking-[0.14em] transition-colors hover:bg-[#F0B658] active:scale-[0.98] ${focusRing}`}
+                  className={`flex items-center justify-between px-6 py-3.5 md:py-4 text-sm font-extrabold uppercase tracking-[0.14em] transition-colors hover:bg-[#F0B658] active:scale-[0.98] ${focusRing}`}
                   style={{ backgroundColor: C.ambar, color: C.tinta }}
                 >
                   Cotizar por WhatsApp <span aria-hidden="true">→</span>
                 </a>
                 <a
                   href="#muebles"
-                  className={`self-start md:self-stretch flex items-center justify-between gap-4 px-6 py-4 text-sm font-bold uppercase tracking-[0.14em] border transition-colors hover:bg-white/10 ${focusRing}`}
+                  className={`self-start md:self-stretch flex items-center justify-between gap-4 px-6 py-3.5 md:py-4 text-sm font-bold uppercase tracking-[0.14em] border transition-colors hover:bg-white/10 ${focusRing}`}
                   style={{ borderColor: 'rgba(253,246,236,0.5)', color: C.crema }}
                 >
                   Ver los muebles <span aria-hidden="true">↓</span>
@@ -360,7 +360,7 @@ export default function MueblesATuEstiloPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center justify-between max-w-md px-7 py-5 text-base font-extrabold uppercase tracking-[0.14em] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.45)] transition-all hover:-translate-y-0.5 hover:bg-[#F0B658] active:scale-[0.98] ${focusRing}`}
+              className={`flex items-center justify-between max-w-md px-7 py-3 md:py-5 text-base font-extrabold uppercase tracking-[0.14em] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.45)] transition-all hover:-translate-y-0.5 hover:bg-[#F0B658] active:scale-[0.98] ${focusRing}`}
               style={{ backgroundColor: C.ambar, color: C.tinta }}
             >
               Escribir por WhatsApp <span aria-hidden="true">→</span>
@@ -405,20 +405,20 @@ export default function MueblesATuEstiloPage() {
       </section>
 
       <footer style={{ backgroundColor: C.tinta, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 grid md:grid-cols-12 gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 grid md:grid-cols-12 gap-5 md:gap-8">
           <div className="md:col-span-6">
-            <p className={`${display.className} text-3xl mb-2`}>{BIZ.name}</p>
+            <p className={`${display.className} text-2xl md:text-3xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(253,246,236,0.78)' }}>
               {BIZ.address}, {BIZ.postal} {BIZ.city} · {BIZ.region}
             </address>
           </div>
-          <nav className="md:col-span-6 flex flex-wrap md:justify-end gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: 'rgba(253,246,236,0.78)' }}>
+          <nav className="md:col-span-6 flex flex-wrap md:justify-end gap-x-6 gap-y-1.5 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: 'rgba(253,246,236,0.78)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white transition-colors">{l.label}</a>
             ))}
           </nav>
         </div>
-        <p className="border-t max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ borderColor: 'rgba(253,246,236,0.12)', color: 'rgba(253,246,236,0.78)' }}>
+        <p className="border-t max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ borderColor: 'rgba(253,246,236,0.12)', color: 'rgba(253,246,236,0.78)' }}>
           Mockup preparado por{' '}
           <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.ambar }}>
             Sitiazo

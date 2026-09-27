@@ -534,7 +534,7 @@ export default function PatagoniaDulcePage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: C.paper }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-5">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-5">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.78)' }}>
@@ -557,7 +557,7 @@ export default function PatagoniaDulcePage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-24 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.78)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-3 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.78)' }}>
             Sitio de ejemplo de Sitiazo: fotos, productos, precios y horarios son de muestra.
           </p>
         </div>

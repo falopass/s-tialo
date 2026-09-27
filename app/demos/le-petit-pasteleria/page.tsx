@@ -577,7 +577,7 @@ export default function LePetitPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.slateInk, color: C.white }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
           <div>
             <p className={`${display.className} font-black text-2xl mb-2`}>
               {BIZ.name}
@@ -598,7 +598,7 @@ export default function LePetitPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-24 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
             Sitio de ejemplo preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]" style={{ color: C.yellowSoft }}>Sitiazo</a>{' '}
             para {BIZ.name}. Textos, productos, precios, horarios y fotos son de muestra.{' '}

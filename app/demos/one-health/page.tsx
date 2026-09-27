@@ -18,7 +18,7 @@ const C = {
   peachSoft: '#FBE7D6',
   peachInk: '#8A4E2C',
   ink: '#39432F',
-  muted: '#6B7A60',
+  muted: '#5B6B51',
   line: 'rgba(57,67,47,0.12)',
 }
 
@@ -255,7 +255,7 @@ export default function OneHealthPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-sm px-8 py-3 md:py-4 rounded-full transition-transform active:scale-95`}
               style={{ backgroundColor: C.peachInk, color: '#fff' }}
             >
               Escribir ahora
@@ -439,14 +439,14 @@ export default function OneHealthPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-8 py-4 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm px-8 py-3 md:py-4 rounded-full transition-transform active:scale-95`}
                 style={{ backgroundColor: C.sageDeep, color: '#fff' }}
               >
                 Agenda una hora
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`${display.className} font-semibold text-sm px-8 py-4 rounded-full border transition-colors`}
+                className={`${display.className} font-semibold text-sm px-8 py-3 md:py-4 rounded-full border transition-colors`}
                 style={{ borderColor: 'rgba(57,67,47,0.3)', color: C.ink }}
               >
                 {BIZ.phoneDisplay}
@@ -458,7 +458,7 @@ export default function OneHealthPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.sageDeep, color: '#fff' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
@@ -475,7 +475,7 @@ export default function OneHealthPage() {
         </div>
         {/* Aviso de mockup en el flujo (no flotante) para no tapar contenido; pb deja libre la burbuja de WhatsApp */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
               Sitiazo
