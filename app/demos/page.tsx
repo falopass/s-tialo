@@ -183,6 +183,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0F141C 0%, #1B2A41 55%, #C1663F 140%)',
   },
   {
+    slug: 'la-pica-del-mateo',
+    name: 'La Pica del Mateo',
+    rubro: 'Restaurante familiar',
+    city: 'San Clemente',
+    tagline: 'Tarjetas apiladas por volumen: azul distribución, gris acero y cian, con fotos.',
+    gradient: 'linear-gradient(135deg, #123547 0%, #1F5673 55%, #3CC4DC 140%)',
+  },
+  {
     slug: 'cafe-la-francesa',
     name: 'Café La Francesa',
     rubro: 'Cafetería',
