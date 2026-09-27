@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Playfair_Display, Lato } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, WaFab } from '../blitz-kit'
@@ -158,12 +159,23 @@ export default function ViveroEntreRaicesPage() {
             <span>Linares, domingo 27 de septiembre de 2026</span>
             <nav className="flex flex-wrap gap-x-5 gap-y-1" aria-label="Secciones">
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className="hover:underline underline-offset-4" style={{ color: C.petrol }}>
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C]"
+                  style={{ color: C.petrol }}
+                >
                   {l.label}
                 </a>
               ))}
             </nav>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4" style={{ color: C.petrol }}>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C]"
+              style={{ color: C.petrol }}
+            >
               {BIZ.reviews} reseñas en Google
             </a>
           </div>
@@ -191,15 +203,13 @@ export default function ViveroEntreRaicesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm md:text-base font-bold px-7 py-3.5 transition-transform active:scale-95"
-                style={{ backgroundColor: C.petrol, color: C.paper }}
+                className="text-sm md:text-base font-bold px-7 py-3.5 bg-[#0E4C5C] text-[#F7F9F9] transition-colors hover:bg-[#093540] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]"
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#vivero"
-                className="text-sm md:text-base font-bold px-7 py-3.5 border-2 transition-colors"
-                style={{ borderColor: C.petrol, color: C.petrol }}
+                className="text-sm md:text-base font-bold px-7 py-3.5 border-2 border-[#0E4C5C] text-[#0E4C5C] transition-colors hover:bg-[#0E4C5C] hover:text-[#F7F9F9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]"
               >
                 Leer la edición
               </a>
@@ -211,16 +221,19 @@ export default function ViveroEntreRaicesPage() {
       {/* foto principal a sangre */}
       <figure className="relative">
         <div className="relative h-[52vh] md:h-[68vh] overflow-hidden" style={{ backgroundColor: C.petrolDeep }}>
-          <img
+          <Image
             src={`${IMG}/hero.webp`}
             alt="Hileras de plantas en maceta en el vivero, con lavanda en primer plano y los cerros del Maule al fondo"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <a
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-4 md:top-6 right-4 md:right-6 flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg"
+            className="absolute top-4 md:top-6 right-4 md:right-6 flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]"
             style={{ backgroundColor: 'rgba(247,249,249,0.96)', color: C.petrol }}
           >
             <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.petrol} aria-hidden="true">
@@ -280,12 +293,13 @@ export default function ViveroEntreRaicesPage() {
           {/* nota principal */}
           <Reveal>
             <article className="lg:pr-10 lg:border-r" style={{ borderColor: C.line }}>
-              <div className="overflow-hidden mb-5" style={{ border: `1px solid ${C.line}` }}>
-                <img
+              <div className="relative overflow-hidden mb-5 aspect-[16/10]" style={{ border: `1px solid ${C.line}` }}>
+                <Image
                   src={`${IMG}/flores.webp`}
                   alt="Macetas con lavanda, margaritas y geranios en flor"
-                  loading="lazy"
-                  className="w-full object-cover aspect-[16/10] transition-transform duration-700 ease-out hover:scale-[1.02]"
+                  fill
+                  sizes="(min-width: 1024px) 55vw, 100vw"
+                  className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
                 />
               </div>
               <Kicker>temporada</Kicker>
@@ -308,12 +322,13 @@ export default function ViveroEntreRaicesPage() {
             {NOTAS.map((n, i) => (
               <Reveal key={n.title} delay={i * 90}>
                 <article className={`grid grid-cols-[112px_1fr] md:grid-cols-[140px_1fr] gap-4 md:gap-5 ${i === 0 ? 'pb-6' : i === NOTAS.length - 1 ? 'pt-6' : 'py-6'}`}>
-                  <div className="overflow-hidden self-start" style={{ border: `1px solid ${C.line}` }}>
-                    <img
+                  <div className="relative overflow-hidden self-start aspect-square" style={{ border: `1px solid ${C.line}` }}>
+                    <Image
                       src={n.src}
                       alt={n.alt}
-                      loading="lazy"
-                      className="w-full object-cover aspect-square"
+                      fill
+                      sizes="(min-width: 768px) 140px, 112px"
+                      className="object-cover"
                     />
                   </div>
                   <div>
@@ -339,7 +354,7 @@ export default function ViveroEntreRaicesPage() {
                   href={WA_LINK_FRUTAL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 hover:text-[#093540] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C]"
                   style={{ color: C.petrol, textDecorationColor: C.mint }}
                 >
                   Consultar por un frutal →
@@ -442,7 +457,7 @@ export default function ViveroEntreRaicesPage() {
                   href={BIZ.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-5 text-sm font-bold underline underline-offset-4 decoration-2"
+                  className="inline-block mt-5 text-sm font-bold underline underline-offset-4 decoration-2 hover:text-[#093540] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C]"
                   style={{ color: C.petrol, textDecorationColor: C.mint }}
                 >
                   Ver la página de Facebook →
@@ -544,8 +559,7 @@ export default function ViveroEntreRaicesPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm md:text-base font-bold px-7 py-3.5 transition-transform active:scale-95"
-                  style={{ backgroundColor: C.mint, color: C.petrolDeep }}
+                  className="text-sm md:text-base font-bold px-7 py-3.5 bg-[#9FD8CB] text-[#093540] transition-colors hover:bg-[#F7F9F9] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]"
                 >
                   Escribir por WhatsApp
                 </a>
@@ -553,7 +567,7 @@ export default function ViveroEntreRaicesPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm md:text-base font-bold px-7 py-3.5 border-2 transition-colors hover:bg-white/10"
+                  className="text-sm md:text-base font-bold px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]"
                   style={{ borderColor: 'rgba(247,249,249,0.55)', color: C.paper }}
                 >
                   Abrir en Google Maps →
@@ -590,12 +604,12 @@ export default function ViveroEntreRaicesPage() {
               <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
                 {BIZ.address} · {BIZ.city}, {BIZ.region}
                 <br />
-                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9FD8CB]">{BIZ.phoneDisplay}</a>
               </address>
             </div>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.62)' }}>
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+                <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9FD8CB]">
                   {l.label}
                 </a>
               ))}
