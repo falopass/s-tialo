@@ -265,7 +265,7 @@ export default function FerreteriaValdebenitoPage() {
         </div>
         {/* ficha de datos al pie del hero */}
         <div className="relative" style={{ backgroundColor: 'rgba(10,13,18,0.72)', backdropFilter: 'blur(10px)', borderTop: `1px solid ${C.line}` }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: C.muted }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-24 md:pb-16 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: C.muted }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.cyan, boxShadow: '0 0 10px rgba(69,213,232,0.9)' }} aria-hidden="true" />
@@ -300,6 +300,7 @@ export default function FerreteriaValdebenitoPage() {
                   src={s.src}
                   alt={s.alt}
                   fill
+                  loading="eager"
                   sizes="(min-width: 768px) 60vw, 100vw"
                   className="object-cover saturate-[0.95] contrast-[1.05] brightness-[0.9] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
@@ -423,6 +424,7 @@ export default function FerreteriaValdebenitoPage() {
                 src={`${IMG}/ambiente.webp`}
                 alt="Fachada de Ferretería Valdebenito desde la calle: cortina abierta y estantería con herramientas"
                 fill
+                loading="eager"
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover saturate-[0.95] contrast-[1.05] brightness-[0.9]"
               />
@@ -441,20 +443,15 @@ export default function FerreteriaValdebenitoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 grid grid-cols-2 rounded-2xl p-5 md:p-6 text-center items-center gap-3 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]"
+              className="mt-5 flex items-center gap-4 rounded-2xl px-5 py-3 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]"
               style={{ ...GLASS, boxShadow: '0 0 24px rgba(69,213,232,0.1)' }}
             >
-              <div>
-                <p className={`${display.className} font-extrabold text-3xl md:text-4xl`} style={{ color: C.cyan }}>
-                  {BIZ.reviews}
-                </p>
-                <p className="text-[11px] uppercase tracking-[0.16em] mt-1.5" style={{ color: C.muted }}>
-                  reseñas en Google
-                </p>
-              </div>
-              <p className="text-xs md:text-sm leading-snug text-left" style={{ color: C.muted }}>
-                Ver la ficha real de la tienda en Google Maps →
-              </p>
+              <span className={`${display.className} font-extrabold text-2xl leading-none shrink-0`} style={{ color: C.cyan }}>
+                {BIZ.reviews}
+              </span>
+              <span className="text-xs md:text-sm leading-snug" style={{ color: C.muted }}>
+                reseñas en Google · ver la ficha en Google Maps →
+              </span>
             </a>
           </Reveal>
           <Reveal delay={120}>
@@ -674,29 +671,16 @@ export default function FerreteriaValdebenitoPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#070A0E', color: C.ink }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-bold text-2xl mb-2 flex items-center gap-3`}>
-              <Nut className="w-5 h-5" color={C.cyan} />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(238,244,249,0.55)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(238,244,249,0.55)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: C.line }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(238,244,249,0.4)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            productos, precios, horarios y reseñas son de muestra; el nombre,
-            la dirección y el WhatsApp son los reales del negocio.
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 md:pb-20">
+          <p className={`${display.className} font-bold text-lg mb-1 flex items-center gap-2.5`}>
+            <Nut className="w-4 h-4" color={C.cyan} />
+            {BIZ.name}
+          </p>
+          <address className="not-italic text-sm" style={{ color: C.muted }}>
+            {BIZ.address} · {BIZ.city}, {BIZ.region}
+          </address>
+          <p className="text-xs mt-3" style={{ color: C.muted }}>
+            Sitio de ejemplo por Sitiazo: textos, precios y reseñas son de muestra.
           </p>
         </div>
       </footer>
