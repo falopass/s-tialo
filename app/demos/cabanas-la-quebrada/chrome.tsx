@@ -77,6 +77,7 @@ export function SiteNav({ name, fontClass }: { name: string; fontClass: string }
       className="fixed top-0 inset-x-0 z-40 transition-colors duration-500"
       style={{
         backgroundColor: scrolled ? 'rgba(250,247,240,0.92)' : 'transparent',
+        backgroundImage: scrolled ? 'none' : 'linear-gradient(180deg, rgba(14,36,27,0.6), rgba(14,36,27,0))',
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(10px)' : 'none',
         boxShadow: scrolled ? '0 1px 0 rgba(23,58,43,0.12)' : 'none',

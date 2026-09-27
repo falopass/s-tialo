@@ -19,6 +19,31 @@ const C = {
 
 // ── Primitivas ───────────────────────────────────────────────
 
+// El dibujo va dentro de un <pattern> con `slice`: se recorta al contenedor
+// sin que sus formas sobresalgan del viewport (evita desborde horizontal).
+function Art({
+  id,
+  viewBox,
+  className,
+  children,
+}: {
+  id: string
+  viewBox: string
+  className: string
+  children: React.ReactNode
+}) {
+  return (
+    <svg className={className} aria-hidden="true" focusable="false">
+      <defs>
+        <pattern id={id} width="1" height="1" viewBox={viewBox} preserveAspectRatio="xMidYMid slice">
+          {children}
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill={`url(#${id})`} />
+    </svg>
+  )
+}
+
 function Pines({
   xs,
   y,
@@ -95,13 +120,7 @@ export function HeroScene({ className = '' }: { className?: string }) {
   const pinesNear = [10, 140, 260, 420, 560, 720, 880, 1060, 1200, 1360, 1500, 1590]
 
   return (
-    <svg
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="xMidYMid slice"
-      className={className}
-      aria-hidden="true"
-      focusable="false"
-    >
+    <Art id="lq-hero-art" viewBox="0 0 1600 900" className={className}>
       <defs>
         <linearGradient id="lq-sky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#08170F" />
@@ -154,7 +173,7 @@ export function HeroScene({ className = '' }: { className?: string }) {
       <Pines xs={pinesNear} y={800} color={C.bosqueInk} scale={1.25} />
       <path d="M0 800 L1600 800 L1600 900 L0 900 Z" fill={C.bosqueInk} />
       <rect y="760" width="1600" height="140" fill="url(#lq-fog)" />
-    </svg>
+    </Art>
   )
 }
 
@@ -183,13 +202,7 @@ export function CabinScene({
   const cabinBody = night ? '#241A10' : '#3A2A1A'
 
   return (
-    <svg
-      viewBox="0 0 800 520"
-      preserveAspectRatio="xMidYMid slice"
-      className={className}
-      aria-hidden="true"
-      focusable="false"
-    >
+    <Art id={`${id}-art`} viewBox="0 0 800 520" className={className}>
       <defs>
         <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor={top} />
@@ -236,7 +249,7 @@ export function CabinScene({
       )}
 
       <rect y="430" width="800" height="90" fill={night ? '#0A1B14' : '#47563A'} />
-    </svg>
+    </Art>
   )
 }
 
@@ -244,7 +257,7 @@ export function CabinScene({
 
 export function ForestPanel({ className = '' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" className={className} aria-hidden="true" focusable="false">
+    <Art id="lq-forest-art" viewBox="0 0 400 520" className={className}>
       <rect width="400" height="520" fill={C.bosqueDeep} />
       <circle cx="200" cy="150" r="120" fill={C.sol} opacity="0.12" />
       {[40, 110, 190, 275, 350].map((x, i) => (
@@ -255,13 +268,13 @@ export function ForestPanel({ className = '' }: { className?: string }) {
       ))}
       <path d="M0 470 Q200 430 400 470 L400 520 L0 520 Z" fill="#08170F" />
       <circle cx="300" cy="440" r="4" fill={C.luz} opacity="0.7" />
-    </svg>
+    </Art>
   )
 }
 
 export function RiverPanel({ className = '' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" className={className} aria-hidden="true" focusable="false">
+    <Art id="lq-river-art" viewBox="0 0 400 520" className={className}>
       <defs>
         <linearGradient id="lq-river-sky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#EBC096" />
@@ -277,13 +290,13 @@ export function RiverPanel({ className = '' }: { className?: string }) {
       <path d="M0 415 Q140 390 230 420 T400 410" fill="none" stroke={C.crema} strokeWidth="5" opacity="0.6" />
       <path d="M40 455 Q160 435 260 460 T400 450" fill="none" stroke={C.crema} strokeWidth="4" opacity="0.4" />
       <path d="M0 490 Q200 470 400 495 L400 520 L0 520 Z" fill={C.arena} />
-    </svg>
+    </Art>
   )
 }
 
 export function ValleyPanel({ className = '' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" className={className} aria-hidden="true" focusable="false">
+    <Art id="lq-valley-art" viewBox="0 0 400 520" className={className}>
       <defs>
         <linearGradient id="lq-valley-sky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#FDF5E6" />
@@ -306,7 +319,7 @@ export function ValleyPanel({ className = '' }: { className?: string }) {
         />
       ))}
       <Pines xs={[40, 330]} y={360} color="#46563A" scale={0.7} />
-    </svg>
+    </Art>
   )
 }
 
@@ -314,7 +327,7 @@ export function ValleyPanel({ className = '' }: { className?: string }) {
 
 export function CtaScene({ className = '' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice" className={className} aria-hidden="true" focusable="false">
+    <Art id="lq-cta-art" viewBox="0 0 1600 700" className={className}>
       <defs>
         <linearGradient id="lq-cta-sky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#08170F" />
@@ -334,6 +347,6 @@ export function CtaScene({ className = '' }: { className?: string }) {
       <path d="M0 520 L1600 520 L1600 700 L0 700 Z" fill={C.bosqueInk} />
       <Cabin x={730} y={520} s={1.05} />
       <rect y="580" width="1600" height="120" fill={C.bosqueInk} opacity="0.85" />
-    </svg>
+    </Art>
   )
 }

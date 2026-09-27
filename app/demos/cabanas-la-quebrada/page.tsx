@@ -25,6 +25,7 @@ const C = {
   arena: '#E8DCC8',
   arenaSoft: '#F1EADA',
   terracota: '#C4704B',
+  terracotaInk: '#9E4F2C',
   crema: '#FAF7F0',
   muted: '#55685A',
   line: 'rgba(23,58,43,0.14)',
@@ -197,7 +198,7 @@ export default function CabanasLaQuebrada() {
       <SiteNav name={BIZ.name} fontClass={display.className} />
 
       {/* ── Hero ── */}
-      <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden">
+      <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden" style={{ backgroundColor: C.bosqueDeep }}>
         <HeroScene className="absolute inset-0 w-full h-full" />
         <div
           className="absolute inset-0"
@@ -236,7 +237,7 @@ export default function CabanasLaQuebrada() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95"
-                style={{ backgroundColor: C.terracota, color: C.crema }}
+                style={{ backgroundColor: C.terracotaInk, color: C.crema }}
               >
                 Consultar disponibilidad
               </a>
@@ -255,7 +256,7 @@ export default function CabanasLaQuebrada() {
       {/* ── Las cabañas ── */}
       <section id="cabanas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracota }}>
+          <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
             Alojamiento
           </p>
           <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.bosque }}>
@@ -302,7 +303,7 @@ export default function CabanasLaQuebrada() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block mt-4 text-sm font-semibold underline underline-offset-4 decoration-2"
-                    style={{ color: C.terracota, textDecorationColor: 'rgba(196,112,75,0.4)' }}
+                    style={{ color: C.terracotaInk, textDecorationColor: 'rgba(158,79,44,0.4)' }}
                   >
                     Consultar por WhatsApp →
                   </a>
@@ -321,7 +322,7 @@ export default function CabanasLaQuebrada() {
       >
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracota }}>
+            <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
               El entorno
             </p>
             <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-6`} style={{ color: C.bosque }}>
@@ -366,7 +367,7 @@ export default function CabanasLaQuebrada() {
       {/* ── Qué encontrarás ── */}
       <section id="servicios" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracota }}>
+          <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
             Servicios
           </p>
           <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.bosque }}>
@@ -387,7 +388,7 @@ export default function CabanasLaQuebrada() {
                   {a.note && (
                     <span
                       className="ml-2 text-[10px] font-semibold uppercase tracking-[0.1em] px-1.5 py-0.5 rounded-full align-middle"
-                      style={{ backgroundColor: C.arena, color: C.muted }}
+                      style={{ backgroundColor: C.arena, color: C.bosque }}
                     >
                       {a.note}
                     </span>
@@ -471,7 +472,7 @@ export default function CabanasLaQuebrada() {
       <section id="ubicacion" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracota }}>
+            <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
               Ubicación
             </p>
             <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-6`} style={{ color: C.bosque }}>
@@ -543,7 +544,7 @@ export default function CabanasLaQuebrada() {
                   {f.q}
                   <span
                     className="shrink-0 w-[30px] h-[30px] rounded-full flex items-center justify-center text-lg leading-none transition-transform group-open:rotate-45"
-                    style={{ backgroundColor: C.arenaSoft, color: C.terracota }}
+                    style={{ backgroundColor: C.arenaSoft, color: C.terracotaInk }}
                     aria-hidden="true"
                   >
                     +
@@ -559,7 +560,7 @@ export default function CabanasLaQuebrada() {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden" style={{ backgroundColor: C.bosqueDeep }}>
         <CtaScene className="absolute inset-0 w-full h-full" />
         <div
           className="absolute inset-0"
@@ -583,7 +584,7 @@ export default function CabanasLaQuebrada() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-sm px-8 py-4 rounded-full transition-transform active:scale-95"
-                style={{ backgroundColor: C.terracota, color: C.crema }}
+                style={{ backgroundColor: C.terracotaInk, color: C.crema }}
               >
                 Consultar disponibilidad
               </a>
@@ -601,7 +602,7 @@ export default function CabanasLaQuebrada() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.bosqueDeep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-12 pb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(250,247,240,0.65)' }}>
@@ -612,7 +613,7 @@ export default function CabanasLaQuebrada() {
               </a>
             </address>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(250,247,240,0.45)' }}>
+          <p className="text-xs" style={{ color: 'rgba(250,247,240,0.65)' }}>
             © {new Date().getFullYear()} {BIZ.name}
           </p>
         </div>
