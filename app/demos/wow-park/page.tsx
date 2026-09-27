@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Baloo_2, Nunito } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_CUMPLE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -23,6 +23,8 @@ const C = {
   yellow: '#FFC53D',
   yellowSoft: '#FFE9AE',
   coral: '#FF6B4A',
+  // coral oscuro: texto sobre fondos claros y fondo de botones con texto blanco (≥4.5:1)
+  coralDeep: '#C2410C',
   coralSoft: '#FFD9CC',
   ink: '#1B2B45',
   muted: '#5D6E88',
@@ -117,9 +119,9 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-extrabold"
-      style={{ color: light ? C.yellowSoft : C.coral }}
+      style={{ color: light ? '#FFFFFF' : C.coralDeep }}
     >
-      <Balloon className="w-[18px] h-[18px]" />
+      <Balloon className="w-[18px] h-[18px]" color={light ? C.yellow : undefined} />
       {children}
     </p>
   )
@@ -132,20 +134,26 @@ export default function WowParkPage() {
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(251,253,255,0.94)',
-          ink: C.blueInk,
-          line: C.line,
-          btnBg: C.coral,
-          btnInk: '#FFFFFF',
-        }}
-      />
+      {/* velo oscuro fijo detrás del nav: el texto blanco cae sobre la foto del hero */}
+      <div
+        className="fixed top-0 inset-x-0 z-40 h-[60px] md:h-[68px]"
+        style={{ backgroundColor: 'rgba(14,47,94,0.72)' }}
+      >
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(251,253,255,0.94)',
+            ink: C.blueInk,
+            line: C.line,
+            btnBg: C.coralDeep,
+            btnInk: '#FFFFFF',
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.blueInk }}>
@@ -250,7 +258,7 @@ export default function WowParkPage() {
                   />
                   <span
                     className={`${display.className} absolute top-4 left-4 text-xs font-bold px-3.5 py-1.5 rounded-full shadow-sm rotate-[-2deg]`}
-                    style={{ backgroundColor: 'rgba(255,255,255,0.95)', color: C.coral }}
+                    style={{ backgroundColor: 'rgba(255,255,255,0.95)', color: C.coralDeep }}
                   >
                     {z.tag}
                   </span>
@@ -297,7 +305,7 @@ export default function WowParkPage() {
             <h2 className={`${display.className} font-extrabold text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: '#FFFFFF' }}>
               La fiesta lista:
               <br />
-              <span style={{ color: C.yellow }}>tú solo llegas</span>
+              <span className="inline-block rounded-2xl px-3 rotate-[-1deg]" style={{ backgroundColor: C.blueInk, color: C.yellow }}>tú solo llegas</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md font-semibold" style={{ color: 'rgba(255,255,255,0.92)' }}>
               Reservas el horario, cuentas cuántos invitados son y el
@@ -321,7 +329,7 @@ export default function WowParkPage() {
               target="_blank"
               rel="noopener noreferrer"
               className={`${display.className} inline-block font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 shadow-lg`}
-              style={{ backgroundColor: C.coral, color: '#FFFFFF' }}
+              style={{ backgroundColor: C.coralDeep, color: '#FFFFFF' }}
             >
               Reservar cumpleaños
             </a>
@@ -363,7 +371,7 @@ export default function WowParkPage() {
                     <span className="text-[10px] uppercase tracking-[0.14em] font-extrabold px-2.5 py-1 rounded-full" style={{ backgroundColor: C.yellowSoft, color: C.blueInk }}>
                       muestra
                     </span>
-                    <span className={`${display.className} font-bold text-lg`} style={{ color: C.coral }}>
+                    <span className={`${display.className} font-bold text-lg`} style={{ color: C.coralDeep }}>
                       {v.price}
                     </span>
                   </span>
@@ -442,7 +450,7 @@ export default function WowParkPage() {
                       “{t.text}”
                     </blockquote>
                     <figcaption className="flex items-center justify-between gap-3">
-                      <span className="text-[11px] uppercase tracking-[0.18em] font-extrabold" style={{ color: C.coral }}>
+                      <span className="text-[11px] uppercase tracking-[0.18em] font-extrabold" style={{ color: C.coralDeep }}>
                         {t.author} · Texto de muestra
                       </span>
                       <Confetti />
@@ -463,7 +471,7 @@ export default function WowParkPage() {
             <h2 className={`${display.className} font-extrabold text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.blueInk }}>
               En Talca,
               <br />
-              <span style={{ color: C.coral }}>Región del Maule</span>
+              <span style={{ color: C.coralDeep }}>Región del Maule</span>
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6 font-bold" style={{ color: C.muted }}>
               {BIZ.city}, {BIZ.region}, Chile
@@ -479,7 +487,7 @@ export default function WowParkPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
-                style={{ backgroundColor: C.coral, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.coralDeep, color: '#FFFFFF' }}
               >
                 Cómo llegar →
               </a>
@@ -557,12 +565,18 @@ export default function WowParkPage() {
             </address>
           </div>
           <p className="text-xs leading-relaxed max-w-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            Sitio de ejemplo de Sitiazo: textos, valores y fotos son de muestra.
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellowSoft }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name} — así se vería tu sitio. Textos, valores y fotos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellowSoft }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
