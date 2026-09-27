@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { DM_Serif_Display, DM_Sans } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -20,8 +21,8 @@ export const metadata: Metadata = {
 
 const NAV_LINKS = [
   { label: 'La vitrina', href: '#vitrina' },
-  { label: 'El local', href: '#el-local' },
   { label: 'Precios', href: '#precios' },
+  { label: 'El local', href: '#el-local' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -75,10 +76,13 @@ export default function ComercialRioClaroPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de Comercial Río Claro: repisas llenas de baldes, escobas y artículos de limpieza, con el mesón al fondo"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -126,7 +130,7 @@ export default function ComercialRioClaroPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
                 style={{ backgroundColor: C.brass, color: C.deep }}
               >
                 Cotizar por WhatsApp
@@ -173,16 +177,66 @@ export default function ComercialRioClaroPage() {
         </Reveal>
       </section>
 
+      {/* ── Precios de referencia ── */}
+      <section id="precios" className="scroll-mt-20 border-t" style={{ borderColor: C.line, backgroundColor: '#EFE8D8' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <Eyebrow>Lista de precios</Eyebrow>
+            <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
+              <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.forest }}>
+                Precios de referencia
+              </h2>
+              <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
+                Lista de muestra para ilustrar el sitio. Los valores y el
+                stock se confirman por WhatsApp.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <div
+              className="rounded-2xl border overflow-hidden"
+              style={{ borderColor: C.line, backgroundColor: C.card }}
+            >
+              {PRICE_LIST.map((p, i) => (
+                <div
+                  key={p.name}
+                  className="flex items-baseline justify-between gap-4 px-5 md:px-7 py-4 border-b last:border-b-0"
+                  style={{ borderColor: C.line, backgroundColor: i % 2 ? 'transparent' : 'rgba(30,61,47,0.03)' }}
+                >
+                  <div className="flex items-baseline gap-4 min-w-0">
+                    <span className={`${display.className} text-sm w-6 shrink-0`} style={{ color: C.brass }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="font-semibold text-sm md:text-base" style={{ color: C.ink }}>{p.name}</p>
+                      <p className="text-[11px] uppercase tracking-[0.14em]" style={{ color: C.muted }}>{p.unit}</p>
+                    </div>
+                  </div>
+                  <p className={`${display.className} text-lg md:text-2xl shrink-0`} style={{ color: C.forest }}>
+                    {p.price}
+                  </p>
+                </div>
+              ))}
+              <p className="px-5 md:px-7 py-4 text-xs leading-relaxed" style={{ color: C.muted, backgroundColor: 'rgba(200,162,75,0.10)' }}>
+                Precios de muestra para el ejemplo. En el sitio real van la
+                lista y las condiciones de mayorista del negocio.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── El local ── */}
       <section id="el-local" className="scroll-mt-20" style={{ backgroundColor: C.deep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
           <Reveal>
-            <div className="rounded-2xl overflow-hidden" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}>
-              <img
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}>
+              <Image
                 src={`${IMG}/ambiente.webp`}
                 alt="Fachada de Comercial Río Claro en Carrera Pinto: cortina levantada, escobas y baldes asomando a la calle"
-                loading="lazy"
-                className="w-full h-full object-cover aspect-[4/3]"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
           </Reveal>
@@ -267,55 +321,6 @@ export default function ComercialRioClaroPage() {
         </div>
       </section>
 
-      {/* ── Precios de referencia ── */}
-      <section id="precios" className="scroll-mt-20 border-t" style={{ borderColor: C.line, backgroundColor: '#EFE8D8' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <Reveal>
-            <Eyebrow>Lista de precios</Eyebrow>
-            <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
-              <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.forest }}>
-                Precios de referencia
-              </h2>
-              <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
-                Lista de muestra para ilustrar el sitio. Los valores y el
-                stock se confirman por WhatsApp.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <div
-              className="rounded-2xl border overflow-hidden"
-              style={{ borderColor: C.line, backgroundColor: C.card }}
-            >
-              {PRICE_LIST.map((p, i) => (
-                <div
-                  key={p.name}
-                  className="flex items-baseline justify-between gap-4 px-5 md:px-7 py-4 border-b last:border-b-0"
-                  style={{ borderColor: C.line, backgroundColor: i % 2 ? 'transparent' : 'rgba(30,61,47,0.03)' }}
-                >
-                  <div className="flex items-baseline gap-4 min-w-0">
-                    <span className={`${display.className} text-sm w-6 shrink-0`} style={{ color: C.brass }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <div className="min-w-0">
-                      <p className="font-semibold text-sm md:text-base" style={{ color: C.ink }}>{p.name}</p>
-                      <p className="text-[11px] uppercase tracking-[0.14em]" style={{ color: C.muted }}>{p.unit}</p>
-                    </div>
-                  </div>
-                  <p className={`${display.className} text-lg md:text-2xl shrink-0`} style={{ color: C.forest }}>
-                    {p.price}
-                  </p>
-                </div>
-              ))}
-              <p className="px-5 md:px-7 py-4 text-xs leading-relaxed" style={{ color: C.muted, backgroundColor: 'rgba(200,162,75,0.10)' }}>
-                Precios de muestra para el ejemplo. En el sitio real van la
-                lista y las condiciones de mayorista del negocio.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ── Contacto y ubicación ── */}
       <section id="contacto" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
         <Reveal>
@@ -342,7 +347,7 @@ export default function ComercialRioClaroPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
               style={{ backgroundColor: C.forest, color: C.crema }}
             >
               Cotizar por WhatsApp →
@@ -351,7 +356,7 @@ export default function ComercialRioClaroPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} text-sm px-6 py-3 rounded-full border transition-colors`}
+              className={`${display.className} text-sm px-6 py-3 rounded-full border transition-colors hover:bg-[rgba(30,61,47,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2`}
               style={{ borderColor: 'rgba(30,61,47,0.4)', color: C.forest }}
             >
               Cómo llegar
@@ -397,7 +402,7 @@ export default function ComercialRioClaroPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
               style={{ backgroundColor: C.brass, color: C.deep }}
             >
               Escribir por WhatsApp
