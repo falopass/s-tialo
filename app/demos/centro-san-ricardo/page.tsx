@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Bitter, Rubik } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -26,6 +27,14 @@ const C = {
   muted: '#5C6B77',
   line: 'rgba(47,72,88,0.16)',
 }
+
+const BTN_SOLID =
+  'font-semibold transition hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2'
+const BTN_GHOST =
+  'font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2'
+
+/* Cuerda de andanales: el motivo que marca los rieles y las miniaturas */
+const LANE_ROPE = `repeating-linear-gradient(90deg, ${C.yellow} 0 26px, ${C.slate} 26px 52px)`
 
 export const metadata: Metadata = {
   title: 'Centro San Ricardo — Piscina cubierta en San Rafael, Maule',
@@ -113,7 +122,15 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-medium"
       style={{ color: light ? C.yellow : C.slate }}
     >
-      <span className="inline-block w-8 border-t-2 border-dashed" style={{ borderColor: 'currentColor' }} aria-hidden="true" />
+      <span
+        className="inline-block w-9 h-[4px] rounded-full shrink-0"
+        style={{
+          background: light
+            ? `repeating-linear-gradient(90deg, ${C.yellow} 0 10px, rgba(251,250,246,0.65) 10px 20px)`
+            : `repeating-linear-gradient(90deg, ${C.yellow} 0 10px, ${C.slate} 10px 20px)`,
+        }}
+        aria-hidden="true"
+      />
       {children}
     </p>
   )
@@ -156,10 +173,13 @@ export default function CentroSanRicardoPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de la piscina cubierta de Centro San Ricardo: andanales, implementos de clases y cerros por las ventanas"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -175,7 +195,7 @@ export default function CentroSanRicardoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]"
               style={{ backgroundColor: 'rgba(251,250,246,0.95)', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.yellow} stroke={C.slate} strokeWidth="1.2" aria-hidden="true">
@@ -206,14 +226,14 @@ export default function CentroSanRicardoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm md:text-base px-7 py-3.5 rounded-lg transition-transform active:scale-95"
+                className={`${BTN_SOLID} focus-visible:outline-[#F2B705] text-sm md:text-base px-7 py-3.5 rounded-lg`}
                 style={{ backgroundColor: C.yellow, color: C.deep }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#como-funciona"
-                className="font-semibold text-sm md:text-base px-7 py-3.5 rounded-lg border transition-colors hover:bg-white/10"
+                className={`${BTN_GHOST} focus-visible:outline-[#FBFAF6] text-sm md:text-base px-7 py-3.5 rounded-lg border hover:bg-white/10`}
                 style={{ borderColor: 'rgba(251,250,246,0.55)', color: '#FBFAF6' }}
               >
                 Cómo funciona
@@ -254,17 +274,25 @@ export default function CentroSanRicardoPage() {
           </div>
         </div>
 
-        {/* La línea cruza la pantalla completa en desktop */}
+        {/* La cuerda de andanales cruza la pantalla completa en desktop */}
         <div className="relative">
           <div
             aria-hidden="true"
-            className="hidden md:block absolute left-0 right-0 top-[30px] border-t-[3px] border-dashed"
-            style={{ borderColor: 'rgba(47,72,88,0.3)' }}
+            className="hidden md:block absolute left-0 right-0 top-[27px] h-[6px] rounded-full"
+            style={{ background: LANE_ROPE, boxShadow: '0 1px 3px rgba(34,53,63,0.3)' }}
           />
-          <ol className="relative max-w-6xl mx-auto px-5 md:px-8 grid gap-14 md:grid-cols-4 md:gap-8 before:absolute before:left-[29px] before:top-3 before:bottom-3 before:border-l-[3px] before:border-dashed md:before:hidden" style={{ '--tw-border-opacity': '1' } as React.CSSProperties}>
+          {/* riel vertical en móvil, alineado al centro de las boyas */}
+          <div
+            aria-hidden="true"
+            className="md:hidden absolute left-[47px] top-3 bottom-3 w-[6px] rounded-full"
+            style={{
+              background: `repeating-linear-gradient(180deg, ${C.yellow} 0 26px, ${C.slate} 26px 52px)`,
+            }}
+          />
+          <ol className="relative max-w-6xl mx-auto px-5 md:px-8 grid gap-14 md:grid-cols-4 md:gap-8">
             {TIMELINE.map((s, i) => (
               <Reveal key={s.paso} delay={i * 110}>
-                <li className="relative pl-20 md:pl-0">
+                <li className="relative pl-20 md:pl-0 group">
                   <span
                     className={`${display.className} absolute left-0 top-0 md:static md:mb-7 w-[60px] h-[60px] rounded-full flex items-center justify-center text-xl font-bold border-4`}
                     style={{
@@ -286,12 +314,13 @@ export default function CentroSanRicardoPage() {
                   <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>
                     {s.text}
                   </p>
-                  <figure className="rounded-xl overflow-hidden border" style={{ borderColor: C.line }}>
-                    <img
+                  <figure className="relative rounded-xl overflow-hidden border aspect-[3/2]" style={{ borderColor: C.line }}>
+                    <Image
                       src={s.src}
                       alt={s.alt}
-                      loading="lazy"
-                      className="w-full aspect-[4/3] object-cover"
+                      fill
+                      sizes="(min-width: 768px) 25vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                     />
                   </figure>
                 </li>
@@ -324,11 +353,12 @@ export default function CentroSanRicardoPage() {
                   style={{ backgroundColor: C.card, borderColor: C.line, boxShadow: '0 1px 3px rgba(34,53,63,0.07)' }}
                 >
                   <div className="relative overflow-hidden aspect-[16/10]">
-                    <img
+                    <Image
                       src={p.src}
                       alt={p.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
                     <span
                       className="absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.18em] font-semibold px-2.5 py-1 rounded"
@@ -356,12 +386,13 @@ export default function CentroSanRicardoPage() {
       <section id="el-centro" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
           <Reveal>
-            <div className="rounded-xl overflow-hidden border" style={{ borderColor: C.line, boxShadow: '0 18px 50px rgba(34,53,63,0.14)' }}>
-              <img
+            <div className="relative rounded-xl overflow-hidden border aspect-[4/3]" style={{ borderColor: C.line, boxShadow: '0 18px 50px rgba(34,53,63,0.14)' }}>
+              <Image
                 src={`${IMG}/ambiente.webp`}
                 alt="Recinto de la piscina cubierta en Parcela 35, San Rafael, con cerros al fondo"
-                loading="lazy"
-                className="w-full aspect-[4/3] object-cover"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
           </Reveal>
@@ -391,7 +422,7 @@ export default function CentroSanRicardoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-lg transition-transform active:scale-95"
+                className={`${BTN_SOLID} focus-visible:outline-[#2F4858] text-sm px-6 py-3 rounded-lg`}
                 style={{ backgroundColor: C.slate, color: '#FBFAF6' }}
               >
                 Ver reseñas en Google →
@@ -400,7 +431,7 @@ export default function CentroSanRicardoPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-lg border transition-colors"
+                className={`${BTN_GHOST} focus-visible:outline-[#2F4858] text-sm px-6 py-3 rounded-lg border hover:bg-[#2F4858]/10`}
                 style={{ borderColor: 'rgba(47,72,88,0.35)', color: C.slate }}
               >
                 @{BIZ.instagramUser} en Instagram
@@ -459,7 +490,7 @@ export default function CentroSanRicardoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-lg transition-transform active:scale-95"
+                className={`${BTN_SOLID} focus-visible:outline-[#F2B705] inline-block text-sm md:text-base px-7 py-3.5 rounded-lg`}
                 style={{ backgroundColor: C.yellow, color: C.deep }}
               >
                 Consultar valores reales
@@ -517,8 +548,8 @@ export default function CentroSanRicardoPage() {
               </a>
             </address>
             <p className="text-sm md:text-base leading-relaxed mb-8 max-w-sm" style={{ color: C.muted }}>
-              El camino dentro de San Rafael es expedido y hay espacio
-              para estacionar. Coordina tu visita por WhatsApp y te
+              Dentro de San Rafael se llega fácil y hay donde
+              estacionar. Coordina tu visita por WhatsApp y te
               esperamos con la piscina lista.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -526,7 +557,7 @@ export default function CentroSanRicardoPage() {
                 href={WA_LINK_CLASES}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm md:text-base px-7 py-3.5 rounded-lg transition-transform active:scale-95"
+                className={`${BTN_SOLID} focus-visible:outline-[#2F4858] text-sm md:text-base px-7 py-3.5 rounded-lg`}
                 style={{ backgroundColor: C.yellow, color: C.deep }}
               >
                 Escribir por WhatsApp
@@ -535,7 +566,7 @@ export default function CentroSanRicardoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3.5 rounded-lg border transition-colors"
+                className={`${BTN_GHOST} focus-visible:outline-[#2F4858] text-sm px-6 py-3.5 rounded-lg border hover:bg-[#2F4858]/10`}
                 style={{ borderColor: 'rgba(47,72,88,0.35)', color: C.slate }}
               >
                 Cómo llegar →
