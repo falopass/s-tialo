@@ -380,10 +380,10 @@ export default function ForasteroPage() {
                 className={`rounded-xl px-2.5 py-1.5 md:px-3 md:py-3 flex items-center justify-center gap-1.5 md:gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
                 style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
               >
-                <p className={`${display.className} font-extrabold text-xl md:text-2xl leading-none`} style={NEON_TEXT}>
+                <p className={`${display.className} font-extrabold text-lg md:text-2xl leading-none`} style={NEON_TEXT}>
                   {BIZ.reviews}
                 </p>
-                <p className="text-[10px] uppercase tracking-[0.12em] leading-tight text-left" style={{ color: C.muted }}>
+                <p className="text-[10px] uppercase tracking-[0.08em] leading-tight text-left" style={{ color: C.muted }}>
                   reseñas en Google
                 </p>
               </a>
@@ -394,10 +394,10 @@ export default function ForasteroPage() {
                 className={`rounded-xl px-2.5 py-1.5 md:px-3 md:py-3 flex items-center justify-center gap-1.5 md:gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
                 style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
               >
-                <p className={`${display.className} font-extrabold text-xl md:text-2xl leading-none`} style={NEON_TEXT}>
+                <p className={`${display.className} font-extrabold text-lg md:text-2xl leading-none`} style={NEON_TEXT}>
                   {BIZ.fbFollowers}
                 </p>
-                <p className="text-[10px] uppercase tracking-[0.12em] leading-tight text-left" style={{ color: C.muted }}>
+                <p className="text-[10px] uppercase tracking-[0.08em] leading-tight text-left" style={{ color: C.muted }}>
                   seguidores en Facebook
                 </p>
               </a>
