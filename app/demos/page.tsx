@@ -70,6 +70,14 @@ const BLITZ = [
     tagline: 'Pan de verdad: crema de masa, chocolate y dorado de horno.',
     gradient: 'linear-gradient(135deg, #2E1C0E 0%, #D59A33 140%)',
   },
+  {
+    slug: 'lua-nails',
+    name: 'Lua Nails Home',
+    rubro: 'Manicure y uñas',
+    city: 'Talca',
+    tagline: 'Delicado y premium: rosa empolvado, berenjena y dorado suave.',
+    gradient: 'linear-gradient(135deg, #4A1F33 0%, #C9A227 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
