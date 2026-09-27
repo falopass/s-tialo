@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Bricolage_Grotesque, Inter } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -14,6 +15,8 @@ const C = {
   ink: '#17181A',
   signal: '#FFC300',
   steel: '#8A9199',
+  // acero oscurecido: el acero puro no llega a contraste AA sobre blanco
+  muted: '#6A6F75',
   paper: '#FFFFFF',
   soft: '#F2F3F5',
   line: '#E2E4E7',
@@ -81,7 +84,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="font-mono text-[11px] uppercase tracking-[0.26em] mb-4 flex items-center gap-3 font-medium"
-      style={{ color: light ? C.signal : C.steel }}
+      style={{ color: light ? C.signal : C.muted }}
     >
       <span
         className="inline-block w-2.5 h-2.5 shrink-0"
@@ -96,9 +99,15 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 export default function DanybloomPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`db-page ${body.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
+      <style>{`
+        .db-page a:focus-visible, .db-page button:focus-visible, .db-page summary:focus-visible {
+          outline: 3px solid currentColor;
+          outline-offset: 3px;
+        }
+      `}</style>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -114,9 +123,26 @@ export default function DanybloomPage() {
         }}
       />
 
-      {/* ── Hero split: texto | foto ── */}
+      {/* ── Hero split: foto | texto ── */}
       <section id="inicio" className="grid lg:grid-cols-2 lg:min-h-svh" style={{ backgroundColor: C.ink }}>
-        <div className="flex flex-col justify-center px-5 md:px-10 xl:px-16 pt-28 pb-12 lg:py-24 order-1">
+        <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-0">
+          <Image
+            src={`${IMG}/hero.webp`}
+            alt="Estación de manicura de danybloom: mesa blanca, lámpara y silla de terciopelo rosa"
+            fill
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
+          <div
+            className="absolute inset-x-0 top-0 h-32 lg:h-44 pointer-events-none"
+            style={{ background: 'linear-gradient(rgba(23,24,26,0.55), rgba(23,24,26,0))' }}
+            aria-hidden="true"
+          />
+          <div className="absolute right-0 top-0 bottom-0 w-[10px] hidden lg:block" style={{ background: STRIPE }} aria-hidden="true" />
+          <div className="absolute bottom-0 left-0 right-0 h-[10px] lg:hidden" style={{ background: STRIPE }} aria-hidden="true" />
+        </div>
+        <div className="flex flex-col justify-center px-5 md:px-10 xl:px-16 py-14 md:py-16 lg:py-24">
           <Reveal>
             <Eyebrow light>Manicura · Pedicura · Talca</Eyebrow>
             <h1
@@ -139,14 +165,14 @@ export default function DanybloomPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-transform active:scale-95`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95`}
                 style={{ backgroundColor: C.signal, color: C.ink }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 border-2 transition-all hover:bg-white/10 hover:-translate-y-0.5 active:scale-95`}
                 style={{ borderColor: 'rgba(255,255,255,0.5)', color: '#FFFFFF' }}
               >
                 Ver servicios
@@ -156,15 +182,6 @@ export default function DanybloomPage() {
               {BIZ.address} · {BIZ.city} · {BIZ.instagram}
             </p>
           </Reveal>
-        </div>
-        <div className="relative order-2 min-h-[52vw] lg:min-h-0">
-          <img
-            src={`${IMG}/hero.webp`}
-            alt="Estación de manicura de danybloom: mesa blanca, lámpara y silla de terciopelo"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute left-0 top-0 bottom-0 w-[10px] hidden lg:block" style={{ background: STRIPE }} aria-hidden="true" />
-          <div className="absolute top-0 left-0 right-0 h-[10px] lg:hidden" style={{ background: STRIPE }} aria-hidden="true" />
         </div>
       </section>
 
@@ -177,9 +194,9 @@ export default function DanybloomPage() {
               <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-6xl leading-[0.98] tracking-[-0.01em]`}>
                 La pega
                 <br />
-                <span style={{ color: C.steel }}>de cada día</span>
+                <span style={{ color: C.muted }}>de cada día</span>
               </h2>
-              <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.steel }}>
+              <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
                 Esto es una muestra de la carta: al publicar van los
                 servicios y precios reales de {BIZ.name}.
               </p>
@@ -194,11 +211,12 @@ export default function DanybloomPage() {
               style={{ borderColor: C.line, backgroundColor: i % 2 === 1 ? C.soft : C.paper }}
             >
               <div className={`relative aspect-[4/3] md:aspect-auto md:min-h-[400px] ${i % 2 === 1 ? 'md:order-2' : ''}`}>
-                <img
+                <Image
                   src={s.src}
                   alt={s.alt}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
                 />
               </div>
               <div className="flex flex-col justify-center p-6 md:p-12 lg:p-16">
@@ -206,13 +224,14 @@ export default function DanybloomPage() {
                   <span
                     className={`${display.className} block font-extrabold text-6xl md:text-7xl leading-none mb-4`}
                     style={{ color: i % 2 === 1 ? C.signal : C.line }}
+                    aria-hidden="true"
                   >
                     0{i + 1}
                   </span>
                   <h3 className={`${display.className} font-extrabold uppercase text-3xl md:text-4xl leading-[1.0] mb-4`}>
                     {s.name}
                   </h3>
-                  <p className="text-sm md:text-base leading-relaxed max-w-md mb-7" style={{ color: C.steel }}>
+                  <p className="text-sm md:text-base leading-relaxed max-w-md mb-7" style={{ color: C.muted }}>
                     {s.desc}
                   </p>
                   <a
@@ -313,9 +332,9 @@ export default function DanybloomPage() {
             <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-5xl leading-[0.98] mb-5`}>
               Orden de
               <br />
-              <span style={{ color: C.steel }}>trabajo</span>
+              <span style={{ color: C.muted }}>trabajo</span>
             </h2>
-            <p className="text-sm leading-relaxed max-w-sm" style={{ color: C.steel }}>
+            <p className="text-sm md:text-base leading-relaxed max-w-sm" style={{ color: C.muted }}>
               Valores de muestra para mostrar el formato de la carta:
               al publicar van los precios reales de cada servicio.
             </p>
@@ -328,14 +347,14 @@ export default function DanybloomPage() {
                   className="flex items-baseline gap-3 py-5 border-b border-dotted"
                   style={{ borderColor: C.steel }}
                 >
-                  <span className="font-mono text-xs shrink-0" style={{ color: C.steel }}>
+                  <span className="font-mono text-xs shrink-0" style={{ color: C.muted }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div className="min-w-0">
                     <p className={`${display.className} font-bold uppercase text-lg md:text-xl leading-tight`}>
                       {p.name}
                     </p>
-                    <p className="text-xs md:text-sm" style={{ color: C.steel }}>
+                    <p className="text-xs md:text-sm" style={{ color: C.muted }}>
                       {p.desc}
                     </p>
                   </div>
@@ -344,14 +363,14 @@ export default function DanybloomPage() {
                     <p className={`${display.className} text-lg md:text-xl font-extrabold`}>
                       {p.price}
                     </p>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: C.steel }}>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: C.muted }}>
                       muestra
                     </p>
                   </div>
                 </li>
               ))}
             </ul>
-            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: C.steel }}>
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: C.muted }}>
               * Precios de referencia — confirmar valor por WhatsApp
             </p>
           </Reveal>
@@ -367,17 +386,17 @@ export default function DanybloomPage() {
               <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-5xl leading-[0.98] mb-6`}>
                 Agenda
                 <br />
-                <span style={{ color: C.steel }}>tu hora</span>
+                <span style={{ color: C.muted }}>tu hora</span>
               </h2>
-              <address className="not-italic text-sm md:text-base leading-relaxed mb-2" style={{ color: C.steel }}>
+              <address className="not-italic text-sm md:text-base leading-relaxed mb-2" style={{ color: C.muted }}>
                 {BIZ.address}
                 <br />
                 {BIZ.city}, {BIZ.region}, Chile
               </address>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="text-sm md:text-base font-medium mb-8 underline underline-offset-4"
-                style={{ color: C.ink }}
+                className="text-sm md:text-base font-medium mb-8 underline underline-offset-4 decoration-2"
+                style={{ color: C.ink, textDecorationColor: C.signal }}
               >
                 {BIZ.phoneDisplay}
               </a>
@@ -386,7 +405,7 @@ export default function DanybloomPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-transform active:scale-95`}
+                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95`}
                   style={{ backgroundColor: C.ink, color: '#FFFFFF' }}
                 >
                   WhatsApp directo
@@ -395,7 +414,7 @@ export default function DanybloomPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 border-2 transition-colors hover:bg-black/5`}
+                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 border-2 transition-all hover:bg-black/5 hover:-translate-y-0.5 active:scale-95`}
                   style={{ borderColor: C.ink, color: C.ink }}
                 >
                   Cómo llegar →
@@ -430,7 +449,7 @@ export default function DanybloomPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold uppercase tracking-wide text-base md:text-lg px-10 py-5 transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold uppercase tracking-wide text-base md:text-lg px-10 py-5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95`}
               style={{ backgroundColor: C.ink, color: C.signal }}
             >
               Escribir por WhatsApp
