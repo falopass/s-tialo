@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Syne, Inter } from 'next/font/google'
-import { DemoBand, Motif } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
+import { Motif } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_EVAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -23,7 +24,9 @@ const C = {
   paper: '#F5F4F1',
   white: '#FFFFFF',
   orange: '#F26722',
-  muted: '#7A7E82',
+  orangeInk: '#B5461A',
+  orangeLight: '#FFB88C',
+  muted: '#5E6266',
   lineLight: 'rgba(74,78,82,0.16)',
   lineDark: 'rgba(255,255,255,0.2)',
 }
@@ -117,7 +120,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className={`${display.className} text-[11px] uppercase tracking-[0.28em] mb-4 flex items-center gap-3 font-bold`}
-      style={{ color: light ? C.orange : C.red }}
+      style={{ color: light ? C.orangeLight : C.red }}
     >
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
@@ -170,11 +173,9 @@ export default function ProSaludDentalPage() {
           }}
           aria-hidden="true"
         />
-        <div
-          className="absolute -right-24 -top-24 w-[420px] h-[420px] rounded-full border-2 border-dashed pointer-events-none"
-          style={{ borderColor: 'rgba(255,255,255,0.25)' }}
-          aria-hidden="true"
-        />
+        <svg className="absolute right-0 top-0 w-[330px] h-[330px] pointer-events-none" viewBox="-330 0 330 330" aria-hidden="true">
+          <path d="M0 289.2 A209 209 0 0 1 -289.2 0" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="2" strokeDasharray="6 6" />
+        </svg>
         <span
           className={`${display.className} absolute -bottom-6 right-0 whitespace-nowrap leading-none font-extrabold pointer-events-none select-none text-[clamp(8rem,26vw,24rem)]`}
           style={{ color: 'transparent', WebkitTextStroke: '1.5px rgba(255,255,255,0.18)' }}
@@ -229,7 +230,7 @@ export default function ProSaludDentalPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
-                style={{ backgroundColor: C.orange, color: C.white }}
+                style={{ backgroundColor: C.orangeInk, color: C.white }}
               >
                 <WaIcon />
                 Agendar mi hora
@@ -251,7 +252,7 @@ export default function ProSaludDentalPage() {
           style={{ borderColor: 'rgba(255,255,255,0.4)', backgroundColor: C.redDeep }}
         >
           <div
-            className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap items-center gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em] font-semibold"
+            className="max-w-6xl mx-auto pl-5 pr-20 md:pl-8 lg:pr-8 py-4 flex flex-wrap items-center gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em] font-semibold"
             style={{ color: 'rgba(255,255,255,0.8)' }}
           >
             <span>{BIZ.address} · {BIZ.city}</span>
@@ -262,7 +263,7 @@ export default function ProSaludDentalPage() {
               {BIZ.reviews} reseñas en Google
             </span>
             <span className="hidden md:inline">{BIZ.phoneDisplay}</span>
-            <span className="hidden lg:inline" style={{ color: 'rgba(255,255,255,0.45)' }}>sitio de ejemplo</span>
+            <span className="hidden lg:inline" style={{ color: 'rgba(255,255,255,0.8)' }}>sitio de ejemplo</span>
           </div>
         </div>
       </section>
@@ -296,6 +297,8 @@ export default function ProSaludDentalPage() {
                     alt={s.name}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
+                    priority={i === 0}
+                    loading={i === 0 ? undefined : 'eager'}
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
@@ -307,7 +310,7 @@ export default function ProSaludDentalPage() {
                   </span>
                 </div>
                 <div className="p-6 md:p-7 flex flex-col flex-1">
-                  <p className={`${display.className} text-[10px] uppercase tracking-[0.24em] font-bold mb-2`} style={{ color: C.orange }}>
+                  <p className={`${display.className} text-[10px] uppercase tracking-[0.24em] font-bold mb-2`} style={{ color: C.orangeInk }}>
                     {s.tag} →
                   </p>
                   <h3 className={`${display.className} text-xl md:text-2xl font-bold leading-snug mb-2.5`} style={{ color: C.inkDeep }}>
@@ -329,7 +332,7 @@ export default function ProSaludDentalPage() {
           <Reveal>
             <Eyebrow light>Cómo funciona · tracking</Eyebrow>
             <h2 className={`${display.className} text-3xl md:text-5xl font-extrabold leading-[1.02] mb-10 md:mb-14`} style={{ color: C.white }}>
-              Tu atención, <span style={{ color: C.orange }}>en ruta</span>
+              Tu atención, <span style={{ color: C.orangeLight }}>en ruta</span>
             </h2>
           </Reveal>
           <ol className="grid md:grid-cols-4 gap-x-6 gap-y-8">
@@ -338,7 +341,7 @@ export default function ProSaludDentalPage() {
                 <li className="relative border-t-2 border-dashed pt-5" style={{ borderColor: C.lineDark }}>
                   <span
                     className={`${display.className} absolute -top-[15px] left-0 text-[11px] font-bold tracking-[0.14em] px-2 py-0.5`}
-                    style={{ backgroundColor: C.orange, color: C.white }}
+                    style={{ backgroundColor: C.orangeInk, color: C.white }}
                     aria-hidden="true"
                   >
                     {r.num}
@@ -365,7 +368,7 @@ export default function ProSaludDentalPage() {
               <h2 className={`${display.className} text-4xl md:text-5xl font-extrabold leading-[1.05] mb-6`} style={{ color: C.white }}>
                 El dentista de Linares,
                 <br />
-                <span style={{ color: C.orange }}>siempre a la hora</span>
+                <span style={{ color: C.orangeLight }}>siempre a la hora</span>
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: 'rgba(255,255,255,0.72)' }}>
                 ProSaludDental atiende en {BIZ.address}, {BIZ.city}: el
@@ -402,6 +405,7 @@ export default function ProSaludDentalPage() {
                     alt="Box de atención dental de la clínica en Linares"
                     fill
                     sizes="(min-width: 1024px) 30vw, 60vw"
+                    loading="eager"
                     className="object-cover"
                   />
                 </figure>
@@ -411,6 +415,7 @@ export default function ProSaludDentalPage() {
                     alt="Sector de Curapalihue en Linares, donde atiende la clínica"
                     fill
                     sizes="(min-width: 1024px) 20vw, 40vw"
+                    loading="eager"
                     className="object-cover"
                   />
                 </figure>
@@ -436,7 +441,7 @@ export default function ProSaludDentalPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-white"
-                  style={{ color: C.orange, textDecorationColor: 'rgba(242,103,34,0.4)' }}
+                  style={{ color: C.orangeLight, textDecorationColor: 'rgba(255,184,140,0.4)' }}
                 >
                   Ver la ficha en Google →
                 </a>
@@ -452,7 +457,7 @@ export default function ProSaludDentalPage() {
                         “{t.text}”
                       </blockquote>
                       <figcaption className="flex items-center justify-between gap-3">
-                        <span className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.orange }}>
+                        <span className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.orangeLight }}>
                           {t.author} · Reseña de ejemplo
                         </span>
                         <Motif motif="tooth" className="w-4 h-4 shrink-0" />
@@ -563,7 +568,7 @@ export default function ProSaludDentalPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} inline-flex items-center gap-2.5 text-sm font-bold px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A4E52]`}
-                style={{ backgroundColor: C.orange, color: C.white }}
+                style={{ backgroundColor: C.orangeInk, color: C.white }}
               >
                 <WaIcon />
                 Agendar por WhatsApp
@@ -600,7 +605,7 @@ export default function ProSaludDentalPage() {
           aria-hidden="true"
         >
           <span
-            className={`${display.className} whitespace-nowrap font-extrabold leading-none text-[clamp(6rem,22vw,20rem)]`}
+            className={`${display.className} whitespace-nowrap font-extrabold leading-none text-[clamp(3rem,17vw,20rem)]`}
             style={{ color: 'transparent', WebkitTextStroke: '1.5px rgba(255,255,255,0.12)' }}
           >
             puntual
@@ -611,7 +616,7 @@ export default function ProSaludDentalPage() {
             <h2 className={`${display.className} text-[clamp(2.1rem,6.5vw,4rem)] font-extrabold leading-[1.05] mb-6`} style={{ color: C.white }}>
               Tu próxima hora al dentista
               <br />
-              <span style={{ color: C.orange }}>sale por un mensaje</span>
+              <span style={{ color: C.orangeLight }}>sale por un mensaje</span>
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
               Escríbenos por WhatsApp para agendar tu evaluación:
@@ -622,7 +627,7 @@ export default function ProSaludDentalPage() {
               target="_blank"
               rel="noopener noreferrer"
               className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base font-bold px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
-              style={{ backgroundColor: C.orange, color: C.white }}
+              style={{ backgroundColor: C.orangeInk, color: C.white }}
             >
               <WaIcon />
               Agendar mi hora
@@ -655,16 +660,21 @@ export default function ProSaludDentalPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}.
-            Textos, servicios, precios, horarios, reseñas y fotos son de
-            muestra; el nombre, la dirección, el teléfono y el conteo de
-            reseñas son datos públicos reales.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: C.white }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Textos, servicios, precios, horarios, reseñas y
+            fotos son de muestra; el nombre, la dirección, el teléfono y el
+            conteo de reseñas son datos públicos reales.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: C.white }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
