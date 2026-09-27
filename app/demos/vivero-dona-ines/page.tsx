@@ -94,20 +94,23 @@ export default function ViveroDonaInesPage() {
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
-      <BlitzNav
-        name={BIZ.short}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'dark',
-          bar: 'rgba(251,247,239,0.94)',
-          ink: C.leafDeep,
-          line: C.line,
-          btnBg: C.leaf,
-          btnInk: '#FBF7EF',
-        }}
-      />
+      {/* el nav fijo es transparente arriba: este wrapper declara el fondo oscuro real detrás (hero) */}
+      <div style={{ backgroundColor: C.leafDeep }}>
+        <BlitzNav
+          name={BIZ.short}
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass={display.className}
+          theme={{
+            over: 'dark',
+            bar: 'rgba(251,247,239,0.94)',
+            ink: C.leafDeep,
+            line: C.line,
+            btnBg: C.leaf,
+            btnInk: '#FBF7EF',
+          }}
+        />
+      </div>
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.leafDeep }}>
@@ -450,8 +453,8 @@ export default function ViveroDonaInesPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="pb-20" style={{ backgroundColor: C.leafDeep, color: '#FBF7EF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+      <footer style={{ backgroundColor: C.leafDeep, color: '#FBF7EF' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6">
           <p className={`${display.className} text-xl mb-1.5 flex items-center gap-3`}>
             <Leaf className="w-5 h-5" color={C.terraSoft} />
             {BIZ.name}
