@@ -133,8 +133,8 @@ export function Parallax({
         loading={eager ? 'eager' : 'lazy'}
         fetchPriority={eager ? 'high' : 'auto'}
         decoding="async"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={reduce ? undefined : { y, scale: 1.16 }}
+        className="absolute inset-x-0 top-[-8%] w-full h-[116%] max-w-full object-cover"
+        style={reduce ? undefined : { y }}
       />
     </div>
   )

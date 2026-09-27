@@ -167,7 +167,7 @@ const HORAS = [
 
 function PhotoPanel({ id, src, alt, scrim, side, height, title, lead, items, note, columns }: Panel) {
   return (
-    <section id={id} className={`relative flex overflow-hidden scroll-mt-16 ${height}`}>
+    <section id={id} className={`relative flex overflow-hidden scroll-mt-16 ${height}`} style={{ backgroundColor: C.wineInk }}>
       <Parallax src={src} alt={alt} />
       <div className="absolute inset-0" style={{ background: scrim }} aria-hidden="true" />
       <div className="relative w-full max-w-[1400px] mx-auto px-5 md:px-10 pt-32 pb-16 md:pb-24 flex items-end">
@@ -230,7 +230,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       />
 
       {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden">
+      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.wineInk }}>
         <Parallax
           src={`${IMG}/hero.webp`}
           alt="Box de atención de la clínica veterinaria, con instrumental sobre el mesón y estanterías de farmacia al fondo"
@@ -314,7 +314,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       ))}
 
       {/* ── Sobre el negocio ── */}
-      <section id="clinica" className="relative flex overflow-hidden min-h-[100svh] scroll-mt-16">
+      <section id="clinica" className="relative flex overflow-hidden min-h-[100svh] scroll-mt-16" style={{ backgroundColor: C.wineInk }}>
         <Parallax
           src={`${IMG}/ambiente.webp`}
           alt="Fachada de la clínica y farmacia veterinaria en calle Maipú, Linares"
@@ -438,7 +438,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       </section>
 
       {/* ── Contacto y ubicación ── */}
-      <section id="contacto" className="relative flex overflow-hidden min-h-[100svh] scroll-mt-16">
+      <section id="contacto" className="relative flex overflow-hidden min-h-[100svh] scroll-mt-16" style={{ backgroundColor: C.wineInk }}>
         <Parallax
           src={`${IMG}/hero.webp`}
           alt="Sala de atención de la clínica veterinaria Ángel Guardián"
@@ -547,28 +547,25 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.wineInk, color: C.bone }}>
-        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-14 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <p className={`${display.className} text-lg md:text-xl font-bold mb-3`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(245,239,230,0.68)' }}>
-              {BIZ.address}, {BIZ.city}, {BIZ.region}
-              <br />
-              {BIZ.phoneDisplay}
+            <p className={`${display.className} text-base md:text-lg font-bold mb-2`}>{BIZ.name}</p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(245,239,230,0.78)' }}>
+              {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
             </address>
           </div>
-          <nav className="flex flex-wrap gap-x-7 gap-y-2 text-sm" style={{ color: 'rgba(245,239,230,0.68)' }} aria-label="Pie">
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="transition-colors hover:text-[#F5EFE6]">
-                {l.label}
-              </a>
-            ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#F5EFE6]">
-              Facebook
-            </a>
-          </nav>
+          <a
+            href={BIZ.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm underline underline-offset-4 transition-colors hover:text-[#F5EFE6]"
+            style={{ color: 'rgba(245,239,230,0.78)' }}
+          >
+            Facebook
+          </a>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.16)' }}>
-          <p className="max-w-[1400px] mx-auto px-5 md:px-10 py-5 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.5)' }}>
+        <div className="border-t pb-20" style={{ borderColor: 'rgba(245,239,230,0.16)' }}>
+          <p className="max-w-[1400px] mx-auto px-5 md:px-10 py-4 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.7)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Nombre,
             dirección, teléfono y reseñas de Google son datos públicos reales;
             servicios, precios, horarios y textos son de muestra.
