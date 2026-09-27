@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Unbounded, Onest } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_OFICINA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -22,7 +22,8 @@ const C = {
   blueDeep: '#123347',
   cyan: '#2FB8D6',
   cyanSoft: '#D8F0F6',
-  gray: '#6E7B8B',
+  gray: '#5A6676',
+  cyanInk: '#0E6F86',
   ink: '#16303F',
   line: 'rgba(31,86,115,0.16)',
 }
@@ -156,7 +157,7 @@ function MosaicTile({ tile, index }: { tile: Tile; index: number }) {
           className="p-6 md:p-7 border"
           style={{ backgroundColor: C.blue, borderColor: C.blue }}
         >
-          <p className="text-[10px] uppercase tracking-[0.24em] font-bold mb-3 flex items-center gap-2" style={{ color: C.cyan }}>
+          <p className="text-[10px] uppercase tracking-[0.24em] font-bold mb-3 flex items-center gap-2" style={{ color: C.cyanSoft }}>
             <Bean className="w-[14px] h-[14px]" />
             Pedidos por volumen
           </p>
@@ -175,7 +176,7 @@ function MosaicTile({ tile, index }: { tile: Tile; index: number }) {
           >
             {tile.cta} →
           </a>
-          <p className="text-[10px] mt-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
+          <p className="text-[10px] mt-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
             Servicio de muestra: se confirma oferta y formato al publicar.
           </p>
         </div>
@@ -192,6 +193,7 @@ function MosaicTile({ tile, index }: { tile: Tile; index: number }) {
             alt={tile.alt}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            loading="eager"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
           <figcaption
@@ -214,6 +216,7 @@ function MosaicTile({ tile, index }: { tile: Tile; index: number }) {
             alt={tile.alt}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            loading="eager"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
           <span
@@ -328,7 +331,7 @@ export default function WakeUpPage() {
         </div>
         {/* barra de datos al pie del hero */}
         <div className="relative border-t" style={{ borderColor: 'rgba(255,255,255,0.22)', backgroundColor: 'rgba(18,51,71,0.55)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.78)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 pr-20 md:pr-24 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.78)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 animate-pulse" style={{ backgroundColor: C.cyan }} aria-hidden="true" />
@@ -350,7 +353,7 @@ export default function WakeUpPage() {
             <h2 className={`${display.className} font-extrabold text-3xl md:text-5xl leading-[1.06]`} style={{ color: C.blue }}>
               Todo el surtido,
               <br />
-              <span style={{ color: C.cyan }}>en una pared</span>
+              <span style={{ color: C.cyanInk }}>en una pared</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.gray }}>
               La pared Wake Up: lo que se sirve todos los días, con su
@@ -374,7 +377,7 @@ export default function WakeUpPage() {
             <h2 className={`${display.className} font-extrabold text-3xl md:text-4xl leading-[1.08] mb-6`} style={{ color: C.blue }}>
               En Merced 490,
               <br />
-              <span style={{ color: C.cyan }}>en pleno centro</span>
+              <span style={{ color: C.cyanInk }}>en pleno centro</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-5" style={{ color: C.gray }}>
               Wake Up es la cafetería de la cuadra: atención directa,
@@ -434,7 +437,7 @@ export default function WakeUpPage() {
                   <p className={`${display.className} font-extrabold text-2xl md:text-3xl mb-1`} style={{ color: '#fff' }}>
                     {BIZ.reviews}
                   </p>
-                  <p className="text-[10px] uppercase tracking-[0.2em] font-bold" style={{ color: C.cyan }}>
+                  <p className="text-[10px] uppercase tracking-[0.2em] font-bold" style={{ color: C.cyanSoft }}>
                     reseñas en Google
                   </p>
                 </div>
@@ -460,7 +463,7 @@ export default function WakeUpPage() {
             <h2 className={`${display.className} font-extrabold text-3xl md:text-5xl leading-[1.06]`} style={{ color: C.blue }}>
               Precios de
               <br />
-              <span style={{ color: C.cyan }}>referencia</span>
+              <span style={{ color: C.cyanInk }}>referencia</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.gray }}>
               Carta de muestra para mostrar el formato: al publicar van
@@ -528,7 +531,7 @@ export default function WakeUpPage() {
                 </li>
               ))}
             </ul>
-            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: 'rgba(255,255,255,0.72)' }}>
               Horario referencial: al publicar van los horarios reales
               de la cafetería.
             </p>
@@ -583,7 +586,7 @@ export default function WakeUpPage() {
             <h2 className={`${display.className} font-extrabold text-[clamp(1.9rem,6vw,3.6rem)] leading-[1.06] mb-6`} style={{ color: '#fff' }}>
               El café ya está listo.
               <br />
-              <span style={{ color: C.cyan }}>Solo falta llegar.</span>
+              <span style={{ color: C.cyanSoft }}>Solo falta llegar.</span>
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
               Escríbenos por WhatsApp para pedir para llevar o cotizar
@@ -610,11 +613,11 @@ export default function WakeUpPage() {
               <Bean className="w-5 h-5" color={C.cyan} />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:text-white transition-colors">
                 {l.label}
@@ -626,15 +629,20 @@ export default function WakeUpPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            carta, horarios y fotos son de muestra; los datos de contacto
-            son los publicados por el negocio.
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.cyan }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}. Textos, carta, horarios y fotos son de muestra;
+            los datos de contacto son los publicados por el negocio.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.cyan }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
