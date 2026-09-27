@@ -622,6 +622,14 @@ const BLITZ = [
     tagline: 'Directorio funcional: azul noche, arena y terracota, carta con iconos, precios a la derecha y FAQ en bloques, con fotos.',
     gradient: 'linear-gradient(135deg, #121D2E 0%, #1B2A41 55%, #C1663F 140%)',
   },
+  {
+    slug: 'muebles-a-tu-estilo',
+    name: 'muebles a tu estilo',
+    rubro: 'Fábrica de muebles',
+    city: 'Molina',
+    tagline: 'Cartel suizo de taller: verde, crema y ámbar, grilla estricta, reglas finas y tabla de precios de muestra.',
+    gradient: 'linear-gradient(135deg, #1D2521 0%, #2A7F62 55%, #E8A33D 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
