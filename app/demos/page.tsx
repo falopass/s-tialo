@@ -558,6 +558,14 @@ const BLITZ = [
     tagline: 'Neón nocturno clínico: petróleo oscuro, menta con glow y fotos de alto contraste.',
     gradient: 'linear-gradient(135deg, #07141A 0%, #0E4C5C 55%, #9FD8CB 140%)',
   },
+  {
+    slug: 'clinica-prosaluddental',
+    name: 'Clínica ProSaludDental',
+    rubro: 'Clínica dental',
+    city: 'Linares',
+    tagline: 'Logístico y puntual: rojo señal, gris flota y hero tipográfico sin foto.',
+    gradient: 'linear-gradient(135deg, #8E1B20 0%, #C1272D 55%, #F26722 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
