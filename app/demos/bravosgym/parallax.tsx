@@ -5,10 +5,11 @@
  *
  * Imagen a sangre con parallax sutil: la foto viaja unos puntos por
  * encima del scroll del panel que la contiene. Respeta
- * prefers-reduced-motion. La imagen debe medir ~120% de la altura
- * del contenedor (el caller le da top-[-10%] h-[120%]).
+ * prefers-reduced-motion. La imagen cubre ~120% de la altura del
+ * contenedor (top -10%) para tener margen de desplazamiento.
  */
 
+import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
 export function ParallaxImg({
@@ -57,13 +58,15 @@ export function ParallaxImg({
   }, [])
 
   return (
-    <img
+    <Image
       ref={ref}
       src={src}
       alt={alt}
-      loading={eager ? 'eager' : 'lazy'}
-      decoding="async"
+      fill
+      sizes="100vw"
+      priority={eager}
       className={className}
+      style={{ top: '-10%', height: '120%' }}
     />
   )
 }
