@@ -188,25 +188,21 @@ export default function CentroSanRicardoPage() {
               'linear-gradient(180deg, rgba(34,53,63,0.5) 0%, rgba(34,53,63,0.12) 40%, rgba(34,53,63,0.82) 100%)',
           }}
         />
-        {/* sello de reseñas */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
           <Reveal>
+            {/* sello de reseñas */}
             <a
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]"
-              style={{ backgroundColor: 'rgba(251,250,246,0.95)', color: C.deep }}
+              className="inline-flex items-center gap-2.5 mb-6 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]"
+              style={{ backgroundColor: '#FBFAF6', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.yellow} stroke={C.slate} strokeWidth="1.2" aria-hidden="true">
                 <path d="M12 2.5 L14.7 8.6 L21.2 9.2 L16.3 13.5 L17.8 19.9 L12 16.6 L6.2 19.9 L7.7 13.5 L2.8 9.2 L9.3 8.6 Z" />
               </svg>
               {BIZ.reviews} reseñas en Google
             </a>
-          </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
             <Eyebrow light>Piscina cubierta · San Rafael · Región del Maule</Eyebrow>
             <h1
               className={`${display.className} font-semibold leading-[1.04] tracking-[-0.01em] text-[clamp(2.6rem,9vw,5.6rem)] mb-6`}
@@ -261,7 +257,7 @@ export default function CentroSanRicardoPage() {
               <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.06]`} style={{ color: C.slate }}>
                 Tu camino
                 <br />
-                en el <em className="font-normal" style={{ color: '#C88F00' }}>agua</em>
+                en el <em className="font-normal" style={{ color: '#8A6200' }}>agua</em>
               </h2>
             </Reveal>
             <Reveal delay={120}>
@@ -305,7 +301,7 @@ export default function CentroSanRicardoPage() {
                   >
                     {i + 1}
                   </span>
-                  <p className="text-[11px] uppercase tracking-[0.22em] font-medium mb-2" style={{ color: '#C88F00' }}>
+                  <p className="text-[11px] uppercase tracking-[0.22em] font-medium mb-2" style={{ color: '#8A6200' }}>
                     {s.paso}
                   </p>
                   <h3 className={`${display.className} font-semibold text-xl md:text-2xl leading-tight mb-2`} style={{ color: C.slate }}>
@@ -401,7 +397,7 @@ export default function CentroSanRicardoPage() {
             <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.06] mb-6`} style={{ color: C.slate }}>
               Una piscina de parcela,
               <br />
-              <em className="font-normal" style={{ color: '#C88F00' }}>atendida por su gente</em>
+              <em className="font-normal" style={{ color: '#8A6200' }}>atendida por su gente</em>
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-5 max-w-md" style={{ color: C.muted }}>
               Centro San Ricardo funciona en Parcela 35, en plena
@@ -460,7 +456,7 @@ export default function CentroSanRicardoPage() {
                   <blockquote className={`${display.className} text-base leading-relaxed mb-4`} style={{ color: C.ink }}>
                     “{t}”
                   </blockquote>
-                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: '#C88F00' }}>
+                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: '#8A6200' }}>
                     Reseña de ejemplo
                   </figcaption>
                 </figure>
@@ -589,32 +585,24 @@ export default function CentroSanRicardoPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#FBFAF6' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,250,246,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-              <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,250,246,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+          <p className={`${display.className} font-semibold text-xl mb-1`}>{BIZ.name}</p>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: '#D5D9DB' }}>
+            {BIZ.address} · {BIZ.city} ·{' '}
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+          </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,250,246,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,250,246,0.45)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-24 text-xs leading-relaxed" style={{ color: '#C4CACD' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Programas,
             precios, reseñas textuales y fotos son de muestra.
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
+      <div className="[&>div]:!bg-[#0A0A0A]">
+        <DemoBand name={BIZ.name} />
+      </div>
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
