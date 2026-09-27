@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
-import { Libre_Franklin, Source_Serif_4 } from 'next/font/google'
+import Image from 'next/image'
+import { Barlow_Condensed, Source_Serif_4 } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_HORA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Libre_Franklin({
+const display = Barlow_Condensed({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['500', '600', '700', '800'],
 })
 const body = Source_Serif_4({
   subsets: ['latin'],
@@ -21,6 +22,8 @@ const C = {
   wineSoft: '#3A1622',
   gold: '#B98B4E',
   goldGlow: '#E8BC77',
+  rose: '#E2708F',
+  roseGlow: '#F08CA8',
   bone: '#F5EFE6',
   muted: 'rgba(245,239,230,0.62)',
   faint: 'rgba(245,239,230,0.38)',
@@ -28,6 +31,7 @@ const C = {
 }
 
 const GLOW_TEXT = '0 0 14px rgba(232,188,119,0.5), 0 0 44px rgba(185,139,78,0.3)'
+const GLOW_ROSE = '0 0 14px rgba(226,112,143,0.55), 0 0 46px rgba(226,112,143,0.32)'
 const GLOW_FRAME =
   '0 0 0 1px rgba(185,139,78,0.45), 0 0 34px rgba(185,139,78,0.18), 0 22px 60px rgba(0,0,0,0.5)'
 
@@ -99,10 +103,16 @@ const REVIEWS = [
   'Queda en pleno centro, en Torre Carmen. Agenda por WhatsApp y te confirman altiro.',
 ]
 
-function NeonEyebrow({ children }: { children: React.ReactNode }) {
+function NeonEyebrow({
+  children,
+  center = false,
+}: {
+  children: React.ReactNode
+  center?: boolean
+}) {
   return (
     <p
-      className={`${display.className} text-[11px] uppercase tracking-[0.3em] font-semibold mb-4 flex items-center gap-3`}
+      className={`${display.className} text-[12px] uppercase tracking-[0.32em] font-semibold mb-4 flex items-center gap-3 ${center ? 'justify-center' : ''}`}
       style={{ color: C.goldGlow, textShadow: GLOW_TEXT }}
     >
       <span
@@ -118,7 +128,7 @@ function NeonEyebrow({ children }: { children: React.ReactNode }) {
 export default function NativaCuricoPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`${body.className} nativa-page min-h-screen antialiased`}
       style={{ backgroundColor: C.night, color: C.bone }}
     >
       <style>{`
@@ -126,11 +136,51 @@ export default function NativaCuricoPage() {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
         }
+        @keyframes nativa-flicker {
+          0%, 5.5%, 7.5%, 53%, 55%, 81%, 83.5%, 100% { opacity: 1; }
+          6.5% { opacity: 0.55; }
+          54% { opacity: 0.72; }
+          82% { opacity: 0.85; }
+        }
         .nativa-marquee-track {
           animation: nativa-marquee 26s linear infinite;
         }
+        .nativa-neon {
+          animation: nativa-flicker 4.4s linear infinite;
+        }
+        .nativa-cta {
+          background-color: #B98B4E;
+          color: #1D0E15;
+          box-shadow: 0 0 26px rgba(185,139,78,0.55), 0 0 60px rgba(185,139,78,0.25);
+          transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+        }
+        .nativa-cta:hover {
+          background-color: #E8BC77;
+          box-shadow: 0 0 38px rgba(232,188,119,0.8), 0 0 90px rgba(185,139,78,0.4);
+        }
+        .nativa-ghost {
+          border: 1px solid rgba(185,139,78,0.28);
+          color: #F5EFE6;
+          transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .nativa-ghost:hover {
+          background-color: rgba(245,239,230,0.06);
+          border-color: rgba(185,139,78,0.65);
+          box-shadow: 0 0 18px rgba(185,139,78,0.22);
+        }
+        .nativa-card {
+          transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .nativa-card:hover {
+          border-color: rgba(226,112,143,0.5);
+          box-shadow: 0 0 26px rgba(226,112,143,0.14);
+        }
+        .nativa-page a:focus-visible {
+          outline: 2px solid #E8BC77;
+          outline-offset: 3px;
+        }
         @media (prefers-reduced-motion: reduce) {
-          .nativa-marquee-track { animation: none; }
+          .nativa-marquee-track, .nativa-neon { animation: none; }
         }
       `}</style>
 
@@ -151,10 +201,13 @@ export default function NativaCuricoPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.night }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de Nativa Curicó: cabina de tratamientos con luz cálida"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
           style={{ filter: 'contrast(1.1) saturate(1.08) brightness(0.9)' }}
         />
         <div
@@ -202,14 +255,14 @@ export default function NativaCuricoPage() {
           <Reveal>
             <NeonEyebrow>Centro de estética · Curicó centro</NeonEyebrow>
             <h1
-              className={`${display.className} uppercase font-bold leading-[0.92] tracking-[-0.02em] text-[clamp(3rem,11vw,7rem)] mb-6`}
+              className={`${display.className} uppercase font-bold leading-[0.9] tracking-[0.005em] text-[clamp(3.4rem,13vw,8.5rem)] mb-6`}
               style={{ color: C.bone }}
             >
               Sal de aquí
               <br />
               <span
-                className="font-extrabold"
-                style={{ color: C.goldGlow, textShadow: GLOW_TEXT }}
+                className="nativa-neon font-extrabold"
+                style={{ color: C.roseGlow, textShadow: GLOW_ROSE }}
               >
                 encendida
               </span>
@@ -223,22 +276,13 @@ export default function NativaCuricoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase font-bold text-sm tracking-[0.08em] px-8 py-4 rounded-full transition-transform active:scale-95`}
-                style={{
-                  backgroundColor: C.gold,
-                  color: '#1D0E15',
-                  boxShadow: '0 0 26px rgba(185,139,78,0.55), 0 0 60px rgba(185,139,78,0.25)',
-                }}
+                className={`${display.className} nativa-cta uppercase font-bold text-sm tracking-[0.1em] px-8 py-4 rounded-full active:scale-95`}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#menu"
-                className={`${display.className} uppercase font-semibold text-sm tracking-[0.08em] px-8 py-4 rounded-full transition-colors hover:bg-white/5`}
-                style={{
-                  border: `1px solid ${C.line}`,
-                  color: C.bone,
-                }}
+                className={`${display.className} nativa-ghost uppercase font-semibold text-sm tracking-[0.1em] px-8 py-4 rounded-full`}
               >
                 Ver el menú
               </a>
@@ -259,7 +303,7 @@ export default function NativaCuricoPage() {
             <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               @{BIZ.instagram}
             </a>
-            <span className="hidden md:inline" style={{ color: C.goldGlow }}>sitio de ejemplo</span>
+            <span className="hidden md:inline" style={{ color: C.roseGlow, textShadow: '0 0 10px rgba(226,112,143,0.5)' }}>sitio de ejemplo</span>
           </div>
         </div>
       </section>
@@ -280,7 +324,17 @@ export default function NativaCuricoPage() {
                   style={{ color: 'rgba(245,239,230,0.55)' }}
                 >
                   {item}
-                  <span className="ml-6" style={{ color: C.gold, textShadow: GLOW_TEXT }}>✦</span>
+                  <span
+                    className="ml-6"
+                    style={
+                      i % 2 === 0
+                        ? { color: C.gold, textShadow: GLOW_TEXT }
+                        : { color: C.rose, textShadow: GLOW_ROSE }
+                    }
+                    aria-hidden="true"
+                  >
+                    ✦
+                  </span>
                 </span>
               ))}
             </div>
@@ -294,7 +348,7 @@ export default function NativaCuricoPage() {
           <Reveal>
             <NeonEyebrow>El menú</NeonEyebrow>
             <h2
-              className={`${display.className} uppercase font-bold text-4xl md:text-6xl leading-[0.95] tracking-[-0.01em]`}
+              className={`${display.className} uppercase font-bold text-5xl md:text-7xl leading-[0.92] tracking-[-0.005em]`}
               style={{ color: C.bone }}
             >
               La mesa
@@ -320,14 +374,15 @@ export default function NativaCuricoPage() {
               >
                 <div className="md:col-span-7 md:[direction:ltr]">
                   <div
-                    className="rounded-2xl overflow-hidden"
+                    className="relative rounded-2xl overflow-hidden aspect-[16/10]"
                     style={{ boxShadow: GLOW_FRAME }}
                   >
-                    <img
+                    <Image
                       src={s.src}
-                      alt={s.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover aspect-[16/10]"
+                      alt={`${s.name} en ${BIZ.name}`}
+                      fill
+                      sizes="(min-width: 768px) 58vw, 100vw"
+                      className="object-cover"
                       style={{ filter: 'contrast(1.12) saturate(1.05)' }}
                     />
                   </div>
@@ -347,7 +402,7 @@ export default function NativaCuricoPage() {
                     {s.tag}
                   </p>
                   <h3
-                    className={`${display.className} uppercase font-bold text-2xl md:text-3xl leading-tight mb-3`}
+                    className={`${display.className} uppercase font-bold text-3xl md:text-4xl leading-[1.02] mb-3`}
                     style={{ color: C.bone }}
                   >
                     {s.name}
@@ -359,7 +414,7 @@ export default function NativaCuricoPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} uppercase text-xs font-semibold tracking-[0.18em] underline underline-offset-[6px] decoration-1`}
+                    className={`${display.className} uppercase text-xs font-semibold tracking-[0.18em] underline underline-offset-[6px] decoration-1 transition-colors hover:text-white`}
                     style={{ color: C.goldGlow, textDecorationColor: 'rgba(185,139,78,0.5)' }}
                   >
                     Consultar esta hora →
@@ -374,8 +429,8 @@ export default function NativaCuricoPage() {
       {/* ── La casa: sobre el negocio ── */}
       <section id="la-casa" className="scroll-mt-20" style={{ backgroundColor: C.wineSoft }}>
         <div
-          className="absolute left-0 right-0 h-px"
-          style={{ background: `linear-gradient(90deg, transparent, ${C.gold}, transparent)`, boxShadow: '0 0 14px rgba(185,139,78,0.8)' }}
+          className="h-px"
+          style={{ background: `linear-gradient(90deg, transparent, ${C.rose} 35%, ${C.gold} 65%, transparent)`, boxShadow: '0 0 14px rgba(226,112,143,0.55)' }}
           aria-hidden="true"
         />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
@@ -383,7 +438,7 @@ export default function NativaCuricoPage() {
             <Reveal>
               <NeonEyebrow>La casa</NeonEyebrow>
               <h2
-                className={`${display.className} uppercase font-bold text-4xl md:text-5xl leading-[0.98] tracking-[-0.01em] mb-7`}
+                className={`${display.className} uppercase font-bold text-5xl md:text-6xl leading-[0.94] tracking-[-0.005em] mb-7`}
                 style={{ color: C.bone }}
               >
                 En pleno centro
@@ -435,7 +490,7 @@ export default function NativaCuricoPage() {
               {REVIEWS.map((t, i) => (
                 <Reveal key={i} delay={i * 110}>
                   <figure
-                    className="rounded-2xl p-6 md:p-7 h-full"
+                    className="nativa-card rounded-2xl p-6 md:p-7 h-full"
                     style={{
                       backgroundColor: 'rgba(21,10,15,0.5)',
                       border: `1px solid ${C.line}`,
@@ -466,9 +521,9 @@ export default function NativaCuricoPage() {
             }}
           >
             <div className="text-center mb-10">
-              <NeonEyebrow>La carta</NeonEyebrow>
+              <NeonEyebrow center>La carta</NeonEyebrow>
               <h2
-                className={`${display.className} uppercase font-bold text-3xl md:text-5xl leading-[0.95] tracking-[-0.01em]`}
+                className={`${display.className} uppercase font-bold text-4xl md:text-6xl leading-[0.94] tracking-[-0.005em]`}
                 style={{ color: C.bone }}
               >
                 Precios de <span style={{ color: C.goldGlow, textShadow: GLOW_TEXT }}>referencia</span>
@@ -502,14 +557,14 @@ export default function NativaCuricoPage() {
       <section id="reservar" className="scroll-mt-20" style={{ backgroundColor: C.wineSoft }}>
         <div
           className="h-px"
-          style={{ background: `linear-gradient(90deg, transparent, ${C.gold}, transparent)`, boxShadow: '0 0 14px rgba(185,139,78,0.8)' }}
+          style={{ background: `linear-gradient(90deg, transparent, ${C.gold} 35%, ${C.rose} 65%, transparent)`, boxShadow: '0 0 14px rgba(185,139,78,0.55)' }}
           aria-hidden="true"
         />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
             <NeonEyebrow>Reservar</NeonEyebrow>
             <h2
-              className={`${display.className} uppercase font-bold text-4xl md:text-5xl leading-[0.98] tracking-[-0.01em] mb-6`}
+              className={`${display.className} uppercase font-bold text-5xl md:text-6xl leading-[0.94] tracking-[-0.005em] mb-6`}
               style={{ color: C.bone }}
             >
               Tu hora te
@@ -531,12 +586,7 @@ export default function NativaCuricoPage() {
                 href={WA_LINK_HORA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase font-bold text-sm tracking-[0.08em] px-7 py-3.5 rounded-full transition-transform active:scale-95`}
-                style={{
-                  backgroundColor: C.gold,
-                  color: '#1D0E15',
-                  boxShadow: '0 0 24px rgba(185,139,78,0.5)',
-                }}
+                className={`${display.className} nativa-cta uppercase font-bold text-sm tracking-[0.1em] px-7 py-3.5 rounded-full active:scale-95`}
               >
                 Pedir hora por WhatsApp
               </a>
@@ -544,8 +594,7 @@ export default function NativaCuricoPage() {
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase font-semibold text-sm tracking-[0.08em] px-7 py-3.5 rounded-full transition-colors hover:bg-white/5`}
-                style={{ border: `1px solid ${C.line}`, color: C.bone }}
+                className={`${display.className} nativa-ghost uppercase font-semibold text-sm tracking-[0.1em] px-7 py-3.5 rounded-full`}
               >
                 @{BIZ.instagram}
               </a>
@@ -559,7 +608,7 @@ export default function NativaCuricoPage() {
               <iframe
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
-                className="w-full h-full min-h-[320px]"
+                className="w-full h-full min-h-[320px] border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -574,14 +623,14 @@ export default function NativaCuricoPage() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 70% 80% at 50% 110%, rgba(107,39,55,0.6) 0%, transparent 70%)',
+              'radial-gradient(ellipse 70% 80% at 50% 110%, rgba(226,112,143,0.3) 0%, rgba(107,39,55,0.55) 45%, transparent 72%)',
           }}
           aria-hidden="true"
         />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <h2
-              className={`${display.className} uppercase font-extrabold text-[clamp(2.4rem,8vw,5.5rem)] leading-[0.92] tracking-[-0.02em] mb-6`}
+              className={`${display.className} uppercase font-extrabold text-[clamp(2.8rem,9vw,6.5rem)] leading-[0.9] tracking-[-0.01em] mb-6`}
               style={{ color: C.bone }}
             >
               ¿Nos vemos
@@ -596,12 +645,7 @@ export default function NativaCuricoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block uppercase font-bold text-sm md:text-base tracking-[0.08em] px-9 py-4 rounded-full transition-transform active:scale-95`}
-              style={{
-                backgroundColor: C.gold,
-                color: '#1D0E15',
-                boxShadow: '0 0 30px rgba(185,139,78,0.6), 0 0 80px rgba(185,139,78,0.3)',
-              }}
+              className={`${display.className} nativa-cta inline-block uppercase font-bold text-sm md:text-base tracking-[0.1em] px-9 py-4 rounded-full active:scale-95`}
             >
               Reservar por WhatsApp
             </a>
