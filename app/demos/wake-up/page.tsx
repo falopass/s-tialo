@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Unbounded, Onest } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -113,12 +114,12 @@ const QUOTES = [
 ]
 
 const CARTA = [
-  { name: 'Espresso / cortado', note: 'doble, en la barra' },
-  { name: 'Capuchino / latte', note: 'con o sin sabor' },
-  { name: 'Kuchen y queque del día', note: 'por trozo' },
-  { name: 'Sandwich tostado', note: 'de la mesada' },
-  { name: 'Promo desayuno', note: 'café + algo dulce' },
-  { name: 'Box once para oficina', note: 'se cotiza por volumen' },
+  { name: 'Espresso / cortado', note: 'doble, en la barra', side: 'precio del día' },
+  { name: 'Capuchino / latte', note: 'con o sin sabor', side: 'precio del día' },
+  { name: 'Kuchen y queque del día', note: 'por trozo', side: 'precio del día' },
+  { name: 'Sandwich tostado', note: 'de la mesada', side: 'precio del día' },
+  { name: 'Promo desayuno', note: 'café + algo dulce', side: 'precio del día' },
+  { name: 'Box once para oficina', note: 'para equipos y empresas', side: 'según volumen' },
 ]
 
 const HORAS = [
@@ -169,12 +170,12 @@ function MosaicTile({ tile, index }: { tile: Tile; index: number }) {
             href={WA_LINK_OFICINA}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 transition-transform active:scale-95"
+            className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 transition-[transform,filter] hover:brightness-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             style={{ backgroundColor: C.cyan, color: C.blueDeep }}
           >
             {tile.cta} →
           </a>
-          <p className="text-[10px] mt-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
+          <p className="text-[10px] mt-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
             Servicio de muestra: se confirma oferta y formato al publicar.
           </p>
         </div>
@@ -185,12 +186,13 @@ function MosaicTile({ tile, index }: { tile: Tile; index: number }) {
   if (tile.kind === 'photo') {
     return (
       <Reveal delay={index * 80} className="break-inside-avoid mb-4 md:mb-5">
-        <figure className="relative overflow-hidden group" style={{ backgroundColor: C.blueDeep }}>
-          <img
+        <figure className={`relative overflow-hidden group ${tile.aspect}`} style={{ backgroundColor: C.blueDeep }}>
+          <Image
             src={tile.src}
             alt={tile.alt}
-            loading="lazy"
-            className={`w-full object-cover ${tile.aspect} transition-transform duration-700 ease-out group-hover:scale-[1.04]`}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
           <figcaption
             className="absolute bottom-3 left-3 right-3 text-[11px] font-semibold leading-snug px-3.5 py-2.5 backdrop-blur-sm"
@@ -206,12 +208,13 @@ function MosaicTile({ tile, index }: { tile: Tile; index: number }) {
   return (
     <Reveal delay={index * 80} className="break-inside-avoid mb-4 md:mb-5">
       <div className="border overflow-hidden group h-full" style={{ backgroundColor: C.card, borderColor: C.line }}>
-        <div className="relative overflow-hidden">
-          <img
+        <div className={`relative overflow-hidden ${tile.aspect}`}>
+          <Image
             src={tile.src}
             alt={tile.alt}
-            loading="lazy"
-            className={`w-full object-cover ${tile.aspect} transition-transform duration-700 ease-out group-hover:scale-[1.04]`}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
           <span
             className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5"
@@ -256,10 +259,13 @@ export default function WakeUpPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.blueDeep }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de Wake Up: mesas de madera, plantas y barra de espresso junto al ventanal"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -275,7 +281,7 @@ export default function WakeUpPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-[transform,background-color] hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               style={{ backgroundColor: 'rgba(255,255,255,0.95)', color: C.blueDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.cyan} stroke={C.cyan} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -305,14 +311,14 @@ export default function WakeUpPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-[transform,filter] hover:brightness-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                 style={{ backgroundColor: C.cyan, color: C.blueDeep }}
               >
                 Pedir por WhatsApp
               </a>
               <a
                 href="#mosaico"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#fff' }}
               >
                 Ver el mosaico
@@ -326,9 +332,9 @@ export default function WakeUpPage() {
             <span>{BIZ.address} · {BIZ.city}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 animate-pulse" style={{ backgroundColor: C.cyan }} aria-hidden="true" />
-              abierto hoy
+              desayuno · once · para llevar
             </span>
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
               {BIZ.fbFollowers} seguidores en Facebook
             </a>
             <span className="hidden md:inline" style={{ color: C.cyan }}>sitio de ejemplo</span>
@@ -337,7 +343,7 @@ export default function WakeUpPage() {
       </section>
 
       {/* ── El mosaico: la página como galería ── */}
-      <section id="mosaico" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      <section id="mosaico" className="scroll-mt-20 max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
           <Eyebrow>El mosaico</Eyebrow>
           <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
@@ -387,7 +393,7 @@ export default function WakeUpPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 transition-transform active:scale-95"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 transition-[transform,filter] hover:brightness-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F5673]"
                 style={{ backgroundColor: C.blue, color: '#fff' }}
               >
                 <svg viewBox="0 0 24 24" className="w-[13px] h-[13px]" fill={C.cyan} stroke={C.cyan} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -399,7 +405,7 @@ export default function WakeUpPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 border transition-transform active:scale-95"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 border transition-[transform,background-color] hover:bg-[rgba(31,86,115,0.08)] active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F5673]"
                 style={{ borderColor: C.line, color: C.blue }}
               >
                 Facebook · {BIZ.fbFollowers} seguidores
