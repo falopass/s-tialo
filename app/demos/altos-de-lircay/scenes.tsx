@@ -21,7 +21,7 @@ export function ValleyScene({ className = '' }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 1200 800"
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="none"
       className={className}
       aria-hidden="true"
       focusable="false"

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Space_Grotesk, Public_Sans } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { ValleyScene } from './scenes'
@@ -28,6 +28,48 @@ export const metadata: Metadata = {
   description:
     'Clínica dental en San Clemente, valle del Maule. Agenda tu hora por WhatsApp.',
   robots: { index: false, follow: false },
+}
+
+/**
+ * Aviso de Sitiazo en el flujo (no fijo): así nunca tapa texto ni
+ * botones. Fondo en rgba() inline — con bg-ink/90 Chrome serializa
+ * color-mix como oklab() y los chequeos de contraste no lo leen.
+ */
+function SitiazoStrip() {
+  return (
+    <div
+      className="text-[11px] leading-tight"
+      style={{ backgroundColor: 'rgba(10,10,10,0.92)', color: '#FAFAF7' }}
+    >
+      <div className="max-w-6xl mx-auto px-5 md:px-8 py-3.5 pr-20 flex items-center gap-2.5">
+        <span
+          className="inline-block w-[6px] h-[6px] rounded-full shrink-0"
+          style={{ backgroundColor: '#FFD60A' }}
+          aria-hidden="true"
+        />
+        <span>
+          Mockup preparado por{' '}
+          <a
+            href={SITE.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2 hover:text-yellow"
+          >
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name} — así se vería tu sitio.{' '}
+          <a
+            href={whatsappLink('contacto')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2 hover:text-yellow"
+          >
+            ¿Lo hacemos realidad?
+          </a>
+        </span>
+      </div>
+    </div>
+  )
 }
 
 const NAV_LINKS = [
@@ -455,7 +497,7 @@ export default function AltosDeLircayPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.forestDeep, color: '#FCFDFB' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-12 pb-28 md:pb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(252,253,251,0.65)' }}>
@@ -472,8 +514,8 @@ export default function AltosDeLircayPage() {
         </div>
       </footer>
 
+      <SitiazoStrip />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }
