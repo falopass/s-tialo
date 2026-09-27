@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Playfair_Display, Lato } from 'next/font/google'
-import { DemoBand } from '../kit'
+import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -145,7 +145,8 @@ function StepCard({ s }: { s: (typeof TIMELINE)[number] }) {
           src={s.src}
           alt={s.alt}
           fill
-          sizes="(min-width: 768px) 300px, 270px"
+          sizes="(min-width: 768px) 300px, 90vw"
+          loading="eager"
           className="object-cover"
         />
       </div>
@@ -197,7 +198,7 @@ export default function ClinicaTRenovaPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(9,53,64,0.5) 0%, rgba(9,53,64,0.14) 40%, rgba(9,53,64,0.82) 100%)',
+              'linear-gradient(180deg, rgba(9,53,64,0.55) 0%, rgba(9,53,64,0.35) 35%, rgba(9,53,64,0.9) 75%, rgba(9,53,64,0.95) 100%)',
           }}
         />
         {/* sello de reseñas */}
@@ -253,8 +254,8 @@ export default function ClinicaTRenovaPage() {
           </Reveal>
         </div>
         {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(247,249,249,0.22)', backgroundColor: 'rgba(9,53,64,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(247,249,249,0.78)' }}>
+        <div className="relative border-t" style={{ borderColor: 'rgba(247,249,249,0.22)', backgroundColor: 'rgba(9,53,64,0.92)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(247,249,249,0.9)' }}>
             <span>Kurt Moller 23, Linares</span>
             <span>Belleza · Salud · Cuidado</span>
             <span>{BIZ.reviews} reseñas en Google</span>
@@ -281,9 +282,30 @@ export default function ClinicaTRenovaPage() {
           </Reveal>
         </div>
 
+        {/* móvil: recorrido vertical, sin scroll horizontal */}
+        <ol className="md:hidden max-w-6xl mx-auto px-5 space-y-6">
+          {TIMELINE.map((s, i) => (
+            <li key={s.fase} className="flex gap-4">
+              <span
+                className={`${display.className} shrink-0 w-11 h-11 rounded-full flex items-center justify-center text-sm font-semibold`}
+                style={{ backgroundColor: i % 2 === 0 ? C.petrol : C.mint, color: i % 2 === 0 ? '#F7F9F9' : C.deep }}
+                aria-hidden="true"
+              >
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] uppercase tracking-[0.18em] font-bold mb-2 mt-3" style={{ color: C.petrol }}>
+                  {s.tiempo}
+                </p>
+                <StepCard s={s} />
+              </div>
+            </li>
+          ))}
+        </ol>
+
         {/* la línea cruza la pantalla; los hitos se alternan arriba/abajo */}
         <Reveal delay={140}>
-          <div className="relative">
+          <div className="relative hidden md:block">
             <div
               aria-hidden="true"
               className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[2px]"
@@ -344,9 +366,6 @@ export default function ClinicaTRenovaPage() {
               </ol>
             </div>
           </div>
-          <p className="md:hidden text-center text-[11px] uppercase tracking-[0.2em] font-bold mt-6" style={{ color: C.muted }}>
-            Desliza para ver el proceso →
-          </p>
         </Reveal>
       </section>
 
@@ -378,6 +397,7 @@ export default function ClinicaTRenovaPage() {
                       alt={s.alt}
                       fill
                       sizes="(min-width: 768px) 150px, 88px"
+                      loading="eager"
                       className="object-cover"
                     />
                   </div>
@@ -427,6 +447,7 @@ export default function ClinicaTRenovaPage() {
                     alt="Mesa de consulta de T-Renova con espejo, productos y vista a la calle de Linares"
                     fill
                     sizes="(min-width: 1024px) 480px, 100vw"
+                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -658,32 +679,27 @@ export default function ClinicaTRenovaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#F7F9F9' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
-              {BIZ.addressFull}
-              <br />
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-20 flex flex-col gap-3">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+            <p className={`${display.className} font-semibold text-xl`}>{BIZ.name}</p>
+            <p className="text-sm" style={{ color: 'rgba(247,249,249,0.85)' }}>
+              {BIZ.addressFull} ·{' '}
               <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]">{BIZ.phoneDisplay}</a>
-            </address>
+            </p>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]">
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="border-t" style={{ borderColor: 'rgba(247,249,249,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.45)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Servicios,
-            proceso, precios, reseñas textuales y fotos son de muestra.
+          <p className="text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.8)' }}>
+            Mockup preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#F7F9F9' }}>
+              Sitiazo
+            </a>{' '}
+            para {BIZ.name}: servicios, precios, reseñas textuales y fotos de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.mint }}>
+              ¿Lo hacemos realidad?
+            </a>
           </p>
         </div>
       </footer>
 
-      <DemoBand name={BIZ.name} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
