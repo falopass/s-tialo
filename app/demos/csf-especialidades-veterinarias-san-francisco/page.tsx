@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Outfit, Manrope } from 'next/font/google'
+import Image from 'next/image'
+import { Outfit, Manrope, IBM_Plex_Mono } from 'next/font/google'
 import { DemoBand } from '../kit'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
@@ -11,6 +12,11 @@ const display = Outfit({
 const body = Manrope({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
+})
+const mono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-csf-mono',
 })
 
 const C = {
@@ -130,11 +136,21 @@ function SectionHead({
   light?: boolean
 }) {
   return (
-    <div className="mb-10 md:mb-14">
+    <div className="relative mb-10 md:mb-14">
+      <span
+        aria-hidden="true"
+        className={`${display.className} hidden lg:block absolute -top-6 right-0 font-black leading-none select-none pointer-events-none text-[clamp(6rem,11vw,10rem)]`}
+        style={{
+          color: 'transparent',
+          WebkitTextStroke: `2.5px ${light ? 'rgba(255,255,255,0.3)' : 'rgba(14,14,14,0.16)'}`,
+        }}
+      >
+        {num.split(' ')[0]}
+      </span>
       <Reveal>
         <Tag dark={light}>{num}</Tag>
         <h2
-          className={`${display.className} font-black uppercase leading-[0.95] tracking-[-0.01em] text-[clamp(2.2rem,6.5vw,4.5rem)] mt-5`}
+          className={`${display.className} font-black uppercase leading-[0.95] tracking-[-0.01em] text-balance text-[clamp(1.8rem,6vw,4.5rem)] mt-5`}
           style={{ color: light ? C.white : C.ink }}
         >
           {title}
@@ -152,13 +168,18 @@ function SectionHead({
 export default function CsfVeterinariaPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`csf-page ${body.className} ${mono.variable} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`
         @keyframes csf-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         .csf-marquee-track { animation: csf-marquee 26s linear infinite; }
         @media (prefers-reduced-motion: reduce) { .csf-marquee-track { animation: none; } }
+        .csf-page .font-mono { font-family: var(--font-csf-mono), monospace; }
+        .csf-page a:focus-visible, .csf-page button:focus-visible, .csf-page summary:focus-visible {
+          outline: 3px solid #2251FF;
+          outline-offset: 3px;
+        }
       `}</style>
 
       {/* ── Barra superior ── */}
@@ -194,12 +215,11 @@ export default function CsfVeterinariaPage() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${display.className} shrink-0 font-extrabold uppercase text-xs md:text-sm px-4 md:px-5 py-2.5 border-[3px] transition-transform active:translate-x-[2px] active:translate-y-[2px]`}
+            className={`${display.className} shrink-0 font-extrabold uppercase text-xs md:text-sm px-4 md:px-5 py-2.5 border-[3px] transition-[transform,box-shadow] shadow-[4px_4px_0_#0E0E0E] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#0E0E0E] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none`}
             style={{
               backgroundColor: C.blue,
               color: C.white,
               borderColor: C.ink,
-              boxShadow: `4px 4px 0 ${C.ink}`,
             }}
           >
             WhatsApp
@@ -209,10 +229,13 @@ export default function CsfVeterinariaPage() {
 
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.ink }}>
-        <img
+        <Image
           src={`${IMG}/hero.webp`}
           alt="Box de atención de la clínica veterinaria CSF: mesa de acero, ecógrafo y ventana con vista a Talca"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
@@ -225,7 +248,7 @@ export default function CsfVeterinariaPage() {
           <Reveal>
             <Tag>Clínica veterinaria · San Francisco · Talca</Tag>
             <h1
-              className={`${display.className} font-black uppercase leading-[0.92] tracking-[-0.02em] text-[clamp(2.9rem,10.5vw,7rem)] mt-6 mb-6`}
+              className={`${display.className} font-black uppercase leading-[0.92] tracking-[-0.02em] text-balance text-[clamp(2.5rem,10.5vw,7rem)] mt-6 mb-6`}
               style={{ color: C.white }}
             >
               Atención de
@@ -243,15 +266,14 @@ export default function CsfVeterinariaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-extrabold uppercase text-sm md:text-base px-7 py-4 border-[3px] transition-transform active:translate-x-[2px] active:translate-y-[2px]`}
-                style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.ink, boxShadow: `6px 6px 0 ${C.blue}` }}
+                className={`${display.className} font-extrabold uppercase text-sm md:text-base px-7 py-4 border-[3px] transition-[transform,box-shadow] shadow-[6px_6px_0_#2251FF] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0_#2251FF] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none`}
+                style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.ink }}
               >
                 Agendar por WhatsApp →
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-extrabold uppercase text-sm md:text-base px-7 py-4 border-[3px] transition-colors hover:bg-white/10`}
-                style={{ borderColor: C.white, color: C.white }}
+                className={`${display.className} font-extrabold uppercase text-sm md:text-base px-7 py-4 border-[3px] border-white text-white transition-colors hover:bg-white hover:text-[#0E0E0E]`}
               >
                 Ver servicios
               </a>
@@ -266,9 +288,9 @@ export default function CsfVeterinariaPage() {
               { v: BIZ.followers, l: 'seguidores en Instagram', href: BIZ.instagram },
               { v: BIZ.phoneDisplay, l: 'WhatsApp directo', href: WA_LINK },
               { v: 'San Francisco', l: 'sector · Talca' },
-            ].map((s) => (
-              <div key={s.l} className="border-r-[3px] last:border-r-0 px-4 md:px-6 py-4 md:py-5" style={{ borderColor: C.ink }}>
-                <dt className="font-mono text-[10px] uppercase tracking-[0.18em] order-2" style={{ color: 'rgba(14,14,14,0.55)' }}>
+            ].map((s, i) => (
+              <div key={s.l} className={`border-r-[3px] last:border-r-0 ${i % 2 === 1 ? 'max-md:border-r-0' : ''} px-4 md:px-6 py-4 md:py-5`} style={{ borderColor: C.ink }}>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: 'rgba(14,14,14,0.55)' }}>
                   {s.l}
                 </dt>
                 <dd className={`${display.className} font-black text-lg md:text-2xl leading-tight mt-1`} style={{ color: C.blue }}>
@@ -313,44 +335,47 @@ export default function CsfVeterinariaPage() {
           />
           <ul className="grid sm:grid-cols-2 gap-6 md:gap-8">
             {SERVICIOS.map((s, i) => (
-              <Reveal key={s.num} delay={i * 80}>
-                <li
-                  className="group h-full border-[3px] flex flex-col transition-transform hover:-translate-x-1 hover:-translate-y-1"
-                  style={{ backgroundColor: C.white, borderColor: C.ink, boxShadow: `8px 8px 0 ${C.ink}` }}
-                >
-                  <div className="relative overflow-hidden border-b-[3px]" style={{ borderColor: C.ink }}>
-                    <img
-                      src={s.src}
-                      alt={s.alt}
-                      loading="lazy"
-                      className="w-full aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                    <span
-                      className="absolute top-4 left-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] px-2.5 py-1 border-[3px]"
-                      style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.ink }}
-                    >
-                      {s.num}
-                    </span>
+              <li key={s.num} className="h-full">
+                <Reveal delay={i * 80} className="h-full">
+                  <div
+                    className="group h-full border-[3px] flex flex-col transition-[transform,box-shadow] shadow-[8px_8px_0_#0E0E0E] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[12px_12px_0_#0E0E0E]"
+                    style={{ backgroundColor: C.white, borderColor: C.ink }}
+                  >
+                    <div className="relative overflow-hidden border-b-[3px] aspect-[16/10]" style={{ borderColor: C.ink }}>
+                      <Image
+                        src={s.src}
+                        alt={s.alt}
+                        fill
+                        sizes="(min-width: 640px) 44vw, 92vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                      <span
+                        className="absolute top-4 left-4 font-mono text-[11px] font-bold uppercase tracking-[0.2em] px-2.5 py-1 border-[3px]"
+                        style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.ink }}
+                      >
+                        {s.num}
+                      </span>
+                    </div>
+                    <div className="p-5 md:p-7 flex flex-col flex-1">
+                      <h3 className={`${display.className} font-black uppercase text-xl md:text-2xl mb-2 leading-tight`}>
+                        {s.name}
+                      </h3>
+                      <p className="text-[15px] leading-relaxed mb-5" style={{ color: 'rgba(14,14,14,0.65)' }}>
+                        {s.desc}
+                      </p>
+                      <a
+                        href={WA_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-auto w-fit font-mono text-[11px] uppercase tracking-[0.18em] font-bold underline underline-offset-4 decoration-2 hover:decoration-[3px] hover:underline-offset-8 transition-all"
+                        style={{ color: C.blue, textDecorationColor: C.blue }}
+                      >
+                        Consultar por WhatsApp →
+                      </a>
+                    </div>
                   </div>
-                  <div className="p-5 md:p-7 flex flex-col flex-1">
-                    <h3 className={`${display.className} font-black uppercase text-xl md:text-2xl mb-2 leading-tight`}>
-                      {s.name}
-                    </h3>
-                    <p className="text-sm md:text-[15px] leading-relaxed mb-5" style={{ color: 'rgba(14,14,14,0.65)' }}>
-                      {s.desc}
-                    </p>
-                    <a
-                      href={WA_LINK}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-auto font-mono text-[11px] uppercase tracking-[0.18em] font-bold underline underline-offset-4 decoration-2"
-                      style={{ color: C.blue, textDecorationColor: C.blue }}
-                    >
-                      Consultar por WhatsApp →
-                    </a>
-                  </div>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ul>
         </div>
@@ -364,12 +389,15 @@ export default function CsfVeterinariaPage() {
               className="border-[3px]"
               style={{ borderColor: C.ink, backgroundColor: C.white, boxShadow: `10px 10px 0 ${C.blue}` }}
             >
-              <img
-                src={`${IMG}/ambiente.webp`}
-                alt="Fachada de la clínica veterinaria a nivel de calle, con vitrina y perritos en la ventana"
-                loading="lazy"
-                className="w-full aspect-[4/3] object-cover"
-              />
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={`${IMG}/ambiente.webp`}
+                  alt="Fachada de la clínica veterinaria a nivel de calle, con vitrina y perritos en la ventana"
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 92vw"
+                  className="object-cover"
+                />
+              </div>
               <p className="font-mono text-[10px] uppercase tracking-[0.18em] px-4 py-3 border-t-[3px]" style={{ borderColor: C.ink, color: 'rgba(14,14,14,0.55)' }}>
                 La clínica a nivel de calle · {BIZ.sector}, {BIZ.city}
               </p>
@@ -378,18 +406,18 @@ export default function CsfVeterinariaPage() {
           <Reveal delay={120}>
             <Tag>02 / La clínica</Tag>
             <h2
-              className={`${display.className} font-black uppercase leading-[0.95] text-4xl md:text-5xl mt-5 mb-6`}
+              className={`${display.className} font-black uppercase leading-[0.95] text-balance text-[1.7rem] md:text-5xl mt-5 mb-6`}
             >
               De barrio, en serio,
               <br />
               <span style={{ color: C.blue }}>en Talca</span>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-4" style={{ color: 'rgba(14,14,14,0.7)' }}>
+            <p className="text-[15px] md:text-base leading-relaxed mb-4 max-w-[54ch]" style={{ color: 'rgba(14,14,14,0.7)' }}>
               CSF Especialidades Veterinarias atiende en el sector San Francisco
               de Talca: una clínica de barrio donde hablas directo con el equipo
               que atiende a tu mascota, sin call center ni intermediarios.
             </p>
-            <p className="text-sm md:text-base leading-relaxed mb-8" style={{ color: 'rgba(14,14,14,0.7)' }}>
+            <p className="text-[15px] md:text-base leading-relaxed mb-8 max-w-[54ch]" style={{ color: 'rgba(14,14,14,0.7)' }}>
               Lo que más valoran quienes llegan: que el diagnóstico se hace
               dentro de la misma clínica y que el trato es cara a cara.
             </p>
@@ -450,8 +478,8 @@ export default function CsfVeterinariaPage() {
         href={BIZ.instagram}
         target="_blank"
         rel="noopener noreferrer"
-        className="block border-b-[3px] transition-colors"
-        style={{ backgroundColor: C.blue, borderColor: C.ink }}
+        className="block border-b-[3px] bg-[#2251FF] hover:bg-[#0E0E0E] transition-colors"
+        style={{ borderColor: C.ink }}
       >
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 md:py-8 flex flex-wrap items-center justify-between gap-4">
           <p className={`${display.className} font-black uppercase text-xl md:text-3xl`} style={{ color: C.white }}>
@@ -515,6 +543,16 @@ export default function CsfVeterinariaPage() {
         </div>
       </section>
 
+      {/* ── Cinta de obra ── */}
+      <div
+        aria-hidden="true"
+        className="h-4 md:h-5 border-b-[3px]"
+        style={{
+          borderColor: C.ink,
+          background: `repeating-linear-gradient(-45deg, ${C.ink} 0 16px, ${C.lime} 16px 32px)`,
+        }}
+      />
+
       {/* ── Contacto ── */}
       <section id="contacto" className="scroll-mt-24" style={{ backgroundColor: C.ink }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
@@ -535,8 +573,8 @@ export default function CsfVeterinariaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} flex items-center justify-between gap-4 font-black uppercase text-lg md:text-2xl px-6 md:px-8 py-5 md:py-6 border-[3px] transition-transform active:translate-x-[2px] active:translate-y-[2px] mb-8`}
-                style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.lime, boxShadow: `8px 8px 0 ${C.blue}` }}
+                className={`${display.className} flex items-center justify-between gap-4 font-black uppercase text-lg md:text-2xl px-6 md:px-8 py-5 md:py-6 border-[3px] transition-[transform,box-shadow] shadow-[8px_8px_0_#2251FF] hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[4px_4px_0_#2251FF] active:translate-x-[8px] active:translate-y-[8px] active:shadow-none mb-8`}
+                style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.lime }}
               >
                 <span>WhatsApp</span>
                 <span>{BIZ.phoneDisplay} →</span>
