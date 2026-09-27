@@ -238,6 +238,14 @@ const BLITZ = [
     tagline: 'Línea de tiempo educativa: azul pizarra y amarillo lápiz, con fotos.',
     gradient: 'linear-gradient(135deg, #22353F 0%, #2F4858 55%, #F2B705 140%)',
   },
+  {
+    slug: 'my-fusion-gym',
+    name: 'MY Fusion Gym',
+    rubro: 'Gimnasio',
+    city: 'Curicó',
+    tagline: 'Sobrio y patrimonial: verde bosque, crema y latón, fichas apiladas al hacer scroll.',
+    gradient: 'linear-gradient(135deg, #142A20 0%, #1E3D2F 55%, #C8A24B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
