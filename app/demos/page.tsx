@@ -190,6 +190,14 @@ const BLITZ = [
     tagline: 'Tipográfico industrial: hormigón, naranja construcción y arena, con fotos.',
     gradient: 'linear-gradient(135deg, #3A3F44 0%, #E4572E 140%)',
   },
+  {
+    slug: 'patagonia-dulce-pasteleria',
+    name: 'Patagonia dulce pastelería',
+    rubro: 'Pastelería',
+    city: 'San Clemente',
+    tagline: 'Portada de revista pastelera: petróleo, menta y blanco roto, con foto a sangre.',
+    gradient: 'linear-gradient(135deg, #093540 0%, #0E4C5C 55%, #9FD8CB 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
