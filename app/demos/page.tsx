@@ -2135,6 +2135,14 @@ const BLITZ = [
     tagline: 'Hoja de troquel: carbón de taller, lima de su logo y línea de corte sobre sus propias fotos de IG.',
     gradient: 'linear-gradient(135deg, #14140F 0%, #1D1D16 55%, #C6F24E 140%)',
   },
+  {
+    slug: 'nutricionista-francisca-pinto',
+    name: 'Nutricionista Francisca Pinto',
+    rubro: 'Nutricionista',
+    city: 'Talca',
+    tagline: 'Pauta de cuaderno: Fraunces editorial, lila de su uniforme y retrato en arco.',
+    gradient: 'linear-gradient(135deg, #EDE4F7 0%, #4A2E9E 70%, #FBF5EE 160%)',
+  },
 ]
 
 export const metadata: Metadata = {

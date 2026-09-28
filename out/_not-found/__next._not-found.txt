@@ -1,4 +1,10 @@
 1:"$Sreact.fragment"
 2:I[339756,["/_next/static/chunks/ca7718f7450d375a.js","/_next/static/chunks/ea11e457e1a9169e.js","/_next/static/chunks/73191ed225b330d5.js"],"default"]
 3:I[837457,["/_next/static/chunks/ca7718f7450d375a.js","/_next/static/chunks/ea11e457e1a9169e.js","/_next/static/chunks/73191ed225b330d5.js"],"default"]
+<<<<<<< HEAD
 0:{"buildId":"lk5kMLvTW5EjRUrAlcr67","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+||||||| parent of a4ee8998a (demo(nutricionista-francisca-pinto): pauta de cuaderno — Fraunces + Nunito Sans, lila de su uniforme, retrato en arco, notas de pacientes)
+0:{"buildId":"khUwyX1LiUU1hpNm1etEr","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+=======
+0:{"buildId":"9mMVrnR6F6NhUj5-TVmLc","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+>>>>>>> a4ee8998a (demo(nutricionista-francisca-pinto): pauta de cuaderno — Fraunces + Nunito Sans, lila de su uniforme, retrato en arco, notas de pacientes)
