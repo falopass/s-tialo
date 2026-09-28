@@ -1,6 +1,6 @@
 # QA móvil (cloud) — http://localhost:3010/demos/
 
-Fecha: 2026-09-28T05:10:15.822Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
+Fecha: 2026-09-28T05:08:06.952Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
 
 ## Resumen
 
@@ -17,12 +17,12 @@ Fecha: 2026-09-28T05:10:15.822Z · Viewport 390×844 · espera 3500 ms tras netw
 
 ## Los 5 peores
 
-- **ferreteria-muller** (gravedad 0): 0 botones, footer 14.9%, 0 contrastes, sin desborde, 0 invisibles
+- **la-pica-de-los-tatas** (gravedad 0): 0 botones, footer 28.2%, 0 contrastes, sin desborde, 0 invisibles
 
 ## Tabla por gravedad
 
 | # | Demo | Grav. | Btn>52 | Footer % | Contraste | Desborde | Invisibles |
 |---|---|---|---|---|---|---|---|
-| 1 | [ferreteria-muller](http://localhost:3010/demos/ferreteria-muller/) | 0 | 0 | 14.9 | 0 | — | 0 |
+| 1 | [la-pica-de-los-tatas](http://localhost:3010/demos/la-pica-de-los-tatas/) | 0 | 0 | 28.2 | 0 | — | 0 |
 
 ## Detalle por demo (solo con hallazgos)

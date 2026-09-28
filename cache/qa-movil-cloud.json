@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3010",
-  "fecha": "2026-09-28T05:10:15.822Z",
+  "fecha": "2026-09-28T05:08:06.951Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "ferreteria-muller": {
-      "url": "http://localhost:3010/demos/ferreteria-muller/",
+    "la-pica-de-los-tatas": {
+      "url": "http://localhost:3010/demos/la-pica-de-los-tatas/",
       "status": 200,
       "botones": [],
-      "footerPx": 126,
-      "footerPct": 14.9,
+      "footerPx": 238,
+      "footerPct": 28.2,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4419
+      "ms": 4387
     }
   }
 }

@@ -1,11 +1,11 @@
 /**
  * app/demos/centro-spa-roxana/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps e Instagram):
- * nombre, rubro, dirección, comuna, las 149 reseñas, el WhatsApp y la
- * cuenta de Instagram con sus seguidores. Todo lo demás (servicios,
- * precios, horarios, reseñas de ejemplo) es contenido de muestra para
- * mostrar cómo se vería el sitio.
+ * Datos del mockup. REALES (ficha pública de Google Maps e Instagram
+ * @sparoxana): nombre, rubro, dirección, comuna, nota 4,2 en 149 reseñas,
+ * horario (Lu-Sa 10:00-19:00, domingo cerrado), el WhatsApp, el logo y
+ * las fotos (Google Maps + perfil de Instagram). Los precios y las
+ * reseñas citadas siguen siendo contenido de muestra.
  */
 
 export const BIZ = {
@@ -19,6 +19,8 @@ export const BIZ = {
   phoneTel: '+56993501540',
   whatsapp: '56993501540',
   reviews: 149,
+  rating: 4.2,
+  ratingLabel: '4,2',
   instagram: 'https://instagram.com/sparoxana?igshid=MzRlODBiNWFlZA==',
   followers: '7.727',
 } as const

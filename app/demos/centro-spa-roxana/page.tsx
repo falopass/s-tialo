@@ -58,23 +58,23 @@ const INDICE = [
 const SERVICIOS = [
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Carro de tratamiento con bowl de agua, aceites y toallas para una limpieza facial',
-    name: 'Limpieza facial profunda',
-    desc: 'Higiene, exfoliación e hidratación según tu tipo de piel, con productos suaves y luz natural.',
+    alt: 'Lifting de pestañas realizado en Centro Spa Roxana, Curicó',
+    name: 'Pestañas y cejas',
+    desc: 'Lifting, extensiones y perfilado para abrir la mirada. El centro también hace soft gel.',
     box: 'lg:col-span-7',
     aspect: 'aspect-[4/3]',
   },
   {
     src: `${IMG}/hero.webp`,
-    alt: 'Sala de tratamiento con camilla, toallas y plantas junto a la ventana',
+    alt: 'Terraza del spa de Centro Spa Roxana con pétalos de rosa sobre la madera',
     name: 'Masajes y relajación',
     desc: 'Masaje descontracturante de espalda y cuello para soltar la semana, con música tranquila.',
     box: 'lg:col-span-5 lg:mt-24',
     aspect: 'aspect-[4/5]',
   },
   {
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Estación de manicure junto a la ventana con herramientas, toalla y esmaltes',
+    src: `${IMG}/detalle2.webp`,
+    alt: 'Manos con esmalte lila y menta recién hecho en Centro Spa Roxana',
     name: 'Manicure y pedicure',
     desc: 'Manos y pies ordenados: cutícula, limado y esmaltado a elección, con esmalte de larga duración.',
     box: 'lg:col-span-5 lg:col-start-2',
@@ -82,11 +82,12 @@ const SERVICIOS = [
   },
 ]
 
+// Servicios reales del perfil de Instagram del centro (@sparoxana).
 const TAMBIEN = [
-  'Depilación con cera',
-  'Perfilado de cejas',
-  'Tratamientos corporales',
-  'Pestañas y maquillaje',
+  'Depilación',
+  'Podología',
+  'Peluquería',
+  'Sauna y zona de relajo',
 ]
 
 const PRECIOS = [
@@ -113,9 +114,10 @@ const RESEÑAS = [
   },
 ]
 
+// Horario real publicado en la ficha de Google Maps.
 const HORAS = [
-  { days: 'Lunes a viernes', time: '10:00 a 19:00' },
-  { days: 'Sábado', time: '10:00 a 14:00' },
+  { days: 'Lunes a sábado', time: '10:00 a 19:00' },
+  { days: 'Domingo', time: 'Cerrado' },
 ]
 
 function Folio({
@@ -161,6 +163,7 @@ export default function CentroSpaRoxanaPage() {
         name={BIZ.short}
         links={NAV_LINKS}
         waLink={WA_LINK}
+        logoSrc={`${IMG}/logo.webp`}
         fontClass={display.className}
         theme={{
           over: 'light',
@@ -180,7 +183,7 @@ export default function CentroSpaRoxanaPage() {
       >
         <img
           src={`${IMG}/hero.webp`}
-          alt="Sala de tratamiento del centro con camilla, toallas y luz natural"
+          alt="Terraza del spa de Centro Spa Roxana en Curicó, con pétalos de rosa sobre la madera"
           loading="eager"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
@@ -248,7 +251,7 @@ export default function CentroSpaRoxanaPage() {
               {BIZ.address}, {BIZ.city}
             </a>
             <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
-              {BIZ.reviews} reseñas en Google
+              {BIZ.ratingLabel} en Google · {BIZ.reviews} reseñas
             </a>
             <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
               WhatsApp {BIZ.phoneDisplay}
@@ -452,8 +455,8 @@ export default function CentroSpaRoxanaPage() {
         <Reveal delay={100}>
           <div className="relative mt-14 md:mt-20">
             <img
-              src={`${IMG}/detalle2.webp`}
-              alt="Recepción del centro con flores, productos y vista a la sala de tratamiento"
+              src={`${IMG}/ambiente.webp`}
+              alt="Jardín del spa de Centro Spa Roxana, con cascada de piedra y letrero SPA"
               className="w-full h-[64vw] max-h-[560px] object-cover"
             />
             <div className="max-w-6xl mx-auto px-5 md:px-8">
@@ -462,7 +465,7 @@ export default function CentroSpaRoxanaPage() {
                 style={{ backgroundColor: C.paper }}
               >
                 <p className="text-[11px] uppercase tracking-[0.24em] font-bold mb-5" style={{ color: C.petrol }}>
-                  {BIZ.reviews} reseñas en Google
+                  {BIZ.ratingLabel} de 5 en Google · {BIZ.reviews} reseñas
                 </p>
                 <blockquote
                   className={`${display.className} italic text-2xl md:text-3xl leading-snug mb-6`}
@@ -574,8 +577,7 @@ export default function CentroSpaRoxanaPage() {
                 ))}
               </ul>
               <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: 'rgba(247,249,249,0.82)' }}>
-                Horario referencial: al publicar van los horarios reales del
-                centro.
+                Horario según la ficha del centro en Google Maps.
               </p>
               <div className="flex flex-wrap items-center gap-5">
                 <a
@@ -614,8 +616,8 @@ export default function CentroSpaRoxanaPage() {
         <Reveal>
           <figure>
             <img
-              src={`${IMG}/ambiente.webp`}
-              alt="Fachada del centro sobre la calle, con vitrina y vista a la calle Julio Montt"
+              src={`${IMG}/fachada.webp`}
+              alt="Fachada de Centro Spa Roxana sobre calle Julio Montt en Curicó, con letreros rosados"
               className="w-full h-[44vw] max-h-[440px] object-cover"
             />
             <figcaption className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(247,249,249,0.82)' }}>
@@ -656,7 +658,7 @@ export default function CentroSpaRoxanaPage() {
             </address>
           </div>
           <p className="text-xs leading-relaxed md:max-w-[26rem]" style={{ color: 'rgba(247,249,249,0.82)' }}>
-            Mockup de Sitiazo: datos del centro reales; servicios, precios, reseñas y fotos de muestra.
+            Mockup de Sitiazo: datos, fotos, logo y horario reales (Google Maps e Instagram); precios y reseñas citadas de muestra.
           </p>
         </div>
       </footer>
