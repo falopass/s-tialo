@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3010",
-  "fecha": "2026-09-28T05:08:06.951Z",
+  "fecha": "2026-09-28T05:14:46.707Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -25,6 +25,20 @@
       "culpables": [],
       "invisibles": [],
       "ms": 4387
+    },
+    "ferreteria-avila": {
+      "url": "http://localhost:3010/demos/ferreteria-avila/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 39,
+      "footerPct": 4.6,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4327
     }
   }
 }

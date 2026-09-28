@@ -1078,6 +1078,14 @@ const BLITZ = [
     tagline: 'Vale de bodega: verde letrero, ámbar y rojo camión, líneas de stock con raya punteada.',
     gradient: 'linear-gradient(135deg, #0D3524 0%, #17573B 55%, #F2B32D 140%)',
   },
+  {
+    slug: 'ferreteria-avila',
+    name: 'Ferretería Ávila',
+    rubro: 'Ferretería',
+    city: 'Rancagua',
+    tagline: 'Letrero pintado a mano: muro blanco, tinta negra y rojo señal, sombra de rótulo y cinta de pasillos.',
+    gradient: 'linear-gradient(135deg, #1B1712 0%, #C8102E 60%, #FAF6EC 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

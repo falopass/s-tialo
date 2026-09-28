@@ -1,6 +1,6 @@
 # QA móvil (cloud) — http://localhost:3010/demos/
 
-Fecha: 2026-09-28T05:08:06.952Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
+Fecha: 2026-09-28T05:14:46.708Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
 
 ## Resumen
 
@@ -17,12 +17,12 @@ Fecha: 2026-09-28T05:08:06.952Z · Viewport 390×844 · espera 3500 ms tras netw
 
 ## Los 5 peores
 
-- **la-pica-de-los-tatas** (gravedad 0): 0 botones, footer 28.2%, 0 contrastes, sin desborde, 0 invisibles
+- **ferreteria-avila** (gravedad 0): 0 botones, footer 4.6%, 0 contrastes, sin desborde, 0 invisibles
 
 ## Tabla por gravedad
 
 | # | Demo | Grav. | Btn>52 | Footer % | Contraste | Desborde | Invisibles |
 |---|---|---|---|---|---|---|---|
-| 1 | [la-pica-de-los-tatas](http://localhost:3010/demos/la-pica-de-los-tatas/) | 0 | 0 | 28.2 | 0 | — | 0 |
+| 1 | [ferreteria-avila](http://localhost:3010/demos/ferreteria-avila/) | 0 | 0 | 4.6 | 0 | — | 0 |
 
 ## Detalle por demo (solo con hallazgos)
