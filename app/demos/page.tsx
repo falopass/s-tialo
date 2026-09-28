@@ -2247,6 +2247,30 @@ const BLITZ = [
     tagline: 'Checklist de limpieza: crema cálida, navy+verde del logo y Baloo 2 redondo.',
     gradient: 'linear-gradient(135deg, #F7F2E7 0%, #1C3A5E 60%, #216B45 150%)',
   },
+  {
+    slug: 'camping-salto-el-leon',
+    name: 'Camping Salto El León',
+    rubro: 'Camping y piscina de temporada',
+    city: 'San Clemente',
+    tagline: 'El afiche de temporada: papel crema, verde pino, ocre de su insignia y ticket de entrada.',
+    gradient: 'linear-gradient(135deg, #12281D 0%, #2E5A40 55%, #D98E32 150%)',
+  },
+  {
+    slug: 'takes-cafe-molina',
+    name: "Take's Sushi & Coffee",
+    rubro: 'Restaurante, sushi y cafetería',
+    city: 'Molina',
+    tagline: 'El letrero de neón en la plaza: tinta de medianoche, turquesa encendido y ámbar de terraza.',
+    gradient: 'linear-gradient(135deg, #0A1210 0%, #142722 55%, #22B8A7 150%)',
+  },
+  {
+    slug: 'camping-los-castanos',
+    name: 'Camping Los Castaños',
+    rubro: 'Camping junto al río Claro',
+    city: 'Molina',
+    tagline: 'El letrero de ruta: verde lima del cartel, madera de la entrada y postes de la K-275.',
+    gradient: 'linear-gradient(135deg, #3A2716 0%, #5A3B22 50%, #9DBE2B 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
