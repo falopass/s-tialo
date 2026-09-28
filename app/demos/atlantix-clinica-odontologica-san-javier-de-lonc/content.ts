@@ -1,11 +1,10 @@
 /**
  * app/demos/atlantix-clinica-odontologica-san-javier-de-lonc/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps e Instagram):
- * nombre, dirección, las 58 reseñas, el WhatsApp y la cuenta
- * @clinicaatlantix. Todo lo demás (servicios, precios, horarios,
- * textos de reseñas) es contenido de muestra para mostrar cómo se
- * vería el sitio: va marcado como tal en la página.
+ * Datos del mockup. REALES (ficha pública de Google Maps, Instagram
+ * @clinicaatlantix y su página de agenda en AgendaPro): nombre,
+ * dirección, 4,8 estrellas en 58 reseñas con citas reales, WhatsApp,
+ * horarios de atención y la lista de servicios de su propio afiche.
  */
 
 export const BIZ = {
@@ -18,7 +17,10 @@ export const BIZ = {
   phoneDisplay: '+56 9 2014 8665',
   phoneTel: '+56920148665',
   whatsapp: '56920148665',
-  instagram: 'https://instagram.com/clinicaatlantix',
+  instagram: 'clinicaatlantix',
+  instagramUrl: 'https://instagram.com/clinicaatlantix',
+  rating: 4.8,
+  ratingLabel: '4,8',
   reviews: 58,
 } as const
 
@@ -39,3 +41,49 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
 )}&output=embed`
 
 export const IMG = '/demos/atlantix-clinica-odontologica-san-javier-de-lonc'
+
+/** Lista de su afiche publicado + AgendaPro (odontopediatría, implantes,
+ * endodoncia y blanqueamiento figuran en su agenda online). */
+export const SERVICIOS = [
+  'Limpieza dental',
+  'Tapaduras',
+  'Extracciones',
+  'Ortodoncia',
+  'Ortopedia maxilar',
+  'Periodoncia',
+  'Blanqueamiento',
+  'Implantes',
+  'Endodoncia',
+  'Odontopediatría',
+] as const
+
+/** Horario real de su agenda pública en AgendaPro. */
+export const HORARIO = [
+  { days: 'Lunes a viernes', time: '10:00–19:00' },
+  { days: 'Sábado', time: '10:00–14:00' },
+  { days: 'Domingo', time: 'Cerrado' },
+] as const
+
+/** Reseñas reales citadas desde la ficha pública de Google Maps. */
+export const REVIEWS = [
+  {
+    author: 'Anita Gloria',
+    when: 'hace un año',
+    text: 'Estuvimos años deambulando por todos los dentistas del país hasta que encontramos a los mejores, son geniales, además son una pareja de doctores que trabajan siempre a la par y obviamente con el cuidado para que sus pacientes no sufran ningún dolor.',
+  },
+  {
+    author: 'Julio Mena Muñoz',
+    when: 'hace un año',
+    text: 'Excelente la atención de Alejandra, muy preocupada siempre que estemos informados con antelación de nuestra hora y día de atención.',
+  },
+  {
+    author: 'Él NICHE',
+    when: 'hace un año',
+    text: 'Una excelente atención en recepción, el lugar es muy bonito, tienen la mejor atención en San Javier, muy recomendable para cuidar tus dientes.',
+  },
+  {
+    author: 'Nasho Vera',
+    when: 'hace 8 meses',
+    text: 'Recomendados al 100%. Excelente calidad y buenos precios.',
+  },
+] as const
