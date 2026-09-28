@@ -385,6 +385,12 @@
 <priority>0.5</priority>
 </url>
 <url>
+<loc>https://sitiazo.cl/demos/club-formas-molina/</loc>
+<lastmod>2026-09-25T00:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
 <loc>https://sitiazo.cl/demos/comercial-rio-claro/</loc>
 <lastmod>2026-09-25T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
@@ -824,6 +830,12 @@
 </url>
 <url>
 <loc>https://sitiazo.cl/demos/lavanderia-aqua-limpia/</loc>
+<lastmod>2026-09-25T00:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://sitiazo.cl/demos/lavanderia-de-cobertores-talca/</loc>
 <lastmod>2026-09-25T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
