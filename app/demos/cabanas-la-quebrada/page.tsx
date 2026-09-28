@@ -1,552 +1,484 @@
 import type { Metadata } from 'next'
-import { demoMetadata } from '../meta'
+import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
+import { demoMetadata } from '../meta'
+import { BIZ, IMG, WA_LINK, MAPS_URL, MAPS_EMBED, REVIEWS } from './content'
 import { Reveal, SiteNav, WhatsAppFab } from './chrome'
-import {
-  HeroScene,
-  CabinScene,
-  ForestPanel,
-  RiverPanel,
-  ValleyPanel,
-  CtaScene,
-} from './scenes'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
-  src: [
-    { path: '../../fonts/fraunces/italic-100-900.woff2', weight: '100 900', style: 'italic' },
-    { path: '../../fonts/fraunces/normal-100-900.woff2', weight: '100 900', style: 'normal' },
-  ],
+  src: [{ path: '../../fonts/familjen-grotesk/normal-400-700.woff2', weight: '400 700' }],
+  display: 'swap',
+})
+const body = localFont({
+  src: [{ path: '../../fonts/source-sans-3/normal-200-900.woff2', weight: '200 900' }],
+  display: 'swap',
+})
+const mono = localFont({
+  src: [{ path: '../../fonts/roboto-mono/normal-100-700.woff2', weight: '100 700' }],
   display: 'swap',
 })
 
+/**
+ * Dirección de arte: «los hitos del camino» — la ficha real es un
+ * hospedaje de madera al final de un patio con sauces en plena Talca.
+ * Cada sección es un hito kilométrico (poste blanco + número mono)
+ * unido por una línea de ripio; la paleta sale de las fotos reales:
+ * verde sauce, madera, teja y puerta naranja.
+ */
 const C = {
-  bosque: '#173A2B',
-  bosqueDeep: '#0E241B',
-  arena: '#E8DCC8',
-  arenaSoft: '#F1EADA',
-  terracota: '#C4704B',
-  terracotaInk: '#9E4F2C',
-  crema: '#FAF7F0',
-  muted: '#55685A',
-  line: 'rgba(23,58,43,0.14)',
+  papel: '#F4F0E2',
+  tint: '#E9E4D2',
+  sombra: '#16281C',
+  bosque: '#2C5237',
+  hoja: '#6B8F3F',
+  teja: '#B5491F',
+  miel: '#C8985A',
+  ink: '#21301F',
+  muted: '#56614E',
+  line: 'rgba(33,48,31,0.16)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'cabanas-la-quebrada',
-  title: 'Cabañas La Quebrada — Cabañas en Talca, Región del Maule',
-  description: 'Cabañas equipadas en Talca para descansar con calma. Consulta disponibilidad por WhatsApp.',
+  title: 'Cabañas La Quebrada — Hospedaje en Talca, Región del Maule',
+  description: 'Cabañas de madera en un patio con sauces a pocas cuadras del centro de Talca. Reserva directa por WhatsApp.',
+  image: `${IMG}/cabana-frente.webp`,
 })
 
-// ── Utilidades ───────────────────────────────────────────────
+// ── Piezas del camino ────────────────────────────────────────
 
-function Star({ filled, className = 'w-4 h-4' }: { filled: boolean; className?: string }) {
+/** Hito kilométrico chileno: poste blanco con número en mono. */
+function Km({ n, light = false }: { n: string; light?: boolean }) {
   return (
-    <svg
-      viewBox="0 0 20 20"
-      className={className}
-      fill={filled ? C.terracota : 'none'}
-      stroke={C.terracota}
-      strokeWidth="1.4"
-      aria-hidden="true"
+    <span
+      className={`${mono.className} inline-flex items-center font-bold text-[11px] md:text-xs tracking-[0.18em] uppercase px-2.5 py-1.5 shrink-0`}
+      style={{
+        backgroundColor: light ? C.papel : '#FDFBF4',
+        color: C.ink,
+        border: `1.5px solid ${C.ink}`,
+        borderBottomWidth: '4px',
+      }}
     >
-      <path d="M10 1.8 L12.6 7 L18.2 7.6 L14 11.5 L15.3 17 L10 14 L4.7 17 L6 11.5 L1.8 7.6 L7.4 7 Z" />
-    </svg>
+      KM {n}
+    </span>
   )
 }
 
-function Stars({ n = 4, className = 'w-4 h-4' }: { n?: number; className?: string }) {
+/** Línea de ripio que une los hitos. */
+function Track({ light = false }: { light?: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      className="flex-1 border-t-2 border-dashed"
+      style={{ borderColor: light ? 'rgba(244,240,226,0.35)' : C.line }}
+    />
+  )
+}
+
+/** Cabecera de sección: hito + riel + etiqueta de parada. */
+function Parada({ n, label, light = false }: { n: string; label: string; light?: boolean }) {
+  return (
+    <div className="flex items-center gap-3 md:gap-4 mb-8 md:mb-12">
+      <Km n={n} light={light} />
+      <Track light={light} />
+      <span
+        className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.24em] font-medium whitespace-nowrap`}
+        style={{ color: light ? C.miel : C.muted }}
+      >
+        {label}
+      </span>
+    </div>
+  )
+}
+
+function Stars({ n = 5, color = C.teja, className = 'w-4 h-4' }: { n?: number; color?: string; className?: string }) {
   return (
     <span className="inline-flex gap-0.5" role="img" aria-label={`${n} de 5 estrellas`}>
       {[0, 1, 2, 3, 4].map((i) => (
-        <Star key={i} filled={i < n} className={className} />
+        <svg
+          key={i}
+          viewBox="0 0 20 20"
+          className={className}
+          fill={i < n ? color : 'none'}
+          stroke={color}
+          strokeWidth="1.4"
+          aria-hidden="true"
+        >
+          <path d="M10 1.8 L12.6 7 L18.2 7.6 L14 11.5 L15.3 17 L10 14 L4.7 17 L6 11.5 L1.8 7.6 L7.4 7 Z" />
+        </svg>
       ))}
     </span>
   )
 }
 
-const ICON_PATHS: Record<string, React.ReactNode> = {
-  auto: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 15 l1.5 -6 a2 2 0 0 1 2 -1.5 h9 a2 2 0 0 1 2 1.5 L20 15" />
-      <path d="M3.5 15 h17 v3.5 h-2.5 a1.75 1.75 0 0 1 -3.5 0 h-5 a1.75 1.75 0 0 1 -3.5 0 H3.5 Z" />
-      <path d="M7 11 h10" />
-    </g>
-  ),
-  cocina: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4.5 9.5 h15 v3 a7.5 7.5 0 0 1 -15 0 Z" />
-      <path d="M8 5.5 a2 2 0 0 1 4 0 M13 4 a2.5 2.5 0 0 1 4 1.8" />
-      <path d="M2.5 9.5 h19" />
-    </g>
-  ),
-  wifi: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-      <path d="M4.5 9.5 a11 11 0 0 1 15 0" />
-      <path d="M7.5 13 a7 7 0 0 1 9 0" />
-      <path d="M10.5 16.5 a3 3 0 0 1 3 0" />
-      <circle cx="12" cy="19.2" r="1.2" fill="currentColor" stroke="none" />
-    </g>
-  ),
-  parrilla: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 5.5 h14 v3 a7 7 0 0 1 -14 0 Z" />
-      <path d="M5 8.5 h14 M8 5.5 v3 M12 5.5 v3 M16 5.5 v3" />
-      <path d="M7.5 15.5 L5.5 20 M16.5 15.5 L18.5 20 M12 15.5 v4" />
-    </g>
-  ),
-  agua: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3 C12 3 5.5 10.5 5.5 14.5 a6.5 6.5 0 0 0 13 0 C18.5 10.5 12 3 12 3 Z" />
-      <path d="M9 14.5 a3 3 0 0 0 3 3" />
-    </g>
-  ),
-  lena: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3 C12 7 7.5 9.5 7.5 14 a4.5 4.5 0 0 0 9 0 c0 -3.2 -2.2 -4.7 -2.4 -7.4 c-1 1.3 -2 1.7 -2.8 2" />
-    </g>
-  ),
-  cama: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3.5 18.5 V9 M3.5 14.5 h17 v4" />
-      <path d="M6 11.5 a1.75 1.75 0 1 1 0.1 0" />
-      <path d="M9.5 14.5 v-2.5 h7 a2.5 2.5 0 0 1 2.5 2.5" />
-    </g>
-  ),
-  tinaja: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4.5 10 h15 v4.5 a6.5 6.5 0 0 1 -15 0 Z" />
-      <path d="M8 3.5 c-1 1.4 1 2.2 0 3.6 M12 3.5 c-1 1.4 1 2.2 0 3.6 M16 3.5 c-1 1.4 1 2.2 0 3.6" />
-    </g>
-  ),
-}
-
-function AmenityIcon({ icon }: { icon: keyof typeof ICON_PATHS }) {
-  return (
-    <span
-      className="w-[44px] h-[44px] rounded-full flex items-center justify-center shrink-0"
-      style={{ backgroundColor: C.arenaSoft, color: C.bosque }}
-    >
-      <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" aria-hidden="true">
-        {ICON_PATHS[icon]}
-      </svg>
-    </span>
-  )
-}
-
-// ── Datos de ejemplo (genéricos, no son datos del negocio) ───
-
-const CABINS = [
-  {
-    variant: 'parejas' as const,
-    name: 'Cabaña para dos',
-    tag: 'Parejas',
-    features: ['Cocina equipada', 'Baño privado', 'Terraza al aire libre'],
-  },
-  {
-    variant: 'familiar' as const,
-    name: 'Cabaña familiar',
-    tag: 'Familias',
-    features: ['Dos habitaciones', 'Cocina equipada', 'Quincho y parrilla'],
-  },
-  {
-    variant: 'grupo' as const,
-    name: 'Cabaña para grupos',
-    tag: 'Grupos',
-    features: ['Capacidad amplia', 'Comedor completo', 'Estacionamiento interior'],
-  },
-]
-
-const AMENITIES: { icon: keyof typeof ICON_PATHS; label: string; note?: string }[] = [
-  { icon: 'auto', label: 'Estacionamiento' },
-  { icon: 'cocina', label: 'Cocina equipada' },
-  { icon: 'wifi', label: 'WiFi' },
-  { icon: 'parrilla', label: 'Parrilla y quincho' },
-  { icon: 'agua', label: 'Agua caliente' },
-  { icon: 'lena', label: 'Calefacción a leña' },
-  { icon: 'cama', label: 'Ropa de cama' },
-  { icon: 'tinaja', label: 'Tinaja', note: 'a consultar' },
+const SELLADOS = [
+  'Estacionamiento dentro del recinto',
+  'Cocina equipada',
+  'Patio con sauces',
+  'Atendido por sus dueños',
 ]
 
 const FAQS = [
   {
     q: '¿Cómo reservo una cabaña?',
-    a: 'Escríbenos por WhatsApp con las fechas que te acomodan y la cantidad de personas. Te confirmamos disponibilidad y valor el mismo día.',
+    a: `Por WhatsApp al ${BIZ.phoneDisplay}: cuentas cuántos son y qué fechas te acomodan, y te confirman disponibilidad y valor.`,
   },
   {
-    q: '¿A qué hora es el check-in y el check-out?',
-    a: 'Los horarios de llegada y salida se coordinan al momento de reservar, según la ocupación del día.',
+    q: '¿Qué incluye la cabaña?',
+    a: 'Cocina equipada y acceso al patio con estacionamiento interior. Confirma por WhatsApp qué lleva la cabaña que te toca.',
   },
   {
-    q: '¿Se aceptan mascotas?',
-    a: 'Depende de la cabaña y la fecha. Cuéntanos por WhatsApp a qué mascota traes y te confirmamos.',
-  },
-  {
-    q: '¿Hay dónde estacionar?',
-    a: 'Sí, hay espacio para estacionar dentro del recinto. Consulta los detalles al reservar.',
+    q: '¿Dónde queda exactamente?',
+    a: 'En Cuatro Poniente 1197, Talca, a pasos de la Universidad Santo Tomás y a pocas cuadras del centro.',
   },
 ]
 
-// ── Página ───────────────────────────────────────────────────
+/** Aviso de Sitiazo en el flujo (nada fijo que tape texto ni botones). */
+function SitiazoStrip() {
+  return (
+    <div
+      className="text-[11px] leading-tight"
+      style={{ backgroundColor: 'rgba(10,12,9,0.93)', color: '#F4F0E2' }}
+    >
+      <div className="max-w-6xl mx-auto px-5 md:px-8 py-3.5 pr-20 flex items-center gap-2.5">
+        <span
+          className="inline-block w-[6px] h-[6px] rounded-full shrink-0"
+          style={{ backgroundColor: C.miel }}
+          aria-hidden="true"
+        />
+        <span>
+          Mockup preparado por{' '}
+          <a
+            href={SITE.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2 tap-44"
+          >
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name} — así se vería tu sitio.{' '}
+          <a
+            href={whatsappLink('contacto')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline underline-offset-2 tap-44"
+          >
+            ¿Lo hacemos realidad?
+          </a>
+        </span>
+      </div>
+    </div>
+  )
+}
 
 export default function CabanasLaQuebrada() {
   return (
     <div
-      className="min-h-screen font-body antialiased"
-      style={{ backgroundColor: C.crema, color: C.bosqueDeep }}
+      className={`${body.className} min-h-screen antialiased overflow-x-hidden`}
+      style={{ backgroundColor: C.papel, color: C.ink }}
     >
-      <SiteNav name={BIZ.name} fontClass={display.className} />
+      <style>{`
+        html { scroll-behavior: auto }
+        .clq a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px }
+      `}</style>
 
-      {/* ── Hero ── */}
-      <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden" style={{ backgroundColor: C.bosqueDeep }}>
-        <HeroScene className="absolute inset-0 w-full h-full" />
+      <SiteNav name={BIZ.short} fontClass={display.className} />
+
+      {/* ── KM 0: portada ── */}
+      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.sombra }}>
+        <Image
+          src={`${IMG}/cabana-frente.webp`}
+          alt="Cabaña de madera de La Quebrada con puerta naranja, entre árboles y otras cabañas"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(14,36,27,0.35) 0%, rgba(14,36,27,0.05) 40%, rgba(14,36,27,0.75) 100%)',
+              'linear-gradient(180deg, rgba(22,40,28,0.5) 0%, rgba(22,40,28,0.12) 45%, rgba(22,40,28,0.78) 100%)',
           }}
         />
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24 pt-32">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-28">
           <Reveal>
-            <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] mb-5 flex items-center gap-3" style={{ color: C.arena }}>
-              <span className="inline-block w-8 h-px" style={{ backgroundColor: C.terracota }} aria-hidden="true" />
-              Cabañas · Talca · Región del Maule
+            <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.26em] mb-5`} style={{ color: C.miel }}>
+              Hospedaje · Talca · Región del Maule
             </p>
             <h1
-              className={`${display.className} font-semibold leading-[0.98] tracking-[-0.01em] text-[clamp(3rem,11vw,7rem)] mb-5`}
-              style={{ color: C.crema }}
+              className={`${display.className} uppercase font-bold leading-[0.94] tracking-[0.01em] text-[clamp(3.2rem,12vw,7rem)] mb-5`}
+              style={{ color: C.papel }}
             >
-              Cabañas
-              <br />
-              <em className="font-medium" style={{ color: C.arena }}>La Quebrada</em>
+              La Quebrada
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-3" style={{ color: 'rgba(250,247,240,0.85)' }}>
-              Una pausa con ritmo de campo a pocas cuadras del centro de
-              Talca. Cabañas acogedoras para descansar, sin irte lejos.
-            </p>
-            <p className="flex items-center gap-2 text-sm mb-9" style={{ color: C.arena }}>
-              <Stars n={4} />
-              <span>
-                {BIZ.rating} en Google · {BIZ.reviews} reseñas
-              </span>
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-8" style={{ color: 'rgba(244,240,226,0.88)' }}>
+              Cabañas de madera en un patio con sauces, a pocas cuadras del
+              centro de Talca. Tranquilo, atendido por sus dueños.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
-                style={{ backgroundColor: C.terracotaInk, color: C.crema }}
+                className={`${display.className} uppercase font-bold tracking-[0.06em] text-sm md:text-base px-7 py-3.5 transition-all hover:brightness-110 active:scale-95 tap-44`}
+                style={{ backgroundColor: C.teja, color: C.papel }}
               >
-                Consultar disponibilidad
+                Reservar por WhatsApp
               </a>
               <a
                 href="#cabanas"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44"
-                style={{ borderColor: 'rgba(250,247,240,0.5)', color: C.crema }}
+                className={`${display.className} uppercase font-bold tracking-[0.06em] text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 tap-44`}
+                style={{ borderColor: 'rgba(244,240,226,0.55)', color: C.papel }}
               >
-                Ver las cabañas
+                Recorrer el predio
               </a>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Las cabañas ── */}
+      {/* ── Franja de señales: prueba social temprana ── */}
+      <div style={{ backgroundColor: C.sombra }}>
+        <ul
+          className={`${mono.className} max-w-6xl mx-auto px-5 md:px-8 py-3.5 flex flex-wrap gap-x-7 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em] font-medium`}
+          style={{ color: C.miel }}
+        >
+          <li>{BIZ.rating} en Google · {BIZ.reviews} reseñas</li>
+          <li>Cuatro Pte. 1197, Talca</li>
+          <li>Fotos reales del lugar</li>
+        </ul>
+      </div>
+
+      {/* ── KM 01: las cabañas ── */}
       <section id="cabanas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
-            Alojamiento
-          </p>
-          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.bosque }}>
-            Las cabañas
+          <Parada n="01" label="Las cabañas" />
+          <h2 className={`${display.className} uppercase font-bold text-4xl md:text-6xl leading-[0.98] mb-10 md:mb-14 max-w-4xl`} style={{ color: C.bosque }}>
+            Madera, puerta naranja y sombra de sauce
           </h2>
-          <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
-            Presentación referencial: al publicar el sitio van los nombres,
-            fotos y capacidades reales de cada cabaña.
-          </p>
         </Reveal>
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {CABINS.map((c, i) => (
-            <Reveal key={c.name} delay={i * 120}>
-              <li
-                className="group rounded-2xl overflow-hidden border transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-16px_rgba(14,36,27,0.35)] h-full"
-                style={{ backgroundColor: '#FFFFFF', borderColor: C.line }}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <CabinScene
-                    variant={c.variant}
-                    className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-[1.06]"
-                  />
-                  <span
-                    className="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full"
-                    style={{ backgroundColor: 'rgba(250,247,240,0.9)', color: C.bosque }}
-                  >
-                    {c.tag}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <h3 className={`${display.className} font-semibold text-xl mb-3`} style={{ color: C.bosque }}>
-                    {c.name}
-                  </h3>
-                  <ul className="space-y-1.5">
-                    {c.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm" style={{ color: C.muted }}>
-                        <span className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: C.terracota }} aria-hidden="true" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={WA_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-4 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
-                    style={{ color: C.terracotaInk, textDecorationColor: 'rgba(158,79,44,0.4)' }}
-                  >
-                    Consultar por WhatsApp →
-                  </a>
-                </div>
-              </li>
-            </Reveal>
-          ))}
-        </ul>
-      </section>
-
-      {/* ── El entorno ── */}
-      <section
-        id="entorno"
-        className="scroll-mt-20"
-        style={{ backgroundColor: C.arenaSoft }}
-      >
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+        <div className="grid lg:grid-cols-[1.5fr_1fr] gap-8 md:gap-12 items-start">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
-              El entorno
-            </p>
-            <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-6`} style={{ color: C.bosque }}>
-              El Valle del Maule,
-              <br />
-              <em className="font-medium">a tu ritmo</em>
-            </h2>
-            <div className="space-y-4 text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
-              <p>
-                Talca es la puerta del valle: viñedos, caminos rurales y la
-                precordillera a menos de una hora. {BIZ.name} queda en la
-                ciudad, a pocas cuadras del centro, con la calma de un
-                refugio.
+            <div className="space-y-6">
+              <p className="text-base md:text-lg leading-relaxed max-w-xl" style={{ color: C.ink }}>
+                Cabañas de madera independientes dentro de un recinto
+                cercado: entras por el portón de Cuatro Poniente y te
+                quedas en un patio tranquilo, aunque estés en plena
+                ciudad.
               </p>
-              <p>
-                La idea es simple: llegar, dejar el auto, prender la
-                parrilla y bajar el ritmo. Sin agenda ni apuro.
+              <p className="text-sm md:text-base leading-relaxed max-w-xl" style={{ color: C.muted }}>
+                Las reseñas repiten tres cosas: la atención directa de
+                los dueños, el patio y el estacionamiento. Capacidad,
+                equipamiento y valor por noche se confirman siempre por
+                WhatsApp — sin intermediarios.
               </p>
-              <p className="font-medium" style={{ color: C.bosque }}>
-                Consulta por fechas y te ayudamos a armar la escapada.
-              </p>
+              <ul className="flex flex-wrap gap-2.5">
+                {SELLADOS.map((s) => (
+                  <li
+                    key={s}
+                    className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.12em] font-medium px-3.5 py-2`}
+                    style={{ backgroundColor: C.tint, color: C.bosque, border: `1.5px solid ${C.bosque}` }}
+                  >
+                    {s}
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
-          <Reveal delay={150}>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-2xl overflow-hidden aspect-[4/5]">
-                <ForestPanel className="w-full h-full" />
+          <Reveal delay={140}>
+            <figure className="relative">
+              <div className="relative overflow-hidden aspect-[3/4] border-2" style={{ borderColor: C.ink, backgroundColor: C.tint }}>
+                <Image
+                  src={`${IMG}/cocina.webp`}
+                  alt="Cocina equipada de una cabaña de La Quebrada: microondas, hervidor, refrigerador y cocina a gas"
+                  fill
+                  sizes="(min-width: 1024px) 36vw, calc(100vw - 2.5rem)"
+                  className="object-cover"
+                />
               </div>
-              <div className="grid gap-3">
-                <div className="rounded-2xl overflow-hidden aspect-[4/3]">
-                  <RiverPanel className="w-full h-full" />
-                </div>
-                <div className="rounded-2xl overflow-hidden aspect-[4/2.4]">
-                  <ValleyPanel className="w-full h-full" />
-                </div>
-              </div>
-            </div>
+              <figcaption
+                className={`${mono.className} mt-3 text-[11px] uppercase tracking-[0.16em]`}
+                style={{ color: C.muted }}
+              >
+                La cocina de una de las cabañas — foto real de la ficha
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Qué encontrarás ── */}
-      <section id="servicios" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      {/* ── KM 02: el patio, a todo ancho con la reseña ── */}
+      <section id="patio" className="scroll-mt-20 relative overflow-hidden" style={{ backgroundColor: C.sombra }}>
+        <Image
+          src={`${IMG}/patio-cabanas.webp`}
+          alt="Patio interior de La Quebrada con dos cabañas de madera bajo sauces llorones"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(180deg, rgba(22,40,28,0.5) 0%, rgba(22,40,28,0.25) 45%, rgba(22,40,28,0.78) 100%)' }}
+        />
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-8 md:pb-12">
+          <Reveal>
+            <Parada n="02" label="El patio" light />
+            <h2 className={`${display.className} uppercase font-bold text-3xl md:text-5xl leading-[1] mb-4 max-w-2xl`} style={{ color: C.papel }}>
+              La quebrada de barrio: campo adentro de la ciudad
+            </h2>
+            <figure className="max-w-xl">
+              <blockquote className="text-sm md:text-base leading-relaxed mb-2" style={{ color: 'rgba(244,240,226,0.92)' }}>
+                “Excelente lugar tranquilo, dueños muy amables. Cabañas súper bien.”
+              </blockquote>
+              <figcaption className={`${mono.className} text-[11px] uppercase tracking-[0.16em]`} style={{ color: C.miel }}>
+                Antonio Diaz · reseña de Google · ★★★★★
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── KM 03: las reseñas reales ── */}
+      <section id="resenas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
-            Servicios
-          </p>
-          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.bosque }}>
-            Qué encontrarás
-          </h2>
-          <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
-            Servicios referenciales: confirma los incluidos en tu cabaña al
-            momento de reservar.
-          </p>
+          <Parada n="03" label="Las reseñas" />
         </Reveal>
-        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
-          {AMENITIES.map((a, i) => (
-            <Reveal key={a.label} delay={i * 60}>
-              <li className="flex flex-col gap-3">
-                <AmenityIcon icon={a.icon} />
-                <p className="text-sm font-medium" style={{ color: C.bosque }}>
-                  {a.label}
-                  {a.note && (
-                    <span
-                      className="ml-2 text-[10px] font-semibold uppercase tracking-[0.1em] px-1.5 py-0.5 rounded-full align-middle"
-                      style={{ backgroundColor: C.arena, color: C.bosque }}
-                    >
-                      {a.note}
-                    </span>
-                  )}
-                </p>
-              </li>
-            </Reveal>
-          ))}
-        </ul>
-      </section>
-
-      {/* ── Reseñas ── */}
-      <section id="resenas" className="scroll-mt-20" style={{ backgroundColor: C.bosque, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <div className="grid md:grid-cols-[1fr_1.6fr] gap-10 md:gap-14 items-start">
-            <Reveal>
-              <div
-                className="rounded-2xl p-7 md:p-9"
-                style={{ backgroundColor: 'rgba(250,247,240,0.06)', border: '1px solid rgba(250,247,240,0.14)' }}
-              >
-                <p className="text-[11px] uppercase tracking-[0.22em] mb-4" style={{ color: C.arena }}>
-                  En Google Maps
-                </p>
-                <p className={`${display.className} font-semibold text-6xl md:text-7xl leading-none mb-3`}>
-                  {BIZ.rating}
-                </p>
-                <Stars n={4} className="w-5 h-5" />
-                <p className="text-sm mt-3" style={{ color: 'rgba(250,247,240,0.75)' }}>
-                  {BIZ.reviews} reseñas de huéspedes
-                </p>
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
-                  style={{ color: C.arena, textDecorationColor: 'rgba(232,220,200,0.4)' }}
-                >
-                  Ver la ficha en Google →
-                </a>
-              </div>
-            </Reveal>
-            <div className="space-y-5">
-              <Reveal delay={100}>
-                <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-tight`}>
-                  Lo que dicen los huéspedes
-                </h2>
-                <p className="text-sm mt-2 mb-2" style={{ color: 'rgba(250,247,240,0.6)' }}>
-                  Textos de muestra — al publicar van las reseñas reales.
-                </p>
-              </Reveal>
-              {[
-                {
-                  text: 'Cabaña impecable, todo funcionando y una atención muy cercana. Perfecta para desconectar un fin de semana.',
-                  author: 'Reseña de ejemplo',
-                },
-                {
-                  text: 'Llegamos con los niños y estuvo todo listo. El quincho y la parrilla hicieron el asado del sábado.',
-                  author: 'Reseña de ejemplo',
-                },
-              ].map((t, i) => (
-                <Reveal key={i} delay={200 + i * 120}>
-                  <figure
-                    className="rounded-2xl p-6 md:p-7"
-                    style={{ backgroundColor: 'rgba(250,247,240,0.06)', border: '1px solid rgba(250,247,240,0.14)' }}
-                  >
-                    <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: 'rgba(250,247,240,0.88)' }}>
-                      “{t.text}”
-                    </blockquote>
-                    <figcaption className="text-xs uppercase tracking-[0.15em]" style={{ color: C.arena }}>
-                      {t.author}
-                    </figcaption>
-                  </figure>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Ubicación ── */}
-      <section id="ubicacion" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
+        <div className="grid lg:grid-cols-[1fr_1.7fr] gap-10 md:gap-14 items-start">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
-              Ubicación
-            </p>
-            <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-6`} style={{ color: C.bosque }}>
-              En Talca, a pocas
-              <br />
-              cuadras del centro
-            </h2>
-            <address className="not-italic text-sm md:text-base leading-relaxed mb-2" style={{ color: C.muted }}>
-              {BIZ.address}
-              <br />
-              {BIZ.region}, Chile
-            </address>
-            <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
-              Teléfono:{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.bosque }}>
-                {BIZ.phoneDisplay}
-              </a>
-            </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="border-2 px-7 py-8" style={{ borderColor: C.ink, backgroundColor: '#FDFBF4' }}>
+              <p className={`${display.className} font-bold text-7xl md:text-8xl leading-none mb-3`} style={{ color: C.bosque }}>
+                {BIZ.rating}
+              </p>
+              <Stars n={4} className="w-5 h-5" />
+              <p className="text-sm mt-3 mb-6" style={{ color: C.muted }}>
+                {BIZ.reviews} reseñas de huéspedes en Google Maps
+              </p>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44"
-                style={{ backgroundColor: C.bosque, color: C.crema }}
+                className={`${mono.className} text-xs uppercase tracking-[0.14em] font-bold underline underline-offset-4 decoration-2 tap-44`}
+                style={{ color: C.teja, textDecorationColor: 'rgba(181,73,31,0.4)' }}
               >
-                Cómo llegar →
-              </a>
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44"
-                style={{ borderColor: C.line, color: C.bosque }}
-              >
-                Escribir por WhatsApp
+                Ver la ficha en Google →
               </a>
             </div>
           </Reveal>
-          <Reveal delay={150}>
-            <div
-              className="rounded-2xl overflow-hidden border min-h-[300px] md:min-h-0 h-full"
-              style={{ borderColor: C.line, backgroundColor: C.arenaSoft }}
-            >
-              <LazyMap
-                title={`Mapa: ${BIZ.name}, ${BIZ.address}`}
-                src={MAPS_EMBED}
-                className="w-full h-full min-h-[300px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </Reveal>
+          <div className="space-y-4">
+            {REVIEWS.map((r, i) => (
+              <Reveal key={r.name} delay={i * 110}>
+                <figure className="border-2 px-6 py-5 md:px-7" style={{ borderColor: C.line, backgroundColor: '#FDFBF4' }}>
+                  <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.ink }}>
+                    “{r.text}”
+                  </blockquote>
+                  <figcaption className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+                    <Stars n={r.stars} className="w-3.5 h-3.5" />
+                    <span className={`${mono.className} text-[11px] uppercase tracking-[0.14em] font-bold`} style={{ color: C.bosque }}>
+                      {r.name}
+                    </span>
+                    <span className={`${mono.className} text-[11px] uppercase tracking-[0.14em]`} style={{ color: C.muted }}>
+                      {r.when} · Google
+                    </span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section id="faq" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24">
+      {/* ── KM 04: cómo llegar ── */}
+      <section id="ubicacion" className="scroll-mt-20" style={{ backgroundColor: C.tint }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <Parada n="04" label="Cómo llegar" />
+            <h2 className={`${display.className} uppercase font-bold text-4xl md:text-6xl leading-[0.98] mb-10 md:mb-14 max-w-4xl`} style={{ color: C.bosque }}>
+              Cuatro Poniente 1197, a pasos de la UST
+            </h2>
+          </Reveal>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+            <Reveal>
+              <figure className="h-full flex flex-col">
+                <div className="relative overflow-hidden aspect-[16/10] border-2" style={{ borderColor: C.ink }}>
+                  <Image
+                    src={`${IMG}/fachada.webp`}
+                    alt="Fachada de la entrada de La Quebrada en Cuatro Poniente, Talca"
+                    fill
+                    sizes="(min-width: 768px) 44vw, calc(100vw - 2.5rem)"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className={`${mono.className} mt-3 text-[11px] uppercase tracking-[0.16em] mb-6`} style={{ color: C.muted }}>
+                  La entrada por Cuatro Poniente — imagen de Street View
+                </figcaption>
+                <address className="not-italic text-sm md:text-base leading-relaxed mb-2" style={{ color: C.ink }}>
+                  {BIZ.address}
+                  <br />
+                  {BIZ.region}, Chile
+                </address>
+                <p className="text-sm md:text-base mb-7" style={{ color: C.muted }}>
+                  WhatsApp y llamadas:{' '}
+                  <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.bosque }}>
+                    {BIZ.phoneDisplay}
+                  </a>
+                </p>
+                <div className="flex flex-wrap gap-3 mt-auto">
+                  <a
+                    href={MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm px-6 py-3 transition-transform active:scale-95 tap-44`}
+                    style={{ backgroundColor: C.bosque, color: C.papel }}
+                  >
+                    Cómo llegar →
+                  </a>
+                  <a
+                    href={WA_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm px-6 py-3 border-2 transition-colors tap-44`}
+                    style={{ borderColor: C.bosque, color: C.bosque }}
+                  >
+                    Reservar por WhatsApp
+                  </a>
+                </div>
+              </figure>
+            </Reveal>
+            <Reveal delay={140}>
+              <div
+                className="border-2 overflow-hidden min-h-[300px] h-full"
+                style={{ borderColor: C.ink, backgroundColor: C.papel }}
+              >
+                <LazyMap
+                  title={`Mapa: ${BIZ.name}, ${BIZ.address}`}
+                  src={MAPS_EMBED}
+                  className="w-full h-full min-h-[300px]"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── KM 05: preguntas ── */}
+      <section id="faq" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-10`} style={{ color: C.bosque }}>
-            Preguntas frecuentes
-          </h2>
+          <Parada n="05" label="Preguntas frecuentes" />
         </Reveal>
         <div className="max-w-3xl">
           {FAQS.map((f, i) => (
             <Reveal key={f.q} delay={i * 80}>
-              <details className="group border-b py-5" style={{ borderColor: C.line }}>
-                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base md:text-lg tap-44" style={{ color: C.bosque }}>
+              <details className="group border-b-2 border-dashed py-5" style={{ borderColor: C.line }}>
+                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base md:text-lg tap-44" style={{ color: C.ink }}>
                   {f.q}
                   <span
-                    className="shrink-0 w-[30px] h-[30px] rounded-full flex items-center justify-center text-lg leading-none transition-transform group-open:rotate-45"
-                    style={{ backgroundColor: C.arenaSoft, color: C.terracotaInk }}
+                    className={`${mono.className} shrink-0 w-[30px] h-[30px] flex items-center justify-center text-base leading-none transition-transform group-open:rotate-45`}
+                    style={{ border: `1.5px solid ${C.ink}`, color: C.teja }}
                     aria-hidden="true"
                   >
                     +
@@ -561,39 +493,35 @@ export default function CabanasLaQuebrada() {
         </div>
       </section>
 
-      {/* ── CTA final ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: C.bosqueDeep }}>
-        <CtaScene className="absolute inset-0 w-full h-full" />
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(180deg, rgba(14,36,27,0.55) 0%, rgba(14,36,27,0.25) 50%, rgba(14,36,27,0.6) 100%)' }}
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-24 md:py-36 text-center">
+      {/* ── Último hito: reserva ── */}
+      <section className="relative overflow-hidden" style={{ backgroundColor: C.sombra }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28">
           <Reveal>
+            <Parada n="06" label="La reserva" light />
             <h2
-              className={`${display.className} font-semibold text-[clamp(2.2rem,7vw,4.5rem)] leading-[1.02] mb-6`}
-              style={{ color: C.crema }}
+              className={`${display.className} uppercase font-bold text-[clamp(2.4rem,7.5vw,5rem)] leading-[0.98] mb-6 max-w-3xl`}
+              style={{ color: C.papel }}
             >
-              ¿Listo para <em className="font-medium" style={{ color: C.arena }}>bajar el ritmo?</em>
+              Esta noche, la quebrada
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: 'rgba(250,247,240,0.8)' }}>
-              Escríbenos por WhatsApp y consulta disponibilidad para tus
-              fechas.
+            <p className="text-sm md:text-base max-w-md mb-9" style={{ color: 'rgba(244,240,226,0.78)' }}>
+              Escribe las fechas por WhatsApp y te responden los mismos
+              dueños que preparan las cabañas.
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap gap-3">
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
-                style={{ backgroundColor: C.terracotaInk, color: C.crema }}
+                className={`${display.className} uppercase font-bold tracking-[0.06em] text-sm md:text-base px-8 py-3.5 transition-all hover:brightness-110 active:scale-95 tap-44`}
+                style={{ backgroundColor: C.teja, color: C.papel }}
               >
-                Consultar disponibilidad
+                Reservar por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors tap-44"
-                style={{ borderColor: 'rgba(250,247,240,0.5)', color: C.crema }}
+                className={`${display.className} uppercase font-bold tracking-[0.06em] text-sm md:text-base px-8 py-3.5 border-2 transition-colors hover:bg-white/10 tap-44`}
+                style={{ borderColor: 'rgba(244,240,226,0.5)', color: C.papel }}
               >
                 {BIZ.phoneDisplay}
               </a>
@@ -603,53 +531,35 @@ export default function CabanasLaQuebrada() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.bosqueDeep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-10 pb-8 flex flex-col md:flex-row md:items-center justify-between gap-8">
+      <footer style={{ backgroundColor: C.sombra, color: C.papel }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-9 pb-7 border-t flex flex-col md:flex-row md:items-center justify-between gap-6" style={{ borderColor: 'rgba(244,240,226,0.14)' }}>
           <div>
-            <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(250,247,240,0.65)' }}>
+            <p className={`${display.className} uppercase font-bold text-2xl mb-1.5`}>{BIZ.name}</p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,240,226,0.65)' }}>
               {BIZ.address} · {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44" style={{ color: C.crema }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44" style={{ color: C.papel }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
           </div>
           <div className="flex items-center gap-6">
-            <p className="text-xs" style={{ color: 'rgba(250,247,240,0.65)' }}>
+            <p className={`${mono.className} text-[11px] uppercase tracking-[0.14em]`} style={{ color: 'rgba(244,240,226,0.65)' }}>
               © {new Date().getFullYear()} {BIZ.name}
             </p>
             <WhatsAppFab />
           </div>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(250,247,240,0.14)' }}>
-          <p
-            className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed"
-            style={{ color: 'rgba(250,247,240,0.75)' }}
-          >
-            Mockup preparado por{' '}
-            <a
-              href={SITE.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold underline underline-offset-2 tap-44"
-              style={{ color: C.crema }}
-            >
-              Sitiazo
-            </a>{' '}
-            para {BIZ.name} — así se vería tu sitio.{' '}
-            <a
-              href={whatsappLink('contacto')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold underline underline-offset-2 tap-44"
-              style={{ color: C.crema }}
-            >
-              ¿Lo hacemos realidad?
-            </a>
+        <div className="border-t" style={{ borderColor: 'rgba(244,240,226,0.14)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(244,240,226,0.72)' }}>
+            Fotos, dirección, teléfono y reseñas son reales (ficha de
+            Google Maps). Los textos descriptivos son de muestra para
+            mostrar el sitio.
           </p>
         </div>
       </footer>
+
+      <SitiazoStrip />
     </div>
   )
 }
