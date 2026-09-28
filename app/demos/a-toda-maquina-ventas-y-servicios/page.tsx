@@ -59,56 +59,56 @@ const NAV_LINKS = [
 const PRODUCTOS = [
   {
     src: `${IMG}/ambiente.webp`,
-    alt: 'Interior de la tienda con estantes ordenados de repuestos e insumos',
+    alt: 'Interior real de A Toda Máquina: pared con máquinas de coser exhibidas y mesón de trabajo',
     tag: 'venta',
     name: 'Máquinas de coser',
     desc: 'Domésticas y para trabajo duro. Te ayudamos a elegir según lo que coses, sin venderte de más.',
   },
   {
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Mesón de madera con cajones de repuestos, insumos y herramientas ordenadas',
+    src: `${IMG}/detalle2.webp`,
+    alt: 'Repuesto original para máquina de coser publicado por la tienda',
     tag: 'repuestos',
     name: 'Repuestos e insumos',
-    desc: 'Agujas, bobinas, correas, prensatelas, aceite y todo lo que la máquina necesita para seguir cosiendo.',
+    desc: 'Agujas, bobinas, correas, prensatelas, aceite y repuestos originales en Linares.',
   },
   {
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Mesa de trabajo con herramientas, tornillos y accesorios de servicio técnico',
+    src: `${IMG}/detalle3.webp`,
+    alt: 'Mecanismo de una máquina de coser en mantención, cubierto de pelusa',
     tag: 'servicio técnico',
     name: 'Reparación y mantención',
     desc: 'Revisión, afinación y arreglo de máquinas de coser. Cotización clara antes de partir.',
   },
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Fachada del local en una calle de Linares, con cerros al fondo',
-    tag: 'en el local',
-    name: 'Atención en el mesón',
-    desc: 'Llegas, preguntas y te atiende quien sabe del tema. Sin filas de call center ni tickets.',
+    alt: 'Máquina de coser Janome 3022 publicada por la tienda en su Facebook',
+    tag: 'marca representada',
+    name: 'Máquinas Janome nuevas',
+    desc: 'Son representantes Janome: si compras una máquina nueva, el curso de uso es gratis presentando tu boleta y certificado de garantía.',
   },
 ]
 
 const HITOS = [
   {
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Fachada de la tienda en Linares',
+    src: `${IMG}/detalle8.webp`,
+    alt: 'Entrada del local de A Toda Máquina en Alfarfares 808, Linares',
     title: 'Nos escribes o llegas',
     desc: 'Por WhatsApp o directo al local: cuéntanos qué buscas o qué le pasa a tu máquina.',
   },
   {
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Cajones con repuestos sobre el mesón de madera',
+    src: `${IMG}/detalle7.webp`,
+    alt: 'Máquina de coser abierta sobre el mesón, en diagnóstico',
     title: 'Diagnóstico en el mesón',
     desc: 'Revisamos la máquina y te decimos qué conviene: repuesto, mantención o una nueva.',
   },
   {
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Banco de trabajo con herramientas del servicio técnico',
+    src: `${IMG}/detalle6.webp`,
+    alt: 'Mesón de trabajo del taller con máquinas en revisión',
     title: 'Reparación o venta',
     desc: 'Precio claro antes de partir. Si es arreglo, se hace; si conviene máquina nueva, te mostramos opciones.',
   },
   {
-    src: `${IMG}/ambiente.webp`,
-    alt: 'Estantes del local con mercadería lista para entregar',
+    src: `${IMG}/detalle4.webp`,
+    alt: 'Portada de Facebook de la tienda: persona cosiendo junto al logo de A Toda Máquina',
     title: 'Lista para coser',
     desc: 'Te la llevas probada y afinada, con el repuesto o insumo que hacía falta. Sin vueltas.',
   },
@@ -171,6 +171,7 @@ export default function ATodaMaquinaPage() {
     >
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
@@ -188,7 +189,7 @@ export default function ATodaMaquinaPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.verdeDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Interior de A Toda Maquina: estantes con repuestos e insumos para máquinas de coser"
+          alt="Fachada de A Toda Máquina en Alfarfares 808, Linares, con su letrero de ventas y servicios"
           fill
           priority
           sizes="100vw"
@@ -403,8 +404,8 @@ export default function ATodaMaquinaPage() {
                 style={{ borderColor: C.verde, borderRadius: '0.5rem', boxShadow: '8px 8px 0 rgba(46,74,60,0.18)' }}
               >
                 <Image
-                  src={`${IMG}/detalle3.webp`}
-                  alt="Mesón de madera del local con repuestos ordenados en cajones y vista a la calle de Linares"
+                  src={`${IMG}/detalle5.webp`}
+                  alt="Fachada de A Toda Máquina con el letrero de venta de repuestos y mantención de máquinas de coser"
                   fill
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover"
@@ -607,7 +608,7 @@ export default function ATodaMaquinaPage() {
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.verdeDeep }}>
         <Image
-          src={`${IMG}/detalle2.webp`}
+          src={`${IMG}/detalle6.webp`}
           alt=""
           fill
           sizes="100vw"
@@ -669,8 +670,8 @@ export default function ATodaMaquinaPage() {
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-80 ${focusRing} tap-44`} style={{ color: C.paper }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name} — así se vería tu sitio. Textos, precios y fotos
-            son de muestra.{' '}
+            para {BIZ.name} — así se vería tu sitio. Fotos reales de su
+            Facebook y Google Maps; textos, precios y reseñas de muestra.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-80 ${focusRing} tap-44`} style={{ color: C.mostaza }}>
               ¿Lo hacemos realidad?
             </a>
