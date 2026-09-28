@@ -44,88 +44,14 @@ function Eyebrow({ children, color = C.crustDeep }: { children: React.ReactNode;
   )
 }
 
-/** Escena del hero: hogaza de masa madre sobre tabla, con harina espolvoreada y espigas. */
-function Loaf() {
-  return (
-    <svg viewBox="0 0 720 520" className="h-auto w-full" role="img" aria-label="Ilustración de una hogaza de pan de masa madre sobre una tabla de madera, con harina y espigas de trigo">
-      <defs>
-        <radialGradient id="hb-bg" cx="0.5" cy="0.45" r="0.7">
-          <stop offset="0" stopColor="#5A3A2A" />
-          <stop offset="1" stopColor="#3B2317" />
-        </radialGradient>
-        <linearGradient id="hb-crust" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#D98A4B" />
-          <stop offset="0.6" stopColor="#B4562E" />
-          <stop offset="1" stopColor="#8F3F1E" />
-        </linearGradient>
-        <linearGradient id="hb-board" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#A9743F" />
-          <stop offset="1" stopColor="#7E5128" />
-        </linearGradient>
-        <radialGradient id="hb-flour" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stopColor="#FBF6EC" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#FBF6EC" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <rect width="720" height="520" fill="url(#hb-bg)" />
-      {/* harina en la mesa */}
-      <ellipse cx="360" cy="400" rx="300" ry="70" fill="url(#hb-flour)" />
-      {/* tabla */}
-      <path d="M120 372 H600 C616 372 626 382 626 396 V410 C626 424 616 434 600 434 H120 C104 434 94 424 94 410 V396 C94 382 104 372 120 372 Z" fill="url(#hb-board)" />
-      <path d="M110 396 H610 M118 416 H600" stroke="rgba(59,35,23,0.28)" strokeWidth="2" />
-      <ellipse cx="360" cy="372" rx="240" ry="22" fill="#000" opacity="0.28" />
-      {/* hogaza */}
-      <path d="M150 350 C140 250 230 160 360 160 C490 160 580 250 570 350 C560 372 520 380 360 380 C200 380 160 372 150 350 Z" fill="url(#hb-crust)" />
-      <path d="M180 320 C186 240 260 186 360 186 C460 186 534 240 540 320" fill="none" stroke="#F2D48A" strokeOpacity="0.35" strokeWidth="6" strokeLinecap="round" />
-      {/* greñado */}
-      <g fill="none" stroke="#FBF6EC" strokeWidth="9" strokeLinecap="round" opacity="0.92">
-        <path d="M250 300 C280 230 330 212 380 240" />
-        <path d="M300 320 C330 250 380 232 430 260" />
-        <path d="M350 340 C380 270 430 252 480 280" />
-      </g>
-      <g fill="none" stroke="#8F3F1E" strokeWidth="3" strokeLinecap="round" opacity="0.7">
-        <path d="M250 300 C280 230 330 212 380 240" transform="translate(0 6)" />
-        <path d="M300 320 C330 250 380 232 430 260" transform="translate(0 6)" />
-        <path d="M350 340 C380 270 430 252 480 280" transform="translate(0 6)" />
-      </g>
-      {/* harina espolvoreada */}
-      {[
-        [210, 250, 3],
-        [232, 226, 2],
-        [488, 226, 2.5],
-        [512, 262, 3],
-        [400, 196, 2],
-        [330, 200, 1.6],
-        [190, 300, 2],
-        [540, 300, 2],
-      ].map(([x, y, r]) => (
-        <circle key={`${x}-${y}`} cx={x} cy={y} r={r} fill="#FBF6EC" opacity="0.8" />
-      ))}
-      {/* espigas */}
-      {[
-        [80, 470, -18],
-        [640, 470, 18],
-      ].map(([x, y, rot]) => (
-        <g key={x} transform={`translate(${x} ${y}) rotate(${rot})`}>
-          <path d="M0 0 V-190" stroke="#E2B04A" strokeWidth="4" strokeLinecap="round" />
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-            <g key={i} transform={`translate(0 ${-60 - i * 22})`}>
-              <ellipse cx="-11" cy="0" rx="6" ry="13" fill="#E2B04A" transform="rotate(-24)" />
-              <ellipse cx="11" cy="0" rx="6" ry="13" fill="#F2D48A" transform="rotate(24)" />
-            </g>
-          ))}
-        </g>
-      ))}
-      {/* etiqueta */}
-      <g transform="translate(36 40)">
-        <rect width="200" height="44" rx="22" fill="#FBF6EC" />
-        <text x="22" y="28" fontSize="15" fontWeight="700" fill="#3B2317" fontFamily="inherit" letterSpacing="2">
-          100% MASA MADRE
-        </text>
-      </g>
-    </svg>
-  )
-}
+const FOTOS = [
+  { src: '/demos/hope-bakery-chile/estantes.webp', alt: 'Estantes de madera con panes del día en el local de Hope Bakery' },
+  { src: '/demos/hope-bakery-chile/interior.webp', alt: 'Interior del local de Hope Bakery: vitrina y mesón' },
+  { src: '/demos/hope-bakery-chile/foto-1.webp', alt: 'Ingredientes del obrador: frutos secos y chips de chocolate' },
+  { src: '/demos/hope-bakery-chile/foto-2.webp', alt: 'Torta de Navidad decorada de Hope Bakery' },
+  { src: '/demos/hope-bakery-chile/foto-3.webp', alt: 'Galleta de jengibre decorada a mano' },
+  { src: '/demos/hope-bakery-chile/foto-4.webp', alt: 'Pastel navideño con corona de fondant' },
+]
 
 function PilarIcon({ n }: { n: string }) {
   const p = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const }
@@ -192,7 +118,7 @@ export default function HopeBakeryPage() {
               </a>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
-              {['Masa madre', 'Orgánico', 'Sin aditivos'].map((t) => (
+              {['Masa madre', 'Orgánico', 'Sin aditivos', `★ ${BIZ.rating} en Google`].map((t) => (
                 <span key={t} className="rounded-full border px-3 py-1.5 text-sm font-semibold" style={{ borderColor: 'rgba(242,212,138,0.45)', color: C.wheatSoft }}>
                   {t}
                 </span>
@@ -202,7 +128,13 @@ export default function HopeBakeryPage() {
           <Reveal delay={120}>
             <div className="relative">
               <div className="overflow-hidden rounded-[32px] border shadow-2xl" style={{ borderColor: C.lineOnDark }}>
-                <Loaf />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/demos/hope-bakery-chile/hero.webp"
+                  alt="Hogazas recién horneadas en la rejilla del obrador de Hope Bakery"
+                  className="h-auto w-full aspect-[3/4] sm:aspect-[4/3] object-cover"
+                  loading="eager"
+                />
               </div>
               <div
                 className={`${display.className} absolute -bottom-4 right-5 rounded-full px-4 py-2 text-base font-semibold italic shadow-lg md:right-8`}
@@ -252,6 +184,40 @@ export default function HopeBakeryPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Del obrador: fotos reales ── */}
+      <section id="fotos" className="scroll-mt-20" style={{ backgroundColor: C.flour2 }}>
+        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+          <Reveal>
+            <Eyebrow>Del obrador</Eyebrow>
+            <div className="grid gap-6 md:grid-cols-[1fr_1fr] md:items-end">
+              <h2 className={`${display.className} text-5xl font-semibold leading-[0.98] tracking-[-0.03em] md:text-6xl`}>
+                Lo que sale <em className="font-normal" style={{ color: C.crustDeep }}>de este horno</em>.
+              </h2>
+              <p className="max-w-lg text-base leading-relaxed md:text-lg" style={{ color: C.muted }}>
+                Fotos reales del local y de los encargos publicados por Hope Bakery.
+              </p>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-3 md:gap-4">
+            {FOTOS.map((f, i) => (
+              <Reveal key={f.src} delay={i * 70}>
+                <figure className="overflow-hidden rounded-[22px] border" style={{ borderColor: C.line, boxShadow: '0 10px 26px rgba(42,24,16,0.08)' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={f.src} alt={f.alt} className="w-full aspect-square object-cover" loading="lazy" />
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal>
+            <p className="mt-8">
+              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${display.className} text-lg font-semibold italic underline underline-offset-4 decoration-2 ${focusRing} tap-44`} style={{ color: C.crustDeep, textDecorationColor: 'rgba(143,63,30,0.35)' }}>
+                Más fotos en Instagram →
+              </a>
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -350,8 +316,18 @@ export default function HopeBakeryPage() {
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <div className="rounded-[28px] border bg-white p-6 md:p-7" style={{ borderColor: C.line }}>
-                <p className={`${display.className} text-2xl font-semibold tracking-[-0.02em]`}>Síguenos</p>
+              <div className="grid gap-4">
+                <figure className="overflow-hidden rounded-[28px] border" style={{ borderColor: C.line, boxShadow: '0 10px 26px rgba(42,24,16,0.08)' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/demos/hope-bakery-chile/local.webp"
+                    alt="Furgón de reparto de Hope Bakery frente al local en Camino a la Viña"
+                    className="w-full aspect-[4/3] object-cover"
+                    loading="lazy"
+                  />
+                </figure>
+                <div className="rounded-[28px] border bg-white p-6 md:p-7" style={{ borderColor: C.line }}>
+                  <p className={`${display.className} text-2xl font-semibold tracking-[-0.02em]`}>Síguenos</p>
                 <p className="mt-1 text-sm" style={{ color: C.muted }}>
                   Fotos del pan y novedades del local.
                 </p>
@@ -362,6 +338,10 @@ export default function HopeBakeryPage() {
                   <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className={`${btn} justify-between border`} style={{ borderColor: C.line, color: C.ink, paddingTop: 11, paddingBottom: 11 }}>
                     Facebook <span aria-hidden="true">→</span>
                   </a>
+                </div>
+                  <p className="mt-4 text-sm font-semibold" style={{ color: C.crustDeep }}>
+                    ★ {BIZ.rating} en Google · {BIZ.reviews} reseñas
+                  </p>
                 </div>
               </div>
             </Reveal>

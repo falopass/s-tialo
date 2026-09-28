@@ -19,6 +19,8 @@ export const BIZ = {
   whatsapp: '56933165082',
   instagram: 'https://www.instagram.com/hopebakery_chile/',
   facebook: 'https://www.facebook.com/hopebakerychile/',
+  rating: '4,8',
+  reviews: '45',
 } as const
 
 export const HOURS = [{ days: 'Domingo', time: '10:00–20:00' }] as const

@@ -19,6 +19,7 @@ export function Chrome({ fontClass }: { fontClass: string }) {
         waLink={WA_LINK}
         fontClass={`${fontClass} font-semibold tracking-tight`}
         ctaLabel="Encargar"
+        logoSrc="/demos/hope-bakery-chile/logo.webp"
         theme={{
           over: 'dark',
           bar: 'rgba(59,35,23,0.94)',
