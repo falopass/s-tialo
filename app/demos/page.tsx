@@ -1030,7 +1030,6 @@ const BLITZ = [
     tagline: 'Taller moderno negro y naranja: alineación 3D John Bean, specs en mono y fachada real.',
     gradient: 'linear-gradient(135deg, #0E1113 0%, #2A3238 55%, #F26A1B 140%)',
   },
-<<<<<<< HEAD
   {
     slug: 'mecanico-juan-vivar',
     name: 'Mecánico Juan Vivar',
