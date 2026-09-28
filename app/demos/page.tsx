@@ -1926,6 +1926,31 @@ const BLITZ = [
     tagline: 'Dojo de 7 Norte: carbón y rojo del mural, disciplinas como escalera de cinturones.',
     gradient: 'linear-gradient(135deg, #0F0C0A 0%, #2A1F1A 55%, #C8352C 140%)',
   },
+  {
+    slug: 'ferrimas-talca-ferreteria',
+    name: 'FerriMas Ferretería',
+    rubro: 'Ferretería de barrio',
+    city: 'Talca',
+    tagline: 'Almacén de barrio: papel marfil, azul FerriMas y rojo de rótulo, fotos pegadas con cinta.',
+    gradient: 'linear-gradient(135deg, #12336B 0%, #1B4B9C 55%, #C0392B 140%)',
+  },
+  {
+    slug: 'los-treiles-centro-recreativo',
+    name: 'Los Treiles Centro Recreativo',
+    rubro: 'Piscina, cabañas y recreo campestre',
+    city: 'Pelarco',
+    tagline: 'Postal del fin de semana: agua de piscina, crema campo y el sello oval de su letrero.',
+    gradient: 'linear-gradient(135deg, #0A5B68 0%, #0B7285 55%, #3E6B35 140%)',
+  },
+  {
+    slug: 'clinica-skin-talca',
+    name: 'Clínica Skin',
+    rubro: 'Medicina estética integral',
+    city: 'Talca',
+    tagline: 'Carta de salón: nude del monograma SC, espresso y la filosofía "menos es más".',
+    gradient: 'linear-gradient(135deg, #32241E 0%, #C4AA98 55%, #8F5547 140%)',
+  },
+
 ]
 
 export const metadata: Metadata = {
