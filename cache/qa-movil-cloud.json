@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T02:37:19.056Z",
+  "fecha": "2026-09-28T02:44:36.190Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,33 +12,33 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "cafeteria-walffies": {
-      "url": "http://localhost:4800/demos/cafeteria-walffies/",
+    "family-gym-san-clemente": {
+      "url": "http://localhost:4800/demos/family-gym-san-clemente/",
       "status": 200,
       "botones": [],
-      "footerPx": 286,
-      "footerPct": 33.9,
+      "footerPx": 178,
+      "footerPct": 21.1,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4103
+      "ms": 4116
     },
-    "entre-lomas": {
-      "url": "http://localhost:4800/demos/entre-lomas/",
+    "fonoaudiologa-karen-oyarce": {
+      "url": "http://localhost:4800/demos/fonoaudiologa-karen-oyarce/",
       "status": 200,
       "botones": [],
-      "footerPx": 309,
-      "footerPct": 36.6,
+      "footerPx": 178,
+      "footerPct": 21.1,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4101
+      "ms": 4108
     }
   }
 }

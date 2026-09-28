@@ -863,7 +863,22 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #122317 0%, #23402B 55%, #D19A3E 140%)',
   },
 
-]
+||||||| parent of e762aa9d (feat(demos): dos demos con datos reales — Family Gym (San Clemente) y Fonoaudióloga Karen Oyarce (Talca))  {
+    slug: 'family-gym-san-clemente',
+    name: 'Family Gym',
+    rubro: 'Gimnasio · club familiar',
+    city: 'San Clemente',
+    tagline: 'Club familiar deportivo con fotos y planes reales de su Instagram: violeta nocturno, parallax y valores publicados.',
+    gradient: 'linear-gradient(135deg, #150826 0%, #5B21B6 55%, #C4B5FD 140%)',
+  },
+  {
+    slug: 'fonoaudiologa-karen-oyarce',
+    name: 'Karen Oyarce',
+    rubro: 'Fonoaudiología',
+    city: 'Talca',
+    tagline: 'Fonoaudióloga en Centro Pichimapu: editorial en teal y menta, retrato real, servicios con precio y agenda por WhatsApp.',
+    gradient: 'linear-gradient(135deg, #0E2A28 0%, #0D5F58 55%, #A9E0D2 140%)',
+  },]
 
 export const metadata: Metadata = {
   title: 'Demos por rubro — ejemplos de sitios para pymes',

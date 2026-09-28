@@ -1,6 +1,6 @@
 # QA móvil (cloud) — http://localhost:4800/demos/
 
-Fecha: 2026-09-28T02:37:19.057Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
+Fecha: 2026-09-28T02:44:36.191Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
 
 ## Resumen
 
@@ -17,14 +17,14 @@ Fecha: 2026-09-28T02:37:19.057Z · Viewport 390×844 · espera 3500 ms tras netw
 
 ## Los 5 peores
 
-- **cafeteria-walffies** (gravedad 0): 0 botones, footer 33.9%, 0 contrastes, sin desborde, 0 invisibles
-- **entre-lomas** (gravedad 0): 0 botones, footer 36.6%, 0 contrastes, sin desborde, 0 invisibles
+- **family-gym-san-clemente** (gravedad 0): 0 botones, footer 21.1%, 0 contrastes, sin desborde, 0 invisibles
+- **fonoaudiologa-karen-oyarce** (gravedad 0): 0 botones, footer 21.1%, 0 contrastes, sin desborde, 0 invisibles
 
 ## Tabla por gravedad
 
 | # | Demo | Grav. | Btn>52 | Footer % | Contraste | Desborde | Invisibles |
 |---|---|---|---|---|---|---|---|
-| 1 | [cafeteria-walffies](http://localhost:4800/demos/cafeteria-walffies/) | 0 | 0 | 33.9 | 0 | — | 0 |
-| 2 | [entre-lomas](http://localhost:4800/demos/entre-lomas/) | 0 | 0 | 36.6 | 0 | — | 0 |
+| 1 | [family-gym-san-clemente](http://localhost:4800/demos/family-gym-san-clemente/) | 0 | 0 | 21.1 | 0 | — | 0 |
+| 2 | [fonoaudiologa-karen-oyarce](http://localhost:4800/demos/fonoaudiologa-karen-oyarce/) | 0 | 0 | 21.1 | 0 | — | 0 |
 
 ## Detalle por demo (solo con hallazgos)
