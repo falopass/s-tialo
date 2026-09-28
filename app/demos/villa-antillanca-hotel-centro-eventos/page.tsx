@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { demoMetadata } from '../meta'
 import { Chrome, Reveal } from './chrome'
-import { BIZ, C, ESPACIOS, EVENTOS, MAPS_URL, PASOS, WA_LINK } from './content'
+import { BIZ, C, EVENTOS, GALERIA_EVENTOS, GALERIA_RECINTO, HABITACIONES, IMG, MAPS_URL, PASOS, WA_LINK } from './content'
 
 const display = localFont({
   src: [
@@ -18,7 +18,8 @@ export const metadata: Metadata = demoMetadata({
   slug: 'villa-antillanca-hotel-centro-eventos',
   title: 'Villa Antillanca · Hotel & Centro de Eventos en Talca',
   description:
-    'Hotel y centro de eventos camino a San Clemente, Talca. Habitaciones, salón de eventos, bar-restaurante y piscina. Consulta disponibilidad por WhatsApp.',
+    'Hotel y centro de eventos camino a San Clemente, Talca. Habitaciones, salón de eventos, restaurante y piscina. Consulta disponibilidad por WhatsApp.',
+  image: `${IMG}/hero.webp`,
 })
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
@@ -43,140 +44,23 @@ function Eyebrow({ children, color = C.goldDeep }: { children: React.ReactNode; 
   )
 }
 
-/** Escena del hero: la villa al atardecer, con su piscina y los árboles del camino a San Clemente. */
-function VillaScene() {
+function Stars() {
   return (
-    <svg viewBox="0 0 720 500" className="h-auto w-full" role="img" aria-label="Ilustración de una villa con piscina al atardecer, entre árboles, con cerros al fondo">
-      <defs>
-        <linearGradient id="va-sky" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#1E3A2F" />
-          <stop offset="0.55" stopColor="#7A5A3A" />
-          <stop offset="1" stopColor="#E3C577" />
-        </linearGradient>
-        <linearGradient id="va-hill" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#3C5E4B" />
-          <stop offset="1" stopColor="#264A3B" />
-        </linearGradient>
-        <linearGradient id="va-lawn" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#3F6B4E" />
-          <stop offset="1" stopColor="#1E3A2F" />
-        </linearGradient>
-        <linearGradient id="va-pool" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#8FC6C9" />
-          <stop offset="1" stopColor="#4A8E96" />
-        </linearGradient>
-        <linearGradient id="va-wall" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#FBF6EA" />
-          <stop offset="1" stopColor="#E7DCC6" />
-        </linearGradient>
-      </defs>
-
-      <rect width="720" height="500" fill="url(#va-sky)" />
-      <circle cx="540" cy="228" r="46" fill="#F3D98A" />
-      <circle cx="540" cy="228" r="70" fill="#F3D98A" opacity="0.18" />
-
-      {/* cerros */}
-      <path d="M0 262 C90 220 160 232 230 214 C300 196 360 230 430 222 C500 214 560 180 640 206 C680 218 700 226 720 232 V330 H0 Z" fill="url(#va-hill)" />
-      <path d="M0 300 C80 282 150 296 220 280 C290 264 360 292 440 284 C520 276 590 262 720 286 V340 H0 Z" fill="#2B5040" />
-
-      {/* césped */}
-      <rect y="330" width="720" height="170" fill="url(#va-lawn)" />
-
-      {/* villa */}
-      <g>
-        <path d="M200 216 L360 168 L520 216 Z" fill="#9E4E30" />
-        <rect x="212" y="214" width="296" height="126" fill="url(#va-wall)" />
-        <path d="M196 214 H524 L516 226 H204 Z" fill="#B85C38" />
-        {/* arcos */}
-        {[244, 304, 364, 424].map((x) => (
-          <g key={x}>
-            <path d={`M${x} 340 V282 A22 22 0 0 1 ${x + 44} 282 V340 Z`} fill="#1E3A2F" />
-            <path d={`M${x + 4} 340 V284 A18 18 0 0 1 ${x + 40} 284 V340 Z`} fill="#F3D98A" opacity="0.9" />
-          </g>
-        ))}
-        {/* ventanas superiores */}
-        {[236, 292, 348, 404, 460].map((x) => (
-          <rect key={x} x={x} y="232" width="26" height="30" rx="2" fill="#1E3A2F" />
-        ))}
-        {[236, 292, 348, 404, 460].map((x) => (
-          <rect key={`l${x}`} x={x + 3} y="235" width="20" height="24" rx="1" fill="#F3D98A" opacity="0.85" />
-        ))}
-        <path d="M212 268 H508" stroke="#B7892B" strokeWidth="3" />
-        {/* torreón */}
-        <rect x="336" y="176" width="48" height="42" fill="url(#va-wall)" />
-        <path d="M328 178 L360 150 L392 178 Z" fill="#9E4E30" />
-        <rect x="352" y="186" width="16" height="22" rx="8" fill="#1E3A2F" />
-      </g>
-
-      {/* terraza y piscina */}
-      <rect x="150" y="340" width="420" height="14" fill="#E7DCC6" />
-      <path d="M180 372 H540 L520 440 H200 Z" fill="#DCCFB4" />
-      <path d="M196 380 H524 L508 430 H212 Z" fill="url(#va-pool)" />
-      <path d="M212 396 H504" stroke="#fff" strokeOpacity="0.5" strokeWidth="2" />
-      <path d="M226 414 H488" stroke="#fff" strokeOpacity="0.35" strokeWidth="2" />
-      <path d="M312 384 H408 L400 428 H320 Z" fill="#F3D98A" opacity="0.25" />
-
-      {/* árboles */}
-      {[
-        [70, 300, 1.15],
-        [130, 322, 0.85],
-        [640, 296, 1.2],
-        [590, 326, 0.8],
-      ].map(([x, y, s]) => (
-        <g key={`${x}`} transform={`translate(${x} ${y}) scale(${s})`}>
-          <rect x="-6" y="40" width="12" height="60" fill="#3B2A1E" />
-          <path d="M0 -70 L44 28 H-44 Z" fill="#1E3A2F" />
-          <path d="M0 -30 L52 50 H-52 Z" fill="#264A3B" />
-          <path d="M0 6 L58 72 H-58 Z" fill="#2E5A46" />
-        </g>
+    <span className="inline-flex gap-0.5" aria-hidden="true" style={{ color: C.goldSoft }}>
+      {[0, 1, 2, 3, 4].map((i) => (
+        <svg key={i} viewBox="0 0 20 20" className="h-4 w-4" fill="currentColor">
+          <path d="M10 1.6l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 15l-5.3 2.8 1.1-5.9L1.5 7.8l5.9-.8z" />
+        </svg>
       ))}
-
-      {/* faroles */}
-      {[170, 550].map((x) => (
-        <g key={x}>
-          <rect x={x - 2} y="352" width="4" height="70" fill="#1C231F" />
-          <circle cx={x} cy="350" r="7" fill="#F3D98A" />
-          <circle cx={x} cy="350" r="16" fill="#F3D98A" opacity="0.18" />
-        </g>
-      ))}
-    </svg>
+    </span>
   )
 }
 
-function SpaceIcon({ n }: { n: string }) {
-  const p = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const }
-  if (n === '01')
-    return (
-      <svg viewBox="0 0 24 24" className="h-7 w-7" {...p} aria-hidden="true">
-        <path d="M3 18 V10 H21 V18" />
-        <path d="M3 21 V18 M21 21 V18" />
-        <path d="M5 10 V6 H19 V10" />
-        <path d="M8 10 V8 H11 V10 M13 10 V8 H16 V10" />
-      </svg>
-    )
-  if (n === '02')
-    return (
-      <svg viewBox="0 0 24 24" className="h-7 w-7" {...p} aria-hidden="true">
-        <path d="M12 3 V6" />
-        <path d="M6 20 H18" />
-        <path d="M12 6 C7 6 5 10 5 14 H19 C19 10 17 6 12 6 Z" />
-        <path d="M12 14 V20" />
-      </svg>
-    )
-  if (n === '03')
-    return (
-      <svg viewBox="0 0 24 24" className="h-7 w-7" {...p} aria-hidden="true">
-        <path d="M7 3 L17 3 L12 11 Z" />
-        <path d="M12 11 V19 M8 19 H16" />
-        <path d="M20 8 L20 15 M18 15 H22" />
-      </svg>
-    )
+function Photo({ src, alt, className = '', ratio = 'aspect-[4/3]' }: { src: string; alt: string; className?: string; ratio?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className="h-7 w-7" {...p} aria-hidden="true">
-      <path d="M3 15 C5 13 7 13 9 15 C11 17 13 17 15 15 C17 13 19 13 21 15" />
-      <path d="M3 19 C5 17 7 17 9 19 C11 21 13 21 15 19 C17 17 19 17 21 19" />
-      <path d="M7 12 V5 C7 4 8 3 9 3 H10 M15 12 V5 C15 4 16 3 17 3 H18" />
-    </svg>
+    <figure className={`relative overflow-hidden rounded-[22px] ${ratio} ${className}`}>
+      <img src={`${IMG}/${src}.webp`} alt={alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+    </figure>
   )
 }
 
@@ -185,215 +69,228 @@ export default function VillaAntillancaPage() {
     <div className={`${body.className} min-h-screen overflow-x-clip antialiased`} style={{ backgroundColor: C.cream, color: C.ink }}>
       <Chrome fontClass={display.className} />
 
-      {/* ── Hero ── */}
-      <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.forest, color: C.cream }}>
-        <div
-          className="pointer-events-none absolute inset-0"
-          aria-hidden="true"
-          style={{
-            backgroundImage:
-              'radial-gradient(ellipse 60% 50% at 85% 15%, rgba(227,197,119,0.16), transparent 60%), radial-gradient(ellipse 50% 40% at 5% 95%, rgba(184,92,56,0.18), transparent 60%)',
-          }}
+      {/* ── Hero: foto real de la piscina y el quincho ── */}
+      <section id="inicio" className="relative flex min-h-[92svh] items-end overflow-hidden" style={{ backgroundColor: C.forest, color: C.cream }}>
+        <img
+          src={`${IMG}/hero.webp`}
+          alt="Piscina de Villa Antillanca con el quincho de madera y los árboles del jardín en un día despejado"
+          className="absolute inset-0 h-full w-full object-cover object-[60%_center]"
         />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-5 pb-14 pt-24 md:grid-cols-[1fr_1.1fr] md:items-center md:px-8 md:pb-20 md:pt-32">
+        <div
+          className="absolute inset-0"
+          aria-hidden="true"
+          style={{ background: 'linear-gradient(180deg, rgba(30,58,47,0.55) 0%, rgba(30,58,47,0.15) 35%, rgba(30,58,47,0.82) 75%, #1E3A2F 100%)' }}
+        />
+        <div className="relative mx-auto w-full max-w-6xl px-5 pb-12 pt-32 md:px-8 md:pb-16">
           <Reveal>
-            <Eyebrow color={C.goldSoft}>Hotel & Centro de Eventos · {BIZ.city}</Eyebrow>
-            <h1 className={`${display.className} text-[clamp(3rem,11vw,5.4rem)] font-medium leading-[0.95] tracking-[-0.01em]`}>
-              Un lugar para
+            <div className="flex items-center gap-3">
+              <img src={`${IMG}/logo.webp`} alt="Logo de Villa Antillanca" width={48} height={48} className="h-12 w-12 rounded-full ring-2 ring-white/70" />
+              <Eyebrow color={C.goldSoft}>Hotel & Centro de Eventos · {BIZ.city}</Eyebrow>
+            </div>
+            <h1 className={`${display.className} mt-2 max-w-3xl text-[clamp(2.8rem,10vw,5.6rem)] font-medium leading-[0.98] tracking-[-0.02em]`}>
+              Un parque para dormir tranquilo
               <br />
               <em className="font-normal" style={{ color: C.goldSoft }}>
-                quedarse
-              </em>{' '}
-              y para
-              <br />
-              celebrar.
+                y celebrar en grande
+              </em>
+              .
             </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed md:text-lg" style={{ color: C.mutedOnDark }}>
-              Hotel, salón de eventos, bar-restaurante y piscina en el camino a San Clemente, a minutos de Talca.
+            <p className="mt-6 max-w-lg text-base leading-relaxed md:text-lg" style={{ color: C.mutedOnDark }}>
+              Habitaciones, salón de eventos, restaurante y piscina en un mismo recinto, a minutos de Talca, camino a San Clemente.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={btn} style={{ backgroundColor: C.gold, color: C.ink }}>
-                Consultar por WhatsApp
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={btn} style={{ backgroundColor: C.goldSoft, color: C.forest }}>
+                Reservar por WhatsApp
               </a>
-              <a href="#espacios" className={`${btn} border`} style={{ borderColor: 'rgba(247,242,231,0.4)', color: C.cream, paddingTop: 11, paddingBottom: 11 }}>
-                Ver espacios
+              <a href="#eventos" className={`${btn} border`} style={{ borderColor: 'rgba(247,242,231,0.45)', color: C.cream, paddingTop: 11, paddingBottom: 11 }}>
+                Cotizar un evento
               </a>
             </div>
-            <dl className="mt-9 grid grid-cols-2 gap-4 text-sm sm:max-w-sm" style={{ color: C.mutedOnDark }}>
-              <div className="border-l pl-3" style={{ borderColor: C.lineOnDark }}>
-                <dt className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: C.goldSoft }}>
-                  Atención
-                </dt>
-                <dd className={`${display.className} mt-1 text-2xl`} style={{ color: C.cream }}>
-                  {BIZ.hours}
-                </dd>
-              </div>
-              <div className="border-l pl-3" style={{ borderColor: C.lineOnDark }}>
-                <dt className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: C.goldSoft }}>
-                  Ubicación
-                </dt>
-                <dd className={`${display.className} mt-1 text-2xl`} style={{ color: C.cream }}>
-                  km 2,3 a San Clemente
-                </dd>
-              </div>
-            </dl>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="relative">
-              <div className="overflow-hidden rounded-t-[160px] rounded-b-[26px] border shadow-2xl" style={{ borderColor: C.lineOnDark }}>
-                <VillaScene />
-              </div>
-              <div
-                className={`${body.className} absolute -bottom-4 left-5 rounded-full px-4 py-2 text-[12px] font-bold uppercase tracking-[0.2em] shadow-lg md:left-8`}
-                style={{ backgroundColor: C.cream, color: C.forest }}
-              >
-                Camino a San Clemente
-              </div>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+              <span className="inline-flex items-center gap-2">
+                <Stars />
+                <strong>{BIZ.rating.toFixed(1).replace('.', ',')}</strong>
+                <span style={{ color: C.mutedOnDark }}>· {BIZ.reviews} reseñas en Google</span>
+              </span>
+              <span className="inline-flex items-center gap-2" style={{ color: C.mutedOnDark }}>
+                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: C.goldSoft }} aria-hidden="true" />
+                Recepción {BIZ.hours}
+              </span>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Espacios ── */}
+      {/* ── El recinto ── */}
       <section id="espacios" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
           <Reveal>
-            <div className="mx-auto max-w-2xl text-center">
-              <Ornament />
-              <Eyebrow>
-                <span className="mt-4 block">Los espacios</span>
-              </Eyebrow>
-              <h2 className={`${display.className} text-5xl font-medium leading-[0.95] tracking-[-0.01em] md:text-6xl`}>
-                Cuatro razones para <em className="font-normal" style={{ color: C.goldDeep }}>subir el camino</em>.
-              </h2>
-              <p className="mt-5 text-base leading-relaxed md:text-lg" style={{ color: C.muted }}>
-                Lo que ofrece el recinto según su ficha pública. Los detalles de cada espacio se confirman por WhatsApp.
+            <div className="grid gap-6 md:grid-cols-[1fr_1fr] md:items-end">
+              <div>
+                <Eyebrow>El recinto</Eyebrow>
+                <h2 className={`${display.className} text-5xl font-medium leading-[0.98] tracking-[-0.02em] md:text-6xl`}>
+                  Jardines, piscina y <em className="font-normal" style={{ color: C.goldDeep }}>espacio de sobra</em>.
+                </h2>
+              </div>
+              <p className="max-w-lg text-base leading-relaxed md:text-lg" style={{ color: C.muted }}>
+                Un hotel de campo a la salida de Talca: edificio de habitaciones, comedor, quincho y una piscina rodeada de césped y árboles.
               </p>
             </div>
           </Reveal>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-4">
-            {ESPACIOS.map((e, i) => (
-              <Reveal key={e.n} delay={i * 90}>
-                <article
-                  className="relative flex h-full flex-col rounded-t-[80px] rounded-b-[22px] border bg-white px-6 pb-7 pt-8 text-center transition-transform hover:-translate-y-1"
-                  style={{ borderColor: C.line, boxShadow: '0 14px 34px rgba(28,35,31,0.06)' }}
-                >
-                  <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full" style={{ backgroundColor: C.cream2, color: C.forest }}>
-                    <SpaceIcon n={e.n} />
-                  </span>
-                  <span className="mt-5 text-[11px] font-bold uppercase tracking-[0.24em]" style={{ color: C.goldDeep }}>
-                    {e.n}
-                  </span>
-                  <h3 className={`${display.className} mt-1 text-3xl font-medium leading-none`}>{e.title}</h3>
-                  <p className="mt-3 flex-1 text-[15px] leading-relaxed" style={{ color: C.muted }}>
-                    {e.desc}
-                  </p>
-                </article>
+          <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-4 md:gap-4">
+            {GALERIA_RECINTO.map((p, i) => (
+              <Reveal key={p.src} delay={i * 80}>
+                <Photo src={p.src} alt={p.alt} ratio={i % 2 === 0 ? 'aspect-[4/5]' : 'aspect-[4/5] md:mt-10'} />
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Eventos ── */}
-      <section id="eventos" className="scroll-mt-20" style={{ backgroundColor: C.forest, color: C.cream }}>
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-16 md:px-8 md:py-24">
+      {/* ── Habitaciones ── */}
+      <section id="habitaciones" className="scroll-mt-20" style={{ backgroundColor: C.cream2 }}>
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-14 md:px-8 md:py-24">
           <Reveal>
-            <Eyebrow color={C.goldSoft}>Centro de eventos</Eyebrow>
-            <h2 className={`${display.className} text-5xl font-medium leading-[0.95] tracking-[-0.01em] md:text-6xl`}>
-              La fecha importante,
-              <br />
-              <em className="font-normal" style={{ color: C.goldSoft }}>
-                lejos del ruido
-              </em>
-              .
+            <Eyebrow>Hotel</Eyebrow>
+            <h2 className={`${display.className} text-5xl font-medium leading-[0.98] tracking-[-0.02em] md:text-6xl`}>
+              Habitaciones para <em className="font-normal" style={{ color: C.goldDeep }}>descansar de verdad</em>.
             </h2>
-            <p className="mt-6 max-w-lg text-base leading-relaxed md:text-lg" style={{ color: C.mutedOnDark }}>
-              Un salón en el campo, con hotel, restaurante y piscina en el mismo recinto: los invitados celebran y se quedan a dormir sin moverse de lugar.
+            <p className="mt-6 max-w-md text-base leading-relaxed" style={{ color: C.muted }}>
+              Camas individuales o dobles, techos de madera y silencio de campo. Consulta disponibilidad y tarifas por WhatsApp.
             </p>
-            <ul className="mt-8 flex flex-wrap gap-2.5">
-              {EVENTOS.map((e) => (
-                <li key={e} className="rounded-full border px-4 py-2 text-sm font-semibold" style={{ borderColor: 'rgba(227,197,119,0.5)', color: C.goldSoft }}>
-                  {e}
+            <ul className="mt-6 grid gap-2 text-[15px]">
+              {['Recepción 24 horas', 'Restaurante en el recinto', 'Piscina y jardines'].map((t) => (
+                <li key={t} className="flex items-center gap-3">
+                  <span className="h-1.5 w-1.5 rotate-45" style={{ backgroundColor: C.gold }} aria-hidden="true" />
+                  {t}
                 </li>
               ))}
             </ul>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${btn} mt-8 w-full sm:w-auto`} style={{ backgroundColor: C.gold, color: C.ink }}>
-              Cotizar un evento
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${btn} mt-8 w-full sm:w-auto`} style={{ backgroundColor: C.forest, color: C.cream }}>
+              Consultar disponibilidad
             </a>
           </Reveal>
           <Reveal delay={120}>
-            <div className="relative mx-auto max-w-sm">
-              <div className="rounded-t-[140px] rounded-b-[26px] border p-8 pt-14 text-center" style={{ borderColor: 'rgba(227,197,119,0.35)', backgroundColor: C.forest2 }}>
-                <Ornament color={C.goldSoft} />
-                <p className={`${display.className} mt-6 text-[2.6rem] leading-none`} style={{ color: C.cream }}>
-                  Villa
-                  <br />
-                  <em style={{ color: C.goldSoft }}>Antillanca</em>
-                </p>
-                <p className="mt-4 text-[12px] font-bold uppercase tracking-[0.26em]" style={{ color: C.goldSoft }}>
-                  Hotel & Centro de Eventos
-                </p>
-                <dl className="mt-8 divide-y text-left text-sm" style={{ borderColor: C.lineOnDark }}>
-                  {[
-                    ['Salón', 'Centro de eventos'],
-                    ['Alojamiento', 'Hotel en el recinto'],
-                    ['Comida', 'Bar y restaurante'],
-                    ['Exterior', 'Piscina'],
-                  ].map(([k, v]) => (
-                    <div key={k} className="flex justify-between gap-4 py-3" style={{ borderColor: C.lineOnDark }}>
-                      <dt style={{ color: C.mutedOnDark }}>{k}</dt>
-                      <dd className="font-semibold" style={{ color: C.cream }}>
-                        {v}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
+            <div className="grid grid-cols-[1.2fr_1fr] gap-3 md:gap-4">
+              <Photo src={HABITACIONES[0].src} alt={HABITACIONES[0].alt} ratio="aspect-[4/5]" className="shadow-xl" />
+              <Photo src={HABITACIONES[1].src} alt={HABITACIONES[1].alt} ratio="aspect-[3/5] mt-8" className="shadow-xl" />
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Reservar ── */}
-      <section id="reservar" className="scroll-mt-20" style={{ backgroundColor: C.cream2 }}>
+      {/* ── Eventos ── */}
+      <section id="eventos" className="scroll-mt-20" style={{ backgroundColor: C.forest, color: C.cream }}>
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
           <Reveal>
-            <Eyebrow>Cómo reservar</Eyebrow>
-            <h2 className={`${display.className} max-w-2xl text-5xl font-medium leading-[0.95] tracking-[-0.01em] md:text-6xl`}>
-              Tres mensajes y <em className="font-normal" style={{ color: C.goldDeep }}>listo</em>.
-            </h2>
+            <div className="grid gap-6 md:grid-cols-[1fr_1fr] md:items-end">
+              <div>
+                <Eyebrow color={C.goldSoft}>Centro de eventos</Eyebrow>
+                <h2 className={`${display.className} text-5xl font-medium leading-[0.98] tracking-[-0.02em] md:text-6xl`}>
+                  El salón de vigas <em className="font-normal" style={{ color: C.goldSoft }}>donde se celebra Talca</em>.
+                </h2>
+              </div>
+              <div>
+                <p className="max-w-lg text-base leading-relaxed" style={{ color: C.mutedOnDark }}>
+                  Matrimonios, cumpleaños y reuniones de empresa, con quincho junto a la piscina para la fiesta de noche.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {EVENTOS.map((e) => (
+                    <span key={e} className="rounded-full border px-3 py-1.5 text-sm font-semibold" style={{ borderColor: 'rgba(227,197,119,0.45)', color: C.goldSoft }}>
+                      {e}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </Reveal>
-          <ol className="mt-10 grid gap-4 md:grid-cols-3 md:gap-5">
-            {PASOS.map((p, i) => (
-              <Reveal key={p.title} delay={i * 100}>
-                <li className="h-full rounded-[22px] border p-6" style={{ borderColor: C.line, backgroundColor: C.cream }}>
-                  <span className={`${display.className} flex h-11 w-11 items-center justify-center rounded-full text-2xl`} style={{ backgroundColor: C.forest, color: C.goldSoft }}>
-                    {i + 1}
-                  </span>
-                  <h3 className={`${display.className} mt-5 text-3xl font-medium leading-none`}>{p.title}</h3>
-                  <p className="mt-3 text-[15px] leading-relaxed" style={{ color: C.muted }}>
-                    {p.desc}
-                  </p>
-                </li>
+          <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-[1.4fr_1fr_1fr] md:gap-4">
+            <Reveal className="col-span-2 md:col-span-1 md:row-span-2">
+              <Photo src={GALERIA_EVENTOS[0].src} alt={GALERIA_EVENTOS[0].alt} ratio="aspect-[4/3] md:aspect-auto md:h-full" />
+            </Reveal>
+            {GALERIA_EVENTOS.slice(1).map((p, i) => (
+              <Reveal key={p.src} delay={(i + 1) * 80} className={i === 2 ? 'col-span-2 md:col-span-2' : ''}>
+                <Photo src={p.src} alt={p.alt} ratio={i === 2 ? 'aspect-[16/9] md:aspect-[2/1]' : 'aspect-[4/5] md:aspect-[4/3]'} />
               </Reveal>
             ))}
-          </ol>
-          <Reveal delay={200}>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${btn} mt-8 w-full sm:w-auto`} style={{ backgroundColor: C.forest, color: C.cream }}>
-              Consultar disponibilidad
-            </a>
+          </div>
+          <Reveal>
+            <div className="mt-10 flex flex-col items-start gap-4 rounded-[24px] border p-6 md:flex-row md:items-center md:justify-between md:p-8" style={{ borderColor: C.lineOnDark, backgroundColor: C.forest2 }}>
+              <div>
+                <p className={`${display.className} text-3xl font-medium leading-tight`}>¿Tienes fecha? Empecemos por ahí.</p>
+                <p className="mt-1 text-[15px]" style={{ color: C.mutedOnDark }}>
+                  Cuéntanos el tipo de evento y cuántas personas; te confirmamos disponibilidad del salón.
+                </p>
+              </div>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${btn} shrink-0`} style={{ backgroundColor: C.goldSoft, color: C.forest }}>
+                Cotizar mi evento
+              </a>
+            </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ── Cómo reservar + prueba social ── */}
+      <section id="reservar" className="scroll-mt-20" style={{ backgroundColor: C.cream2 }}>
+        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+          <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:gap-14">
+            <Reveal>
+              <Eyebrow>Cómo reservar</Eyebrow>
+              <h2 className={`${display.className} text-5xl font-medium leading-[0.98] tracking-[-0.02em] md:text-6xl`}>
+                Tres pasos, <em className="font-normal" style={{ color: C.goldDeep }}>sin formularios</em>.
+              </h2>
+              <ol className="mt-8 grid gap-3">
+                {PASOS.map((p, i) => (
+                  <li key={p.title} className="flex gap-4 rounded-[22px] border bg-white/70 p-5" style={{ borderColor: C.line }}>
+                    <span className={`${display.className} flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-2xl font-medium`} style={{ backgroundColor: C.forest, color: C.goldSoft }}>
+                      {i + 1}
+                    </span>
+                    <div>
+                      <h3 className={`${display.className} text-2xl font-medium leading-tight`}>{p.title}</h3>
+                      <p className="mt-1 text-[15px] leading-relaxed" style={{ color: C.muted }}>
+                        {p.desc}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="flex h-full flex-col justify-between rounded-[28px] p-7 md:p-9" style={{ backgroundColor: C.forest, color: C.cream }}>
+                <div>
+                  <Ornament color={C.goldSoft} />
+                  <p className={`${display.className} mt-6 text-[clamp(4rem,14vw,6.5rem)] font-medium leading-none`} style={{ color: C.goldSoft }}>
+                    {BIZ.rating.toFixed(1).replace('.', ',')}
+                  </p>
+                  <div className="mt-2 flex items-center gap-2">
+                    <Stars />
+                    <span className="text-sm font-semibold">{BIZ.reviews} reseñas en Google</span>
+                  </div>
+                  <p className="mt-6 max-w-sm text-base leading-relaxed" style={{ color: C.mutedOnDark }}>
+                    Familias, parejas y empresas de la región llevan años eligiendo Villa Antillanca para alojarse y celebrar.
+                  </p>
+                </div>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`${btn} border`} style={{ borderColor: 'rgba(247,242,231,0.45)', color: C.cream, paddingTop: 11, paddingBottom: 11 }}>
+                    Ver reseñas en Maps
+                  </a>
+                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${btn} border`} style={{ borderColor: 'rgba(247,242,231,0.45)', color: C.cream, paddingTop: 11, paddingBottom: 11 }}>
+                    Instagram
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* ── Contacto ── */}
       <section id="contacto" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-          <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-start">
+          <div className="grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <Reveal>
               <Eyebrow>Dónde estamos</Eyebrow>
-              <h2 className={`${display.className} text-5xl font-medium leading-[0.95] tracking-[-0.01em] md:text-6xl`}>
+              <h2 className={`${display.className} text-5xl font-medium leading-[0.98] tracking-[-0.02em] md:text-6xl`}>
                 Camino a <em className="font-normal" style={{ color: C.goldDeep }}>San Clemente</em>
               </h2>
               <address className="mt-6 not-italic">
@@ -402,6 +299,16 @@ export default function VillaAntillancaPage() {
                   {BIZ.city}, {BIZ.region}
                 </p>
               </address>
+              <dl className="mt-5 grid gap-1 text-[15px]">
+                <div className="flex gap-3">
+                  <dt className="font-semibold">Recepción</dt>
+                  <dd style={{ color: C.muted }}>{BIZ.hours}</dd>
+                </div>
+                <div className="flex gap-3">
+                  <dt className="font-semibold">WhatsApp</dt>
+                  <dd style={{ color: C.muted }}>{BIZ.phoneDisplay}</dd>
+                </div>
+              </dl>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={btn} style={{ backgroundColor: C.forest, color: C.cream }}>
                   WhatsApp {BIZ.phoneDisplay}
@@ -412,24 +319,7 @@ export default function VillaAntillancaPage() {
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <div className="rounded-[22px] border bg-white p-6 md:p-7" style={{ borderColor: C.line }}>
-                <Ornament />
-                <dl className="mt-4 divide-y text-[15px]" style={{ borderColor: C.line }}>
-                  {[
-                    ['Rubro', BIZ.rubro],
-                    ['Atención', BIZ.hours],
-                    ['WhatsApp', BIZ.phoneDisplay],
-                    ['Ciudad', `${BIZ.city}, ${BIZ.region}`],
-                  ].map(([k, v]) => (
-                    <div key={k} className="flex justify-between gap-4 py-3" style={{ borderColor: C.line }}>
-                      <dt className="shrink-0 font-semibold" style={{ color: C.muted }}>
-                        {k}
-                      </dt>
-                      <dd className="text-right font-semibold">{v}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
+              <Photo src="fachada" alt={GALERIA_RECINTO[0].alt} ratio="aspect-[4/3]" className="shadow-xl" />
             </Reveal>
           </div>
         </div>
@@ -437,18 +327,24 @@ export default function VillaAntillancaPage() {
 
       <footer style={{ backgroundColor: C.forest, color: C.cream }}>
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 pb-6 pt-8 md:flex-row md:items-center md:justify-between md:px-8">
-          <div>
-            <p className={`${display.className} text-2xl font-medium`}>{BIZ.short}</p>
-            <p className="text-xs" style={{ color: C.mutedOnDark }}>
-              {BIZ.rubro} · {BIZ.city}
-            </p>
+          <div className="flex items-center gap-3">
+            <img src={`${IMG}/logo.webp`} alt="" width={40} height={40} className="h-10 w-10 rounded-full" />
+            <div>
+              <p className={`${display.className} text-2xl font-medium leading-none`}>{BIZ.short}</p>
+              <p className="mt-1 text-xs" style={{ color: C.mutedOnDark }}>
+                {BIZ.rubro} · {BIZ.city}
+              </p>
+            </div>
           </div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold">
             <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${focusRing} tap-44`}>
               WhatsApp
             </a>
+            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${focusRing} tap-44`}>
+              Instagram
+            </a>
             <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`${focusRing} tap-44`}>
-              Google Maps
+              Maps
             </a>
             <Ornament color={C.goldSoft} />
           </div>

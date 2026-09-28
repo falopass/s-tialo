@@ -1,6 +1,8 @@
 /**
  * Datos confirmados en fuentes públicas consultadas el 28-09-2026.
- * No se encontraron perfiles sociales inequívocos para descargar fotos reales.
+ * - Instagram: https://www.instagram.com/villa.antillanca/ (bio: hotel, centro de eventos, WhatsApp +56979582177)
+ * - Google Maps: ficha «Villa Antillanca, Hotel & Centro de Eventos», 4,4★ (201 reseñas), mismo teléfono.
+ * Las fotos de public/demos/<slug>/ provienen de esas dos fuentes; el logo es la foto de perfil de Instagram.
  */
 export const BIZ = {
   name: 'Villa Antillanca, Hotel & Centro de Eventos',
@@ -12,7 +14,31 @@ export const BIZ = {
   whatsapp: '56979582177',
   phoneDisplay: '+56 9 7958 2177',
   hours: '24 horas',
+  instagram: 'https://www.instagram.com/villa.antillanca/',
+  rating: 4.4,
+  reviews: 201,
 } as const
+
+export const IMG = '/demos/villa-antillanca-hotel-centro-eventos'
+
+export const HABITACIONES = [
+  { src: 'habitacion-1', alt: 'Habitación con dos camas individuales y velador de madera' },
+  { src: 'habitacion-2', alt: 'Habitación doble con techo de vigas de madera' },
+] as const
+
+export const GALERIA_EVENTOS = [
+  { src: 'salon-1', alt: 'Salón de eventos montado para una fiesta, con luces de colores y mesas vestidas' },
+  { src: 'salon-2', alt: 'Matrimonio celebrándose en el salón de vigas de madera' },
+  { src: 'boda', alt: 'Mesa de matrimonio decorada con camino de mesa rosado y flores secas' },
+  { src: 'terraza-noche', alt: 'Quincho iluminado de noche junto a la piscina, con mesas para un evento' },
+] as const
+
+export const GALERIA_RECINTO = [
+  { src: 'fachada', alt: 'Fachada del hotel, edificio amarillo con pérgola verde y jardín' },
+  { src: 'jardin', alt: 'Jardín del hotel con senderos, abedules y la piscina al fondo' },
+  { src: 'restaurante', alt: 'Comedor del restaurante con escalera caracol y mesas de madera' },
+  { src: 'piscina', alt: 'Piscina con quincho de madera al fondo' },
+] as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
   'Hola, vi la página de Villa Antillanca y quiero consultar disponibilidad o un evento',
