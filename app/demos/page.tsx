@@ -7,6 +7,22 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'hema-parque-infantil',
+    name: 'HEMA Parque Infantil',
+    rubro: 'Parque infantil',
+    city: 'Talca',
+    tagline: 'Confetti de pelotas: crema, naranja del arco y sectores como boletos.',
+    gradient: 'linear-gradient(135deg, #20093A 0%, #7C4BC4 55%, #F2641E 140%)',
+  },
+  {
+    slug: 'cabanas-los-barriles',
+    name: 'Cabañas Los Barriles',
+    rubro: 'Cabañas y alojamiento',
+    city: 'Molina',
+    tagline: 'Artesanía en barriles: crema papel, bosque y terracota de tonel.',
+    gradient: 'linear-gradient(135deg, #160F07 0%, #23402B 55%, #B7632A 140%)',
+  },
+  {
     slug: 'halcon-gris-seguridad',
     name: 'Halcón Gris Seguridad',
     rubro: 'Seguridad y formación de guardias',

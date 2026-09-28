@@ -184,6 +184,8 @@ const CABANAS_LA_QUEBRADA: CatalogDemo = {
 }
 
 const BLITZ_CREATED: Record<string, string> = {
+  'hema-parque-infantil': '2026-09-28',
+  'cabanas-los-barriles': '2026-09-28',
   'clinica-veterinaria-ecovets': '2026-09-28',
   'constructora-musalem': '2026-09-28',
   'taller-ferrasil': '2026-09-28',
