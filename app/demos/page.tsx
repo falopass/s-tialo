@@ -1990,6 +1990,14 @@ const BLITZ = [
     tagline: 'Pit lane en Huamachuco: azul racing del letrero Liqui Moly y naranjo de su logo.',
     gradient: 'linear-gradient(135deg, #081F4A 0%, #0F2E66 55%, #F04E23 150%)',
   },
+  {
+    slug: 'luna-plena-hostal-molina',
+    name: 'Luna Plena Hostal',
+    rubro: 'Hostal campestre',
+    city: 'Molina',
+    tagline: 'El recorrido del fundo: crema papel, bosque y mostaza, paradas numeradas por el camino.',
+    gradient: 'linear-gradient(135deg, #1B3423 0%, #26432E 55%, #D9A62E 140%)',
+  },
 
   {
     slug: 'bodega-liquidadora-neumaticos',
