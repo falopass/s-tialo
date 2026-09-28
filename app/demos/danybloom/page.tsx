@@ -48,25 +48,25 @@ const NAV_LINKS = [
 const SERVICIOS = [
   {
     src: `${IMG}/detalle3.webp`,
-    alt: 'Manos con manicura nude recién terminada sobre toalla blanca',
+    alt: 'Uñas rosadas con diseño de puntos y flor, trabajo real de Dany Bloom',
     name: 'Manicura clásica',
     desc: 'Limado, cutícula prolija y esmalte tradicional. La pega de base, bien hecha: sin apuro y sin detalles al aire.',
   },
   {
     src: `${IMG}/detalle2.webp`,
-    alt: 'Repisas de madera con esmaltes en degradé de nudes a rojos',
+    alt: 'Uñas almendras nude con pedrería, trabajo real de Dany Bloom',
     name: 'Esmaltado semipermanente',
     desc: 'Color que aguanta semanas con el brillo del primer día. Se prepara la uña bien para que dure de verdad.',
   },
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Bandeja de mármol con limas, empujadores y alicate de cutícula',
+    alt: 'Detalle de uña nude con pedrería, trabajo real de Dany Bloom',
     name: 'Kapping en gel',
     desc: 'Capa de refuerzo sobre la uña natural: más firmeza y resistencia sin alargar. Instrumental cuidado, siempre.',
   },
   {
     src: `${IMG}/ambiente.webp`,
-    alt: 'Sillón de terciopelo rosa junto a la ventana, el rincón de pedicura',
+    alt: 'Manicura french recién terminada en Dany Bloom',
     name: 'Pedicura completa',
     desc: 'Cuidado completo para los pies: limpieza, limado y esmalte, sentada cómoda y con calma.',
   },
@@ -135,7 +135,7 @@ export default function DanybloomPage() {
         <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-0">
           <Image
             src={`${IMG}/hero.webp`}
-            alt="Estación de manicura de danybloom: mesa blanca, lámpara y silla de terciopelo rosa"
+            alt="Manos con manicura de diseño realizadas por Dany Bloom"
             fill
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"
@@ -470,9 +470,18 @@ export default function DanybloomPage() {
       <footer style={{ backgroundColor: C.ink, color: '#FFFFFF' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4 border-t" style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
           <div>
-            <p className={`${display.className} font-extrabold uppercase text-xl md:text-2xl mb-2`}>
-              {BIZ.name}
-            </p>
+            <div className="flex items-center gap-3 mb-2">
+              <Image
+                src={`${IMG}/logo.webp`}
+                alt={`Logo de ${BIZ.name}`}
+                width={44}
+                height={44}
+                className="rounded-md"
+              />
+              <p className={`${display.className} font-extrabold uppercase text-xl md:text-2xl`}>
+                {BIZ.name}
+              </p>
+            </div>
             <address className="not-italic text-sm leading-relaxed" style={{ color: C.steel }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
             </address>
