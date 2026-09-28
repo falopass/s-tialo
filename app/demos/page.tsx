@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'clinica-veterinaria-ecovets',
+    name: 'Clínica Veterinaria Ecovets',
+    rubro: 'Clínica veterinaria',
+    city: 'Rancagua',
+    tagline: 'Guardia 24/7: ciruela de noche, rosa del logo y monitor de pulso.',
+    gradient: 'linear-gradient(135deg, #17080F 0%, #301526 55%, #F2437F 140%)',
+  },
+  {
     slug: 'clinica-veterinaria-zoovet',
     name: 'Clínica Veterinaria Zoovet',
     rubro: 'Clínica veterinaria',

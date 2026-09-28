@@ -184,6 +184,7 @@ const CABANAS_LA_QUEBRADA: CatalogDemo = {
 }
 
 const BLITZ_CREATED: Record<string, string> = {
+  'clinica-veterinaria-ecovets': '2026-09-28',
   alcatorce: '2026-09-28',
   'catffeine-cafe': '2026-09-28',
   'patitas-pets-iquique': '2026-09-28',
