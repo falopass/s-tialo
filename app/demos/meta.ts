@@ -8,8 +8,6 @@ const BASE = SITE.url.replace(/\/$/, '')
  * descripción, imagen) se genera de acá: `image` es la ruta pública de una
  * foto real del demo (p.ej. '/demos/beauty-love/hero.webp'); los demos sin
  * fotos propias (escenas CSS/SVG) usan el og-image del sitio.
- * Las demos siguen siendo noindex: son mockups para mostrar a pymes, no
- * contenido indexable del sitio.
  */
 export function demoMetadata({
   slug,
@@ -27,7 +25,6 @@ export function demoMetadata({
   return {
     title,
     description,
-    robots: { index: false, follow: false },
     openGraph: {
       title,
       description,

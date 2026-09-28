@@ -1,18 +1,5 @@
-import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
 import EagerImages from './eager-images'
-
-/**
- * Las demos son ejemplos para mostrar a pymes, no contenido del sitio:
- * noindex en todas las páginas bajo /demos/.
- */
-export const metadata: Metadata = {
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: { index: false, follow: false },
-  },
-}
 
 /**
  * app/globals.css redefine la escala de espaciado (--spacing-5 = 24px, --spacing-10 = 128px,

@@ -1,7 +1,10 @@
 import type { MetadataRoute } from 'next'
+import { readdirSync, existsSync } from 'fs'
+import { join } from 'path'
 import { SITE } from '@/lib/config'
 import { posts } from '@/content/posts'
 import { detailedCases } from '@/content/cases'
+import { DEMOS } from './demos/data'
 
 // Required for `output: 'export'` static builds.
 export const dynamic = 'force-static'
@@ -33,6 +36,7 @@ const STATIC_ROUTES: Route[] = [
   { path: '/contacto/',             changeFrequency: 'yearly',  priority: 0.7 },
   { path: '/sobre/',                changeFrequency: 'yearly',  priority: 0.6 },
   { path: '/preguntas-frecuentes/', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/demos/',                changeFrequency: 'weekly',  priority: 0.7 },
   { path: '/terminos/',             changeFrequency: 'yearly',  priority: 0.4 },
   { path: '/privacidad/',           changeFrequency: 'yearly',  priority: 0.3 },
 ]
@@ -40,6 +44,24 @@ const STATIC_ROUTES: Route[] = [
 // Fecha real de la última actualización de contenido de las páginas estáticas.
 // Actualizarla cuando cambie el contenido, no en cada build.
 const LAST_UPDATED = new Date('2026-09-25')
+
+/**
+ * Slugs de todos los demos: los que tienen carpeta propia en app/demos/
+ * (con page.tsx) más los que renderiza la ruta dinámica [slug] desde DEMOS.
+ * Se lee el filesystem en build, así que un demo nuevo entra solo al sitemap.
+ */
+function demoSlugs(): string[] {
+  const dir = join(process.cwd(), 'app', 'demos')
+  const staticSlugs = readdirSync(dir, { withFileTypes: true })
+    .filter(
+      (e) =>
+        e.isDirectory() &&
+        e.name !== '[slug]' &&
+        existsSync(join(dir, e.name, 'page.tsx')),
+    )
+    .map((e) => e.name)
+  return [...new Set([...staticSlugs, ...DEMOS.map((d) => d.slug)])]
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.url.replace(/\/$/, '')
@@ -69,5 +91,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...staticEntries, ...caseEntries, ...blogEntries]
+  const demoEntries: MetadataRoute.Sitemap = demoSlugs().map((slug) => ({
+    url: `${base}/demos/${slug}/`,
+    lastModified: LAST_UPDATED,
+    changeFrequency: 'monthly',
+    priority: 0.5,
+  }))
+
+  return [...staticEntries, ...caseEntries, ...blogEntries, ...demoEntries]
 }
