@@ -1,11 +1,12 @@
 /**
  * app/demos/mia-centro-de-estetica/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps): nombre,
- * dirección, nota 4,8 en 31 reseñas de Google con las citas reales,
- * la página de Facebook y el WhatsApp. Las fotos son reales de la
- * ficha (manicure y fachada con el letrero de servicios). Los
- * precios y horarios siguen siendo de muestra.
+ * Datos del mockup. REALES (ficha pública de Google Maps + Facebook
+ * /centrodeesteticamia): nombre, dirección, nota 4,8 en 31 reseñas con
+ * citas reales, la página de Facebook y el WhatsApp. Los servicios son
+ * los del tótem de la fachada: Peluquería · Depilación · Manicure ·
+ * Pedicure · Bronceado. Las fotos son reales (fachada, manicure,
+ * masajes y alisados, publicadas por el propio centro).
  */
 
 export const BIZ = {
@@ -29,10 +30,6 @@ export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
   'Hola, vi la página de Mía Centro De Estética y quiero agendar una hora',
 )}`
 
-export const WA_LINK_SERVICIO = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
-  'Hola, vi la página de Mía Centro De Estética y quiero consultar por un servicio',
-)}`
-
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   'Mía Centro De Estética, Pje. R 8, Curicó, Chile',
 )}`
@@ -42,3 +39,31 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
 )}&output=embed`
 
 export const IMG = '/demos/mia-centro-de-estetica'
+
+/** Los 5 servicios del tótem violeta de la fachada (letrero real). */
+export const SERVICIOS = [
+  { name: 'Peluquería', desc: 'Corte, color y alisados. En su Facebook muestran el trabajo con Brasil Coffee Liss.' },
+  { name: 'Depilación', desc: 'Depilación de cejas, rostro y cuerpo, en cabina con hora agendada.' },
+  { name: 'Manicure', desc: 'Esmaltado tradicional y permanente, con glitter y nail art a elección.' },
+  { name: 'Pedicure', desc: 'Pedicure completa con cuidado de cutícula y esmaltado.' },
+  { name: 'Bronceado', desc: 'El quinto servicio del tótem de la reja, tal como aparece en la fachada.' },
+] as const
+
+/** Reseñas reales citadas desde la ficha pública de Google Maps. */
+export const REVIEWS = [
+  {
+    author: 'Fernanda Moreno',
+    when: 'hace 4 años',
+    text: 'Muy bueno !!! Exelente atencion !!100% recomendado.',
+  },
+  {
+    author: 'Claudia López Véliz',
+    when: 'hace 5 años',
+    text: 'Muy buena atención, te desinfectan antes de atenderte y no hay mas gente esperando a ser entendida.',
+  },
+  {
+    author: 'clau. MÍA',
+    when: 'hace 7 años',
+    text: 'Super profecionales!! buen trabajo y servicios',
+  },
+] as const
