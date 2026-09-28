@@ -14,13 +14,14 @@
 
 import {
   motion,
+  useInView,
   useMotionValueEvent,
   useReducedMotion,
   useScroll,
   useSpring,
   useTransform,
 } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export function TopBar({
   name,
@@ -152,14 +153,24 @@ export function Fade({
   className?: string
 }) {
   const reduce = useReducedMotion()
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, amount: 0.3, margin: '0px 0px -60px 0px' })
+  // Red de seguridad: en celular el observador a veces no dispara y el
+  // contenido quedaba invisible para siempre. A los 2s se muestra igual.
+  const [forced, setForced] = useState(false)
+  useEffect(() => {
+    const t = window.setTimeout(() => setForced(true), 2000 + delay * 1000)
+    return () => window.clearTimeout(t)
+  }, [delay])
+  const show = reduce || inView || forced
 
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={reduce ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3, margin: '0px 0px -60px 0px' }}
-      transition={{ duration: 0.75, delay, ease: [0.16, 1, 0.3, 1] }}
+      animate={show ? { opacity: 1, y: 0 } : undefined}
+      transition={{ duration: 0.75, delay: show && !inView ? 0 : delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>
