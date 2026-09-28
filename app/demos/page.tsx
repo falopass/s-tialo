@@ -1734,6 +1734,14 @@ const BLITZ = [
     tagline: 'Plano de replanteo: papel topográfico, coordenadas, cartela y fotos aéreas reales.',
     gradient: 'linear-gradient(135deg, #1A2620 0%, #2E5A3C 55%, #E8960F 140%)',
   },
+  {
+    slug: 'vivo-market-minimarket',
+    name: 'Vivo Market',
+    rubro: 'Minimarket',
+    city: 'Talca',
+    tagline: 'La góndola: antracita del letrero, verde VIVO, etiquetas de precio y código de barras.',
+    gradient: 'linear-gradient(135deg, #10151A 0%, #46C75B 130%)',
+  },
 ]
 
 export const metadata: Metadata = {
