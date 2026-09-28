@@ -2200,6 +2200,46 @@ const BLITZ = [
     tagline: 'Hoja de stickers: tinta negra, amarillo promo, magenta y cian de sus flyers, trama de semitono y tickets de precio reales.',
     gradient: 'linear-gradient(135deg, #FAF6ED 0%, #FFC400 45%, #E6358B 105%, #00A8C6 150%)',
   },
+  {
+    slug: 'cabanas-y-camping-santa-camila',
+    name: 'Cabañas y Camping Santa Camila',
+    rubro: 'Cabañas y camping · El Radal',
+    city: 'El Radal, Molina',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F4EFE2 0%, #24503A 150%)',
+  },
+  {
+    slug: 'cafe-paris-talca',
+    name: 'Café París',
+    rubro: 'Cafetería · Salón de té',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F8F1E9 0%, #B44A72 150%)',
+  },
+  {
+    slug: 'camping-el-carro',
+    name: 'Camping El Carro',
+    rubro: 'Camping y cabañas',
+    city: 'San Clemente',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F3EDDD 0%, #243E2C 150%)',
+  },
+  {
+    slug: 'la-guatatrucha-molina',
+    name: 'La Guatatrucha',
+    rubro: 'Centro de eventos · Molina',
+    city: 'Molina',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F5F0E3 0%, #0B3D38 150%)',
+  },
+  {
+    slug: 'la-rosa-chilena',
+    name: 'La Rosa Chilena',
+    rubro: 'Panadería artesanal',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #1E3A29 0%, #F2EAD9 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
