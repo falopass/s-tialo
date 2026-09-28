@@ -2527,6 +2527,30 @@ const BLITZ = [
     tagline: 'Su tarjeta hecha sitio: vino oscuro, rosa acuarela, arcos y la carta de precios real del salón.',
     gradient: 'linear-gradient(135deg, #2B1A24 0%, #4A2E3C 60%, #E8ACC0 150%)',
   },
+  {
+    slug: 'cabanas-y-camping-el-esfuerzo',
+    name: 'Camping El Esfuerzo',
+    rubro: 'Camping y cabañas de temporada',
+    city: 'Molina',
+    tagline: 'Cartel pintado a mano: papel crema, rojo óxido de sus cabañas, celosía de madera y la pizarra del negocio con precios reales.',
+    gradient: 'linear-gradient(135deg, #F7F0DC 0%, #A63B21 55%, #86B93C 140%)',
+  },
+  {
+    slug: 'lipigas-vitugas-express-san-clemente',
+    name: 'Vitugas Express',
+    rubro: 'Distribuidor de gas Lipigas',
+    city: 'San Clemente',
+    tagline: 'Vale de gas: navy y amarillo Lipigas, tickets perforados para sus vales y el perro mascota con pañuelo.',
+    gradient: 'linear-gradient(135deg, #0C1746 0%, #14256B 55%, #FFD400 140%)',
+  },
+  {
+    slug: 'academia-kenpo-karate-freestyle',
+    name: 'Kenpo Karate Freestyle',
+    rubro: 'Escuela de artes marciales',
+    city: 'Talca',
+    tagline: 'Afiche de torneo: negro de gi, brochazos rojos y cuadrícula de tatami, con su tigre y el mundial WAKO 2026.',
+    gradient: 'linear-gradient(135deg, #0D0D10 0%, #17171C 45%, #D92323 130%)',
+  },
 ]
 
 export const metadata: Metadata = {
