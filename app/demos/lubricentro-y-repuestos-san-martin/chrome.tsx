@@ -5,6 +5,7 @@ import { BIZ, WA_LINK } from './content'
 const NAV_LINKS = [
   { label: 'Qué hacemos', href: '#servicios' },
   { label: 'Cómo funciona', href: '#pasos' },
+  { label: 'El local', href: '#local' },
   { label: 'Horario y ubicación', href: '#contacto' },
 ]
 

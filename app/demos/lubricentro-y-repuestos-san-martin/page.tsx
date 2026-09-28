@@ -38,6 +38,15 @@ const C = {
 const CINTA = `repeating-linear-gradient(45deg, ${C.yellow} 0 12px, ${C.grafito} 12px 24px)`
 const CINTA_FINA = `repeating-linear-gradient(45deg, ${C.yellow} 0 6px, ${C.grafito} 6px 12px)`
 
+const IMG = '/demos/lubricentro-y-repuestos-san-martin'
+
+const FOTOS = [
+  { src: 'repisas.webp', cap: 'Repisas de aceites', alt: 'Repisas del lubricentro con aceites Shell Helix y filtros' },
+  { src: 'aceites.webp', cap: 'Aceites por marca', alt: 'Estante con envases de aceite Shell Helix en el local' },
+  { src: 'repuestos.webp', cap: 'Repuestos en el local', alt: 'Repisas con cajas de repuestos y lubricantes' },
+  { src: 'stock.webp', cap: 'Stock de marcas', alt: 'Repisa con aceites VOLTEX y Mobil en el lubricentro' },
+]
+
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
 export const metadata: Metadata = demoMetadata({
@@ -98,28 +107,6 @@ function Label({ children, light = false, className = '' }: { children: React.Re
   )
 }
 
-function OilPanel() {
-  return (
-    <svg viewBox="0 0 360 360" className="w-full h-full" fill="none" aria-hidden="true">
-      {/* anillos concéntricos */}
-      <circle cx="180" cy="180" r="160" stroke={C.steel} strokeWidth="1.5" />
-      <circle cx="180" cy="180" r="126" stroke={C.steel} strokeWidth="1.5" strokeDasharray="4 10" />
-      <circle cx="180" cy="180" r="92" stroke={C.steel} strokeWidth="1.5" />
-      {/* medidor */}
-      <path d="M104 230a86 86 0 0 1 152 0" stroke={C.steel} strokeWidth="10" strokeLinecap="round" />
-      <path d="M104 230a86 86 0 0 1 96-86" stroke={C.yellow} strokeWidth="10" strokeLinecap="round" />
-      <line x1="180" y1="230" x2="140" y2="168" stroke={C.bone} strokeWidth="4" strokeLinecap="round" />
-      <circle cx="180" cy="230" r="8" fill={C.yellow} />
-      {/* gota */}
-      <path d="M180 66C180 66 146 106 146 130a34 34 0 1 0 68 0c0-24-34-64-34-64Z" fill={C.yellow} />
-      <path d="M162 132a16 16 0 0 0 14 14" stroke={C.grafito} strokeWidth="5" strokeLinecap="round" />
-      {/* esquinas técnicas */}
-      <path d="M16 36V16h20M344 36V16h-20M16 324v20h20M344 324v20h-20" stroke={C.steel} strokeWidth="2" />
-      <text x="180" y="296" textAnchor="middle" fill={C.steel} fontSize="12" letterSpacing="4" fontFamily="monospace">NIVEL · OK</text>
-    </svg>
-  )
-}
-
 export default function SanMartinPage() {
   return (
     <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.bone, color: C.ink }}>
@@ -174,14 +161,16 @@ export default function SanMartinPage() {
               </a>
             </div>
           </Reveal>
-          <Reveal delay={140} className="hidden md:block">
+          <Reveal delay={140}>
             <div className="border" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(246,244,238,0.03)' }}>
               <div className="h-2.5" style={{ backgroundImage: CINTA_FINA }} aria-hidden="true" />
-              <div className="p-6 lg:p-10">
-                <OilPanel />
-              </div>
+              <img
+                src={`${IMG}/manos.webp`}
+                alt="Mano de mecánico revisando la varilla de aceite en Lubricentro San Martín"
+                className="w-full h-72 md:h-[380px] object-cover"
+              />
               <div className="flex items-center justify-between px-5 py-3 border-t" style={{ borderColor: C.lineLight }}>
-                <span className={`${display.className} uppercase text-sm font-semibold tracking-[0.14em]`} style={{ color: C.bone }}>Panel de servicio</span>
+                <span className={`${display.className} uppercase text-sm font-semibold tracking-[0.14em]`} style={{ color: C.bone }}>En el taller</span>
                 <span className="text-[10px] uppercase tracking-[0.2em] font-bold" style={{ color: C.boneDim }}>Aceite · Filtros · Repuestos</span>
               </div>
             </div>
@@ -281,13 +270,50 @@ export default function SanMartinPage() {
         </div>
       </section>
 
-      {/* ── 03 Horario y ubicación ── */}
+      {/* ── 03 El local por dentro ── */}
+      <section id="local" className="scroll-mt-20" style={{ backgroundColor: C.bone }}>
+        <div className="h-2.5" style={{ backgroundImage: CINTA_FINA }} aria-hidden="true" />
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.ink }}>
+              <Label><span style={{ color: C.ink }}>N°03</span> — El local por dentro</Label>
+              <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.muted }}>
+                fotos reales
+              </p>
+            </div>
+          </Reveal>
+          <Reveal>
+            <h2 className={`${display.className} uppercase font-bold text-4xl md:text-6xl leading-[0.95] mb-10 md:mb-14`} style={{ color: C.ink }}>
+              Las repisas,
+              <br />
+              <span style={{ color: C.steel }}>tal cual son</span>
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {FOTOS.map((f, i) => (
+              <Reveal key={f.src} delay={i * 70}>
+                <figure className="border" style={{ borderColor: C.ink, backgroundColor: C.bone }}>
+                  <img src={`${IMG}/${f.src}`} alt={f.alt} loading="lazy" className="w-full h-48 md:h-64 object-cover" />
+                  <figcaption
+                    className="px-3 py-2.5 border-t text-[10px] uppercase tracking-[0.18em] font-bold"
+                    style={{ borderColor: C.line, color: C.muted }}
+                  >
+                    {f.cap}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 04 Horario y ubicación ── */}
       <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.bone }}>
         <div className="h-2.5" style={{ backgroundImage: CINTA_FINA }} aria-hidden="true" />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.ink }}>
-              <Label><span style={{ color: C.ink }}>N°03</span> — Horario y ubicación</Label>
+              <Label><span style={{ color: C.ink }}>N°04</span> — Horario y ubicación</Label>
               <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.muted }}>
                 Teniente Ponce · Molina
               </p>
