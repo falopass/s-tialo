@@ -885,7 +885,24 @@ const BLITZ = [
     city: 'Talca',
     tagline: 'Fonoaudióloga en Centro Pichimapu: editorial en teal y menta, retrato real, servicios con precio y agenda por WhatsApp.',
     gradient: 'linear-gradient(135deg, #0E2A28 0%, #0D5F58 55%, #A9E0D2 140%)',
-  },]
+  },
+  {
+    slug: 'nafi-arquitectura',
+    name: 'NAFI Arquitectura',
+    rubro: 'Estudio de arquitectura',
+    city: 'Talca',
+    tagline: 'Editorial de estudio: tinta, papel y cobre, láminas de proyecto apiladas con fotos reales.',
+    gradient: 'linear-gradient(135deg, #0D0D0D 0%, #3A3733 55%, #B4643C 140%)',
+  },
+  {
+    slug: 'el-bajon-del-barny',
+    name: 'El Bajón del Barny',
+    rubro: 'Comida rápida',
+    city: 'Talca',
+    tagline: 'Neón nocturno de completos: carbón, crema y amarillo señal, con fotos reales del local.',
+    gradient: 'linear-gradient(135deg, #13100C 0%, #3A2E14 55%, #FFD23F 140%)',
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Demos por rubro — ejemplos de sitios para pymes',
