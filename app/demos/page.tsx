@@ -830,6 +830,24 @@ const BLITZ = [
     tagline: 'Plano de obra: azul marino, dorado mostaza y retícula técnica, con logo real.',
     gradient: 'linear-gradient(135deg, #0D0D33 0%, #D9A441 140%)',
   },
+||||||| parent of 75913b1b (feat(demos): cafeteria-walffies y entre-lomas con fotos reales de sus fichas)
+  {
+    slug: 'cafeteria-walffies',
+    name: 'Cafetería Walffies',
+    rubro: 'Cafetería y wafflería',
+    city: 'San Clemente',
+    tagline: 'Vitrina de wafflería: crema, chocolate y naranjo marca, rejilla de waffle y fotos reales.',
+    gradient: 'linear-gradient(135deg, #211208 0%, #3A2415 55%, #E05E1B 140%)',
+  },
+  {
+    slug: 'entre-lomas',
+    name: 'Complejo Turístico Entre Lomas',
+    rubro: 'Cabañas y turismo',
+    city: 'Molina',
+    tagline: 'Lodge de cordillera: verde bosque, hueso y ámbar de leña, línea de cerros y fotos reales.',
+    gradient: 'linear-gradient(135deg, #122317 0%, #23402B 55%, #D19A3E 140%)',
+  },
+
 ]
 
 export const metadata: Metadata = {
