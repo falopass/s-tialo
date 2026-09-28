@@ -15,6 +15,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #1C4433 0%, #2E6B4F 55%, #B04A2A 140%)',
   },
   {
+    slug: 'taller-zunino-266',
+    name: 'Taller Zunino 266',
+    rubro: 'Taller mecánico',
+    city: 'San Clemente',
+    tagline: 'Mecánica y scanner a domicilio: carbón y naranja industrial.',
+    gradient: 'linear-gradient(135deg, #141519 0%, #3A404C 55%, #B0440D 140%)',
+  },
+  {
     slug: 'antumalen-restaurant',
     name: 'Antümalen Restaurant',
     rubro: 'Restaurant y comida casera',
