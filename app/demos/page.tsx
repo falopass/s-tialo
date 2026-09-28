@@ -814,6 +814,22 @@ const BLITZ = [
     tagline: 'Laguna natural, quinchos y arboleda en Colbún, con fotos reales del recinto.',
     gradient: 'linear-gradient(135deg, #0A2E29 0%, #0F766E 60%, #E4DCC6 140%)',
   },
+  {
+    slug: 'alumrod',
+    name: 'Aluminios Alumrod',
+    rubro: 'Vidriería y aluminio',
+    city: 'Talca',
+    tagline: 'Técnico y limpio: acero oscuro, cian vidrio y blanco, con fotos reales del taller.',
+    gradient: 'linear-gradient(135deg, #0B151B 0%, #0E7490 140%)',
+  },
+  {
+    slug: 'constructora-valdes',
+    name: 'Constructora Valdes',
+    rubro: 'Constructora · obras menores',
+    city: 'San Clemente',
+    tagline: 'Plano de obra: azul marino, dorado mostaza y retícula técnica, con logo real.',
+    gradient: 'linear-gradient(135deg, #0D0D33 0%, #D9A441 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
