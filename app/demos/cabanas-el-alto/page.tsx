@@ -24,7 +24,7 @@ export const metadata: Metadata = demoMetadata({
 const C = {
   pine: '#16362A',
   deep: '#0E241B',
-  madera: '#C9713A',
+  madera: '#9C5324',
   maderaSoft: '#E8A76F',
   cream: '#F6EFE2',
   ink: '#22302A',
@@ -73,7 +73,7 @@ function Btn({
   external = true,
 }: {
   href: string
-  tone: 'madera' | 'ghost' | 'pine'
+  tone: 'madera' | 'ghost' | 'pine' | 'cream'
   children: React.ReactNode
   external?: boolean
 }) {
@@ -82,7 +82,9 @@ function Btn({
       ? { backgroundColor: C.madera, color: '#FFFFFF' }
       : tone === 'pine'
         ? { backgroundColor: C.pine, color: '#FFFFFF' }
-        : { color: '#FFFFFF', boxShadow: 'inset 0 0 0 2px rgba(255,255,255,0.6)' }
+        : tone === 'cream'
+          ? { backgroundColor: C.cream, color: '#6E3B18' }
+          : { color: '#FFFFFF', boxShadow: 'inset 0 0 0 2px rgba(255,255,255,0.6)' }
   return (
     <a
       href={href}
@@ -120,11 +122,12 @@ export default function CabanasElAlto() {
       <section id="inicio" className="relative overflow-hidden min-h-[94svh] flex items-end" style={{ backgroundColor: C.deep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Cabaña de madera de Cabañas El Alto junto a la piscina, con los cerros del sector El Colorado al fondo"
+          alt="Las cabañas de madera de Cabañas El Alto sobre la pradera, con el bosque del sector El Colorado al fondo"
           fill
           priority
           sizes="100vw"
           className="object-cover"
+          style={{ objectPosition: '50% 55%' }}
         />
         <div
           className="absolute inset-0"
@@ -297,7 +300,7 @@ export default function CabanasElAlto() {
           <Reveal>
             <div className="rounded-2xl overflow-hidden shadow-[0_18px_44px_rgba(22,54,42,0.18)]" style={{ backgroundColor: '#8A4E26' }}>
               <div className="px-6 md:px-10 py-8 md:py-10">
-                <p className={`${mono.className} text-xs uppercase tracking-[0.2em]`} style={{ color: 'rgba(255,255,255,0.75)' }}>Publicado por ellos en Instagram</p>
+                <p className={`${mono.className} text-xs uppercase tracking-[0.2em]`} style={{ color: 'rgba(255,255,255,0.9)' }}>Publicado por ellos en Instagram</p>
                 <h2 className={`${display.className} mt-2 text-3xl md:text-4xl font-bold`} style={{ color: '#FFFFFF' }}>
                   Las reglas de la casa
                 </h2>
@@ -315,7 +318,7 @@ export default function CabanasElAlto() {
                   ))}
                 </ol>
                 <div className="mt-8">
-                  <Btn href={WA_LINK_RESERVA} tone="madera">Reservar con abono</Btn>
+                  <Btn href={WA_LINK_RESERVA} tone="cream">Reservar con abono</Btn>
                 </div>
               </div>
             </div>
