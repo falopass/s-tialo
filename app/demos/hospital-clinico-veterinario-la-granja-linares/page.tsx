@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -363,7 +364,6 @@ export default function LaGranjaPage() {
                       src={n.src}
                       alt={n.alt}
                       fill
-                      loading="eager"
                       sizes="(min-width: 640px) 50vw, 100vw"
                       className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
                     />
@@ -612,7 +612,7 @@ export default function LaGranjaPage() {
             </Reveal>
             <Reveal delay={120}>
               <div className="border-2 min-h-[360px] h-full" style={{ borderColor: C.blue, backgroundColor: C.soft }}>
-                <iframe
+                <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
                   className="w-full h-full min-h-[360px]"

@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -368,7 +369,6 @@ export default function CafeLaFrancesaPage() {
                     src={c.src}
                     alt={c.alt}
                     fill
-                    loading="eager"
                     sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)"
                     className="object-cover"
                   />
@@ -411,7 +411,6 @@ export default function CafeLaFrancesaPage() {
                   src={`${IMG}/ambiente.webp`}
                   alt="Fachada del café con grandes ventanales, puerta de madera y mesas a la vista desde la vereda"
                   fill
-                  loading="eager"
                   sizes="(min-width: 1024px) 560px, calc(100vw - 2.5rem)"
                   className="object-cover"
                 />
@@ -608,7 +607,7 @@ export default function CafeLaFrancesaPage() {
           <div className={`relative rotate-[1.5deg] ${TILT} bg-white p-3 pb-10 shadow-[0_22px_40px_-16px_rgba(0,0,0,0.55)]`}>
             <Tape className="bg-[#F3E3C7]/90 -top-3 left-1/2 -translate-x-1/2 rotate-2" />
             <div className="h-[300px] md:h-[420px]">
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full"

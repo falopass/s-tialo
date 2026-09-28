@@ -4,6 +4,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -506,7 +507,7 @@ export default function LuaNailsPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-3xl overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.paper }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
@@ -520,15 +521,9 @@ export default function LuaNailsPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.plumDeep }}>
-        <div
-          className="absolute inset-0 opacity-[0.14]"
-          style={{
-            backgroundImage: `url(${IMG}/manos.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 opacity-[0.14]" aria-hidden="true">
+          <img src={`${IMG}/manos.webp`} alt="" loading="lazy" className="w-full h-full object-cover" />
+        </div>
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <Moon className="w-8 h-8 mx-auto mb-6" color={C.gold} />

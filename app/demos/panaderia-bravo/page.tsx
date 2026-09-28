@@ -4,6 +4,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_TORTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -251,7 +252,6 @@ export default function PanaderiaBravoPage() {
               >
                 <div className="relative overflow-hidden aspect-[16/10]">
                   <img
-                    loading="eager"
                     src={p.src}
                     alt={p.name}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
@@ -293,7 +293,6 @@ export default function PanaderiaBravoPage() {
           <Reveal>
             <div className="rounded-3xl overflow-hidden rotate-[-1.2deg]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
               <img
-                loading="eager"
                 src={`${IMG}/torta.webp`}
                 alt="Torta de crema y nuez con fruta fresca de Panadería Bravo"
                 className="w-full h-full object-cover aspect-[4/3]"
@@ -353,16 +352,16 @@ export default function PanaderiaBravoPage() {
               <img loading="eager" src={`${IMG}/hero.webp`} alt="Interior de la panadería con vitrina de panes" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
             </figure>
             <figure className="rounded-3xl overflow-hidden">
-              <img loading="eager" src={`${IMG}/panes.webp`} alt="Pan amasado y marraquetas recién horneadas" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+              <img src={`${IMG}/panes.webp`} alt="Pan amasado y marraquetas recién horneadas" className="w-full h-full object-cover aspect-square md:aspect-auto" />
             </figure>
             <figure className="rounded-3xl overflow-hidden">
-              <img loading="eager" src={`${IMG}/cafe.webp`} alt="Café humeante con pastelito en la mesa de la panadería" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+              <img src={`${IMG}/cafe.webp`} alt="Café humeante con pastelito en la mesa de la panadería" className="w-full h-full object-cover aspect-square md:aspect-auto" />
             </figure>
             <figure className="col-span-2 md:col-span-3 rounded-3xl overflow-hidden">
-              <img loading="eager" src={`${IMG}/dulces.webp`} alt="Berlines con manjar, alfajores y hojarascas" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+              <img src={`${IMG}/dulces.webp`} alt="Berlines con manjar, alfajores y hojarascas" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
             </figure>
             <figure className="col-span-2 md:col-span-3 rounded-3xl overflow-hidden">
-              <img loading="eager" src={`${IMG}/torta.webp`} alt="Torta de celebración con crema y fruta" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+              <img src={`${IMG}/torta.webp`} alt="Torta de celebración con crema y fruta" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
             </figure>
           </div>
         </Reveal>
@@ -471,7 +470,7 @@ export default function PanaderiaBravoPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-3xl overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.paper }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

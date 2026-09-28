@@ -13,6 +13,7 @@ import {
   MAPS_EMBED,
   IMG,
 } from './content'
+import LazyMap from '../lazy-map'
 
 const title = localFont({
   src: [
@@ -514,7 +515,7 @@ export default function LaTerrazaPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="overflow-hidden rounded-xl border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.arena }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, Cumpeo, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

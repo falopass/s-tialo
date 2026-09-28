@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CLASE, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -590,7 +591,7 @@ export default function BxtrainingPage() {
               className="overflow-hidden border min-h-[320px] h-full"
               style={{ borderColor: C.line, backgroundColor: C.steelSoft }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

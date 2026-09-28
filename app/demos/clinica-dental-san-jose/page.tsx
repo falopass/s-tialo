@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_DOLOR, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -272,7 +273,6 @@ export default function ClinicaDentalSanJosePage() {
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
                       className="object-cover"
-                      loading="eager"
                       style={{ filter: 'contrast(1.1) saturate(1.05)' }}
                     />
                     <div
@@ -369,7 +369,6 @@ export default function ClinicaDentalSanJosePage() {
                   fill
                   sizes="(min-width: 1024px) 44vw, 100vw"
                   className="object-cover"
-                  loading="eager"
                   style={{ filter: 'contrast(1.1) saturate(1.05)' }}
                 />
               </div>
@@ -533,7 +532,7 @@ export default function ClinicaDentalSanJosePage() {
                 backgroundColor: C.petrolSoft,
               }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
@@ -547,16 +546,9 @@ export default function ClinicaDentalSanJosePage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.petrol }}>
-        <div
-          className="absolute inset-0 opacity-[0.18]"
-          style={{
-            backgroundImage: `url(${IMG}/detalle2.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'contrast(1.15)',
-          }}
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 opacity-[0.18]" aria-hidden="true">
+          <Image src={`${IMG}/detalle2.webp`} alt="" fill sizes="100vw" className="object-cover" style={{ filter: 'contrast(1.15)' }} />
+        </div>
         <div
           className="absolute inset-0"
           style={{ background: `linear-gradient(180deg, rgba(7,20,26,0.5), rgba(14,76,92,0.55))` }}

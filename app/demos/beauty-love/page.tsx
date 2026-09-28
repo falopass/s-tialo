@@ -12,6 +12,7 @@ import {
   MAPS_EMBED,
   IMG,
 } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -454,7 +455,7 @@ export default function BeautyLovePage() {
 
           <Reveal delay={120}>
             <div className="rounded-[24px] overflow-hidden" style={{ boxShadow: TUBE }}>
-              <iframe
+              <LazyMap
                 title={`Mapa de ${BIZ.name} en ${BIZ.city}`}
                 src={MAPS_EMBED}
                 loading="lazy"

@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_STOCK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -334,7 +335,7 @@ export default function JardinViveroCarolinaPage() {
                 <Reveal delay={i * 60}>
                   <article className="grid grid-cols-1 md:grid-cols-[220px_1fr_200px] gap-5 md:gap-8 py-8 border-b" style={{ borderColor: C.line }}>
                     <div className="relative aspect-[4/3] md:aspect-[4/3.2] rounded-xl overflow-hidden">
-                      <Image src={d.src} alt={d.name} fill loading="eager" sizes="(min-width: 768px) 220px, 100vw" className="object-cover" />
+                      <Image src={d.src} alt={d.name} fill sizes="(min-width: 768px) 220px, 100vw" className="object-cover" />
                     </div>
                     <div>
                       <div className="flex items-center gap-3 mb-3">
@@ -538,7 +539,7 @@ export default function JardinViveroCarolinaPage() {
               </dl>
             </div>
             <div className="relative min-h-[320px] rounded-2xl overflow-hidden" style={{ backgroundColor: C.nightSoft }}>
-              <iframe
+              <LazyMap
                 src={MAPS_EMBED}
                 title={`Mapa de ${BIZ.name}`}
                 loading="lazy"

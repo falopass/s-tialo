@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_MEDIDA, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -282,7 +283,6 @@ export default function MuebleriaSofiaPage() {
                 alt="Silla y gabinetes de madera terminados dentro del taller de la mueblería"
                 fill
                 sizes="(min-width:768px) 50vw, 100vw"
-                loading="eager"
                 className="object-cover"
               />
               <span
@@ -331,7 +331,6 @@ export default function MuebleriaSofiaPage() {
                   alt={f.alt}
                   fill
                   sizes="(min-width:768px) 33vw, 50vw"
-                  loading="eager"
                   className="object-cover"
                 />
               </figure>
@@ -492,7 +491,6 @@ export default function MuebleriaSofiaPage() {
                   alt="Frontis del taller de mueblería con tablas de madera apiladas y banco de trabajo"
                   fill
                   sizes="(min-width:1024px) 33vw, 100vw"
-                  loading="eager"
                   className="object-cover"
                 />
               </figure>
@@ -623,7 +621,7 @@ export default function MuebleriaSofiaPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-[28px] overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.paper }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
@@ -642,7 +640,6 @@ export default function MuebleriaSofiaPage() {
           alt=""
           fill
           sizes="100vw"
-          loading="eager"
           className="object-cover opacity-[0.14]"
           aria-hidden="true"
         />

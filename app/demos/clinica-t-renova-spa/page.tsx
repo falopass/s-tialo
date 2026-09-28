@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -151,7 +152,6 @@ function StepCard({ s }: { s: (typeof TIMELINE)[number] }) {
           alt={s.alt}
           fill
           sizes="(min-width: 768px) 300px, 90vw"
-          loading="eager"
           className="object-cover"
         />
       </div>
@@ -402,7 +402,6 @@ export default function ClinicaTRenovaPage() {
                       alt={s.alt}
                       fill
                       sizes="(min-width: 768px) 150px, 88px"
-                      loading="eager"
                       className="object-cover"
                     />
                   </div>
@@ -452,7 +451,6 @@ export default function ClinicaTRenovaPage() {
                     alt="Mesa de consulta de T-Renova con espejo, productos y vista a la calle de Linares"
                     fill
                     sizes="(min-width: 1024px) 480px, 100vw"
-                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -635,7 +633,7 @@ export default function ClinicaTRenovaPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-2xl overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.paper }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

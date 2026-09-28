@@ -6,6 +6,7 @@ import { Motif } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_EVAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -301,7 +302,6 @@ export default function ProSaludDentalPage() {
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
                     priority={i === 0}
-                    loading={i === 0 ? undefined : 'eager'}
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
@@ -418,7 +418,6 @@ export default function ProSaludDentalPage() {
                     alt="Sector de Curapalihue en Linares, donde atiende la clínica"
                     fill
                     sizes="(min-width: 1024px) 20vw, 40vw"
-                    loading="eager"
                     className="object-cover"
                   />
                 </figure>
@@ -589,7 +588,7 @@ export default function ProSaludDentalPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="overflow-hidden border-2 min-h-[320px] h-full" style={{ borderColor: C.ink, backgroundColor: C.paper, boxShadow: `8px 8px 0 rgba(193,39,45,0.2)` }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

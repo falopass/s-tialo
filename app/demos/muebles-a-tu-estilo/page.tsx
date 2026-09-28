@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -394,7 +395,7 @@ export default function MueblesATuEstiloPage() {
               ))}
             </dl>
             <div className="relative aspect-[4/3] overflow-hidden" style={{ backgroundColor: C.tinta }}>
-              <iframe
+              <LazyMap
                 src={MAPS_EMBED}
                 title={`Mapa: ${BIZ.address}, ${BIZ.city}`}
                 loading="lazy"

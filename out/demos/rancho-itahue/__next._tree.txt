@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/5d9b16684c1645a5.css","style"]
-:HL["/_next/static/chunks/b427321a09513591.css","style"]
+:HL["/_next/static/chunks/7933cfc59ead43a1.css","style"]
 :HL["/_next/static/media/italic_100_900-s.p.72b334cd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/italic_200_1000-s.p.e6d1ab79.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -17,4 +17,4 @@
 :HL["/demos/rancho-itahue/piscina.webp","image"]
 :HL["/demos/rancho-itahue/eventos.webp","image"]
 :HL["/demos/rancho-itahue/naturaleza.webp","image"]
-0:{"buildId":"_5Tjz0HkmvRvfWx7xLGyI","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"rancho-itahue","paramType":null,"paramKey":"rancho-itahue","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"wyyhV0jmfHVjX9rQ-3ZHl","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"rancho-itahue","paramType":null,"paramKey":"rancho-itahue","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

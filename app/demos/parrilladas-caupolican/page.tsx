@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -292,7 +293,6 @@ export default function ParrilladasCaupolicanPage() {
                       alt={s.alt}
                       fill
                       sizes="(min-width: 768px) 42vw, 74vw"
-                      loading="eager"
                       className="object-cover"
                     />
                   </figure>
@@ -492,7 +492,7 @@ export default function ParrilladasCaupolicanPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="border-2 overflow-hidden min-h-[320px] h-full" style={{ borderColor: 'rgba(246,241,228,0.3)', backgroundColor: C.paper }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
@@ -511,7 +511,6 @@ export default function ParrilladasCaupolicanPage() {
           alt=""
           fill
           sizes="100vw"
-          loading="eager"
           className="object-cover opacity-[0.12]"
           aria-hidden="true"
         />

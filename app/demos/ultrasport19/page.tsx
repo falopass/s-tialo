@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CLASE, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -387,7 +388,6 @@ export default function Ultrasport19Page() {
                         alt={s.alt}
                         fill
                         sizes="(min-width: 1024px) 340px, (min-width: 768px) 280px, 92vw"
-                        loading="eager"
                         className="object-cover"
                       />
                     </figure>
@@ -433,7 +433,6 @@ export default function Ultrasport19Page() {
                   alt="Fachada de Ultrasport19: edificio de hormigón a nivel de calle con ventanales donde se ven las máquinas"
                   fill
                   sizes="(min-width: 1024px) 45vw, 92vw"
-                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -621,7 +620,7 @@ export default function Ultrasport19Page() {
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] px-5 py-3 border-b-[3px] font-bold" style={{ borderColor: C.ink, backgroundColor: C.slate, color: C.white }}>
                   Mapa · {BIZ.city}
                 </p>
-                <iframe
+                <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
                   className="w-full flex-1 min-h-[320px]"

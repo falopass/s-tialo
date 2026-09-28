@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, STACK, PRICES, VALUES } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -132,7 +133,7 @@ export default function LaPicaDelMateoPage() {
                 style={{ backgroundColor: i % 2 ? C.blue : C.white, color: i % 2 ? C.white : C.deep }}
               >
                 <div className="relative min-h-[16rem] md:min-h-full">
-                  <Image src={`${IMG}/${c.img}`} alt={c.alt} fill loading="eager" sizes="(min-width: 768px) 55vw, 100vw" className="object-cover" />
+                  <Image src={`${IMG}/${c.img}`} alt={c.alt} fill sizes="(min-width: 768px) 55vw, 100vw" className="object-cover" />
                   <span className={`${display.className} absolute top-5 left-5 rounded-full bg-[#123547] text-white text-xs font-bold px-3 py-1.5`}>
                     {c.n} / 0{STACK.length}
                   </span>
@@ -164,7 +165,6 @@ export default function LaPicaDelMateoPage() {
                 src={`${IMG}/detalle1.webp`}
                 alt="Fachada de La Pica del Mateo en San Clemente, con árboles en la vereda"
                 fill
-                loading="eager"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
@@ -275,7 +275,7 @@ export default function LaPicaDelMateoPage() {
           </Reveal>
           <Reveal delay={120}>
             <div className="h-full min-h-[22rem] overflow-hidden rounded-[2rem] border border-white/15">
-              <iframe
+              <LazyMap
                 src={MAPS_EMBED}
                 title={`Mapa: ${BIZ.address}, ${BIZ.city}`}
                 loading="lazy"

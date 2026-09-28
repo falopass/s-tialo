@@ -13,6 +13,7 @@ import {
   MAPS_EMBED,
   IMG,
 } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -296,7 +297,6 @@ export default function EluneyPage() {
                         alt={p.alt}
                         fill
                         sizes="(min-width: 768px) 45vw, 100vw"
-                        loading="eager"
                         className="object-cover"
                       />
                       <span
@@ -348,7 +348,6 @@ export default function EluneyPage() {
                     alt="Fachada de la pastelería Eluney en una calle de Pelarco, con la vitrina a la vista"
                     fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
-                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -534,7 +533,7 @@ export default function EluneyPage() {
                 borderRadius: '1.5rem',
               }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
@@ -553,7 +552,6 @@ export default function EluneyPage() {
           alt=""
           fill
           sizes="100vw"
-          loading="eager"
           className="object-cover opacity-[0.16]"
           aria-hidden="true"
         />

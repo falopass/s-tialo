@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -166,7 +167,7 @@ function Sidebar() {
           {BIZ.city}, {BIZ.region}, Chile
         </address>
         <div className="rounded-xl overflow-hidden border mb-4" style={{ borderColor: C.line }}>
-          <iframe
+          <LazyMap
             title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
             src={MAPS_EMBED}
             className="w-full h-[180px]"
@@ -349,7 +350,6 @@ export default function MiaCentroDeEsteticaPage() {
                           alt={s.alt}
                           fill
                           sizes="(min-width: 640px) 240px, 100vw"
-                          loading="eager"
                           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                         />
                       </figure>
@@ -412,7 +412,6 @@ export default function MiaCentroDeEsteticaPage() {
                     alt="Recepción y sala de espera del centro, con plantas y vista a la calle"
                     fill
                     sizes="(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 100vw"
-                    loading="eager"
                     className="object-cover"
                   />
                 </figure>

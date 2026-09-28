@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_MEDIDA, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -289,7 +290,6 @@ export default function InfinityMueblesPage() {
                       alt={p.alt}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      loading="eager"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                     />
                     <span
@@ -346,7 +346,6 @@ export default function InfinityMueblesPage() {
                   alt="Local de Infinity Muebles abierto a la calle en Once Sur, Talca"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -617,7 +616,7 @@ export default function InfinityMueblesPage() {
               className="relative min-h-[320px] h-full overflow-hidden rotate-[1deg]"
               style={{ border: `4px solid ${C.concreto}`, boxShadow: '12px 12px 0 rgba(228,87,46,0.85)' }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.legal}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

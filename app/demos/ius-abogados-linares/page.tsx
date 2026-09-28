@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, INSTAGRAM_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -268,7 +269,7 @@ export default function IusAbogadosLinaresPage() {
                   </span>
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden mb-5 border" style={{ borderColor: C.line, borderRadius: '3px' }}>
-                  <Image src={h.src} alt={h.alt} fill sizes="(min-width: 1024px) 18vw, (min-width: 640px) 30vw, 45vw" loading="eager" className="object-cover" />
+                  <Image src={h.src} alt={h.alt} fill sizes="(min-width: 1024px) 18vw, (min-width: 640px) 30vw, 45vw" className="object-cover" />
                 </div>
                 <h3 className={`${display.className} font-extrabold text-xl md:text-2xl mb-2`}>{h.title}</h3>
                 <p className="text-sm leading-relaxed mb-4" style={{ color: C.muted }}>{h.desc}</p>
@@ -505,7 +506,7 @@ export default function IusAbogadosLinaresPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="overflow-hidden h-full min-h-[340px] border-2" style={{ borderColor: C.mostaza, borderRadius: '3px' }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.address}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[340px]"

@@ -13,6 +13,7 @@ import {
   MAPS_EMBED,
   IMG,
 } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -566,7 +567,7 @@ export default function JohnBarberPage() {
             </Reveal>
             <Reveal delay={140}>
               <div className="border overflow-hidden min-h-[320px] h-full flex flex-col" style={{ borderColor: C.ink, backgroundColor: C.creamSoft }}>
-                <iframe
+                <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
                   className="w-full flex-1 min-h-[320px]"

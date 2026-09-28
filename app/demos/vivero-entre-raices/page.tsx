@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import { Reveal, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_FRUTAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -303,7 +304,6 @@ export default function ViveroEntreRaicesPage() {
                   src={`${IMG}/flores.webp`}
                   alt="Macetas con lavanda, margaritas y geranios en flor"
                   fill
-                  loading="eager"
                   sizes="(min-width: 1024px) 55vw, 100vw"
                   className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
                 />
@@ -333,7 +333,6 @@ export default function ViveroEntreRaicesPage() {
                       src={n.src}
                       alt={n.alt}
                       fill
-                      loading="eager"
                       sizes="(min-width: 768px) 140px, 112px"
                       className="object-cover"
                     />
@@ -586,7 +585,7 @@ export default function ViveroEntreRaicesPage() {
                 className="border min-h-[320px] h-full overflow-hidden"
                 style={{ borderColor: 'rgba(247,249,249,0.3)', backgroundColor: C.petrolDeep }}
               >
-                <iframe
+                <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
                   className="w-full h-full min-h-[320px]"

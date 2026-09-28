@@ -6,6 +6,7 @@ import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, C, HOURS, IMG, MAPS_EMBED, MAPS_URL, WA_LINK, WA_LINK2 } from './content'
 import { Catalogo } from './catalogo'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -219,7 +220,6 @@ export default function QueBaratoLf() {
                 alt="Pasillo del local con estanterías ordenadas de productos"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
-                loading="eager"
                 className="object-cover"
               />
               <span
@@ -343,7 +343,7 @@ export default function QueBaratoLf() {
           <Reveal delay={120}>
             <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: C.white, border: `1px solid ${C.line}` }}>
               <div className="aspect-[4/3] w-full">
-                <iframe
+                <LazyMap
                   src={MAPS_EMBED}
                   title={`Mapa de ${BIZ.name}`}
                   className="w-full h-full border-0"

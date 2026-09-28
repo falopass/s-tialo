@@ -12,6 +12,7 @@ import {
   ValleyPanel,
   CtaScene,
 } from './scenes'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -518,7 +519,7 @@ export default function CabanasLaQuebrada() {
               className="rounded-2xl overflow-hidden border min-h-[300px] md:min-h-0 h-full"
               style={{ borderColor: C.line, backgroundColor: C.arenaSoft }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.address}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[300px]"

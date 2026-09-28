@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, waLinkProducto, WA_CATALOG, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -257,7 +258,6 @@ export default function TiendaByJoselineSpaPage() {
                         src={`${IMG}/${p.img}`}
                         alt={p.alt}
                         fill
-                        loading="eager"
                         sizes="(min-width: 1024px) 460px, (min-width: 640px) 45vw, 100vw"
                         className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.035]"
                       />
@@ -443,7 +443,7 @@ export default function TiendaByJoselineSpaPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="border p-2 md:p-2.5 max-w-2xl mx-auto" style={{ borderColor: 'rgba(255,255,255,0.25)' }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-[300px] md:h-[340px] block"

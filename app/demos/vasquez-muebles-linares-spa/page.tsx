@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_ENCARGO, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -306,7 +307,6 @@ export default function VasquezMueblesPage() {
                   alt="Fachada del taller en Callejón Los Zárate: galpón de ladrillo con maderas apiladas, en una calle tranquila de Linares"
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"
-                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -400,7 +400,6 @@ export default function VasquezMueblesPage() {
                         alt={m.alt}
                         fill
                         sizes="(min-width: 768px) 46vw, 100vw"
-                        loading="eager"
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
                     </div>
@@ -661,7 +660,7 @@ export default function VasquezMueblesPage() {
                 borderRadius: '48px 48px 48px 12px',
               }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
@@ -678,15 +677,9 @@ export default function VasquezMueblesPage() {
         <SectionCap color={C.deep} />
       </div>
       <section className="relative overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <div
-          className="absolute inset-0 opacity-[0.14]"
-          style={{
-            backgroundImage: `url(${IMG}/ambiente.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 opacity-[0.14]" aria-hidden="true">
+          <Image src={`${IMG}/ambiente.webp`} alt="" fill sizes="100vw" className="object-cover" />
+        </div>
         <Sprig className="absolute top-12 left-6 md:left-16 w-[52px] rotate-[12deg] opacity-50" color={C.terracota} />
         <Sprig className="absolute bottom-12 right-8 md:right-20 w-[40px] -rotate-[18deg] opacity-40" color={C.arena} />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">

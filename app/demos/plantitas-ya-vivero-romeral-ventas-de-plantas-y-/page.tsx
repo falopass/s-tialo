@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab, FaqList } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_PEDIDO, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -493,7 +494,6 @@ export default function PlantitasYaPage() {
                     src={p.src}
                     alt={p.alt}
                     fill
-                    loading="eager"
                     sizes="(min-width: 640px) 33vw, 100vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
@@ -528,7 +528,6 @@ export default function PlantitasYaPage() {
                 src={`${IMG}/ambiente.webp`}
                 alt="Entrada del vivero al costado de la carretera, junto al canal, con malla de sombreo y cerros de fondo"
                 fill
-                loading="eager"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"
               />
@@ -710,7 +709,7 @@ export default function PlantitasYaPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-2xl overflow-hidden border min-h-[320px] h-full bg-white" style={{ borderColor: C.line }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

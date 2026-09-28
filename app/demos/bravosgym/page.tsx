@@ -13,6 +13,7 @@ import {
   INSTAGRAM_URL,
   IMG,
 } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -456,7 +457,7 @@ export default function BravosgymPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-2xl overflow-hidden min-h-[320px] h-full shadow-2xl">
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.address}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

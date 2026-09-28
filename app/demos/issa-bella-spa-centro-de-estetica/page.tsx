@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_FACIAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -352,7 +353,6 @@ export default function IssaBellaPage() {
                     alt={t.alt}
                     fill
                     sizes={t.sizes}
-                    loading="eager"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
@@ -412,7 +412,6 @@ export default function IssaBellaPage() {
                     alt={t.alt}
                     fill
                     sizes={t.sizes}
-                    loading="eager"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
@@ -438,7 +437,6 @@ export default function IssaBellaPage() {
             src={`${IMG}/ambiente.webp`}
             alt="Fachada del centro a nivel de calle, con vitrina, puerta de madera y los cerros de Curicó al fondo"
             fill
-            loading="eager"
             sizes="100vw"
             className="object-cover"
           />
@@ -627,7 +625,7 @@ export default function IssaBellaPage() {
           <div className="mt-10 md:mt-14 grid gap-12 lg:grid-cols-12 lg:gap-x-10 items-start">
             <Reveal className="lg:col-span-5">
               <figure className="h-full">
-                <iframe
+                <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
                   className="w-full h-[320px] lg:h-full lg:min-h-[480px] block border"

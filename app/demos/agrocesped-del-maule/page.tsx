@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -307,7 +308,6 @@ export default function AgroCespedPage() {
                       src={l.src}
                       alt={l.alt}
                       fill
-                      loading="eager"
                       sizes="(min-width: 768px) 50vw, 100vw"
                       className="object-cover md:rounded-l-[2rem]"
                     />
@@ -512,7 +512,7 @@ export default function AgroCespedPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-3xl overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.paper }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

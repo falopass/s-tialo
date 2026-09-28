@@ -6,6 +6,7 @@ import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { Vitrina } from './vitrina'
 import { BIZ, C, WA_LINK, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -244,7 +245,6 @@ export default function ComercialRioClaroPage() {
                 src={`${IMG}/ambiente.webp`}
                 alt="Fachada de Comercial Río Claro en Carrera Pinto: cortina levantada, escobas y baldes asomando a la calle"
                 fill
-                loading="eager"
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
               />
@@ -375,7 +375,7 @@ export default function ComercialRioClaroPage() {
         </Reveal>
         <Reveal delay={140}>
           <div className="rounded-2xl overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.card }}>
-            <iframe
+            <LazyMap
               title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
               src={MAPS_EMBED}
               className="w-full h-full min-h-[320px]"

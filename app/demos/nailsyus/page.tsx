@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -531,7 +532,7 @@ export default function NailsyusPage() {
               <figure className="relative border" style={{ borderColor: C.lineDark }}>
                 <Mark className="-top-1.5 -left-1.5" />
                 <Mark className="-bottom-1.5 -right-1.5" />
-                <iframe
+                <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
                   className="w-full aspect-[4/3] block"

@@ -4,6 +4,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CONSULTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -304,7 +305,6 @@ export default function CentroSpaRoxanaPage() {
                 <img
                   src={s.src}
                   alt={s.alt}
-                  loading="eager"
                   className={`w-full ${s.aspect} object-cover`}
                 />
                 <h3
@@ -454,7 +454,6 @@ export default function CentroSpaRoxanaPage() {
             <img
               src={`${IMG}/detalle2.webp`}
               alt="Recepción del centro con flores, productos y vista a la sala de tratamiento"
-              loading="eager"
               className="w-full h-[64vw] max-h-[560px] object-cover"
             />
             <div className="max-w-6xl mx-auto px-5 md:px-8">
@@ -601,7 +600,7 @@ export default function CentroSpaRoxanaPage() {
             </Reveal>
             <Reveal className="lg:col-span-7" delay={120}>
               <div className="border" style={{ borderColor: C.lineLight }}>
-                <iframe
+                <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
                   className="w-full h-[300px] md:h-[380px] block"
@@ -617,7 +616,6 @@ export default function CentroSpaRoxanaPage() {
             <img
               src={`${IMG}/ambiente.webp`}
               alt="Fachada del centro sobre la calle, con vitrina y vista a la calle Julio Montt"
-              loading="eager"
               className="w-full h-[44vw] max-h-[440px] object-cover"
             />
             <figcaption className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(247,249,249,0.82)' }}>

@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, waServicio, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -746,7 +747,7 @@ export default function SalonGabrielaSaavedraPage() {
           </Reveal>
         </div>
         <div className="relative min-h-[320px] md:min-h-[560px]">
-          <iframe
+          <LazyMap
             title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
             src={MAPS_EMBED}
             className="absolute inset-0 w-full h-full"

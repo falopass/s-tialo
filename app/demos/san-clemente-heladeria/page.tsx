@@ -12,6 +12,7 @@ import {
   MAPS_EMBED,
   IMG,
 } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -493,7 +494,6 @@ export default function SanClementeHeladeriaPage() {
                     src={`${IMG}/detalle3.webp`}
                     alt="Pote familiar de helado casero veteado de frambuesa, con cuchara de servir"
                     fill
-                    loading="eager"
                     sizes="(min-width: 1024px) 45vw, 100vw"
                     className="object-cover"
                   />
@@ -554,7 +554,6 @@ export default function SanClementeHeladeriaPage() {
                   src={`${IMG}/detalle1.webp`}
                   alt="Copa de vidrio con tres bolas de helado: vainilla con manjar, frambuesa y pistacho"
                   fill
-                  loading="eager"
                   sizes="(min-width: 1024px) 42vw, 100vw"
                   className="object-cover"
                 />
@@ -632,7 +631,6 @@ export default function SanClementeHeladeriaPage() {
                 src={`${IMG}/ambiente.webp`}
                 alt="Interior de una heladería con vitrina curva, mesas de madera y ventanal hacia la plaza"
                 fill
-                loading="eager"
                 sizes="(min-width: 768px) 75vw, 100vw"
                 className="object-cover"
               />
@@ -644,7 +642,7 @@ export default function SanClementeHeladeriaPage() {
         </div>
         <div className="relative">
           <div className="h-[300px] md:h-[460px]">
-            <iframe
+            <LazyMap
               title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
               src={MAPS_EMBED}
               className="w-full h-full"
@@ -720,7 +718,6 @@ export default function SanClementeHeladeriaPage() {
           src={`${IMG}/detalle2.webp`}
           alt=""
           fill
-          loading="eager"
           sizes="100vw"
           className="object-cover opacity-[0.12]"
           aria-hidden="true"

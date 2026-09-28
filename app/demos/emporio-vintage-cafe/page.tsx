@@ -6,6 +6,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -294,7 +295,6 @@ export default function EmporioVintageCafePage() {
                           alt={g.alt}
                           width={144}
                           height={144}
-                          loading="eager"
                           className="w-16 h-16 md:w-[72px] md:h-[72px] object-cover border"
                           style={{ borderColor: C.verde }}
                         />
@@ -365,7 +365,6 @@ export default function EmporioVintageCafePage() {
                     alt="Fachada de Emporio Vintage Café en Tres Norte, con toldo y mesas en la vereda"
                     fill
                     sizes="(min-width: 1024px) 44vw, 100vw"
-                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -527,7 +526,7 @@ export default function EmporioVintageCafePage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="border-[3px] p-1.5" style={{ borderColor: C.ambarSoft }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-[320px] md:h-[420px]"

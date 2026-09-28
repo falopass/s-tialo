@@ -5,6 +5,7 @@ import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { HomePanel, PawPanel, HeartPanel } from './scenes'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -394,7 +395,7 @@ export default function HomyvetPage() {
               className="rounded-3xl overflow-hidden border min-h-[300px] md:min-h-0 h-full"
               style={{ borderColor: C.line, backgroundColor: C.boneDeep }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.address}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[300px]"

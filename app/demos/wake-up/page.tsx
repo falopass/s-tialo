@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_OFICINA, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -196,7 +197,6 @@ function MosaicTile({ tile, index }: { tile: Tile; index: number }) {
             alt={tile.alt}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            loading="eager"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
           <figcaption
@@ -219,7 +219,6 @@ function MosaicTile({ tile, index }: { tile: Tile; index: number }) {
             alt={tile.alt}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            loading="eager"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
           <span
@@ -561,7 +560,7 @@ export default function WakeUpPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="overflow-hidden border min-h-[320px] h-full" style={{ borderColor: 'rgba(255,255,255,0.2)', backgroundColor: C.blue }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
@@ -575,15 +574,9 @@ export default function WakeUpPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.blue }}>
-        <div
-          className="absolute inset-0 opacity-[0.12]"
-          style={{
-            backgroundImage: `url(${IMG}/detalle2.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 opacity-[0.12]" aria-hidden="true">
+          <Image src={`${IMG}/detalle2.webp`} alt="" fill sizes="100vw" className="object-cover" />
+        </div>
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <h2 className={`${display.className} font-extrabold text-[clamp(1.9rem,6vw,3.6rem)] leading-[1.06] mb-6`} style={{ color: '#fff' }}>

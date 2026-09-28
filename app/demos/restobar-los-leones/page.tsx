@@ -6,6 +6,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_MESA, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -320,7 +321,6 @@ export default function RestobarLosLeonesPage() {
                   alt="Cazuela de vacuno con papas, choclo y zapallo, con pebre y pan amasado"
                   fill
                   sizes="(min-width: 768px) 58vw, 100vw"
-                  loading="eager"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
@@ -351,7 +351,6 @@ export default function RestobarLosLeonesPage() {
                   alt="Empanadas recién horneadas sobre lata, junto a uslero y masa"
                   fill
                   sizes="(min-width: 768px) 42vw, 100vw"
-                  loading="eager"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
@@ -382,7 +381,6 @@ export default function RestobarLosLeonesPage() {
                   alt="Mesón de la cocina con sopaipillas, platos y copas listas para servir"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  loading="eager"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
@@ -417,7 +415,6 @@ export default function RestobarLosLeonesPage() {
               alt="Fachada del restobar en una calle de Pelarco, con cerros y viñas de fondo"
               fill
               sizes="100vw"
-              loading="eager"
               className="object-cover"
             />
           </div>
@@ -659,7 +656,7 @@ export default function RestobarLosLeonesPage() {
                   className="relative w-full max-w-full overflow-hidden border-2 aspect-[4/3] lg:aspect-auto lg:h-full min-h-[320px]"
                   style={{ borderColor: 'rgba(255,255,255,0.35)' }}
                 >
-                  <iframe
+                  <LazyMap
                     title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                     src={MAPS_EMBED}
                     className="absolute inset-0 block w-full h-full"

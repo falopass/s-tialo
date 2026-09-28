@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CLASE, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -322,7 +323,6 @@ export default function MyFusionGymPage() {
                     alt={`${f.name} — ${BIZ.name}`}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -518,7 +518,7 @@ export default function MyFusionGymPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-2xl overflow-hidden border shadow-lg h-full min-h-[320px]" style={{ borderColor: C.line }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.address}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

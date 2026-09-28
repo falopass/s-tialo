@@ -14,6 +14,7 @@ import {
   IMG,
   HORARIO,
 } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -453,7 +454,7 @@ export default function DefensaMolinaPage() {
             </div>
             <div className="mt-6 grid md:grid-cols-[minmax(0,1fr)_240px] gap-6 items-start">
               <div className="relative aspect-[16/10] rounded-lg overflow-hidden" style={{ border: `1px solid ${C.grisLine}` }}>
-                <iframe
+                <LazyMap
                   title={`Mapa de ${BIZ.name}`}
                   src={MAPS_EMBED}
                   className="absolute inset-0 w-full h-full"

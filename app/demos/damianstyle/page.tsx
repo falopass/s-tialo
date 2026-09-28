@@ -12,6 +12,7 @@ import {
   MAPS_EMBED,
   IMG,
 } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -309,7 +310,6 @@ export default function DamianStylePage() {
                       src={s.src}
                       alt={s.alt}
                       fill
-                      loading="eager"
                       sizes="(min-width: 640px) 45vw, 100vw"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
@@ -355,7 +355,6 @@ export default function DamianStylePage() {
                     src={`${IMG}/ambiente.webp`}
                     alt="Fachada de la barbería DamianStyle en una calle arbolada de Pelarco"
                     fill
-                    loading="eager"
                     sizes="(min-width: 1024px) 45vw, 100vw"
                     className="object-cover"
                   />
@@ -594,7 +593,7 @@ export default function DamianStylePage() {
                 borderRadius: '1.75rem 6rem 1.75rem 1.75rem',
               }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
@@ -612,7 +611,6 @@ export default function DamianStylePage() {
           src={`${IMG}/detalle2.webp`}
           alt=""
           fill
-          loading="eager"
           sizes="100vw"
           className="object-cover opacity-[0.14]"
           aria-hidden="true"

@@ -153,7 +153,6 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
                     alt={c.alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, 50vw"
-                    loading="eager"
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                     style={{ objectPosition: c.pos }}
                   />

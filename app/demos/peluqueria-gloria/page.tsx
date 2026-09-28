@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -297,7 +298,6 @@ export default function PeluqueriaGloriaPage() {
                     alt={s.alt}
                     width={168}
                     height={168}
-                    loading="eager"
                     className="w-[84px] h-[84px] md:w-[104px] md:h-[104px] object-cover"
                   />
                 </div>
@@ -332,7 +332,6 @@ export default function PeluqueriaGloriaPage() {
                     alt="El salón de Peluquería Gloria en Cumpeo, con su sillón y mesa de trabajo"
                     fill
                     sizes="(min-width: 1024px) 44vw, 100vw"
-                    loading="eager"
                     className="object-cover"
                   />
                 </div>
@@ -561,7 +560,7 @@ export default function PeluqueriaGloriaPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="border p-1.5" style={{ borderColor: C.tierraSoft }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-[320px] md:h-[420px]"

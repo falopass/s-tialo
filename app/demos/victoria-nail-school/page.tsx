@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -281,7 +282,6 @@ export default function VictoriaNailSchoolPage() {
                   alt={s.alt}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  loading="eager"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
@@ -380,7 +380,6 @@ export default function VictoriaNailSchoolPage() {
             alt="Fachada de Victoria Nail School: local a pie de calle con toldo y vitrina, en un barrio de Pencahue"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
-            loading="eager"
             className="object-cover"
           />
         </div>
@@ -579,7 +578,7 @@ export default function VictoriaNailSchoolPage() {
           </Reveal>
         </div>
         <div className="min-h-[320px] lg:min-h-0">
-          <iframe
+          <LazyMap
             title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
             src={MAPS_EMBED}
             className="w-full h-full min-h-[320px]"

@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, INSTAGRAM_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -201,7 +202,7 @@ export default function VulcanizacionNikimotoPage() {
         <div className="grid grid-cols-2 md:grid-cols-6 auto-rows-[150px] md:auto-rows-[170px] gap-2 md:gap-3">
           {TRABAJOS.slice(0, 2).map((t) => (
             <figure key={t.n} className={`relative overflow-hidden rounded-sm group ${t.span}`}>
-              <Image src={t.src} alt={t.alt} fill loading="eager" sizes="(min-width: 768px) 66vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+              <Image src={t.src} alt={t.alt} fill sizes="(min-width: 768px) 66vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
               <Caption t={t} />
             </figure>
           ))}
@@ -213,7 +214,7 @@ export default function VulcanizacionNikimotoPage() {
           </div>
           {TRABAJOS.slice(2).map((t) => (
             <figure key={t.n} className={`relative overflow-hidden rounded-sm group ${t.span}`}>
-              <Image src={t.src} alt={t.alt} fill loading="eager" sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+              <Image src={t.src} alt={t.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
               <Caption t={t} />
             </figure>
           ))}
@@ -241,7 +242,7 @@ export default function VulcanizacionNikimotoPage() {
               </div>
             </Reveal>
             <figure className="relative col-span-2 md:col-span-2 md:row-span-2 min-h-[260px] overflow-hidden rounded-sm">
-              <Image src={`${IMG}/detalle3.webp`} alt="Recepción del taller con mesón de madera y el área de trabajo al fondo" fill loading="eager" sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+              <Image src={`${IMG}/detalle3.webp`} alt="Recepción del taller con mesón de madera y el área de trabajo al fondo" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
             </figure>
             {[
               { k: 'Directo', v: 'Sin intermediarios: presupuesto y trabajo con la misma persona.' },
@@ -334,7 +335,7 @@ export default function VulcanizacionNikimotoPage() {
             </a>
           </div>
           <div className="md:col-span-3 relative min-h-[220px] overflow-hidden rounded-sm border" style={{ borderColor: C.line }}>
-            <iframe
+            <LazyMap
               src={MAPS_EMBED}
               title={`Mapa de ${BIZ.city}`}
               loading="lazy"

@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_LLEVAR, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -318,7 +319,6 @@ export default function ForasteroPage() {
                     src={f.src}
                     alt={f.alt}
                     fill
-                    loading="eager"
                     sizes="(min-width: 768px) 340px, 100vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     style={{ filter: 'saturate(1.05) contrast(1.08)' }}
@@ -369,7 +369,6 @@ export default function ForasteroPage() {
                 src={`${IMG}/ambiente.webp`}
                 alt="Terraza de FORASTERO con mesas de madera y vista a los cerros de Pencahue"
                 fill
-                loading="eager"
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
                 style={{ filter: 'saturate(1.05) contrast(1.08)' }}
@@ -597,7 +596,7 @@ export default function ForasteroPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-2xl overflow-hidden min-h-[360px] h-full" style={{ border: `1px solid ${C.line}`, backgroundColor: C.panelHi }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[360px]"

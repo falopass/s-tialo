@@ -4,6 +4,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK_HORA, waServicio, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -422,7 +423,6 @@ export default function BarberiaRulosStylePage() {
               <img
                 src={`${IMG}/ambiente.webp`}
                 alt="Fachada de la barbería en Av. Rauquén 1967: ventanal grande, toldo negro y vereda arbolada de Curicó"
-                loading="eager"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(38,41,45,0.2) 0%, rgba(38,41,45,0.65) 40%, rgba(38,41,45,0.94) 100%)' }} />
@@ -545,7 +545,6 @@ export default function BarberiaRulosStylePage() {
                   <img
                     src={s.src}
                     alt={s.alt}
-                    loading="eager"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(38,41,45,0.2) 0%, rgba(38,41,45,0.65) 40%, rgba(38,41,45,0.94) 100%)' }} />
@@ -816,7 +815,7 @@ export default function BarberiaRulosStylePage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-3xl overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.card }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

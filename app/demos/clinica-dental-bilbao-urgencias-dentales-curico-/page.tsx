@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -307,7 +308,6 @@ export default function ClinicaDentalBilbaoPage() {
                       alt={g.alt}
                       fill
                       sizes="(min-width: 640px) 33vw, 100vw"
-                      loading="eager"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
                   </div>
@@ -474,7 +474,6 @@ export default function ClinicaDentalBilbaoPage() {
                   alt="Fachada de Clínica Dental Bilbao en Curicó"
                   width={900}
                   height={560}
-                  loading="eager"
                   className="w-full object-cover aspect-[16/10]"
                 />
               </figure>
@@ -547,7 +546,7 @@ export default function ClinicaDentalBilbaoPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.card }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
@@ -561,15 +560,9 @@ export default function ClinicaDentalBilbaoPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.forest }}>
-        <div
-          className="absolute inset-0 opacity-[0.14]"
-          style={{
-            backgroundImage: `url(${IMG}/detalle2.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 opacity-[0.14]" aria-hidden="true">
+          <Image src={`${IMG}/detalle2.webp`} alt="" fill sizes="100vw" className="object-cover" />
+        </div>
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <h2 className={`${display.className} font-semibold text-[clamp(2.1rem,6.5vw,4rem)] leading-[1.05] mb-6`} style={{ color: '#F6F1E7' }}>

@@ -4,6 +4,7 @@ import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { SITE, whatsappLink } from '@/lib/config'
 import { BIZ, WA_LINK, WA_LINK_GRUPO, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -300,7 +301,6 @@ export default function LasViejasCochinasPage() {
                   <img
                     src={s.src}
                     alt={s.alt}
-                    loading="eager"
                     className="w-full aspect-[3/2] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
@@ -343,7 +343,6 @@ export default function LasViejasCochinasPage() {
               <img
                 src={`${IMG}/ambiente.webp`}
                 alt="Fachada del restaurante con ventanales, jardineras y árboles en la vereda"
-                loading="eager"
                 className="w-full aspect-[3/2] object-cover"
               />
             </div>
@@ -492,7 +491,7 @@ export default function LasViejasCochinasPage() {
                   Abrir en Maps →
                 </a>
               </div>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full flex-1 min-h-[340px]"

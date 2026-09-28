@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -352,7 +353,6 @@ export default function CsfVeterinariaPage() {
                         alt={s.alt}
                         fill
                         sizes="(min-width: 640px) 44vw, 92vw"
-                        loading="eager"
                         className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                       />
                       <span
@@ -401,7 +401,6 @@ export default function CsfVeterinariaPage() {
                   alt="Fachada de la clínica veterinaria a nivel de calle, con vitrina y perritos en la ventana"
                   fill
                   sizes="(min-width: 1024px) 45vw, 92vw"
-                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -621,7 +620,7 @@ export default function CsfVeterinariaPage() {
             </Reveal>
             <Reveal delay={140}>
               <div className="border-[3px] h-full min-h-[320px]" style={{ borderColor: C.lime, backgroundColor: '#161616' }}>
-                <iframe
+                <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
                   className="w-full h-full min-h-[320px] grayscale contrast-125"

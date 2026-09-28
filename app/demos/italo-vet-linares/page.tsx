@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, STEPS, SERVICES, PRICES } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -278,7 +279,7 @@ export default function ItaloVetLinaresPage() {
           </Reveal>
           <Reveal delay={150}>
             <div className="rounded-3xl overflow-hidden aspect-[4/3] border-4" style={{ borderColor: C.lime }}>
-              <iframe
+              <LazyMap
                 src={MAPS_EMBED}
                 title={`Mapa de ${BIZ.name}`}
                 className="w-full h-full"

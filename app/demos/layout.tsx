@@ -1,5 +1,4 @@
 import type { CSSProperties } from 'react'
-import EagerImages from './eager-images'
 
 /**
  * app/globals.css redefine la escala de espaciado (--spacing-5 = 24px, --spacing-10 = 128px,
@@ -24,7 +23,6 @@ export default function DemosLayout({
 }) {
   return (
     <div style={WRAP}>
-      <EagerImages />
       {children}
     </div>
   )

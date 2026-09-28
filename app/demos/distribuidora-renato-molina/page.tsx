@@ -13,6 +13,7 @@ import {
   MAPS_EMBED,
   IMG,
 } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -246,7 +247,7 @@ export default function DistribuidoraRenatoMolina() {
               <Reveal key={a.n} delay={i * 110}>
                 <article className="group">
                   <div className="relative aspect-[4/5] overflow-hidden" style={{ backgroundColor: C.grisSoft }}>
-                    <Image src={a.src} alt={a.alt} fill sizes="(min-width: 768px) 33vw, 100vw" loading="eager" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                    <Image src={a.src} alt={a.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                     <span
                       className={`${display.className} absolute top-0 left-0 px-4 py-2 text-sm font-bold tracking-wider text-white`}
                       style={{ backgroundColor: C.rojo }}
@@ -275,7 +276,6 @@ export default function DistribuidoraRenatoMolina() {
               alt="Fachada de un local con la cortina abierta y escobas y baldes a la entrada, en una calle con árboles"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              loading="eager"
               className="object-cover"
             />
           </div>
@@ -405,7 +405,7 @@ export default function DistribuidoraRenatoMolina() {
           <Reveal delay={120}>
             <div className="bg-white" style={{ color: C.tinta }}>
               <div className="aspect-[4/3] w-full">
-                <iframe
+                <LazyMap
                   src={MAPS_EMBED}
                   title={`Mapa de ${BIZ.name}`}
                   className="w-full h-full border-0"

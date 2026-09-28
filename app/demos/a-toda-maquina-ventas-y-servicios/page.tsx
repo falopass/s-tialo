@@ -13,6 +13,7 @@ import {
   MAPS_EMBED,
   IMG,
 } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -591,7 +592,7 @@ export default function ATodaMaquinaPage() {
               className="overflow-hidden border-2 min-h-[320px] h-full"
               style={{ borderColor: C.verde, backgroundColor: C.paper, borderRadius: '0.5rem' }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

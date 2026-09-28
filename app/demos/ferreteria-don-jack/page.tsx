@@ -6,6 +6,7 @@ import { WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { TopNav } from './nav'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, CARTA, PRECIOS } from './content'
+import LazyMap from '../lazy-map'
 
 const serif = localFont({
   src: [
@@ -238,7 +239,7 @@ export default function Page() {
             </a>
           </div>
           <div className="aspect-[4/3] overflow-hidden rounded-sm border" style={{ borderColor: 'rgba(251,247,239,0.2)' }}>
-            <iframe src={MAPS_EMBED} title={`Mapa de ${BIZ.name} en ${BIZ.city}`} loading="lazy" className="w-full h-full border-0" referrerPolicy="no-referrer-when-downgrade" />
+            <LazyMap src={MAPS_EMBED} title={`Mapa de ${BIZ.name} en ${BIZ.city}`} loading="lazy" className="w-full h-full border-0" referrerPolicy="no-referrer-when-downgrade" />
           </div>
         </div>
       </section>

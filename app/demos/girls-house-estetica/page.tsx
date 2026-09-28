@@ -7,6 +7,7 @@ import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { Vitrina } from './vitrina'
 import { BIZ, WA_LINK, waLinkServicio, IG_URL, MAPS_URL, MAPS_EMBED, IMG, C, HAZARD } from './content'
+import LazyMap from '../lazy-map'
 
 // globals.css redefine --spacing-5…12 (gap-10 = 128px, py-12 = 240px); este demo
 // se diseñó con la escala por defecto de Tailwind (n × 4px), así que se restaura aquí.
@@ -272,7 +273,6 @@ export default function GirlsHousePage() {
                   alt="Fachada de Girls House Estética en Quechereguas, Molina: vitrina encendida al atardecer"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  loading="eager"
                   className="object-cover"
                 />
               </div>
@@ -422,7 +422,7 @@ export default function GirlsHousePage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="h-full min-h-[320px] border-4" style={{ borderColor: C.ink }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.address}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px] grayscale"

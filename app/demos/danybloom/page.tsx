@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -221,7 +222,6 @@ export default function DanybloomPage() {
                   src={s.src}
                   alt={s.alt}
                   fill
-                  loading="eager"
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover"
                 />
@@ -430,7 +430,7 @@ export default function DanybloomPage() {
             </Reveal>
           </div>
           <div className="relative min-h-[320px] md:min-h-0 border-t md:border-t-0 md:border-l" style={{ borderColor: C.line }}>
-            <iframe
+            <LazyMap
               title={`Mapa: ${BIZ.name}, ${BIZ.address}, ${BIZ.city}`}
               src={MAPS_EMBED}
               className="absolute inset-0 w-full h-full"

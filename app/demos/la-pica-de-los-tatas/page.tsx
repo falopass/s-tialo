@@ -7,6 +7,7 @@ import { Motif } from '../kit'
 import { Reveal, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -256,7 +257,6 @@ export default function LaPicaDeLosTatasPage() {
                       src={item.src}
                       alt={item.alt}
                       fill
-                      loading="eager"
                       sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -304,7 +304,6 @@ export default function LaPicaDeLosTatasPage() {
                   src={`${IMG}/ambiente.webp`}
                   alt="Fachada de La Picá De Los Tatas en calle Independencia, Molina, con la puerta abierta al comedor"
                   fill
-                  loading="eager"
                   sizes="(min-width: 1024px) 50vw, calc(100vw - 2.5rem)"
                   className="object-cover"
                 />
@@ -496,7 +495,7 @@ export default function LaPicaDeLosTatasPage() {
                 </div>
               </div>
               <div className={`${GLASS} overflow-hidden h-[320px] md:h-[400px] hover:border-[#E8DCC8]/12`}>
-                <iframe
+                <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
                   className="w-full h-full grayscale-[0.4] contrast-[1.05]"

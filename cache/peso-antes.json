@@ -1,0 +1,3132 @@
+[
+  {
+    "slug": "rancho-itahue",
+    "kb": 4469,
+    "recursos": 49,
+    "pesados": [
+      {
+        "archivo": "cabalgata.webp",
+        "kb": 233,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 210,
+        "tipo": "image"
+      },
+      {
+        "archivo": "piscina.webp",
+        "kb": 346,
+        "tipo": "image"
+      },
+      {
+        "archivo": "naturaleza.webp",
+        "kb": 371,
+        "tipo": "image"
+      },
+      {
+        "archivo": "eventos.webp",
+        "kb": 238,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "init_embed.js",
+        "kb": 250,
+        "tipo": "script"
+      },
+      {
+        "archivo": "main.js",
+        "kb": 293,
+        "tipo": "script"
+      },
+      {
+        "archivo": "util.js",
+        "kb": 312,
+        "tipo": "script"
+      },
+      {
+        "archivo": "places.js",
+        "kb": 473,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 98699,
+      "font": 506652,
+      "stylesheet": 167953,
+      "image": 1481744,
+      "script": 2320941,
+      "xhr": 3
+    }
+  },
+  {
+    "slug": "bxtraining-1",
+    "kb": 4018,
+    "recursos": 47,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 261,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 203,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 342,
+        "tipo": "image"
+      },
+      {
+        "archivo": "init_embed.js",
+        "kb": 250,
+        "tipo": "script"
+      },
+      {
+        "archivo": "main.js",
+        "kb": 293,
+        "tipo": "script"
+      },
+      {
+        "archivo": "util.js",
+        "kb": 312,
+        "tipo": "script"
+      },
+      {
+        "archivo": "places.js",
+        "kb": 473,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 103909,
+      "stylesheet": 167799,
+      "font": 250428,
+      "image": 1257550,
+      "script": 2334960,
+      "xhr": 3
+    }
+  },
+  {
+    "slug": "sigel",
+    "kb": 3741,
+    "recursos": 47,
+    "pesados": [
+      {
+        "archivo": "instalacion.webp",
+        "kb": 237,
+        "tipo": "image"
+      },
+      {
+        "archivo": "furgon.webp",
+        "kb": 202,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "init_embed.js",
+        "kb": 250,
+        "tipo": "script"
+      },
+      {
+        "archivo": "main.js",
+        "kb": 293,
+        "tipo": "script"
+      },
+      {
+        "archivo": "util.js",
+        "kb": 312,
+        "tipo": "script"
+      },
+      {
+        "archivo": "places.js",
+        "kb": 473,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 112403,
+      "stylesheet": 167798,
+      "font": 244012,
+      "image": 979133,
+      "script": 2327830,
+      "xhr": 3
+    }
+  },
+  {
+    "slug": "nicolas-atelier",
+    "kb": 3598,
+    "recursos": 48,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "fachada.webp",
+        "kb": 221,
+        "tipo": "image"
+      },
+      {
+        "archivo": "init_embed.js",
+        "kb": 250,
+        "tipo": "script"
+      },
+      {
+        "archivo": "main.js",
+        "kb": 293,
+        "tipo": "script"
+      },
+      {
+        "archivo": "util.js",
+        "kb": 312,
+        "tipo": "script"
+      },
+      {
+        "archivo": "places.js",
+        "kb": 473,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 101473,
+      "stylesheet": 167937,
+      "font": 252244,
+      "image": 827257,
+      "script": 2334946,
+      "xhr": 3
+    }
+  },
+  {
+    "slug": "agrocesped-del-maule",
+    "kb": 3125,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "detalle2.webp",
+        "kb": 483,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 444,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 375,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 347,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 309,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 98151,
+      "font": 293748,
+      "stylesheet": 167798,
+      "image": 2049076,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "jardin-vivero-carolina",
+    "kb": 3079,
+    "recursos": 29,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 444,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 375,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 483,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 309,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 347,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 129201,
+      "stylesheet": 167792,
+      "font": 209084,
+      "image": 2049076,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "santa-fe",
+    "kb": 2901,
+    "recursos": 46,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "init_embed.js",
+        "kb": 250,
+        "tipo": "script"
+      },
+      {
+        "archivo": "main.js",
+        "kb": 293,
+        "tipo": "script"
+      },
+      {
+        "archivo": "util.js",
+        "kb": 312,
+        "tipo": "script"
+      },
+      {
+        "archivo": "places.js",
+        "kb": 473,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 91604,
+      "font": 327336,
+      "stylesheet": 168219,
+      "script": 2320941,
+      "image": 62083,
+      "xhr": 3
+    }
+  },
+  {
+    "slug": "plantitas-ya-vivero-romeral-ventas-de-plantas-y-",
+    "kb": 2887,
+    "recursos": 34,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 445,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 310,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 312,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 345,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 225,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 120604,
+      "font": 355416,
+      "stylesheet": 168231,
+      "image": 1720496,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "one-health",
+    "kb": 2870,
+    "recursos": 43,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "init_embed.js",
+        "kb": 250,
+        "tipo": "script"
+      },
+      {
+        "archivo": "main.js",
+        "kb": 293,
+        "tipo": "script"
+      },
+      {
+        "archivo": "util.js",
+        "kb": 312,
+        "tipo": "script"
+      },
+      {
+        "archivo": "places.js",
+        "kb": 473,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 99959,
+      "font": 281400,
+      "stylesheet": 167800,
+      "script": 2320941,
+      "image": 68435,
+      "xhr": 3
+    }
+  },
+  {
+    "slug": "homyvet",
+    "kb": 2857,
+    "recursos": 45,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "init_embed.js",
+        "kb": 250,
+        "tipo": "script"
+      },
+      {
+        "archivo": "main.js",
+        "kb": 293,
+        "tipo": "script"
+      },
+      {
+        "archivo": "util.js",
+        "kb": 312,
+        "tipo": "script"
+      },
+      {
+        "archivo": "places.js",
+        "kb": 473,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 95115,
+      "stylesheet": 167801,
+      "font": 246872,
+      "script": 2349589,
+      "image": 65506,
+      "xhr": 205
+    }
+  },
+  {
+    "slug": "triadent",
+    "kb": 2857,
+    "recursos": 43,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "init_embed.js",
+        "kb": 250,
+        "tipo": "script"
+      },
+      {
+        "archivo": "main.js",
+        "kb": 293,
+        "tipo": "script"
+      },
+      {
+        "archivo": "places.js",
+        "kb": 473,
+        "tipo": "script"
+      },
+      {
+        "archivo": "util.js",
+        "kb": 312,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 103219,
+      "stylesheet": 167799,
+      "font": 271476,
+      "image": 61840,
+      "script": 2320941,
+      "xhr": 3
+    }
+  },
+  {
+    "slug": "altos-de-lircay",
+    "kb": 2842,
+    "recursos": 43,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "init_embed.js",
+        "kb": 250,
+        "tipo": "script"
+      },
+      {
+        "archivo": "main.js",
+        "kb": 293,
+        "tipo": "script"
+      },
+      {
+        "archivo": "util.js",
+        "kb": 312,
+        "tipo": "script"
+      },
+      {
+        "archivo": "places.js",
+        "kb": 473,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 99852,
+      "font": 258204,
+      "stylesheet": 167799,
+      "script": 2320941,
+      "xhr": 3,
+      "image": 63920
+    }
+  },
+  {
+    "slug": "jd-abogados",
+    "kb": 2833,
+    "recursos": 43,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "init_embed.js",
+        "kb": 250,
+        "tipo": "script"
+      },
+      {
+        "archivo": "main.js",
+        "kb": 293,
+        "tipo": "script"
+      },
+      {
+        "archivo": "util.js",
+        "kb": 312,
+        "tipo": "script"
+      },
+      {
+        "archivo": "places.js",
+        "kb": 473,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 77033,
+      "stylesheet": 167801,
+      "font": 272324,
+      "script": 2320941,
+      "image": 62884,
+      "xhr": 3
+    }
+  },
+  {
+    "slug": "vivero-entre-raices",
+    "kb": 2748,
+    "recursos": 35,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 351,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 253,
+        "tipo": "image"
+      },
+      {
+        "archivo": "flores.webp",
+        "kb": 290,
+        "tipo": "image"
+      },
+      {
+        "archivo": "invernadero.webp",
+        "kb": 367,
+        "tipo": "image"
+      },
+      {
+        "archivo": "jardin.webp",
+        "kb": 233,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 99842,
+      "font": 378652,
+      "stylesheet": 168537,
+      "image": 1575632,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "emporio-vintage-cafe",
+    "kb": 2491,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "detalle1.webp",
+        "kb": 208,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 239,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 215,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 257,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 117358,
+      "stylesheet": 167955,
+      "font": 510896,
+      "image": 1156384,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "ferreteria-valdebenito",
+    "kb": 2488,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 261,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 250,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 212,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 211,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 359,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 119292,
+      "stylesheet": 167798,
+      "font": 293748,
+      "image": 1368428,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "a-toda-maquina-ventas-y-servicios",
+    "kb": 2480,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 261,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 359,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 211,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 250,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 212,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 116411,
+      "stylesheet": 167799,
+      "font": 295100,
+      "image": 1368428,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "muebles-a-tu-estilo",
+    "kb": 2456,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 236,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 290,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 91497,
+      "font": 510896,
+      "stylesheet": 167955,
+      "image": 1153280,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "ferreteria-williams-pencahue",
+    "kb": 2442,
+    "recursos": 33,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 238,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 333,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 230,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 104587,
+      "font": 373572,
+      "stylesheet": 168104,
+      "image": 1263056,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "centro-san-ricardo",
+    "kb": 2422,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 266,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 241,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 279,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 261,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 105160,
+      "font": 311824,
+      "stylesheet": 167952,
+      "image": 1296680,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "ferreteria-don-jack",
+    "kb": 2416,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 261,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 212,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 211,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 250,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 359,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 92805,
+      "stylesheet": 167931,
+      "font": 252244,
+      "image": 1368428,
+      "script": 592997
+    }
+  },
+  {
+    "slug": "johnbarber",
+    "kb": 2416,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 202,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 338,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 106991,
+      "stylesheet": 167955,
+      "font": 510896,
+      "image": 1097216,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "parrilladas-caupolican",
+    "kb": 2412,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "detalle1.webp",
+        "kb": 278,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 242,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 319,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 104081,
+      "font": 295100,
+      "stylesheet": 167799,
+      "image": 1304450,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "le-petit-pasteleria",
+    "kb": 2400,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 257,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 249,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 243,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 289,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 104500,
+      "stylesheet": 167952,
+      "font": 311824,
+      "image": 1281800,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "ultrasport19",
+    "kb": 2393,
+    "recursos": 34,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 261,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 342,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 203,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 117849,
+      "font": 345068,
+      "stylesheet": 168535,
+      "image": 1227262,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "cabanas-vista-hermosa",
+    "kb": 2387,
+    "recursos": 35,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 208,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 440,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 104699,
+      "font": 300380,
+      "stylesheet": 168360,
+      "image": 1279488,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "san-clemente-heladeria",
+    "kb": 2378,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 250,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 215,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 143759,
+      "stylesheet": 167953,
+      "font": 512112,
+      "image": 1012628,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "restaurant-el-encuentro",
+    "kb": 2373,
+    "recursos": 33,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 223,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 222,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 392,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 113602,
+      "font": 303308,
+      "stylesheet": 168303,
+      "image": 1252888,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "vivero-dona-ines",
+    "kb": 2368,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "macetas.webp",
+        "kb": 208,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 278,
+        "tipo": "image"
+      },
+      {
+        "archivo": "invernadero.webp",
+        "kb": 303,
+        "tipo": "image"
+      },
+      {
+        "archivo": "flores.webp",
+        "kb": 247,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 90516,
+      "stylesheet": 167790,
+      "font": 285756,
+      "image": 1303010,
+      "script": 577355
+    }
+  },
+  {
+    "slug": "pasteleria-y-panaderia-eluney",
+    "kb": 2353,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "detalle1.webp",
+        "kb": 289,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 243,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 249,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 257,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 102427,
+      "stylesheet": 167800,
+      "font": 266212,
+      "image": 1281800,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "muebleria-infinity-muebles-talca",
+    "kb": 2349,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 259,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 273,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 286,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 133489,
+      "stylesheet": 167799,
+      "font": 231372,
+      "image": 1274304,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "forastero-sabor-en-cada-bocado",
+    "kb": 2348,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 225,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 345,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 224,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 112424,
+      "stylesheet": 167798,
+      "font": 293748,
+      "image": 1238586,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "brutal-curico",
+    "kb": 2303,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 237,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 221,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 340,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 105976,
+      "font": 295100,
+      "stylesheet": 167799,
+      "image": 1197694,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "comercial-rio-claro",
+    "kb": 2279,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 257,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 229,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 290,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 202,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 109725,
+      "font": 270760,
+      "stylesheet": 167794,
+      "image": 1179274,
+      "script": 605968
+    }
+  },
+  {
+    "slug": "damianstyle",
+    "kb": 2278,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 202,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 338,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 128732,
+      "stylesheet": 167950,
+      "font": 340716,
+      "image": 1097216,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "la-pica-del-mateo",
+    "kb": 2272,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 232,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 207,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 300,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 85639,
+      "stylesheet": 167798,
+      "font": 293748,
+      "image": 1181066,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "restobar-los-leones",
+    "kb": 2272,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 219,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 281,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 99459,
+      "stylesheet": 167800,
+      "font": 354936,
+      "image": 1112780,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "my-fusion-gym",
+    "kb": 2269,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 242,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 327,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 102018,
+      "font": 295332,
+      "stylesheet": 167940,
+      "image": 1160324,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "wake-up",
+    "kb": 2268,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 333,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 252,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 107693,
+      "stylesheet": 167798,
+      "font": 293748,
+      "image": 1161338,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "taller-mecanico-servimac",
+    "kb": 2265,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 225,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 219,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 310,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 116130,
+      "stylesheet": 168160,
+      "font": 290608,
+      "image": 1153236,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "servicio-tecnico-automotriz-millycar",
+    "kb": 2254,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 225,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 310,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 219,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 117003,
+      "font": 278504,
+      "stylesheet": 167798,
+      "image": 1153236,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "hostal-josefa",
+    "kb": 2249,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 375,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 217,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 226,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 98749,
+      "stylesheet": 167799,
+      "font": 231372,
+      "image": 1206788,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "muebleria-comercial-sofia",
+    "kb": 2249,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 221,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 212,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 336,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 207,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 108577,
+      "stylesheet": 167937,
+      "font": 252244,
+      "image": 1176258,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "patagonia-dulce-pasteleria",
+    "kb": 2240,
+    "recursos": 33,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 272,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 254,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 95237,
+      "font": 332912,
+      "stylesheet": 168088,
+      "image": 1098768,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "bravosgym",
+    "kb": 2233,
+    "recursos": 29,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 261,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 203,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 342,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 82660,
+      "stylesheet": 167792,
+      "font": 209084,
+      "image": 1227262,
+      "script": 599828
+    }
+  },
+  {
+    "slug": "distribuidora-renato-molina",
+    "kb": 2222,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 257,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 229,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 290,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 202,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 86093,
+      "stylesheet": 167797,
+      "font": 243692,
+      "image": 1179274,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "vasquez-muebles-linares-spa",
+    "kb": 2222,
+    "recursos": 29,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 336,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle3.webp",
+        "kb": 207,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 221,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 205,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 136776,
+      "stylesheet": 167945,
+      "font": 209084,
+      "image": 1169780,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "wow-park",
+    "kb": 2217,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 268,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "juegos.webp",
+        "kb": 288,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 107872,
+      "stylesheet": 167800,
+      "font": 281400,
+      "image": 1136240,
+      "script": 577355
+    }
+  },
+  {
+    "slug": "la-terraza",
+    "kb": 2210,
+    "recursos": 29,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 232,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 300,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 207,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 114162,
+      "stylesheet": 167781,
+      "font": 209084,
+      "image": 1181066,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "clinica-t-renova-spa",
+    "kb": 2207,
+    "recursos": 34,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 322,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 202,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 128170,
+      "font": 356148,
+      "stylesheet": 168231,
+      "image": 1016076,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "tienda-by-joseline-spa",
+    "kb": 2203,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 227,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 305,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 100558,
+      "stylesheet": 167952,
+      "font": 248344,
+      "image": 1147368,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "centro-spa-roxana",
+    "kb": 2199,
+    "recursos": 35,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 215,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 323,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 93633,
+      "font": 378652,
+      "stylesheet": 168374,
+      "image": 1033266,
+      "script": 577355
+    }
+  },
+  {
+    "slug": "vulcanizacion-nikimoto",
+    "kb": 2195,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 225,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 310,
+        "tipo": "image"
+      },
+      {
+        "archivo": "detalle2.webp",
+        "kb": 219,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 77897,
+      "font": 250428,
+      "stylesheet": 167799,
+      "image": 1153236,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "zamono",
+    "kb": 2189,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 280,
+        "tipo": "image"
+      },
+      {
+        "archivo": "bahia.webp",
+        "kb": 257,
+        "tipo": "image"
+      },
+      {
+        "archivo": "espuma.webp",
+        "kb": 245,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 109991,
+      "stylesheet": 167799,
+      "font": 242736,
+      "image": 1143762,
+      "script": 577355
+    }
+  },
+  {
+    "slug": "nativa-curico",
+    "kb": 2186,
+    "recursos": 35,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 224,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 312,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 116098,
+      "font": 400064,
+      "stylesheet": 168380,
+      "image": 962752,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "peluqueria-fran-wartemberg",
+    "kb": 2166,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 338,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 126579,
+      "stylesheet": 167799,
+      "font": 250428,
+      "image": 1082016,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "barberia-rulos-style-barberia-curico",
+    "kb": 2158,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 338,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 202,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 135712,
+      "stylesheet": 167799,
+      "font": 231372,
+      "image": 1097216,
+      "script": 577355
+    }
+  },
+  {
+    "slug": "peluqueria-gloria",
+    "kb": 2157,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "detalle1.webp",
+        "kb": 338,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 115003,
+      "font": 252244,
+      "stylesheet": 167937,
+      "image": 1082016,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "girls-house-estetica",
+    "kb": 2116,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 290,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 109259,
+      "stylesheet": 167799,
+      "font": 250428,
+      "image": 1041814,
+      "script": 597560
+    }
+  },
+  {
+    "slug": "mia-centro-de-estetica",
+    "kb": 2110,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 362,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 98791,
+      "stylesheet": 167937,
+      "font": 252244,
+      "image": 1050432,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "cafe-la-francesa",
+    "kb": 2083,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 205,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 277,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 113474,
+      "stylesheet": 167937,
+      "font": 252244,
+      "image": 1008486,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "distribuidora-mym-curico",
+    "kb": 2065,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 243,
+        "tipo": "image"
+      },
+      {
+        "archivo": "hero.webp",
+        "kb": 220,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 109731,
+      "stylesheet": 167799,
+      "font": 231372,
+      "image": 1007808,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "victoria-nail-school",
+    "kb": 2059,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 294,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 99198,
+      "stylesheet": 167797,
+      "font": 243692,
+      "image": 999310,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "nailsyus",
+    "kb": 2040,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 272,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 104839,
+      "stylesheet": 167798,
+      "font": 244012,
+      "image": 974534,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "issa-bella-spa-centro-de-estetica",
+    "kb": 2031,
+    "recursos": 35,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 289,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 105687,
+      "font": 378652,
+      "stylesheet": 168374,
+      "image": 835862,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "panaderia-bravo",
+    "kb": 2031,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "panes.webp",
+        "kb": 203,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 113697,
+      "font": 329132,
+      "stylesheet": 167953,
+      "image": 884714,
+      "script": 584244
+    }
+  },
+  {
+    "slug": "las-viejas-cochinas",
+    "kb": 2026,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "hero.webp",
+        "kb": 207,
+        "tipo": "image"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 225,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 92825,
+      "stylesheet": 167797,
+      "font": 243692,
+      "image": 993256,
+      "script": 577355
+    }
+  },
+  {
+    "slug": "la-pica-de-los-tatas",
+    "kb": 2024,
+    "recursos": 29,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 251,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 96343,
+      "stylesheet": 167792,
+      "font": 209084,
+      "image": 1001066,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "clinica-veterinaria-docpino",
+    "kb": 2015,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 317,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 107435,
+      "stylesheet": 167940,
+      "font": 295332,
+      "image": 901270,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "salon-de-belleza-gabriela-saavedra-talca",
+    "kb": 2008,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 230,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 136674,
+      "stylesheet": 167940,
+      "font": 295332,
+      "image": 865276,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "hospital-clinico-veterinario-la-granja-linares",
+    "kb": 1979,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 327,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 123279,
+      "stylesheet": 167962,
+      "font": 266212,
+      "image": 877256,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "ius-abogados-linares",
+    "kb": 1965,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 300,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 123329,
+      "stylesheet": 167799,
+      "font": 295100,
+      "image": 834542,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "clinica-y-farmacia-veterinaria-angel-guardian",
+    "kb": 1964,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 271,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 97324,
+      "font": 340716,
+      "stylesheet": 167950,
+      "image": 809338,
+      "script": 596289
+    }
+  },
+  {
+    "slug": "italo-vet-linares",
+    "kb": 1960,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "detalle1.webp",
+        "kb": 317,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 80503,
+      "stylesheet": 167800,
+      "font": 266212,
+      "image": 901270,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "clinica-dental-san-jose",
+    "kb": 1949,
+    "recursos": 35,
+    "pesados": [
+      {
+        "archivo": "detalle1.webp",
+        "kb": 278,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 107023,
+      "font": 378652,
+      "stylesheet": 168374,
+      "image": 743686,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "defensa-molina-abogados",
+    "kb": 1926,
+    "recursos": 32,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 249,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 97569,
+      "stylesheet": 167952,
+      "font": 311824,
+      "image": 797012,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "beauty-love",
+    "kb": 1909,
+    "recursos": 35,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 88313,
+      "font": 378652,
+      "stylesheet": 168374,
+      "image": 735156,
+      "script": 584244
+    }
+  },
+  {
+    "slug": "hair-home-studio-claudia-beltran",
+    "kb": 1903,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 264,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 127483,
+      "stylesheet": 167799,
+      "font": 295100,
+      "image": 766976,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "clinica-dental-bilbao-urgencias-dentales-curico-",
+    "kb": 1865,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 253,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 116928,
+      "stylesheet": 167801,
+      "font": 268304,
+      "image": 765242,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "clinica-prosaluddental",
+    "kb": 1850,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "detalle1.webp",
+        "kb": 253,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 119452,
+      "stylesheet": 167797,
+      "font": 243692,
+      "image": 765242,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "csf-especialidades-veterinarias-san-francisco",
+    "kb": 1837,
+    "recursos": 35,
+    "pesados": [
+      {
+        "archivo": "ambiente.webp",
+        "kb": 218,
+        "tipo": "image"
+      },
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 123307,
+      "font": 326336,
+      "stylesheet": 168668,
+      "image": 671338,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "lua-nails",
+    "kb": 1820,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 108180,
+      "font": 274920,
+      "stylesheet": 167952,
+      "image": 735156,
+      "script": 577355
+    }
+  },
+  {
+    "slug": "danybloom",
+    "kb": 1796,
+    "recursos": 30,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 94423,
+      "font": 250428,
+      "stylesheet": 167799,
+      "image": 735156,
+      "script": 591360
+    }
+  },
+  {
+    "slug": "atlantix-clinica-odontologica-san-javier-de-lonc",
+    "kb": 1786,
+    "recursos": 28,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      },
+      {
+        "archivo": "ambiente.webp",
+        "kb": 278,
+        "tipo": "image"
+      }
+    ],
+    "porTipo": {
+      "document": 110651,
+      "font": 209084,
+      "stylesheet": 167048,
+      "image": 743686,
+      "script": 598249
+    }
+  },
+  {
+    "slug": "matrokin",
+    "kb": 1768,
+    "recursos": 31,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 94797,
+      "stylesheet": 167790,
+      "font": 255752,
+      "image": 714398,
+      "script": 577355
+    }
+  },
+  {
+    "slug": "cabanas-la-quebrada",
+    "kb": 1398,
+    "recursos": 26,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 163127,
+      "stylesheet": 167585,
+      "font": 479820,
+      "image": 44696,
+      "script": 576110
+    }
+  },
+  {
+    "slug": "ferreteria-la-ruta",
+    "kb": 1386,
+    "recursos": 27,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 124741,
+      "stylesheet": 167954,
+      "font": 504656,
+      "image": 44696,
+      "script": 577355
+    }
+  },
+  {
+    "slug": "que-barato-lf",
+    "kb": 1380,
+    "recursos": 27,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 114912,
+      "stylesheet": 167799,
+      "font": 242736,
+      "image": 274250,
+      "script": 613369
+    }
+  },
+  {
+    "slug": "alumrod",
+    "kb": 1109,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 133553,
+      "font": 209084,
+      "stylesheet": 167048,
+      "script": 581568,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "pannton",
+    "kb": 1090,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 114256,
+      "stylesheet": 167048,
+      "font": 209084,
+      "image": 44696,
+      "script": 581233
+    }
+  },
+  {
+    "slug": "estudio-contable-munoz",
+    "kb": 1076,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 99625,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "agencia-cumbre",
+    "kb": 1075,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 98605,
+      "font": 209084,
+      "stylesheet": 167048,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "family-gym",
+    "kb": 1074,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 97453,
+      "stylesheet": 167048,
+      "font": 209084,
+      "image": 44696,
+      "script": 581233
+    }
+  },
+  {
+    "slug": "escuela-vial-maule",
+    "kb": 1072,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 95497,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "gruas-ruta-5",
+    "kb": 1071,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 94861,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "cabanas-rio-claro",
+    "kb": 1070,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 93777,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "mym-taller",
+    "kb": 1068,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 91071,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "vivero-los-aromos",
+    "kb": 1067,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 90239,
+      "stylesheet": 167048,
+      "font": 209084,
+      "image": 44696,
+      "script": 581233
+    }
+  },
+  {
+    "slug": "mg-publicidad",
+    "kb": 1066,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 89361,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "dental-norte",
+    "kb": 1063,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 86869,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "servitec-maule",
+    "kb": 1063,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 86642,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "vetsur",
+    "kb": 1062,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 85369,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "constructora-valdes",
+    "kb": 1061,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 84056,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "optica-central",
+    "kb": 1061,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 84851,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  },
+  {
+    "slug": "ferreteria-el-martillo",
+    "kb": 1060,
+    "recursos": 23,
+    "pesados": [
+      {
+        "archivo": "298fe20778a396e4.js",
+        "kb": 219,
+        "tipo": "script"
+      }
+    ],
+    "porTipo": {
+      "document": 82987,
+      "stylesheet": 167048,
+      "font": 209084,
+      "script": 581233,
+      "image": 44696
+    }
+  }
+]

@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_PRECIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -366,7 +367,6 @@ export default function DistribuidoraMymCuricoPage() {
                       alt={p.alt}
                       fill
                       sizes="(min-width: 1024px) 360px, (min-width: 768px) 300px, 100vw"
-                      loading="eager"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
@@ -606,7 +606,7 @@ export default function DistribuidoraMymCuricoPage() {
               className="border min-h-[320px] h-full"
               style={{ borderColor: C.line, backgroundColor: '#FFFFFF' }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

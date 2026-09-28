@@ -135,7 +135,6 @@ function Card({ p, fontClass }: { p: (typeof PRODUCTS)[number]; fontClass: strin
           src={`${IMG}/${p.img}`}
           alt={`${p.name}: repisa de ${CAT_LABEL[p.cat]} en Comercial Río Claro`}
           fill
-          loading="eager"
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
           style={p.pos ? { objectPosition: p.pos } : undefined}

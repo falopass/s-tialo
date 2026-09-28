@@ -6,6 +6,7 @@ import { Motif } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_EVAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -293,7 +294,6 @@ export default function AtlantixPage() {
                     alt={s.name}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
-                    loading="eager"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <span
@@ -547,7 +547,7 @@ export default function AtlantixPage() {
           </Reveal>
           <Reveal delay={140}>
             <div className="rounded-3xl overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.lineLight, backgroundColor: C.sandSoft }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"

@@ -5,6 +5,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_TORTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -531,7 +532,7 @@ export default function LePetitPage() {
           <div className="lg:col-span-7">
             <Reveal delay={140} className="h-full">
               <div className="overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.soft }}>
-                <iframe
+                <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
                   className="w-full h-full min-h-[320px]"
@@ -546,15 +547,9 @@ export default function LePetitPage() {
 
       {/* ── Cierre editorial ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.slateDeep }}>
-        <div
-          className="absolute inset-0 opacity-[0.16]"
-          style={{
-            backgroundImage: `url(${IMG}/detalle3.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 opacity-[0.16]" aria-hidden="true">
+          <Image src={`${IMG}/detalle3.webp`} alt="" fill sizes="100vw" className="object-cover" />
+        </div>
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28">
           <Reveal>
             <p className="text-[11px] uppercase tracking-[0.26em] font-semibold mb-5" style={{ color: C.yellow }}>

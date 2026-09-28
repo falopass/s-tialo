@@ -5,6 +5,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_TORTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -263,7 +264,6 @@ export default function PatagoniaDulcePage() {
                       alt={s.alt}
                       fill
                       sizes="(min-width:1024px) 58vw, 100vw"
-                      loading="eager"
                       className="object-cover"
                     />
                   </div>
@@ -297,7 +297,6 @@ export default function PatagoniaDulcePage() {
               alt="Fachada de la pastelería al atardecer: vitrina encendida con tortas y kuchen, y la cordillera al fondo"
               fill
               sizes="100vw"
-              loading="eager"
               className="object-cover"
             />
           </div>
@@ -527,7 +526,7 @@ export default function PatagoniaDulcePage() {
           </Reveal>
           <Reveal className="lg:col-span-6" delay={120}>
             <div className="border h-full min-h-[360px]" style={{ borderColor: C.line, backgroundColor: C.soft }}>
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[360px]"

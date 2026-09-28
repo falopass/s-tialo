@@ -6,6 +6,7 @@ import { WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { Fade, Parallax, TopBar } from './chrome'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -514,7 +515,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
               className="rounded-[1.75rem] overflow-hidden border h-[320px] md:h-[440px]"
               style={{ borderColor: 'rgba(245,239,230,0.28)' }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full"

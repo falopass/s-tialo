@@ -6,6 +6,7 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_HORA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -384,7 +385,6 @@ export default function NativaCuricoPage() {
                       alt={`${s.name} en ${BIZ.name}`}
                       fill
                       sizes="(min-width: 768px) 58vw, 100vw"
-                      loading="eager"
                       className="object-cover"
                       style={{ filter: 'contrast(1.12) saturate(1.05)' }}
                     />
@@ -608,7 +608,7 @@ export default function NativaCuricoPage() {
               className="rounded-2xl overflow-hidden min-h-[320px] h-full"
               style={{ boxShadow: GLOW_FRAME }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px] border-0"

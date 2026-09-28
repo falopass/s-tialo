@@ -5,6 +5,7 @@ import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { ValleyScene } from './scenes'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
@@ -439,7 +440,7 @@ export default function AltosDeLircayPage() {
               className="rounded-2xl overflow-hidden border min-h-[300px] md:min-h-0 h-full"
               style={{ borderColor: C.line, backgroundColor: C.forestSoft }}
             >
-              <iframe
+              <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.address}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[300px]"
