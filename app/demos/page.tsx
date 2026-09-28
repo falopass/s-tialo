@@ -2103,6 +2103,30 @@ const BLITZ = [
     tagline: 'La ficha de primera sesión: papel crema, arcilla y su consulta real del Centro Las Rastras.',
     gradient: 'linear-gradient(135deg, #F6F1E7 0%, #EEE5D4 55%, #9C4A2D 140%)',
   },
+  {
+    slug: 'camping-el-carro',
+    name: 'Camping El Carro',
+    rubro: 'Camping y cabañas',
+    city: 'San Clemente',
+    tagline: 'Bitácora de ruta: hitos de Anton y mono, pino y ámbar de la carpa, a orillas del Maule.',
+    gradient: 'linear-gradient(135deg, #152417 0%, #243E2C 55%, #E07B2A 150%)',
+  },
+  {
+    slug: 'autolimpio',
+    name: 'Autolimpio',
+    rubro: 'Lavado y detailing de autos',
+    city: 'Talca',
+    tagline: 'La orden de trabajo: carbón y lima de su logo, evidencia de taller y bitácora de mantenciones.',
+    gradient: 'linear-gradient(135deg, #0D0F0B 0%, #161A12 55%, #B8E62E 150%)',
+  },
+  {
+    slug: 'veterinaria-francisco-loyola',
+    name: 'Veterinaria Francisco Loyola',
+    rubro: 'Veterinario',
+    city: 'Molina',
+    tagline: 'La ficha clínica: crema, teal profundo y las huellas de su propia fachada.',
+    gradient: 'linear-gradient(135deg, #FAF6EF 0%, #14514E 60%, #D96C4F 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
