@@ -830,7 +830,6 @@ const BLITZ = [
     tagline: 'Plano de obra: azul marino, dorado mostaza y retícula técnica, con logo real.',
     gradient: 'linear-gradient(135deg, #0D0D33 0%, #D9A441 140%)',
   },
-||||||| parent of 75913b1b (feat(demos): cafeteria-walffies y entre-lomas con fotos reales de sus fichas)
   {
     slug: 'cafeteria-walffies',
     name: 'Cafetería Walffies',
