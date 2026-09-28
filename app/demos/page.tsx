@@ -1407,7 +1407,7 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #C41E12 0%, #FFD23F 70%, #FFFDF6 140%)',
   },
   {
-    slug: 'estudio-jur-dico-talca',
+    slug: 'estudio-juridico-30-oriente',
     name: 'Estudio Jurídico Talca',
     rubro: 'Abogados y asesoría legal',
     city: 'Talca',

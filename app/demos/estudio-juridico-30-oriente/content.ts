@@ -4,7 +4,7 @@
 // confirmado. Revisado: 2025.
 
 export const BIZ = {
-  slug: 'estudio-jur-dico-talca',
+  slug: 'estudio-juridico-30-oriente',
   name: 'Estudio Jurídico Talca',
   short: 'Estudio Jurídico',
   rubro: 'Abogados y asesoría legal',
