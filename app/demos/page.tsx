@@ -2079,6 +2079,14 @@ const BLITZ = [
     tagline: 'Guía de despacho: Anton de cantera, cinta de obra y el azul de su logo de camión.',
     gradient: 'linear-gradient(135deg, #20262E 0%, #1F5C9E 60%, #EDE8DC 150%)',
   },
+  {
+    slug: 'psicologa-maria-ignacia-flores-talca',
+    name: 'María Ignacia Flores',
+    rubro: 'Psicóloga clínica',
+    city: 'Talca',
+    tagline: 'La ficha de primera sesión: papel crema, arcilla y su consulta real del Centro Las Rastras.',
+    gradient: 'linear-gradient(135deg, #F6F1E7 0%, #EEE5D4 55%, #9C4A2D 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
