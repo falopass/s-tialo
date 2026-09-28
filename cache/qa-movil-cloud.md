@@ -1,6 +1,6 @@
 # QA móvil (cloud) — http://localhost:4800/demos/
 
-Fecha: 2026-09-28T06:30:38.567Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
+Fecha: 2026-09-28T07:25:11.398Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
 
 ## Resumen
 
@@ -17,12 +17,12 @@ Fecha: 2026-09-28T06:30:38.567Z · Viewport 390×844 · espera 3500 ms tras netw
 
 ## Los 5 peores
 
-- **swissvet-talcahuano** (gravedad 0): 0 botones, footer 21.8%, 0 contrastes, sin desborde, 0 invisibles
+- **homyvet** (gravedad 0): 0 botones, footer 31.5%, 0 contrastes, sin desborde, 0 invisibles
 
 ## Tabla por gravedad
 
 | # | Demo | Grav. | Btn>52 | Footer % | Contraste | Desborde | Invisibles |
 |---|---|---|---|---|---|---|---|
-| 1 | [swissvet-talcahuano](http://localhost:4800/demos/swissvet-talcahuano/) | 0 | 0 | 21.8 | 0 | — | 0 |
+| 1 | [homyvet](http://localhost:4800/demos/homyvet/) | 0 | 0 | 31.5 | 0 | — | 0 |
 
 ## Detalle por demo (solo con hallazgos)

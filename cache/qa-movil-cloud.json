@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T06:30:38.567Z",
+  "fecha": "2026-09-28T07:25:11.397Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "swissvet-talcahuano": {
-      "url": "http://localhost:4800/demos/swissvet-talcahuano/",
+    "homyvet": {
+      "url": "http://localhost:4800/demos/homyvet/",
       "status": 200,
       "botones": [],
-      "footerPx": 184,
-      "footerPct": 21.8,
+      "footerPx": 266,
+      "footerPct": 31.5,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4109
+      "ms": 4110
     }
   }
 }

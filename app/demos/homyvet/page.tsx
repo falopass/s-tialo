@@ -4,8 +4,9 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
-import { HomePanel, PawPanel, HeartPanel } from './scenes'
 import LazyMap from '../lazy-map'
+
+const IMG = '/demos/homyvet'
 
 const display = localFont({
   src: [
@@ -111,15 +112,30 @@ const ICONS: Record<string, React.ReactNode> = {
       <circle cx="15.5" cy="16" r="2.4" />
     </g>
   ),
+  tijeras: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="6.5" cy="6.5" r="2.4" />
+      <circle cx="6.5" cy="17.5" r="2.4" />
+      <path d="M8.7 8.4 L19.5 18.5 M8.7 15.6 L19.5 5.5" />
+    </g>
+  ),
+  bolsa: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5.5 8.5 h13 l-1 11.5 a2 2 0 0 1 -2 1.8 h-7 a2 2 0 0 1 -2 -1.8 Z" />
+      <path d="M8.5 8.5 V7 a3.5 3.5 0 0 1 7 0 v1.5" />
+    </g>
+  ),
 }
 
+// Servicios reales: letrero del local (clínica veterinaria, peluquería canina,
+// petshop) + perfil de la clínica (hospital, exámenes, imagenología, farmacia).
 const SERVICES = [
   { icon: 'consulta', name: 'Consulta general', desc: 'Evaluación y diagnóstico para perros y gatos.' },
-  { icon: 'vacuna', name: 'Vacunación', desc: 'Calendario completo para cachorros y adultos.' },
-  { icon: 'desparasita', name: 'Desparasitación', desc: 'Interna y externa, según cada mascota.' },
-  { icon: 'cirugia', name: 'Cirugía menor', desc: 'Procedimientos programados con evaluación previa.' },
-  { icon: 'cachorro', name: 'Control de cachorros', desc: 'Seguimiento de crecimiento, vacunas y nutrición.' },
-  { icon: 'certificado', name: 'Certificados', desc: 'Documentos de salud para viajes y trámites.' },
+  { icon: 'certificado', name: 'Exámenes e imagenología', desc: 'Exámenes de diagnóstico e imagenología veterinaria.' },
+  { icon: 'cirugia', name: 'Cirugía y hospital', desc: 'Procedimientos quirúrgicos con hospitalización.' },
+  { icon: 'tijeras', name: 'Peluquería canina', desc: 'Baño, corte y arreglo para tu perro.' },
+  { icon: 'bolsa', name: 'Petshop', desc: 'Alimento y accesorios para mascotas.' },
+  { icon: 'vacuna', name: 'Farmacia veterinaria', desc: 'Medicamentos y productos veterinarios.' },
 ]
 
 const FAQS = [
@@ -149,6 +165,7 @@ export default function HomyvetPage() {
     >
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
@@ -198,17 +215,32 @@ export default function HomyvetPage() {
               </a>
             </div>
           </Reveal>
-          {/* Collage de 3 imágenes */}
+          {/* Collage de 3 fotos reales de la clínica */}
           <Reveal delay={150}>
             <div className="grid grid-cols-2 gap-3 md:gap-4">
               <div className="row-span-2 rounded-3xl overflow-hidden aspect-[3/3.8]">
-                <HomePanel className="w-full h-full" />
+                {/* eslint-disable-next-line @next/next/no-img-element -- fotos optimizadas en public/ */}
+                <img
+                  src={`${IMG}/hero-perro.webp`}
+                  alt="Perro recostado en la camilla de atención de HomyVet"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="rounded-3xl overflow-hidden aspect-[3/1.9]">
-                <PawPanel className="w-full h-full" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${IMG}/hero-gato.webp`}
+                  alt="Gato negro paciente de HomyVet"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="rounded-3xl overflow-hidden aspect-[3/1.9]">
-                <HeartPanel className="w-full h-full" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${IMG}/hero-beagle.webp`}
+                  alt="Beagle con collarín de recuperación atendido en HomyVet"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </Reveal>
@@ -252,6 +284,42 @@ export default function HomyvetPage() {
         </ol>
       </section>
 
+      {/* ── Pacientes (fotos reales de la clínica) ── */}
+      <section className="py-14 md:py-20" style={{ backgroundColor: C.boneDeep }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-tight mb-8`}>
+              Pacientes que pasan por HomyVet
+            </h2>
+          </Reveal>
+        </div>
+        <Reveal delay={120}>
+          <ul className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 px-5 md:px-8 md:grid md:grid-cols-6 md:overflow-visible max-w-6xl md:mx-auto">
+            {[
+              ['paciente-1', 'Perro descansando en la camilla de la clínica'],
+              ['paciente-2', 'Perro salchicha en su transportín'],
+              ['paciente-3', 'Gato paciente de la clínica'],
+              ['paciente-4', 'Perro sobre una manta en la clínica'],
+              ['paciente-5', 'Perro esperando su atención'],
+              ['paciente-6', 'Perro jugando en el pasto'],
+            ].map(([name, alt], i) => (
+              <li
+                key={name}
+                className="snap-center shrink-0 w-40 md:w-auto rounded-2xl overflow-hidden aspect-[3/4]"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${IMG}/${name}.webp`}
+                  alt={alt}
+                  loading={i < 3 ? 'eager' : 'lazy'}
+                  className="w-full h-full object-cover"
+                />
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </section>
+
       {/* ── Servicios (lista con íconos) ── */}
       <section id="servicios" className="scroll-mt-20" style={{ backgroundColor: C.bone }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
@@ -260,8 +328,7 @@ export default function HomyvetPage() {
               Servicios
             </h2>
             <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
-              Lista referencial de servicios: la carta real se confirma
-              junto a la clínica al publicar.
+              Los servicios que la clínica muestra en su letrero y sus redes.
             </p>
           </Reveal>
           <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-7 max-w-4xl">
@@ -326,23 +393,23 @@ export default function HomyvetPage() {
                 Familias que confían en nosotros
               </h2>
               <p className="text-sm mt-2 mb-2" style={{ color: C.muted }}>
-                Textos de muestra: al publicar van las reseñas reales.
+                Reseñas reales de su ficha en Google.
               </p>
             </Reveal>
             {[
-              'Atención muy cercana, explicaron todo el tratamiento de mi perra con paciencia. Se siente como en casa.',
-              'Reservé por WhatsApp y fue rapidísimo. Mi gato llegó estresado y salió tranquilo.',
-            ].map((t, i) => (
-              <Reveal key={i} delay={200 + i * 120}>
+              { name: 'Katherina Rocco', txt: 'Excelente clínica. Llegamos por una urgencia y todos fueron muy empáticos; explicaron los costos en detalle y los pros y contras del tratamiento.' },
+              { name: 'Sindia Venegas', txt: 'A mis gatos les encanta ir. Buena atención y paciencia; los precios van en línea con el mercado.' },
+            ].map((r, i) => (
+              <Reveal key={r.name} delay={200 + i * 120}>
                 <figure
                   className="rounded-3xl p-6 md:p-7 border"
                   style={{ backgroundColor: '#FFFFFF', borderColor: C.line }}
                 >
                   <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.navy }}>
-                    “{t}”
+                    “{r.txt}”
                   </blockquote>
                   <figcaption className="text-xs uppercase tracking-[0.15em] font-bold" style={{ color: C.mustardInk }}>
-                    Reseña de ejemplo
+                    {r.name} · Google
                   </figcaption>
                 </figure>
               </Reveal>
