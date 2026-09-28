@@ -1399,6 +1399,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0A2350 0%, #1E6FF0 60%, #58B23B 140%)',
   },
   {
+    slug: 'cetty-soccer-padel-club',
+    name: 'Cetty Soccer Padel Club',
+    rubro: 'Complejo deportivo',
+    city: 'Molina',
+    tagline: 'La pista manda: navy de cancha, lima de pelota, marcador tipo LED y diagrama de pádel.',
+    gradient: 'linear-gradient(135deg, #060B1F 0%, #1E49C8 60%, #C9F24E 140%)',
+  },
+  {
     slug: 'jaime-acuna-y-cia-ltda',
     name: 'Jaime Acuña y Cía.',
     rubro: 'Contabilidad y auditoría',
