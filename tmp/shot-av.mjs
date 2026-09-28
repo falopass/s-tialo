@@ -1,0 +1,18 @@
+import { chromium } from 'playwright'
+const b = await chromium.connectOverCDP('http://localhost:29229')
+const ctx = b.contexts()[0]
+const p = await ctx.newPage()
+await p.setViewportSize({ width: 390, height: 844 })
+await p.goto('http://localhost:4800/demos/constructora-avatar/', { waitUntil: 'networkidle', timeout: 45000 }).catch(()=>{})
+await p.waitForTimeout(2500)
+await p.screenshot({ path: '/tmp/av-hero.png' })
+await p.evaluate(() => document.querySelector('#obras')?.scrollIntoView())
+await p.waitForTimeout(1800)
+await p.screenshot({ path: '/tmp/av-obras.png' })
+await p.evaluate(() => document.querySelector('#terminaciones')?.scrollIntoView())
+await p.waitForTimeout(1800)
+await p.screenshot({ path: '/tmp/av-term.png' })
+await p.evaluate(() => document.querySelector('#contacto')?.scrollIntoView())
+await p.waitForTimeout(1800)
+await p.screenshot({ path: '/tmp/av-contacto.png' })
+await p.close()

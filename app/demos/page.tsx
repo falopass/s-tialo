@@ -1134,6 +1134,14 @@ const BLITZ = [
     tagline: 'Spa de barrio: crema y teal del logo, fotos en arco y la estrella-flor de su marca.',
     gradient: 'linear-gradient(135deg, #0E3235 0%, #17858A 55%, #F7F2E8 140%)',
   },
+  {
+    slug: 'constructora-avatar',
+    name: 'Constructora Avatar',
+    rubro: 'Constructora de edificios',
+    city: 'Concepción',
+    tagline: 'Plano de obra en ciruela: registro numerado de torres reales y una columna de pisos que se apilan.',
+    gradient: 'linear-gradient(135deg, #13091F 0%, #1B0F2B 55%, #C77DFF 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
