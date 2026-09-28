@@ -1462,6 +1462,14 @@ const BLITZ = [
     tagline: 'Parte de faena: carbón, amarillo máquina, cinta de seguridad y ficha técnica.',
     gradient: 'linear-gradient(135deg, #17140E 0%, #3B331D 55%, #F2C00C 140%)',
   },
+  {
+    slug: 'cabanas-nido-verde',
+    name: 'Cabañas Nido Verde',
+    rubro: 'Cabañas y alojamiento',
+    city: 'Talca',
+    tagline: 'El sendero del predio: crema, verde bosque y sol, cartel de acceso y postales con fotos reales.',
+    gradient: 'linear-gradient(135deg, #122619 0%, #1E3D2A 60%, #E9A52B 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
