@@ -4,8 +4,9 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
-import { HeroScene } from './scenes'
 import LazyMap from '../lazy-map'
+
+const IMG = '/demos/one-health'
 
 const display = localFont({
   src: [
@@ -21,9 +22,9 @@ const body = localFont({
 const C = {
   cream: '#FBF6EE',
   paper: '#FDFAF4',
-  sageSoft: '#E9F0E7',
-  sage: '#8CA98C',
-  sageDeep: '#4E6B50',
+  blueSoft: '#EAF0FA',
+  blue: '#3095CA',
+  blueDeep: '#163194',
   peach: '#F2B48C',
   peachSoft: '#FBE7D6',
   peachInk: '#8A4E2C',
@@ -137,6 +138,7 @@ export default function OneHealthPage() {
       <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
@@ -145,14 +147,24 @@ export default function OneHealthPage() {
           bar: 'rgba(253,250,244,0.94)',
           ink: C.ink,
           line: C.line,
-          btnBg: C.sageDeep,
+          btnBg: C.blueDeep,
           btnInk: '#fff',
         }}
       />
 
-      {/* ── Hero ── */}
+      {/* ── Hero sobre foto real del centro ── */}
       <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden">
-        <HeroScene className="absolute inset-0 w-full h-full" />
+        {/* eslint-disable-next-line @next/next/no-img-element -- foto real optimizada en public/ */}
+        <img
+          src={`${IMG}/hero.webp`}
+          alt="Gata en la mesa de evaluación del centro veterinario"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(180deg, rgba(253,250,244,0.28) 0%, rgba(57,67,47,0.35) 100%)' }}
+          aria-hidden="true"
+        />
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24 pt-32">
           <Reveal>
             <div
@@ -177,7 +189,7 @@ export default function OneHealthPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
-                  style={{ backgroundColor: C.sageDeep, color: '#fff' }}
+                  style={{ backgroundColor: C.blueDeep, color: '#fff' }}
                 >
                   Agenda una hora
                 </a>
@@ -210,11 +222,11 @@ export default function OneHealthPage() {
             <Reveal key={s.name} delay={i * 80}>
               <li
                 className="flex gap-4 rounded-3xl p-5 md:p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_36px_-18px_rgba(78,107,80,0.35)] h-full"
-                style={{ backgroundColor: i % 2 === 0 ? C.sageSoft : C.peachSoft }}
+                style={{ backgroundColor: i % 2 === 0 ? C.blueSoft : C.peachSoft }}
               >
                 <span
                   className="w-[46px] h-[46px] rounded-full flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: '#FFFFFF', color: C.sageDeep }}
+                  style={{ backgroundColor: '#FFFFFF', color: C.blueDeep }}
                 >
                   <svg viewBox="0 0 24 24" className="w-[23px] h-[23px]" aria-hidden="true">
                     {ICONS[s.icon]}
@@ -238,16 +250,17 @@ export default function OneHealthPage() {
       <section id="urgencias" className="scroll-mt-20" style={{ backgroundColor: C.peachSoft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20 flex flex-col md:flex-row md:items-center gap-8 md:gap-14">
           <Reveal className="shrink-0">
-            <span
-              className="w-[72px] h-[72px] rounded-full flex items-center justify-center"
-              style={{ backgroundColor: C.peach, color: C.peachInk }}
+            <div
+              className="w-[96px] h-[96px] rounded-full overflow-hidden border-4"
+              style={{ borderColor: C.peach }}
             >
-              <svg viewBox="0 0 24 24" className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 8.5 v5" />
-                <path d="M12 16.8 h.01" />
-                <path d="M10.6 3.8 L2.8 17.5 a2 2 0 0 0 1.7 3 h15 a2 2 0 0 0 1.7 -3 L13.4 3.8 a1.7 1.7 0 0 0 -2.8 0 Z" />
-              </svg>
-            </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${IMG}/urgencia.webp`}
+                alt="Veterinaria sosteniendo un gatito paciente"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </Reveal>
           <Reveal delay={100} className="flex-1">
             <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-tight mb-3`}>
@@ -284,7 +297,7 @@ export default function OneHealthPage() {
           {WHY.map((w, i) => (
             <Reveal key={w.title} delay={i * 80}>
               <li className="flex gap-4">
-                <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0 mt-0.5" fill="none" stroke={C.sageDeep} strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" className="w-6 h-6 shrink-0 mt-0.5" fill="none" stroke={C.blueDeep} strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <circle cx="12" cy="12" r="8.5" />
                   <path d="M8.5 12.2 l2.3 2.3 4.7 -5" />
                 </svg>
@@ -298,8 +311,42 @@ export default function OneHealthPage() {
         </ul>
       </section>
 
+      {/* ── Pacientes (fotos reales del centro) ── */}
+      <section className="max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24">
+        <Reveal>
+          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-3`}>
+            Pacientes de la casa
+          </h2>
+          <p className="text-sm mb-10" style={{ color: C.muted }}>
+            Fotos reales de sus pacientes, publicadas por el centro.
+          </p>
+        </Reveal>
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 list-none">
+          {[
+            ['paciente-1', 'Gata en su transportadora, paciente del centro'],
+            ['paciente-2', 'Perro con su control médico de One Health'],
+            ['paciente-3', 'Perrito en la mesa de evaluación'],
+            ['paciente-4', 'Gata en recuperación con collarín'],
+            ['paciente-5', 'Poodle atendido por el equipo del centro'],
+            ['paciente-6', 'Cira, perrita paciente de One Health'],
+          ].map(([name, alt], i) => (
+            <Reveal key={name} delay={i * 60}>
+              <li className={`rounded-3xl overflow-hidden aspect-[3/4] ${i % 3 === 1 ? 'md:translate-y-6' : ''}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${IMG}/${name}.webp`}
+                  alt={alt}
+                  loading={i < 3 ? 'eager' : 'lazy'}
+                  className="w-full h-full object-cover"
+                />
+              </li>
+            </Reveal>
+          ))}
+        </ul>
+      </section>
+
       {/* ── Reseñas ── */}
-      <section id="resenas" className="scroll-mt-20" style={{ backgroundColor: C.sageSoft }}>
+      <section id="resenas" className="scroll-mt-20" style={{ backgroundColor: C.blueSoft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-[1fr_1.6fr] gap-8 md:gap-14 items-start">
             <Reveal>
@@ -307,7 +354,7 @@ export default function OneHealthPage() {
                 className="rounded-3xl p-7 md:p-9"
                 style={{ backgroundColor: '#FFFFFF', border: `1px solid ${C.line}` }}
               >
-                <p className="text-[11px] uppercase tracking-[0.2em] mb-4 font-semibold" style={{ color: C.sageDeep }}>
+                <p className="text-[11px] uppercase tracking-[0.2em] mb-4 font-semibold" style={{ color: C.blueDeep }}>
                   En Google Maps
                 </p>
                 <p className={`${display.className} font-semibold text-6xl md:text-7xl leading-none mb-3`}>
@@ -322,7 +369,7 @@ export default function OneHealthPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
-                  style={{ color: C.sageDeep, textDecorationColor: 'rgba(78,107,80,0.4)' }}
+                  style={{ color: C.blueDeep, textDecorationColor: 'rgba(22,49,148,0.4)' }}
                 >
                   Ver la ficha en Google →
                 </a>
@@ -334,23 +381,23 @@ export default function OneHealthPage() {
                   Lo que dicen los tutores
                 </h2>
                 <p className="text-sm mt-2 mb-2" style={{ color: C.muted }}>
-                  Textos de muestra: al publicar van las reseñas reales.
+                  Reseñas reales de su ficha en Google.
                 </p>
               </Reveal>
               {[
-                'Atendieron a mi perra con una paciencia enorme y me explicaron todo. Se nota que aman lo que hacen.',
-                'Agendé por WhatsApp en minutos y el trato fue excelente. Mi gato volvió tranquilo a la casa.',
-              ].map((t, i) => (
-                <Reveal key={i} delay={200 + i * 120}>
+                { name: 'Iris Fuentealba', txt: 'Mi experiencia fue fabulosa: gente amorosa, amable y muy preocupada. Revisaron a Mateo con una meticulosidad increíble.' },
+                { name: 'Carolina Ascencio', txt: 'Muy buena experiencia con cada doctor; se preocuparon al cien por ciento de mi Gaspy y lo trataron como a un rey. Mil por ciento recomendados.' },
+              ].map((r, i) => (
+                <Reveal key={r.name} delay={200 + i * 120}>
                   <figure
                     className="rounded-3xl p-6 md:p-7"
                     style={{ backgroundColor: '#FFFFFF', border: `1px solid ${C.line}` }}
                   >
                     <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.ink }}>
-                      “{t}”
+                      “{r.txt}”
                     </blockquote>
-                    <figcaption className="text-xs uppercase tracking-[0.15em] font-semibold" style={{ color: C.sageDeep }}>
-                      Reseña de ejemplo
+                    <figcaption className="text-xs uppercase tracking-[0.15em] font-semibold" style={{ color: C.blueDeep }}>
+                      {r.name} · Google
                     </figcaption>
                   </figure>
                 </Reveal>
@@ -384,7 +431,7 @@ export default function OneHealthPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
-                style={{ backgroundColor: C.sageDeep, color: '#fff' }}
+                style={{ backgroundColor: C.blueDeep, color: '#fff' }}
               >
                 Ver en Google Maps →
               </a>
@@ -402,7 +449,7 @@ export default function OneHealthPage() {
           <Reveal delay={150}>
             <div
               className="rounded-3xl overflow-hidden border min-h-[300px] md:min-h-0 h-full"
-              style={{ borderColor: C.line, backgroundColor: C.sageSoft }}
+              style={{ borderColor: C.line, backgroundColor: C.blueSoft }}
             >
               <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.comuna}`}
@@ -433,7 +480,7 @@ export default function OneHealthPage() {
       </section>
 
       {/* ── CTA final ── */}
-      <section style={{ backgroundColor: C.sageSoft }}>
+      <section style={{ backgroundColor: C.blueSoft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <h2 className={`${display.className} font-semibold text-[clamp(2rem,6vw,3.8rem)] leading-[1.05] mb-6`}>
@@ -449,7 +496,7 @@ export default function OneHealthPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-semibold text-sm px-8 py-3 md:py-4 rounded-full transition-transform active:scale-95 tap-44`}
-                style={{ backgroundColor: C.sageDeep, color: '#fff' }}
+                style={{ backgroundColor: C.blueDeep, color: '#fff' }}
               >
                 Agenda una hora
               </a>
@@ -466,7 +513,7 @@ export default function OneHealthPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.sageDeep, color: '#fff' }}>
+      <footer style={{ backgroundColor: C.blueDeep, color: '#fff' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>

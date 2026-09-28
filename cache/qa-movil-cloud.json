@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T07:36:09.944Z",
+  "fecha": "2026-09-28T07:42:37.881Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "constructora-pehuenche": {
-      "url": "http://localhost:4800/demos/constructora-pehuenche/",
+    "one-health": {
+      "url": "http://localhost:4800/demos/one-health/",
       "status": 200,
       "botones": [],
-      "footerPx": 292,
-      "footerPct": 34.6,
+      "footerPx": 298,
+      "footerPct": 35.3,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4111
+      "ms": 4124
     }
   }
 }

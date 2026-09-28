@@ -15,9 +15,9 @@ export const BIZ = {
   phoneDisplay: '+56 9 9591 9497',
   phoneTel: '+56995919497',
   whatsapp: '56995919497',
-  rating: 4.5,
-  ratingLabel: '4,5',
-  reviews: 150,
+  rating: 4.6,
+  ratingLabel: '4,6',
+  reviews: 152,
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
