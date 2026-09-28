@@ -137,14 +137,14 @@ export default function IusAbogadosLinaresPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 ${focusRing} tap-44`}
+                  className={`${display.className} text-sm px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 ${focusRing} tap-44`}
                   style={{ backgroundColor: C.ink, color: C.cream, boxShadow: `0 0 0 1px ${C.ink}, 5px 5px 0 ${C.gold}` }}
                 >
                   Consultar por WhatsApp
                 </a>
                 <a
                   href="#estudio"
-                  className={`${display.className} text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
+                  className={`${display.className} text-sm px-7 py-3.5 border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                   style={{ borderColor: C.ink, color: C.ink }}
                 >
                   Conocer el estudio
