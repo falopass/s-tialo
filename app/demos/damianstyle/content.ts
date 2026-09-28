@@ -2,10 +2,11 @@
  * app/demos/damianstyle/content.ts
  *
  * Datos del mockup. REALES (ficha pública y redes del negocio): nombre,
- * dirección, comuna, WhatsApp, Instagram (2.096 seguidores) y el dato
- * de que la ficha de Google aún no acumula reseñas. Todo lo demás
- * (servicios, precios, horarios y textos de reseñas) es contenido de
- * muestra para mostrar cómo se vería el sitio.
+ * dirección, comuna, WhatsApp, Instagram (2.096 seguidores), las fotos
+ * de public/demos/damianstyle/ (posts reales de @damianstyle_ en
+ * Instagram, vía imginn.com) y el dato de que la ficha de Google aún
+ * no acumula reseñas. Todo lo demás (servicios, precios, horarios y
+ * textos de reseñas) es contenido de muestra.
  */
 
 export const BIZ = {

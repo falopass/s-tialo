@@ -61,31 +61,31 @@ const NAV_LINKS = [
 const SERVICIOS = [
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Barbero terminando un fade con máquina en la silla de DamianStyle',
+    alt: 'Cliente con fade recién terminado en la silla de DamianStyle',
     tag: 'el clásico',
     name: 'Corte clásico y fade',
     desc: 'Tijera y máquina, con terminación a navaja en los contornos. Sales ordenado para la semana, sin apuro.',
   },
   {
     src: `${IMG}/detalle3.webp`,
-    alt: 'Afeitado tradicional con toalla caliente y navaja libre',
-    tag: 'ritual de casa',
-    name: 'Afeitado con toalla caliente',
-    desc: 'Toalla tibia, espuma batida a mano y navaja libre. El servicio de antes, hecho con calma.',
+    alt: 'Cliente con pelo decolorado platinado en la silla de DamianStyle',
+    tag: 'cambio total',
+    name: 'Color y matiz',
+    desc: 'Decoloración, matiz y terminación. El platino y los tonos fantasía que se ven en su Instagram.',
   },
   {
     src: `${IMG}/detalle2.webp`,
-    alt: 'Perfilado de barba con navaja y aceite en DamianStyle',
+    alt: 'Cliente con barba y fade perfilados en DamianStyle',
     tag: 'perfil prolijo',
     name: 'Arreglo de barba',
     desc: 'Perfilado, rebaje de volumen y puntas a navaja, con aceite para cerrar. La barba queda donde tiene que quedar.',
   },
   {
-    src: `${IMG}/hero.webp`,
-    alt: 'Interior de la barbería con sillas de cuero y plantas',
-    tag: 'para la familia',
-    name: 'Corte para niños',
-    desc: 'Los chicos de la villa también tienen su silla. Paciencia, buena conversación y salida a tiempo.',
+    src: `${IMG}/freestyle.webp`,
+    alt: 'Diseño freestyle con líneas a máquina en la nuca de un cliente',
+    tag: 'trazo fino',
+    name: 'Diseño freestyle',
+    desc: 'Líneas, figuras y freestyle a máquina. El detalle que hace que el corte se note desde lejos.',
   },
 ]
 
@@ -178,6 +178,7 @@ export default function DamianStylePage() {
       <div style={{ backgroundColor: C.vinoDeep }}>
         <BlitzNav
           name={BIZ.short}
+          logoSrc={`${IMG}/logo.webp`}
           links={NAV_LINKS}
           waLink={WA_LINK}
           fontClass={display.className}
@@ -196,7 +197,7 @@ export default function DamianStylePage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.vinoDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Interior de la barbería DamianStyle: sillas de cuero, plantas y luz cálida"
+          alt="Fade recién terminado de perfil, trabajo real de DamianStyle"
           fill
           priority
           loading="eager"
@@ -353,7 +354,7 @@ export default function DamianStylePage() {
                 >
                   <Image
                     src={`${IMG}/ambiente.webp`}
-                    alt="Fachada de la barbería DamianStyle en una calle arbolada de Pelarco"
+                    alt="Damián cortando a tijera a un cliente en su barbería de Pelarco"
                     fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
                     className="object-cover"
