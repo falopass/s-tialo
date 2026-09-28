@@ -30,7 +30,7 @@ const C = {
   slate: '#1E4656',
   deep: '#0E2B36',
   accent: '#B8432E',
-  accentInk: '#FCEFEA',
+  accentInk: '#FFFFFF',
   ink: '#1C2B30',
   muted: '#55666C',
   line: 'rgba(28,43,48,0.15)',

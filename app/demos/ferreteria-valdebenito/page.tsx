@@ -233,7 +233,7 @@ export default function FerreteriaValdebenitoPage() {
               </div>
               <figcaption
                 className={`${mono.className} absolute -bottom-4 left-4 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.16em] shadow-lg`}
-                style={{ backgroundColor: C.naranja, color: '#fff' }}
+                style={{ backgroundColor: '#A8551C', color: '#fff' }}
               >
                 {BIZ.address} · {BIZ.city}
               </figcaption>
@@ -312,7 +312,7 @@ export default function FerreteriaValdebenitoPage() {
                   className="h-full rounded-2xl p-6 md:p-7 border"
                   style={
                     t.hi
-                      ? { backgroundColor: C.naranja, borderColor: C.naranja, color: '#fff' }
+                      ? { backgroundColor: '#A8551C', borderColor: '#A8551C', color: '#fff' }
                       : { borderColor: 'rgba(255,253,248,0.18)', color: '#FFFDF8' }
                   }
                 >
