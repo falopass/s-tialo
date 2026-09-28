@@ -2463,6 +2463,14 @@ const BLITZ = [
     tagline: 'Pizarra de carnicería rural: tiza sobre negro, rojo ladrillo y ganchos de riel.',
     gradient: 'linear-gradient(135deg, #1D1712 0%, #B5442F 130%)',
   },
+  {
+    slug: 'gaspar-impresiones',
+    name: 'Impresos San Clemente',
+    rubro: 'Estampados y regalos personalizados',
+    city: 'San Clemente',
+    tagline: 'La mesa del taller: papel crema, tinta negra y el amarillo del logo ISC sobre piezas reales.',
+    gradient: 'linear-gradient(135deg, #191207 0%, #241B0C 55%, #F2A91E 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
