@@ -1750,6 +1750,14 @@ const BLITZ = [
     tagline: 'Anillos de tronco como el logo real, bosque, ámbar y el sendero que baja al río.',
     gradient: 'linear-gradient(135deg, #152419 0%, #22402E 55%, #DF9A3E 140%)',
   },
+  {
+    slug: 'centro-de-eventos-miguel-maureira',
+    name: 'Miguel Maureira',
+    rubro: 'Recinto para eventos',
+    city: 'Talca',
+    tagline: 'La gran invitación: franjas del sello MyM, oro viejo y programa por actos.',
+    gradient: 'linear-gradient(135deg, #0E0C08 0%, #17140F 55%, #C89B4F 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
