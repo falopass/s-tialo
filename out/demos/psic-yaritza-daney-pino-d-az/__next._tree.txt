@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/2e67b1870547635b.css","style"]
-:HL["/_next/static/chunks/594290fc7daab623.css","style"]
+:HL["/_next/static/chunks/0a01cbb58451db9c.css","style"]
 :HL["/_next/static/media/italic_400_900-s.p.a4e0341f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_700-s.p.c6e21861.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -17,4 +17,4 @@
 :HL["/demos/psic-yaritza-daney-pino-d-az/estante.webp","image"]
 :HL["/demos/psic-yaritza-daney-pino-d-az/libros.webp","image"]
 :HL["/demos/psic-yaritza-daney-pino-d-az/escritorio.webp","image"]
-0:{"buildId":"SuoSNdySZmuo6ti3ExFZx","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"psic-yaritza-daney-pino-d-az","paramType":null,"paramKey":"psic-yaritza-daney-pino-d-az","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"N_AzqzcGNP9lKVFroSQCi","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"psic-yaritza-daney-pino-d-az","paramType":null,"paramKey":"psic-yaritza-daney-pino-d-az","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
