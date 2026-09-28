@@ -12,7 +12,7 @@ export const BIZ = {
   name: 'Parrilladas Caupolican',
   short: 'P. Caupolican',
   rubro: 'Restaurante',
-  address: 'K-60 36, Pencahue',
+  address: 'K-60 36',
   city: 'Pencahue',
   region: 'Región del Maule',
   phoneDisplay: '+56 9 8919 8149',
