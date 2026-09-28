@@ -1,15 +1,20 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { DM_Serif_Display, DM_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { Vitrina } from './vitrina'
 import { BIZ, C, WA_LINK, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = DM_Serif_Display({ subsets: ['latin'], weight: ['400'] })
-const body = DM_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/dm-serif-display/normal-400.woff2', weight: '400', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/dm-sans/normal-100-1000.woff2', weight: '100 1000', style: 'normal' },
+  ],
 })
 
 export const metadata: Metadata = {

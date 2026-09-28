@@ -1,18 +1,20 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Instrument_Serif, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Instrument_Serif({
-  subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/instrument-serif/italic-400.woff2', weight: '400', style: 'italic' },
+    { path: '../../fonts/instrument-serif/normal-400.woff2', weight: '400', style: 'normal' },
+  ],
 })
-const body = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
 
 /**

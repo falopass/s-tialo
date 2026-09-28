@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
-import { Syne, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { SITE, whatsappLink } from '@/lib/config'
 import { BIZ, WA_LINK, WA_LINK_GRUPO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Syne({ subsets: ['latin'], weight: ['600', '700', '800'] })
-const body = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/syne/normal-400-800.woff2', weight: '400 800', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
 
 /**
  * Paleta del demo: rojo #C1272D, gris flota, blanco y naranja señal.

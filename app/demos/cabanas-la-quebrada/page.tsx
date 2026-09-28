@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Fraunces } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { Reveal, SiteNav, WhatsAppFab } from './chrome'
@@ -12,10 +12,11 @@ import {
   CtaScene,
 } from './scenes'
 
-const display = Fraunces({
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/fraunces/italic-100-900.woff2', weight: '100 900', style: 'italic' },
+    { path: '../../fonts/fraunces/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
   display: 'swap',
 })
 

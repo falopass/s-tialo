@@ -1,17 +1,19 @@
 import type { Metadata } from 'next'
-import { Alegreya, Karla } from 'next/font/google'
+import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_TORTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Alegreya({
-  subsets: ['latin'],
-  weight: ['500', '700', '800', '900'],
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/alegreya/italic-400-900.woff2', weight: '400 900', style: 'italic' },
+    { path: '../../fonts/alegreya/normal-400-900.woff2', weight: '400 900', style: 'normal' },
+  ],
 })
-const body = Karla({
-  subsets: ['latin'],
-  weight: ['400', '500', '700', '800'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/karla/normal-200-800.woff2', weight: '200 800', style: 'normal' },
+  ],
 })
 
 const C = {

@@ -1,18 +1,20 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Bitter, Rubik } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_TORTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Bitter({
-  subsets: ['latin'],
-  weight: ['500', '600', '700', '800', '900'],
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/bitter/italic-100-900.woff2', weight: '100 900', style: 'italic' },
+    { path: '../../fonts/bitter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
-const body = Rubik({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/rubik/normal-300-900.woff2', weight: '300 900', style: 'normal' },
+  ],
 })
 
 const C = {

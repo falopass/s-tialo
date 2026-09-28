@@ -1,22 +1,26 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Bitter, Rubik, Space_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_CLASE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Bitter({
-  subsets: ['latin'],
-  weight: ['500', '700', '800', '900'],
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/bitter/italic-100-900.woff2', weight: '100 900', style: 'italic' },
+    { path: '../../fonts/bitter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
-const body = Rubik({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/rubik/normal-300-900.woff2', weight: '300 900', style: 'normal' },
+  ],
 })
-const mono = Space_Mono({
-  subsets: ['latin'],
-  weight: ['400', '700'],
+const mono = localFont({
+  src: [
+    { path: '../../fonts/space-mono/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/space-mono/normal-700.woff2', weight: '700', style: 'normal' },
+  ],
   variable: '--font-us19-mono',
 })
 

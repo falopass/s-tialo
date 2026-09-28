@@ -1,12 +1,20 @@
 import type { Metadata } from 'next'
-import { Sora, Source_Sans_3 } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { HeroBackdrop } from './scenes'
 
-const display = Sora({ subsets: ['latin'], weight: ['500', '600', '700'] })
-const body = Source_Sans_3({ subsets: ['latin'], weight: ['400', '600', '700'] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/sora/normal-100-800.woff2', weight: '100 800', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/source-sans-3/normal-200-900.woff2', weight: '200 900', style: 'normal' },
+  ],
+})
 
 const C = {
   paper: '#FBFEFD',

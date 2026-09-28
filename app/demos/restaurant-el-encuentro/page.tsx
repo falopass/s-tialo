@@ -1,21 +1,25 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Familjen_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Familjen_Grotesk({
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/familjen-grotesk/normal-400-700.woff2', weight: '400 700', style: 'normal' },
+  ],
 })
-const body = IBM_Plex_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/ibm-plex-sans/normal-100-700.woff2', weight: '100 700', style: 'normal' },
+  ],
 })
-const mono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
+const mono = localFont({
+  src: [
+    { path: '../../fonts/ibm-plex-mono/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/ibm-plex-mono/normal-500.woff2', weight: '500', style: 'normal' },
+  ],
 })
 
 const C = {

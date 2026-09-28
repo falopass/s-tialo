@@ -1,19 +1,24 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Barlow_Condensed, Source_Serif_4 } from 'next/font/google'
+import localFont from 'next/font/local'
 import type { CSSProperties } from 'react'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_HORA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Barlow_Condensed({
-  subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/barlow-condensed/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-600.woff2', weight: '600', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-700.woff2', weight: '700', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-800.woff2', weight: '800', style: 'normal' },
+  ],
 })
-const body = Source_Serif_4({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/source-serif-4/italic-200-900.woff2', weight: '200 900', style: 'italic' },
+    { path: '../../fonts/source-serif-4/normal-200-900.woff2', weight: '200 900', style: 'normal' },
+  ],
 })
 
 const C = {

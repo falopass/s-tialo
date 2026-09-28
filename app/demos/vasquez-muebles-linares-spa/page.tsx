@@ -1,15 +1,20 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Prata, Mulish } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_ENCARGO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Prata({ subsets: ['latin'], weight: '400' })
-const body = Mulish({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/prata/normal-400.woff2', weight: '400', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/mulish/italic-200-1000.woff2', weight: '200 1000', style: 'italic' },
+    { path: '../../fonts/mulish/normal-200-1000.woff2', weight: '200 1000', style: 'normal' },
+  ],
 })
 
 const C = {

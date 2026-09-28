@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Fraunces, Outfit } from 'next/font/google'
+import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import {
@@ -12,14 +12,16 @@ import {
   IMG,
 } from './content'
 
-const display = Fraunces({
-  subsets: ['latin'],
-  style: ['normal', 'italic'],
-  axes: ['opsz', 'SOFT', 'WONK'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/fraunces/italic-100-900.woff2', weight: '100 900', style: 'italic' },
+    { path: '../../fonts/fraunces/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
-const body = Outfit({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/outfit/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
 
 const C = {

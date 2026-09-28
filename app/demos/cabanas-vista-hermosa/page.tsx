@@ -1,15 +1,24 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Passion_One, Lato } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Passion_One({
-  subsets: ['latin'],
-  weight: ['400', '700', '900'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/passion-one/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/passion-one/normal-700.woff2', weight: '700', style: 'normal' },
+    { path: '../../fonts/passion-one/normal-900.woff2', weight: '900', style: 'normal' },
+  ],
 })
-const body = Lato({ subsets: ['latin'], weight: ['400', '700', '900'] })
+const body = localFont({
+  src: [
+    { path: '../../fonts/lato/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/lato/normal-700.woff2', weight: '700', style: 'normal' },
+    { path: '../../fonts/lato/normal-900.woff2', weight: '900', style: 'normal' },
+  ],
+})
 
 /**
  * Dirección de arte: «retro de almacén de barrio» — sellos circulares,

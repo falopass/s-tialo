@@ -1,12 +1,23 @@
 import type { Metadata } from 'next'
-import { Oswald, Barlow } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { GridScene } from './scenes'
 
-const display = Oswald({ subsets: ['latin'], weight: ['500', '600', '700'] })
-const body = Barlow({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/oswald/normal-200-700.woff2', weight: '200 700', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/barlow/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/barlow/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/barlow/normal-600.woff2', weight: '600', style: 'normal' },
+    { path: '../../fonts/barlow/normal-700.woff2', weight: '700', style: 'normal' },
+  ],
+})
 
 const C = {
   paper: '#EDEFF1',

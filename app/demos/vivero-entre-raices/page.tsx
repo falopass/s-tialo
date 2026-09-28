@@ -1,18 +1,23 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Playfair_Display, Lato } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_FRUTAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/playfair-display/italic-400-900.woff2', weight: '400 900', style: 'italic' },
+    { path: '../../fonts/playfair-display/normal-400-900.woff2', weight: '400 900', style: 'normal' },
+  ],
   variable: '--font-display',
 })
-const body = Lato({
-  subsets: ['latin'],
-  weight: ['300', '400', '700', '900'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/lato/normal-300.woff2', weight: '300', style: 'normal' },
+    { path: '../../fonts/lato/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/lato/normal-700.woff2', weight: '700', style: 'normal' },
+    { path: '../../fonts/lato/normal-900.woff2', weight: '900', style: 'normal' },
+  ],
   variable: '--font-body',
 })
 

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Libre_Franklin, Source_Serif_4 } from 'next/font/google'
+import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import {
@@ -12,14 +12,16 @@ import {
   IMG,
 } from './content'
 
-const display = Libre_Franklin({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/libre-franklin/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
-const body = Source_Serif_4({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/source-serif-4/italic-200-900.woff2', weight: '200 900', style: 'italic' },
+    { path: '../../fonts/source-serif-4/normal-200-900.woff2', weight: '200 900', style: 'normal' },
+  ],
 })
 
 const C = {

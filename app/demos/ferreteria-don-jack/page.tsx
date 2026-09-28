@@ -1,13 +1,22 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Instrument_Serif, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { WaFab } from '../blitz-kit'
 import { TopNav } from './nav'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, CARTA, PRECIOS } from './content'
 
-const serif = Instrument_Serif({ subsets: ['latin'], weight: '400', style: ['normal', 'italic'] })
-const sans = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] })
+const serif = localFont({
+  src: [
+    { path: '../../fonts/instrument-serif/italic-400.woff2', weight: '400', style: 'italic' },
+    { path: '../../fonts/instrument-serif/normal-400.woff2', weight: '400', style: 'normal' },
+  ],
+})
+const sans = localFont({
+  src: [
+    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
 
 const C = {
   campo: '#4C6B3C',

@@ -1,17 +1,19 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Bricolage_Grotesque, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, INSTAGRAM_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Bricolage_Grotesque({
-  subsets: ['latin'],
-  weight: ['500', '700', '800'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/bricolage-grotesque/normal-200-800.woff2', weight: '200 800', style: 'normal' },
+  ],
 })
-const body = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
 
 const C = {

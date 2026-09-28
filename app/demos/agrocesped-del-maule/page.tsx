@@ -1,15 +1,20 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Unbounded, Onest } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Unbounded({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/unbounded/normal-200-900.woff2', weight: '200 900', style: 'normal' },
+  ],
 })
-const body = Onest({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
+const body = localFont({
+  src: [
+    { path: '../../fonts/onest/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
 
 const C = {
   paper: '#F4F8FA',

@@ -1,16 +1,21 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Cormorant_Garamond, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { BIZ, WA_LINK, waLinkProducto, WA_CATALOG, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/cormorant-garamond/italic-300-700.woff2', weight: '300 700', style: 'italic' },
+    { path: '../../fonts/cormorant-garamond/normal-300-700.woff2', weight: '300 700', style: 'normal' },
+  ],
 })
-const body = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] })
+const body = localFont({
+  src: [
+    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
 
 export const metadata: Metadata = {
   title: 'Tienda By Joseline Spa — Lencería en Pencahue',

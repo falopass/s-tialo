@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
-import { Gloock, Work_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_FRUTAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Gloock({ subsets: ['latin'], weight: '400' })
-const body = Work_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/gloock/normal-400.woff2', weight: '400', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/work-sans/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
 
 const C = {
   paper: '#FBF7EF',

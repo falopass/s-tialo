@@ -1,17 +1,19 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { DM_Serif_Display, DM_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = DM_Serif_Display({
-  subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/dm-serif-display/italic-400.woff2', weight: '400', style: 'italic' },
+    { path: '../../fonts/dm-serif-display/normal-400.woff2', weight: '400', style: 'normal' },
+  ],
 })
-const body = DM_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/dm-sans/normal-100-1000.woff2', weight: '100 1000', style: 'normal' },
+  ],
 })
 
 const C = {

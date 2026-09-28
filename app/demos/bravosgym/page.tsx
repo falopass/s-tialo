@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Prata, Mulish } from 'next/font/google'
+import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { ParallaxImg } from './parallax'
@@ -13,8 +13,16 @@ import {
   IMG,
 } from './content'
 
-const display = Prata({ subsets: ['latin'], weight: '400' })
-const body = Mulish({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/prata/normal-400.woff2', weight: '400', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/mulish/normal-200-1000.woff2', weight: '200 1000', style: 'normal' },
+  ],
+})
 
 const C = {
   navy: '#1B2A41',

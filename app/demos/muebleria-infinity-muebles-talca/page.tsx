@@ -1,17 +1,19 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Space_Grotesk, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_MEDIDA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/space-grotesk/normal-300-700.woff2', weight: '300 700', style: 'normal' },
+  ],
 })
-const body = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
 
 const C = {

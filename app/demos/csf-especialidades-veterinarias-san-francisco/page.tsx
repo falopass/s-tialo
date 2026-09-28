@@ -1,21 +1,27 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Outfit, Manrope, IBM_Plex_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Outfit({
-  subsets: ['latin'],
-  weight: ['500', '600', '700', '800', '900'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/outfit/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
-const body = Manrope({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/manrope/normal-200-800.woff2', weight: '200 800', style: 'normal' },
+  ],
 })
-const mono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const mono = localFont({
+  src: [
+    { path: '../../fonts/ibm-plex-mono/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/ibm-plex-mono/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/ibm-plex-mono/normal-600.woff2', weight: '600', style: 'normal' },
+    { path: '../../fonts/ibm-plex-mono/normal-700.woff2', weight: '700', style: 'normal' },
+  ],
   variable: '--font-csf-mono',
 })
 

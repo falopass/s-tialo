@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
-import { Marcellus, Karla } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Marcellus({ subsets: ['latin'], weight: '400' })
-const body = Karla({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/marcellus/normal-400.woff2', weight: '400', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/karla/normal-200-800.woff2', weight: '200 800', style: 'normal' },
+  ],
+})
 
 const C = {
   paper: '#FBF8F1',

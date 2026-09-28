@@ -1,14 +1,19 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Manrope } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 
-const display = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/playfair-display/normal-400-900.woff2', weight: '400 900', style: 'normal' },
+  ],
 })
-const body = Manrope({ subsets: ['latin'], weight: ['400', '600', '700'] })
+const body = localFont({
+  src: [
+    { path: '../../fonts/manrope/normal-200-800.woff2', weight: '200 800', style: 'normal' },
+  ],
+})
 
 const C = {
   paper: '#F7F5F0',

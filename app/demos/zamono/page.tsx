@@ -1,16 +1,18 @@
 import type { Metadata } from 'next'
-import { Sora, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_ACEITE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Sora({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/sora/normal-100-800.woff2', weight: '100 800', style: 'normal' },
+  ],
 })
-const body = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
 
 const C = {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Bricolage_Grotesque, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import type { CSSProperties } from 'react'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -13,11 +13,16 @@ const SPACING = Object.fromEntries(
   [5, 6, 7, 8, 9, 10, 11, 12].map((n) => [`--spacing-${n}`, `${n * 4}px`]),
 ) as CSSProperties
 
-const display = Bricolage_Grotesque({
-  subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/bricolage-grotesque/normal-200-800.woff2', weight: '200 800', style: 'normal' },
+  ],
 })
-const body = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
+const body = localFont({
+  src: [
+    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
 
 export const metadata: Metadata = {
   title: 'Girls House Estética — Centro de estética en Molina',

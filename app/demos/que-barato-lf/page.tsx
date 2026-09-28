@@ -1,13 +1,21 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Sora, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, C, HOURS, IMG, MAPS_EMBED, MAPS_URL, WA_LINK, WA_LINK2 } from './content'
 import { Catalogo } from './catalogo'
 
-const display = Sora({ subsets: ['latin'], weight: ['500', '600', '700', '800'] })
-const body = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/sora/normal-100-800.woff2', weight: '100 800', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
 
 export const metadata: Metadata = {
   title: 'QUE BARATO LF — De todo un poco en Talca',

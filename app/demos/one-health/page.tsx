@@ -1,12 +1,20 @@
 import type { Metadata } from 'next'
-import { Baloo_2, Nunito } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { HeroScene } from './scenes'
 
-const display = Baloo_2({ subsets: ['latin'], weight: ['500', '600', '700'] })
-const body = Nunito({ subsets: ['latin'], weight: ['400', '600', '700'] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/baloo-2/normal-400-800.woff2', weight: '400 800', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/nunito/normal-200-1000.woff2', weight: '200 1000', style: 'normal' },
+  ],
+})
 
 const C = {
   cream: '#FBF6EE',

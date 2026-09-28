@@ -1,18 +1,20 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Syne, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Motif } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_EVAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Syne({
-  subsets: ['latin'],
-  weight: ['600', '700', '800'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/syne/normal-400-800.woff2', weight: '400 800', style: 'normal' },
+  ],
 })
-const body = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
 
 const C = {

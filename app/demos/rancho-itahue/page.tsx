@@ -1,15 +1,20 @@
 import type { Metadata } from 'next'
-import { Fraunces, Public_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_EVENTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Fraunces({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/fraunces/italic-100-900.woff2', weight: '100 900', style: 'italic' },
+    { path: '../../fonts/fraunces/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
-const body = Public_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
+const body = localFont({
+  src: [
+    { path: '../../fonts/public-sans/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
 
 const C = {
   paper: '#F5F0E3',

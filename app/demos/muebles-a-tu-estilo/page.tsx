@@ -1,12 +1,21 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Fraunces, Nunito_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Fraunces({ subsets: ['latin'], style: ['normal', 'italic'] })
-const body = Nunito_Sans({ subsets: ['latin'] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/fraunces/italic-100-900.woff2', weight: '100 900', style: 'italic' },
+    { path: '../../fonts/fraunces/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/nunito-sans/normal-200-1000.woff2', weight: '200 1000', style: 'normal' },
+  ],
+})
 
 const C = {
   verde: '#2A7F62',

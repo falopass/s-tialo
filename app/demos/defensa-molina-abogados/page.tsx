@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Bitter, Rubik } from 'next/font/google'
+import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import {
@@ -14,14 +14,16 @@ import {
   HORARIO,
 } from './content'
 
-const display = Bitter({
-  subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
-  style: ['normal', 'italic'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/bitter/italic-100-900.woff2', weight: '100 900', style: 'italic' },
+    { path: '../../fonts/bitter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
-const body = Rubik({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/rubik/normal-300-900.woff2', weight: '300 900', style: 'normal' },
+  ],
 })
 
 const C = {

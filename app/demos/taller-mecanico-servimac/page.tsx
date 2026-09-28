@@ -1,21 +1,24 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Anton, Heebo, Roboto_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_PRESUPUESTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Anton({
-  subsets: ['latin'],
-  weight: '400',
+const display = localFont({
+  src: [
+    { path: '../../fonts/anton/normal-400.woff2', weight: '400', style: 'normal' },
+  ],
 })
-const body = Heebo({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/heebo/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
-const mono = Roboto_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
+const mono = localFont({
+  src: [
+    { path: '../../fonts/roboto-mono/normal-100-700.woff2', weight: '100 700', style: 'normal' },
+  ],
 })
 
 const C = {

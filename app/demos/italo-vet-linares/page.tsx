@@ -1,12 +1,20 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Outfit, Manrope } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, STEPS, SERVICES, PRICES } from './content'
 
-const display = Outfit({ subsets: ['latin'], weight: ['500', '700', '800'] })
-const body = Manrope({ subsets: ['latin'], weight: ['400', '500', '700'] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/outfit/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/manrope/normal-200-800.woff2', weight: '200 800', style: 'normal' },
+  ],
+})
 
 const C = {
   blue: '#2251FF',

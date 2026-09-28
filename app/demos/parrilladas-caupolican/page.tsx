@@ -1,17 +1,19 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Epilogue, Work_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
-const display = Epilogue({
-  subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/epilogue/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
-const body = Work_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const body = localFont({
+  src: [
+    { path: '../../fonts/work-sans/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
 })
 
 const C = {

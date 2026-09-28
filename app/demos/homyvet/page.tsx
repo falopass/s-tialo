@@ -1,15 +1,20 @@
 import type { Metadata } from 'next'
-import { Lora, Mulish } from 'next/font/google'
+import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { HomePanel, PawPanel, HeartPanel } from './scenes'
 
-const display = Lora({
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
+const display = localFont({
+  src: [
+    { path: '../../fonts/lora/normal-400-700.woff2', weight: '400 700', style: 'normal' },
+  ],
 })
-const body = Mulish({ subsets: ['latin'], weight: ['400', '600', '700'] })
+const body = localFont({
+  src: [
+    { path: '../../fonts/mulish/normal-200-1000.woff2', weight: '200 1000', style: 'normal' },
+  ],
+})
 
 const C = {
   bone: '#F7F2E7',
