@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import localFont from 'next/font/local'
 import { demoMetadata } from '../meta'
 import { BlitzNav, Reveal, WaFab } from '../blitz-kit'
 import { DemoBand } from '../kit'
 import LazyMap from '../lazy-map'
 import { BIZ, MAPS_EMBED, MAPS_URL, WA_LINK } from './content'
+
+const IMG = '/demos/brilla-el-sol-talca'
 
 const display = localFont({
   src: [
@@ -53,7 +56,7 @@ const PASOS = [
   { t: 'A jugar', d: 'Llega a 12 Sur con 6 Oriente, Talca, y disfruta tu bloque.' },
 ]
 
-const CONSULTAS = ['Disponibilidad', 'Horarios', 'Valores', 'Bloques semanales', 'Campeonatos', 'Eventos']
+const CONSULTAS = ['Disponibilidad', 'Horarios', 'Valores', 'Bloques semanales', 'Campeonatos', 'Pádel', 'Eventos']
 
 function Rayos({ id, color, opacity = 0.12 }: { id: string; color: string; opacity?: number }) {
   return (
@@ -75,65 +78,6 @@ function Sol({ className = '' }: { className?: string }) {
       {Array.from({ length: 12 }).map((_, i) => (
         <rect key={i} x="30" y="4" width="4" height="10" rx="2" fill={C.sun} transform={`rotate(${i * 30} 32 32)`} />
       ))}
-    </svg>
-  )
-}
-
-function CanchaScene() {
-  return (
-    <svg
-      viewBox="0 0 560 420"
-      className="w-full h-auto"
-      role="img"
-      aria-label="Ilustración de una cancha con el sol saliendo detrás de los cerros"
-    >
-      <defs>
-        <linearGradient id="bes-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#0B2E1F" />
-          <stop offset="1" stopColor="#1F5A38" />
-        </linearGradient>
-        <clipPath id="bes-clip">
-          <rect x="0" y="0" width="560" height="420" rx="28" />
-        </clipPath>
-      </defs>
-      <g clipPath="url(#bes-clip)">
-        <rect width="560" height="420" fill="url(#bes-sky)" />
-        <g opacity="0.55">
-          {Array.from({ length: 16 }).map((_, i) => (
-            <rect key={i} x="278" y="40" width="4" height="150" fill={C.sun} opacity="0.25" transform={`rotate(${i * 22.5} 280 230)`} />
-          ))}
-        </g>
-        <circle cx="280" cy="230" r="72" fill={C.sun} />
-        <path d="M0 250 Q 90 190 190 240 T 380 235 T 560 225 V 420 H 0 Z" fill="#145533" />
-        <path d="M0 290 Q 140 255 280 285 T 560 280 V 420 H 0 Z" fill="#1F7A43" />
-        <path d="M0 420 L 120 300 H 440 L 560 420 Z" fill="#2C9455" />
-        <g stroke={C.chalk} strokeWidth="3" fill="none" strokeLinecap="round">
-          <path d="M120 300 H 440" />
-          <path d="M0 420 L 120 300 M 560 420 L 440 300" />
-          <path d="M60 360 H 500" />
-          <path d="M280 300 V 420" />
-          <ellipse cx="280" cy="360" rx="46" ry="18" />
-          <path d="M215 300 V 322 H 345 V 300" />
-        </g>
-        <g>
-          <rect x="245" y="256" width="70" height="44" fill="none" stroke={C.chalk} strokeWidth="4" />
-          {Array.from({ length: 6 }).map((_, i) => (
-            <line key={`v${i}`} x1={251 + i * 11.5} y1="258" x2={251 + i * 11.5} y2="298" stroke={C.chalk} strokeWidth="1" opacity="0.6" />
-          ))}
-          {Array.from({ length: 3 }).map((_, i) => (
-            <line key={`h${i}`} x1="247" y1={266 + i * 11} x2="313" y2={266 + i * 11} stroke={C.chalk} strokeWidth="1" opacity="0.6" />
-          ))}
-        </g>
-        <g transform="translate(150 370)">
-          <circle r="22" fill={C.chalk} />
-          <path d="M-8 -6 L0 -14 L8 -6 L5 4 H-5 Z" fill={C.ink} />
-          <path d="M0 -14 V -22 M-8 -6 L-19 -9 M8 -6 L19 -9 M-5 4 L-11 14 M5 4 L11 14" stroke={C.ink} strokeWidth="2.5" fill="none" />
-        </g>
-        <g transform="translate(470 350)">
-          <rect x="-10" y="0" width="20" height="40" rx="4" fill={C.sun} />
-          <rect x="-13" y="-6" width="26" height="8" rx="3" fill={C.sunDeep} />
-        </g>
-      </g>
     </svg>
   )
 }
@@ -211,8 +155,15 @@ export default function BrillaElSolPage() {
             </Reveal>
           </div>
           <Reveal delay={150}>
-            <div className="rounded-[28px] overflow-hidden" style={{ boxShadow: '0 30px 60px rgba(0,0,0,0.35)' }}>
-              <CanchaScene />
+            <div className="relative aspect-[4/3] rounded-[28px] overflow-hidden" style={{ boxShadow: '0 30px 60px rgba(0,0,0,0.35)' }}>
+              <Image
+                src={`${IMG}/hero.webp`}
+                alt="Partido nocturno bajo los focos en el Complejo Deportivo Brilla El Sol"
+                fill
+                priority
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
             </div>
           </Reveal>
         </div>
@@ -270,6 +221,33 @@ export default function BrillaElSolPage() {
               ))}
               <span className="px-3 py-1.5 text-sm" style={{ color: C.muted }}>— todo se consulta por WhatsApp</span>
             </div>
+          </Reveal>
+
+          {/* fotos reales del recinto (ficha de Google Maps) */}
+          <Reveal delay={140}>
+            <ul className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[
+                { src: 'entrenamiento.webp', alt: 'Entrenamiento de día en la cancha del recinto' },
+                { src: 'partido.webp', alt: 'Partido en la cancha sintética de Brilla El Sol' },
+                { src: 'padel.webp', alt: 'Cancha de pádel del Complejo Deportivo Brilla El Sol' },
+                { src: 'entrada.webp', alt: 'Entrada del recinto deportivo' },
+                { src: 'cancha.webp', alt: 'Jugadores junto a la cancha del recinto' },
+                { src: 'padel2.webp', alt: 'Cancha de pádel con malla de cierre' },
+              ].map((f) => (
+                <li key={f.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl" style={{ boxShadow: '0 10px 24px rgba(16,35,26,0.12)' }}>
+                  <Image
+                    src={`${IMG}/${f.src}`}
+                    alt={f.alt}
+                    fill
+                    sizes="(min-width: 768px) 25vw, 50vw"
+                    className="object-cover"
+                  />
+                </li>
+              ))}
+            </ul>
+            <p className="mt-3 text-sm" style={{ color: C.muted }}>
+              Fotos reales publicadas en la ficha de Google Maps del complejo.
+            </p>
           </Reveal>
         </div>
       </section>

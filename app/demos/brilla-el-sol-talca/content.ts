@@ -1,3 +1,9 @@
+/**
+ * Datos verificados en la ficha pública de Google Maps del complejo
+ * (28-09-2026): nombre, dirección y teléfono. Las fotos del demo son
+ * reales y salen de esa misma ficha (partidos, entrenamientos, canchas
+ * de pádel y entrada del recinto).
+ */
 export const BIZ = {
   name: 'Complejo Deportivo Brilla El Sol',
   category: 'Recinto deportivo',
