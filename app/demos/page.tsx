@@ -2071,6 +2071,14 @@ const BLITZ = [
     tagline: 'La tarjeta de memoria: negro humo, dorado del emblema y filetes de programa solemne.',
     gradient: 'linear-gradient(135deg, #0E0D0B 0%, #16140F 55%, #C9A227 140%)',
   },
+  {
+    slug: 'moyano-aridos',
+    name: 'Moyano Áridos',
+    rubro: 'Venta de áridos y movimiento de tierras',
+    city: 'San Clemente',
+    tagline: 'Guía de despacho: Anton de cantera, cinta de obra y el azul de su logo de camión.',
+    gradient: 'linear-gradient(135deg, #20262E 0%, #1F5C9E 60%, #EDE8DC 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
