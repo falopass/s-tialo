@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T12:35:17.230Z",
+  "fecha": "2026-09-28T15:29:48.142Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "la-pica-de-los-tatas": {
-      "url": "http://localhost:4800/demos/la-pica-de-los-tatas/",
+    "las-viejas-cochinas": {
+      "url": "http://localhost:4800/demos/las-viejas-cochinas/",
       "status": 200,
       "botones": [],
-      "footerPx": 238,
-      "footerPct": 28.2,
+      "footerPx": 193,
+      "footerPct": 22.9,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4127
+      "ms": 4121
     }
   }
 }
