@@ -1582,6 +1582,14 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #F6F1E8 0%, #14151A 150%)',
   },
+  {
+    slug: 'sangucheria-chico-garcia',
+    name: 'Sanguchería Chico Garci',
+    rubro: 'Sanguchería y completos',
+    city: 'Molina',
+    tagline: 'La muralla amarilla: mostaza, medallón festoneado, pizarra pintada y 224 reseñas reales.',
+    gradient: 'linear-gradient(135deg, #171209 0%, #E8A30C 65%, #C2281B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
