@@ -2271,6 +2271,14 @@ const BLITZ = [
     tagline: 'El letrero de ruta: verde lima del cartel, madera de la entrada y postes de la K-275.',
     gradient: 'linear-gradient(135deg, #3A2716 0%, #5A3B22 50%, #9DBE2B 150%)',
   },
+  {
+    slug: 'vidrieria-poniente',
+    name: 'Vidriería Poniente',
+    rubro: 'Vidriería · aluminio y PVC',
+    city: 'Talca',
+    tagline: 'Nota de trabajo del taller: Oswald condensada, carmesí del rombo VP y esquinas mitradas.',
+    gradient: 'linear-gradient(135deg, #EEF0F1 0%, #1B1F24 60%, #B4122E 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
