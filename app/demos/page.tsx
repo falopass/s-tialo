@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'la-surena-de-molina',
+    name: 'La Sureña de Molina',
+    rubro: 'Restaurante de comida casera',
+    city: 'Molina',
+    tagline: 'Letrero de ruta: rojo de la fachada, crema y postales de la cocina casera.',
+    gradient: 'linear-gradient(135deg, #F6EEDF 0%, #F3DAD2 55%, #B23A2A 140%)',
+  },
+  {
     slug: 'kevin-celedon-psicologo-talca',
     name: 'Kevin Celedón | Psicólogo',
     rubro: 'Psicólogo',
