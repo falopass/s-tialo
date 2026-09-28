@@ -1870,6 +1870,22 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #17191D 0%, #F3F0E8 150%)',
   },
+  {
+    slug: 'taku-nikkei',
+    name: 'TAKU NIKKEI',
+    rubro: 'Restaurante nikkei · sushi',
+    city: 'Talca',
+    tagline: 'Casa nikkei: papel crema, tinta sumi y aka lacado, noren colgado y ticket de carta.',
+    gradient: 'linear-gradient(135deg, #0D0A09 0%, #221A16 55%, #C53A2E 140%)',
+  },
+  {
+    slug: 'ferreteria-arimaq',
+    name: 'Arimaq Ferretería',
+    rubro: 'Ferretería, materiales y maquinarias',
+    city: 'San Clemente',
+    tagline: 'Patio de materiales: azul marino y amarillo de precinto, góndola de inventario real.',
+    gradient: 'linear-gradient(135deg, #0C1E42 0%, #122B5C 55%, #FFC40E 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
