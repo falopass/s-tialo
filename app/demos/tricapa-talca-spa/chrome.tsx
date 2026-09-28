@@ -1,25 +1,31 @@
-import { BlitzNav, WaFab } from '../blitz-kit'
-import { BIZ, WA_LINK } from './content'
+'use client'
 
-export function Chrome() {
+import { BlitzNav, Reveal, WaFab } from '../blitz-kit'
+import { BIZ, C, WA_LINK } from './content'
+
+export { Reveal }
+
+export function Chrome({ fontClass }: { fontClass: string }) {
   return (
     <>
       <BlitzNav
         name={BIZ.displayName}
         links={[
           { label: 'Servicios', href: '#servicios' },
-          { label: 'Proceso', href: '#proceso' },
+          { label: 'Tres capas', href: '#capas' },
+          { label: 'Cotizar', href: '#cotizar' },
           { label: 'Contacto', href: '#contacto' },
         ]}
         waLink={WA_LINK}
-        fontClass="font-mono"
+        fontClass={`${fontClass} font-extrabold uppercase tracking-wide`}
+        ctaLabel="Cotizar"
         theme={{
           over: 'dark',
-          bar: '#17191B',
-          ink: '#F5F2E9',
-          line: 'rgba(245,242,233,0.15)',
-          btnBg: '#F0B323',
-          btnInk: '#17191B',
+          bar: 'rgba(21,23,26,0.94)',
+          ink: C.paper,
+          line: C.lineOnDark,
+          btnBg: C.red,
+          btnInk: '#fff',
         }}
       />
       <WaFab href={WA_LINK} label="Escribir a Tricapa Talca por WhatsApp" />
