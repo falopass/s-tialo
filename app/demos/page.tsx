@@ -974,6 +974,14 @@ const BLITZ = [
     tagline: 'Clínica y farmacia sobre Huamachuco: turquesa, patitas y reseñas reales.',
     gradient: 'linear-gradient(135deg, #0B3B35 0%, #0F7A6D 55%, #35C2AC 140%)',
   },
+  {
+    slug: 'pepivet',
+    name: 'Clínica Veterinaria Pepivet',
+    rubro: 'Veterinario',
+    city: 'Talca',
+    tagline: 'Editorial de barrio: terracota, crema y serif cálida, con la clientela real de 17 Sur.',
+    gradient: 'linear-gradient(135deg, #8A3418 0%, #B64F28 60%, #D9A441 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

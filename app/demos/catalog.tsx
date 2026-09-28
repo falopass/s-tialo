@@ -302,6 +302,7 @@ const BLITZ_CREATED: Record<string, string> = {
   'integravet': '2026-09-28',
   'drivet-animals': '2026-09-28',
   'veterinaria-ramadillas': '2026-09-28',
+  'pepivet': '2026-09-28',
 }
 
 function familyFor(rubro: string) {
