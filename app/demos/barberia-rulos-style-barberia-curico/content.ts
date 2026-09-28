@@ -2,10 +2,11 @@
  * app/demos/barberia-rulos-style-barberia-curico/content.ts
  *
  * Datos del mockup. REALES (ficha pública de Google Maps e Instagram):
- * nombre, rubro, dirección en Av. Rauquén 1967, Curicó, WhatsApp, las
- * 277 reseñas de Google y los 7.158 seguidores de @rulos.styl3. Todo
- * lo demás (servicios, precios, horarios, reseñas citadas) es
- * contenido de muestra para mostrar cómo se vería el sitio.
+ * nombre, rubro, dirección en Av. Rauquén 1967, Curicó, WhatsApp, el
+ * 4,9 de Google sobre 277 reseñas, las fotos del local, el logo X|RS,
+ * las reseñas citadas y los 7.158 seguidores de @rulos.styl3. Los
+ * servicios, precios y horarios son de muestra para mostrar cómo se
+ * vería el sitio.
  */
 
 export const BIZ = {

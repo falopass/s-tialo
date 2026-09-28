@@ -220,16 +220,16 @@ const BENTO_BARBERIA: {
 ]
 
 const METRICAS = [
+  { value: '4,9', label: 'estrellas en Google', tag: 'dato real' },
   { value: '277', label: 'reseñas en Google', tag: 'dato real' },
   { value: '7.158', label: `seguidores en ${BIZ.instagramHandle}`, tag: 'dato real' },
-  { value: '+10 años', label: 'de oficio en Curicó', tag: 'muestra' },
-  { value: '+2.000', label: 'clientes atendidos', tag: 'muestra' },
+  { value: 'X|RS', label: 'el panda de la fachada', tag: 'su sello' },
 ]
 
 const SERVICIOS_FOTO = [
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Mesón de trabajo con tijeras, máquina, peinetas, brocha y frascos',
+    alt: 'Interior de la barbería: sillones con capas negras X|RS, espejos y aros de luz',
     tag: 'el clásico',
     name: 'Corte de pelo',
     desc: 'Máquina, tijera y navaja para perfilar. Terminación con toalla y producto, sin apuro.',
@@ -238,7 +238,7 @@ const SERVICIOS_FOTO = [
   },
   {
     src: `${IMG}/detalle3.webp`,
-    alt: 'Toallas calientes en el calentador, espuma, brocha y navaja de afeitar',
+    alt: 'Sillón de la barbería junto al espejo y el sello de Google de la ficha',
     tag: 'ritual completo',
     name: 'Afeitado tradicional',
     desc: 'Toalla caliente, espuma y navaja al filo. El cierre clásico, con bálsamo al final.',
@@ -247,7 +247,7 @@ const SERVICIOS_FOTO = [
   },
   {
     src: `${IMG}/detalle2.webp`,
-    alt: 'Mesón de atención con la agenda, el lector de tarjetas y toallas dobladas',
+    alt: 'Sillón de barbero con la capa negra bordada con el logo X|RS Rulos Style',
     tag: 'para cerrar',
     name: 'Lavado y terminación',
     desc: 'Lavado en el lava-cabezas, peinado y producto para que el corte dure en casa.',
@@ -282,10 +282,22 @@ const PRECIOS = [
   { name: 'Lavado y peinado', desc: 'Lava-cabezas y producto de terminación.', price: '$5.000' },
 ]
 
-const RESENAS = [
-  'Entré sin hora un viernes y me atendieron igual. El corte quedó parejo y bien perfilado; se nota el oficio.',
-  'Pido corte y barba cada dos semanas. Siempre salgo con el mismo resultado, prolijo y a la hora que reservé.',
-  'Llevé a mi hijo y lo atendieron con paciencia. Buen ambiente y precio justo.',
+const RESENAS: { texto: string; nombre: string; cuando: string }[] = [
+  {
+    texto: 'Muy limpia la barbería y calidad; me corto con Kevin hace tiempo y nada que decir, un 10/10. Vengo con mi hijo y un 10 también, súper recomendado si tienen hijos.',
+    nombre: 'Aureliano Da Silva Zamorano',
+    cuando: 'hace 7 meses',
+  },
+  {
+    texto: 'Excelente servicio y muy amables, el barbero Felipe le achuntó al corte que le pedí de una, 100% recomendable.',
+    nombre: 'Diego Lizama',
+    cuando: 'hace 5 meses',
+  },
+  {
+    texto: 'Buen servicio, agradable barbero y súper limpio el lugar, me encantó.',
+    nombre: 'Cristian Romero',
+    cuando: 'hace 5 meses',
+  },
 ]
 
 const HORAS = [
@@ -305,6 +317,7 @@ export default function BarberiaRulosStylePage() {
       <div style={{ backgroundColor: C.deep }}>
         <BlitzNav
           name={BIZ.short}
+          logoSrc={`${IMG}/logo.webp`}
           links={NAV_LINKS}
           waLink={WA_LINK_HORA}
           fontClass={display.className}
@@ -323,7 +336,7 @@ export default function BarberiaRulosStylePage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <img
           src={`${IMG}/hero.webp`}
-          alt="Interior de la barbería: sillones de cuero frente al espejo grande, con el ventanal a la calle"
+          alt="Barbero de Rulos Style cortando el pelo a un niño, con las capas negras X|RS en primer plano"
           loading="eager"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
@@ -422,7 +435,7 @@ export default function BarberiaRulosStylePage() {
             <figure className="relative h-full min-h-[320px] md:min-h-[380px] lg:min-h-0 rounded-3xl overflow-hidden" style={{ backgroundColor: C.deep }}>
               <img
                 src={`${IMG}/ambiente.webp`}
-                alt="Fachada de la barbería en Av. Rauquén 1967: ventanal grande, toldo negro y vereda arbolada de Curicó"
+                alt="Fachada de Rulos Style: letrero RS Studio, la silueta del panda barbero y la terraza"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(38,41,45,0.2) 0%, rgba(38,41,45,0.65) 40%, rgba(38,41,45,0.94) 100%)' }} />
@@ -437,8 +450,8 @@ export default function BarberiaRulosStylePage() {
                   Av. Rauquén 1967, Curicó
                 </p>
                 <p className="text-sm md:text-base leading-relaxed max-w-md" style={{ color: 'rgba(237,230,218,0.85)' }}>
-                  Fachada a la calle con ventanal grande: desde afuera se ven
-                  los sillones. Se llega caminando por la vereda o en auto.
+                  El panda X|RS cuida la puerta: fachada a la calle con
+                  terraza y la sala de espera adentro.
                 </p>
                 <a
                   href="#ubicacion"
@@ -447,6 +460,25 @@ export default function BarberiaRulosStylePage() {
                 >
                   Ver ubicación y horarios →
                 </a>
+              </figcaption>
+            </figure>
+          </Reveal>
+          {/* foto: sala de espera */}
+          <Reveal delay={80} className="col-span-1 lg:col-span-3">
+            <figure className="relative h-full min-h-[220px] lg:min-h-0 rounded-3xl overflow-hidden" style={{ backgroundColor: C.deep }}>
+              <img
+                src={`${IMG}/detalle4.webp`}
+                alt="Sala de espera de la barbería: sofá largo, sillón y plantas bajo el letrero Sala de espera"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(38,41,45,0.15) 0%, rgba(38,41,45,0.75) 70%, rgba(38,41,45,0.92) 100%)' }} />
+              <figcaption className="relative h-full flex flex-col justify-end p-5">
+                <p className={`${display.className} font-semibold text-base md:text-lg`} style={{ color: '#FFFFFF' }}>
+                  Sala de espera
+                </p>
+                <p className="text-[13px] leading-snug" style={{ color: 'rgba(237,230,218,0.85)' }}>
+                  Para el que acompaña, con sofá y terraza.
+                </p>
               </figcaption>
             </figure>
           </Reveal>
@@ -711,8 +743,8 @@ export default function BarberiaRulosStylePage() {
               seguidores en {BIZ.instagramHandle}.
             </p>
             <p className="text-sm md:text-base leading-relaxed mb-8" style={{ color: C.muted }}>
-              Los textos de abajo son de muestra: al publicar se citan
-              reseñas reales de la ficha.
+              Estas son reseñas reales de la ficha de Google, donde la
+              barbería mantiene 4,9 estrellas sobre {BIZ.reviews} opiniones.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -738,14 +770,14 @@ export default function BarberiaRulosStylePage() {
           </Reveal>
           <div className="space-y-4 md:space-y-5">
             {RESENAS.map((r, i) => (
-              <Reveal key={i} delay={120 + i * 110}>
+              <Reveal key={r.nombre} delay={120 + i * 110}>
                 <figure className="rounded-3xl border p-6 md:p-7" style={{ backgroundColor: C.paper, borderColor: C.line }}>
                   <IconStar className="w-4 h-4 mb-3" color={C.orange} />
                   <blockquote className="text-base md:text-lg leading-relaxed mb-4" style={{ color: C.ink }}>
-                    “{r}”
+                    “{r.texto}”
                   </blockquote>
                   <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.orangeDark }}>
-                    Reseña de ejemplo
+                    {r.nombre} · Google, {r.cuando}
                   </figcaption>
                 </figure>
               </Reveal>
@@ -871,8 +903,8 @@ export default function BarberiaRulosStylePage() {
             <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.8)' }}>
-            Sitio de ejemplo de Sitiazo: dirección, WhatsApp, reseñas y
-            seguidores son reales; servicios, precios y horarios son de muestra.
+            Sitio de ejemplo de Sitiazo: fotos, dirección, WhatsApp, reseñas
+            y seguidores son reales; servicios, precios y horarios son de muestra.
           </p>
         </div>
       </footer>
