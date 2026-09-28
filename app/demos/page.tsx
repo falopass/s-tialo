@@ -998,6 +998,14 @@ const BLITZ = [
     tagline: 'Noche azul, terracota y un pino de guardián: horario real y agenda por WhatsApp.',
     gradient: 'linear-gradient(135deg, #0A1824 0%, #12293B 55%, #D6693B 140%)',
   },
+  {
+    slug: 'globalauto',
+    name: 'GlobalAuto',
+    rubro: 'Servicio automotriz',
+    city: 'San Clemente',
+    tagline: 'Taller moderno negro y naranja: alineación 3D John Bean, specs en mono y fachada real.',
+    gradient: 'linear-gradient(135deg, #0E1113 0%, #2A3238 55%, #F26A1B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
