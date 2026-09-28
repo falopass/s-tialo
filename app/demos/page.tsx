@@ -7,6 +7,30 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'pasteleria-el-ramal',
+    name: 'Pastelería El Ramal',
+    rubro: 'Pastelería, botillería y banquetería',
+    city: 'Talca',
+    tagline: 'La vitrina del barrio: crema estraza, rojo del logo y blonda de papel.',
+    gradient: 'linear-gradient(135deg, #331D17 0%, #8E1F24 60%, #D9A441 160%)',
+  },
+  {
+    slug: 'acai-city',
+    name: 'Acai City',
+    rubro: 'Açaí, pitaya y heladería',
+    city: 'Talca',
+    tagline: 'Pedazo de Brasil en Lircay: burdeos, neón magenta y mural de açaí.',
+    gradient: 'linear-gradient(135deg, #38092B 0%, #4A1138 50%, #E8449A 150%)',
+  },
+  {
+    slug: 'repuestos-14-oriente-talca',
+    name: 'Repuestos 14 Oriente',
+    rubro: 'Repuestos de carrocería',
+    city: 'Talca',
+    tagline: 'La esquina que da el nombre: placas callejeras y el muro de marcas.',
+    gradient: 'linear-gradient(135deg, #1C2733 0%, #236043 55%, #1D4F9C 150%)',
+  },
+  {
     slug: 'gasfiteria-tecnifem',
     name: 'Gasfitería Tecnifem',
     rubro: 'Gasfitería a domicilio',

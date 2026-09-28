@@ -1,15 +1,27 @@
-import { chromium } from 'playwright';
-const shots = [
-  ['piscinas-santa-adela-molina', 390], ['piscinas-santa-adela-molina', 1440],
-  ['panaderia-la-moderna-talca', 390], ['panaderia-la-moderna-talca', 1440],
-];
-const b = await chromium.launch();
-for (const [slug, w] of shots) {
-  const p = await b.newPage({ viewport: { width: w, height: 844 } });
-  await p.goto(`http://localhost:3010/demos/${slug}/`, { waitUntil: 'networkidle' });
-  await p.evaluate(async () => { await new Promise(r => { let y = 0; const t = setInterval(() => { y += 700; scrollTo(0, y); if (y >= document.body.scrollHeight) { clearInterval(t); r(); } }, 60); }); });
-  await p.waitForTimeout(2600);
-  await p.screenshot({ path: `tmp/shot-${slug}-${w}.png`, fullPage: true });
-  await p.close();
+import { chromium } from 'playwright'
+const browser = await chromium.launch()
+const targets = [
+  ['pasteleria-el-ramal', 'ramal'],
+  ['acai-city', 'acai'],
+  ['repuestos-14-oriente-talca', 'rep14'],
+]
+for (const [slug, tag] of targets) {
+  for (const [w, h, t] of [[390, 844, 'm'], [1440, 900, 'd']]) {
+    const page = await browser.newPage({ viewport: { width: w, height: h } })
+    await page.goto(`http://localhost:4800/demos/${slug}/`, { waitUntil: 'networkidle', timeout: 30000 })
+    await page.waitForTimeout(2600)
+    await page.screenshot({ path: `/tmp/shot-${tag}-${t}-hero.png` })
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight * 0.35))
+    await page.waitForTimeout(2600)
+    await page.screenshot({ path: `/tmp/shot-${tag}-${t}-mid.png` })
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight * 0.65))
+    await page.waitForTimeout(2600)
+    await page.screenshot({ path: `/tmp/shot-${tag}-${t}-mid2.png` })
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+    await page.waitForTimeout(2600)
+    await page.screenshot({ path: `/tmp/shot-${tag}-${t}-end.png` })
+    await page.close()
+  }
+  console.log(tag, 'ok')
 }
-await b.close();
+process.exit(0)
