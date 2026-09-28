@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'gasfiteria-tecnifem',
+    name: 'Gasfitería Tecnifem',
+    rubro: 'Gasfitería a domicilio',
+    city: 'Talca',
+    tagline: 'Orden de trabajo: papel crema, azul técnico y teal de su marca.',
+    gradient: 'linear-gradient(135deg, #0B2B3D 0%, #123B52 55%, #1CA7A0 150%)',
+  },
+  {
     slug: 'hema-parque-infantil',
     name: 'HEMA Parque Infantil',
     rubro: 'Parque infantil',

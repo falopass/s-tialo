@@ -1,4 +1,10 @@
 1:"$Sreact.fragment"
 2:I[339756,["/_next/static/chunks/d96012bcfc98706a.js","/_next/static/chunks/73191ed225b330d5.js"],"default"]
 3:I[837457,["/_next/static/chunks/d96012bcfc98706a.js","/_next/static/chunks/73191ed225b330d5.js"],"default"]
+<<<<<<< HEAD
 0:{"buildId":"z6MS8e0koIB88g2Jo4j0P","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+||||||| parent of 92f7b5862 (demo(gasfiteria-tecnifem): orden de trabajo papel+azul con fotos reales de su ficha e IG)
+0:{"buildId":"zulfLMPO-huFtTpHgltcF","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+=======
+0:{"buildId":"F1MjqF8iDpdWbPoIA6xKC","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+>>>>>>> 92f7b5862 (demo(gasfiteria-tecnifem): orden de trabajo papel+azul con fotos reales de su ficha e IG)
