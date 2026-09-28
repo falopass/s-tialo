@@ -2031,6 +2031,30 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #FDF4F7 0%, #F6DCE8 150%)',
   },
+  {
+    slug: 'oriente-hotel-boutique',
+    name: 'Oriente Hotel Boutique',
+    rubro: 'Hostal y alojamiento',
+    city: 'Talca',
+    tagline: 'El libro de huéspedes: papel crema, verde patio, arcos de corredor y ficha de registro.',
+    gradient: 'linear-gradient(135deg, #13211A 0%, #1C3024 55%, #9A4215 140%)',
+  },
+  {
+    slug: 'serviteca-autolisto',
+    name: 'Serviteca Autolisto',
+    rubro: 'Taller mecánico y serviteca',
+    city: 'Talca',
+    tagline: 'La orden de trabajo: grafito de taller, franja de seguridad amarilla y condensada de letrero.',
+    gradient: 'linear-gradient(135deg, #16181C 0%, #2A2E36 55%, #FFC61A 140%)',
+  },
+  {
+    slug: 'camino-a-emaus-funeraria',
+    name: 'Camino a Emaús',
+    rubro: 'Servicios funerarios',
+    city: 'Talca',
+    tagline: 'La tarjeta de memoria: negro humo, dorado del emblema y filetes de programa solemne.',
+    gradient: 'linear-gradient(135deg, #0E0D0B 0%, #16140F 55%, #C9A227 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

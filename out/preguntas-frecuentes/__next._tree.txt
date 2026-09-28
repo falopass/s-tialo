@@ -1,10 +1,29 @@
-:HL["/_next/static/chunks/2e67b1870547635b.css","style"]
-:HL["/_next/static/chunks/045358b1e1e5a8f4.css","style"]
+:HL["/_next/static/chunks/7397ef0416b9ca12.css","style"]
+<<<<<<< HEAD
+:HL["/_next/static/chunks/31bdb134cd7a1c25.css","style"]
+||||||| parent of 2ea1fd9a9 (demo(oriente-hotel-boutique): libro de huéspedes del hostal de 2 Oriente — DM Serif+Work Sans, ficha de registro, arcos de corredor, reseñas reales)
+:HL["/_next/static/chunks/ff294a3c9490efe7.css","style"]
+=======
+:HL["/_next/static/chunks/fc35604e673d10f8.css","style"]
+>>>>>>> 2ea1fd9a9 (demo(oriente-hotel-boutique): libro de huéspedes del hostal de 2 Oriente — DM Serif+Work Sans, ficha de registro, arcos de corredor, reseñas reales)
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/normal_100_900-s.p.77c0d914.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.c757f81b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/normal_200_800-s.p.eaf4b215.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_300_700-s.p.4059a8c8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_400-s.p.17abc3a0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/normal_400-s.p.95108607.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/normal_400-s.p.e1d6b3bf.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/normal_500-s.p.636cdf7d.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/normal_500-s.p.dede5d65.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/normal_600-s.p.be40382f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/normal_600-s.p.ef56508a.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/normal_700-s.p.0ca33f83.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/normal_700-s.p.b5897d2f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/normal_800-s.p.ec0b24db.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"buildId":"lAlFHiD0eBYgZinEeG52u","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"preguntas-frecuentes","paramType":null,"paramKey":"preguntas-frecuentes","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+<<<<<<< HEAD
+0:{"buildId":"jXdyZe1FedYS-V8qwp2I9","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"preguntas-frecuentes","paramType":null,"paramKey":"preguntas-frecuentes","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+||||||| parent of 2ea1fd9a9 (demo(oriente-hotel-boutique): libro de huéspedes del hostal de 2 Oriente — DM Serif+Work Sans, ficha de registro, arcos de corredor, reseñas reales)
+0:{"buildId":"HoCuLnM4jI_zXxUBw85a-","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"preguntas-frecuentes","paramType":null,"paramKey":"preguntas-frecuentes","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+=======
+0:{"buildId":"CLWAi2Ev5vTdIfV8hxGAp","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"preguntas-frecuentes","paramType":null,"paramKey":"preguntas-frecuentes","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+>>>>>>> 2ea1fd9a9 (demo(oriente-hotel-boutique): libro de huéspedes del hostal de 2 Oriente — DM Serif+Work Sans, ficha de registro, arcos de corredor, reseñas reales)
