@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/71ead0d37bf96467.css","style"]
-:HL["/_next/static/chunks/ade1763a20aaab96.css","style"]
+:HL["/_next/static/chunks/e930239b119af38a.css","style"]
 :HL["/_next/static/media/italic_400_900-s.p.5602927e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.5cdc884e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -18,4 +18,4 @@
 :HL["/demos/centro-spa-roxana/detalle3.webp","image"]
 :HL["/demos/centro-spa-roxana/ambiente.webp","image"]
 :HL["/demos/centro-spa-roxana/detalle2.webp","image"]
-0:{"buildId":"MmmUgshoIaHKen6z4d3Jn","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"centro-spa-roxana","paramType":null,"paramKey":"centro-spa-roxana","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"x6Fix8QC0wRAwe0J9Tk8W","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"centro-spa-roxana","paramType":null,"paramKey":"centro-spa-roxana","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
