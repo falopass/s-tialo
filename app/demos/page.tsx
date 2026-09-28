@@ -23,6 +23,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #14291D 0%, #1E3D2F 55%, #C8A24B 160%)',
   },
   {
+    slug: 'rou-beauty',
+    name: 'Rou Beauty',
+    rubro: 'Tienda de belleza y estética',
+    city: 'Molina',
+    tagline: 'La tienda rosa del Portal Molina: magenta del letrero, corazones del mural y repisas con nombre propio.',
+    gradient: 'linear-gradient(135deg, #FBE3EE 0%, #D90E79 60%, #8B5BC7 140%)',
+  },
+  {
     slug: 'hema-parque-infantil',
     name: 'HEMA Parque Infantil',
     rubro: 'Parque infantil',
@@ -1893,6 +1901,22 @@ const BLITZ = [
     city: 'San Clemente',
     tagline: 'Patio de materiales: azul marino y amarillo de precinto, góndola de inventario real.',
     gradient: 'linear-gradient(135deg, #0C1E42 0%, #122B5C 55%, #FFC40E 140%)',
+  },
+  {
+    slug: 'hospedaje-casa-patrimonial-elena',
+    name: 'Casa patrimonial Elena',
+    rubro: 'Hospedaje · Alojamiento particular',
+    city: 'San Clemente',
+    tagline: 'Placa patrimonial: adobe, índigo del textil y madera, con la pieza real enmarcada como ventana.',
+    gradient: 'linear-gradient(135deg, #F1EAD8 0%, #2E3570 75%, #3E2812 140%)',
+  },
+  {
+    slug: 'centro-de-artes-marciales-kaizen',
+    name: 'Centro de Artes Marciales Kaizen',
+    rubro: 'Academia de artes marciales',
+    city: 'Talca',
+    tagline: 'Dojo de 7 Norte: carbón y rojo del mural, disciplinas como escalera de cinturones.',
+    gradient: 'linear-gradient(135deg, #0F0C0A 0%, #2A1F1A 55%, #C8352C 140%)',
   },
 ]
 
