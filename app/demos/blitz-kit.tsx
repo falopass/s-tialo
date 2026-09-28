@@ -149,7 +149,7 @@ export function BlitzNav({
         </nav>
         <a
           href={waLink}
-          target="_blank"
+          target={waLink.startsWith('#') ? undefined : '_blank'}
           rel="noopener noreferrer"
           className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-all duration-500 active:scale-95 tap-44"
           style={
