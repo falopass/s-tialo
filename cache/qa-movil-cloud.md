@@ -1,32 +1,28 @@
-# QA móvil (cloud) — http://localhost:4800/demos/
+# QA móvil (cloud) — http://localhost:3010/demos/
 
-Fecha: 2026-09-28T05:24:44.155Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
+Fecha: 2026-09-28T05:26:29.873Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
 
 ## Resumen
 
 | Métrica | Demos afectados |
 |---|---|
-| Demos revisados | 3 |
+| Demos revisados | 1 |
 | Con error de carga | 0 |
 | Botones > 52px | 0 |
 | Footer > 40% | 0 |
 | Contraste < 4.5:1 (3:1 en texto grande) | 0 |
 | Desborde horizontal | 0 |
 | Contenido invisible (opacity 0 a 3500 ms) | 0 |
-| Sin hallazgos | 3 |
+| Sin hallazgos | 1 |
 
 ## Los 5 peores
 
-- **ferreteria-avila** (gravedad 0): 0 botones, footer 4.6%, 0 contrastes, sin desborde, 0 invisibles
-- **ferreteria-muller** (gravedad 0): 0 botones, footer 14.9%, 0 contrastes, sin desborde, 0 invisibles
-- **ferreteria-la-esperanza** (gravedad 0): 0 botones, footer 14.9%, 0 contrastes, sin desborde, 0 invisibles
+- **emporio-vintage-cafe** (gravedad 0): 0 botones, footer 32.1%, 0 contrastes, sin desborde, 0 invisibles
 
 ## Tabla por gravedad
 
 | # | Demo | Grav. | Btn>52 | Footer % | Contraste | Desborde | Invisibles |
 |---|---|---|---|---|---|---|---|
-| 1 | [ferreteria-avila](http://localhost:4800/demos/ferreteria-avila/) | 0 | 0 | 4.6 | 0 | — | 0 |
-| 2 | [ferreteria-muller](http://localhost:4800/demos/ferreteria-muller/) | 0 | 0 | 14.9 | 0 | — | 0 |
-| 3 | [ferreteria-la-esperanza](http://localhost:4800/demos/ferreteria-la-esperanza/) | 0 | 0 | 14.9 | 0 | — | 0 |
+| 1 | [emporio-vintage-cafe](http://localhost:3010/demos/emporio-vintage-cafe/) | 0 | 0 | 32.1 | 0 | — | 0 |
 
 ## Detalle por demo (solo con hallazgos)

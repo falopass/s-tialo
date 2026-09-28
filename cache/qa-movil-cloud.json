@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:4800",
-  "fecha": "2026-09-28T05:24:44.155Z",
+  "base": "http://localhost:3010",
+  "fecha": "2026-09-28T05:26:29.873Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,47 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "ferreteria-avila": {
-      "url": "http://localhost:4800/demos/ferreteria-avila/",
+    "emporio-vintage-cafe": {
+      "url": "http://localhost:3010/demos/emporio-vintage-cafe/",
       "status": 200,
       "botones": [],
-      "footerPx": 39,
-      "footerPct": 4.6,
+      "footerPx": 271,
+      "footerPct": 32.1,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4117
-    },
-    "ferreteria-muller": {
-      "url": "http://localhost:4800/demos/ferreteria-muller/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 126,
-      "footerPct": 14.9,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4127
-    },
-    "ferreteria-la-esperanza": {
-      "url": "http://localhost:4800/demos/ferreteria-la-esperanza/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 126,
-      "footerPct": 14.9,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4119
+      "ms": 4368
     }
   }
 }

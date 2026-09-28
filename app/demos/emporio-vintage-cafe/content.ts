@@ -1,11 +1,11 @@
 /**
  * app/demos/emporio-vintage-cafe/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps e Instagram):
- * nombre, dirección, comuna, WhatsApp, las 12 reseñas de Google y los
- * 3.996 seguidores de Instagram. Todo lo demás (carta, precios,
- * horarios, reseñas citadas) es contenido de muestra para mostrar
- * cómo se vería el sitio publicado.
+ * Datos del mockup. REALES (ficha pública de Google Maps e Instagram
+ * @emporiovintagecafe): nombre, dirección, comuna, WhatsApp, nota 5,0
+ * en Google, los 4.001 seguidores de Instagram, el horario de lunes a
+ * viernes de la bio, el logo y las fotos (Google Maps + posts de IG).
+ * La carta, los precios y las reseñas citadas siguen siendo de muestra.
  */
 
 export const BIZ = {
@@ -20,7 +20,9 @@ export const BIZ = {
   phoneTel: '+56977622207',
   whatsapp: '56977622207',
   reviews: 12,
-  followers: '3.996',
+  rating: 5,
+  ratingLabel: '5,0',
+  followers: '4.001',
   instagram: 'https://www.instagram.com/emporiovintagecafe',
 } as const
 

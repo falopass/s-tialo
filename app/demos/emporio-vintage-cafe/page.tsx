@@ -59,7 +59,7 @@ const NAV_LINKS = [
 const CARTA = [
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Espresso recién servido junto al portafiltro, el molino y granos de café sobre el mesón',
+    alt: 'Vaso de latte servido en la terraza de Emporio Vintage Café',
     title: 'De la barra',
     items: [
       { name: 'Espresso', desc: 'cortito y concentrado', price: '$2.000' },
@@ -73,7 +73,7 @@ const CARTA = [
   },
   {
     src: `${IMG}/detalle2.webp`,
-    alt: 'Vitrina de la cafetería con kuchen, tortas y hojaldres recién salidos del horno',
+    alt: 'Rincón del café con la pizarra de anuncios y una taza de latte',
     title: 'Kuchen y repostería',
     items: [
       { name: 'Kuchen de nuez', desc: 'el clásico de la casa', price: '$3.500' },
@@ -86,7 +86,7 @@ const CARTA = [
   },
   {
     src: `${IMG}/detalle3.webp`,
-    alt: 'Croissant y trozo de kuchen junto a una taza de café frente a la ventana del emporio',
+    alt: 'Empanadas de horno junto a una taza de café, de los afiches de Emporio Vintage',
     title: 'Salado y once',
     items: [
       { name: 'Sandwich ave palta', desc: '', price: '$4.500' },
@@ -98,7 +98,7 @@ const CARTA = [
   },
   {
     src: `${IMG}/hero.webp`,
-    alt: 'Interior del emporio: mesas de madera, vitrina con kuchen y ventanal a la calle',
+    alt: 'Interior de la boutique de Emporio Vintage en Talca: textiles, cestería y repisas',
     title: 'Del emporio, para llevar',
     items: [
       { name: 'Café en grano 250 g', desc: 'molido al momento si lo pides', price: '$9.900' },
@@ -124,9 +124,10 @@ const RESENAS = [
   },
 ]
 
+// Horario real de la bio de Instagram del café.
 const HORAS = [
-  { days: 'Lunes a sábado', time: 'De la mañana a la hora de once' },
-  { days: 'Domingo', time: 'Cerrado · horario de muestra' },
+  { days: 'Lunes a viernes', time: '10:00 a 19:00' },
+  { days: 'Sábado y domingo', time: 'Se confirma por WhatsApp' },
 ]
 
 function Diamond({ className = 'w-2 h-2', color = 'currentColor' }: { className?: string; color?: string }) {
@@ -170,6 +171,7 @@ export default function EmporioVintageCafePage() {
         name={BIZ.short}
         links={NAV_LINKS}
         waLink={WA_LINK}
+        logoSrc={`${IMG}/logo.webp`}
         fontClass={display.className}
         theme={{
           over: 'light',
@@ -250,7 +252,7 @@ export default function EmporioVintageCafePage() {
                   rel="noopener noreferrer"
                   className={`${FOCUS} hover:underline underline-offset-4 tap-44`}
                 >
-                  <span style={{ color: C.ambar }} aria-hidden="true">★</span> {BIZ.reviews} reseñas en Google
+                  <span style={{ color: C.ambar }} aria-hidden="true">★</span> {BIZ.ratingLabel} · {BIZ.reviews} reseñas en Google
                 </a>
                 <a
                   href={BIZ.instagram}
@@ -362,7 +364,7 @@ export default function EmporioVintageCafePage() {
                 <div className="relative aspect-[4/3]">
                   <Image
                     src={`${IMG}/ambiente.webp`}
-                    alt="Fachada de Emporio Vintage Café en Tres Norte, con toldo y mesas en la vereda"
+                    alt="Entrada del café de Emporio Vintage en Tres Norte, Talca, con su letrero luminoso"
                     fill
                     sizes="(min-width: 1024px) 44vw, 100vw"
                     className="object-cover"
@@ -387,8 +389,8 @@ export default function EmporioVintageCafePage() {
               de otra época. Se pide en la barra y la conversación es gratis.
             </p>
             <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: C.mutedDeep }}>
-              Lo avalan los vecinos: {BIZ.reviews} reseñas en su ficha de
-              Google y una comunidad de {BIZ.followers} seguidores en
+              Lo avalan los vecinos: nota {BIZ.ratingLabel} en su ficha
+              de Google y una comunidad de {BIZ.followers} seguidores en
               Instagram.
             </p>
             <ul className="space-y-3 mb-9">
@@ -578,7 +580,7 @@ export default function EmporioVintageCafePage() {
             </a>
           </nav>
           <p className="w-full text-[11px] leading-relaxed border-t pt-3" style={{ borderColor: 'rgba(253,246,236,0.14)', color: 'rgba(253,246,236,0.7)' }}>
-            {BIZ.address} · {BIZ.city}, {BIZ.region} · {BIZ.phoneDisplay} — Datos del local reales; carta, precios, horarios y reseñas citadas de muestra.
+            {BIZ.address} · {BIZ.city}, {BIZ.region} · {BIZ.phoneDisplay} — Datos, fotos, logo y horario reales (Google Maps e Instagram); carta, precios y reseñas citadas de muestra.
           </p>
         </div>
       </footer>
