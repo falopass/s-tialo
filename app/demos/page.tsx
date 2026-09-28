@@ -1742,6 +1742,14 @@ const BLITZ = [
     tagline: 'La góndola: antracita del letrero, verde VIVO, etiquetas de precio y código de barras.',
     gradient: 'linear-gradient(135deg, #10151A 0%, #46C75B 130%)',
   },
+  {
+    slug: 'cabanas-los-troncos',
+    name: 'Cabañas Los Troncos',
+    rubro: 'Cabañas y hospedaje',
+    city: 'San Clemente',
+    tagline: 'Anillos de tronco como el logo real, bosque, ámbar y el sendero que baja al río.',
+    gradient: 'linear-gradient(135deg, #152419 0%, #22402E 55%, #DF9A3E 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
