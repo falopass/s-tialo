@@ -202,6 +202,7 @@ export default function LubricentroHuamachucoPage() {
         waLink={WA_LINK}
         fontClass={display.className}
         ctaLabel="WhatsApp"
+        logoSrc={`${IMG}/logo.webp`}
         theme={{
           over: 'dark',
           bar: 'rgba(14,28,41,0.94)',
