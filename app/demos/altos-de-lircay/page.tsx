@@ -3,9 +3,11 @@ import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
+import Image from 'next/image'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
-import { ValleyScene } from './scenes'
 import LazyMap from '../lazy-map'
+
+const IMG = '/demos/altos-de-lircay'
 
 const display = localFont({
   src: [
@@ -18,22 +20,25 @@ const body = localFont({
   ],
 })
 
+// Paleta tomada del logo real del centro (diente con cerro, lago y sol):
+// azules del letrero + ámbar del sol.
 const C = {
-  paper: '#FCFDFB',
-  forestSoft: '#EDF3EE',
-  forest: '#24503A',
-  forestDeep: '#16342A',
-  copper: '#B4643C',
-  copperInk: '#9E5530',
-  copperSoft: '#EFDCCF',
-  muted: '#5B6E60',
-  line: 'rgba(36,80,58,0.14)',
+  paper: '#F6F9FC',
+  mist: '#E4EEF5',
+  navy: '#0C65A9',
+  navyDeep: '#1E2C3C',
+  cyan: '#1A94D1',
+  sun: '#D29A33',
+  sunInk: '#8A6015',
+  skySoft: '#D5E9F6',
+  muted: '#4E5D6C',
+  line: 'rgba(12,101,169,0.16)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'altos-de-lircay',
-  title: 'Altos de Lircay - Clínica Dental en San Clemente',
-  description: 'Clínica dental en San Clemente, valle del Maule. Agenda tu hora por WhatsApp.',
+  title: 'Centro Odontológico Altos de Lircay — Clínica dental en San Clemente',
+  description: 'Centro odontológico en San Clemente, valle del Maule. Agenda tu hora por WhatsApp.',
 })
 
 /**
@@ -85,19 +90,25 @@ const NAV_LINKS = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
+// Especialidades reales publicadas por la clínica en su carta
+// de difusión (imagen oficial del centro).
 const TREATMENTS = [
-  { name: 'Evaluación y diagnóstico', desc: 'Revisión completa con un plan claro para tu caso.' },
-  { name: 'Limpieza dental', desc: 'Profilaxis y control para mantener tu boca sana.' },
-  { name: 'Empastes y restauraciones', desc: 'Reparación de caries y piezas dañadas.' },
-  { name: 'Urgencias dentales', desc: 'Dolor o fracturas que necesitan atención pronta.' },
-  { name: 'Estética dental', desc: 'Opciones para mejorar el aspecto de tu sonrisa.' },
-  { name: 'Prótesis', desc: 'Soluciones para recuperar función y comodidad.' },
+  { name: 'Odontología general', desc: 'Diagnóstico, limpieza y tratamiento de caries.' },
+  { name: 'Ortodoncia', desc: 'Frenillos y alineadores para ordenar la sonrisa.' },
+  { name: 'Implantología', desc: 'Implantes para reponer piezas perdidas.' },
+  { name: 'Tratamientos de conducto', desc: 'Endodoncia para salvar piezas con dolor.' },
+  { name: 'Periodoncia', desc: 'Salud de encías y del soporte dental.' },
+  { name: 'Rehabilitación oral', desc: 'Recuperar función y estética de la boca.' },
+  { name: 'Prótesis dental', desc: 'Prótesis fijas y removibles a medida.' },
+  { name: 'Estética facial', desc: 'Armonización facial complementaria.' },
+  { name: 'Niños y adultos', desc: 'Atención familiar para todas las edades.' },
 ]
 
+// El Dr. Carrasco aparece nombrado en varias reseñas de Google.
 const TEAM = [
-  { role: 'Odontóloga', note: 'Atención general' },
-  { role: 'Odontólogo', note: 'Atención general' },
+  { role: 'Dr. Milko Carrasco', note: 'Odontólogo' },
   { role: 'Asistente dental', note: 'Apoyo clínico' },
+  { role: 'Recepción', note: 'Agenda y orientación' },
 ]
 
 const FAQS = [
@@ -123,62 +134,70 @@ export default function AltosDeLircayPage() {
   return (
     <div
       className={`${body.className} min-h-screen antialiased`}
-      style={{ backgroundColor: C.paper, color: C.forestDeep }}
+      style={{ backgroundColor: C.paper, color: C.navyDeep }}
     >
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
           over: 'light',
           bar: 'rgba(252,253,251,0.94)',
-          ink: C.forestDeep,
+          ink: C.navyDeep,
           line: C.line,
-          btnBg: C.forest,
+          btnBg: C.navy,
           btnInk: '#fff',
         }}
       />
 
-      {/* ── Hero con escena grande ── */}
+      {/* ── Hero con foto real de la fachada ── */}
       <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden">
-        <ValleyScene className="absolute inset-0 w-full h-full" />
+        <Image
+          src={`${IMG}/hero.webp`}
+          alt="Fachada del Centro Odontológico Altos de Lircay en San Clemente"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[50%_38%]"
+        />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(22,52,42,0.25) 0%, rgba(22,52,42,0) 35%, rgba(22,52,42,0.72) 100%)',
+              'linear-gradient(180deg, rgba(30,44,60,0.30) 0%, rgba(30,44,60,0) 35%, rgba(30,44,60,0.72) 100%)',
           }}
         />
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24 pt-32">
           <Reveal>
             <div
               className="max-w-2xl rounded-3xl p-6 md:p-10 backdrop-blur-sm"
-              style={{ backgroundColor: 'rgba(22,52,42,0.84)' }}
+              style={{ backgroundColor: 'rgba(30,44,60,0.86)' }}
             >
             {/* sello de rating */}
             <p
               className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg mb-6"
-              style={{ backgroundColor: '#FCFDFB', color: C.forestDeep }}
+              style={{ backgroundColor: '#FCFDFB', color: C.navyDeep }}
             >
-              <Stars value={BIZ.rating} color={C.copperInk} />
+              <Stars value={BIZ.rating} color={C.sunInk} />
               {BIZ.ratingLabel} en Google
             </p>
-            <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] mb-5 flex items-center gap-3" style={{ color: C.copperSoft }}>
-              <span className="inline-block w-8 h-px" style={{ backgroundColor: C.copperSoft }} aria-hidden="true" />
-              Clínica dental en San Clemente
+            <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] mb-5 flex items-center gap-3" style={{ color: C.skySoft }}>
+              <span className="inline-block w-8 h-px" style={{ backgroundColor: C.skySoft }} aria-hidden="true" />
+              Centro odontológico en San Clemente
             </p>
             <h1
               className={`${display.className} font-semibold leading-[1.02] tracking-[-0.01em] text-[clamp(2.6rem,9vw,5.4rem)] mb-5`}
               style={{ color: '#FCFDFB' }}
             >
-              Sonríe tranquilo
+              Sonríe con
               <br />
-              en el valle
+              confianza
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-lg mb-8" style={{ color: '#FCFDFB' }}>
-              Atención dental cercana, sin traslados largos ni esperas
-              eternas. Agenda tu hora por WhatsApp.
+              Atención odontológica para toda la familia en el pueblo:
+              sin traslados largos ni esperas eternas. Agenda por WhatsApp.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -186,14 +205,14 @@ export default function AltosDeLircayPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
-                style={{ backgroundColor: C.copperInk, color: '#fff' }}
+                style={{ backgroundColor: C.sun, color: C.navyDeep }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#tratamientos"
                 className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44`}
-                style={{ borderColor: 'rgba(252,253,251,0.5)', backgroundColor: C.forestDeep, color: '#FCFDFB' }}
+                style={{ borderColor: 'rgba(252,253,251,0.5)', backgroundColor: C.navyDeep, color: '#FCFDFB' }}
               >
                 Ver tratamientos
               </a>
@@ -204,21 +223,21 @@ export default function AltosDeLircayPage() {
       </section>
 
       {/* ── Confianza ── */}
-      <section style={{ backgroundColor: C.forestSoft }}>
+      <section style={{ backgroundColor: C.mist }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-10 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-12">
           <Reveal className="flex items-center gap-4">
-            <p className={`${display.className} font-semibold text-5xl leading-none`} style={{ color: C.forest }}>
+            <p className={`${display.className} font-semibold text-5xl leading-none`} style={{ color: C.navy }}>
               {BIZ.ratingLabel}
             </p>
             <div>
-              <Stars value={BIZ.rating} color={C.copper} className="w-5 h-5" />
+              <Stars value={BIZ.rating} color={C.cyan} className="w-5 h-5" />
               <p className="text-sm mt-1" style={{ color: C.muted }}>
                 {BIZ.reviews} reseñas verificadas
               </p>
             </div>
           </Reveal>
           <Reveal delay={100} className="sm:ml-auto">
-            <p className="text-sm md:text-base font-medium max-w-sm" style={{ color: C.forest }}>
+            <p className="text-sm md:text-base font-medium max-w-sm" style={{ color: C.navy }}>
               Una clínica del valle, para los vecinos del valle:
               atención dental en San Clemente sin irte lejos.
             </p>
@@ -229,18 +248,18 @@ export default function AltosDeLircayPage() {
       {/* ── Tratamientos (lista) ── */}
       <section id="tratamientos" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.22em] mb-3 font-semibold" style={{ color: C.copperInk }}>
+          <p className="text-[11px] uppercase tracking-[0.22em] mb-3 font-semibold" style={{ color: C.sunInk }}>
             Tratamientos
           </p>
-          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.forest }}>
+          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.navy }}>
             Cuidado dental completo
           </h2>
           <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
-            Carta referencial: al publicar el sitio van las prestaciones
-            reales de la clínica.
+            Las especialidades que el centro publica en su carta de difusión.
           </p>
         </Reveal>
-        <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-2 max-w-4xl">
+        <div className="grid lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-14 items-start">
+        <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-2">
           {TREATMENTS.map((t, i) => (
             <Reveal key={t.name} delay={i * 60}>
               <li
@@ -251,7 +270,7 @@ export default function AltosDeLircayPage() {
                   viewBox="0 0 24 24"
                   className="w-[22px] h-[22px] shrink-0 mt-0.5"
                   fill="none"
-                  stroke={C.copper}
+                  stroke={C.cyan}
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -260,7 +279,7 @@ export default function AltosDeLircayPage() {
                   <path d="M8 4.5 C5.5 4.5 4 6.5 4 9.5 C4 14 5.5 20 7.5 20 C9 20 8.5 15.5 12 15.5 C15.5 15.5 15 20 16.5 20 C18.5 20 20 14 20 9.5 C20 6.5 18.5 4.5 16 4.5 C14 4.5 13.5 5.5 12 5.5 C10.5 5.5 10 4.5 8 4.5 Z" />
                 </svg>
                 <div>
-                  <h3 className={`${display.className} font-semibold text-lg`} style={{ color: C.forest }}>
+                  <h3 className={`${display.className} font-semibold text-lg`} style={{ color: C.navy }}>
                     {t.name}
                   </h3>
                   <p className="text-sm leading-relaxed mt-0.5" style={{ color: C.muted }}>
@@ -271,13 +290,31 @@ export default function AltosDeLircayPage() {
             </Reveal>
           ))}
         </ul>
+        <Reveal delay={150}>
+          <figure
+            className="rounded-3xl overflow-hidden border shadow-sm"
+            style={{ borderColor: C.line, backgroundColor: '#FFFFFF' }}
+          >
+            <Image
+              src={`${IMG}/carta.webp`}
+              alt="Carta de difusión del Centro Odontológico Altos de Lircay con sus especialidades"
+              width={1024}
+              height={1024}
+              className="w-full h-auto"
+            />
+            <figcaption className="text-xs px-5 py-3.5" style={{ color: C.muted }}>
+              Carta publicada por el centro en sus redes.
+            </figcaption>
+          </figure>
+        </Reveal>
+        </div>
       </section>
 
       {/* ── Equipo (placeholders) ── */}
-      <section id="equipo" className="scroll-mt-20" style={{ backgroundColor: C.forestSoft }}>
+      <section id="equipo" className="scroll-mt-20" style={{ backgroundColor: C.mist }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
-            <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.forest }}>
+            <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.navy }}>
               El equipo
             </h2>
             <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
@@ -290,18 +327,18 @@ export default function AltosDeLircayPage() {
               <Reveal key={i} delay={i * 100}>
                 <li
                   className="rounded-2xl p-6 text-center border-2 border-dashed"
-                  style={{ borderColor: 'rgba(36,80,58,0.25)', backgroundColor: 'rgba(252,253,251,0.7)' }}
+                  style={{ borderColor: 'rgba(12,101,169,0.25)', backgroundColor: 'rgba(252,253,251,0.7)' }}
                 >
                   <span
                     className="mx-auto mb-4 w-20 h-20 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: C.forestSoft }}
+                    style={{ backgroundColor: C.mist }}
                   >
-                    <svg viewBox="0 0 24 24" className="w-10 h-10" fill="none" stroke={C.forest} strokeOpacity="0.45" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" className="w-10 h-10" fill="none" stroke={C.navy} strokeOpacity="0.45" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true">
                       <circle cx="12" cy="8.5" r="3.5" />
                       <path d="M5.5 19.5 c1.2 -3.5 3.6 -5 6.5 -5 c2.9 0 5.3 1.5 6.5 5" />
                     </svg>
                   </span>
-                  <p className={`${display.className} font-semibold text-base`} style={{ color: C.forest }}>
+                  <p className={`${display.className} font-semibold text-base`} style={{ color: C.navy }}>
                     {m.role}
                   </p>
                   <p className="text-xs mt-1" style={{ color: C.muted }}>
@@ -320,16 +357,16 @@ export default function AltosDeLircayPage() {
           <Reveal>
             <div
               className="rounded-2xl p-7 md:p-9"
-              style={{ backgroundColor: C.forest, color: '#FCFDFB' }}
+              style={{ backgroundColor: C.navy, color: '#FCFDFB' }}
             >
-              <p className="text-[11px] uppercase tracking-[0.22em] mb-4 font-semibold" style={{ color: C.copperSoft }}>
+              <p className="text-[11px] uppercase tracking-[0.22em] mb-4 font-semibold" style={{ color: C.skySoft }}>
                 En Google Maps
               </p>
               <p className={`${display.className} font-semibold text-6xl md:text-7xl leading-none mb-3`}>
                 {BIZ.ratingLabel}
               </p>
-              <Stars value={BIZ.rating} color={C.copperSoft} className="w-5 h-5" />
-              <p className="text-sm mt-3" style={{ color: 'rgba(252,253,251,0.7)' }}>
+              <Stars value={BIZ.rating} color={C.skySoft} className="w-5 h-5" />
+              <p className="text-sm mt-3" style={{ color: 'rgba(252,253,251,0.88)' }}>
                 {BIZ.reviews} reseñas de pacientes
               </p>
               <a
@@ -337,7 +374,7 @@ export default function AltosDeLircayPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
-                style={{ color: C.copperSoft, textDecorationColor: 'rgba(216,150,114,0.4)' }}
+                style={{ color: C.skySoft, textDecorationColor: 'rgba(216,150,114,0.4)' }}
               >
                 Ver la ficha en Google →
               </a>
@@ -345,27 +382,33 @@ export default function AltosDeLircayPage() {
           </Reveal>
           <div className="space-y-5">
             <Reveal delay={100}>
-              <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-tight`} style={{ color: C.forest }}>
+              <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-tight`} style={{ color: C.navy }}>
                 Lo que dicen los vecinos
               </h2>
               <p className="text-sm mt-2 mb-2" style={{ color: C.muted }}>
-                Textos de muestra: al publicar van las reseñas reales.
+                Reseñas reales publicadas en la ficha de Google.
               </p>
             </Reveal>
             {[
-              'Excelente atención, me explicaron todo con calma y sin apuro. Se agradece tener una clínica así en el pueblo.',
-              'Agendé por WhatsApp y me atendieron puntual. Trato muy cercano, como debe ser.',
-            ].map((t, i) => (
+              {
+                author: 'Paula Reyes',
+                text: 'De verdad mi experiencia fue muy buena. Desde el primer momento me sentí cómoda y bien atendida, con un trato súper cercano, amable y profesional.',
+              },
+              {
+                author: 'Camila Zúñiga Cerpa',
+                text: 'Las instalaciones son limpias, cómodas y generan mucha confianza, muy buena higiene. Entregan una atención clara y muy dedicada.',
+              },
+            ].map((r, i) => (
               <Reveal key={i} delay={200 + i * 120}>
                 <figure
                   className="rounded-2xl p-6 md:p-7 border"
                   style={{ backgroundColor: '#FFFFFF', borderColor: C.line }}
                 >
-                  <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.forestDeep }}>
-                    “{t}”
+                  <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.navyDeep }}>
+                    “{r.text}”
                   </blockquote>
-                  <figcaption className="text-xs uppercase tracking-[0.15em] font-semibold" style={{ color: C.copperInk }}>
-                    Reseña de ejemplo
+                  <figcaption className="text-xs uppercase tracking-[0.15em] font-semibold" style={{ color: C.sunInk }}>
+                    {r.author} · reseña en Google
                   </figcaption>
                 </figure>
               </Reveal>
@@ -375,10 +418,10 @@ export default function AltosDeLircayPage() {
       </section>
 
       {/* ── Horario + ubicación ── */}
-      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.forestSoft }}>
+      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.mist }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
-            <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-6`} style={{ color: C.forest }}>
+            <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-6`} style={{ color: C.navy }}>
               Ven a conocernos
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
@@ -390,17 +433,17 @@ export default function AltosDeLircayPage() {
               className="rounded-2xl p-5 mb-8 max-w-sm"
               style={{ backgroundColor: 'rgba(252,253,251,0.7)', border: `1px solid ${C.line}` }}
             >
-              <p className={`${display.className} font-semibold text-sm uppercase tracking-[0.12em] mb-3`} style={{ color: C.forest }}>
+              <p className={`${display.className} font-semibold text-sm uppercase tracking-[0.12em] mb-3`} style={{ color: C.navy }}>
                 Horario de atención
               </p>
               <dl className="space-y-1.5 text-sm" style={{ color: C.muted }}>
                 <div className="flex justify-between gap-4">
                   <dt>Lunes a viernes</dt>
-                  <dd className="font-semibold" style={{ color: C.forest }}>mañana y tarde</dd>
+                  <dd className="font-semibold" style={{ color: C.navy }}>mañana y tarde</dd>
                 </div>
                 <div className="flex justify-between gap-4">
                   <dt>Sábado</dt>
-                  <dd className="font-semibold" style={{ color: C.forest }}>por agenda</dd>
+                  <dd className="font-semibold" style={{ color: C.navy }}>por agenda</dd>
                 </div>
               </dl>
               <p className="text-xs mt-3" style={{ color: C.muted }}>
@@ -410,7 +453,7 @@ export default function AltosDeLircayPage() {
             </div>
             <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
               Teléfono:{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.forest }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.navy }}>
                 {BIZ.phoneDisplay}
               </a>
             </p>
@@ -420,7 +463,7 @@ export default function AltosDeLircayPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
-                style={{ backgroundColor: C.forest, color: '#fff' }}
+                style={{ backgroundColor: C.navy, color: '#fff' }}
               >
                 Cómo llegar →
               </a>
@@ -429,7 +472,7 @@ export default function AltosDeLircayPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44`}
-                style={{ borderColor: 'rgba(36,80,58,0.35)', color: C.forest }}
+                style={{ borderColor: 'rgba(12,101,169,0.35)', color: C.navy }}
               >
                 Agendar por WhatsApp
               </a>
@@ -438,7 +481,7 @@ export default function AltosDeLircayPage() {
           <Reveal delay={150}>
             <div
               className="rounded-2xl overflow-hidden border min-h-[300px] md:min-h-0 h-full"
-              style={{ borderColor: C.line, backgroundColor: C.forestSoft }}
+              style={{ borderColor: C.line, backgroundColor: C.mist }}
             >
               <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.address}`}
@@ -455,7 +498,7 @@ export default function AltosDeLircayPage() {
       {/* ── FAQ ── */}
       <section className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-3`} style={{ color: C.forest }}>
+          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-3`} style={{ color: C.navy }}>
             Preguntas frecuentes
           </h2>
           <p className="text-sm mb-8" style={{ color: C.muted }}>
@@ -464,18 +507,18 @@ export default function AltosDeLircayPage() {
         </Reveal>
         <FaqList
           items={FAQS}
-          colors={{ q: C.forest, a: C.muted, line: C.line, plusBg: C.forestSoft, plusInk: C.copper }}
+          colors={{ q: C.navy, a: C.muted, line: C.line, plusBg: C.mist, plusInk: C.cyan }}
         />
       </section>
 
       {/* ── CTA final ── */}
-      <section style={{ backgroundColor: C.copperSoft }}>
+      <section style={{ backgroundColor: C.skySoft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
-            <h2 className={`${display.className} font-semibold text-[clamp(2rem,6vw,3.8rem)] leading-[1.04] mb-6`} style={{ color: C.forestDeep }}>
+            <h2 className={`${display.className} font-semibold text-[clamp(2rem,6vw,3.8rem)] leading-[1.04] mb-6`} style={{ color: C.navyDeep }}>
               Agenda tu hora en San Clemente
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: C.forest }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: C.navyDeep }}>
               Escríbenos por WhatsApp y te confirmamos la hora más
               cercana disponible.
             </p>
@@ -485,14 +528,14 @@ export default function AltosDeLircayPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
-                style={{ backgroundColor: C.forest, color: '#fff' }}
+                style={{ backgroundColor: C.navy, color: '#fff' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
                 className={`${display.className} font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors tap-44`}
-                style={{ borderColor: 'rgba(22,52,42,0.35)', color: C.forestDeep }}
+                style={{ borderColor: 'rgba(30,44,60,0.35)', color: C.navyDeep }}
               >
                 {BIZ.phoneDisplay}
               </a>
@@ -502,7 +545,7 @@ export default function AltosDeLircayPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.forestDeep, color: '#FCFDFB' }}>
+      <footer style={{ backgroundColor: C.navyDeep, color: '#FCFDFB' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
