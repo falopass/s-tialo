@@ -1630,6 +1630,38 @@ const BLITZ = [
     tagline: 'Sazón limeña: rojo Perú, amarillo ají y el mural "sabor que te traslada a Perú" de la casa.',
     gradient: 'linear-gradient(135deg, #FAF1DC 0%, #B3202C 60%, #E88A19 140%)',
   },
+  {
+    slug: 'club-formas-molina',
+    name: 'Club Formas',
+    rubro: 'Gimnasio',
+    city: 'Molina',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #0D1416 0%, #1A2629 150%)',
+  },
+  {
+    slug: 'fotografo-francisco-kandalaft',
+    name: 'Francisco Kandalaft',
+    rubro: 'Fotografía y video de matrimonios',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F7F4EE 0%, #181512 150%)',
+  },
+  {
+    slug: 'iron-element-talca',
+    name: 'Iron Element',
+    rubro: 'Gimnasio',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #0E0D0A 0%, #1F1C14 150%)',
+  },
+  {
+    slug: 'lavanderia-de-cobertores-talca',
+    name: 'Lavandería de Cobertores Talca',
+    rubro: 'Lavandería · ropa de cama',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #FAF4E7 0%, #FFFDF7 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
