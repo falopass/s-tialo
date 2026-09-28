@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T16:26:38.296Z",
+  "fecha": "2026-09-28T17:23:13.312Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,8 +12,36 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "psic-yaritza-daney-pino-d-az": {
-      "url": "http://localhost:4800/demos/psic-yaritza-daney-pino-d-az/",
+    "la-orquidea-talca": {
+      "url": "http://localhost:4800/demos/la-orquidea-talca/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 322,
+      "footerPct": 38.2,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4126
+    },
+    "casa-de-campo-san-clemente": {
+      "url": "http://localhost:4800/demos/casa-de-campo-san-clemente/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 326,
+      "footerPct": 38.6,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4135
+    },
+    "aluminios-y-vidrios-thonyglass": {
+      "url": "http://localhost:4800/demos/aluminios-y-vidrios-thonyglass/",
       "status": 200,
       "botones": [],
       "footerPx": 299,
@@ -25,34 +53,6 @@
       "culpables": [],
       "invisibles": [],
       "ms": 4134
-    },
-    "aluminios-alumrod": {
-      "url": "http://localhost:4800/demos/aluminios-alumrod/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 298,
-      "footerPct": 35.3,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4133
-    },
-    "caba-as-cerro-colorado": {
-      "url": "http://localhost:4800/demos/caba-as-cerro-colorado/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 322,
-      "footerPct": 38.2,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4140
     }
   }
 }
