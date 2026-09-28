@@ -551,6 +551,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #101A29 0%, #1B2A41 55%, #C1663F 140%)',
   },
   {
+    slug: 'gimnasio-body-fitness-talca',
+    name: 'Gimnasio Body Fitness Talca',
+    rubro: 'Gimnasio',
+    city: 'Talca',
+    tagline: 'Sala de entrenamiento con máquinas y pesas, en tonos grafito y lima.',
+    gradient: 'linear-gradient(135deg, #111916 0%, #26382D 55%, #D2F36B 140%)',
+  },
+  {
     slug: 'ferreteria-valdebenito',
     name: 'Ferretería Valdebenito',
     rubro: 'Tienda de herramientas',
@@ -573,6 +581,14 @@ const BLITZ = [
     city: 'Curicó',
     tagline: 'Manual del taller: azul pizarra y amarillo lápiz, doble columna con sidebar pegajoso y fotos.',
     gradient: 'linear-gradient(135deg, #22353F 0%, #2F4858 55%, #F2B705 140%)',
+  },
+  {
+    slug: 'mym-taller-mecanico-talca',
+    name: 'MyM Taller mecánico y mecánica a domicilio',
+    rubro: 'Taller mecánico',
+    city: 'Talca',
+    tagline: 'Mecánica en taller y a domicilio, con una foto de un servicio publicado por MyM.',
+    gradient: 'linear-gradient(135deg, #111916 0%, #26382D 55%, #D2F36B 140%)',
   },
   {
     slug: 'bxtraining-1',
