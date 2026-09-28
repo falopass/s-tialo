@@ -1655,6 +1655,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0B1220 0%, #101A2C 55%, #F5A623 140%)',
   },
   {
+    slug: 'subliprint',
+    name: 'Subliprint',
+    rubro: 'Imprenta y sublimación',
+    city: 'San Clemente',
+    tagline: 'Chapa de imprenta: papel, tinta y magenta de proceso, marcas de corte y fichas CMYK.',
+    gradient: 'linear-gradient(135deg, #17171C 0%, #C81E6B 90%, #E4B700 150%)',
+  },
+  {
     slug: 'nogal-consulta-veterinaria',
     name: 'Nogal consulta veterinaria',
     rubro: 'Veterinario',
