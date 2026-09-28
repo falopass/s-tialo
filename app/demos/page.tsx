@@ -1310,6 +1310,14 @@ const BLITZ = [
     tagline: 'Señalética de parque: crema, madera y búho dorado con tarifas 2026 reales.',
     gradient: 'linear-gradient(135deg, #1E3D2F 0%, #5B3A1E 70%, #C8A24B 140%)',
   },
+  {
+    slug: 'dinocompletos',
+    name: 'Dinocompletos',
+    rubro: 'Restaurant de completos',
+    city: 'Molina',
+    tagline: 'El garage de los completos en Yerbas Buenas: bandera a cuadros, rojo racing y 4,7 en Google.',
+    gradient: 'linear-gradient(135deg, #17130F 0%, #7A1418 60%, #F04B40 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
