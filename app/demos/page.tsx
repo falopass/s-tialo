@@ -2143,6 +2143,14 @@ const BLITZ = [
     tagline: 'Pauta de cuaderno: Fraunces editorial, lila de su uniforme y retrato en arco.',
     gradient: 'linear-gradient(135deg, #EDE4F7 0%, #4A2E9E 70%, #FBF5EE 160%)',
   },
+  {
+    slug: 'ms-electric-spa',
+    name: 'MS Electric SPA',
+    rubro: 'Electricista · Instalador certificado',
+    city: 'Maule',
+    tagline: 'Tablero eléctrico: carbón, amarillo de seguridad y Barlow Condensed con etiquetas mono.',
+    gradient: 'linear-gradient(135deg, #101216 0%, #1E222B 55%, #FFC400 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
