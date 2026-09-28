@@ -4,7 +4,6 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
-import { BlueprintGrid, ObraScene } from './scenes'
 
 const display = localFont({
   src: [
@@ -121,6 +120,17 @@ function Helmet({ className = 'w-4 h-4', color = 'currentColor' }: { className?:
   )
 }
 
+function BosquejoTag({ className = '' }: { className?: string }) {
+  return (
+    <span
+      className={`absolute z-10 font-bold uppercase tracking-[0.14em] text-[10px] px-2.5 py-1.5 rounded-sm ${className}`}
+      style={{ backgroundColor: C.gold, color: '#0D0D33' }}
+    >
+      bosquejo · se reemplaza por tu foto real
+    </span>
+  )
+}
+
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
@@ -154,10 +164,15 @@ export default function ConstructoraValdesPage() {
         }}
       />
 
-      {/* ── Hero sobre plano ── */}
+      {/* ── Hero con foto bosquejo ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.navyDeep }}>
-        <div className="absolute inset-0 opacity-90">
-          <BlueprintGrid className="w-full h-full" />
+        <div className="absolute inset-0">
+          <img
+            src={`${IMG}/bosquejo-obra.webp`}
+            alt=""
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          />
         </div>
         <div
           className="absolute inset-0"
@@ -166,6 +181,7 @@ export default function ConstructoraValdesPage() {
               'linear-gradient(180deg, rgba(13,13,51,0.7) 0%, rgba(13,13,51,0.5) 38%, rgba(13,13,51,0.94) 100%)',
           }}
         />
+        <BosquejoTag className="top-24 right-5 md:top-28 md:right-8" />
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
           <div className="grid lg:grid-cols-[1.5fr_1fr] gap-8 md:gap-12 items-end">
             <Reveal>
@@ -264,11 +280,8 @@ export default function ConstructoraValdesPage() {
         </ol>
       </section>
 
-      {/* ── Cómo trabajamos + escena ── */}
+      {/* ── Cómo trabajamos + foto bosquejo ── */}
       <section id="proceso" className="scroll-mt-20 relative overflow-hidden" style={{ backgroundColor: C.navyDeep }}>
-        <div className="absolute inset-0 opacity-[0.16]">
-          <ObraScene className="w-full h-full" />
-        </div>
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <Eyebrow light>Cómo trabajamos</Eyebrow>
@@ -283,6 +296,16 @@ export default function ConstructoraValdesPage() {
                 desde que escribes hasta que la obra queda lista.
               </p>
             </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <figure className="relative rounded-sm overflow-hidden border mb-10 md:mb-14" style={{ borderColor: 'rgba(245,242,235,0.16)' }}>
+              <img
+                src={`${IMG}/bosquejo-radier.webp`}
+                alt="Radier de hormigón en nivelación, imagen de referencia del tipo de obra"
+                className="w-full h-auto block max-h-[380px] object-cover"
+              />
+              <BosquejoTag className="bottom-3 left-3" />
+            </figure>
           </Reveal>
           <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {PASOS.map((p, i) => (
@@ -410,9 +433,14 @@ export default function ConstructoraValdesPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.navyDeep }}>
-        <div className="absolute inset-0 opacity-[0.2]">
-          <ObraScene className="w-full h-full" />
-        </div>
+        <div
+          className="absolute inset-x-0 top-0 h-2"
+          style={{
+            background:
+              'repeating-linear-gradient(-45deg, #D9A441 0 18px, #0D0D33 18px 36px)',
+          }}
+          aria-hidden="true"
+        />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <h2 className={`${display.className} font-bold uppercase text-[clamp(2rem,6.5vw,3.8rem)] leading-[1.05] mb-6`} style={{ color: '#F5F2EB' }}>

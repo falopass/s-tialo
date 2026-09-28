@@ -9,6 +9,10 @@
  * - Comuna: San Clemente (la ficha no muestra calle; el registro
  *   público de la EIRL indica sector Queri, San Clemente).
  * - Sin reseñas en Google: no se muestra sección de opiniones.
+ * - Sin fotos de obras: la ficha de Maps solo tiene el logo y no hay
+ *   Instagram/Facebook verificable → las imágenes de obra son
+ *   bosquejos marcados visiblemente (badge «bosquejo»), pendientes
+ *   de reemplazo por fotos reales del negocio.
  * Servicios, pasos y zonas: de muestra, acordes al giro «obras
  * menores» que declara su propio logo.
  */
