@@ -1438,6 +1438,14 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #0D1219 0%, #F2F5F8 150%)',
   },
+  {
+    slug: 'oass-arriendo-retroexcavadora-y-camiones',
+    name: 'OASS · Retroexcavadora y camiones',
+    rubro: 'Arriendo de maquinaria',
+    city: 'San Clemente',
+    tagline: 'Parte de faena: carbón, amarillo máquina, cinta de seguridad y ficha técnica.',
+    gradient: 'linear-gradient(135deg, #17140E 0%, #3B331D 55%, #F2C00C 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
