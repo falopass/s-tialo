@@ -22,6 +22,39 @@ export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encod
   'Villa Antillanca, Hotel & Centro de Eventos, Camino a San Clemente km 2,3, Talca, Chile',
 )}`
 
+/** Paleta del demo: verde bosque, crema, dorado y terracota de atardecer. */
+export const C = {
+  forest: '#1E3A2F',
+  forest2: '#264A3B',
+  cream: '#F7F2E7',
+  cream2: '#EEE6D6',
+  gold: '#B7892B',
+  goldDeep: '#7F5B14',
+  goldSoft: '#E3C577',
+  terracotta: '#B85C38',
+  ink: '#1C231F',
+  muted: '#5B655E',
+  mutedOnDark: '#C7D1C9',
+  line: 'rgba(28,35,31,0.14)',
+  lineOnDark: 'rgba(247,242,231,0.16)',
+} as const
+
+/** Espacios publicados en las fichas del hotel (VyMaps, Google Maps). */
+export const ESPACIOS = [
+  { n: '01', title: 'Hotel', desc: 'Habitaciones para descansar a minutos de Talca, camino a San Clemente.' },
+  { n: '02', title: 'Centro de eventos', desc: 'Salón para matrimonios, celebraciones y reuniones de empresa.' },
+  { n: '03', title: 'Bar y restaurante', desc: 'Para comer y compartir sin salir del recinto.' },
+  { n: '04', title: 'Piscina', desc: 'Espacio exterior para las tardes de calor del Maule.' },
+] as const
+
+export const EVENTOS = ['Matrimonios', 'Cumpleaños', 'Reuniones de empresa', 'Celebraciones familiares'] as const
+
+export const PASOS = [
+  { title: 'Cuéntanos la fecha', desc: 'Por WhatsApp: qué tipo de evento o estadía y cuándo.' },
+  { title: 'Revisamos disponibilidad', desc: 'Te confirmamos si el espacio está libre y qué incluye.' },
+  { title: 'Reservas con calma', desc: 'Recibes el detalle y coordinas los siguientes pasos.' },
+] as const
+
 export const SOURCES = [
   'Google Maps, ficha pública de Villa Antillanca: nombre, dirección, horario y fotos de usuarios.',
   'SERNATUR, ficha Hotel Antillanca: Sector Santa Mónica parcela 13, camino a San Clemente, Talca; +56 71 226 0765.',
