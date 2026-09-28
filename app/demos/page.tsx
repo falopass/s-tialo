@@ -1070,6 +1070,14 @@ const BLITZ = [
     tagline: 'Azotea nocturna: tinta profunda, neón lima G14 y el dial del ascensor hasta el piso 14, con fotos reales.',
     gradient: 'linear-gradient(135deg, #0B0E08 0%, #131809 55%, #C6F24E 140%)',
   },
+  {
+    slug: 'ferreteria-muller',
+    name: 'Ferretería Müller',
+    rubro: 'Ferretería y materiales',
+    city: 'Rancagua',
+    tagline: 'Vale de bodega: verde letrero, ámbar y rojo camión, líneas de stock con raya punteada.',
+    gradient: 'linear-gradient(135deg, #0D3524 0%, #17573B 55%, #F2B32D 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
