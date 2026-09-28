@@ -48,7 +48,7 @@ const NAV_LINKS = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-const CORTES = ['Vacuno', 'Cerdo', 'Longanizas', 'Costillar', 'Postas y lomos']
+const CORTES = ['Vacuno', 'Longanizas', 'Costillar', 'Cortes al mostrador']
 
 const RESENAS = [
   {
@@ -218,7 +218,7 @@ export default function CarnesBravoPage() {
             <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} font-bold transition-colors hover:text-white tap-44`}>
               {BIZ.phoneDisplay}
             </a>
-            <span className="hidden sm:inline">Lun–Sáb hasta las 21:00</span>
+            <span className="hidden sm:inline">Domingos hasta las 14:00</span>
             <span className="hidden md:inline" style={{ color: 'rgba(239,231,214,0.6)' }}>sitio de ejemplo</span>
           </div>
         </div>
