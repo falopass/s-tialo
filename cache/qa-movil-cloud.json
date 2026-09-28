@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T14:26:22.659Z",
+  "fecha": "2026-09-28T12:35:17.230Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "centro-oftalmologico-nacional": {
-      "url": "http://localhost:4800/demos/centro-oftalmologico-nacional/",
+    "la-pica-de-los-tatas": {
+      "url": "http://localhost:4800/demos/la-pica-de-los-tatas/",
       "status": 200,
       "botones": [],
-      "footerPx": 276,
-      "footerPct": 32.7,
+      "footerPx": 238,
+      "footerPct": 28.2,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4118
+      "ms": 4127
     }
   }
 }

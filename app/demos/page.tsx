@@ -7,14 +7,6 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
-    slug: 'barraca-de-madera-maderex',
-    name: 'Barraca de Madera Maderex',
-    rubro: 'Barraca de madera',
-    city: 'San Clemente',
-    tagline: 'Rotulo de galpon: verde Maderex, fascia corrida y tablon de productos.',
-    gradient: 'linear-gradient(135deg, #0F2E17 0%, #1B5A2A 55%, #48B34B 140%)',
-  },
-  {
     slug: 'clinica-veterinaria-ecovets',
     name: 'Clínica Veterinaria Ecovets',
     rubro: 'Clínica veterinaria',
