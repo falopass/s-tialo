@@ -24,3 +24,8 @@ next-env.d.ts
 # mockup images
 ChatGPT Image*
 sitiazo-design-system.md.pdf
+
+# trabajo local (fotos crudas, perfiles CDP, mediciones)
+tmp/
+cache/
+nul
