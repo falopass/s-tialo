@@ -15,6 +15,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #17080F 0%, #301526 55%, #F2437F 140%)',
   },
   {
+    slug: 'constructora-musalem',
+    name: 'Constructora Musalem',
+    rubro: 'Constructora',
+    city: 'Concepción',
+    tagline: 'Lámina de obra: papel milimetrado, tinta azul plano y sello amarillo.',
+    gradient: 'linear-gradient(135deg, #EDF1F6 0%, #B7C9DC 55%, #1D4E89 140%)',
+  },
+  {
     slug: 'clinica-veterinaria-zoovet',
     name: 'Clínica Veterinaria Zoovet',
     rubro: 'Clínica veterinaria',
