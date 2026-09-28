@@ -212,7 +212,7 @@ const BLITZ_CREATED: Record<string, string> = {
   'gotitas-de-amor': '2026-09-28',
   'new-era-barbershop': '2026-09-28',
   triadent: '2026-09-25',
-  'one-health': '2026-09-25',
+  'centro-m-dico-veterinario-one-health': '2026-09-25',
   homyvet: '2026-09-25',
   'altos-de-lircay': '2026-09-25',
   'jd-abogados': '2026-09-25',

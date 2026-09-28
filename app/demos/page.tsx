@@ -199,7 +199,7 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0F3B57 0%, #1D9E8E 140%)',
   },
   {
-    slug: 'one-health',
+    slug: 'centro-m-dico-veterinario-one-health',
     name: 'One Health',
     rubro: 'Centro veterinario',
     city: 'Maule',
@@ -1261,6 +1261,22 @@ const BLITZ = [
     city: 'Talca',
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #F7F3EA 0%, #211E17 150%)',
+  },
+  {
+    slug: 'otel-con-m-caba-as-del-cerro',
+    name: 'Cabañas del Cerro',
+    rubro: 'Hospedaje',
+    city: 'Talca',
+    tagline: 'Noche sobre Talca: azul cerro, ámbar ciudad y datos de ruta.',
+    gradient: 'linear-gradient(135deg, #0C1230 0%, #141C4A 55%, #F2A93B 150%)',
+  },
+  {
+    slug: 'jard-n-lucerito',
+    name: 'Jardín Lucerito',
+    rubro: 'Jardín infantil y sala cuna',
+    city: 'Talca',
+    tagline: 'Papel recortado y sol de crayón: crema, verde y sol.',
+    gradient: 'linear-gradient(135deg, #FAF3E3 0%, #F1E5C8 40%, #2E7D5B 140%)',
   },
 ]
 
