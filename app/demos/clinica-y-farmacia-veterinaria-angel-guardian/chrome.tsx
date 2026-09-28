@@ -65,6 +65,11 @@ export function TopBar({
         className="fixed top-0 inset-x-0 z-40 transition-colors duration-500"
         style={{
           backgroundColor: scrolled ? theme.bar : 'transparent',
+          // Velo oscuro cuando el nav transparente cae sobre la foto del
+          // hero: el texto hueso necesita fondo oscuro para leerse.
+          backgroundImage: scrolled
+            ? undefined
+            : 'linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
           boxShadow: scrolled ? `0 1px 0 ${theme.line}` : 'none',
@@ -83,7 +88,7 @@ export function TopBar({
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm transition-opacity hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B98B4E] tap-44"
+                className="text-sm transition-opacity hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8943A] tap-44"
                 style={{ color: theme.ink }}
               >
                 {l.label}
@@ -94,11 +99,11 @@ export function TopBar({
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${fontClass} shrink-0 text-[13px] md:text-sm font-semibold px-4 py-2 rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
+            className={`${fontClass} shrink-0 text-[13px] md:text-sm font-semibold px-4 py-2 rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8943A] tap-44`}
             style={
               scrolled
                 ? { backgroundColor: theme.solidBg, color: theme.solidInk, borderColor: 'transparent' }
-                : { backgroundColor: 'transparent', color: theme.ink, borderColor: 'rgba(245,239,230,0.5)' }
+                : { backgroundColor: 'transparent', color: theme.ink, borderColor: 'rgba(250,243,233,0.5)' }
             }
           >
             {ctaLabel}

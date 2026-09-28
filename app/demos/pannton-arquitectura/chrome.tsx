@@ -2,37 +2,38 @@
 
 import { SITE, whatsappLink } from '@/lib/config'
 import { BlitzNav } from '../blitz-kit'
-import { BIZ, WA_LINK } from './content'
+import { BIZ, IMG, WA_LINK } from './content'
 
 const C = {
-  ink: '#1C1B19',
-  paper: '#F6F3EC',
-  accent: '#E0A21B',
-  muted: '#5F5A50',
-  line: 'rgba(28,27,25,0.12)',
+  ink: '#1B140E',
+  paper: '#FAF7F1',
+  brick: '#A83A10',
+  muted: '#5C5347',
+  line: 'rgba(27,20,14,0.14)',
 }
 
 const NAV_LINKS = [
   { label: 'Trabajos', href: '#trabajos' },
   { label: 'Reseñas', href: '#resenas' },
-  { label: 'FAQ', href: '#faq' },
   { label: 'Ubicación', href: '#ubicacion' },
+  { label: 'FAQ', href: '#faq' },
 ]
 
 export function SiteNav({ fontClass }: { fontClass?: string }) {
   return (
     <BlitzNav
       name={BIZ.short}
+      logoSrc={`${IMG}/marca.webp`}
       links={NAV_LINKS}
       waLink={WA_LINK}
       fontClass={fontClass}
       theme={{
-        over: 'dark',
-        bar: 'rgba(246,243,236,0.94)',
+        over: 'light',
+        bar: 'rgba(250,247,241,0.94)',
         ink: C.ink,
         line: C.line,
-        btnBg: C.accent,
-        btnInk: C.ink,
+        btnBg: C.brick,
+        btnInk: '#fff',
       }}
     />
   )

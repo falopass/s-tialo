@@ -1,12 +1,15 @@
 /**
  * app/demos/clinica-y-farmacia-veterinaria-angel-guardian/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps y página de
- * Facebook): nombre, dirección, comuna, teléfono fijo (73) 221 4790 —
- * solo llamadas, la clínica no publica WhatsApp — las 237
- * reseñas y los 2.675 seguidores. Todo lo demás (servicios, precios,
- * horarios, reseñas de ejemplo) es contenido de muestra para mostrar
- * cómo se vería el sitio publicado.
+ * Datos del mockup. REALES y verificados el 28-09-2026: ficha pública
+ * de Google Maps (nombre, categoría veterinario, Maipú 774 en Linares,
+ * fijo (73) 221 4790 — solo llamadas, la clínica no publica WhatsApp —,
+ * 4.4 estrellas con 237 reseñas y horario lun-vie 9:30-19:00, sáb
+ * 10:00-17:00, dom cerrado) y página de Facebook @VETERINARIAANGELGUARDIAN
+ * (servicios de su flyer "su salud es nuestra misión": consulta general
+ * y de especialidades, consulta de alimentación, vacunación, cirugía de
+ * tejidos blandos, farmacia, alimentos, accesorios y boutique; médico
+ * titular Hartmut A. Alvear Henríquez). Precios: muestra.
  */
 
 export const BIZ = {
@@ -18,10 +21,12 @@ export const BIZ = {
   region: 'Región del Maule',
   phoneDisplay: '+56 (73) 221 4790',
   phoneTel: '+56732214790',
+  rating: '4.4',
   reviews: 237,
-  followers: '2.675',
+  medico: 'Hartmut A. Alvear Henríquez',
+  instagram: 'https://www.instagram.com/veterinariaangelguardian',
   facebook:
-    'https://m.facebook.com/Clinica-Veterinaria-Angel-Guardian-de-Linares-1734252833471432/?locale2=es_LA',
+    'https://www.facebook.com/Clinica-Veterinaria-Angel-Guardian-de-Linares-1734252833471432',
 } as const
 
 // La clínica solo publica teléfono fijo: el CTA de contacto es una llamada.

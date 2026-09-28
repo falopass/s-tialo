@@ -1,4 +1,4 @@
 :HL["/_next/static/chunks/71ead0d37bf96467.css","style"]
-:HL["/_next/static/chunks/3f9ed350b87da906.css","style"]
+:HL["/_next/static/chunks/cf719c5ff5336301.css","style"]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"buildId":"oix-KIeTx_EhfnYGAY-gX","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"privacidad","paramType":null,"paramKey":"privacidad","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"ifRbKPGCqaY1o_Uc4f3cW","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"privacidad","paramType":null,"paramKey":"privacidad","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

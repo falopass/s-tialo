@@ -1,12 +1,14 @@
 /**
  * app/demos/cafe-la-francesa/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps y página de
- * Facebook): nombre, dirección, comuna, WhatsApp (móvil 9 7988 4338,
- * ficha SERNATUR; el fijo (73) 247 2127 solo recibe llamadas), las 811
- * reseñas y los 28.000 seguidores. Todo lo demás (carta, precios,
- * reseñas de ejemplo) es contenido de muestra para mostrar cómo se
- * vería el sitio publicado.
+ * Datos del mockup. REALES y verificados el 28-09-2026: ficha de Google
+ * Maps (nombre, categoría cafetería, Manuel Rodriguez 552 en Linares,
+ * fijo (73) 247 2127 solo para llamadas, 4.2 estrellas con 811 reseñas,
+ * horario lun-vie 8:30-22:30 y sáb-dom 9:00-23:00), página de Facebook
+ * @cafelafrancesa (28.398 seguidores, 11.888 visitas registradas) y
+ * ficha SERNATUR que publica el móvil 9 7988 4338 usado como WhatsApp.
+ * La relación con la Panadería La Francesa de la familia Artus sale de
+ * la nota de RedBakery (redbakery.cl). Carta y precios: muestra.
  */
 
 export const BIZ = {
@@ -19,9 +21,12 @@ export const BIZ = {
   phoneDisplay: '+56 9 7988 4338',
   phoneTel: '+56979884338',
   whatsapp: '56979884338',
+  rating: '4.2',
   reviews: 811,
-  followers: '28.000',
-  facebook: 'http://www.facebook.com/cafelafrancesa',
+  followers: '28.398',
+  facebook: 'https://www.facebook.com/cafelafrancesa',
+  horarioSemana: 'Lun a vie 8:30-22:30',
+  horarioFinde: 'Sáb y dom 9:00-23:00',
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(

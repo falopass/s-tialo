@@ -1,0 +1,93 @@
+INFO: {"labels":["5 estrellas, 14 opiniones","4 estrellas, 3 opiniones","3 estrellas, 2 opiniones","2 estrellas, 1 opinión","1 estrellas, 2 opiniones","4.2 estrellas","1 estrella","5 estrellas"],"tabs":["Descripción general de Pannton, Arquitectura y Soluciones Graficas","Revisiones para Pannton, Arquitectura y Soluciones Graficas"]}
+RESENAS: [
+ {
+  "nombre": "Roberto Alejandro",
+  "stars": "1 estrella",
+  "fecha": "Hace un mes",
+  "texto": "Pésima experiencia. Desde las 11 de la mañana pidiéndole cotización para enviarle los archivos. Recién a las 14 me responde que no le han llegado cuando si se lo había mandado. Me dice que a las 18.30 horas estará listo. Al llegar a la hora, después de un largo trayecto de mi casa, me dice que no lo"
+ },
+ {
+  "nombre": "Roberto Alejandro",
+  "stars": "",
+  "fecha": "",
+  "texto": ""
+ },
+ {
+  "nombre": "Victoria",
+  "stars": "5 estrellas",
+  "fecha": "Hace 2 años",
+  "texto": "Manuel tiene excelente forma de atender y buena disposición para ayudar a las personas en las solicitudes de diseño. Tiene horario de atención de lunes a viernes y está cerca de la universidad de talca. Sus precios son accesibles"
+ },
+ {
+  "nombre": "Victoria",
+  "stars": "",
+  "fecha": "",
+  "texto": ""
+ },
+ {
+  "nombre": "Lilian Poblete",
+  "stars": "2 estrellas",
+  "fecha": "Hace 8 meses",
+  "texto": "No cumple con los plazos. Quedamos en que nos tendría el poster a primera hora y que abria a las 9 de la mañana. Llegó media hora tarde, sin darnos explicaciones."
+ },
+ {
+  "nombre": "Lilian Poblete",
+  "stars": "",
+  "fecha": "",
+  "texto": ""
+ },
+ {
+  "nombre": "Cristian Agusto",
+  "stars": "5 estrellas",
+  "fecha": "Hace 3 meses",
+  "texto": "Calidad, rapidez y responsabilidad en los tiempos de entrega."
+ },
+ {
+  "nombre": "Cristian Agusto",
+  "stars": "",
+  "fecha": "",
+  "texto": ""
+ },
+ {
+  "nombre": "Vanesa Sagredo",
+  "stars": "1 estrella",
+  "fecha": "Hace 7 años",
+  "texto": "Mala atención,  pedido se demoró más de 1 semana en estar listo, al momento de retirar (1 día después de cuando pregunte si estaba listo ya que tampoco avisan ) y aún no esta listo teniendo que esperar más de 20 minutos por mi entrega."
+ },
+ {
+  "nombre": "Vanesa Sagredo",
+  "stars": "",
+  "fecha": "",
+  "texto": ""
+ },
+ {
+  "nombre": "Javiera Bozo",
+  "stars": "4 estrellas",
+  "fecha": "Hace 3 años",
+  "texto": ""
+ },
+ {
+  "nombre": "Diego Antonio Muñoz Cáceres",
+  "stars": "5 estrellas",
+  "fecha": "Hace 3 años",
+  "texto": ""
+ },
+ {
+  "nombre": "Maxi Bastias Sepulveda",
+  "stars": "5 estrellas",
+  "fecha": "Hace 3 años",
+  "texto": ""
+ },
+ {
+  "nombre": "Skarab",
+  "stars": "5 estrellas",
+  "fecha": "Hace 4 años",
+  "texto": ""
+ },
+ {
+  "nombre": "Maxi Flores",
+  "stars": "3 estrellas",
+  "fecha": "Hace 4 años",
+  "texto": ""
+ }
+]

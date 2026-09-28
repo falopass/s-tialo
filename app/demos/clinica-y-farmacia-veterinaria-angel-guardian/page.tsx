@@ -21,29 +21,30 @@ const body = localFont({
 })
 
 /**
- * Paleta del demo: vino, hueso y oro viejo sobre tinta cálida.
- * Regla de formas: todo lo interactivo es píldora (rounded-full) y los
- * marcos de imagen usan radio de 1.75rem; el resto va sin radio.
+ * Identidad tomada de los activos reales de la clínica: sus flyers de
+ * Facebook son naranja sobre crema, con huellitas y tipografía amable.
+ * Naranja quemado + chocolate oscuro + hueso; todo lo interactivo es
+ * píldora (rounded-full) y los marcos de imagen usan radio de 1.75rem.
  */
 const C = {
-  bone: '#F5EFE6',
-  wine: '#6B2737',
-  wineInk: '#2E1620',
-  gold: '#B98B4E',
-  goldSoft: '#D8BC8F',
-  ink: '#241B1D',
-  muted: '#6E5D57',
+  bone: '#FAF3E9',
+  wine: '#8F480B',
+  wineInk: '#2A1A0C',
+  gold: '#E8943A',
+  goldSoft: '#F7C98A',
+  ink: '#2A2018',
+  muted: '#75614C',
 }
 
 const SCRIM = {
-  hero: 'linear-gradient(180deg, rgba(46,22,32,0.74) 0%, rgba(46,22,32,0.3) 32%, rgba(46,22,32,0.62) 64%, rgba(46,22,32,0.95) 100%)',
-  left: 'linear-gradient(180deg, rgba(46,22,32,0.5) 0%, rgba(46,22,32,0.08) 30%, rgba(46,22,32,0.78) 82%, rgba(46,22,32,0.94) 100%), linear-gradient(90deg, rgba(46,22,32,0.82) 0%, rgba(46,22,32,0.46) 40%, rgba(46,22,32,0) 74%)',
+  hero: 'linear-gradient(180deg, rgba(42,26,12,0.74) 0%, rgba(42,26,12,0.3) 32%, rgba(42,26,12,0.62) 64%, rgba(42,26,12,0.95) 100%)',
+  left: 'linear-gradient(180deg, rgba(42,26,12,0.5) 0%, rgba(42,26,12,0.08) 30%, rgba(42,26,12,0.78) 82%, rgba(42,26,12,0.94) 100%), linear-gradient(90deg, rgba(42,26,12,0.82) 0%, rgba(42,26,12,0.46) 40%, rgba(42,26,12,0) 74%)',
   right:
-    'linear-gradient(180deg, rgba(46,22,32,0.5) 0%, rgba(46,22,32,0.08) 30%, rgba(46,22,32,0.78) 82%, rgba(46,22,32,0.94) 100%), linear-gradient(270deg, rgba(46,22,32,0.82) 0%, rgba(46,22,32,0.46) 40%, rgba(46,22,32,0) 74%)',
+    'linear-gradient(180deg, rgba(42,26,12,0.5) 0%, rgba(42,26,12,0.08) 30%, rgba(42,26,12,0.78) 82%, rgba(42,26,12,0.94) 100%), linear-gradient(270deg, rgba(42,26,12,0.82) 0%, rgba(42,26,12,0.46) 40%, rgba(42,26,12,0) 74%)',
   sobre:
-    'linear-gradient(180deg, rgba(46,22,32,0.4) 0%, rgba(46,22,32,0.6) 42%, rgba(46,22,32,0.9) 72%, rgba(46,22,32,0.97) 100%)',
+    'linear-gradient(180deg, rgba(42,26,12,0.4) 0%, rgba(42,26,12,0.6) 42%, rgba(42,26,12,0.9) 72%, rgba(42,26,12,0.97) 100%)',
   contacto:
-    'linear-gradient(180deg, rgba(46,22,32,0.9) 0%, rgba(46,22,32,0.93) 55%, rgba(46,22,32,0.97) 100%)',
+    'linear-gradient(180deg, rgba(42,26,12,0.9) 0%, rgba(42,26,12,0.93) 55%, rgba(42,26,12,0.97) 100%)',
 }
 
 export const metadata: Metadata = demoMetadata({
@@ -77,24 +78,25 @@ type Panel = {
 const PANELES: Panel[] = [
   {
     id: 'servicios',
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Bandeja con estetoscopio, otoscopio y termómetro sobre el mesón de atención',
+    src: `${IMG}/consulta.webp`,
+    alt: 'Equipo de la clínica examinando a un perro sobre la mesa de atención',
     scrim: SCRIM.left,
     side: 'left',
     height: 'min-h-[100svh]',
-    title: 'Consulta y control sano',
-    lead: 'Atendemos perros y gatos con hora agendada por teléfono. Revisamos a tu mascota, te explicamos el diagnóstico y sales con el tratamiento claro.',
+    title: 'Consulta y procedimientos',
+    lead: 'Atención con hora agendada por teléfono: revisan a tu mascota, te explican el diagnóstico con paciencia y sales con el tratamiento claro.',
     items: [
-      'Consulta general y control sano',
-      'Vacunación y desparasitación',
-      'Exámenes y diagnóstico por imagen',
-      'Cirugías programadas',
+      'Consulta general veterinaria',
+      'Consulta de especialidades',
+      'Vacunación',
+      'Cirugía de tejidos blandos',
+      'Consulta de alimentación',
     ],
-    note: 'Servicios de muestra: al publicar va la lista real de la clínica.',
+    note: 'Servicios reales, del flyer de la clínica en Facebook.',
   },
   {
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Estanterías de la farmacia veterinaria con medicamentos, vendas e insumos',
+    src: `${IMG}/gata.webp`,
+    alt: 'Gata gris paciente de la clínica descansando sobre la mesa de examen',
     scrim: SCRIM.right,
     side: 'right',
     height: 'min-h-[92svh]',
@@ -103,42 +105,45 @@ const PANELES: Panel[] = [
     items: [
       'Medicamentos y recetas',
       'Antiparasitarios internos y externos',
-      'Alimentos de prescripción',
       'Insumos de curación',
+      'Consulta de alimentación',
     ],
-    note: 'Surtido de muestra: al publicar va el catálogo real de la farmacia.',
+    note: 'La farmacia figura en los servicios reales que publica la clínica.',
   },
   {
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Mostrador de la tienda con alimentos, accesorios y caja de atención',
+    src: `${IMG}/tienda.webp`,
+    alt: 'Publicación de la clínica con bolsita de transporte para mascotas a la venta',
     scrim: SCRIM.left,
     side: 'left',
     height: 'min-h-[100svh]',
-    title: 'Tienda y accesorios',
+    title: 'Alimentos, accesorios y boutique',
     lead: 'Lo de todos los días para tu mascota, con el consejo de quienes la atienden desde cachorra.',
     items: [
       'Alimentos y snacks',
-      'Accesorios y juguetes',
+      'Accesorios y bolsitas de transporte',
+      'Boutique para mascotas',
       'Higiene y cuidado',
-      'Arena sanitaria y areneros',
     ],
-    note: 'Productos de muestra: al publicar va lo que hay realmente en la tienda.',
+    note: 'Imagen real de una publicación de la tienda en Facebook.',
     columns: true,
   },
 ]
 
 const RESENAS = [
   {
-    text: 'Llegué sin hora con mi perra decaída y la atendieron igual. Salimos con el tratamiento y al día siguiente ya andaba jugando.',
-    author: 'Paulina M., clienta del sector centro',
+    text: 'Demostraron preocupación y cariño por mi mascota, explicándome con paciencia cada procedimiento y respondiendo todas mis dudas.',
+    author: 'Kazuki',
+    stars: '5 estrellas',
   },
   {
-    text: 'La farmacia es lo mejor: te dan el remedio ahí mismo y no tienes que andar buscando en otras partes.',
-    author: 'Rodrigo S., cliente de Linares',
+    text: 'Muy buenos profesionales, comprometidos y muy empáticos con nuestros animalitos.',
+    author: 'Cinthia López',
+    stars: '5 estrellas',
   },
   {
-    text: 'Tienen paciencia con los gatos y explican todo sin apuro. Se nota que aman lo que hacen.',
-    author: 'Camila V., clienta de Linares',
+    text: 'Revisó a mi gatito con detención y nos explicó todo. Es una veterinaria muy familiar y preocupada. Lo recomiendo.',
+    author: 'Katy Ortega',
+    stars: '5 estrellas',
   },
 ]
 
@@ -165,8 +170,9 @@ const PRECIOS = [
 ]
 
 const HORAS = [
-  { days: 'Lunes a viernes', time: '10:00 a 19:00' },
-  { days: 'Sábado', time: '10:00 a 14:00' },
+  { days: 'Lunes a viernes', time: '9:30 a 19:00' },
+  { days: 'Sábado', time: '10:00 a 17:00' },
+  { days: 'Domingo', time: 'cerrado' },
 ]
 
 function PhotoPanel({ id, src, alt, scrim, side, height, title, lead, items, note, columns }: Panel) {
@@ -183,7 +189,7 @@ function PhotoPanel({ id, src, alt, scrim, side, height, title, lead, items, not
             >
               {title}
             </h2>
-            <p className="mt-5 text-[15px] md:text-base leading-relaxed" style={{ color: 'rgba(245,239,230,0.84)' }}>
+            <p className="mt-5 text-[15px] md:text-base leading-relaxed" style={{ color: 'rgba(250,243,233,0.84)' }}>
               {lead}
             </p>
             <ul className={columns ? 'mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3.5' : 'mt-8 space-y-3.5'}>
@@ -191,7 +197,7 @@ function PhotoPanel({ id, src, alt, scrim, side, height, title, lead, items, not
                 <li
                   key={item}
                   className="flex gap-3 text-[15px] md:text-base"
-                  style={{ color: 'rgba(245,239,230,0.92)' }}
+                  style={{ color: 'rgba(250,243,233,0.92)' }}
                 >
                   <span
                     aria-hidden="true"
@@ -202,7 +208,7 @@ function PhotoPanel({ id, src, alt, scrim, side, height, title, lead, items, not
                 </li>
               ))}
             </ul>
-            <p className="mt-7 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.66)' }}>
+            <p className="mt-7 text-xs leading-relaxed" style={{ color: 'rgba(250,243,233,0.66)' }}>
               {note}
             </p>
           </Fade>
@@ -220,7 +226,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
     >
       <style>{`
         html { scroll-behavior: auto }
-        .ag-band { display: flex; justify-content: center; padding: 0 5rem 1.25rem 1.25rem; background-color: #2E1620 }
+        .ag-band { display: flex; justify-content: center; padding: 0 5rem 1.25rem 1.25rem; background-color: #2A1A0C }
         .ag-band > div { position: static; max-width: 100%; background-color: rgba(10,10,10,0.94) }
       `}</style>
       <TopBar
@@ -232,7 +238,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
         theme={{
           bar: 'rgba(46,22,32,0.88)',
           ink: C.bone,
-          line: 'rgba(245,239,230,0.18)',
+          line: 'rgba(250,243,233,0.18)',
           accent: C.gold,
           solidBg: C.gold,
           solidInk: C.wineInk,
@@ -243,13 +249,20 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.wineInk }}>
         <Parallax
           src={`${IMG}/hero.webp`}
-          alt="Box de atención de la clínica veterinaria, con instrumental sobre el mesón y estanterías de farmacia al fondo"
+          alt="Cachorro negro paciente de la clínica, sobre la mesa de examen veterinario"
           strength={5}
           eager
         />
         <div className="absolute inset-0" style={{ background: SCRIM.hero }} aria-hidden="true" />
         <div className="relative w-full max-w-[1400px] mx-auto px-5 md:px-10 pt-24 pb-14 md:pb-20">
           <Fade>
+            {/* eslint-disable-next-line @next/next/no-img-element -- logo ya optimizado en public/ */}
+            <img
+              src={`${IMG}/logo.webp`}
+              alt=""
+              aria-hidden="true"
+              className="w-14 h-14 md:w-16 md:h-16 rounded-2xl object-cover shadow-lg mb-5"
+            />
             <p
               className="text-[11px] uppercase tracking-[0.22em] font-semibold mb-5"
               style={{ color: C.goldSoft }}
@@ -268,7 +281,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             </h1>
             <p
               className="text-base md:text-lg leading-relaxed max-w-[34rem] mb-9"
-              style={{ color: 'rgba(245,239,230,0.86)' }}
+              style={{ color: 'rgba(250,243,233,0.86)' }}
             >
               Consulta, vacunas y farmacia veterinaria en Maipú 774, Linares.
               Todo para tu mascota, en un mismo lugar.
@@ -276,15 +289,15 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             <div className="flex flex-wrap gap-3">
               <a
                 href={CALL_LINK}
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8943A] tap-44`}
                 style={{ backgroundColor: C.gold, color: C.wineInk }}
               >
                 Llamar a la clínica
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
-                style={{ borderColor: 'rgba(245,239,230,0.55)', color: C.bone }}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8943A] tap-44`}
+                style={{ borderColor: 'rgba(250,243,233,0.55)', color: C.bone }}
               >
                 Ver servicios
               </a>
@@ -297,15 +310,15 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       <section style={{ backgroundColor: C.wineInk }}>
         <div
           className="max-w-[1400px] mx-auto px-5 md:px-10 py-4 flex flex-wrap items-center gap-x-10 gap-y-2 text-[11px] md:text-xs uppercase tracking-[0.18em]"
-          style={{ color: 'rgba(245,239,230,0.72)' }}
+          style={{ color: 'rgba(250,243,233,0.72)' }}
         >
           <a
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-4 transition-colors hover:text-[#F5EFE6] tap-44"
+            className="underline underline-offset-4 transition-colors hover:text-[#FAF3E9] tap-44"
           >
-            {BIZ.reviews} reseñas en Google
+            {BIZ.rating}★ · {BIZ.reviews} reseñas en Google
           </a>
           <span>
             {BIZ.address}, {BIZ.city}
@@ -324,8 +337,8 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       {/* ── Sobre el negocio ── */}
       <section id="clinica" className="relative flex overflow-hidden min-h-[100svh] scroll-mt-16" style={{ backgroundColor: C.wineInk }}>
         <Parallax
-          src={`${IMG}/ambiente.webp`}
-          alt="Fachada de la clínica y farmacia veterinaria en calle Maipú, Linares"
+          src={`${IMG}/cachorro.webp`}
+          alt="Cachorro blanco paciente de la clínica, en brazos de un asistente"
         />
         <div className="absolute inset-0" style={{ background: SCRIM.sobre }} aria-hidden="true" />
         <div className="relative w-full max-w-[1400px] mx-auto px-5 md:px-10 pt-32 pb-16 md:pb-24 flex flex-col justify-end">
@@ -334,28 +347,39 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
               className={`${display.className} font-extrabold text-[clamp(2.1rem,5.2vw,3.6rem)] leading-[1.04] tracking-[-0.02em]`}
               style={{ color: C.bone }}
             >
-              En plena calle Maipú, en Linares
+              Su salud es nuestra misión
             </h2>
             <p
               className="mt-5 max-w-[46rem] text-[15px] md:text-base leading-relaxed"
-              style={{ color: 'rgba(245,239,230,0.84)' }}
+              style={{ color: 'rgba(250,243,233,0.86)' }}
             >
-              Clínica y farmacia en el mismo local, con atención directa y sin
-              derivaciones: te reciben, revisan a tu mascota y sales con lo que
-              necesita. La comunidad los sigue en Facebook, donde ya son{' '}
-              {BIZ.followers} seguidores.
+              Ese es el lema que la clínica publica en sus redes. Al mando está
+              el médico veterinario {BIZ.medico}: clínica y farmacia en el mismo
+              local, atención directa y sin derivaciones — te reciben, revisan
+              a tu mascota y sales con lo que necesita.
             </p>
+            <figure className="mt-8 inline-flex items-center gap-4 rounded-2xl p-2.5 pr-6 shadow-lg max-w-full" style={{ backgroundColor: 'rgba(250,243,233,0.96)' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element -- flyer real ya optimizado en public/ */}
+              <img
+                src={`${IMG}/mision.webp`}
+                alt="Flyer real de la clínica: su salud es nuestra misión, con la lista de servicios"
+                className="h-20 md:h-24 w-auto rounded-xl object-cover"
+              />
+              <figcaption className="text-xs leading-snug font-semibold max-w-[12rem]" style={{ color: C.wineInk }}>
+                Publicación real del negocio en Facebook, con su lista de servicios
+              </figcaption>
+            </figure>
           </Fade>
           <Fade delay={0.1} className="mt-12 md:mt-16">
             <div
               className="grid md:grid-cols-3 gap-8 md:gap-0 md:divide-x"
-              style={{ borderColor: 'rgba(245,239,230,0.22)' }}
+              style={{ borderColor: 'rgba(250,243,233,0.22)' }}
             >
               {RESENAS.map((r) => (
                 <figure key={r.text} className="md:px-8 md:first:pl-0 md:last:pr-0">
                   <blockquote
                     className="text-[15px] md:text-base italic leading-relaxed"
-                    style={{ color: 'rgba(245,239,230,0.92)' }}
+                    style={{ color: 'rgba(250,243,233,0.92)' }}
                   >
                     “{r.text}”
                   </blockquote>
@@ -363,7 +387,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
                     className="mt-4 text-[11px] uppercase tracking-[0.16em] leading-relaxed"
                     style={{ color: C.goldSoft }}
                   >
-                    {r.author} · Reseña de ejemplo
+                    {r.author} · {r.stars} en Google
                   </figcaption>
                 </figure>
               ))}
@@ -448,8 +472,8 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       {/* ── Contacto y ubicación ── */}
       <section id="contacto" className="relative flex overflow-hidden min-h-[100svh] scroll-mt-16" style={{ backgroundColor: C.wineInk }}>
         <Parallax
-          src={`${IMG}/hero.webp`}
-          alt="Sala de atención de la clínica veterinaria Ángel Guardián"
+          src={`${IMG}/cachorro2.webp`}
+          alt="Cachorro blanco paciente de la clínica mirando a la cámara"
           strength={3.5}
         />
         <div className="absolute inset-0" style={{ background: SCRIM.contacto }} aria-hidden="true" />
@@ -461,11 +485,11 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             >
               Agenda la hora de tu mascota
             </h2>
-            <p className="mt-5 max-w-[34rem] text-[15px] md:text-base leading-relaxed" style={{ color: 'rgba(245,239,230,0.84)' }}>
+            <p className="mt-5 max-w-[34rem] text-[15px] md:text-base leading-relaxed" style={{ color: 'rgba(250,243,233,0.84)' }}>
               Llámanos y coordinamos día y hora. También puedes
               llegar directo a la clínica, en plena calle Maipú.
             </p>
-            <address className="not-italic mt-8 space-y-2 text-[15px] md:text-base" style={{ color: 'rgba(245,239,230,0.9)' }}>
+            <address className="not-italic mt-8 space-y-2 text-[15px] md:text-base" style={{ color: 'rgba(250,243,233,0.9)' }}>
               <p>
                 {BIZ.address}, {BIZ.city}, {BIZ.region}
               </p>
@@ -475,23 +499,23 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
                 </a>
               </p>
             </address>
-            <ul className="mt-6 space-y-2 text-sm md:text-[15px]" style={{ color: 'rgba(245,239,230,0.76)' }}>
+            <ul className="mt-6 space-y-2 text-sm md:text-[15px]" style={{ color: 'rgba(250,243,233,0.76)' }}>
               {HORAS.map((h) => (
                 <li key={h.days}>
-                  <span className="font-semibold" style={{ color: 'rgba(245,239,230,0.95)' }}>
+                  <span className="font-semibold" style={{ color: 'rgba(250,243,233,0.95)' }}>
                     {h.days}:
                   </span>{' '}
                   {h.time}
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.6)' }}>
-              Horario de muestra: al publicar va el horario real de la clínica.
+            <p className="mt-4 text-xs leading-relaxed" style={{ color: 'rgba(250,243,233,0.6)' }}>
+              Horario real, de la ficha de la clínica en Google.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a
                 href={CALL_LINK}
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8943A] tap-44`}
                 style={{ backgroundColor: C.gold, color: C.wineInk }}
               >
                 Llamar a la clínica
@@ -500,8 +524,8 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
-                style={{ borderColor: 'rgba(245,239,230,0.55)', color: C.bone }}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8943A] tap-44`}
+                style={{ borderColor: 'rgba(250,243,233,0.55)', color: C.bone }}
               >
                 Abrir en Google Maps
               </a>
@@ -510,7 +534,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
           <Fade delay={0.12}>
             <div
               className="rounded-[1.75rem] overflow-hidden border h-[320px] md:h-[440px]"
-              style={{ borderColor: 'rgba(245,239,230,0.28)' }}
+              style={{ borderColor: 'rgba(250,243,233,0.28)' }}
             >
               <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
@@ -553,10 +577,10 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.wineInk, color: C.bone }}>
-        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-5 flex flex-col md:flex-row md:items-end justify-between gap-3 border-t" style={{ borderColor: 'rgba(245,239,230,0.16)' }}>
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-5 flex flex-col md:flex-row md:items-end justify-between gap-3 border-t" style={{ borderColor: 'rgba(250,243,233,0.16)' }}>
           <div>
             <p className={`${display.className} text-base font-bold mb-1`}>{BIZ.name}</p>
-            <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.78)' }}>
+            <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(250,243,233,0.78)' }}>
               {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
             </address>
           </div>
@@ -565,16 +589,16 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs underline underline-offset-4 transition-colors hover:text-[#F5EFE6] tap-44"
-            style={{ color: 'rgba(245,239,230,0.78)' }}
+            style={{ color: 'rgba(250,243,233,0.78)' }}
           >
             Facebook
           </a>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.16)' }}>
-          <p className="max-w-[1400px] mx-auto px-5 md:px-10 py-3 text-[10px] leading-snug" style={{ color: 'rgba(245,239,230,0.7)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Nombre,
-            dirección, teléfono y reseñas de Google son datos públicos reales;
-            servicios, precios, horarios y textos son de muestra.
+        <div className="border-t" style={{ borderColor: 'rgba(250,243,233,0.16)' }}>
+          <p className="max-w-[1400px] mx-auto px-5 md:px-10 py-3 text-[10px] leading-snug" style={{ color: 'rgba(250,243,233,0.7)' }}>
+            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Las fotos,
+            los datos de contacto, los servicios, las reseñas y los horarios
+            son públicos y reales del negocio; los precios son de muestra.
           </p>
         </div>
       </footer>

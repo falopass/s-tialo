@@ -4,8 +4,9 @@
  * Datos del mockup. REALES (ficha pública de Google Maps, 2026-09-28):
  * nombre, dirección, horario, teléfono/WhatsApp, nota y reseñas. Las fotos
  * de /public/demos/pannton-arquitectura son las publicadas en la misma
- * ficha. Los textos de servicios describen lo que muestran esas fotos y el
- * nombre del negocio; no hay precios ni plazos.
+ * ficha; los nombres de los trabajos describen lo que se ve en cada foto
+ * (Municipalidad de Talca, CESFAM Faustino González, UCM, CTV). No hay
+ * precios ni plazos.
  */
 
 export const BIZ = {
@@ -27,13 +28,50 @@ export const BIZ = {
 
 export const IMG = '/demos/pannton-arquitectura'
 
-/** Fotos publicadas por el negocio en su ficha de Google Maps. */
+/** Fotos reales de la ficha de Google Maps; el título nombra lo que se ve. */
 export const WORKS = [
-  { src: `${IMG}/adhesivos.webp`, alt: 'Rollo de adhesivos impresos con la marca Pannton sobre la mesa de trabajo', name: 'Adhesivos y etiquetas', desc: 'Etiquetas en rollo y adhesivos impresos para productos y envases.' },
-  { src: `${IMG}/empaste.webp`, alt: 'Libro empastado en tapa dura con portada impresa a color', name: 'Empastes y libros', desc: 'Tesis, memorias y libros con tapa dura y portada impresa.' },
-  { src: `${IMG}/dipticos.webp`, alt: 'Dípticos y folletos impresos a color desplegados en abanico', name: 'Folletería', desc: 'Dípticos, trípticos y volantes para difusión y eventos.' },
-  { src: `${IMG}/tarjetas.webp`, alt: 'Pilas de tarjetas y volantes impresos recién cortados', name: 'Tarjetas y papelería', desc: 'Tarjetas de presentación y papelería impresa en tirajes a medida.' },
-  { src: `${IMG}/colgantes-madera.webp`, alt: 'Colgantes de madera grabados con nombres, para graduación', name: 'Grabado y piezas personalizadas', desc: 'Colgantes y recuerdos grabados en madera para ceremonias.' },
+  {
+    src: `${IMG}/hero.webp`,
+    alt: 'Tomos anillados del Parque Público Cerro La Virgen impresos para la Municipalidad de Talca',
+    name: 'Libros para la Municipalidad de Talca',
+    desc: 'Tomos anillados del Parque Público Cerro La Virgen, portada a todo color.',
+  },
+  {
+    src: `${IMG}/carnet-cesfam.webp`,
+    alt: 'Pila de carnets de control multimorbilidad impresos para el CESFAM Faustino González de Talca',
+    name: 'Carnets para el CESFAM Faustino González',
+    desc: 'Carnets de control multimorbilidad para el consultorio de la Municipalidad de Talca.',
+  },
+  {
+    src: `${IMG}/dipticos.webp`,
+    alt: 'Tiraje de cuadernos pedagógicos del Foro de Culturas Ciudadanas para la UCM',
+    name: 'Cuaderno pedagógico para la UCM',
+    desc: 'Tiraje de cuadernos del Foro de Culturas Ciudadanas para la Universidad Católica del Maule.',
+  },
+  {
+    src: `${IMG}/adhesivos.webp`,
+    alt: 'Rollos de etiquetas adhesivas impresas sobre el mesón de corte de Pannton',
+    name: 'Etiquetas en rollo',
+    desc: 'Etiquetas adhesivas impresas en rollo para productos y envases.',
+  },
+  {
+    src: `${IMG}/tarjetas.webp`,
+    alt: 'Tacos de tarjetas impresas para el Centro Tecnológico de la Vid y el Vino',
+    name: 'Tarjetas para el Centro de la Vid y el Vino',
+    desc: 'Tarjetas de registro para el Centro Tecnológico de la Vid y el Vino.',
+  },
+  {
+    src: `${IMG}/colgantes-madera.webp`,
+    alt: 'Colgantes de madera grabados con nombre, curso y generación para una graduación',
+    name: 'Colgantes de madera grabados',
+    desc: 'Piezas grabadas con nombre y generación para colegios y ceremonias.',
+  },
+  {
+    src: `${IMG}/empaste.webp`,
+    alt: 'Tesis empastada en tapa dura con portada impresa y el nombre del titulado',
+    name: 'Empaste de tesis y memorias',
+    desc: 'Tapa dura con portada impresa: tesis, memorias y libros a pedido.',
+  },
 ] as const
 
 /** Reseñas públicas de la ficha de Google Maps (nombre de pila). */

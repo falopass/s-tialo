@@ -8,33 +8,38 @@ import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
-    { path: '../../fonts/dm-serif-display/italic-400.woff2', weight: '400', style: 'italic' },
-    { path: '../../fonts/dm-serif-display/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/playfair-display/italic-400-900.woff2', weight: '400 900', style: 'italic' },
+    { path: '../../fonts/playfair-display/normal-400-900.woff2', weight: '400 900', style: 'normal' },
   ],
 })
 const body = localFont({
   src: [
-    { path: '../../fonts/dm-sans/normal-100-1000.woff2', weight: '100 1000', style: 'normal' },
+    { path: '../../fonts/jost/normal-100-900.woff2', weight: '100 900', style: 'normal' },
   ],
 })
 
+/**
+ * Identidad tomada de los activos reales del salón: el letrero y el
+ * perfil de Facebook son negro + dorado ("GS · Gabriela Saavedra ·
+ * Concepto Estilo"). Base carbón cálido, crema hueso y un solo acento
+ * dorado; todo lo interactivo es píldora y los marcos van sin radio.
+ */
 const C = {
-  forest: '#1E3D2F',
-  forestDeep: '#152C22',
-  cream: '#F6F1E7',
-  creamSoft: '#EDE5D5',
-  brass: '#C8A24B',
-  brassDeep: '#7E5F1B',
-  brassSoft: '#E0CD9B',
-  coal: '#23211C',
-  ink: '#2B2A24',
-  muted: '#5E594C',
-  line: 'rgba(43,42,36,0.16)',
-  lineLight: 'rgba(246,241,231,0.22)',
+  night: '#15120E',
+  coal: '#211C15',
+  cream: '#F4EEE1',
+  creamSoft: '#EAE1CE',
+  gold: '#C9A24B',
+  goldSoft: '#E7CD8F',
+  goldDeep: '#7A5C1A',
+  ink: '#241F18',
+  muted: '#6B6252',
+  line: 'rgba(36,31,24,0.16)',
+  lineLight: 'rgba(244,238,225,0.22)',
 }
 
 const FOCUS =
-  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C8A24B]'
+  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C9A24B]'
 const BTN = `inline-flex items-center gap-2.5 font-bold rounded-full transition duration-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${FOCUS}`
 const LINK = `font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${FOCUS}`
 const HALF = '(min-width: 768px) 50vw, 100vw'
@@ -42,7 +47,7 @@ const HALF = '(min-width: 768px) 50vw, 100vw'
 export const metadata: Metadata = demoMetadata({
   slug: 'salon-de-belleza-gabriela-saavedra-talca',
   title: 'Salón de Belleza Gabriela Saavedra — Centro de estética en Talca',
-  description: 'Centro de estética en Calle 32 Ote. 1327, Talca: faciales, manicure y pedicure, cabello y depilación, con hora agendada por WhatsApp.',
+  description: 'Centro de estética en 32 Oriente 1327, Talca: cabello y color, manicure, pedicure y depilación con cera. Hora agendada por WhatsApp, todos los días.',
   image: '/demos/salon-de-belleza-gabriela-saavedra-talca/hero.webp',
 })
 
@@ -56,97 +61,65 @@ const NAV_LINKS = [
 const SERVICIOS = [
   {
     n: '01',
-    tag: 'Rostro',
-    src: `${IMG}/detalle-1.webp`,
-    alt: 'Carro auxiliar de la sala de tratamientos con cosméticos, brochas, toallas y espejo de mano',
-    name: 'Faciales y cuidado de la piel',
-    desc: 'Limpieza, hidratación y masaje facial con cosmética profesional. Una hora de trabajo tranquilo, sin apuro, para que la piel salga descansada.',
-    items: ['Limpieza facial profunda', 'Hidratación y nutrición', 'Masaje facial y relajación'],
+    tag: 'Cabello',
+    src: `${IMG}/cabello-rubio.webp`,
+    alt: 'Trabajo de color del salón: cabello rubio con ondas y degradado balayage',
+    name: 'Cabello y color',
+    desc: 'Color, balayage, corte y peinado con productos profesionales Wella y Sebastian, las marcas que el salón exhibe en su letrero.',
+    items: ['Color y balayage', 'Corte y peinado', 'Tratamientos capilares'],
   },
   {
     n: '02',
     tag: 'Manos y pies',
-    src: `${IMG}/detalle-3.webp`,
-    alt: 'Mesa de manicure con herramientas, esmaltes, lámpara UV y toalla enrollada',
+    src: `${IMG}/unas.webp`,
+    alt: 'Publicación del salón con trabajos de uñas: esmaltado azul, rojo y tonos nude',
     name: 'Manicure y pedicure',
-    desc: 'Esmaltado tradicional y permanente, con preparación de cutícula y terminación prolija. Mesas individuales y una atención que se toma su tiempo.',
-    items: ['Manicure tradicional y permanente', 'Pedicure con spa de pies', 'Retiro y reparación de esmaltado'],
+    desc: 'De lo tradicional a las extensiones: el salón publica esmaltado permanente, kapping y extensiones en acrílico, polygel y softgel.',
+    items: ['Esmaltado permanente', 'Extensiones y kapping', 'Pedicura'],
   },
   {
     n: '03',
-    tag: 'Cabello',
-    src: `${IMG}/detalle-2.webp`,
-    alt: 'Recepción de madera del salón con ramas de eucalipto, pinches, toallas y la camilla al fondo',
-    name: 'Cabello y peinados',
-    desc: 'Corte, lavado y peinado para el día a día o para una ocasión especial. Revisamos juntas tu tipo de cabello y lo que quieres lograr.',
-    items: ['Corte y peinado', 'Tratamientos de hidratación', 'Peinados para ocasiones'],
+    tag: 'Piel',
+    src: `${IMG}/depilacion.webp`,
+    alt: 'Publicación del salón sobre depilación con cera, con los tipos de cera que ofrece',
+    name: 'Depilación con cera',
+    desc: 'Depilación con cera para piernas, axilas, bozo y otras zonas, agendada por WhatsApp como el resto de los servicios.',
+    items: ['Piernas y axilas', 'Bozo y rostro', 'Cera tibia'],
   },
-]
-
-const TAMBIEN = [
-  { n: '04', name: 'Depilación con cera', desc: 'Piernas, axilas, bozo y otras zonas, con cera tibia.' },
-  { n: '05', name: 'Cejas y pestañas', desc: 'Perfilado de cejas y extensiones o lifting de pestañas.' },
-  { n: '06', name: 'Maquillaje', desc: 'Maquillaje social para matrimonios, grados y eventos.' },
-]
-
-const PRECIOS = [
-  { name: 'Limpieza facial', desc: 'Rostro, cuello y masaje final', price: '$25.000' },
-  { name: 'Manicure tradicional', desc: 'Con esmaltado a elección', price: '$12.000' },
-  { name: 'Manicure permanente', desc: 'Esmaltado en gel, incluye retiro', price: '$18.000' },
-  { name: 'Pedicure', desc: 'Con spa de pies', price: '$20.000' },
-  { name: 'Corte y peinado', desc: 'Lavado incluido', price: '$15.000' },
-  { name: 'Depilación con cera', desc: 'Piernas completas', price: '$16.000' },
 ]
 
 const TESTIMONIOS = [
   {
-    text: 'Llegué con la hora agendada y me atendieron al tiro. Salí con la piel limpia y muy relajada.',
-    author: 'Clienta de Talca',
+    text: 'Una experiencia muy grata, con grandes profesionales. Feliz con el resultado de mi pelito.',
+    author: 'Solange Leiva Lagos',
+    stars: '5',
   },
   {
-    text: 'El esmaltado me duró impecable varias semanas. Se nota el cuidado en cada detalle.',
-    author: 'Clienta del centro',
-  },
-  {
-    text: 'Un lugar tranquilo y bien atendido. Se agradece la paciencia y la conversación.',
-    author: 'Clienta de siempre',
+    text: 'Buen lugar y agradable, buen rato y amabilidad.',
+    author: 'Cristóbal Ibarra',
+    stars: '4',
   },
 ]
 
+const PRECIOS = [
+  { name: 'Corte y peinado', desc: 'Lavado incluido', price: '$15.000' },
+  { name: 'Color y balayage', desc: 'Según largo y técnica', price: 'desde $35.000' },
+  { name: 'Manicure tradicional', desc: 'Con esmaltado a elección', price: '$12.000' },
+  { name: 'Esmaltado permanente', desc: 'Incluye retiro', price: '$18.000' },
+  { name: 'Pedicura', desc: 'Con spa de pies', price: '$20.000' },
+  { name: 'Depilación con cera', desc: 'Piernas completas', price: '$16.000' },
+]
+
 const PASOS = [
-  { n: '1', name: 'Escribe por WhatsApp', desc: 'Cuéntanos qué servicio buscas y qué días te acomodan.' },
+  { n: '1', name: 'Escribe por WhatsApp', desc: 'Cuéntanos qué servicio buscas y qué día te acomoda.' },
   { n: '2', name: 'Acordamos día y hora', desc: 'Te confirmamos la hora y cuánto dura tu atención.' },
   { n: '3', name: 'Te esperamos', desc: 'Llega unos minutos antes y te atendemos sin esperas.' },
 ]
 
-const HORAS = [
-  { days: 'Lunes a viernes', time: '10:00 a 19:30' },
-  { days: 'Sábado', time: '10:00 a 15:00' },
-  { days: 'Domingo y festivos', time: 'Cerrado' },
-]
-
-function HandMirror({
-  className = 'w-4 h-4',
-  color = 'currentColor',
-}: {
-  className?: string
-  color?: string
-}) {
+function GoldStar({ className = 'w-4 h-4' }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke={color}
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="8.6" r="5.9" />
-      <circle cx="12" cy="8.6" r="3.2" />
-      <path d="M12 14.5 V20.4" />
-      <path d="M10.5 20.8 h3" />
+    <svg viewBox="0 0 24 24" className={className} fill={C.gold} stroke={C.gold} strokeWidth="1" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
     </svg>
   )
 }
@@ -161,9 +134,9 @@ function Eyebrow({
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-bold"
-      style={{ color: light ? C.brass : C.brassDeep }}
+      style={{ color: light ? C.gold : C.goldDeep }}
     >
-      <HandMirror className="w-[18px] h-[18px]" />
+      <span aria-hidden="true" className="h-px w-6" style={{ backgroundColor: 'currentColor' }} />
       {children}
     </p>
   )
@@ -195,16 +168,17 @@ export default function SalonGabrielaSaavedraPage() {
     >
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
           over: 'dark',
-          bar: 'rgba(246,241,231,0.95)',
-          ink: C.coal,
-          line: C.line,
-          btnBg: C.forest,
-          btnInk: C.cream,
+          bar: 'rgba(21,18,14,0.92)',
+          ink: C.cream,
+          line: C.lineLight,
+          btnBg: C.gold,
+          btnInk: C.night,
         }}
       />
 
@@ -212,12 +186,12 @@ export default function SalonGabrielaSaavedraPage() {
       <section
         id="inicio"
         className="relative grid md:grid-cols-2"
-        style={{ backgroundColor: C.forest }}
+        style={{ backgroundColor: C.night }}
       >
         <div className="relative min-h-[58svh] md:min-h-svh">
           <Image
             src={`${IMG}/hero.webp`}
-            alt="Sala de tratamientos del salón: camilla con toallas, luz de tarde y vista a la ciudad de Talca"
+            alt="Resultado de color del salón: cabello rubio con ondas y balayage luminoso"
             fill
             priority
             sizes={HALF}
@@ -227,7 +201,7 @@ export default function SalonGabrielaSaavedraPage() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(180deg, rgba(21,44,34,0.42) 0%, rgba(21,44,34,0.06) 42%, rgba(21,44,34,0.3) 100%)',
+                'linear-gradient(180deg, rgba(21,18,14,0.4) 0%, rgba(21,18,14,0.05) 42%, rgba(21,18,14,0.28) 100%)',
             }}
             aria-hidden="true"
           />
@@ -238,20 +212,10 @@ export default function SalonGabrielaSaavedraPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${BTN} text-xs md:text-sm px-4 py-2.5 shadow-lg tap-44`}
-                style={{ backgroundColor: 'rgba(246,241,231,0.95)', color: C.forestDeep }}
+                style={{ backgroundColor: 'rgba(244,238,225,0.96)', color: C.night }}
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-[15px] h-[15px]"
-                  fill={C.brass}
-                  stroke={C.brass}
-                  strokeWidth="1.5"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
-                </svg>
-                {BIZ.reviews} reseñas en Google
+                <GoldStar className="w-[15px] h-[15px]" />
+                {BIZ.rating} · {BIZ.reviews} reseñas en Google
               </a>
             </Reveal>
           </div>
@@ -260,23 +224,23 @@ export default function SalonGabrielaSaavedraPage() {
         <div className="flex flex-col justify-center px-5 md:px-12 lg:px-20 py-16 md:pt-32 md:pb-24">
           <Reveal>
             <Eyebrow light>
-              {BIZ.rubro} · {BIZ.city} · {BIZ.region}
+              {BIZ.rubro} · {BIZ.city}
             </Eyebrow>
             <h1
               className={`${display.className} font-normal leading-[1.04] tracking-[-0.01em] text-[clamp(2.6rem,7.5vw,4.6rem)] mb-6`}
               style={{ color: C.cream }}
             >
-              Estética de salón,
+              {BIZ.name},
               <br />
-              <em style={{ color: C.brassSoft }}>con la calma de antes</em>
+              <em style={{ color: C.goldSoft }}>{BIZ.tagline}</em>
             </h1>
             <p
               className="text-base md:text-lg leading-relaxed max-w-md mb-9"
-              style={{ color: 'rgba(246,241,231,0.82)' }}
+              style={{ color: 'rgba(244,238,225,0.82)' }}
             >
-              Faciales, uñas, cabello y depilación en {BIZ.address}, {BIZ.city}.
-              Pides tu hora por WhatsApp, llegas y te atienden a ti, sin
-              salas de espera llenas.
+              Cabello y color, manicure y depilación en {BIZ.address},{' '}
+              {BIZ.sector}, {BIZ.city}. Pides tu hora por WhatsApp y te
+              atienden a ti, sin salas de espera llenas.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -284,7 +248,7 @@ export default function SalonGabrielaSaavedraPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${BTN} text-sm md:text-base px-7 py-3.5 tap-44`}
-                style={{ backgroundColor: C.brass, color: C.forestDeep }}
+                style={{ backgroundColor: C.gold, color: C.night }}
               >
                 <WaArrow />
                 Agendar por WhatsApp
@@ -292,21 +256,21 @@ export default function SalonGabrielaSaavedraPage() {
               <a
                 href="#servicios"
                 className={`${BTN} text-sm md:text-base px-7 py-3.5 border hover:bg-white/10 tap-44`}
-                style={{ borderColor: 'rgba(246,241,231,0.5)', color: C.cream }}
+                style={{ borderColor: 'rgba(244,238,225,0.5)', color: C.cream }}
               >
                 Ver servicios
               </a>
             </div>
             <dl
               className="mt-12 pt-6 border-t grid grid-cols-2 gap-x-6 gap-y-4 text-[11px] uppercase tracking-[0.18em]"
-              style={{ borderColor: C.lineLight, color: 'rgba(246,241,231,0.68)' }}
+              style={{ borderColor: C.lineLight, color: 'rgba(244,238,225,0.7)' }}
             >
               <div>
-                <dt className="mb-1" style={{ color: C.brass }}>Dirección</dt>
+                <dt className="mb-1" style={{ color: C.gold }}>Dirección</dt>
                 <dd>{BIZ.address} · {BIZ.city}</dd>
               </div>
               <div>
-                <dt className="mb-1" style={{ color: C.brass }}>Teléfono</dt>
+                <dt className="mb-1" style={{ color: C.gold }}>Teléfono</dt>
                 <dd>
                   <a href={`tel:${BIZ.phoneTel}`} className={`hover:text-white transition-colors ${FOCUS} tap-44`}>
                     {BIZ.phoneDisplay}
@@ -314,8 +278,8 @@ export default function SalonGabrielaSaavedraPage() {
                 </dd>
               </div>
               <div className="col-span-2">
-                <dt className="mb-1" style={{ color: C.brass }}>Agenda</dt>
-                <dd>Con hora previa, de lunes a sábado</dd>
+                <dt className="mb-1" style={{ color: C.gold }}>Horario</dt>
+                <dd>{BIZ.horario}</dd>
               </div>
             </dl>
           </Reveal>
@@ -330,15 +294,15 @@ export default function SalonGabrielaSaavedraPage() {
             <div className="grid lg:grid-cols-[1.5fr_1fr] gap-6 md:gap-14 items-end">
               <h2
                 className={`${display.className} font-normal text-4xl md:text-6xl leading-[1.04]`}
-                style={{ color: C.forest }}
+                style={{ color: C.night }}
               >
-                Lo que hacemos
+                Lo que se hace
                 <br />
-                <em style={{ color: C.brassDeep }}>en el salón</em>
+                <em style={{ color: C.goldDeep }}>en el salón</em>
               </h2>
               <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
-                Esta es una muestra de la carta: al publicar van los
-                servicios, duraciones y valores reales del salón.
+                Los servicios y los productos de esta lista salen de las
+                publicaciones del propio salón en Facebook.
               </p>
             </div>
           </Reveal>
@@ -351,7 +315,7 @@ export default function SalonGabrielaSaavedraPage() {
             <article
               key={s.name}
               className="grid md:grid-cols-2"
-              style={{ backgroundColor: dark ? C.forest : C.cream }}
+              style={{ backgroundColor: dark ? C.coal : C.cream }}
             >
               <div
                 className={`relative min-h-[300px] sm:min-h-[380px] md:min-h-[560px] ${
@@ -369,27 +333,27 @@ export default function SalonGabrielaSaavedraPage() {
                   <div className="flex items-center gap-4 mb-6">
                     <span
                       className={`${display.className} text-5xl md:text-6xl leading-none`}
-                      style={{ color: dark ? C.brass : C.brassDeep }}
+                      style={{ color: dark ? C.gold : C.goldDeep }}
                     >
                       {s.n}
                     </span>
                     <span className="h-px flex-1" style={{ backgroundColor: dark ? C.lineLight : C.line }} />
                     <span
                       className="text-[11px] uppercase tracking-[0.24em] font-bold"
-                      style={{ color: dark ? C.brass : C.brassDeep }}
+                      style={{ color: dark ? C.gold : C.goldDeep }}
                     >
                       {s.tag}
                     </span>
                   </div>
                   <h3
                     className={`${display.className} font-normal text-3xl md:text-5xl leading-[1.08] mb-5`}
-                    style={{ color: dark ? C.cream : C.forest }}
+                    style={{ color: dark ? C.cream : C.night }}
                   >
                     {s.name}
                   </h3>
                   <p
                     className="text-sm md:text-base leading-relaxed mb-7 max-w-md"
-                    style={{ color: dark ? 'rgba(246,241,231,0.78)' : C.muted }}
+                    style={{ color: dark ? 'rgba(244,238,225,0.78)' : C.muted }}
                   >
                     {s.desc}
                   </p>
@@ -398,9 +362,13 @@ export default function SalonGabrielaSaavedraPage() {
                       <li
                         key={item}
                         className="flex items-center gap-3 text-sm md:text-[15px]"
-                        style={{ color: dark ? 'rgba(246,241,231,0.9)' : C.ink }}
+                        style={{ color: dark ? 'rgba(244,238,225,0.9)' : C.ink }}
                       >
-                        <HandMirror className="w-4 h-4 shrink-0" color={C.brass} />
+                        <span
+                          aria-hidden="true"
+                          className="h-px w-5 shrink-0"
+                          style={{ backgroundColor: C.gold }}
+                        />
                         {item}
                       </li>
                     ))}
@@ -409,10 +377,10 @@ export default function SalonGabrielaSaavedraPage() {
                     href={waServicio(s.name)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${BTN} self-start text-sm px-6 py-3 border ${dark ? 'hover:bg-white/10' : 'hover:bg-[#1E3D2F]/5'} tap-44`}
+                    className={`${BTN} self-start text-sm px-6 py-3 border ${dark ? 'hover:bg-white/10' : 'hover:bg-[#15120E]/5'} tap-44`}
                     style={{
-                      borderColor: dark ? 'rgba(246,241,231,0.45)' : 'rgba(30,61,47,0.4)',
-                      color: dark ? C.cream : C.forest,
+                      borderColor: dark ? 'rgba(244,238,225,0.45)' : 'rgba(21,18,14,0.4)',
+                      color: dark ? C.cream : C.night,
                     }}
                   >
                     Consultar por WhatsApp
@@ -424,26 +392,27 @@ export default function SalonGabrielaSaavedraPage() {
           )
         })}
 
-        {/* ── También en el salón ── */}
-        <div style={{ backgroundColor: C.coal }}>
+        {/* ── Marcas que usa el salón ── */}
+        <div style={{ backgroundColor: C.night }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
             <Reveal>
-              <p className="text-[11px] uppercase tracking-[0.24em] font-bold mb-8" style={{ color: C.brass }}>
-                También en el salón
+              <p className="text-[11px] uppercase tracking-[0.24em] font-bold mb-8" style={{ color: C.gold }}>
+                En su mesa de trabajo
               </p>
             </Reveal>
             <ul className="grid sm:grid-cols-3 gap-8 md:gap-12">
-              {TAMBIEN.map((t, i) => (
-                <Reveal key={t.name} delay={i * 90}>
+              {[
+                { n: 'Wella', d: 'Color y cuidado profesional del cabello, la marca del letrero del salón.' },
+                { n: 'Sebastian', d: 'Styling y tratamientos Sebastian Professional, también en el letrero.' },
+                { n: 'AgendaPro', d: 'El salón agenda sus horas online: escribes y quedas confirmada.' },
+              ].map((t, i) => (
+                <Reveal key={t.n} delay={i * 90}>
                   <li className="border-t pt-5" style={{ borderColor: C.lineLight }}>
-                    <p className={`${display.className} text-2xl mb-1`} style={{ color: C.brass }}>
-                      {t.n}
-                    </p>
                     <h3 className={`${display.className} text-xl md:text-2xl mb-2`} style={{ color: C.cream }}>
-                      {t.name}
+                      {t.n}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.66)' }}>
-                      {t.desc}
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(244,238,225,0.66)' }}>
+                      {t.d}
                     </p>
                   </li>
                 </Reveal>
@@ -453,8 +422,8 @@ export default function SalonGabrielaSaavedraPage() {
         </div>
       </section>
 
-      {/* ── El salón: historia, datos y opiniones ── */}
-      <section id="salon" className="scroll-mt-20" style={{ backgroundColor: C.forest }}>
+      {/* ── El salón: fachada real, datos y opiniones ── */}
+      <section id="salon" className="scroll-mt-20" style={{ backgroundColor: C.coal }}>
         <div className="grid md:grid-cols-2">
           <div className="flex flex-col justify-center px-5 md:px-12 lg:px-20 py-14 md:py-24">
             <Reveal>
@@ -465,35 +434,44 @@ export default function SalonGabrielaSaavedraPage() {
               >
                 Con nombre y apellido,
                 <br />
-                <em style={{ color: C.brassSoft }}>en el centro de Talca</em>
+                <em style={{ color: C.goldSoft }}>en Las Rastras</em>
               </h2>
               <p
                 className="text-sm md:text-base leading-relaxed mb-6 max-w-md"
-                style={{ color: 'rgba(246,241,231,0.8)' }}
+                style={{ color: 'rgba(244,238,225,0.8)' }}
               >
-                El Salón de Belleza Gabriela Saavedra atiende en {BIZ.address},
-                a pocas cuadras del centro de Talca. Atención directa, con
-                hora agendada: llegas, te atienden y el tiempo se respeta.
+                El salón atiende en {BIZ.address}, en el Loteo El Solar del
+                Parque del sector {BIZ.sector}, al oriente de {BIZ.city}.
+                Atención directa y con hora agendada: llegas, te atienden y
+                el tiempo se respeta.
               </p>
-              <p className="text-sm leading-relaxed mb-10 max-w-md" style={{ color: 'rgba(246,241,231,0.62)' }}>
-                Texto de muestra: al publicar va la historia real del salón,
-                sus servicios y sus fotos.
+              <p className="text-sm leading-relaxed mb-10 max-w-md" style={{ color: 'rgba(244,238,225,0.62)' }}>
+                Abierto {BIZ.horario.toLowerCase()}, según la ficha pública
+                del salón en Google.
               </p>
-              <dl className="grid grid-cols-2 gap-x-6 gap-y-6">
+              <dl className="grid grid-cols-3 gap-x-4 gap-y-6">
                 <div className="border-t pt-4" style={{ borderColor: C.lineLight }}>
-                  <dt className={`${display.className} text-4xl md:text-5xl mb-1`} style={{ color: C.brass }}>
-                    {BIZ.reviews}
+                  <dt className={`${display.className} text-3xl md:text-4xl mb-1`} style={{ color: C.gold }}>
+                    {BIZ.rating}
                   </dt>
-                  <dd className="text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,231,0.7)' }}>
-                    reseñas en Google
+                  <dd className="text-[10px] md:text-xs uppercase tracking-[0.16em]" style={{ color: 'rgba(244,238,225,0.7)' }}>
+                    estrellas en Google
                   </dd>
                 </div>
                 <div className="border-t pt-4" style={{ borderColor: C.lineLight }}>
-                  <dt className={`${display.className} text-4xl md:text-5xl mb-1`} style={{ color: C.brass }}>
+                  <dt className={`${display.className} text-3xl md:text-4xl mb-1`} style={{ color: C.gold }}>
+                    {BIZ.reviews}
+                  </dt>
+                  <dd className="text-[10px] md:text-xs uppercase tracking-[0.16em]" style={{ color: 'rgba(244,238,225,0.7)' }}>
+                    reseñas
+                  </dd>
+                </div>
+                <div className="border-t pt-4" style={{ borderColor: C.lineLight }}>
+                  <dt className={`${display.className} text-3xl md:text-4xl mb-1`} style={{ color: C.gold }}>
                     {BIZ.facebookFollowers}
                   </dt>
-                  <dd className="text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,231,0.7)' }}>
-                    seguidores en Facebook
+                  <dd className="text-[10px] md:text-xs uppercase tracking-[0.16em]" style={{ color: 'rgba(244,238,225,0.7)' }}>
+                    seguidores
                   </dd>
                 </div>
               </dl>
@@ -503,7 +481,7 @@ export default function SalonGabrielaSaavedraPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${LINK} text-sm tap-44`}
-                  style={{ color: C.brassSoft, textDecorationColor: 'rgba(200,162,75,0.5)' }}
+                  style={{ color: C.goldSoft, textDecorationColor: 'rgba(201,162,75,0.5)' }}
                 >
                   Ver la ficha en Google →
                 </a>
@@ -512,7 +490,7 @@ export default function SalonGabrielaSaavedraPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${LINK} text-sm tap-44`}
-                  style={{ color: C.brassSoft, textDecorationColor: 'rgba(200,162,75,0.5)' }}
+                  style={{ color: C.goldSoft, textDecorationColor: 'rgba(201,162,75,0.5)' }}
                 >
                   Facebook del salón →
                 </a>
@@ -521,8 +499,8 @@ export default function SalonGabrielaSaavedraPage() {
           </div>
           <div className="relative min-h-[320px] sm:min-h-[420px] md:min-h-svh">
             <Image
-              src={`${IMG}/ambiente.webp`}
-              alt="Fachada del salón en Calle 32 Ote., con vitrina, plantas y un árbol en la vereda"
+              src={`${IMG}/fachada.webp`}
+              alt="Letrero del salón en su fachada: GS, Gabriela Saavedra, Concepto Estilo, con las marcas Wella y Sebastian"
               fill
               sizes={HALF}
               className="object-cover"
@@ -535,27 +513,31 @@ export default function SalonGabrielaSaavedraPage() {
             <Reveal>
               <div className="grid md:grid-cols-[1fr_1.5fr] gap-6 md:gap-14 items-end mb-10">
                 <h3 className={`${display.className} text-3xl md:text-4xl leading-tight`} style={{ color: C.cream }}>
-                  Lo que valoran las clientas
+                  Lo que dicen en Google
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.66)' }}>
-                  El salón suma {BIZ.reviews} reseñas en Google. Las frases
-                  de abajo son de ejemplo: al publicar van las reseñas
-                  reales.
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(244,238,225,0.66)' }}>
+                  Reseñas reales de la ficha del salón en Google Maps, con
+                  su nombre y su nota.
                 </p>
               </div>
             </Reveal>
-            <ul className="grid md:grid-cols-3 gap-8 md:gap-10">
+            <ul className="grid md:grid-cols-2 gap-8 md:gap-10">
               {TESTIMONIOS.map((t, i) => (
                 <Reveal key={i} delay={i * 100}>
                   <li className="border-t pt-6" style={{ borderColor: C.lineLight }}>
+                    <div className="flex gap-1 mb-4" aria-label={`${t.stars} estrellas`}>
+                      {Array.from({ length: Number(t.stars) }).map((_, s) => (
+                        <GoldStar key={s} className="w-4 h-4" />
+                      ))}
+                    </div>
                     <blockquote
                       className={`${display.className} text-lg md:text-xl leading-relaxed mb-5`}
-                      style={{ color: 'rgba(246,241,231,0.94)' }}
+                      style={{ color: 'rgba(244,238,225,0.94)' }}
                     >
                       “{t.text}”
                     </blockquote>
-                    <p className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.brass }}>
-                      {t.author} · Reseña de ejemplo
+                    <p className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.gold }}>
+                      {t.author} · Reseña de Google
                     </p>
                   </li>
                 </Reveal>
@@ -573,11 +555,11 @@ export default function SalonGabrielaSaavedraPage() {
               <Eyebrow>Precios</Eyebrow>
               <h2
                 className={`${display.className} font-normal text-4xl md:text-5xl leading-[1.06] mb-5`}
-                style={{ color: C.forest }}
+                style={{ color: C.night }}
               >
                 Valores
                 <br />
-                <em style={{ color: C.brassDeep }}>de referencia</em>
+                <em style={{ color: C.goldDeep }}>de referencia</em>
               </h2>
               <p className="text-sm leading-relaxed max-w-sm" style={{ color: C.muted }}>
                 Cifras de muestra para mostrar el formato de la lista: al
@@ -586,14 +568,14 @@ export default function SalonGabrielaSaavedraPage() {
               <div className="mt-8 pt-6 border-t" style={{ borderColor: C.line }}>
                 <p className="text-sm leading-relaxed mb-3" style={{ color: C.muted }}>
                   Los valores pueden variar según el largo del cabello, el
-                  estado de las uñas o los productos que uses.
+                  estado de las uñas o los productos que elijas.
                 </p>
                 <a
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${BTN} text-sm px-6 py-3 tap-44`}
-                  style={{ backgroundColor: C.forest, color: C.cream }}
+                  style={{ backgroundColor: C.night, color: C.cream }}
                 >
                   <WaArrow />
                   Consultar valores por WhatsApp
@@ -609,7 +591,7 @@ export default function SalonGabrielaSaavedraPage() {
                     style={{ borderColor: C.line }}
                   >
                     <div>
-                      <p className={`${display.className} text-xl md:text-2xl`} style={{ color: C.forest }}>
+                      <p className={`${display.className} text-xl md:text-2xl`} style={{ color: C.night }}>
                         {p.name}
                       </p>
                       <p className="text-xs md:text-sm" style={{ color: C.muted }}>
@@ -620,7 +602,7 @@ export default function SalonGabrielaSaavedraPage() {
                       <p className="text-sm md:text-base font-bold" style={{ color: C.ink }}>
                         {p.price}
                       </p>
-                      <p className="text-[10px] uppercase tracking-[0.18em]" style={{ color: C.brassDeep }}>
+                      <p className="text-[10px] uppercase tracking-[0.18em]" style={{ color: C.goldDeep }}>
                         muestra
                       </p>
                     </div>
@@ -636,7 +618,7 @@ export default function SalonGabrielaSaavedraPage() {
       <section style={{ backgroundColor: C.cream }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.24em] font-bold mb-8" style={{ color: C.brassDeep }}>
+            <p className="text-[11px] uppercase tracking-[0.24em] font-bold mb-8" style={{ color: C.goldDeep }}>
               Cómo agendar
             </p>
           </Reveal>
@@ -644,10 +626,10 @@ export default function SalonGabrielaSaavedraPage() {
             {PASOS.map((p, i) => (
               <Reveal key={p.n} delay={i * 90}>
                 <li className="border-t pt-5" style={{ borderColor: C.line }}>
-                  <p className={`${display.className} text-2xl mb-1`} style={{ color: C.brassDeep }}>
+                  <p className={`${display.className} text-2xl mb-1`} style={{ color: C.goldDeep }}>
                     {p.n}
                   </p>
-                  <h3 className={`${display.className} text-xl md:text-2xl mb-2`} style={{ color: C.forest }}>
+                  <h3 className={`${display.className} text-xl md:text-2xl mb-2`} style={{ color: C.night }}>
                     {p.name}
                   </h3>
                   <p className="text-sm leading-relaxed max-w-xs" style={{ color: C.muted }}>
@@ -671,66 +653,73 @@ export default function SalonGabrielaSaavedraPage() {
             <Eyebrow>Contacto</Eyebrow>
             <h2
               className={`${display.className} font-normal text-4xl md:text-5xl leading-[1.06] mb-6`}
-              style={{ color: C.forest }}
+              style={{ color: C.night }}
             >
               {BIZ.address},
               <br />
-              <em style={{ color: C.brassDeep }}>{BIZ.city}</em>
+              <em style={{ color: C.goldDeep }}>{BIZ.sector}</em>
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-7" style={{ color: C.muted }}>
-              {BIZ.address}
+              {BIZ.address}, Loteo El Solar del Parque
               <br />
-              {BIZ.city}, {BIZ.region}, Chile
+              {BIZ.sector}, {BIZ.city}, {BIZ.region}
             </address>
             <a
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className={`${BTN} text-sm md:text-base px-7 py-4 mb-8 self-start tap-44`}
-              style={{ backgroundColor: C.brass, color: C.forestDeep }}
+              style={{ backgroundColor: C.gold, color: C.night }}
             >
               <WaArrow />
               Escribir por WhatsApp
             </a>
             <ul className="space-y-2.5 mb-8">
-              {HORAS.map((h) => (
-                <li key={h.days} className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.muted }}>
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="w-4 h-4 shrink-0"
-                    fill="none"
-                    stroke={C.brassDeep}
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    aria-hidden="true"
-                  >
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7 v5 l3.5 2" />
-                  </svg>
-                  <span>
-                    <strong className="font-bold" style={{ color: C.ink }}>{h.days}:</strong> {h.time}
-                  </span>
-                </li>
-              ))}
+              <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.muted }}>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4 shrink-0"
+                  fill="none"
+                  stroke={C.goldDeep}
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7 v5 l3.5 2" />
+                </svg>
+                <span>
+                  <strong className="font-bold" style={{ color: C.ink }}>Horario:</strong> {BIZ.horario}
+                </span>
+              </li>
+              <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.muted }}>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4 shrink-0"
+                  fill="none"
+                  stroke={C.goldDeep}
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <span>
+                  <strong className="font-bold" style={{ color: C.ink }}>WhatsApp:</strong>{' '}
+                  <a href={`tel:${BIZ.phoneTel}`} className={`underline underline-offset-4 ${FOCUS} tap-44`}>
+                    {BIZ.phoneDisplay}
+                  </a>
+                </span>
+              </li>
             </ul>
-            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: C.muted }}>
-              Horario referencial: al publicar van los horarios reales del
-              salón.
-            </p>
             <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
-              <a
-                href={`tel:${BIZ.phoneTel}`}
-                className={LINK + ' tap-44'}
-                style={{ color: C.forest, textDecorationColor: 'rgba(30,61,47,0.35)' }}
-              >
-                {BIZ.phoneDisplay}
-              </a>
               <a
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={LINK + ' tap-44'}
-                style={{ color: C.forest, textDecorationColor: 'rgba(30,61,47,0.35)' }}
+                style={{ color: C.night, textDecorationColor: 'rgba(21,18,14,0.35)' }}
               >
                 Facebook del salón
               </a>
@@ -739,7 +728,7 @@ export default function SalonGabrielaSaavedraPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={LINK + ' tap-44'}
-                style={{ color: C.forest, textDecorationColor: 'rgba(30,61,47,0.35)' }}
+                style={{ color: C.night, textDecorationColor: 'rgba(21,18,14,0.35)' }}
               >
                 Cómo llegar →
               </a>
@@ -758,8 +747,8 @@ export default function SalonGabrielaSaavedraPage() {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: C.forestDeep }}>
-        <Image src={`${IMG}/hero.webp`} alt="" fill sizes="100vw" className="object-cover opacity-[0.16]" aria-hidden="true" />
+      <section className="relative overflow-hidden" style={{ backgroundColor: C.night }}>
+        <Image src={`${IMG}/cabello-dorado.webp`} alt="" fill sizes="100vw" className="object-cover opacity-[0.18]" aria-hidden="true" />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <div className="max-w-2xl mx-auto border-y py-12 md:py-14 px-4" style={{ borderColor: C.lineLight }}>
@@ -769,9 +758,9 @@ export default function SalonGabrielaSaavedraPage() {
               >
                 Agenda tu hora
                 <br />
-                <em style={{ color: C.brassSoft }}>en el salón</em>
+                <em style={{ color: C.goldSoft }}>en el salón</em>
               </h2>
-              <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
+              <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(244,238,225,0.78)' }}>
                 Escríbenos por WhatsApp con el servicio que buscas y el día
                 que te acomoda, y te respondemos para dejar la hora
                 confirmada.
@@ -781,7 +770,7 @@ export default function SalonGabrielaSaavedraPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${BTN} text-sm md:text-base px-8 py-4 tap-44`}
-                style={{ backgroundColor: C.brass, color: C.forestDeep }}
+                style={{ backgroundColor: C.gold, color: C.night }}
               >
                 <WaArrow />
                 Agendar por WhatsApp
@@ -792,9 +781,9 @@ export default function SalonGabrielaSaavedraPage() {
       </section>
 
       {/* ── Franja: sitio de ejemplo de Sitiazo ── */}
-      <section className="border-y" style={{ backgroundColor: C.brass, borderColor: 'rgba(35,33,28,0.25)' }}>
+      <section className="border-y" style={{ backgroundColor: C.gold, borderColor: 'rgba(21,18,14,0.25)' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
-          <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] font-bold" style={{ color: C.forestDeep }}>
+          <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] font-bold" style={{ color: C.night }}>
             Sitio de ejemplo de Sitiazo · así se vería tu negocio con página propia
           </p>
           <a
@@ -802,7 +791,7 @@ export default function SalonGabrielaSaavedraPage() {
             target="_blank"
             rel="noopener noreferrer"
             className={`${LINK} text-[11px] md:text-xs tap-44`}
-            style={{ color: C.forestDeep, textDecorationColor: 'rgba(21,44,34,0.4)' }}
+            style={{ color: C.night, textDecorationColor: 'rgba(21,18,14,0.4)' }}
           >
             sitiazo.cl →
           </a>
@@ -810,18 +799,18 @@ export default function SalonGabrielaSaavedraPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.forestDeep, color: C.cream }}>
+      <footer style={{ backgroundColor: C.night, color: C.cream }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
           <div>
             <p className={`${display.className} text-xl md:text-2xl mb-1 flex items-center gap-3`}>
-              <HandMirror className="w-5 h-5" color={C.brass} />
+              <Image src={`${IMG}/logo.webp`} alt="" width={28} height={28} className="rounded-full" aria-hidden="true" />
               {BIZ.name}
             </p>
-            <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
+            <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(244,238,225,0.62)' }}>
+              {BIZ.address} · {BIZ.sector}, {BIZ.city}, {BIZ.region}
             </address>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.62)' }}>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,238,225,0.62)' }}>
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS} tap-44`}>
                 {l.label}
@@ -829,11 +818,11 @@ export default function SalonGabrielaSaavedraPage() {
             ))}
           </div>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.7)' }}>
-            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
-            servicios, precios, horarios y fotos son de muestra; el número
-            de contacto y la dirección son datos públicos del negocio.
+        <div className="border-t" style={{ borderColor: 'rgba(244,238,225,0.14)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(244,238,225,0.7)' }}>
+            Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Las
+            fotos, los datos de contacto, las reseñas y los horarios son
+            reales y públicos del negocio; los precios son de muestra.
           </p>
         </div>
       </footer>
