@@ -1399,12 +1399,36 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #C41E12 0%, #FFD23F 70%, #FFFDF6 140%)',
   },
   {
-    slug: 'estudio-juridico-talca-30-oriente',
+    slug: 'estudio-jur-dico-talca',
     name: 'Estudio Jurídico Talca',
     rubro: 'Abogados y asesoría legal',
     city: 'Talca',
     tagline: 'Carátula de expediente todo-tipográfica: tinta medianoche, latón e índice de secciones.',
     gradient: 'linear-gradient(135deg, #101822 0%, #775126 65%, #F5F0E4 140%)',
+  },
+  {
+    slug: 'envases-y-papeles-talca',
+    name: 'Envases y Papeles Talca',
+    rubro: 'Servicios',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #3B2C1A 0%, #E7D9BE 150%)',
+  },
+  {
+    slug: 'estudio-chevere',
+    name: 'Foto Studio Chevere',
+    rubro: 'Servicios',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #2B2119 0%, #F0E3CC 150%)',
+  },
+  {
+    slug: 'ventanas-y-aluminios-inverlum',
+    name: 'Ventanas y Aluminios INVERLUM',
+    rubro: 'Servicios',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #0D1219 0%, #F2F5F8 150%)',
   },
 ]
 
