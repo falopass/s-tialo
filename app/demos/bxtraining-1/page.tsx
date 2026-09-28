@@ -72,7 +72,7 @@ const MOSAICO: MosaicTile[] = [
     kind: 'photo',
     span: 'col-span-2 row-span-2',
     src: `${IMG}/ambiente.webp`,
-    alt: 'Zona funcional de Bxtraining 1: racks, straps de suspensión, kettlebells y cajones',
+    alt: 'Interior de Bxtraining 1: sala amplia con pasto sintético, rack de mancuernas y bancas',
     chip: 'Funcional',
     title: 'Entrenamiento funcional',
     desc: 'TRX, kettlebells, cajones y espacio de verdad para moverse.',
@@ -81,7 +81,7 @@ const MOSAICO: MosaicTile[] = [
     kind: 'photo',
     span: 'col-span-2',
     src: `${IMG}/detalle2.webp`,
-    alt: 'Rack de mancuernas y barra cargada sobre piso de caucho',
+    alt: 'Barra olímpica cargada junto a un rack en la sala de Bxtraining 1',
     chip: 'Fuerza',
     title: 'Peso libre y racks',
     desc: 'Mancuernas, barras y discos para progresar semana a semana.',
@@ -98,7 +98,7 @@ const MOSAICO: MosaicTile[] = [
     kind: 'photo',
     span: '',
     src: `${IMG}/detalle3.webp`,
-    alt: 'Recepción del gimnasio: mesón de madera, toallas y pizarra de horarios',
+    alt: 'Puertas de madera con la marca de Bxtraining 1',
     chip: 'Directo',
     title: 'Atención cara a cara',
     desc: 'Llegas, saludas y entrenas. Sin torniquetes.',
@@ -115,7 +115,7 @@ const MOSAICO: MosaicTile[] = [
     kind: 'photo',
     span: 'col-span-2',
     src: `${IMG}/detalle1.webp`,
-    alt: 'Fachada de Bxtraining 1 a nivel de calle, con el cerro de San Clemente al fondo',
+    alt: 'Fachada de Bxtraining 1: galpón de fierro a nivel de calle en San Clemente',
     chip: 'Ubicación',
     title: 'En pleno San Clemente',
     desc: 'Fácil de llegar a pie, en bici o en auto.',
@@ -283,7 +283,7 @@ export default function BxtrainingPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.ink }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Sala de Bxtraining 1: racks de sentadilla, bancas y rack de mancuernas con luz natural"
+          alt="Sala de Bxtraining 1: piso de pasto sintético, racks y mancuernas a lo largo del muro"
           fill
           priority
           sizes="100vw"
