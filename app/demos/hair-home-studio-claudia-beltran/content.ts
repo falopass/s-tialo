@@ -1,10 +1,12 @@
 /**
  * app/demos/hair-home-studio-claudia-beltran/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps): nombre,
- * dirección en Linares, las 23 reseñas, el Instagram y el WhatsApp.
- * Todo lo demás (servicios, precios, horarios, textos de clientes)
- * es contenido de muestra para mostrar cómo se vería el sitio.
+ * Datos REALES de la ficha pública de Google Maps y del Instagram
+ * @beltrancastillo.cl: nombre, dirección en Linares, WhatsApp,
+ * calificación 5,0, el servicio anunciado en su bio ("lifting de
+ * pestañas / alisados permanentes / home studio"), el sello "se
+ * identifica como mujer empresaria" y las fotos de trabajos reales.
+ * La lista de servicios complementarios es de muestra.
  */
 
 export const BIZ = {
@@ -18,6 +20,7 @@ export const BIZ = {
   whatsapp: '56987187324',
   instagram: 'https://www.instagram.com/beltrancastillo.cl',
   instagramUser: '@beltrancastillo.cl',
+  rating: '5,0',
   reviews: 23,
 } as const
 
