@@ -1,6 +1,6 @@
 # QA móvil (cloud) — http://localhost:4800/demos/
 
-Fecha: 2026-09-28T03:38:47.911Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
+Fecha: 2026-09-28T04:30:28.037Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
 
 ## Resumen
 
@@ -17,12 +17,12 @@ Fecha: 2026-09-28T03:38:47.911Z · Viewport 390×844 · espera 3500 ms tras netw
 
 ## Los 5 peores
 
-- **integravet** (gravedad 0): 0 botones, footer 33.8%, 0 contrastes, sin desborde, 0 invisibles
+- **automotriz-gomez** (gravedad 0): 0 botones, footer 11%, 0 contrastes, sin desborde, 0 invisibles
 
 ## Tabla por gravedad
 
 | # | Demo | Grav. | Btn>52 | Footer % | Contraste | Desborde | Invisibles |
 |---|---|---|---|---|---|---|---|
-| 1 | [integravet](http://localhost:4800/demos/integravet/) | 0 | 0 | 33.8 | 0 | — | 0 |
+| 1 | [automotriz-gomez](http://localhost:4800/demos/automotriz-gomez/) | 0 | 0 | 11 | 0 | — | 0 |
 
 ## Detalle por demo (solo con hallazgos)
