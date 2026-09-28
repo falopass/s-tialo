@@ -7,6 +7,22 @@ import { Motif, headingFont } from './kit'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'hope-bakery-chile',
+    name: 'Hope Bakery Chile',
+    rubro: 'Panadería y pastelería',
+    city: 'Talca',
+    tagline: 'Artesanal y cálido: masa madre, horno y vitrina de pastelería.',
+    gradient: 'linear-gradient(135deg, #4A2518 0%, #A74728 55%, #F2C879 140%)',
+  },
+  {
+    slug: 'monky-coffee',
+    name: 'Monky Coffee',
+    rubro: 'Cafetería',
+    city: 'Talca',
+    tagline: 'Café de especialidad, métodos y conversación en 1 Oriente.',
+    gradient: 'linear-gradient(135deg, #0D241D 0%, #16352B 55%, #D5A441 140%)',
+  },
+  {
     slug: 'gotitas-de-amor',
     name: 'Sala Cuna y Jardín Infantil Gotitas de Amor',
     rubro: 'Educación inicial',
