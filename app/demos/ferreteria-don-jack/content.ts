@@ -5,7 +5,8 @@
  * Vergara, K-260, Pencahue), las 44 reseñas de la ficha de Google, el
  * WhatsApp y la página de Facebook (1334 seguidores). Todo lo demás
  * (surtido, precios, textos) es contenido de ejemplo para mostrar cómo
- * se vería el sitio. Las fotos son referenciales.
+ * se vería el sitio. hero y detalle1 son fotos reales del local; las
+ * marcadas con `bosquejo` son de muestra y se reemplazan al activar.
  */
 
 export const BIZ = {
@@ -40,6 +41,7 @@ export const CARTA = [
     title: 'Gasfitería y agua',
     note: 'Para la casa, el baño y la cocina',
     img: 'detalle3',
+    bosquejo: true,
     alt: 'Estantes de madera con fitting de PVC, llaves de bronce y cajones de tornillería',
     items: ['Fitting PVC y cobre', 'Llaves de paso y bronce', 'Flexibles y sellos', 'Tuberías por tira'],
   },
@@ -48,6 +50,7 @@ export const CARTA = [
     title: 'Riego y campo',
     note: 'Para la parcela, el huerto y los animales',
     img: 'ambiente',
+    bosquejo: true,
     alt: 'Rollos de manguera, llaves de riego y carretilla junto a la puerta que da a un huerto',
     items: ['Mangueras y rollos de polietileno', 'Llaves y válvulas de riego', 'Palas, horquetas y carretillas', 'Alambre y fijaciones'],
   },
@@ -56,6 +59,7 @@ export const CARTA = [
     title: 'Herramientas y fijaciones',
     note: 'Lo de todos los días, al detalle',
     img: 'detalle2',
+    bosquejo: true,
     alt: 'Martillo, huincha y alicate sobre un mesón de madera junto a cajones con tornillos y bisagras',
     items: ['Herramientas de mano', 'Tornillos y clavos al detalle', 'Bisagras y quincallería', 'Huinchas y niveles'],
   },
@@ -64,7 +68,7 @@ export const CARTA = [
     title: 'Obra y pintura',
     note: 'Para arreglar, levantar y dejar bonito',
     img: 'hero',
-    alt: 'Pasillo con sacos de cemento, bloques y tarros de pintura de colores',
+    alt: 'Patio de materiales de Don Jack: bloques apilados, pallets, contenedores y maquinaria',
     items: ['Cemento y áridos ensacados', 'Bloques', 'Pinturas y esmaltes', 'Brochas y rodillos'],
   },
 ] as const

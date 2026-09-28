@@ -85,7 +85,7 @@ export default function Page() {
 
       {/* Portada a sangre */}
       <section id="inicio" className="relative min-h-[100svh] flex items-center justify-center text-center overflow-hidden" style={{ background: C.campoDeep }}>
-        <Image src={`${IMG}/hero.webp`} alt="Pasillo de ferretería con fitting, herramientas, sacos de cemento y pinturas, abierto hacia una calle de pueblo" fill priority sizes="100vw" className="object-cover" />
+        <Image src={`${IMG}/hero.webp`} alt="Patio de Ferretería Don Jack: bloques apilados, sacos de cemento, contenedores y maquinaria" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(42,61,33,0.78) 0%, rgba(42,61,33,0.62) 50%, rgba(42,61,33,0.9) 100%)' }} />
         <div className="relative px-6 py-28 max-w-3xl" style={{ color: C.crema }}>
           <p className="text-[12px] uppercase tracking-[0.35em]" style={{ color: C.hoja }}>
@@ -126,6 +126,11 @@ export default function Page() {
               <article key={c.num} className="grid grid-cols-[88px_1fr] sm:grid-cols-[112px_1fr] gap-5 items-start">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-sm border" style={{ borderColor: C.line }}>
                   <Image src={`${IMG}/${c.img}.webp`} alt={c.alt} fill sizes="112px" className="object-cover" />
+                  {'bosquejo' in c && (
+                    <span className="absolute inset-x-0 bottom-0 py-0.5 text-center text-[9px] uppercase tracking-[0.12em] font-semibold" style={{ background: 'rgba(251,247,239,0.92)', color: C.ink }}>
+                      bosquejo
+                    </span>
+                  )}
                 </div>
                 <div>
                   <p className={`${serif.className} text-[20px] italic`} style={{ color: C.tierra }}>{c.num}.</p>
@@ -140,7 +145,7 @@ export default function Page() {
               </article>
             ))}
           </div>
-          <p className="mt-12 text-center text-[12px]" style={{ color: C.muted }}>Imágenes referenciales.</p>
+          <p className="mt-12 text-center text-[12px]" style={{ color: C.muted }}>Fotos marcadas «bosquejo»: se reemplazan por fotos reales del local al activar.</p>
         </div>
       </section>
 
@@ -165,9 +170,9 @@ export default function Page() {
 
           <div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
-              <Image src={`${IMG}/detalle1.webp`} alt="Local de ferretería con cortina abierta en una calle de pueblo con cerros al fondo" fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover" />
+              <Image src={`${IMG}/detalle1.webp`} alt="Fachada y patio de Ferretería Don Jack en Alejandro Cruz Vergara, Pencahue" fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover" />
             </div>
-            <p className="mt-2 text-[12px]" style={{ color: C.campoDeep }}>Imagen referencial.</p>
+            <p className="mt-2 text-[12px]" style={{ color: C.campoDeep }}>Foto real del local.</p>
             <h3 className={`${serif.className} mt-8 text-[30px]`}>Lo que se valora en el mesón</h3>
             <ul className="mt-3 text-[15px]">
               <Leader label="Atención directa" value="i" serifValue valueColor={C.campoDeep} />
