@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { AvisoMuestra } from './aviso-muestra'
 
 /**
  * app/globals.css redefine la escala de espaciado (--spacing-5 = 24px, --spacing-10 = 128px,
@@ -24,6 +25,7 @@ export default function DemosLayout({
   return (
     <div style={WRAP}>
       {children}
+      <AvisoMuestra />
     </div>
   )
 }

@@ -91,6 +91,7 @@ export type WhatsAppContext =
   | 'caso-roma'
   | 'cotizacion'
   | 'duda'
+  | 'demo'
 
 // Static messages (no dependen de PLANS)
 const STATIC_WHATSAPP_MESSAGES: Record<string, string> = {
@@ -100,6 +101,7 @@ const STATIC_WHATSAPP_MESSAGES: Record<string, string> = {
   'caso-roma': 'Hola! Vi el caso de Roma Crochet y quiero algo así para mi pyme 🟡',
   cotizacion: 'Hola! Necesito una cotización para mi proyecto web 🟡',
   duda: 'Hola Sitiazo! Tengo una duda antes de cotizar 🟡',
+  demo: 'Hola! Vi el demo que me prepararon — les mando fotos en mejor calidad 🟡',
 }
 
 export function whatsappLink(context: WhatsAppContext = 'contacto'): string {
