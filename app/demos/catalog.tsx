@@ -479,14 +479,14 @@ export default function DemoCatalog({
     blitz.forEach((demo) => {
       bySlug.set(demo.slug, {
         ...demo,
-        created: CREADOS[demo.slug] ?? BLITZ_CREATED[demo.slug],
+        created: CREADOS[demo.slug] ?? BLITZ_CREATED[demo.slug] ?? '',
       })
     })
     demos.forEach((demo) => {
       if (!bySlug.has(demo.slug)) {
         bySlug.set(demo.slug, {
           ...demo,
-          created: CREADOS[demo.slug] ?? demo.created,
+          created: CREADOS[demo.slug] ?? demo.created ?? '',
         })
       }
     })
