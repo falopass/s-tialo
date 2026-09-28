@@ -2471,6 +2471,14 @@ const BLITZ = [
     tagline: 'La mesa del taller: papel crema, tinta negra y el amarillo del logo ISC sobre piezas reales.',
     gradient: 'linear-gradient(135deg, #191207 0%, #241B0C 55%, #F2A91E 160%)',
   },
+  {
+    slug: 'estampa-tu-diseno',
+    name: 'Estampa Tu Diseño',
+    rubro: 'Tienda de camisetas personalizadas',
+    city: 'Talca',
+    tagline: 'Muro de vinilos en 8 Oriente: blanco polera nueva con pestañas de colores por cada trabajo.',
+    gradient: 'linear-gradient(135deg, #FBFAF7 0%, #E23E28 60%, #2457E0 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
