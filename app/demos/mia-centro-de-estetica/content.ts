@@ -1,11 +1,11 @@
 /**
  * app/demos/mia-centro-de-estetica/content.ts
  *
- * Datos del mockup. REALES (ficha pública): nombre, dirección,
- * las 31 reseñas de Google Maps, la página de Facebook y el
- * número de WhatsApp. Todo lo demás (servicios, precios, horarios
- * y reseñas citadas) es contenido de muestra para mostrar cómo se
- * vería el sitio.
+ * Datos del mockup. REALES (ficha pública de Google Maps): nombre,
+ * dirección, nota 4,8 en 31 reseñas de Google con las citas reales,
+ * la página de Facebook y el WhatsApp. Las fotos son reales de la
+ * ficha (manicure y fachada con el letrero de servicios). Los
+ * precios y horarios siguen siendo de muestra.
  */
 
 export const BIZ = {
@@ -19,6 +19,8 @@ export const BIZ = {
   phoneTel: '+56965405826',
   whatsapp: '56965405826',
   reviews: 31,
+  rating: 4.8,
+  ratingLabel: '4,8',
   facebook: 'https://www.facebook.com/centrodeesteticamia/',
   facebookFollowers: '1.532',
 } as const

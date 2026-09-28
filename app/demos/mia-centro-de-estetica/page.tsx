@@ -34,7 +34,7 @@ const C = {
 export const metadata: Metadata = demoMetadata({
   slug: 'mia-centro-de-estetica',
   title: 'Mía Centro De Estética — Estética y cuidado personal en Curicó',
-  description: 'Centro de estética en Curicó, Región del Maule. Limpiezas faciales, manicure, masajes y depilación con atención directa. Agenda por WhatsApp.',
+  description: 'Centro de estética en Curicó, Región del Maule: manicure, pedicure, peluquería y depilación con atención directa. Agenda por WhatsApp.',
   image: '/demos/mia-centro-de-estetica/hero.webp',
 })
 
@@ -45,40 +45,37 @@ const NAV_LINKS = [
   { label: 'Agendar', href: '#contacto' },
 ]
 
+// Fotos reales de la ficha de Google Maps del centro; los servicios
+// corresponden a los del letrero de su fachada (Peluquería · Depilación ·
+// Manicure · Pedicure).
 const SERVICES = [
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Bandeja con utensilios de limpieza facial: brochas, cuencos y rodillo de jade',
-    name: 'Limpieza facial profunda',
-    desc: 'Higiene, exfoliación y mascarilla según tu tipo de piel. Sales con la cara descansada y luminosa.',
-  },
-  {
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Estación de manicure con esmaltes, lámpara y vista a la calle de Curicó',
+    alt: 'Manicure hecha en Mía: esmalte rosado con uñas de glitter dorado',
     name: 'Manicure y pedicure',
     desc: 'Esmaltado tradicional y permanente, cuidado de cutícula y forma. Un momento para ti, con calma.',
   },
   {
-    src: `${IMG}/ambiente.webp`,
-    alt: 'Interior del centro de estética con plantas y luz natural',
-    name: 'Masajes de relajación',
-    desc: 'Descontracturante y relajante en cabina tranquila, con aceites y música suave.',
+    src: `${IMG}/detalle2.webp`,
+    alt: 'Detalle de uñas con glitter dorado aplicado en Mía Centro De Estética',
+    name: 'Esmaltado permanente',
+    desc: 'Color de larga duración y detalles a elección: glitter, efectos y nail art sobre las manos.',
   },
   {
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Recepción del centro con jarra de agua, toallas y flores frescas',
-    name: 'Depilación y cejas',
-    desc: 'Depilación facial, perfilado y laminado de cejas para enmarcar la mirada sin exagerar.',
+    src: `${IMG}/detalle3.webp`,
+    alt: 'Letrero de la fachada de Mía en Curicó: peluquería, depilación, manicure y pedicure',
+    name: 'Peluquería y depilación',
+    desc: 'El letrero de la casa: además de uñas, en Pje. R 8 trabajan cabello y depilación.',
   },
 ]
 
 const PRICES = [
-  { name: 'Limpieza facial profunda', price: 'desde $25.000' },
   { name: 'Manicure permanente', price: 'desde $15.000' },
   { name: 'Pedicure completa', price: 'desde $18.000' },
-  { name: 'Masaje descontracturante (45 min)', price: 'desde $22.000' },
+  { name: 'Esmaltado semipermanente', price: 'desde $10.000' },
+  { name: 'Corte de cabello', price: 'desde $12.000' },
   { name: 'Depilación de cejas y rostro', price: 'desde $8.000' },
-  { name: 'Perfilado y laminado de cejas', price: 'desde $12.000' },
+  { name: 'Nail art por uña', price: 'a convenir' },
 ]
 
 const HOURS = [
@@ -87,10 +84,16 @@ const HOURS = [
   { days: 'Domingo', time: 'Cerrado' },
 ]
 
+// Reseñas reales citadas desde la ficha pública de Google Maps.
 const TESTIMONIALS = [
-  'Atención muy cuidada y puntual. La limpieza facial me dejó la piel como nueva, se nota el cariño en los detalles.',
-  'Llevo meses viniendo a hacerme las uñas y siempre salgo contenta. Ambiente tranquilo y muy profesional.',
-  'Me atendieron con una calidez que no se encuentra en cualquier parte. Recomendado para regalarse un momento.',
+  {
+    text: 'Muy bueno, excelente atención, cien por ciento recomendado.',
+    author: 'Fernanda Moreno',
+  },
+  {
+    text: 'Muy buena atención: te desinfectan antes de atenderte y no hay más gente esperando a ser atendida.',
+    author: 'Claudia López Véliz',
+  },
 ]
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
@@ -189,10 +192,10 @@ function Sidebar() {
       {/* Reputación */}
       <div className="rounded-2xl p-6 border" style={{ backgroundColor: C.leaf, borderColor: 'rgba(76,107,60,0.25)' }}>
         <div className="flex items-center gap-2 mb-2">
-          <Stars value={5} color={C.earth} className="w-3.5 h-3.5" />
+          <Stars value={BIZ.rating} color={C.earth} className="w-3.5 h-3.5" />
         </div>
         <p className="text-sm leading-relaxed mb-3" style={{ color: C.ink }}>
-          <strong>{BIZ.reviews} reseñas</strong> en su ficha de Google Maps.
+          <strong>{BIZ.ratingLabel} de 5</strong> en {BIZ.reviews} reseñas de su ficha de Google Maps.
         </p>
         <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
           <a
@@ -245,7 +248,7 @@ export default function MiaCentroDeEsteticaPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Cabina de tratamientos de Mía Centro De Estética con vista al campanario de Curicó"
+          alt="Manicure en tonos menta con glitter hecha en Mía Centro De Estética, Curicó"
           fill
           priority
           sizes="100vw"
@@ -272,7 +275,7 @@ export default function MiaCentroDeEsteticaPage() {
                 <path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11Z" />
                 <circle cx="12" cy="10" r="2.4" />
               </svg>
-              {BIZ.reviews} reseñas en Google
+              {BIZ.ratingLabel} · {BIZ.reviews} reseñas en Google
             </a>
           </Reveal>
         </div>
@@ -316,7 +319,7 @@ export default function MiaCentroDeEsteticaPage() {
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,247,239,0.94)' }}>
             <span>{BIZ.address}, Curicó</span>
             <span>Atención con hora agendada</span>
-            <span>{BIZ.reviews} reseñas en Google</span>
+            <span>{BIZ.ratingLabel} · {BIZ.reviews} reseñas en Google</span>
             <span className="hidden md:inline" style={{ color: C.earthSoft }}>sitio de ejemplo</span>
           </div>
         </div>
@@ -334,8 +337,8 @@ export default function MiaCentroDeEsteticaPage() {
                   Tratamientos de la casa
                 </h2>
                 <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
-                  Servicios de ejemplo: al publicar van los tratamientos,
-                  duraciones y valores reales del centro.
+                  Los servicios del letrero de la casa. Al publicar van
+                  duraciones, detalles y valores reales de cada uno.
                 </p>
               </div>
             </Reveal>
@@ -391,10 +394,10 @@ export default function MiaCentroDeEsteticaPage() {
                     el tiempo que el tratamiento necesita.
                   </p>
                   <p>
-                    Son {BIZ.reviews} las reseñas que acumula su ficha de
-                    Google Maps, y más de {BIZ.facebookFollowers} personas
-                    siguen su página de Facebook. Las opiniones de abajo
-                    son de muestra: al publicar van las reseñas reales.
+                    Son {BIZ.ratingLabel} de 5 en {BIZ.reviews} reseñas de su
+                    ficha de Google Maps, y más de {BIZ.facebookFollowers}{' '}
+                    personas siguen su página de Facebook. Las opiniones de
+                    abajo son citas reales de esa ficha.
                   </p>
                   <a
                     href={MAPS_URL}
@@ -409,7 +412,7 @@ export default function MiaCentroDeEsteticaPage() {
                 <figure className="relative rounded-2xl overflow-hidden border aspect-[4/3]" style={{ borderColor: C.line }}>
                   <Image
                     src={`${IMG}/ambiente.webp`}
-                    alt="Recepción y sala de espera del centro, con plantas y vista a la calle"
+                    alt="Fachada de Mía Centro De Estética en Curicó: casa con letrero morado y el listado de servicios"
                     fill
                     sizes="(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover"
@@ -424,11 +427,12 @@ export default function MiaCentroDeEsteticaPage() {
                     className="rounded-2xl p-6 md:p-7 border"
                     style={{ backgroundColor: '#FFFDF7', borderColor: C.line }}
                   >
+                    <Stars value={5} color={C.earth} className="w-3.5 h-3.5 mb-4" />
                     <blockquote className={`${display.className} text-lg md:text-xl leading-relaxed mb-4`} style={{ color: C.ink }}>
-                      “{t}”
+                      “{t.text}”
                     </blockquote>
                     <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.earth }}>
-                      Reseña de ejemplo
+                      {t.author} · Google
                     </figcaption>
                   </figure>
                 </Reveal>
@@ -551,7 +555,7 @@ export default function MiaCentroDeEsteticaPage() {
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44" style={{ color: '#FBF7EF' }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name}. Servicios, precios, horarios y reseñas citadas son de muestra.{' '}
+            para {BIZ.name}. Datos, fotos y reseñas citadas reales (ficha de Google); precios y horarios de muestra.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44" style={{ color: C.earthSoft }}>
               ¿Lo hacemos realidad?
             </a>
