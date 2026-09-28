@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { TopNav } from './nav'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, CARTA, PRECIOS } from './content'
 
@@ -29,12 +30,12 @@ const C = {
   line: 'rgba(39,48,31,0.18)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'ferreteria-don-jack',
   title: 'Ferretería Don Jack — ferretería en Pencahue, Maule',
-  description:
-    'Ferretería en Alejandro Cruz Vergara K-260, Pencahue. Gasfitería, riego, herramientas y materiales para la casa y el campo. Consultas por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Ferretería en Alejandro Cruz Vergara K-260, Pencahue. Gasfitería, riego, herramientas y materiales para la casa y el campo. Consultas por WhatsApp.',
+  image: '/demos/ferreteria-don-jack/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La carta', href: '#carta' },

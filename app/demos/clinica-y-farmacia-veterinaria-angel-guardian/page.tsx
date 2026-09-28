@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { DemoBand } from '../kit'
 import { WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { Fade, Parallax, TopBar } from './chrome'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -44,12 +45,12 @@ const SCRIM = {
     'linear-gradient(180deg, rgba(46,22,32,0.9) 0%, rgba(46,22,32,0.93) 55%, rgba(46,22,32,0.97) 100%)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'clinica-y-farmacia-veterinaria-angel-guardian',
   title: 'Clínica y Farmacia Veterinaria Ángel Guardián - Veterinaria en Linares',
-  description:
-    'Clínica y farmacia veterinaria en Maipú 774, Linares: consulta, vacunas, medicamentos, alimentos y accesorios para tu mascota. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Clínica y farmacia veterinaria en Maipú 774, Linares: consulta, vacunas, medicamentos, alimentos y accesorios para tu mascota. Agenda por WhatsApp.',
+  image: '/demos/clinica-y-farmacia-veterinaria-angel-guardian/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -29,12 +30,12 @@ const C = {
   line: 'rgba(42,46,34,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'mia-centro-de-estetica',
   title: 'Mía Centro De Estética — Estética y cuidado personal en Curicó',
-  description:
-    'Centro de estética en Curicó, Región del Maule. Limpiezas faciales, manicure, masajes y depilación con atención directa. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Centro de estética en Curicó, Región del Maule. Limpiezas faciales, manicure, masajes y depilación con atención directa. Agenda por WhatsApp.',
+  image: '/demos/mia-centro-de-estetica/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

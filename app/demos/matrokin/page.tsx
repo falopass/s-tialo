@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -26,12 +27,12 @@ const C = {
   line: 'rgba(43,43,39,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'matrokin',
   title: 'Matrokin SPA — Spa y terapias en Molina',
-  description:
-    'Spa y terapias en Camino a Agua Fría, Molina, Región del Maule. Masajes, limpieza facial y sauna con reserva por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Spa y terapias en Camino a Agua Fría, Molina, Región del Maule. Masajes, limpieza facial y sauna con reserva por WhatsApp.',
+  image: '/demos/matrokin/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Rituales', href: '#rituales' },

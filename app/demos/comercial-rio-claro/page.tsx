@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { Vitrina } from './vitrina'
 import { BIZ, C, WA_LINK, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -17,12 +18,12 @@ const body = localFont({
   ],
 })
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'comercial-rio-claro',
   title: 'Comercial Río Claro — Artículos para la higiene por mayor en Talca',
-  description:
-    'Mayorista de artículos para la higiene en Av. Ignacio Carrera Pinto 088, Talca. Limpieza, menaje y descartables para casas y negocios. Cotiza por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Mayorista de artículos para la higiene en Av. Ignacio Carrera Pinto 088, Talca. Limpieza, menaje y descartables para casas y negocios. Cotiza por WhatsApp.',
+  image: '/demos/comercial-rio-claro/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La vitrina', href: '#vitrina' },

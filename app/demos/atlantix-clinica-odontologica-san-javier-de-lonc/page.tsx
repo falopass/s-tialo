@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Motif } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_EVAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -32,12 +33,12 @@ const C = {
   lineDark: 'rgba(232,220,200,0.22)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'atlantix-clinica-odontologica-san-javier-de-lonc',
   title: 'Atlantix Clínica Odontológica — Dentista en San Javier de Loncomilla',
-  description:
-    'Clínica dental en Sgto. Aldea 2610, San Javier de Loncomilla, Maule. Limpieza, restauraciones, ortodoncia y evaluación. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Clínica dental en Sgto. Aldea 2610, San Javier de Loncomilla, Maule. Limpieza, restauraciones, ortodoncia y evaluación. Agenda por WhatsApp.',
+  image: '/demos/atlantix-clinica-odontologica-san-javier-de-lonc/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

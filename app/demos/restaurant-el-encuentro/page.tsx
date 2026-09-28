@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -38,12 +39,12 @@ const C = {
   lineLight: 'rgba(244,241,232,0.3)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'restaurant-el-encuentro',
   title: 'Restaurant El Encuentro — Comida casera en Pencahue',
-  description:
-    'Restaurant de comida casera chilena en Pencahue, Región del Maule. Cazuelas, pastel de choclo y la mesa siempre puesta. Reserva por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Restaurant de comida casera chilena en Pencahue, Región del Maule. Cazuelas, pastel de choclo y la mesa siempre puesta. Reserva por WhatsApp.',
+  image: '/demos/restaurant-el-encuentro/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La carta', href: '#carta' },

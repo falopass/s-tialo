@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_TORTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -30,12 +31,12 @@ const C = {
   lineLight: 'rgba(255,255,255,0.22)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'le-petit-pasteleria',
   title: 'Le Petit Pasteleria — Pastelería artesanal en Talca',
-  description:
-    'Pastelería en 2 Oriente 1133, Talca. Tortas por encargo, tarteletas de fruta, milhojas, alfajores y dulces para llevar.',
-  robots: { index: false, follow: false },
-}
+  description: 'Pastelería en 2 Oriente 1133, Talca. Tortas por encargo, tarteletas de fruta, milhojas, alfajores y dulces para llevar.',
+  image: '/demos/le-petit-pasteleria/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La vitrina', href: '#vitrina' },

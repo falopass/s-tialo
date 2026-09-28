@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -42,12 +43,12 @@ const TILT = 'motion-safe:transition-transform motion-safe:duration-500 hover:ro
 
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#4C6B3C]'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'cafe-la-francesa',
   title: 'Café La Francesa - Cafetería en Linares',
-  description:
-    'Cafetería en Manuel Rodriguez 552, Linares: café de grano, vitrina dulce, sándwiches y once. Escríbenos por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Cafetería en Manuel Rodriguez 552, Linares: café de grano, vitrina dulce, sándwiches y once. Escríbenos por WhatsApp.',
+  image: '/demos/cafe-la-francesa/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La carta', href: '#carta' },

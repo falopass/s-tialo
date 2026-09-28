@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_LLEVAR, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -41,12 +42,12 @@ const NEON_BOX = {
 const FOCUS =
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3CD9EC]'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'forastero-sabor-en-cada-bocado',
   title: 'FORASTERO sabor en cada bocado — Restaurante en Pencahue',
-  description:
-    'Restaurante en Francisco de Villagra 704, Pencahue. Comida casera, porciones generosas y atención directa. Reserva o pide por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Restaurante en Francisco de Villagra 704, Pencahue. Comida casera, porciones generosas y atención directa. Reserva o pide por WhatsApp.',
+  image: '/demos/forastero-sabor-en-cada-bocado/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La cocina', href: '#cocina' },

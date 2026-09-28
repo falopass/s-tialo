@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_MEDIDA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -31,12 +32,12 @@ const C = {
   line: 'rgba(38,48,29,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'muebleria-comercial-sofia',
   title: 'Mueblería Comercial Sofia — Muebles hechos a mano en Talca',
-  description:
-    'Fábrica de muebles en Catorce Ote. 1060, Talca. Muebles a medida, cocinas, closets y restauración, con atención directa del taller.',
-  robots: { index: false, follow: false },
-}
+  description: 'Fábrica de muebles en Catorce Ote. 1060, Talca. Muebles a medida, cocinas, closets y restauración, con atención directa del taller.',
+  image: '/demos/muebleria-comercial-sofia/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'El taller', href: '#trabajos' },

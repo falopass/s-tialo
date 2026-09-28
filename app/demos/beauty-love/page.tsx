@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import {
   BIZ,
   WA_LINK,
@@ -42,12 +43,12 @@ const GLOW = '0 0 6px rgba(159,216,203,0.9), 0 0 22px rgba(159,216,203,0.55), 0 
 const TUBE = '0 0 0 1px rgba(159,216,203,0.7), 0 0 18px rgba(159,216,203,0.35), inset 0 0 18px rgba(159,216,203,0.15)'
 const PHOTO = 'contrast(1.28) saturate(0.8) brightness(0.78)'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'beauty-love',
   title: 'Beauty Love — Manicura y pedicura en Molina',
-  description:
-    'Salón de manicura y pedicura en Notre Damme 913, Molina. Hora agendada y atención directa por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Salón de manicura y pedicura en Notre Damme 913, Molina. Hora agendada y atención directa por WhatsApp.',
+  image: '/demos/beauty-love/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, C, HOURS, IMG, MAPS_EMBED, MAPS_URL, WA_LINK, WA_LINK2 } from './content'
 import { Catalogo } from './catalogo'
 
@@ -17,12 +18,12 @@ const body = localFont({
   ],
 })
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'que-barato-lf',
   title: 'QUE BARATO LF — De todo un poco en Talca',
-  description:
-    'Curas y botiquín, útiles escolares, manualidades y hogar en 34 Ote. 3404, Talca. Detalle y mayor desde 3 unidades; compra en tienda, a domicilio o con envío a regiones. Cotiza por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Curas y botiquín, útiles escolares, manualidades y hogar en 34 Ote. 3404, Talca. Detalle y mayor desde 3 unidades; compra en tienda, a domicilio o con envío a regiones. Cotiza por WhatsApp.',
+  image: '/demos/que-barato-lf/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Catálogo', href: '#catalogo' },

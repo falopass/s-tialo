@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_PEDIDO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -31,12 +32,12 @@ const C = {
   line: 'rgba(43,27,32,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'ferreteria-williams-pencahue',
   title: 'Ferreteria Williams Pencahue — ferretería y maderas en el Maule',
-  description:
-    'Ferretería en Santa Sara, Pencahue, Región del Maule. Herramientas, tornillería al detalle, gasfitería, electricidad e insumos para el campo. Pedidos por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Ferretería en Santa Sara, Pencahue, Región del Maule. Herramientas, tornillería al detalle, gasfitería, electricidad e insumos para el campo. Pedidos por WhatsApp.',
+  image: '/demos/ferreteria-williams-pencahue/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La galería', href: '#mosaico' },

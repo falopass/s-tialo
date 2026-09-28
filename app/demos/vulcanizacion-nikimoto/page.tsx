@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, INSTAGRAM_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -31,12 +32,12 @@ const hazard = {
   backgroundImage: `repeating-linear-gradient(-45deg, ${C.amarillo} 0 14px, ${C.negro} 14px 28px)`,
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'vulcanizacion-nikimoto',
   title: 'Vulcanizacion nikimoto — Taller mecánico en Pelarco',
-  description:
-    'Vulcanización y taller mecánico en Pelarco, Región del Maule. Pinchazos, neumáticos, frenos y mantención con atención directa. Escribe por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Vulcanización y taller mecánico en Pelarco, Región del Maule. Pinchazos, neumáticos, frenos y mantención con atención directa. Escribe por WhatsApp.',
+  image: '/demos/vulcanizacion-nikimoto/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Trabajos', href: '#trabajos' },

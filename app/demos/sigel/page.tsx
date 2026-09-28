@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_EMERGENCIA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -28,12 +29,12 @@ const C = {
   line: 'rgba(21,23,28,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'sigel',
   title: 'Eléctrico Domiciliario Sigel — Electricista a domicilio en Talca',
-  description:
-    'Electricista a domicilio en Av. Piduco Sur, Talca. Instalaciones, tableros, iluminación y emergencias. Cotiza por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Electricista a domicilio en Av. Piduco Sur, Talca. Instalaciones, tableros, iluminación y emergencias. Cotiza por WhatsApp.',
+  image: '/demos/sigel/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

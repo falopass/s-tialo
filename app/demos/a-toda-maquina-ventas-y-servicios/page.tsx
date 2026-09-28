@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import {
   BIZ,
   WA_LINK,
@@ -40,12 +41,12 @@ const C = {
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'a-toda-maquina-ventas-y-servicios',
   title: 'A Toda Maquina — Máquinas de coser y servicio técnico en Linares',
-  description:
-    'Tienda de máquinas de coser en Linares: venta, repuestos e insumos, y servicio técnico. Atención directa por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Tienda de máquinas de coser en Linares: venta, repuestos e insumos, y servicio técnico. Atención directa por WhatsApp.',
+  image: '/demos/a-toda-maquina-ventas-y-servicios/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Productos', href: '#productos' },

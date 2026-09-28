@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import {
   BIZ,
   WA_LINK,
@@ -42,12 +43,12 @@ const C = {
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'damianstyle',
   title: 'DamianStyle — Barbería en Pelarco',
-  description:
-    'Barbería en Villa Altos del Bosque, Pelarco. Corte, afeitado con toalla caliente y arreglo de barba con atención directa. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Barbería en Villa Altos del Bosque, Pelarco. Corte, afeitado con toalla caliente y arreglo de barba con atención directa. Agenda por WhatsApp.',
+  image: '/demos/damianstyle/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

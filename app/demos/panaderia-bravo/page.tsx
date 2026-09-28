@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_TORTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -31,12 +32,12 @@ const C = {
   line: 'rgba(59,42,27,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'panaderia-bravo',
   title: 'Panadería Bravo — Pan recién horneado en Molina',
-  description:
-    'Panadería y pastelería en Avenida Pte. 2123, Molina. Pan amasado, marraquetas, masas dulces, café y tortas por encargo.',
-  robots: { index: false, follow: false },
-}
+  description: 'Panadería y pastelería en Avenida Pte. 2123, Molina. Pan amasado, marraquetas, masas dulces, café y tortas por encargo.',
+  image: '/demos/panaderia-bravo/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Del horno', href: '#horno' },

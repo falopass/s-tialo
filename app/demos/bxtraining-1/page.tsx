@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CLASE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -32,12 +33,12 @@ const C = {
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'bxtraining-1',
   title: 'Bxtraining 1 — Gimnasio en San Clemente',
-  description:
-    'Gimnasio en San Clemente, Región del Maule. Sala de pesas, zona funcional y atención directa. Consulta por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Gimnasio en San Clemente, Región del Maule. Sala de pesas, zona funcional y atención directa. Consulta por WhatsApp.',
+  image: '/demos/bxtraining-1/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'El espacio', href: '#espacio' },

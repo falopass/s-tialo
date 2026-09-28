@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -29,12 +30,12 @@ const C = {
 
 const STRIPE = `repeating-linear-gradient(-45deg, ${C.signal} 0 14px, ${C.ink} 14px 28px)`
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'danybloom',
   title: 'danybloom — Manicura y pedicura en Talca',
-  description:
-    'Salón de manicura y pedicura en Camino Las Rastras, Talca. Manicura, semipermanente, kapping y pedicura con hora agendada por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Salón de manicura y pedicura en Camino Las Rastras, Talca. Manicura, semipermanente, kapping y pedicura con hora agendada por WhatsApp.',
+  image: '/demos/danybloom/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

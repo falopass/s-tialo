@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -29,12 +30,12 @@ const C = {
   line: 'rgba(16,21,43,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'hospital-clinico-veterinario-la-granja-linares',
   title: 'Hospital Clínico Veterinario La Granja — Linares',
-  description:
-    'Hospital veterinario en Colo Colo 1634, Linares. Consultas, vacunas, diagnóstico por imagen y cirugía. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Hospital veterinario en Colo Colo 1634, Linares. Consultas, vacunas, diagnóstico por imagen y cirugía. Agenda por WhatsApp.',
+  image: '/demos/hospital-clinico-veterinario-la-granja-linares/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Pacientes', href: '#pacientes' },

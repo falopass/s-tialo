@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -30,12 +31,12 @@ const C = {
   line: 'rgba(74,31,51,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'lua-nails',
   title: 'Lua Nails Home — Manicure y uñas en Talca',
-  description:
-    'Manicure y uñas en Treinta y Medio Ote. 1729, Talca. Manicure clásico, semipermanente, kapping y pedicure con hora agendada por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Manicure y uñas en Treinta y Medio Ote. 1729, Talca. Manicure clásico, semipermanente, kapping y pedicure con hora agendada por WhatsApp.',
+  image: '/demos/lua-nails/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

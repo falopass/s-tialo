@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { GridScene } from './scenes'
 
@@ -34,12 +35,11 @@ const C = {
   line: 'rgba(38,43,49,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'santa-fe',
   title: 'Santa Fe - Ingeniería y Construcciones en Talca',
-  description:
-    'Ingeniería y construcción en Talca. Cotiza tu proyecto por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Ingeniería y construcción en Talca. Cotiza tu proyecto por WhatsApp.',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { ParallaxImg } from './parallax'
 import {
   BIZ,
@@ -44,12 +45,12 @@ const BTN_SOLID =
 const BTN_GHOST =
   'rounded-full border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8]'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'bravosgym',
   title: 'Bravosgym — Gimnasio en Molina',
-  description:
-    'Gimnasio en el centro de Molina, Región del Maule. Pesas libres, entrenamiento funcional y atención directa. Consulta por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Gimnasio en el centro de Molina, Región del Maule. Pesas libres, entrenamiento funcional y atención directa. Consulta por WhatsApp.',
+  image: '/demos/bravosgym/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

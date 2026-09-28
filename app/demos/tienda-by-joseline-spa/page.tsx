@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, waLinkProducto, WA_CATALOG, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -17,12 +18,12 @@ const body = localFont({
   ],
 })
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'tienda-by-joseline-spa',
   title: 'Tienda By Joseline Spa — Lencería en Pencahue',
-  description:
-    'Tienda de lencería en Brisas de Pencahue 2, Pencahue. Conjuntos, encaje, pijamas y packs de regalo. Consulta tallas y encarga por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Tienda de lencería en Brisas de Pencahue 2, Pencahue. Conjuntos, encaje, pijamas y packs de regalo. Consulta tallas y encarga por WhatsApp.',
+  image: '/demos/tienda-by-joseline-spa/hero.webp',
+})
 
 const C = {
   red: '#C1272D',

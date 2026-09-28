@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import {
   BIZ,
   WA_LINK,
@@ -41,12 +42,12 @@ const C = {
 const focusRing =
   'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'distribuidora-renato-molina',
   title: 'Distribuidora Renato Molina — Mercado en Molina',
-  description:
-    'Distribuidora en C. Membrillar 1585, Molina. Plásticos, aseo y menaje para la casa y el negocio. Haz tu pedido por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Distribuidora en C. Membrillar 1585, Molina. Plásticos, aseo y menaje para la casa y el negocio. Haz tu pedido por WhatsApp.',
+  image: '/demos/distribuidora-renato-molina/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Productos', href: '#productos' },

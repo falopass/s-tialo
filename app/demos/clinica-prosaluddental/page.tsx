@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Motif } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_EVAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -33,12 +34,12 @@ const C = {
   lineDark: 'rgba(255,255,255,0.2)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'clinica-prosaluddental',
   title: 'Clínica ProSaludDental — Dentista en Linares',
-  description:
-    'Clínica dental en Curapalihue, Linares, Maule. Evaluación, limpieza, restauraciones y ortodoncia con agenda puntual por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Clínica dental en Curapalihue, Linares, Maule. Evaluación, limpieza, restauraciones y ortodoncia con agenda puntual por WhatsApp.',
+  image: '/demos/clinica-prosaluddental/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

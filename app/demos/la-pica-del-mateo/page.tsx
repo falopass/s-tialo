@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, STACK, PRICES, VALUES } from './content'
 
 const display = localFont({
@@ -35,12 +36,12 @@ const BTN_WA = `inline-flex items-center justify-center gap-2 rounded-full bg-[#
 const BTN_LINE = `inline-flex items-center justify-center rounded-full border border-white/40 text-white font-semibold transition-colors hover:bg-white/10 ${FOCUS}`
 const TAG = 'inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em]'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'la-pica-del-mateo',
   title: 'La Pica del Mateo - Restaurante familiar en San Clemente',
-  description:
-    'Restaurante familiar en Carlos Silva Renard 883, San Clemente: empanadas por docena, colación del día y pedidos para grupos por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Restaurante familiar en Carlos Silva Renard 883, San Clemente: empanadas por docena, colación del día y pedidos para grupos por WhatsApp.',
+  image: '/demos/la-pica-del-mateo/hero.webp',
+})
 
 const NAV = [
   { label: 'La carta', href: '#carta' },

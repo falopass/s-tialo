@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -28,12 +29,12 @@ const C = {
   line: 'rgba(21,41,48,0.12)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'agrocesped-del-maule',
   title: 'AgroCesped Del Maule — Vivero mayorista en San Clemente',
-  description:
-    'Vivero mayorista en San Clemente, Región del Maule. Plantas por volumen para tiendas, jardinerías y proyectos: flor de temporada, interior, frutales e insumos. Cotiza por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Vivero mayorista en San Clemente, Región del Maule. Plantas por volumen para tiendas, jardinerías y proyectos: flor de temporada, interior, frutales e insumos. Cotiza por WhatsApp.',
+  image: '/demos/agrocesped-del-maule/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Surtido', href: '#surtido' },

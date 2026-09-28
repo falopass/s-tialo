@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CONSULTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -32,12 +33,12 @@ const C = {
   lineLight: 'rgba(247,249,249,0.24)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'centro-spa-roxana',
   title: 'Centro Spa Roxana: centro de estética en Curicó',
-  description:
-    'Centro de estética en Julio Montt 1170, Curicó. Limpieza facial, masajes, manicure y más, con atención personalizada. Pide tu hora por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Centro de estética en Julio Montt 1170, Curicó. Limpieza facial, masajes, manicure y más, con atención personalizada. Pide tu hora por WhatsApp.',
+  image: '/demos/centro-spa-roxana/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

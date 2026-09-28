@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_FACIAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -42,12 +43,12 @@ const KICKER = 'text-[11px] uppercase tracking-[0.24em] font-bold'
 const H2 = `${display.className} font-medium leading-[1.06] tracking-[-0.02em] text-[clamp(2.6rem,7vw,6.5rem)]`
 const WRAP = 'max-w-6xl mx-auto px-5 md:px-8'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'issa-bella-spa-centro-de-estetica',
   title: 'Issa-bella SpA, centro de estética facial en Curicó',
-  description:
-    'Centro de estética facial en Sarajevo 1576, Curicó. Limpieza facial, fototerapia LED y más, con atención directa por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Centro de estética facial en Sarajevo 1576, Curicó. Limpieza facial, fototerapia LED y más, con atención directa por WhatsApp.',
+  image: '/demos/issa-bella-spa-centro-de-estetica/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Tratamientos', href: '#tratamientos' },

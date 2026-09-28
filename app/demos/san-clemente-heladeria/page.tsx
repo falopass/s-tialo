@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import {
   BIZ,
   WA_LINK,
@@ -45,12 +46,12 @@ const C = {
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'san-clemente-heladeria',
   title: 'Heladería San Clemente · Helado artesanal en el Maule',
-  description:
-    'Heladería artesanal en San Clemente, Región del Maule. Sabores de temporada, copas y helado para llevar, sábados y domingos. Pide por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Heladería artesanal en San Clemente, Región del Maule. Sabores de temporada, copas y helado para llevar, sábados y domingos. Pide por WhatsApp.',
+  image: '/demos/san-clemente-heladeria/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La vitrina', href: '#vitrina' },

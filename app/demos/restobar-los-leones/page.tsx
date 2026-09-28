@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import type { CSSProperties } from 'react'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_MESA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -33,12 +34,12 @@ const SPACING = Object.fromEntries(
   [5, 6, 7, 8, 9, 10, 11, 12].map((n) => [`--spacing-${n}`, `${n * 4}px`]),
 ) as CSSProperties
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'restobar-los-leones',
   title: 'Restobar Los Leones — Cocina casera y barra en Pelarco',
-  description:
-    'Restobar en Pelarco, Región del Maule. Cocina casera, empanadas de horno y barra para la sobremesa. Reserva por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Restobar en Pelarco, Región del Maule. Cocina casera, empanadas de horno y barra para la sobremesa. Reserva por WhatsApp.',
+  image: '/demos/restobar-los-leones/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La cocina', href: '#cocina' },

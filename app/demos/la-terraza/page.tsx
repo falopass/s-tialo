@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import {
   BIZ,
   WA_LINK,
@@ -38,12 +39,12 @@ const C = {
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'la-terraza',
   title: 'La Terraza — Hamburguesería en Cumpeo, Río Claro',
-  description:
-    'Hamburguesería en El Cerrillo, Cumpeo, Río Claro. Pide por WhatsApp o ven a sentarte con calma. 17 reseñas en Google Maps.',
-  robots: { index: false, follow: false },
-}
+  description: 'Hamburguesería en El Cerrillo, Cumpeo, Río Claro. Pide por WhatsApp o ven a sentarte con calma. 17 reseñas en Google Maps.',
+  image: '/demos/la-terraza/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Carta', href: '#carta' },

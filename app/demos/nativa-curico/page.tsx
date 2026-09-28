@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import type { CSSProperties } from 'react'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_HORA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -47,12 +48,12 @@ const SPACING = Object.fromEntries(
   [5, 6, 7, 8, 9, 10, 11, 12].map((n) => [`--spacing-${n}`, `${n * 4}px`]),
 ) as CSSProperties
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'nativa-curico',
   title: 'Nativa Curicó — Centro de estética en Carmen 775, Curicó',
-  description:
-    'Centro de estética en el centro de Curicó: limpieza facial, depilación, masajes y cejas en Torre Carmen, Carmen 775. Reserva por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Centro de estética en el centro de Curicó: limpieza facial, depilación, masajes y cejas en Torre Carmen, Carmen 775. Reserva por WhatsApp.',
+  image: '/demos/nativa-curico/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'El menú', href: '#menu' },

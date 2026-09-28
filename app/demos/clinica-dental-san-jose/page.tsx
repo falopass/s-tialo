@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_DOLOR, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -46,12 +47,12 @@ const NEON_LINE =
 const FOCUS =
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'clinica-dental-san-jose',
   title: 'Clínica Dental San José — Dentista en Quechereguas 1667, Molina',
-  description:
-    'Clínica dental en Quechereguas 1667, Molina, Región del Maule. Atención directa y cercana: agenda tu hora por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Clínica dental en Quechereguas 1667, Molina, Región del Maule. Atención directa y cercana: agenda tu hora por WhatsApp.',
+  image: '/demos/clinica-dental-san-jose/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

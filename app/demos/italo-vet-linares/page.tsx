@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, STEPS, SERVICES, PRICES } from './content'
 
 const display = localFont({
@@ -26,12 +27,12 @@ const C = {
   line: 'rgba(14,19,48,0.12)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'italo-vet-linares',
   title: 'Italo Vet Linares - Veterinario en Linares',
-  description:
-    'Veterinario en Corporación 840, Linares. Pide hora para tu mascota por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Veterinario en Corporación 840, Linares. Pide hora para tu mascota por WhatsApp.',
+  image: '/demos/italo-vet-linares/hero.webp',
+})
 
 function WaButton({ children, big = false }: { children: React.ReactNode; big?: boolean }) {
   return (

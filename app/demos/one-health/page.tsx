@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { HeroScene } from './scenes'
 
@@ -30,12 +31,11 @@ const C = {
   line: 'rgba(57,67,47,0.12)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'one-health',
   title: 'One Health - Centro Médico Veterinario en Maule',
-  description:
-    'Centro médico veterinario en Maule. Agenda una hora por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Centro médico veterinario en Maule. Agenda una hora por WhatsApp.',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

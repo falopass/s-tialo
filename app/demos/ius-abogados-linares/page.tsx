@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, INSTAGRAM_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -42,12 +43,12 @@ const tape = {
   backgroundPosition: 'top left, top left',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'ius-abogados-linares',
   title: 'IUS Abogados Linares — Abogados en Maipú 461, Linares',
-  description:
-    'Estudio de abogados en Maipú 461, Ofi 405, Linares. Atención directa, su caso explicado paso a paso. Consulte por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Estudio de abogados en Maipú 461, Ofi 405, Linares. Atención directa, su caso explicado paso a paso. Consulte por WhatsApp.',
+  image: '/demos/ius-abogados-linares/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Proceso', href: '#proceso' },

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { demoMetadata } from '../meta'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
@@ -32,12 +33,11 @@ const C = {
   line: 'rgba(23,58,43,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'cabanas-la-quebrada',
   title: 'Cabañas La Quebrada — Cabañas en Talca, Región del Maule',
-  description:
-    'Cabañas equipadas en Talca para descansar con calma. Consulta disponibilidad por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Cabañas equipadas en Talca para descansar con calma. Consulta disponibilidad por WhatsApp.',
+})
 
 // ── Utilidades ───────────────────────────────────────────────
 

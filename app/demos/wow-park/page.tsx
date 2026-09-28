@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CUMPLE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -33,12 +34,12 @@ const C = {
   line: 'rgba(27,43,69,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'wow-park',
   title: 'Wow Park Talca — Parque infantil y cumpleaños en Talca',
-  description:
-    'Parque infantil en Talca con juegos, inflables y celebraciones de cumpleaños. Reserva por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Parque infantil en Talca con juegos, inflables y celebraciones de cumpleaños. Reserva por WhatsApp.',
+  image: '/demos/wow-park/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Zonas de juego', href: '#juegos' },

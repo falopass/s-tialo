@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 
 const display = localFont({
@@ -27,12 +28,11 @@ const C = {
   line: 'rgba(35,38,43,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'jd-abogados',
   title: 'J&D Abogados - Estudio jurídico en Talca',
-  description:
-    'Estudio de abogados en Talca. Escríbenos por WhatsApp para una primera orientación.',
-  robots: { index: false, follow: false },
-}
+  description: 'Estudio de abogados en Talca. Escríbenos por WhatsApp para una primera orientación.',
+})
 
 const NAV_LINKS = [
   { label: 'Áreas', href: '#areas' },

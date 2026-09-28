@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { Reveal, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_FRUTAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -32,12 +33,12 @@ const C = {
   line: 'rgba(14,76,92,0.25)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'vivero-entre-raices',
   title: 'Vivero Entre Raices — Centro de jardinería en Linares',
-  description:
-    'Centro de jardinería en Los Cardenales 848, Linares. Plantas de temporada, frutales, maceteros y sustratos. Consultas por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Centro de jardinería en Los Cardenales 848, Linares. Plantas de temporada, frutales, maceteros y sustratos. Consultas por WhatsApp.',
+  image: '/demos/vivero-entre-raices/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'El vivero', href: '#vivero' },

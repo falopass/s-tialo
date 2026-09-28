@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -38,12 +39,12 @@ const C = {
   line: 'rgba(14,76,92,0.22)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'cabanas-vista-hermosa',
   title: 'Cabañas Vista Hermosa — Cabañas en Río Claro, Maule',
-  description:
-    'Cabañas en Río Claro, Región del Maule. Reserva directa por WhatsApp: madera, campo y la vista que da nombre a la casa.',
-  robots: { index: false, follow: false },
-}
+  description: 'Cabañas en Río Claro, Región del Maule. Reserva directa por WhatsApp: madera, campo y la vista que da nombre a la casa.',
+  image: '/demos/cabanas-vista-hermosa/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Las cabañas', href: '#cabanas' },

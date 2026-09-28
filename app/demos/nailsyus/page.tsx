@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -37,12 +38,12 @@ const BTN_SOLID = `${display.className} font-bold uppercase tracking-[0.06em] te
 const BTN_GHOST = `${display.className} font-bold uppercase tracking-[0.06em] text-sm md:text-base px-8 py-3.5 border transition hover:bg-white/10 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'nailsyus',
   title: 'NAILSYUS · Salón de manicura y pedicura en Talca',
-  description:
-    'Salón de manicura y pedicura en Calle 24 1/2 Nte. J 4126, Talca. Agenda tu hora por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Salón de manicura y pedicura en Calle 24 1/2 Nte. J 4126, Talca. Agenda tu hora por WhatsApp.',
+  image: '/demos/nailsyus/hero.webp',
+})
 
 const NAV_LINKS = [
   { num: '01', label: 'Servicios', href: '#servicios' },

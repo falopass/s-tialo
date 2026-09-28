@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -40,12 +41,12 @@ const C = {
 
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8A33D]'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'emporio-vintage-cafe',
   title: 'Emporio Vintage Café — Cafetería en el centro de Talca',
-  description:
-    'Cafetería en Tres Nte. 1471, Talca: café de grano, kuchen, sándwiches y once. Escríbenos por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Cafetería en Tres Nte. 1471, Talca: café de grano, kuchen, sándwiches y once. Escríbenos por WhatsApp.',
+  image: '/demos/emporio-vintage-cafe/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La carta', href: '#carta' },

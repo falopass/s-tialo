@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_PRESUPUESTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -28,12 +29,12 @@ const C = {
   soft: '#EDF2F5',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'servicio-tecnico-automotriz-millycar',
   title: 'Millycar — Servicio técnico automotriz en Curicó',
-  description:
-    'Taller mecánico en Av. Manso de Velasco 965, Curicó. Diagnóstico explicado en simple, presupuesto antes de abrir el capó y avance por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Taller mecánico en Av. Manso de Velasco 965, Curicó. Diagnóstico explicado en simple, presupuesto antes de abrir el capó y avance por WhatsApp.',
+  image: '/demos/servicio-tecnico-automotriz-millycar/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

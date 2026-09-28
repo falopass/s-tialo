@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -39,12 +40,12 @@ const C = {
 
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8C6239]'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'peluqueria-gloria',
   title: 'Peluquería Gloria — Peluquería en Cumpeo, Río Claro',
-  description:
-    'Peluquería en Cumpeo, Río Claro: corte, color, mechas, brushing y peinados con atención directa. Agenda tu hora por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Peluquería en Cumpeo, Río Claro: corte, color, mechas, brushing y peinados con atención directa. Agenda tu hora por WhatsApp.',
+  image: '/demos/peluqueria-gloria/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

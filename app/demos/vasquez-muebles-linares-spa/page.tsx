@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_ENCARGO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -29,12 +30,12 @@ const C = {
   line: 'rgba(27,42,65,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'vasquez-muebles-linares-spa',
   title: 'Vasquez Muebles — Fábrica de muebles a medida en Linares',
-  description:
-    'Fábrica de muebles en Callejón Los Zárate, Linares, Región del Maule. Cocinas, closets y muebles a medida, conversados directo con el taller.',
-  robots: { index: false, follow: false },
-}
+  description: 'Fábrica de muebles en Callejón Los Zárate, Linares, Región del Maule. Cocinas, closets y muebles a medida, conversados directo con el taller.',
+  image: '/demos/vasquez-muebles-linares-spa/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Los muebles', href: '#muebles' },

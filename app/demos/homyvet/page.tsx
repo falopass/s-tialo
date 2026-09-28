@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { HomePanel, PawPanel, HeartPanel } from './scenes'
 
@@ -29,12 +30,11 @@ const C = {
   line: 'rgba(30,44,78,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'homyvet',
   title: 'Homyvet - Clínica Veterinaria en Talca',
-  description:
-    'Clínica veterinaria en Talca. Reserva una hora para tu mascota por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Clínica veterinaria en Talca. Reserva una hora para tu mascota por WhatsApp.',
+})
 
 const NAV_LINKS = [
   { label: 'Cómo atendemos', href: '#como-atendemos' },

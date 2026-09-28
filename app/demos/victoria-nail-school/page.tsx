@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -30,12 +31,12 @@ const C = {
   line: 'rgba(28,30,32,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'victoria-nail-school',
   title: 'Victoria Nail School — Manicura y pedicura en Pencahue',
-  description:
-    'Salón de manicura y pedicura en Pencahue, Región del Maule. Agenda tu hora por WhatsApp: atención directa, puntual y con precios claros.',
-  robots: { index: false, follow: false },
-}
+  description: 'Salón de manicura y pedicura en Pencahue, Región del Maule. Agenda tu hora por WhatsApp: atención directa, puntual y con precios claros.',
+  image: '/demos/victoria-nail-school/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

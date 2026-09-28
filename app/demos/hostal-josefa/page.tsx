@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -29,12 +30,12 @@ const C = {
   lineLight: 'rgba(237,230,218,0.2)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'hostal-josefa',
   title: 'Hostal Josefa — Hospedaje en el centro de Curicó',
-  description:
-    'Hostal en Sgto. Aldea 407, Curicó. Piezas simples y prolijas, atención directa y reserva por WhatsApp. 106 reseñas en Google.',
-  robots: { index: false, follow: false },
-}
+  description: 'Hostal en Sgto. Aldea 407, Curicó. Piezas simples y prolijas, atención directa y reserva por WhatsApp. 106 reseñas en Google.',
+  image: '/demos/hostal-josefa/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La estadía', href: '#historia' },

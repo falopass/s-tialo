@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_PRESUPUESTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -36,12 +37,12 @@ const C = {
   signalSoft: '#FDEBDD',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'taller-mecanico-servimac',
   title: 'Taller mecánico Servimac — Mecánica automotriz en Molina',
-  description:
-    'Taller de reparación de automóviles en Luis Cruz Martínez 3581, Molina. Mantención preventiva, frenos, suspensión y motor, con presupuesto claro.',
-  robots: { index: false, follow: false },
-}
+  description: 'Taller de reparación de automóviles en Luis Cruz Martínez 3581, Molina. Mantención preventiva, frenos, suspensión y motor, con presupuesto claro.',
+  image: '/demos/taller-mecanico-servimac/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

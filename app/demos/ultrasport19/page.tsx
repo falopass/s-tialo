@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CLASE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -34,12 +35,12 @@ const C = {
   ink: '#101418',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'ultrasport19',
   title: 'Ultrasport19 — Gimnasio en Pencahue',
-  description:
-    'Gimnasio en Pencahue, Región del Maule. Sala de pesas, entrenamiento funcional y planes con seguimiento. Agenda tu clase de prueba por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Gimnasio en Pencahue, Región del Maule. Sala de pesas, entrenamiento funcional y planes con seguimiento. Agenda tu clase de prueba por WhatsApp.',
+  image: '/demos/ultrasport19/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Entrenamiento', href: '#entrenamiento' },

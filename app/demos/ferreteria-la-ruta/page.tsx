@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_STOCK, MAPS_URL, MAPS_EMBED } from './content'
 
 const display = localFont({
@@ -30,12 +31,12 @@ const C = {
 
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF]'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'ferreteria-la-ruta',
   title: 'Ferretería La Ruta — Tienda de herramientas en Pencahue',
-  description:
-    'Ferretería La Ruta en Villa Santa Inés, K-60, Pencahue. Herramientas manuales y eléctricas, construcción, jardín y campo. Consulta stock y precio por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Ferretería La Ruta en Villa Santa Inés, K-60, Pencahue. Herramientas manuales y eléctricas, construcción, jardín y campo. Consulta stock y precio por WhatsApp.',
+  image: '/demos/ferreteria-la-ruta/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La carta', href: '#carta' },

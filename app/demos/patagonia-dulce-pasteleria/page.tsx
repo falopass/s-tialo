@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_TORTA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -31,12 +32,12 @@ const C = {
   lineLight: 'rgba(247,249,249,0.26)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'patagonia-dulce-pasteleria',
   title: 'Patagonia dulce pastelería — Pastelería en San Clemente',
-  description:
-    'Pastelería en Campanario 1502, San Clemente, Región del Maule. Tortas por encargo, kuchen y dulces sureños. Pide por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Pastelería en Campanario 1502, San Clemente, Región del Maule. Tortas por encargo, kuchen y dulces sureños. Pide por WhatsApp.',
+  image: '/demos/patagonia-dulce-pasteleria/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La vitrina', href: '#vitrina' },

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK_HORA, waServicio, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -28,12 +29,12 @@ const C = {
   line: 'rgba(58,63,68,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'barberia-rulos-style-barberia-curico',
   title: 'Barbería Rulos Style — Corte y barba en Curicó',
-  description:
-    'Barbería en Av. Rauquén 1967, Curicó, Región del Maule. Corte, barba y afeitado clásico con toalla caliente. Reserva tu hora por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Barbería en Av. Rauquén 1967, Curicó, Región del Maule. Corte, barba y afeitado clásico con toalla caliente. Reserva tu hora por WhatsApp.',
+  image: '/demos/barberia-rulos-style-barberia-curico/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La barbería', href: '#barberia' },

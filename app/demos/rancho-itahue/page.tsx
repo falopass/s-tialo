@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_EVENTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -29,12 +30,12 @@ const C = {
   line: 'rgba(35,42,32,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'rancho-itahue',
   title: 'Rancho Itahue — Agroturismo y eventos en Molina',
-  description:
-    'Naturaleza, cabalgatas y tardes de campo a 15 minutos de Molina, Región del Maule. Cabalgatas, piscina, quinchos y arriendo para eventos.',
-  robots: { index: false, follow: false },
-}
+  description: 'Naturaleza, cabalgatas y tardes de campo a 15 minutos de Molina, Región del Maule. Cabalgatas, piscina, quinchos y arriendo para eventos.',
+  image: '/demos/rancho-itahue/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Un día en el rancho', href: '#el-dia' },

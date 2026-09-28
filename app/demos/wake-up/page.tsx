@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_OFICINA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -30,12 +31,12 @@ const C = {
   line: 'rgba(31,86,115,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'wake-up',
   title: 'Wake Up — Cafetería en Merced 490, Curicó',
-  description:
-    'Cafetería en Merced 490, Curicó. Espresso recién hecho, vitrina de dulces, desayuno y once para llevar. Pedidos por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Cafetería en Merced 490, Curicó. Espresso recién hecho, vitrina de dulces, desayuno y once para llevar. Pedidos por WhatsApp.',
+  image: '/demos/wake-up/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'El mosaico', href: '#mosaico' },

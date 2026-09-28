@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_BULTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -44,12 +45,12 @@ const GLOW_BTN = {
     '0 0 0 1px rgba(69,213,232,0.35), 0 0 28px rgba(69,213,232,0.38), 0 8px 30px rgba(69,213,232,0.22)',
 } as const
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'ferreteria-valdebenito',
   title: 'Ferretería Valdebenito — Herramientas y materiales en Linares',
-  description:
-    'Tienda de herramientas en Rengo 435, Linares. Surtido para la obra, el campo y la casa, con venta por unidad y por volumen. Cotiza por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Tienda de herramientas en Rengo 435, Linares. Surtido para la obra, el campo y la casa, con venta por unidad y por volumen. Cotiza por WhatsApp.',
+  image: '/demos/ferreteria-valdebenito/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'El surtido', href: '#surtido' },

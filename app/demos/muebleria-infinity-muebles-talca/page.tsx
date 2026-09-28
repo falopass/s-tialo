@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_MEDIDA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -32,12 +33,12 @@ const C = {
   lineLight: 'rgba(237,230,218,0.18)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'muebleria-infinity-muebles-talca',
   title: 'Infinity Muebles — Carpintería y muebles a medida en Talca',
-  description:
-    'Mueblería y carpintería en Once Sur, Talca. Muebles a medida, cocinas, closets y racks. Cotiza por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Mueblería y carpintería en Once Sur, Talca. Muebles a medida, cocinas, closets y racks. Cotiza por WhatsApp.',
+  image: '/demos/muebleria-infinity-muebles-talca/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Trabajos', href: '#trabajos' },

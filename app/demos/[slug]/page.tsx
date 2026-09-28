@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { DEMOS, getDemo } from '../data'
+import { demoMetadata } from '../meta'
 import {
   DemoHeader,
   DemoHero,
@@ -32,10 +33,11 @@ export async function generateMetadata({
   const { slug } = await params
   const demo = getDemo(slug)
   if (!demo) return {}
-  return {
+  return demoMetadata({
+    slug,
     title: demo.meta.title,
     description: demo.meta.description,
-  }
+  })
 }
 
 export default async function DemoPage({

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -28,12 +29,12 @@ const C = {
   line: 'rgba(29,37,33,0.18)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'muebles-a-tu-estilo',
   title: 'muebles a tu estilo — Fábrica de muebles en Molina',
-  description:
-    'Fábrica de muebles en Teniente Berguño 1369, Molina, Región del Maule. Cocinas, closets, comedores y muebles a medida, conversados directo con el taller.',
-  robots: { index: false, follow: false },
-}
+  description: 'Fábrica de muebles en Teniente Berguño 1369, Molina, Región del Maule. Cocinas, closets, comedores y muebles a medida, conversados directo con el taller.',
+  image: '/demos/muebles-a-tu-estilo/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Muebles', href: '#muebles' },

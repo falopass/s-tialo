@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import {
   BIZ,
   WA_LINK,
@@ -38,12 +39,12 @@ const C = {
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'pasteleria-y-panaderia-eluney',
   title: 'Eluney — Pastelería y panadería en Pelarco',
-  description:
-    'Pastelería y panadería en la K-45 de Pelarco. Pan amasado, kuchenes, mil hojas y tortas por encargo. Pide por WhatsApp y retira listo.',
-  robots: { index: false, follow: false },
-}
+  description: 'Pastelería y panadería en la K-45 de Pelarco. Pan amasado, kuchenes, mil hojas y tortas por encargo. Pide por WhatsApp y retira listo.',
+  image: '/demos/pasteleria-y-panaderia-eluney/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La historia', href: '#historia' },

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -29,12 +30,12 @@ const C = {
   line: 'rgba(30,61,47,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'clinica-veterinaria-docpino',
   title: 'Clínica Veterinaria Docpino — Veterinario en Linares',
-  description:
-    'Clínica veterinaria en Diputado Mario Dueñas 698, Linares. Consultas, vacunas, cirugías y farmacia veterinaria. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Clínica veterinaria en Diputado Mario Dueñas 698, Linares. Consultas, vacunas, cirugías y farmacia veterinaria. Agenda por WhatsApp.',
+  image: '/demos/clinica-veterinaria-docpino/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

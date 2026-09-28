@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_STOCK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -31,12 +32,12 @@ const C = {
   line: 'rgba(27,42,65,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'jardin-vivero-carolina',
   title: 'Jardin Vivero Carolina — Vivero en Curicó',
-  description:
-    'Vivero en Fundo La Obra, Curicó. Flores de temporada, plantas de interior, frutales y maceteros, con consulta directa por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Vivero en Fundo La Obra, Curicó. Flores de temporada, plantas de interior, frutales y maceteros, con consulta directa por WhatsApp.',
+  image: '/demos/jardin-vivero-carolina/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Directorio', href: '#directorio' },

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, FaqList } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -28,12 +29,12 @@ const C = {
   lineLight: 'rgba(255,255,255,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'peluqueria-fran-wartemberg',
   title: 'Peluquería Fran Wartemberg — Peluquería en Curicó',
-  description:
-    'Peluquería en Matilde Pérez 2268, Curicó: corte, color, brushing y peinados con hora agendada por WhatsApp. Atención directa y trabajo bien hecho.',
-  robots: { index: false, follow: false },
-}
+  description: 'Peluquería en Matilde Pérez 2268, Curicó: corte, color, brushing y peinados con hora agendada por WhatsApp. Atención directa y trabajo bien hecho.',
+  image: '/demos/peluqueria-fran-wartemberg/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

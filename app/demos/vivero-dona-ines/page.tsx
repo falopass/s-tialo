@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_FRUTAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -28,12 +29,12 @@ const C = {
   line: 'rgba(47,50,38,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'vivero-dona-ines',
   title: 'Vivero Doña Inés — Plantas y frutales en Molina',
-  description:
-    'Vivero en Itahue, sector Los Aromos, Molina. Plantas de temporada, maceteros, árboles frutales y sustratos. Consultas por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Vivero en Itahue, sector Los Aromos, Molina. Plantas de temporada, maceteros, árboles frutales y sustratos. Consultas por WhatsApp.',
+  image: '/demos/vivero-dona-ines/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Temporada', href: '#plantas' },

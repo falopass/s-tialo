@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_ACEITE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -29,12 +30,12 @@ const C = {
   line: 'rgba(28,31,34,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'zamono',
   title: 'Lubricentro Zamono — Lavado y lubricentro en Molina',
-  description:
-    'Lavado y lubricentro de autos en Luis Cruz Martínez 1441, Molina. Lavado completo, encerado, limpieza de interiores y cambio de aceite. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Lavado y lubricentro de autos en Luis Cruz Martínez 1441, Molina. Lavado completo, encerado, limpieza de interiores y cambio de aceite. Agenda por WhatsApp.',
+  image: '/demos/zamono/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

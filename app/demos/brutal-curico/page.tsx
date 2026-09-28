@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CLASE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -34,12 +35,12 @@ const C = {
 const FOCUS =
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D9A441]'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'brutal-curico',
   title: 'Brutal Curicó — Gimnasio en Yungay 1065, Curicó',
-  description:
-    'Gimnasio en pleno centro de Curicó: pesas libres, zona funcional, máquinas y clases. Escríbenos por WhatsApp y ven a entrenar.',
-  robots: { index: false, follow: false },
-}
+  description: 'Gimnasio en pleno centro de Curicó: pesas libres, zona funcional, máquinas y clases. Escríbenos por WhatsApp y ven a entrenar.',
+  image: '/demos/brutal-curico/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'El gym', href: '#el-gym' },

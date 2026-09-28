@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -30,12 +31,12 @@ const C = {
   line: 'rgba(35,43,27,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'nicolas-atelier',
   title: 'Nicolás Atelier — Peluquería en Linares',
-  description:
-    'Peluquería en Neuquén 384, centro de Linares, Región del Maule. Corte, color y barba con atención directa de Nicolás. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Peluquería en Neuquén 384, centro de Linares, Región del Maule. Corte, color y barba con atención directa de Nicolás. Agenda por WhatsApp.',
+  image: '/demos/nicolas-atelier/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

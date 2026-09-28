@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CLASES, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -38,12 +39,12 @@ const BTN_GHOST =
 /* Cuerda de andanales: el motivo que marca los rieles y las miniaturas */
 const LANE_ROPE = `repeating-linear-gradient(90deg, ${C.yellow} 0 26px, ${C.slate} 26px 52px)`
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'centro-san-ricardo',
   title: 'Centro San Ricardo — Piscina cubierta en San Rafael, Maule',
-  description:
-    'Piscina cubierta en Parcela 35, San Rafael: clases de natación para todas las edades y nado libre todo el año. Consulta por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Piscina cubierta en Parcela 35, San Rafael: clases de natación para todas las edades y nado libre todo el año. Consulta por WhatsApp.',
+  image: '/demos/centro-san-ricardo/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Cómo funciona', href: '#como-funciona' },

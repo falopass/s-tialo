@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, waServicio, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -37,12 +38,12 @@ const BTN = `inline-flex items-center gap-2.5 font-bold rounded-full transition 
 const LINK = `font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${FOCUS}`
 const HALF = '(min-width: 768px) 50vw, 100vw'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'salon-de-belleza-gabriela-saavedra-talca',
   title: 'Salón de Belleza Gabriela Saavedra — Centro de estética en Talca',
-  description:
-    'Centro de estética en Calle 32 Ote. 1327, Talca: faciales, manicure y pedicure, cabello y depilación, con hora agendada por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Centro de estética en Calle 32 Ote. 1327, Talca: faciales, manicure y pedicure, cabello y depilación, con hora agendada por WhatsApp.',
+  image: '/demos/salon-de-belleza-gabriela-saavedra-talca/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

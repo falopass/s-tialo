@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -34,12 +35,12 @@ const C = {
   lime: '#C6F24E',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'csf-especialidades-veterinarias-san-francisco',
   title: 'CSF Especialidades Veterinarias — Clínica veterinaria en Talca',
-  description:
-    'Clínica veterinaria en San Francisco, Talca. Consulta, ecografía, vacunas, farmacia y cirugía. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Clínica veterinaria en San Francisco, Talca. Consulta, ecografía, vacunas, farmacia y cirugía. Agenda por WhatsApp.',
+  image: '/demos/csf-especialidades-veterinarias-san-francisco/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

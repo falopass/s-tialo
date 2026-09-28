@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { ValleyScene } from './scenes'
 
@@ -28,12 +29,11 @@ const C = {
   line: 'rgba(36,80,58,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'altos-de-lircay',
   title: 'Altos de Lircay - Clínica Dental en San Clemente',
-  description:
-    'Clínica dental en San Clemente, valle del Maule. Agenda tu hora por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Clínica dental en San Clemente, valle del Maule. Agenda tu hora por WhatsApp.',
+})
 
 /**
  * Aviso de Sitiazo en el flujo (no fijo): así nunca tapa texto ni

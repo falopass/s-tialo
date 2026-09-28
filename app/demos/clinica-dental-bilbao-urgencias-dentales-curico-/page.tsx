@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_URGENCIA, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -31,12 +32,12 @@ const C = {
   line: 'rgba(34,36,31,0.16)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'clinica-dental-bilbao-urgencias-dentales-curico-',
   title: 'Clínica Dental Bilbao — Dentista y urgencias 24/7 en Curicó',
-  description:
-    'Dentista en el centro de Curicó, Manuel Montt 357 oficina 718. Urgencias dentales las 24 horas, todos los días. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Dentista en el centro de Curicó, Manuel Montt 357 oficina 718. Urgencias dentales las 24 horas, todos los días. Agenda por WhatsApp.',
+  image: '/demos/clinica-dental-bilbao-urgencias-dentales-curico-/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

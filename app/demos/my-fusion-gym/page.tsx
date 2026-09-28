@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_CLASE, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -32,12 +33,12 @@ const C = {
   lineLight: 'rgba(246,241,231,0.2)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'my-fusion-gym',
   title: 'MY Fusion Gym — Gimnasio en Curicó',
-  description:
-    'Gimnasio en J-514 2520, Curicó. Sala de máquinas, clases y acompañamiento directo. Agenda tu clase de prueba por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Gimnasio en J-514 2520, Curicó. Sala de máquinas, clases y acompañamiento directo. Agenda tu clase de prueba por WhatsApp.',
+  image: '/demos/my-fusion-gym/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'El gimnasio', href: '#gimnasio' },

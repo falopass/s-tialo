@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab, FaqList } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_PEDIDO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -32,12 +33,12 @@ const C = {
 const FOCUS =
   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'plantitas-ya-vivero-romeral-ventas-de-plantas-y-',
   title: 'Plantitas Yá! & Vivero Romeral — Plantas y árboles en Romeral',
-  description:
-    'Vivero en Romeral, Región del Maule: plantas de temporada, aromáticas, frutales y árboles a un costado de la J-55. Pide por WhatsApp y retira en el vivero.',
-  robots: { index: false, follow: false },
-}
+  description: 'Vivero en Romeral, Región del Maule: plantas de temporada, aromáticas, frutales y árboles a un costado de la J-55. Pide por WhatsApp y retira en el vivero.',
+  image: '/demos/plantitas-ya-vivero-romeral-ventas-de-plantas-y-/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Listado y precios', href: '#listado' },

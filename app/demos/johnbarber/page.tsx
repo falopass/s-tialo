@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import {
   BIZ,
   WA_LINK,
@@ -41,12 +42,12 @@ const C = {
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'johnbarber',
   title: 'JohnBarber — Barbería en Pencahue',
-  description:
-    'Barbería en Brisas de Pencahue, Pencahue. Corte clásico, fade, arreglo de barba y afeitado con toalla caliente. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Barbería en Brisas de Pencahue, Pencahue. Corte clásico, fade, arreglo de barba y afeitado con toalla caliente. Agenda por WhatsApp.',
+  image: '/demos/johnbarber/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

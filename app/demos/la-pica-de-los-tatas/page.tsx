@@ -5,6 +5,7 @@ import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Motif } from '../kit'
 import { Reveal, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -55,12 +56,12 @@ function Eyebrow({ children, center = false }: { children: ReactNode; center?: b
   )
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'la-pica-de-los-tatas',
   title: 'La Picá De Los Tatas - Restaurante en Molina',
-  description:
-    'Restaurante en Independencia 1843, Molina: comida casera, mesa tranquila y atención directa. Reserva tu mesa por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Restaurante en Independencia 1843, Molina: comida casera, mesa tranquila y atención directa. Reserva tu mesa por WhatsApp.',
+  image: '/demos/la-pica-de-los-tatas/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La carta', href: '#carta' },

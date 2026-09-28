@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -30,12 +31,12 @@ const C = {
   lineSoft: 'rgba(46,74,60,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'parrilladas-caupolican',
   title: 'Parrilladas Caupolican — Restaurante a la leña en Pencahue',
-  description:
-    'Parrilladas a la leña, marraqueta caliente y pebre recién molido a la orilla de la K-60 en Pencahue, Región del Maule. Reserva por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Parrilladas a la leña, marraqueta caliente y pebre recién molido a la orilla de la K-60 en Pencahue, Región del Maule. Reserva por WhatsApp.',
+  image: '/demos/parrilladas-caupolican/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La parrilla', href: '#historia' },

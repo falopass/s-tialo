@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_HORA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -31,12 +32,12 @@ const C = {
 
 const NOISE = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E")`
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'hair-home-studio-claudia-beltran',
   title: 'Hair Home studio Claudia Beltrán — Centro de estética en Linares',
-  description:
-    'Centro de estética en Los Andes 1384, Linares. Limpieza facial, máscara LED, depilación, cejas y pelo, con atención directa de su dueña.',
-  robots: { index: false, follow: false },
-}
+  description: 'Centro de estética en Los Andes 1384, Linares. Limpieza facial, máscara LED, depilación, cejas y pelo, con atención directa de su dueña.',
+  image: '/demos/hair-home-studio-claudia-beltran/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },

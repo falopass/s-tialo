@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_SERVICIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -31,12 +32,12 @@ const C = {
   line: 'rgba(14,76,92,0.14)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'clinica-t-renova-spa',
   title: 'Clínica T-Renova SPA · Belleza y salud en Linares, Maule',
-  description:
-    'Tienda de belleza y salud en Kurt Moller 23, Linares: tratamientos, productos y un plan de cuidado paso a paso. Agenda por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Tienda de belleza y salud en Kurt Moller 23, Linares: tratamientos, productos y un plan de cuidado paso a paso. Agenda por WhatsApp.',
+  image: '/demos/clinica-t-renova-spa/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Tu visita', href: '#tu-visita' },

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import {
   BIZ,
   WA_LINK,
@@ -40,12 +41,12 @@ const C = {
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'defensa-molina-abogados',
   title: 'Defensa Molina Abogados — Abogado en Molina',
-  description:
-    'Estudio de abogados en Luis Cruz Martínez 1471, Molina. Te explicamos tu caso con palabras simples y te acompañamos en cada paso. Consulta por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Estudio de abogados en Luis Cruz Martínez 1471, Molina. Te explicamos tu caso con palabras simples y te acompañamos en cada paso. Consulta por WhatsApp.',
+  image: '/demos/defensa-molina-abogados/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Áreas', href: '#areas' },

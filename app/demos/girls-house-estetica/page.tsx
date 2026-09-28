@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import type { CSSProperties } from 'react'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { Vitrina } from './vitrina'
 import { BIZ, WA_LINK, waLinkServicio, IG_URL, MAPS_URL, MAPS_EMBED, IMG, C, HAZARD } from './content'
 
@@ -24,12 +25,12 @@ const body = localFont({
   ],
 })
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'girls-house-estetica',
   title: 'Girls House Estética — Centro de estética en Molina',
-  description:
-    'Centro de estética en Quechereguas 2120, Molina. Maquillaje, cejas, pestañas y faciales con precios claros y hora por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Centro de estética en Quechereguas 2120, Molina. Maquillaje, cejas, pestañas y faciales con precios claros y hora por WhatsApp.',
+  image: '/demos/girls-house-estetica/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'La vitrina', href: '#vitrina' },

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_PRECIO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
@@ -34,12 +35,12 @@ const C = {
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E4572E]'
 const FOCUS_LIGHT = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#EDE6DA]'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'distribuidora-mym-curico',
   title: 'Distribuidora MyM Curicó — Artículos para el hogar en Av. O’Higgins',
-  description:
-    'Tienda de artículos para el hogar en Av. O’Higgins 1005, Curicó: detergentes, limpieza, menaje, plásticos y bazar. Consulta por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Tienda de artículos para el hogar en Av. O’Higgins 1005, Curicó: detergentes, limpieza, menaje, plásticos y bazar. Consulta por WhatsApp.',
+  image: '/demos/distribuidora-mym-curico/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Productos', href: '#productos' },

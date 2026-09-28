@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { SITE, whatsappLink } from '@/lib/config'
 import { BIZ, WA_LINK, WA_LINK_GRUPO, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
@@ -35,12 +36,12 @@ const C = {
 
 const fmt = (n: number) => new Intl.NumberFormat('es-CL').format(n)
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'las-viejas-cochinas',
   title: 'Las Viejas Cochinas — Restaurante en Talca',
-  description:
-    'Restaurante en Rivera poniente - Av. Río Claro, Talca. Cocina chilena, almuerzos y grupos. Consultas y reservas por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Restaurante en Rivera poniente - Av. Río Claro, Talca. Cocina chilena, almuerzos y grupos. Consultas y reservas por WhatsApp.',
+  image: '/demos/las-viejas-cochinas/hero.webp',
+})
 
 const NAV_LINKS = [
   { label: 'Cocina', href: '#cocina' },

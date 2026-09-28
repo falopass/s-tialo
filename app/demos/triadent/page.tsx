@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
+import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import { HeroBackdrop } from './scenes'
 
@@ -27,12 +28,11 @@ const C = {
   line: 'rgba(15,59,87,0.12)',
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = demoMetadata({
+  slug: 'triadent',
   title: 'Clínica Dental Triadent - Dentista en Talca',
-  description:
-    'Clínica dental en el centro de Talca. Agenda tu hora por WhatsApp.',
-  robots: { index: false, follow: false },
-}
+  description: 'Clínica dental en el centro de Talca. Agenda tu hora por WhatsApp.',
+})
 
 const NAV_LINKS = [
   { label: 'Tratamientos', href: '#tratamientos' },
