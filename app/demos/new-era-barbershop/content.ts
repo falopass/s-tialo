@@ -22,3 +22,7 @@ export const HOURS = [
 ] as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent('Hola New Era Barbershop, quiero consultar por una hora')}`
+
+export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
+  `${BIZ.name}, ${BIZ.address}`,
+)}&output=embed`
