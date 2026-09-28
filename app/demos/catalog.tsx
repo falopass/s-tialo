@@ -181,6 +181,7 @@ const CABANAS_LA_QUEBRADA: CatalogDemo = {
 }
 
 const BLITZ_CREATED: Record<string, string> = {
+  'clinica-veterinaria-zoovet': '2026-09-28',
   'antumalen-restaurant': '2026-09-28',
   'lavaseco-flash': '2026-09-28',
   'delicias-caseras-fabiana': '2026-09-28',

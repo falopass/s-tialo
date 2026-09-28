@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'clinica-veterinaria-zoovet',
+    name: 'Clínica Veterinaria Zoovet',
+    rubro: 'Clínica veterinaria',
+    city: 'Talca',
+    tagline: 'Carnet de paciente: crema papel, verde clínico y terracota, con fichas y sello de pata.',
+    gradient: 'linear-gradient(135deg, #1C4433 0%, #2E6B4F 55%, #B04A2A 140%)',
+  },
+  {
     slug: 'antumalen-restaurant',
     name: 'Antümalen Restaurant',
     rubro: 'Restaurant y comida casera',
