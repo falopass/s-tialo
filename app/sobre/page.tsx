@@ -15,14 +15,14 @@ import {
 export const metadata: Metadata = {
   title: 'Sobre Sitiazo — estudio de diseño web en el Maule',
   description:
-    'Sitiazo es un estudio independiente de diseño web basado en el Maule (Curicó y Talca). Hacemos páginas que venden, no que impresionan.',
+    'Sitiazo es un estudio independiente de diseño web basado en el Maule que atiende pymes de todo Chile de forma remota. Hacemos páginas que venden, no que impresionan.',
   alternates: {
     canonical: siteUrl('/sobre/'),
   },
   openGraph: {
     title: 'Sobre Sitiazo | Sitiazo.cl',
     description:
-      'Estudio independiente de diseño web basado en el Maule (Curicó y Talca). Hacemos páginas que venden, no que impresionan.',
+      'Estudio independiente de diseño web basado en el Maule que atiende pymes de todo Chile de forma remota. Hacemos páginas que venden, no que impresionan.',
     url: siteUrl('/sobre/'),
     images: [
       {
@@ -62,8 +62,9 @@ export default function SobrePage() {
               <Dot size="xl" variant="solid-yellow" />
             </h1>
             <p className="font-body text-lead text-ink-muted leading-body">
-              Sitiazo es un estudio independiente de diseño web basado en el
-              Maule. Hacemos páginas que venden, no que impresionan.
+              Sitiazo es un estudio independiente de diseño web con base en el
+              Maule que atiende pymes de todo Chile de forma remota. Hacemos
+              páginas que venden, no que impresionan.
             </p>
           </div>
         </div>

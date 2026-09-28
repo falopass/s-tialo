@@ -151,10 +151,9 @@ export default function ContactoPage() {
                 <Dot size="lg" variant="solid-yellow" />
               </h2>
               <p className="font-body text-body text-ink-muted leading-body max-w-[var(--prose-max)]">
-                Trabajamos desde Curicó y Talca, pero atendemos proyectos en
-                todo Chile. El proceso es 100% online: WhatsApp + Google Meet.
-                Si estás en el Maule y quieres juntarte cara a cara, dale, te
-                invito un café.
+                Trabajamos desde el Maule y atendemos proyectos en todo Chile.
+                El proceso es 100% remoto: WhatsApp + Google Meet. Si estás en
+                el Maule, nos juntamos cara a cara.
               </p>
 
               <StillLifeImage

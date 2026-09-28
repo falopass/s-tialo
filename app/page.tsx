@@ -10,7 +10,6 @@ import {
   SITE,
   STARTING_PRICE,
   PLANS,
-  LEGAL,
   siteUrl,
 } from '@/lib/config'
 
@@ -74,8 +73,7 @@ export default function HomePage() {
               <div className="flex items-center gap-3 mb-3">
                 <Dot size="sm" variant="solid-yellow" />
                 <span className="font-body text-body-sm text-ink-muted">
-                  Diseño web · {LEGAL.city} y Talca,{' '}
-                  {LEGAL.address.addressRegion} · {LEGAL.country}
+                  Diseño web para pymes de todo Chile · desde el Maule
                 </span>
               </div>
 
