@@ -7,6 +7,22 @@ import { Motif, headingFont } from './kit'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'gotitas-de-amor',
+    name: 'Sala Cuna y Jardín Infantil Gotitas de Amor',
+    rubro: 'Educación inicial',
+    city: 'Talca',
+    tagline: 'Cálido y cercano: educación inicial, gotas, hojas y sol.',
+    gradient: 'linear-gradient(135deg, #173B36 0%, #5D9A73 55%, #F6C76C 140%)',
+  },
+  {
+    slug: 'new-era-barbershop',
+    name: 'New Era Barbershop',
+    rubro: 'Barbería',
+    city: 'Talca',
+    tagline: 'Cartel de barbería directo: negro, naranja y amarillo, con agenda por WhatsApp.',
+    gradient: 'linear-gradient(135deg, #111315 0%, #E4572E 55%, #E6B84F 140%)',
+  },
+  {
     slug: 'triadent',
     name: 'Clínica Dental Triadent',
     rubro: 'Clínica dental',
