@@ -313,6 +313,12 @@
 <priority>0.5</priority>
 </url>
 <url>
+<loc>https://sitiazo.cl/demos/el-bajon-del-barny/</loc>
+<lastmod>2026-09-25T00:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
 <loc>https://sitiazo.cl/demos/emporio-vintage-cafe/</loc>
 <lastmod>2026-09-25T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
@@ -560,6 +566,12 @@
 </url>
 <url>
 <loc>https://sitiazo.cl/demos/mym-taller-mecanico-talca/</loc>
+<lastmod>2026-09-25T00:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://sitiazo.cl/demos/nafi-arquitectura/</loc>
 <lastmod>2026-09-25T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
