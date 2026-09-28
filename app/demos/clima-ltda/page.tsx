@@ -120,12 +120,13 @@ export default function ClimaLtdaPage() {
       >
         <div className="max-w-6xl mx-auto px-5 md:px-8 h-[56px] flex items-center justify-between gap-4">
           <a href="#inicio" className="flex items-center gap-2.5 tap-44">
-            <span className="w-9 h-9 grid place-items-center" style={{ backgroundColor: C.navy }} aria-hidden="true">
-              {/* Copo de aire acondicionado: asterisco de seis palas */}
-              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke={C.ice} strokeWidth="2" strokeLinecap="round">
-                <path d="M12 3v18M5 6l14 12M5 18L19 6" />
-              </svg>
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element -- logo real del perfil (Instagram @climaltda) */}
+            <img
+              src={`${IMG}/logo.webp`}
+              alt=""
+              className="w-10 h-10 object-contain rounded bg-white ring-1 ring-[#0B2D4E]/15"
+              aria-hidden="true"
+            />
             <span className="font-bold text-base md:text-lg tracking-tight">CLIMA LTDA.</span>
           </a>
           <nav className="hidden md:flex items-center gap-7" aria-label="Principal">
@@ -426,11 +427,13 @@ export default function ClimaLtdaPage() {
       <footer style={{ backgroundColor: C.ice }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-7 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="w-8 h-8 grid place-items-center shrink-0" style={{ backgroundColor: C.navy }} aria-hidden="true">
-              <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke={C.ice} strokeWidth="2" strokeLinecap="round">
-                <path d="M12 3v18M5 6l14 12M5 18L19 6" />
-              </svg>
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element -- logo real del perfil (Instagram @climaltda) */}
+            <img
+              src={`${IMG}/logo.webp`}
+              alt=""
+              className="w-9 h-9 object-contain rounded bg-white ring-1 ring-[#0B2D4E]/15 shrink-0"
+              aria-hidden="true"
+            />
             <div>
               <p className="font-bold text-sm tracking-tight">{BIZ.name} · {BIZ.rubro}</p>
               <address className="not-italic text-xs mt-0.5" style={{ color: C.muted }}>
