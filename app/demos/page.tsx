@@ -105,10 +105,26 @@ const BLITZ = [
   {
     slug: 'brilla-el-sol-talca',
     name: 'Complejo Deportivo Brilla El Sol',
-    rubro: 'Recinto deportivo',
+    rubro: 'Campo de fútbol',
     city: 'Talca',
-    tagline: 'Cancha de fútbol en el sector suroriente de Talca.',
+    tagline: 'Cancha sintética con focos en 12 Sur: arrienda por bloques de 90 minutos.',
     gradient: 'linear-gradient(135deg, #10392E 0%, #178553 55%, #F4C64E 140%)',
+  },
+  {
+    slug: 'complejo-deportivo-carlos-aravena-se',
+    name: 'Complejo Deportivo Carlos Aravena',
+    rubro: 'Centro deportivo',
+    city: 'Talca',
+    tagline: 'Piscina, cancha sintética y parque del SERVIU en la 12 Oriente.',
+    gradient: 'linear-gradient(135deg, #14181B 0%, #075E7D 60%, #7FC4DC 140%)',
+  },
+  {
+    slug: 'contador-auditor-talca-jacqueline-mo',
+    name: 'JMM · Contador Auditor',
+    rubro: 'Contable',
+    city: 'Talca',
+    tagline: 'Contabilidad, tributario y laboral para pymes, en 1 Sur 865.',
+    gradient: 'linear-gradient(135deg, #18161B 0%, #8A6530 70%, #E9D9B8 140%)',
   },
   {
     slug: 'pannton-arquitectura',
