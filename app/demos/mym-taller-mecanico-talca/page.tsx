@@ -1,213 +1,225 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
-import { Reveal } from '../blitz-kit'
+import { Reveal, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, PHOTO } from './content'
 import LazyMap from '../lazy-map'
-import { Chrome } from './chrome'
+import { Chrome, C } from './chrome'
+import { BIZ, FOTOS, MAPS_EMBED, MAPS_URL, PROMESAS, SERVICIOS, WA_LINK } from './content'
 
 const display = localFont({
-  src: [{ path: '../../fonts/oswald/normal-200-700.woff2', weight: '200 700' }],
+  src: [
+    { path: '../../fonts/barlow-condensed/normal-600.woff2', weight: '600' },
+    { path: '../../fonts/barlow-condensed/normal-800.woff2', weight: '800' },
+  ],
 })
 const body = localFont({
-  src: [{ path: '../../fonts/ibm-plex-sans/normal-100-700.woff2', weight: '100 700' }],
+  src: [
+    { path: '../../fonts/barlow/normal-400.woff2', weight: '400' },
+    { path: '../../fonts/barlow/normal-600.woff2', weight: '600' },
+    { path: '../../fonts/barlow/normal-700.woff2', weight: '700' },
+  ],
 })
-
-const C = {
-  noche: '#0E1B2E',
-  orange: '#F26B1D',
-  humo: '#E9ECF0',
-  ink: '#0B1220',
-  azul: '#1F3A5F',
-  muted: 'rgba(11,18,32,0.66)',
-  line: 'rgba(11,18,32,0.16)',
-  lineLight: 'rgba(233,236,240,0.22)',
-  humoDim: 'rgba(233,236,240,0.78)',
-}
-
-const GRID = {
-  backgroundImage:
-    'linear-gradient(rgba(233,236,240,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(233,236,240,0.07) 1px, transparent 1px)',
-  backgroundSize: '32px 32px',
-}
+const mono = localFont({
+  src: [{ path: '../../fonts/ibm-plex-mono/normal-400.woff2', weight: '400' }],
+})
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
-export const metadata: Metadata = demoMetadata({
-  slug: 'mym-taller-mecanico-talca',
-  title: 'MyM Taller mecánico y mecánica a domicilio — Talca',
-  description: 'Taller mecánico y mecánica automotriz a domicilio en Talca. Consulta por WhatsApp o coordina tu visita.',
-  image: PHOTO,
-})
-
-function Tuerca({ className = 'w-8 h-8' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 32 32" className={className} fill="none" stroke={C.orange} strokeWidth="2" aria-hidden="true">
-      <path d="M16 3l11 6.5v13L16 29 5 22.5v-13L16 3Z" strokeLinejoin="round" />
-      <circle cx="16" cy="16" r="5.5" />
-    </svg>
-  )
+const CARBONO = {
+  backgroundImage:
+    'linear-gradient(rgba(239,237,230,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(239,237,230,0.045) 1px, transparent 1px)',
+  backgroundSize: '34px 34px',
 }
 
-function Label({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+function Etiqueta({ children }: { children: React.ReactNode }) {
   return (
-    <p className={`${body.className} text-[11px] uppercase tracking-[0.22em] font-bold`} style={{ color: light ? C.orange : '#A34A10' }}>
+    <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-4`} style={{ color: C.rojoTxt }}>
       {children}
     </p>
   )
 }
 
-const MODOS = [
-  {
-    num: '01',
-    tag: 'En el taller',
-    name: 'Mecánica en taller',
-    desc: 'Trae tu auto al taller en Talca: diagnóstico y trabajo de mecánica con las herramientas a mano. Coordinas la visita por WhatsApp.',
-    icon: (
-      <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none" stroke={C.orange} strokeWidth="2" aria-hidden="true">
-        <path d="M6 32V14l10-6 10 6v18" strokeLinejoin="round" />
-        <path d="M2 32h36" strokeLinecap="round" />
-        <path d="M13 32v-9h14v9" />
-        <path d="M20 23v9" opacity="0.6" />
-      </svg>
-    ),
-  },
-  {
-    num: '02',
-    tag: 'En tu casa',
-    name: 'Mecánica automotriz a domicilio',
-    desc: '¿No puedes mover el auto? El mecánico llega hasta donde estés dentro de Talca y revisa el vehículo ahí mismo.',
-    icon: (
-      <svg viewBox="0 0 40 40" className="w-10 h-10" fill="none" stroke={C.orange} strokeWidth="2" aria-hidden="true">
-        <path d="M4 27h32M8 27v-8h10l4-6h8l6 6v8" strokeLinejoin="round" strokeLinecap="round" />
-        <circle cx="13" cy="30" r="3.5" />
-        <circle cx="29" cy="30" r="3.5" />
-      </svg>
-    ),
-  },
-]
+// Íconos de testigo del tablero (glifos, no fotos).
+function Icono({ tipo, className = 'w-8 h-8' }: { tipo: string; className?: string }) {
+  const p = {
+    viewBox: '0 0 32 32',
+    className,
+    fill: 'none',
+    stroke: C.rojo,
+    strokeWidth: 2,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+    'aria-hidden': true,
+  }
+  switch (tipo) {
+    case 'scan':
+      return (
+        <svg {...p}>
+          <path d="M6 22a11 11 0 1 1 20 0" />
+          <path d="M16 22l5-7" />
+          <circle cx="16" cy="22" r="2" fill={C.rojo} stroke="none" />
+        </svg>
+      )
+    case 'wrench':
+      return (
+        <svg {...p}>
+          <path d="M20 6a6 6 0 0 0-8 7L6 19a2.8 2.8 0 0 0 4 4l6-6a6 6 0 0 0 7-8l-4 4-4-1-1-4 4-2Z" />
+        </svg>
+      )
+    case 'disc':
+      return (
+        <svg {...p}>
+          <circle cx="16" cy="16" r="11" />
+          <circle cx="16" cy="16" r="4" />
+          <circle cx="10" cy="11" r="1.2" fill={C.rojo} stroke="none" />
+          <circle cx="22" cy="11" r="1.2" fill={C.rojo} stroke="none" />
+          <circle cx="16" cy="23" r="1.2" fill={C.rojo} stroke="none" />
+        </svg>
+      )
+    case 'battery':
+      return (
+        <svg {...p}>
+          <rect x="4" y="10" width="24" height="14" rx="2" />
+          <path d="M9 10V7h5v3M18 10V7h5v3" />
+          <path d="M9 17h4M19 17h4" />
+        </svg>
+      )
+    case 'fan':
+      return (
+        <svg {...p}>
+          <circle cx="16" cy="16" r="3" />
+          <path d="M16 13c0-4 2-8 6-8-1 4-2 8-6 8ZM19 18c4 0 8 2 8 6-4-1-8-2-8-6ZM13 18c-4 0-8 2-8 6 4-1 8-2 8-6Z" />
+        </svg>
+      )
+    default:
+      return (
+        <svg {...p}>
+          <path d="M16 6v20M6 16h20" />
+        </svg>
+      )
+  }
+}
+
+export const metadata: Metadata = demoMetadata({
+  slug: 'mym-taller-mecanico-talca',
+  title: 'MyM Mecánica — taller mecánico y mecánica a domicilio en Talca',
+  description:
+    'Taller mecánico en Talca que también va a tu casa, trabajo o donde estés. Diagnóstico, mantenciones, frenos, eléctrico y refrigeración. Agenda por WhatsApp.',
+  image: '/demos/mym-taller-mecanico-talca/rio.webp',
+})
 
 export default function MyMPage() {
   return (
-    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.humo, color: C.ink }}>
+    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.fondo, color: C.tinta }}>
       <Chrome fontClass={display.className}>
-        {/* ── Hero con foto a sangre ── */}
-        <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.noche }}>
-          <Image
-            src={PHOTO}
-            alt={BIZ.photoAlt}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
+        {/* ── Hero: el tablero encendido ── */}
+        <section id="inicio" className="relative pt-28 md:pt-36 pb-14 md:pb-20 overflow-hidden">
+          <div className="absolute inset-0" style={CARBONO} aria-hidden="true" />
           <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(180deg, rgba(14,27,46,0.82) 0%, rgba(14,27,46,0.55) 40%, rgba(14,27,46,0.94) 100%)',
-            }}
+            className="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full opacity-25 blur-[120px]"
+            style={{ backgroundColor: C.rojo }}
             aria-hidden="true"
           />
-          <div className="absolute inset-0" style={GRID} aria-hidden="true" />
-          <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-24 pb-12 md:pb-16">
-            <Reveal>
-              <Label light>Taller mecánico · A domicilio · Talca</Label>
-              <h1
-                className={`${display.className} uppercase font-semibold leading-[0.98] tracking-[-0.01em] text-[clamp(2.8rem,10vw,5.8rem)] mt-5 mb-6`}
-                style={{ color: C.humo }}
-              >
-                Tu mecánico
-                <br />
-                <span style={{ color: C.orange }}>llega a ti</span>
-                <span className="block text-[0.42em] tracking-normal font-medium normal-case mt-4" style={{ color: C.humoDim }}>
-                  o te esperamos en el taller
-                </span>
-              </h1>
-              <div className="flex flex-wrap gap-3 mb-10">
-                <a
-                  href={WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${body.className} font-bold uppercase tracking-[0.06em] text-sm px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
-                  style={{ backgroundColor: C.orange, color: '#0B1220' }}
-                >
-                  Consultar por WhatsApp
-                </a>
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${body.className} font-bold uppercase tracking-[0.06em] text-sm px-7 py-3.5 border transition-colors hover:bg-white/10 ${focusRing} tap-44`}
-                  style={{ borderColor: 'rgba(233,236,240,0.5)', color: C.humo }}
-                >
-                  Ver ubicación
-                </a>
-              </div>
-            </Reveal>
-            <Reveal delay={140}>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5 border-t pt-5" style={{ borderColor: C.lineLight }}>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-1.5" style={{ color: 'rgba(233,236,240,0.7)' }}>Servicios</p>
-                  <p className="text-sm font-bold" style={{ color: C.humo }}>Taller y domicilio</p>
+          <div className="relative max-w-6xl mx-auto px-5 md:px-8">
+            <div className="grid md:grid-cols-[1.15fr_auto] gap-10 items-center">
+              <Reveal>
+                <Etiqueta>Taller mecánico · Talca y alrededores</Etiqueta>
+                <h1 className={`${display.className} uppercase font-extrabold leading-[0.9] text-[clamp(3rem,11vw,6.4rem)] mb-6`}>
+                  Si el auto no llega
+                  <br />
+                  al taller,
+                  <br />
+                  <span style={{ color: C.rojo }}>el taller llega</span>
+                  <br />
+                  <span style={{ color: C.rojo }}>al auto</span>
+                </h1>
+                <div className="flex items-center gap-3 mb-8">
+                  <Stars value={BIZ.rating} color={C.rojo} className="w-5 h-5" />
+                  <p className={`${mono.className} text-xs font-bold`} style={{ color: C.tinta }}>
+                    5,0 en Google Maps
+                  </p>
                 </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-1.5" style={{ color: 'rgba(233,236,240,0.7)' }}>Ciudad</p>
-                  <p className="text-sm font-bold" style={{ color: C.humo }}>Talca · Maule</p>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={WA_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${body.className} font-bold uppercase tracking-[0.04em] text-sm px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
+                    style={{ backgroundColor: C.rojo, color: '#FFFFFF' }}
+                  >
+                    Agendar hora por WhatsApp
+                  </a>
+                  <a
+                    href="#servicios"
+                    className={`${body.className} font-bold uppercase tracking-[0.04em] text-sm px-7 py-3.5 border transition-colors hover:bg-white/10 ${focusRing} tap-44`}
+                    style={{ borderColor: 'rgba(239,237,230,0.5)', color: C.tinta }}
+                  >
+                    Ver servicios
+                  </a>
                 </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-1.5" style={{ color: 'rgba(233,236,240,0.7)' }}>Horario</p>
-                  <p className="text-sm font-bold" style={{ color: C.humo }}>Lun–Vie desde 9:00</p>
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-1.5" style={{ color: 'rgba(233,236,240,0.7)' }}>Contacto</p>
-                  <p className="text-sm font-bold" style={{ color: C.humo }}>WhatsApp directo</p>
-                </div>
-              </div>
+              </Reveal>
+              <Reveal delay={140} className="hidden md:block">
+                {/* eslint-disable-next-line @next/next/no-img-element -- logo recortado del afiche real del taller */}
+                <img
+                  src="/demos/mym-taller-mecanico-talca/logo.webp"
+                  alt="Logo de MyM Mecánica: mecánica a domicilio, Talca y alrededores"
+                  className="w-[340px] lg:w-[400px] select-none"
+                />
+              </Reveal>
+            </div>
+            <Reveal delay={200}>
+              <dl className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5 border-t mt-12 pt-6" style={{ borderColor: C.line }}>
+                {[
+                  ['En taller', BIZ.addressCorto],
+                  ['A domicilio', BIZ.cobertura],
+                  ['Nota en Google', '5,0 de 5'],
+                  ['Agenda', 'Solo por WhatsApp'],
+                ].map(([dt, dd]) => (
+                  <div key={dt}>
+                    <dt className={`${mono.className} text-[10px] uppercase tracking-[0.2em] mb-1.5`} style={{ color: C.rojoTxt }}>
+                      {dt}
+                    </dt>
+                    <dd className="text-sm font-bold leading-snug">{dd}</dd>
+                  </div>
+                ))}
+              </dl>
             </Reveal>
           </div>
         </section>
 
-        {/* ── 01 Dos modos ── */}
-        <section id="servicios" className="scroll-mt-20" style={{ backgroundColor: C.humo }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        {/* ── Servicios: testigos del tablero ── */}
+        <section id="servicios" className="scroll-mt-20 py-14 md:py-20 border-t" style={{ borderColor: C.line, backgroundColor: C.panel }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
             <Reveal>
-              <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.ink }}>
-                <Label><span style={{ color: C.ink }}>N°01</span> — Dos modos de atención</Label>
-                <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.muted }}>
-                  según la ficha del negocio
-                </p>
-              </div>
-            </Reveal>
-            <Reveal>
-              <h2 className={`${display.className} uppercase font-semibold text-4xl md:text-6xl leading-[0.95] mb-10 md:mb-14`} style={{ color: C.ink }}>
-                En el taller
+              <Etiqueta>Servicios</Etiqueta>
+              <h2 className={`${display.className} uppercase font-extrabold text-4xl md:text-6xl leading-[0.9] mb-3`}>
+                se enciende un testigo,
                 <br />
-                <span style={{ color: C.azul }}>o donde estés</span>
+                <span style={{ color: C.rojo }}>responde el taller</span>
               </h2>
+              <p className="text-sm md:text-base max-w-xl mb-10" style={{ color: C.muted }}>
+                Lo que revisan, tal como lo publica el propio taller.
+              </p>
             </Reveal>
-            <div className="grid md:grid-cols-2 gap-5">
-              {MODOS.map((m, i) => (
-                <Reveal key={m.name} delay={i * 90} className="h-full">
-                  <article className="relative h-full border p-7 md:p-9 overflow-hidden" style={{ borderColor: C.ink, backgroundColor: i ? C.noche : '#fff' }}>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {SERVICIOS.map((s, i) => (
+                <Reveal key={s.nombre} delay={i * 70} className="h-full">
+                  <article
+                    className="h-full rounded-lg border p-6 transition-shadow hover:shadow-[0_0_32px_rgba(228,35,47,0.16)]"
+                    style={{ borderColor: C.line, backgroundColor: C.fondo }}
+                  >
                     <div
-                      className="absolute -right-10 -top-10 w-40 h-40 opacity-20"
-                      aria-hidden="true"
+                      className="w-14 h-14 rounded-full border-2 flex items-center justify-center mb-5"
+                      style={{ borderColor: 'rgba(228,35,47,0.5)', backgroundColor: 'rgba(228,35,47,0.08)' }}
                     >
-                      <Tuerca className="w-full h-full" />
+                      <Icono tipo={s.icono} />
                     </div>
-                    <div className="flex items-start justify-between gap-4 mb-7">
-                      {m.icon}
-                      <span className={`${display.className} text-xl font-medium`} style={{ color: i ? 'rgba(233,236,240,0.55)' : C.muted }}>
-                        {m.num} / {m.tag}
-                      </span>
-                    </div>
-                    <h3 className={`${display.className} uppercase font-semibold text-2xl md:text-3xl leading-tight mb-3`} style={{ color: i ? C.humo : C.ink }}>
-                      {m.name}
+                    <h3 className={`${display.className} uppercase font-bold text-xl md:text-2xl leading-tight mb-2`}>
+                      {s.nombre}
                     </h3>
-                    <p className="text-sm md:text-base leading-relaxed max-w-md" style={{ color: i ? C.humoDim : C.muted }}>
-                      {m.desc}
+                    <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
+                      {s.detalle}
                     </p>
                   </article>
                 </Reveal>
@@ -216,100 +228,136 @@ export default function MyMPage() {
           </div>
         </section>
 
-        {/* ── 02 Trabajo real ── */}
-        <section id="trabajo" className="scroll-mt-20 border-t" style={{ backgroundColor: '#fff', borderColor: C.line }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-            <Reveal>
-              <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.ink }}>
-                <Label><span style={{ color: C.ink }}>N°02</span> — Trabajo real</Label>
-                <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.muted }}>
-                  publicado por el taller
-                </p>
-              </div>
-            </Reveal>
-            <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
+        {/* ── A domicilio: el afiche real ── */}
+        <section className="py-14 md:py-20">
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
+            <div className="grid md:grid-cols-[auto_1fr] gap-8 md:gap-14 items-center">
               <Reveal>
-                <figure className="border" style={{ borderColor: C.ink, backgroundColor: C.humo }}>
-                  <div className="relative aspect-[4/3] overflow-hidden border-b" style={{ borderColor: C.line }}>
+                <figure
+                  className="rounded-lg overflow-hidden border max-w-[320px] md:max-w-[360px] mx-auto rotate-[-1.5deg]"
+                  style={{ borderColor: C.line, boxShadow: '0 18px 50px rgba(0,0,0,0.55)' }}
+                >
+                  <div className="relative aspect-square">
                     <Image
-                      src={PHOTO}
-                      alt={BIZ.photoAlt}
+                      src="/demos/mym-taller-mecanico-talca/flyer.webp"
+                      alt="Afiche publicado por MyM: soluciones mecánicas donde lo necesites, Talca y alrededores"
                       fill
-                      sizes="(min-width: 1024px) 45vw, 100vw"
+                      sizes="(min-width: 768px) 360px, 80vw"
                       className="object-cover"
                     />
                   </div>
-                  <figcaption className="px-5 py-3 text-[10px] uppercase tracking-[0.18em] font-bold" style={{ color: C.muted }}>
-                    Fig. 01 — Trabajo publicado por MyM
+                  <figcaption
+                    className={`${mono.className} text-[9px] uppercase tracking-[0.16em] px-4 py-2.5 border-t`}
+                    style={{ borderColor: C.line, color: C.muted, backgroundColor: C.panel }}
+                  >
+                    Afiche real · publicado por MyM en Facebook
                   </figcaption>
                 </figure>
               </Reveal>
               <Reveal delay={120}>
-                <h2 className={`${display.className} uppercase font-semibold text-4xl md:text-5xl leading-[0.95] mb-6`} style={{ color: C.ink }}>
-                  Mecánica
+                <Etiqueta>Mecánica a domicilio</Etiqueta>
+                <h2 className={`${display.className} uppercase font-extrabold text-4xl md:text-5xl leading-[0.92] mb-6`}>
+                  vamos a tu casa,
                   <br />
-                  <span style={{ color: C.azul }}>que se muestra</span>
+                  <span style={{ color: C.rojo }}>trabajo o donde estés</span>
                 </h2>
-                <p className="text-sm md:text-base leading-relaxed mb-5 max-w-md" style={{ color: C.muted }}>
-                  Este servicio a un Fiat Palio fue publicado por el propio
-                  taller en su página de Facebook: el trabajo se muestra tal
-                  cual se hace, sin retoques.
+                <ul className="space-y-3 mb-8">
+                  {PROMESAS.map((pr) => (
+                    <li key={pr} className="flex items-start gap-3 text-sm md:text-base">
+                      <svg viewBox="0 0 16 16" className="w-4 h-4 mt-0.5 shrink-0" fill="none" stroke={C.rojo} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M2.5 8.5l3.5 3.5 7-8" />
+                      </svg>
+                      <span>{pr}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm leading-relaxed max-w-md" style={{ color: C.muted }}>
+                  Cobertura en {BIZ.cobertura}. Si el auto sí puede moverse, también
+                  atienden en el taller de {BIZ.addressCorto}.
                 </p>
-                <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: C.muted }}>
-                  Consulta por WhatsApp con la falla o el ruido que notas y
-                  coordina si conviene taller o domicilio.
-                </p>
-                <a
-                  href={WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${body.className} inline-block font-bold uppercase tracking-[0.06em] text-xs px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
-                  style={{ backgroundColor: C.orange, color: '#0B1220' }}
-                >
-                  Contar qué le pasa a mi auto →
-                </a>
               </Reveal>
             </div>
           </div>
         </section>
 
-        {/* ── 03 Horario y ubicación ── */}
-        <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.humo }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        {/* ── Trabajo real ── */}
+        <section id="trabajo" className="scroll-mt-20 py-14 md:py-20 border-t" style={{ borderColor: C.line, backgroundColor: C.panel }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
             <Reveal>
-              <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.ink }}>
-                <Label><span style={{ color: C.ink }}>N°03</span> — Horario y ubicación</Label>
-                <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.muted }}>
-                  Talca · Maule
-                </p>
-              </div>
+              <Etiqueta>Trabajo real</Etiqueta>
+              <h2 className={`${display.className} uppercase font-extrabold text-4xl md:text-6xl leading-[0.9] mb-10`}>
+                el trabajo se muestra
+                <br />
+                <span style={{ color: C.rojo }}>tal cual se hace</span>
+              </h2>
             </Reveal>
-            <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-stretch">
+            <div className="grid sm:grid-cols-2 gap-5">
+              {FOTOS.map((f, i) => (
+                <Reveal key={f.src} delay={i * 110}>
+                  <figure className="rounded-lg overflow-hidden border" style={{ borderColor: C.line, backgroundColor: C.fondo }}>
+                    <div className="relative aspect-[4/5] max-h-[520px]">
+                      <Image
+                        src={f.src}
+                        alt={f.alt}
+                        fill
+                        sizes="(min-width: 768px) 45vw, 92vw"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    <figcaption
+                      className={`${mono.className} text-[9px] uppercase tracking-[0.16em] px-4 py-2.5 border-t`}
+                      style={{ borderColor: C.line, color: C.muted }}
+                    >
+                      {f.pie} · Facebook
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Horario y taller ── */}
+        <section id="contacto" className="scroll-mt-20 py-14 md:py-20">
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
+            <Reveal>
+              <Etiqueta>Horario y taller</Etiqueta>
+              <h2 className={`${display.className} uppercase font-extrabold text-4xl md:text-6xl leading-[0.9] mb-10`}>
+                el taller de {BIZ.addressCorto.split(',')[0]}
+              </h2>
+            </Reveal>
+            <div className="grid md:grid-cols-2 gap-6 items-stretch">
               <Reveal>
-                <div className="border h-full flex flex-col" style={{ borderColor: C.ink, backgroundColor: '#fff' }}>
+                <div className="h-full rounded-lg border flex flex-col" style={{ borderColor: C.line, backgroundColor: C.panel }}>
                   <div className="px-6 md:px-8 py-6 border-b" style={{ borderColor: C.line }}>
-                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-2" style={{ color: '#A34A10' }}>Dirección</p>
-                    <address className="not-italic text-sm md:text-base leading-relaxed mb-3" style={{ color: C.ink }}>
-                      <strong className="font-bold">{BIZ.address}</strong>
+                    <p className={`${mono.className} text-[10px] uppercase tracking-[0.2em] mb-2`} style={{ color: C.rojoTxt }}>
+                      Dirección
+                    </p>
+                    <address className="not-italic text-sm md:text-base leading-relaxed mb-3 font-bold">
+                      {BIZ.address}
                     </address>
                     <a
                       href={MAPS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
-                      style={{ color: '#A34A10', textDecorationColor: 'rgba(163,74,16,0.35)' }}
+                      style={{ color: C.rojoTxt, textDecorationColor: 'rgba(242,90,100,0.4)' }}
                     >
                       Cómo llegar →
                     </a>
                   </div>
                   <div className="px-6 md:px-8 py-6 flex-1">
-                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-3" style={{ color: '#A34A10' }}>Horario</p>
+                    <p className={`${mono.className} text-[10px] uppercase tracking-[0.2em] mb-3`} style={{ color: C.rojoTxt }}>
+                      Horario
+                    </p>
                     <ul className="space-y-2.5">
                       {BIZ.hours.map((h) => (
                         <li key={h.days} className="flex items-baseline justify-between gap-4 text-sm md:text-base">
-                          <span className="font-bold" style={{ color: C.ink }}>{h.days}</span>
+                          <span className="font-bold">{h.days}</span>
                           <span className="flex-1 border-b border-dotted translate-y-[-3px]" style={{ borderColor: C.line }} aria-hidden="true" />
-                          <span style={{ color: C.muted }}>{h.time}</span>
+                          <span className={`${mono.className}`} style={{ color: C.muted }}>
+                            {h.time}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -317,7 +365,7 @@ export default function MyMPage() {
                 </div>
               </Reveal>
               <Reveal delay={140}>
-                <div className="border overflow-hidden min-h-[320px] h-full flex flex-col" style={{ borderColor: C.ink, backgroundColor: '#D5DAE1' }}>
+                <div className="rounded-lg border overflow-hidden min-h-[320px] h-full flex flex-col" style={{ borderColor: C.line, backgroundColor: '#26282C' }}>
                   <LazyMap
                     title={`Mapa: ${BIZ.name}, Talca`}
                     src={MAPS_EMBED}
@@ -325,7 +373,10 @@ export default function MyMPage() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
-                  <p className="px-5 py-3 border-t text-[10px] uppercase tracking-[0.18em] font-bold" style={{ borderColor: C.line, color: C.muted }}>
+                  <p
+                    className={`${mono.className} px-5 py-3 border-t text-[10px] uppercase tracking-[0.18em]`}
+                    style={{ borderColor: C.line, color: C.muted }}
+                  >
                     Talca · Región del Maule
                   </p>
                 </div>
@@ -334,15 +385,14 @@ export default function MyMPage() {
           </div>
         </section>
 
-        {/* ── Cierre CTA oscuro ── */}
-        <section className="relative overflow-hidden" style={{ backgroundColor: C.noche }}>
-          <div className="absolute inset-0" style={GRID} aria-hidden="true" />
-          <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        {/* ── CTA rojo ── */}
+        <section style={{ backgroundColor: C.rojo }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <Reveal>
-              <h2 className={`${display.className} uppercase font-semibold text-4xl md:text-5xl leading-[0.95]`} style={{ color: C.humo }}>
-                ¿Tu auto pide
+              <h2 className={`${display.className} uppercase font-extrabold text-4xl md:text-5xl leading-[0.9]`} style={{ color: '#fff' }}>
+                ¿se encendió un testigo?
                 <br />
-                <span style={{ color: C.orange }}>mecánico?</span>
+                agenda tu hora
               </h2>
             </Reveal>
             <Reveal delay={120}>
@@ -350,10 +400,10 @@ export default function MyMPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${body.className} inline-block font-bold uppercase tracking-[0.06em] text-sm px-8 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
-                style={{ backgroundColor: C.orange, color: '#0B1220' }}
+                className={`${body.className} inline-block font-bold uppercase tracking-[0.04em] text-sm px-8 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
+                style={{ backgroundColor: '#0F1012', color: C.tinta }}
               >
-                Consultar por WhatsApp
+                Escribir a {BIZ.corto}
               </a>
             </Reveal>
           </div>

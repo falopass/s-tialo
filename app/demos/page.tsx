@@ -891,8 +891,8 @@ const BLITZ = [
     name: 'MyM Taller mecánico y mecánica a domicilio',
     rubro: 'Taller mecánico',
     city: 'Talca',
-    tagline: 'Mecánica en taller y a domicilio, con una foto de un servicio publicado por MyM.',
-    gradient: 'linear-gradient(135deg, #111916 0%, #26382D 55%, #D2F36B 140%)',
+    tagline: 'El tablero de diagnóstico: negro y rojo de su afiche, testigos de servicios y trabajo real.',
+    gradient: 'linear-gradient(135deg, #0F1012 0%, #17191D 55%, #E4232F 140%)',
   },
   {
     slug: 'bxtraining-1',
