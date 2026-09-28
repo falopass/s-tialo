@@ -1,90 +1,367 @@
 import type { Metadata } from 'next'
+import localFont from 'next/font/local'
 import { demoMetadata } from '../meta'
-import { BRANCHES, BIZ, SERVICES, WA_LINK } from './content'
-import { SiteNav, WhatsAppFab } from './chrome'
+import { BlitzNav, Reveal, WaFab } from '../blitz-kit'
+import { DemoBand } from '../kit'
+import LazyMap from '../lazy-map'
+import { BIZ, BRANCHES, SERVICES, WA_LINK } from './content'
+
+const display = localFont({ src: '../../fonts/unbounded/normal-200-900.woff2', weight: '200 900' })
+const body = localFont({ src: '../../fonts/dm-sans/normal-100-1000.woff2', weight: '100 1000' })
 
 export const metadata: Metadata = demoMetadata({
   slug: 'lavaseco-flash',
-  title: 'Lavaseco Flash — Lavandería en Talca',
-  description: 'Lavandería doméstica e industrial en Talca. Revisa sucursales y consulta por WhatsApp.',
+  title: 'Lavaseco Flash — Lavandería y lavaseco en Talca',
+  description:
+    'Lavado en seco y en agua, planchado, lavandería industrial y renting de ropa blanca. Tres sucursales en Talca. Consulta por WhatsApp.',
 })
 
-function WasherArt() {
+const C = {
+  mist: '#EEF7F9',
+  white: '#FFFFFF',
+  aqua: '#0E7C8C',
+  aquaDeep: '#0A5C68',
+  navy: '#0F2A33',
+  lime: '#D9F25A',
+  ink: '#12262D',
+  muted: '#4E6570',
+  line: 'rgba(15,42,51,0.12)',
+}
+
+const NAV_LINKS = [
+  { label: 'Servicios', href: '#servicios' },
+  { label: 'Sucursales', href: '#sucursales' },
+  { label: 'Cómo funciona', href: '#proceso' },
+]
+
+const MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent('Lavaseco Flash, 1 Norte esquina 3 Oriente, Talca, Chile')}&output=embed`
+
+const PASOS = [
+  { t: 'Trae o escribe', d: 'Pasa por la sucursal más cercana o consulta antes por WhatsApp qué necesitas lavar.' },
+  { t: 'Revisamos la prenda', d: 'Definimos el tratamiento: en seco o en agua, planchado, y te indicamos la fecha de retiro.' },
+  { t: 'Retira lista', d: 'Limpia, planchada y protegida. Para empresas, coordinamos entrega y renting.' },
+]
+
+const PRENDAS = ['Trajes y ternos', 'Vestidos', 'Abrigos y parkas', 'Plumones', 'Cortinas', 'Alfombras', 'Mantelería', 'Ropa blanca', 'Uniformes']
+
+function Burbujas({ id, color, opacity = 0.18 }: { id: string; color: string; opacity?: number }) {
   return (
-    <div role="img" aria-label="Ilustración de lavadora y prendas limpias" className="relative mx-auto flex aspect-[1.12] w-full max-w-md items-center justify-center overflow-hidden rounded-[2rem] bg-[#f2d792]">
-      <div className="absolute -right-10 -top-10 size-52 rounded-full bg-[#f7e8bf]" />
-      <div className="absolute bottom-0 left-0 h-[22%] w-full bg-[#e5b858]" />
-      <div className="relative z-10 w-[64%] rounded-[1.6rem] border-[8px] border-[#d8e6e1] bg-[#f8fbf8] p-4 shadow-[0_22px_35px_rgba(16,42,54,.2)]">
-        <div className="mb-3 flex items-center justify-between">
-          <span className="h-3 w-12 rounded-full bg-[#cadbd6]" />
-          <span className="size-5 rounded-full border-[5px] border-[#edaa39] bg-white" />
-        </div>
-        <div className="mx-auto flex aspect-square w-[78%] items-center justify-center rounded-full border-[10px] border-[#b5d3ce] bg-[#d8eeeb] shadow-inner">
-          <div className="relative size-[72%] overflow-hidden rounded-full bg-[#45a39a]">
-            <div className="absolute -bottom-2 left-1/2 h-[60%] w-[90%] -translate-x-1/2 rounded-t-full bg-[#f7f4e9]" />
-            <div className="absolute bottom-[35%] left-[28%] h-10 w-12 -rotate-12 rounded-t-full bg-[#edaa39]" />
-          </div>
-        </div>
-      </div>
-      <svg className="absolute bottom-[18%] right-[9%] z-10 w-[26%] text-[#146b66]" viewBox="0 0 100 82" fill="none" aria-hidden="true">
-        <path d="M10 68 30 22l18 35 12-24 26 35H10Z" fill="currentColor" />
-        <path d="m30 22 7-16 8 19" stroke="#f8fbf8" strokeWidth="5" strokeLinecap="round" />
-        <path d="m60 33 8-18 9 21" stroke="#f5b642" strokeWidth="5" strokeLinecap="round" />
-      </svg>
-      <span className="absolute left-5 top-5 z-10 rounded-full bg-white px-4 py-2 text-[10px] font-black uppercase tracking-[.18em] text-[#174c4a]">Desde 1974</span>
-    </div>
+    <svg className="absolute inset-0 w-full h-full" aria-hidden="true" focusable="false">
+      <defs>
+        <pattern id={id} width="72" height="72" patternUnits="userSpaceOnUse">
+          <circle cx="14" cy="18" r="9" fill="none" stroke={color} strokeWidth="1.5" />
+          <circle cx="50" cy="44" r="14" fill="none" stroke={color} strokeWidth="1.5" />
+          <circle cx="60" cy="10" r="4" fill="none" stroke={color} strokeWidth="1.5" />
+          <circle cx="24" cy="58" r="5" fill="none" stroke={color} strokeWidth="1.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill={`url(#${id})`} opacity={opacity} />
+    </svg>
+  )
+}
+
+function Rayo({ className = '', color = C.lime }: { className?: string; color?: string }) {
+  return (
+    <svg viewBox="0 0 24 32" className={className} aria-hidden="true" focusable="false">
+      <path d="M14 0 2 18h8l-2 14 14-20h-9Z" fill={color} />
+    </svg>
+  )
+}
+
+function TamborScene() {
+  const ropa = [
+    { x: 90, w: 70, h: 120, color: '#F6B8C8' },
+    { x: 180, w: 60, h: 100, color: '#FFFFFF' },
+    { x: 262, w: 76, h: 130, color: '#9CD3DE' },
+    { x: 360, w: 62, h: 105, color: C.lime },
+  ]
+  return (
+    <svg viewBox="0 0 520 380" className="w-full h-auto" role="img" aria-label="Ilustración de ropa colgada secándose con burbujas de jabón">
+      <defs>
+        <clipPath id="lf-clip">
+          <rect width="520" height="380" rx="30" />
+        </clipPath>
+      </defs>
+      <g clipPath="url(#lf-clip)">
+        <rect width="520" height="380" fill={C.aqua} />
+        <rect width="520" height="380" fill="#FFFFFF" opacity="0.06" />
+        {[
+          [60, 300, 26],
+          [120, 340, 14],
+          [440, 70, 30],
+          [480, 130, 12],
+          [40, 90, 10],
+          [400, 330, 18],
+        ].map(([cx, cy, r], i) => (
+          <circle key={i} cx={cx} cy={cy} r={r} fill="none" stroke="#FFFFFF" strokeWidth="2" opacity="0.5" />
+        ))}
+        <path d="M30 70 Q 260 110 490 70" stroke={C.navy} strokeWidth="3" fill="none" />
+        {ropa.map((p, i) => {
+          const y = 76 + Math.sin((p.x / 520) * Math.PI) * 32
+          return (
+            <g key={i} transform={`translate(${p.x} ${y})`}>
+              <path d={`M0 0 v${p.h} h${p.w} v-${p.h} Z`} fill={p.color} />
+              <path d={`M0 0 h${p.w}`} stroke={C.navy} strokeWidth="1.5" opacity="0.3" />
+              <path d="M8 -12 v18 M-2 6 h20" stroke={C.navy} strokeWidth="3" strokeLinecap="round" />
+              <path d={`M${p.w - 8} -12 v18 M${p.w - 18} 6 h20`} stroke={C.navy} strokeWidth="3" strokeLinecap="round" />
+              <path d={`M${p.w * 0.5} 0 v${p.h}`} stroke={C.navy} strokeWidth="1" opacity="0.15" />
+            </g>
+          )
+        })}
+        <g transform="translate(360 220)">
+          <rect x="0" y="0" width="130" height="130" rx="14" fill="#FFFFFF" />
+          <rect x="10" y="10" width="110" height="18" rx="6" fill={C.mist} />
+          <circle cx="104" cy="19" r="5" fill={C.lime} />
+          <circle cx="86" cy="19" r="5" fill={C.aqua} />
+          <circle cx="65" cy="82" r="38" fill={C.aquaDeep} />
+          <circle cx="65" cy="82" r="30" fill={C.aqua} />
+          <path d="M45 92 Q 65 70 85 92" stroke="#FFFFFF" strokeWidth="3" fill="none" strokeLinecap="round" />
+          <circle cx="58" cy="76" r="4" fill="#FFFFFF" opacity="0.8" />
+        </g>
+        <g transform="translate(60 250)">
+          <path d="M14 0 2 18h8l-2 14 14-20h-9Z" fill={C.lime} transform="scale(3.2)" />
+        </g>
+      </g>
+    </svg>
+  )
+}
+
+function Btn({
+  href,
+  children,
+  tone,
+  external = true,
+}: {
+  href: string
+  children: React.ReactNode
+  tone: 'lime' | 'navy' | 'ghost'
+  external?: boolean
+}) {
+  const st =
+    tone === 'lime'
+      ? { backgroundColor: C.lime, color: C.navy }
+      : tone === 'navy'
+        ? { backgroundColor: C.navy, color: C.white }
+        : { backgroundColor: 'transparent', color: C.white, boxShadow: `inset 0 0 0 2px rgba(255,255,255,0.7)` }
+  return (
+    <a
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      className={`${display.className} inline-flex items-center justify-center px-6 py-3 rounded-2xl text-[15px] font-bold transition-transform active:scale-[0.97] tap-44`}
+      style={st}
+    >
+      {children}
+    </a>
   )
 }
 
 export default function LavasecoFlashPage() {
   return (
-    <main id="inicio" className="min-h-screen bg-[#102a36] text-[#f8fbf8]">
-      <SiteNav />
-      <section className="mx-auto grid max-w-6xl items-center gap-9 px-5 pb-12 pt-24 md:min-h-[730px] md:grid-cols-[1fr_.9fr] md:px-8 md:pb-16 md:pt-24">
-        <div>
-          <p className="mb-4 text-xs font-extrabold uppercase tracking-[.2em] text-[#f5b642]">Empresa familiar · Región del Maule</p>
-          <h1 className="max-w-xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl">Cuidado experto para tus <span className="text-[#f5b642]">prendas</span></h1>
-          <p className="mt-5 max-w-lg text-base leading-relaxed text-[#e3eeeb]">Lavandería doméstica e industrial en Talca. Más de 50 años de experiencia con atención en tres sucursales.</p>
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#f5b642] px-6 text-sm font-extrabold text-[#172b34]">Consulta por WhatsApp</a>
+    <div className={`${body.className} min-h-screen`} style={{ backgroundColor: C.mist, color: C.ink }}>
+      <BlitzNav
+        name="Lavaseco Flash"
+        links={NAV_LINKS}
+        waLink={WA_LINK}
+        fontClass={`${display.className} font-bold`}
+        theme={{ over: 'dark', bar: 'rgba(14,124,140,0.94)', ink: C.white, line: 'rgba(255,255,255,0.18)', btnBg: C.lime, btnInk: C.navy }}
+        ctaLabel="Consultar"
+      />
+
+      {/* HERO */}
+      <section id="inicio" className="relative overflow-hidden pt-24 pb-10 md:pt-28 md:pb-16" style={{ backgroundColor: C.aqua }}>
+        <Burbujas id="lf-hero" color="#FFFFFF" opacity={0.22} />
+        <div className="relative max-w-6xl mx-auto px-5 text-center">
+          <Reveal>
+            <p className={`${display.className} inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold tracking-wide`} style={{ backgroundColor: C.navy, color: C.lime }}>
+              <Rayo className="w-3 h-4" /> Desde Talca · 3 sucursales
+            </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className={`${display.className} mt-5 text-[40px] leading-[1.02] md:text-[72px] font-black mx-auto max-w-4xl`} style={{ color: C.white }}>
+              Ropa limpia, <span style={{ color: C.lime }}>rápido</span> y sin vueltas
+            </h1>
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="mt-5 text-lg leading-relaxed max-w-xl mx-auto" style={{ color: C.white }}>
+              Lavado en seco y en agua, planchado, lavandería industrial y renting de ropa blanca. Lavaseco Flash, en
+              Talca.
+            </p>
+          </Reveal>
+          <Reveal delay={240}>
+            <div className="mt-7 flex flex-col sm:flex-row justify-center gap-3">
+              <Btn href={WA_LINK} tone="lime">Consultar por WhatsApp</Btn>
+              <Btn href="#sucursales" tone="ghost" external={false}>Ver sucursales</Btn>
+            </div>
+          </Reveal>
+          <Reveal delay={300}>
+            <div className="mt-10 max-w-3xl mx-auto rounded-[30px]" style={{ boxShadow: '0 30px 60px rgba(10,92,104,0.45)' }}>
+              <TamborScene />
+            </div>
+          </Reveal>
         </div>
-        <WasherArt />
       </section>
-      <section id="servicios" className="bg-[#f4f7f2] px-5 py-12 text-[#19353c] md:px-8 md:py-16">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-xs font-extrabold uppercase tracking-[.2em] text-[#176b65]">Servicios</p>
-          <h2 className="mt-3 text-3xl font-black">Soluciones para cada carga</h2>
-          <div className="mt-7 grid gap-4 md:grid-cols-3">
-            {SERVICES.map((service) => (
-              <article key={service.name} className="rounded-2xl border border-[#cbdcd5] bg-white p-5">
-                <h3 className="text-lg font-black text-[#143c43]">{service.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#354b4e]">{service.description}</p>
-              </article>
+
+      {/* CINTA DE PRENDAS */}
+      <div className="overflow-hidden py-3" style={{ backgroundColor: C.navy }}>
+        <style>{`@keyframes lf-cinta{to{transform:translateX(-50%)}}`}</style>
+        <div className={`${display.className} flex gap-6 whitespace-nowrap text-sm font-semibold w-max`} style={{ color: C.white, animation: 'lf-cinta 30s linear infinite' }}>
+          {[...PRENDAS, ...PRENDAS].map((p, i) => (
+            <span key={i} className="flex items-center gap-6">
+              {p}
+              <Rayo className="w-2.5 h-3.5" />
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* SERVICIOS */}
+      <section id="servicios" className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal>
+            <div className="md:flex md:items-end md:justify-between gap-8">
+              <div>
+                <p className={`${display.className} text-xs font-bold tracking-widest uppercase`} style={{ color: C.aquaDeep }}>Servicios</p>
+                <h2 className={`${display.className} mt-2 text-3xl md:text-5xl font-black leading-tight`} style={{ color: C.navy }}>
+                  Del hogar a la industria
+                </h2>
+              </div>
+              <p className="mt-3 md:mt-0 max-w-sm" style={{ color: C.muted }}>
+                Tres líneas de servicio con el mismo cuidado: la prenda vuelve limpia, planchada y a tiempo.
+              </p>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid md:grid-cols-3 gap-5">
+            {SERVICES.map((s, i) => (
+              <Reveal key={s.name} delay={i * 90}>
+                <article className="relative h-full rounded-3xl p-7 overflow-hidden" style={{ backgroundColor: i === 1 ? C.navy : C.white, boxShadow: '0 14px 34px rgba(15,42,51,0.10)' }}>
+                  {i === 1 && <Burbujas id="lf-card" color={C.aqua} opacity={0.4} />}
+                  <div className="relative">
+                    <span className={`${display.className} inline-flex w-11 h-11 items-center justify-center rounded-2xl text-lg font-black`} style={{ backgroundColor: i === 1 ? C.lime : C.mist, color: C.navy }}>
+                      {i + 1}
+                    </span>
+                    <h3 className={`${display.className} mt-5 text-xl font-bold`} style={{ color: i === 1 ? C.white : C.navy }}>{s.name}</h3>
+                    <p className="mt-2 leading-relaxed" style={{ color: i === 1 ? 'rgba(255,255,255,0.82)' : C.muted }}>{s.description}</p>
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
-      <section id="sucursales" className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-        <p className="text-xs font-extrabold uppercase tracking-[.2em] text-[#f5b642]">Estamos en Talca</p>
-        <h2 className="mt-3 text-3xl font-black">Tres sucursales</h2>
-        <div className="mt-7 grid gap-4 md:grid-cols-3">
-          {BRANCHES.map((branch) => (
-            <article key={branch.name} className="rounded-2xl border border-white/20 bg-[#173844] p-5">
-              <h3 className="text-lg font-black text-white">{branch.name}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#e4efeb]">{branch.address}</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#e4efeb]">{branch.hours}</p>
-              <a href={branch.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center rounded-full border border-[#c3d8d2] px-4 text-sm font-bold text-white">Ver en Google Maps</a>
-            </article>
-          ))}
-        </div>
-        <div className="mt-8 rounded-2xl bg-[#f5b642] p-5 text-[#172b34] sm:flex sm:items-center sm:justify-between sm:gap-5">
-          <div><p className="text-xs font-extrabold uppercase tracking-[.15em]">Casa Matriz</p><p className="mt-1 text-sm font-bold">{BIZ.phoneDisplay} · {BRANCHES[0].hours}</p></div>
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-[#102a36] px-5 text-sm font-extrabold text-white sm:mt-0">Escríbenos por WhatsApp</a>
+
+      {/* PROCESO */}
+      <section id="proceso" className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundColor: C.white }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal>
+            <p className={`${display.className} text-xs font-bold tracking-widest uppercase`} style={{ color: C.aquaDeep }}>Cómo funciona</p>
+            <h2 className={`${display.className} mt-2 text-3xl md:text-5xl font-black leading-tight`} style={{ color: C.navy }}>
+              Tres pasos, <span style={{ color: C.aqua }}>cero enredo</span>
+            </h2>
+          </Reveal>
+          <ol className="mt-10 grid md:grid-cols-3 gap-6 relative">
+            <div className="hidden md:block absolute top-6 left-[12%] right-[12%] border-t-2 border-dashed" style={{ borderColor: C.line }} aria-hidden="true" />
+            {PASOS.map((p, i) => (
+              <Reveal key={p.t} delay={i * 100}>
+                <li className="relative">
+                  <span className={`${display.className} relative z-10 inline-flex w-12 h-12 items-center justify-center rounded-full text-lg font-black`} style={{ backgroundColor: C.aqua, color: C.white, boxShadow: `0 0 0 8px ${C.white}` }}>
+                    {i + 1}
+                  </span>
+                  <h3 className={`${display.className} mt-4 text-lg font-bold`} style={{ color: C.navy }}>{p.t}</h3>
+                  <p className="mt-2 leading-relaxed" style={{ color: C.muted }}>{p.d}</p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+          <Reveal delay={200}>
+            <div className="mt-10 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5 justify-between" style={{ backgroundColor: C.mist }}>
+              <div>
+                <p className={`${display.className} text-lg font-bold`} style={{ color: C.navy }}>¿Empresa, hotel o restaurante?</p>
+                <p className="mt-1" style={{ color: C.muted }}>
+                  Lavandería industrial con control de calidad, reparación de prendas y renting de mantelería y ropa blanca.
+                </p>
+              </div>
+              <div className="shrink-0"><Btn href={WA_LINK} tone="navy">Cotizar por WhatsApp</Btn></div>
+            </div>
+          </Reveal>
         </div>
       </section>
-      <footer className="bg-[#0a1e27] px-5 py-7 text-xs text-[#d7e5e0] md:px-8">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"><strong className="text-sm text-white">{BIZ.name}</strong><span>{BIZ.category} · {BIZ.city} · Región del Maule</span></div>
+
+      {/* SUCURSALES */}
+      <section id="sucursales" className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundColor: C.navy }}>
+        <Burbujas id="lf-suc" color={C.aqua} opacity={0.35} />
+        <div className="relative max-w-6xl mx-auto px-5">
+          <Reveal>
+            <p className={`${display.className} text-xs font-bold tracking-widest uppercase`} style={{ color: C.lime }}>Sucursales</p>
+            <h2 className={`${display.className} mt-2 text-3xl md:text-5xl font-black leading-tight`} style={{ color: C.white }}>
+              Tres puntos en Talca
+            </h2>
+          </Reveal>
+          <div className="mt-10 grid md:grid-cols-3 gap-5">
+            {BRANCHES.map((b, i) => (
+              <Reveal key={b.name} delay={i * 90}>
+                <article className="h-full rounded-3xl p-6 flex flex-col" style={{ backgroundColor: C.white, boxShadow: '0 14px 34px rgba(0,0,0,0.25)' }}>
+                  <div className="flex items-center gap-2">
+                    <Rayo className="w-3 h-4" color={C.aqua} />
+                    <h3 className={`${display.className} text-lg font-bold`} style={{ color: C.navy }}>{b.name}</h3>
+                  </div>
+                  <p className="mt-3 font-semibold" style={{ color: C.ink }}>{b.address}</p>
+                  <p className="mt-1 text-sm leading-relaxed" style={{ color: C.muted }}>{b.hours}</p>
+                  <a
+                    href={b.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${display.className} mt-auto pt-5 inline-flex items-center gap-1 text-sm font-bold tap-44`}
+                    style={{ color: C.aquaDeep }}
+                  >
+                    Cómo llegar →
+                  </a>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={200}>
+            <div className="mt-8 rounded-3xl overflow-hidden" style={{ border: `4px solid ${C.aqua}` }}>
+              <LazyMap src={MAP_EMBED} title="Mapa de Lavaseco Flash Casa Matriz" className="w-full h-[280px] md:h-[360px] border-0" />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative overflow-hidden py-16 md:py-20" style={{ backgroundColor: C.lime }}>
+        <div className="relative max-w-3xl mx-auto px-5 text-center">
+          <Rayo className="w-10 h-14 mx-auto" color={C.navy} />
+          <h2 className={`${display.className} mt-4 text-3xl md:text-5xl font-black leading-tight`} style={{ color: C.navy }}>
+            ¿Qué necesitas lavar hoy?
+          </h2>
+          <p className="mt-4 text-lg" style={{ color: '#2A3E2C' }}>Escríbenos por WhatsApp al {BIZ.phoneDisplay} y te orientamos.</p>
+          <div className="mt-7">
+            <Btn href={WA_LINK} tone="navy">Consultar por WhatsApp</Btn>
+          </div>
+        </div>
+      </section>
+
+      <footer className="pt-10 pb-6" style={{ backgroundColor: C.aquaDeep, color: 'rgba(255,255,255,0.8)' }}>
+        <div className="max-w-6xl mx-auto px-5 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <p className={`${display.className} text-xl font-black inline-flex items-center gap-2`} style={{ color: C.white }}>
+              <Rayo className="w-3 h-4" /> {BIZ.name}
+            </p>
+            <p className="text-sm mt-1">{BIZ.category} · {BIZ.city}</p>
+          </div>
+          <nav className="flex gap-4 text-sm">
+            {NAV_LINKS.map((l) => (
+              <a key={l.href} href={l.href} className="hover:underline">{l.label}</a>
+            ))}
+          </nav>
+        </div>
+        <div className="px-5 mt-6 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+          <DemoBand name={BIZ.name} />
+        </div>
       </footer>
-      <WhatsAppFab />
-    </main>
+
+      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
+    </div>
   )
 }
