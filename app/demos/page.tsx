@@ -1030,6 +1030,7 @@ const BLITZ = [
     tagline: 'Taller moderno negro y naranja: alineación 3D John Bean, specs en mono y fachada real.',
     gradient: 'linear-gradient(135deg, #0E1113 0%, #2A3238 55%, #F26A1B 140%)',
   },
+<<<<<<< HEAD
   {
     slug: 'mecanico-juan-vivar',
     name: 'Mecánico Juan Vivar',
@@ -1093,6 +1094,14 @@ const BLITZ = [
     city: 'San Fernando',
     tagline: 'Almacén que abre todos los días: crema, azul puerta y naranja CajaVecina, semana de 7 días y sello giratorio.',
     gradient: 'linear-gradient(135deg, #16386F 0%, #20509E 55%, #E8710A 140%)',
+  },
+  {
+    slug: 'catffeine-cafe',
+    name: 'Catffeine Café',
+    rubro: 'Cafetería de autor',
+    city: 'Copiapó',
+    tagline: 'Pizarra oscura con carta de miaus reales, tiza crema, naranja del logo y estela de huellas.',
+    gradient: 'linear-gradient(135deg, #191510 0%, #231F19 55%, #F26B21 140%)',
   },
 ]
 
