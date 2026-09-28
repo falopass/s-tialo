@@ -912,6 +912,13 @@ const BLITZ = [
   },
 ]
 
+const DEMOS_ORDENADOS = [...DEMOS].sort((a, b) =>
+  a.rubro.localeCompare(b.rubro, 'es'),
+)
+const BLITZ_ORDENADOS = [...BLITZ].sort((a, b) =>
+  a.rubro.localeCompare(b.rubro, 'es'),
+)
+
 export const metadata: Metadata = {
   title: 'Demos por rubro — ejemplos de sitios para pymes',
   description:
@@ -945,8 +952,8 @@ export default function DemosIndex() {
           </p>
         </div>
 
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {DEMOS.map((d) => (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {DEMOS_ORDENADOS.map((d) => (
             <li key={d.slug}>
               <Link
                 href={`/demos/${d.slug}`}
@@ -1033,8 +1040,8 @@ export default function DemosIndex() {
             Muestras personalizadas con identidad propia, armadas solo con
             datos públicos de cada ficha de Google.
           </p>
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {BLITZ.map((d) => (
+          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {BLITZ_ORDENADOS.map((d) => (
               <li key={d.slug}>
                 <Link
                   href={`/demos/${d.slug}`}
