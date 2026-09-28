@@ -1998,6 +1998,14 @@ const BLITZ = [
     tagline: 'El recorrido del fundo: crema papel, bosque y mostaza, paradas numeradas por el camino.',
     gradient: 'linear-gradient(135deg, #1B3423 0%, #26432E 55%, #D9A62E 140%)',
   },
+  {
+    slug: 'minimarket-el-trebol',
+    name: 'Minimarket El Trébol',
+    rubro: 'Minimarket y churrascas',
+    city: 'Talca',
+    tagline: 'Las láminas de la esquina: señalética azul de 22 norte y 30 oriente, amarillo letrero y su marca de churrascas.',
+    gradient: 'linear-gradient(135deg, #14532D 0%, #1B7A3D 60%, #FBF6EA 140%)',
+  },
 
   {
     slug: 'bodega-liquidadora-neumaticos',
