@@ -1,15 +1,16 @@
 /**
  * app/demos/pasteleria-y-panaderia-eluney/content.ts
  *
- * Datos del mockup. REALES (ficha pública del negocio): nombre,
- * dirección K-45, comuna, WhatsApp, página de Facebook y el dato de
- * las 17 reseñas en Google Maps. Todo lo demás (productos, precios,
- * horarios y textos) es contenido de muestra para mostrar cómo se
- * vería el sitio.
+ * Datos del mockup. REALES (ficha pública de Google Maps): nombre,
+ * dirección en la K-45, comuna, WhatsApp, página de Facebook,
+ * 4,8 estrellas y 17 reseñas, y los horarios (lunes a viernes
+ * 8:30-19:00, sábado 8:30-14:00). Los precios de la carta son de
+ * muestra: no hay cartelera pública de precios confirmada.
+ * Las fotos son las reales de la ficha de Google del negocio.
  */
 
 export const BIZ = {
-  name: 'Pasteleria y panaderia Eluney',
+  name: 'Pastelería y panadería Eluney',
   short: 'Eluney',
   rubro: 'Pastelería y panadería',
   address: 'K-45, Pelarco, Maule',
@@ -18,6 +19,7 @@ export const BIZ = {
   phoneDisplay: '+56 9 7436 7136',
   phoneTel: '+56974367136',
   whatsapp: '56974367136',
+  googleRating: '4,8',
   googleReviews: '17',
 } as const
 
