@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { whatsappLink } from '@/lib/config'
 import { Reveal } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, SOURCES } from './content'
+import LazyMap from '../lazy-map'
+import { BIZ, MAPS_EMBED, MAPS_URL, WA_LINK } from './content'
 import { Chrome } from './chrome'
 
 const display = localFont({
@@ -29,11 +29,12 @@ const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
 export const metadata: Metadata = demoMetadata({
   slug: 'gotitas-de-amor',
-  title: 'Gotitas de Amor — Sala cuna y jardín infantil en Talca',
-  description: 'Sala cuna y jardín infantil en Talca. Datos de contacto pendientes de confirmar con el jardín.',
+  title: 'Gotitas de Amor — Sala cuna y jardín infantil en Villa Alegre',
+  description:
+    'Sala cuna y jardín infantil en Certenejas, Villa Alegre. Consulta por cupos y visitas por WhatsApp.',
 })
 
-const WA = whatsappLink('contacto')
+const WA = WA_LINK
 
 const NIVELES = [
   {
@@ -132,41 +133,65 @@ export default function GotitasPage() {
             <span className="absolute top-[52%] left-[8%] w-3 h-3 rounded-full hidden md:block" style={{ backgroundColor: C.amarillo }} />
             <span className="absolute top-[10%] right-[36%] w-5 h-5 rounded-full opacity-70" style={{ backgroundColor: C.menta }} />
           </div>
-          <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-20 md:pb-28 text-center">
+          <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-20 md:pb-28 grid md:grid-cols-[1.05fr_1fr] gap-10 md:gap-14 items-center">
             <Reveal>
-              <p className="inline-flex items-center gap-2 px-5 py-2 rounded-full border text-xs md:text-sm font-extrabold uppercase tracking-[0.14em]" style={{ borderColor: C.line, backgroundColor: '#fff', color: C.ink }}>
-                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.celeste }} aria-hidden="true" />
-                Educación inicial
-              </p>
-              <h1
-                className={`${display.className} font-bold leading-[0.95] text-[clamp(3.4rem,14vw,8rem)] mt-6 mb-6`}
-                style={{ color: C.ink }}
-              >
-                Gotitas
-                <br />
-                <span style={{ color: '#B04A3A' }}>de Amor</span>
-              </h1>
-              <p className="text-base md:text-xl leading-relaxed max-w-md mx-auto mb-9" style={{ color: C.muted }}>
-                Sala cuna y jardín infantil en Talca.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <a
-                  href={WA}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${body.className} font-extrabold text-sm px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
-                  style={{ backgroundColor: C.coral, color: C.ink }}
+              <div className="text-center md:text-left">
+                <p className="inline-flex items-center gap-2 px-5 py-2 rounded-full border text-xs md:text-sm font-extrabold uppercase tracking-[0.14em]" style={{ borderColor: C.line, backgroundColor: '#fff', color: C.ink }}>
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.celeste }} aria-hidden="true" />
+                  Educación inicial
+                </p>
+                <h1
+                  className={`${display.className} font-bold leading-[0.95] text-[clamp(3.4rem,14vw,6.5rem)] mt-6 mb-6`}
+                  style={{ color: C.ink }}
                 >
-                  Consultar por este demo
-                </a>
-                <a
-                  href="#niveles"
-                  className={`${body.className} font-extrabold text-sm px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
-                  style={{ borderColor: C.ink, color: C.ink }}
-                >
-                  Conocer el jardín
-                </a>
+                  Gotitas
+                  <br />
+                  <span style={{ color: '#B04A3A' }}>de Amor</span>
+                </h1>
+                <p className="text-base md:text-xl leading-relaxed max-w-md mx-auto md:mx-0 mb-4" style={{ color: C.muted }}>
+                  Sala cuna y jardín infantil en Certenejas, Villa Alegre.
+                </p>
+                <p className="text-sm font-extrabold mb-9" style={{ color: '#B04A3A' }}>
+                  ★ {BIZ.rating} en Google · {BIZ.reviews} reseñas
+                </p>
+                <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                  <a
+                    href={WA}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${body.className} font-extrabold text-sm px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
+                    style={{ backgroundColor: C.coral, color: C.ink }}
+                  >
+                    Consultar por WhatsApp
+                  </a>
+                  <a
+                    href="#niveles"
+                    className={`${body.className} font-extrabold text-sm px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
+                    style={{ borderColor: C.ink, color: C.ink }}
+                  >
+                    Conocer el jardín
+                  </a>
+                </div>
               </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <figure className="relative">
+                <div className="overflow-hidden rounded-[2rem] border-4" style={{ borderColor: '#fff', boxShadow: '0 18px 44px rgba(43,58,74,0.18)' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/demos/gotitas-de-amor/fachada.webp"
+                    alt="Fachada del Jardín Infantil Gotitas de Amor en Certenejas, Villa Alegre"
+                    className="w-full aspect-[4/3] object-cover"
+                    loading="eager"
+                  />
+                </div>
+                <figcaption
+                  className={`${display.className} absolute -bottom-4 right-5 rounded-full px-4 py-2 text-base font-semibold shadow-lg md:right-8`}
+                  style={{ backgroundColor: C.ink, color: C.crema }}
+                >
+                  el jardín, en Certenejas
+                </figcaption>
+              </figure>
             </Reveal>
           </div>
           <Wave fill={C.crema2} />
@@ -248,43 +273,56 @@ export default function GotitasPage() {
             <div className="rounded-[2rem] p-7 md:p-10" style={{ backgroundColor: C.crema, border: `2px solid ${C.line}` }}>
               <Reveal>
                 <Label><span style={{ color: C.ink }}>N°03</span> — Contacto</Label>
-                <h2 className={`${display.className} font-bold text-3xl md:text-5xl leading-[0.98] mt-3 mb-4`} style={{ color: C.ink }}>
-                  Datos de contacto pendientes
-                </h2>
-                <p className="text-sm md:text-base leading-relaxed max-w-xl mb-7" style={{ color: C.muted }}>
-                  Aún no encontramos un teléfono, WhatsApp o dirección
-                  confirmados del jardín. Por eso este botón escribe a Sitiazo,
-                  que preparó este mockup y puede ayudarte a confirmar los
-                  datos directamente con el jardín.
-                </p>
-                <a
-                  href={WA}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${body.className} inline-block font-extrabold text-sm px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
-                  style={{ backgroundColor: C.ink, color: C.crema }}
-                >
-                  Consultar por este demo
-                </a>
-                <div className="mt-8 border-t pt-5" style={{ borderColor: C.line }}>
-                  <p className="text-[10px] uppercase tracking-[0.2em] font-extrabold mb-3" style={{ color: C.muted }}>
-                    Dónde se buscó
-                  </p>
-                  <ul className="space-y-2">
-                    {SOURCES.map((s) => (
-                      <li key={s.label}>
-                        <a
-                          href={s.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 ${focusRing} tap-44`}
-                          style={{ color: '#2F6E96', textDecorationColor: 'rgba(47,110,150,0.35)' }}
-                        >
-                          {s.label} →
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="grid md:grid-cols-[1fr_1fr] gap-8 md:gap-10 items-start">
+                  <div>
+                    <h2 className={`${display.className} font-bold text-3xl md:text-5xl leading-[0.98] mt-3 mb-4`} style={{ color: C.ink }}>
+                      Ven a conocer
+                      <br />
+                      <span style={{ color: '#2F6E96' }}>el jardín</span>
+                    </h2>
+                    <address className="not-italic text-sm md:text-base leading-relaxed mb-2" style={{ color: C.muted }}>
+                      {BIZ.address}
+                      <br />
+                      {BIZ.city}, {BIZ.region}
+                    </address>
+                    <p className="text-sm md:text-base leading-relaxed max-w-xl mb-7" style={{ color: C.muted }}>
+                      Consulta por cupos, visitas y matrícula directamente al jardín.
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      <a
+                        href={WA}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${body.className} inline-block font-extrabold text-sm px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
+                        style={{ backgroundColor: C.ink, color: C.crema }}
+                      >
+                        WhatsApp {BIZ.phoneDisplay}
+                      </a>
+                      <a
+                        href={MAPS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${body.className} inline-block font-extrabold text-sm px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
+                        style={{ borderColor: C.ink, color: C.ink }}
+                      >
+                        Cómo llegar
+                      </a>
+                    </div>
+                  </div>
+                  <div className="grid gap-4">
+                    <figure className="overflow-hidden rounded-3xl" style={{ boxShadow: '0 10px 28px rgba(43,58,74,0.14)' }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/demos/gotitas-de-amor/entrada.webp"
+                        alt="Entrada y patio del Jardín Gotitas de Amor, con juegos y piso de colores"
+                        className="w-full aspect-[16/10] object-cover"
+                        loading="lazy"
+                      />
+                    </figure>
+                    <div className="overflow-hidden rounded-3xl aspect-[4/3]" style={{ backgroundColor: C.crema2, boxShadow: '0 10px 28px rgba(43,58,74,0.14)' }}>
+                      <LazyMap src={MAPS_EMBED} title={`Mapa de ${BIZ.name}`} className="w-full h-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                    </div>
+                  </div>
                 </div>
               </Reveal>
             </div>

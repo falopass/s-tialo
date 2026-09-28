@@ -1,6 +1,6 @@
-import { SITE, whatsappLink } from '@/lib/config'
+import { SITE } from '@/lib/config'
 import { BlitzNav, WaFab } from '../blitz-kit'
-import { BIZ } from './content'
+import { BIZ, WA_LINK } from './content'
 
 const NAV_LINKS = [
   { label: 'Niveles', href: '#niveles' },
@@ -24,7 +24,7 @@ export function Chrome({ children, fontClass = '' }: { children: React.ReactNode
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
-        waLink="#contacto"
+        waLink={WA_LINK}
         fontClass={fontClass}
         ctaLabel="Contacto"
         theme={{
@@ -58,19 +58,19 @@ export function Chrome({ children, fontClass = '' }: { children: React.ReactNode
           </div>
           <div className="border-t pt-4" style={{ borderColor: C.line }}>
             <p className="text-xs leading-relaxed" style={{ color: C.muted }}>
-              Datos de contacto pendientes de confirmar con el jardín. Mockup preparado por{' '}
+              Demo preparado por{' '}
               <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.ink }}>
                 Sitiazo
               </a>
-              : textos de muestra.{' '}
-              <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.ink }}>
-                ¿Lo hacemos realidad?
+              .{' '}
+              <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.ink }}>
+                ¿Quieres una web así?
               </a>
             </p>
           </div>
         </div>
       </footer>
-      <WaFab href={whatsappLink('contacto')} label="Consultar por este demo a Sitiazo" />
+      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.short}`} />
     </>
   )
 }
