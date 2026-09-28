@@ -6,7 +6,7 @@ import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import LazyMap from '../lazy-map'
 
-const IMG = '/demos/one-health'
+const IMG = '/demos/centro-m-dico-veterinario-one-health'
 
 const display = localFont({
   src: [
@@ -34,9 +34,10 @@ const C = {
 }
 
 export const metadata: Metadata = demoMetadata({
-  slug: 'one-health',
+  slug: 'centro-m-dico-veterinario-one-health',
   title: 'One Health - Centro Médico Veterinario en Maule',
   description: 'Centro médico veterinario en Maule. Agenda una hora por WhatsApp.',
+  image: `${IMG}/hero.webp`,
 })
 
 const NAV_LINKS = [

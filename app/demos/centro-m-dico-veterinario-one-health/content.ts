@@ -1,5 +1,5 @@
 /**
- * app/demos/one-health/content.ts
+ * app/demos/centro-m-dico-veterinario-one-health/content.ts
  *
  * Datos del mockup. REALES (ficha pública de Google Maps): nombre,
  * comuna, teléfono y rating/reseñas. La ficha no muestra dirección
