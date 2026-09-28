@@ -2311,7 +2311,6 @@ const BLITZ = [
     tagline: 'Letrero de entrada: pino noche, lima del logo y el volante real de Temporada 2026.',
     gradient: 'linear-gradient(135deg, #F5EEDB 0%, #1C3D2C 55%, #A9CC4E 150%)',
   },
-<<<<<<< HEAD
   {
     slug: 'fixstore-servicio-tecnico-talca',
     name: 'Fix Store',
