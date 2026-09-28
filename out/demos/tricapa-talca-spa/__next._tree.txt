@@ -1,11 +1,5 @@
 :HL["/_next/static/chunks/2e67b1870547635b.css","style"]
-<<<<<<< HEAD
-:HL["/_next/static/chunks/d5151c5996059ced.css","style"]
-||||||| parent of 382cf921a4 (chore: registrar atenea-salon en catálogo BLITZ + fechas + rebuild static export)
-:HL["/_next/static/chunks/774ef14b0c6c3ccf.css","style"]
-=======
-:HL["/_next/static/chunks/a71e60562055637d.css","style"]
->>>>>>> 382cf921a4 (chore: registrar atenea-salon en catálogo BLITZ + fechas + rebuild static export)
+:HL["/_next/static/chunks/5ea11f6bef237888.css","style"]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.77c0d914.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.c757f81b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -20,10 +14,4 @@
 :HL["/_next/static/media/normal_800-s.p.ec0b24db.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/chunks/02a501e0b78c3c2e.css","style"]
 :HL["/images/logo/logo-white-letras.png","image"]
-<<<<<<< HEAD
-0:{"buildId":"cZwVDWOl1lVxbM-GAsmwB","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"tricapa-talca-spa","paramType":null,"paramKey":"tricapa-talca-spa","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
-||||||| parent of 382cf921a4 (chore: registrar atenea-salon en catálogo BLITZ + fechas + rebuild static export)
-0:{"buildId":"jQjR67Vq268GUJflqi2Xi","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"tricapa-talca-spa","paramType":null,"paramKey":"tricapa-talca-spa","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
-=======
-0:{"buildId":"EBNb17ZSmtP1tQEMmcFu3","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"tricapa-talca-spa","paramType":null,"paramKey":"tricapa-talca-spa","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
->>>>>>> 382cf921a4 (chore: registrar atenea-salon en catálogo BLITZ + fechas + rebuild static export)
+0:{"buildId":"fv_5mcfPpDwySPbzVcw5_","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"tricapa-talca-spa","paramType":null,"paramKey":"tricapa-talca-spa","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
