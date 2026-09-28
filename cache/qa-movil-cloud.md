@@ -1,6 +1,6 @@
 # QA móvil (cloud) — http://localhost:4800/demos/
 
-Fecha: 2026-09-28T12:35:17.230Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
+Fecha: 2026-09-28T14:26:22.660Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
 
 ## Resumen
 
@@ -17,12 +17,12 @@ Fecha: 2026-09-28T12:35:17.230Z · Viewport 390×844 · espera 3500 ms tras netw
 
 ## Los 5 peores
 
-- **la-pica-de-los-tatas** (gravedad 0): 0 botones, footer 28.2%, 0 contrastes, sin desborde, 0 invisibles
+- **centro-oftalmologico-nacional** (gravedad 0): 0 botones, footer 32.7%, 0 contrastes, sin desborde, 0 invisibles
 
 ## Tabla por gravedad
 
 | # | Demo | Grav. | Btn>52 | Footer % | Contraste | Desborde | Invisibles |
 |---|---|---|---|---|---|---|---|
-| 1 | [la-pica-de-los-tatas](http://localhost:4800/demos/la-pica-de-los-tatas/) | 0 | 0 | 28.2 | 0 | — | 0 |
+| 1 | [centro-oftalmologico-nacional](http://localhost:4800/demos/centro-oftalmologico-nacional/) | 0 | 0 | 32.7 | 0 | — | 0 |
 
 ## Detalle por demo (solo con hallazgos)
