@@ -93,6 +93,26 @@ const TESTIMONIALS = [
   'A 15 minutos de Molina y se siente como estar en el sur. El atardecer desde el predio es un regalo.',
 ]
 
+// Las fotos del demo son generadas: se marcan como imagen de referencia
+// (se reemplazan por fotos reales del predio al activar).
+function RefTag({ className = '', strip = false }: { className?: string; strip?: boolean }) {
+  return strip ? (
+    <span
+      className={`absolute inset-x-0 bottom-0 z-10 py-1 text-center font-semibold uppercase tracking-[0.14em] text-[9px] ${className}`}
+      style={{ backgroundColor: 'rgba(18,35,26,0.85)', color: '#E7D3AC' }}
+    >
+      imagen de referencia
+    </span>
+  ) : (
+    <span
+      className={`absolute z-10 font-semibold uppercase tracking-[0.14em] text-[10px] px-2.5 py-1.5 rounded-full ${className}`}
+      style={{ backgroundColor: 'rgba(18,35,26,0.88)', color: '#E7D3AC' }}
+    >
+      imagen de referencia
+    </span>
+  )
+}
+
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
@@ -130,7 +150,7 @@ export default function RanchoItahuePage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <img
           src={`${IMG}/hero.webp`}
-          alt="Vista amplia de Rancho Itahue: pradera, caballos y cerros de la precordillera maulina"
+          alt="Imagen de referencia: pradera, caballos y cerros de la precordillera maulina"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -141,6 +161,7 @@ export default function RanchoItahuePage() {
               'linear-gradient(180deg, rgba(18,35,26,0.42) 0%, rgba(18,35,26,0.3) 38%, rgba(18,35,26,0.78) 100%)',
           }}
         />
+        <RefTag className="top-24 left-5 md:top-28 md:left-8" />
         {/* sello de reseñas */}
         <div className="absolute top-24 md:top-28 right-5 md:right-8">
           <Reveal>
@@ -201,7 +222,7 @@ export default function RanchoItahuePage() {
             <span>Camino K-165</span>
             <span>15 min de Molina</span>
             <span>Días de campo · eventos</span>
-            <span className="hidden md:inline" style={{ color: C.amberSoft }}>sitio de ejemplo</span>
+            <span style={{ color: C.amberSoft }}>fotos de referencia</span>
           </div>
         </div>
       </section>
@@ -261,7 +282,8 @@ export default function RanchoItahuePage() {
               </h2>
               <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
                 Actividades de ejemplo: al publicar van los programas,
-                valores y horarios reales del rancho.
+                valores y horarios reales del rancho. Las fotos son
+                imágenes de referencia.
               </p>
             </div>
           </Reveal>
@@ -275,10 +297,11 @@ export default function RanchoItahuePage() {
                   <div className="relative overflow-hidden aspect-[16/10]">
                     <img
                       src={e.src}
-                      alt={e.name}
+                      alt={`Imagen de referencia: ${e.name.toLowerCase()}`}
                      
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
+                    <RefTag className="bottom-3 right-3" />
                     <span
                       className={`${display.className} absolute top-4 left-4 text-xs font-semibold w-8 h-8 rounded-full flex items-center justify-center`}
                       style={{ backgroundColor: 'rgba(245,240,227,0.92)', color: C.forest }}
@@ -306,13 +329,14 @@ export default function RanchoItahuePage() {
       <section id="eventos" className="scroll-mt-20" style={{ backgroundColor: C.deep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
           <Reveal>
-            <div className="rounded-2xl overflow-hidden" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}>
+            <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}>
               <img
                 src={`${IMG}/eventos.webp`}
-                alt="Quinchos y sector de eventos de Rancho Itahue al atardecer"
+                alt="Imagen de referencia: quinchos y sector de eventos al atardecer"
                
                 className="w-full h-full object-cover aspect-[4/3]"
               />
+              <RefTag className="top-3 left-3" />
             </div>
           </Reveal>
           <Reveal delay={140}>
@@ -357,27 +381,33 @@ export default function RanchoItahuePage() {
               El rancho, en fotos
             </h2>
             <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
-              Una muestra del predio: pradera, piscina, quinchos y
-              senderos.
+              Fotos de referencia para imaginar el lugar: pradera,
+              piscina, quinchos y senderos. Al publicar van las fotos
+              reales del predio.
             </p>
           </div>
         </Reveal>
         <Reveal delay={120}>
           <div className="grid grid-cols-2 md:grid-cols-6 md:auto-rows-[215px] lg:auto-rows-[250px] gap-3">
-            <figure className="col-span-2 md:col-span-4 md:row-span-2 rounded-2xl overflow-hidden">
-              <img src={`${IMG}/hero.webp`} alt="Panorámica de Rancho Itahue" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
+            <figure className="relative col-span-2 md:col-span-4 md:row-span-2 rounded-2xl overflow-hidden">
+              <img src={`${IMG}/hero.webp`} alt="Imagen de referencia: panorámica de pradera y cerros" className="w-full h-full object-cover aspect-[16/10] md:aspect-auto" />
+              <RefTag strip />
             </figure>
-            <figure className="rounded-2xl overflow-hidden">
-              <img src={`${IMG}/cabalgata.webp`} alt="Cabalgata por los senderos del rancho" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+            <figure className="relative rounded-2xl overflow-hidden">
+              <img src={`${IMG}/cabalgata.webp`} alt="Imagen de referencia: cabalgata por senderos de campo" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+              <RefTag strip />
             </figure>
-            <figure className="rounded-2xl overflow-hidden">
-              <img src={`${IMG}/naturaleza.webp`} alt="Bosque nativo y senderos del predio" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+            <figure className="relative rounded-2xl overflow-hidden">
+              <img src={`${IMG}/naturaleza.webp`} alt="Imagen de referencia: bosque nativo y senderos" className="w-full h-full object-cover aspect-square md:aspect-auto" />
+              <RefTag strip />
             </figure>
-            <figure className="col-span-2 md:col-span-3 rounded-2xl overflow-hidden">
-              <img src={`${IMG}/piscina.webp`} alt="Piscina al aire libre rodeada de pradera" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+            <figure className="relative col-span-2 md:col-span-3 rounded-2xl overflow-hidden">
+              <img src={`${IMG}/piscina.webp`} alt="Imagen de referencia: piscina al aire libre rodeada de pradera" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+              <RefTag strip />
             </figure>
-            <figure className="col-span-2 md:col-span-3 rounded-2xl overflow-hidden">
-              <img src={`${IMG}/eventos.webp`} alt="Sector de quinchos preparado para un evento" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+            <figure className="relative col-span-2 md:col-span-3 rounded-2xl overflow-hidden">
+              <img src={`${IMG}/eventos.webp`} alt="Imagen de referencia: sector de quinchos preparado para un evento" className="w-full h-full object-cover aspect-[16/9] md:aspect-auto" />
+              <RefTag strip />
             </figure>
           </div>
         </Reveal>
@@ -543,7 +573,7 @@ export default function RanchoItahuePage() {
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.amberSoft }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name}. Textos, actividades y fotos son de muestra.{' '}
+            para {BIZ.name}. Textos y actividades son de muestra; las fotos son imágenes de referencia que se reemplazan por fotos reales del predio al publicar.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.amberSoft }}>
               ¿Lo hacemos realidad?
             </a>

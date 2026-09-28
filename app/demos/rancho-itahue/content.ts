@@ -5,7 +5,9 @@
  * reseñas de la ficha de Google. Teléfono según directorio público —
  * confirmar con el cliente antes de publicar. Todo lo demás
  * (actividades, horarios, reseñas) es contenido de ejemplo para
- * mostrar cómo se vería el sitio.
+ * mostrar cómo se vería el sitio. Las fotos son imágenes generadas
+ * de referencia (marcadas como tal en la página); se reemplazan
+ * por fotos reales del predio al activar.
  */
 
 export const BIZ = {
