@@ -32,14 +32,14 @@ const C = {
 
 export const metadata: Metadata = demoMetadata({
   slug: 'agrocesped-del-maule',
-  title: 'AgroCesped Del Maule — Vivero mayorista en San Clemente',
-  description: 'Vivero mayorista en San Clemente, Región del Maule. Plantas por volumen para tiendas, jardinerías y proyectos: flor de temporada, interior, frutales e insumos. Cotiza por WhatsApp.',
+  title: 'AgroCesped Del Maule — Pasto en rollo en San Clemente',
+  description: 'Pasto en rollo producido en San Clemente, Región del Maule. Césped por m² para jardines, plazas y canchas, cortado el día que lo pides. Cotiza por WhatsApp.',
   image: '/demos/agrocesped-del-maule/hero.webp',
 })
 
 const NAV_LINKS = [
-  { label: 'Surtido', href: '#surtido' },
-  { label: 'El vivero', href: '#vivero' },
+  { label: 'El pasto', href: '#surtido' },
+  { label: 'El predio', href: '#vivero' },
   { label: 'Precios', href: '#precios' },
   { label: 'Contacto', href: '#contacto' },
 ]
@@ -47,40 +47,46 @@ const NAV_LINKS = [
 const LINEAS = [
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Maceteros con flor de temporada — lavanda, margaritas, geranios y dimorfotecas — listos para despacho',
-    name: 'Flor y ornamental de temporada',
-    desc: 'Lavanda, margaritas, geranios y lo que marque la semana. El surtido rota todo el año, así que tu vitrina siempre tiene novedad.',
-    dato: 'Se vende por bandeja',
-  },
-  {
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Interior de invernadero con potos colgantes, begonias, helechos y plantas de interior en mesones',
-    name: 'Interior y colgantes',
-    desc: 'Potos, begonias, helechos y cestas colgantes criadas en invernadero. Salen listas para exhibir y vender el mismo día que llegan.',
-    dato: 'Verde garantizado todo el año',
-  },
-  {
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Cítrico joven plantado en huerto con lavanda y aromáticas alrededor',
-    name: 'Frutales y plantas de huerto',
-    desc: 'Cítricos, frutales de la zona y aromáticas enraizadas en macetero. Planta sana que prende, no recién transplantada.',
-    dato: 'Enraizados en macetero',
+    alt: 'Rollo de pasto recién cortado sobre el césped del predio de AgroCesped',
+    name: 'El rollo, recién cortado',
+    desc: 'Césped natural cosechado y enrollado el día que lo pides: llega fresco y listo para instalar, sin tierra suelta ni espera.',
+    dato: 'Pasto en rollo por m²',
   },
   {
     src: `${IMG}/ambiente.webp`,
-    alt: 'Pilas de maceteros de terracota con lavanda, menta y tomillo en el vivero',
-    name: 'Maceteros e insumos',
-    desc: 'Terracota, plástico y sustratos para completar el pedido. Un solo proveedor, un solo flete, una sola conversación.',
-    dato: 'Complemento del pedido',
+    alt: 'Tractor extendiendo una plancha de césped en la chacra de San Clemente',
+    name: 'Producido en San Clemente',
+    desc: 'El césped se cría y se trabaja en la misma chacra: riego, corte y cuidado en campo hasta el día de la cosecha.',
+    dato: 'Producción propia',
+  },
+  {
+    src: `${IMG}/detalle2.webp`,
+    alt: 'Camión cargado con rollos de pasto recién cosechados en el predio',
+    name: 'Se cosecha y se carga',
+    desc: 'Del corte al camión sin escalas: los rollos salen apilados por pallet y listos para el viaje a tu terreno.',
+    dato: 'Rollos por pallet',
+  },
+  {
+    src: `${IMG}/detalle4.webp`,
+    alt: 'Rollo de pasto instalándose sobre la tierra nivelada de un jardín',
+    name: 'Instalación simple',
+    desc: 'Sobre tierra nivelada el rollo pega enseguida: se desenrolla, se riega y en semanas ya tienes un césped parejo.',
+    dato: 'De la tierra al jardín',
+  },
+  {
+    src: `${IMG}/detalle3.webp`,
+    alt: 'Camión de AgroCesped cargado de pasto con el letrero Venta de Pasto',
+    name: 'Retiro o despacho',
+    desc: 'Retiras en el predio sobre Av. Huamachuco o coordinamos despacho en la zona según el volumen del pedido.',
+    dato: 'Despacho en la región',
   },
 ]
 
 const PRECIOS = [
-  { name: 'Flor de temporada', unit: 'bandeja × 20 un', price: 'desde $1.800 c/u' },
-  { name: 'Aromáticas', unit: 'bandeja × 24 un', price: 'desde $1.500 c/u' },
-  { name: 'Interior y colgantes', unit: 'caja × 12 un', price: 'desde $3.500 c/u' },
-  { name: 'Frutales enraizados', unit: 'por 10 unidades', price: 'desde $6.900 c/u' },
-  { name: 'Macetero terracota nº 8', unit: 'por 24 un', price: 'desde $2.200 c/u' },
+  { name: 'Pasto en rollo', unit: 'por m²', price: 'cotiza por m²' },
+  { name: 'Pedido por pallet', unit: 'según volumen', price: 'cotiza por WhatsApp' },
+  { name: 'Retiro en el predio', unit: 'Av. Huamachuco', price: 'sin costo' },
+  { name: 'Despacho en la zona', unit: 'según destino', price: 'coordinar' },
 ]
 
 /**
@@ -147,6 +153,7 @@ export default function AgroCespedPage() {
       <div style={{ backgroundColor: C.deep }}>
         <BlitzNav
           name={BIZ.short}
+          logoSrc={`${IMG}/logo.webp`}
           links={NAV_LINKS}
           waLink={WA_LINK}
           fontClass={display.className}
@@ -165,7 +172,7 @@ export default function AgroCespedPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Hileras de maceteros con arbustos y árboles jóvenes en un vivero mayorista de San Clemente, con cerros del Maule al fondo"
+          alt="Campo de césped del predio AgroCesped en San Clemente, con árboles y cielo despejado"
           fill
           priority
           sizes="100vw"
@@ -192,25 +199,25 @@ export default function AgroCespedPage() {
                 <path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11Z" />
                 <circle cx="12" cy="10" r="2.4" />
               </svg>
-              {BIZ.reviews} reseñas en Google
+              ★ 5,0 · {BIZ.reviews} reseñas en Google
             </a>
           </Reveal>
         </div>
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
           <Reveal>
-            <Eyebrow light>Vivero mayorista · San Clemente · Región del Maule</Eyebrow>
+            <Eyebrow light>Pasto en rollo · San Clemente · Región del Maule</Eyebrow>
             <h1
               className={`${display.className} font-medium uppercase leading-[1.02] tracking-[-0.01em] text-[clamp(2rem,7vw,4.6rem)] mb-6`}
               style={{ color: '#F4F8FA' }}
             >
-              Plantas por volumen,
+              Pasto en rollo,
               <br />
-              <span style={{ color: C.cyan }}>directo del vivero</span>
+              <span style={{ color: C.cyan }}>cortado en San Clemente</span>
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(244,248,250,0.88)' }}>
-              Abastecemos tiendas, jardinerías y proyectos con plantas
-              sanas producidas en San Clemente. Cotiza tu pedido por
-              WhatsApp y retira en el vivero o coordina despacho.
+              Césped natural por m² para jardines, plazas y canchas,
+              producido en la chacra de Av. Huamachuco. Cotiza por
+              WhatsApp y retira en el predio o coordina despacho.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -236,8 +243,8 @@ export default function AgroCespedPage() {
         <div className="relative border-t" style={{ borderColor: 'rgba(244,248,250,0.22)', backgroundColor: 'rgba(14,42,57,0.85)', backdropFilter: 'blur(6px)' }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 md:pb-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(244,248,250,0.9)' }}>
             <span>Av. Huamachuco, San Clemente</span>
-            <span>Venta por volumen</span>
-            <span>Retiro en vivero · despacho en la región</span>
+            <span>Venta por m² y por pallet</span>
+            <span>Retiro en predio · despacho en la región</span>
             <span className="hidden md:inline" style={{ color: C.cyan }}>sitio de ejemplo</span>
           </div>
         </div>
@@ -247,18 +254,18 @@ export default function AgroCespedPage() {
       <section id="surtido" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 pt-18 md:pt-24 pb-6">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-8 md:gap-14 items-start mb-10 md:mb-14">
           <Reveal>
-            <Eyebrow>Surtido mayorista</Eyebrow>
+            <Eyebrow>Del predio a tu terreno</Eyebrow>
             <h2 className={`${display.className} font-medium uppercase text-3xl md:text-4xl leading-[1.08]`} style={{ color: C.blue }}>
-              Lo que llega
+              Así llega
               <br />
-              a tu local
+              tu pasto
             </h2>
           </Reveal>
           <Reveal delay={120}>
             <p className="text-base md:text-lg leading-relaxed max-w-xl lg:pt-12" style={{ color: C.muted }}>
-              Cuatro líneas para completar el surtido sin buscar otro
-              proveedor. Las líneas son de ejemplo: al publicar van los
-              productos y formatos reales del vivero.
+              Fotos reales de la chacra y del producto: el rollo, la
+              cosecha, la instalación y el despacho. Los textos son de
+              muestra para mostrar el formato del sitio.
             </p>
           </Reveal>
         </div>
@@ -328,29 +335,29 @@ export default function AgroCespedPage() {
       <section id="vivero" className="scroll-mt-20" style={{ backgroundColor: C.white }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-[1.2fr_1fr] gap-10 md:gap-14 items-start">
           <Reveal>
-            <Eyebrow>El vivero</Eyebrow>
+            <Eyebrow>El predio</Eyebrow>
             <h2 className={`${display.className} font-medium uppercase text-3xl md:text-4xl leading-[1.08] mb-6`} style={{ color: C.blue }}>
-              Producción propia
+              De la chacra
               <br />
-              en San Clemente
+              a tu jardín
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-5 max-w-lg" style={{ color: C.muted }}>
-              AgroCesped Del Maule es un vivero mayorista sobre Av.
+              AgroCesped Del Maule produce pasto en rollo sobre Av.
               Huamachuco, en San Clemente. Acá hablas directo con quien
-              produce: el mismo que revisa la planta es el que te
-              contesta el WhatsApp.
+              trabaja la chacra: el mismo que cosecha el césped es el
+              que te contesta el WhatsApp.
             </p>
             <p className="text-sm md:text-base leading-relaxed mb-8 max-w-lg" style={{ color: C.muted }}>
-              El foco es el volumen: bandejas, cajas y pedidos
-              completos para tiendas, jardinerías, municipios y
-              proyectos. Planta sana, precio mayorista y despacho
-              coordinado en la región.
+              El foco es el volumen: pedidos por m² y por pallet para
+              jardines, plazas, canchas y proyectos. Pasto sano cortado
+              el día, precio de productor y despacho coordinado en la
+              región.
             </p>
             <ul className="space-y-3 mb-2">
               {[
-                'Precio por volumen real, sin intermediarios',
-                'Planta sana criada en el vivero, no recién transplantada',
-                'Respuesta rápida por WhatsApp, con foto del stock del día',
+                'Precio de productor, sin intermediarios',
+                'Césped cosechado el día, no guardado de semanas',
+                'Respuesta rápida por WhatsApp, con foto del corte del día',
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.ink }}>
                   <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: C.cyan }} aria-hidden="true" />
@@ -383,9 +390,9 @@ export default function AgroCespedPage() {
                 </div>
                 <div className="flex items-baseline justify-between gap-4 border-b pb-5" style={{ borderColor: C.line }}>
                   <dt className="text-xs uppercase tracking-[0.12em] font-semibold" style={{ color: C.muted }}>
-                    Seguidores en Facebook
+                    En sus redes
                   </dt>
-                  <dd>
+                  <dd className="flex items-baseline gap-4">
                     <a
                       href={BIZ.facebook}
                       target="_blank"
@@ -393,7 +400,16 @@ export default function AgroCespedPage() {
                       className={`${display.className} text-2xl font-semibold underline underline-offset-4 decoration-2 tap-44`}
                       style={{ color: C.blue, textDecorationColor: 'rgba(31,86,115,0.3)' }}
                     >
-                      {BIZ.fbFollowers}
+                      {BIZ.fbFollowers} FB
+                    </a>
+                    <a
+                      href={BIZ.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${display.className} text-2xl font-semibold underline underline-offset-4 decoration-2 tap-44`}
+                      style={{ color: C.blue, textDecorationColor: 'rgba(31,86,115,0.3)' }}
+                    >
+                      {BIZ.igFollowers} IG
                     </a>
                   </dd>
                 </div>
@@ -407,8 +423,8 @@ export default function AgroCespedPage() {
                 </div>
               </dl>
               <p className="text-xs leading-relaxed mt-7" style={{ color: C.muted }}>
-                Cifras reales de la ficha pública del vivero. Los textos
-                de esta página son de muestra.
+                Cifras reales de la ficha pública y las redes del
+                productor. Los textos de esta página son de muestra.
               </p>
             </div>
           </Reveal>
@@ -538,13 +554,14 @@ export default function AgroCespedPage() {
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <h2 className={`${display.className} font-medium uppercase text-[clamp(1.8rem,5.5vw,3.4rem)] leading-[1.08] mb-6`} style={{ color: '#F4F8FA' }}>
-              ¿Vendes plantas?
+              ¿Jardín, plaza
               <br />
-              <span style={{ color: C.cyan }}>Abastece tu local</span>
+              o cancha?
+              <span style={{ color: C.cyan }} className="block">Pide tu pasto</span>
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(244,248,250,0.9)' }}>
-              Cuéntanos qué líneas mueves y te armamos una cotización
-              por volumen. Respondemos el mismo día.
+              Dinos cuántos m² necesitas y para cuándo: te armamos la
+              cotización con fecha de corte y retiro o despacho.
             </p>
             <a
               href={WA_LINK}
@@ -570,9 +587,13 @@ export default function AgroCespedPage() {
             </address>
           </div>
           <p className="text-xs" style={{ color: 'rgba(244,248,250,0.75)' }}>
-            Sitio de ejemplo por Sitiazo · textos y precios de muestra ·{' '}
+            Sitio de ejemplo por Sitiazo · fotos reales del predio ·{' '}
             <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white tap-44">
               Facebook
+            </a>{' '}
+            ·{' '}
+            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white tap-44">
+              Instagram
             </a>
           </p>
         </div>

@@ -1,18 +1,18 @@
 /**
  * app/demos/agrocesped-del-maule/content.ts
  *
- * Datos del mockup. REALES: nombre, rubro (vivero mayorista), dirección
- * (Av. Huamachuco, San Clemente), WhatsApp, las 4 reseñas de la ficha
- * de Google y el Facebook (146 seguidores). Todo lo demás —líneas de
- * producto, formatos de venta y precios— es contenido de ejemplo para
- * mostrar cómo se vería el sitio; los valores van marcados como
- * muestra.
+ * Datos del mockup. REALES: nombre, producto (pasto en rollo, según
+ * su logo y sus redes), dirección (Av. Huamachuco, San Clemente),
+ * WhatsApp, las reseñas de la ficha de Google (5,0 en 4 reseñas), el
+ * Facebook e Instagram. Todo lo demás —formatos de venta y precios—
+ * es contenido de ejemplo para mostrar cómo se vería el sitio; los
+ * valores van marcados como muestra.
  */
 
 export const BIZ = {
   name: 'AgroCesped Del Maule',
   short: 'AgroCesped',
-  rubro: 'Vivero mayorista',
+  rubro: 'Pasto en rollo',
   address: 'Av. Huamachuco, San Clemente',
   city: 'San Clemente',
   region: 'Región del Maule',
@@ -21,11 +21,13 @@ export const BIZ = {
   whatsapp: '56994283138',
   reviews: 4,
   fbFollowers: 146,
+  igFollowers: 90,
   facebook: 'https://www.facebook.com/share/1G3cQuTUST/?mibextid=wwXIfr',
+  instagram: 'https://www.instagram.com/agrocespeddelmaule/',
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
-  'Hola, vi la página de AgroCesped Del Maule y quiero cotizar plantas por volumen',
+  'Hola, vi la página de AgroCesped Del Maule y quiero cotizar pasto en rollo',
 )}`
 
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
