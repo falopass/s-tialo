@@ -248,8 +248,8 @@ export default function LaPicaDeLosTatasPage() {
               Lo que sale de nuestra cocina
             </h2>
             <p className="mt-5 text-base leading-relaxed" style={{ color: 'rgba(232,220,200,0.75)' }}>
-              Tres razones para sentarse a la mesa. Carta de muestra: al
-              publicar van los platos reales de la picá.
+              Tres razones para sentarse a la mesa, en fotos reales de
+              la casa y de sus platos. La carta completa va al publicar.
             </p>
           </Reveal>
           <div className="mt-14 grid gap-6 md:grid-cols-3 md:items-start">
@@ -367,8 +367,8 @@ export default function LaPicaDeLosTatasPage() {
               Reservar por teléfono
             </a>
             <p className="mt-5 text-xs text-[#E8DCC8]/55">
-              Fotos y reseñas citadas: ficha real de Google Maps. Los textos de
-              esta columna son de muestra.
+              Fotos, horario y reseñas: ficha real de Google Maps. Los
+              textos de esta columna son de muestra.
             </p>
           </Reveal>
         </div>
