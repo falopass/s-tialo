@@ -14,7 +14,8 @@ export interface BlitzDemo {
   gradient: string
 }
 
-type CatalogDemo = Demo | {
+type CatalogBlitz = BlitzDemo & { created: string }
+type CatalogDemo = Demo | CatalogBlitz | {
   slug: 'cabanas-la-quebrada'
   name: string
   rubro: string
@@ -38,6 +39,9 @@ const FAMILIES: Family[] = [
       'kinesi',
       'fonoaudi',
       'oftalm',
+      'dentista',
+      'dental',
+      'odont',
       'centro médico',
     ],
   },
@@ -53,11 +57,22 @@ const FAMILIES: Family[] = [
       'helader',
       'sushi',
       'comida',
+      'waff',
+      'rápida',
     ],
   },
   {
     title: 'Belleza y estética',
-    matches: ['peluquer', 'barber', 'manicure', 'uñas', 'spa', 'estética'],
+    matches: [
+      'peluquer',
+      'barber',
+      'manicure',
+      'manicura',
+      'uñas',
+      'spa',
+      'estética',
+      'salón',
+    ],
   },
   {
     title: 'Automotriz',
@@ -65,8 +80,15 @@ const FAMILIES: Family[] = [
       'taller mecánico',
       'lubricentro',
       'lavado',
+      'mecán',
+      'mecan',
+      'vulcan',
+      'automóvil',
+      'automovil',
+      'desaboll',
       'grúa',
       'repuesto',
+      'lubric',
       'automotriz',
     ],
   },
@@ -79,9 +101,12 @@ const FAMILIES: Family[] = [
       'gasfiter',
       'carpinter',
       'mueble',
+      'muebler',
       'ferreter',
       'alumin',
       'ventana',
+      'vidrier',
+      'pintura',
     ],
   },
   {
@@ -92,6 +117,10 @@ const FAMILIES: Family[] = [
       'mercado',
       'minimarket',
       'mayorista',
+      'botiquín',
+      'hogar',
+      'máquina',
+      'maquina',
       'óptica',
       'ropa',
       'lencería',
@@ -102,6 +131,7 @@ const FAMILIES: Family[] = [
     title: 'Turismo y hospedaje',
     matches: [
       'cabaña',
+      'hospedaje',
       'hostal',
       'hotel',
       'camping',
@@ -114,21 +144,27 @@ const FAMILIES: Family[] = [
     matches: [
       'gimnasio',
       'complejo deportivo',
+      'recinto deportivo',
       'padel',
       'fútbol',
       'parque infantil',
+      'cumpleaños',
+      'piscina',
     ],
   },
   {
     title: 'Servicios profesionales',
     matches: [
       'abogado',
+      'jurídico',
       'contador',
       'publicidad',
       'corretaje',
       'seguridad',
       'escuela de conductores',
       'jardín infantil',
+      'educación inicial',
+      'impresión y diseño',
     ],
   },
   { title: 'Otros', matches: [] },
@@ -144,6 +180,123 @@ const CABANAS_LA_QUEBRADA: CatalogDemo = {
   special: true,
 }
 
+const BLITZ_CREATED: Record<string, string> = {
+  'lavaseco-flash': '2026-09-28',
+  'delicias-caseras-fabiana': '2026-09-28',
+  'brilla-el-sol-talca': '2026-09-28',
+  'pannton-arquitectura': '2026-09-28',
+  'gacitua-producciones': '2026-09-28',
+  'villa-antillanca-hotel-centro-eventos': '2026-09-28',
+  'automotriz-tudela-mecanica-electricidad': '2026-09-28',
+  'hope-bakery-chile': '2026-09-28',
+  'monky-coffee': '2026-09-28',
+  'gotitas-de-amor': '2026-09-28',
+  'new-era-barbershop': '2026-09-28',
+  triadent: '2026-09-25',
+  'one-health': '2026-09-25',
+  homyvet: '2026-09-25',
+  'altos-de-lircay': '2026-09-25',
+  'jd-abogados': '2026-09-25',
+  'santa-fe': '2026-09-25',
+  'rancho-itahue': '2026-09-26',
+  'panaderia-bravo': '2026-09-26',
+  'vivero-dona-ines': '2026-09-26',
+  'vivero-entre-raices': '2026-09-27',
+  'barberia-rulos-style-barberia-curico': '2026-09-27',
+  'lua-nails': '2026-09-26',
+  nailsyus: '2026-09-27',
+  'wow-park': '2026-09-26',
+  matrokin: '2026-09-26',
+  sigel: '2026-09-26',
+  zamono: '2026-09-26',
+  'lubricentro-y-repuestos-san-martin': '2026-09-28',
+  'salon-de-belleza-gabriela-saavedra-talca': '2026-09-27',
+  'centro-spa-roxana': '2026-09-27',
+  'clinica-y-farmacia-veterinaria-angel-guardian': '2026-09-27',
+  'las-viejas-cochinas': '2026-09-27',
+  'la-pica-de-los-tatas': '2026-09-27',
+  'la-pica-del-mateo': '2026-09-27',
+  'cafe-la-francesa': '2026-09-27',
+  'csf-especialidades-veterinarias-san-francisco': '2026-09-27',
+  'emporio-vintage-cafe': '2026-09-27',
+  'plantitas-ya-vivero-romeral-ventas-de-plantas-y-': '2026-09-27',
+  'wake-up': '2026-09-27',
+  'distribuidora-mym-curico': '2026-09-27',
+  'parrilladas-caupolican': '2026-09-27',
+  'patagonia-dulce-pasteleria': '2026-09-27',
+  'centro-san-ricardo': '2026-09-27',
+  'my-fusion-gym': '2026-09-27',
+  'nativa-curico': '2026-09-27',
+  'restobar-los-leones': '2026-09-27',
+  'clinica-veterinaria-docpino': '2026-09-27',
+  'girls-house-estetica': '2026-09-27',
+  'vasquez-muebles-linares-spa': '2026-09-27',
+  'restaurant-el-encuentro': '2026-09-27',
+  'muebleria-comercial-sofia': '2026-09-27',
+  'clinica-t-renova-spa': '2026-09-27',
+  'victoria-nail-school': '2026-09-27',
+  'clinica-dental-bilbao-urgencias-dentales-curico-': '2026-09-27',
+  'ferreteria-williams-pencahue': '2026-09-27',
+  'taller-mecanico-servimac': '2026-09-27',
+  'hospital-clinico-veterinario-la-granja-linares': '2026-09-27',
+  'nicolas-atelier': '2026-09-27',
+  ultrasport19: '2026-09-27',
+  'atlantix-clinica-odontologica-san-javier-de-lonc': '2026-09-27',
+  'peluqueria-fran-wartemberg': '2026-09-27',
+  'hostal-josefa': '2026-09-27',
+  'brutal-curico': '2026-09-27',
+  'comercial-rio-claro': '2026-09-27',
+  'le-petit-pasteleria': '2026-09-27',
+  'tienda-by-joseline-spa': '2026-09-27',
+  danybloom: '2026-09-27',
+  'mia-centro-de-estetica': '2026-09-27',
+  'muebleria-infinity-muebles-talca': '2026-09-27',
+  'hair-home-studio-claudia-beltran': '2026-09-27',
+  'cabanas-vista-hermosa': '2026-09-27',
+  'forastero-sabor-en-cada-bocado': '2026-09-27',
+  damianstyle: '2026-09-27',
+  'italo-vet-linares': '2026-09-27',
+  'ferreteria-la-ruta': '2026-09-27',
+  bravosgym: '2026-09-27',
+  'gimnasio-body-fitness-talca': '2026-09-28',
+  'ferreteria-valdebenito': '2026-09-27',
+  'peluqueria-gloria': '2026-09-27',
+  'servicio-tecnico-automotriz-millycar': '2026-09-27',
+  'mym-taller-mecanico-talca': '2026-09-28',
+  'bxtraining-1': '2026-09-27',
+  'pasteleria-y-panaderia-eluney': '2026-09-27',
+  'clinica-dental-san-jose': '2026-09-27',
+  'clinica-prosaluddental': '2026-09-27',
+  'a-toda-maquina-ventas-y-servicios': '2026-09-27',
+  'agrocesped-del-maule': '2026-09-27',
+  johnbarber: '2026-09-27',
+  'ferreteria-don-jack': '2026-09-27',
+  'vulcanizacion-nikimoto': '2026-09-27',
+  'la-terraza': '2026-09-27',
+  'muebles-a-tu-estilo': '2026-09-27',
+  'beauty-love': '2026-09-27',
+  'distribuidora-renato-molina': '2026-09-27',
+  'ius-abogados-linares': '2026-09-27',
+  'defensa-molina-abogados': '2026-09-27',
+  'jardin-vivero-carolina': '2026-09-27',
+  'que-barato-lf': '2026-09-27',
+  'san-clemente-heladeria': '2026-09-27',
+  'estudio-juridico-talca': '2026-09-28',
+  'tricapa-talca-spa': '2026-09-28',
+  'centro-oftalmologico-nacional': '2026-09-28',
+  'luxe-gym-talca': '2026-09-28',
+  'kid-mania': '2026-09-28',
+  'turismo-las-brujas': '2026-09-28',
+  alumrod: '2026-09-28',
+  'constructora-valdes': '2026-09-28',
+  'cafeteria-walffies': '2026-09-28',
+  'entre-lomas': '2026-09-28',
+  'family-gym-san-clemente': '2026-09-28',
+  'fonoaudiologa-karen-oyarce': '2026-09-28',
+  'nafi-arquitectura': '2026-09-28',
+  'el-bajon-del-barny': '2026-09-28',
+}
+
 function familyFor(rubro: string) {
   const normalized = rubro.toLocaleLowerCase('es')
   return (
@@ -157,6 +310,10 @@ function familyFor(rubro: string) {
 
 function isSpecial(demo: CatalogDemo): demo is Extract<CatalogDemo, { special: true }> {
   return 'special' in demo
+}
+
+function isBlitz(demo: CatalogDemo): demo is CatalogBlitz {
+  return 'gradient' in demo
 }
 
 function DemoCard({ demo }: { demo: CatalogDemo }) {
@@ -185,6 +342,25 @@ function DemoCard({ demo }: { demo: CatalogDemo }) {
             <circle cx="17.5" cy="5" r="1.8" />
           </svg>
           <span className="font-display font-bold tracking-display text-lg leading-tight text-[#FAF7F0] drop-shadow-sm">
+            {demo.name}
+          </span>
+        </div>
+        <CardBody demo={demo} suffix="lead real" />
+      </Link>
+    )
+  }
+
+  if (isBlitz(demo)) {
+    return (
+      <Link
+        href={`/demos/${demo.slug}`}
+        className="group block border border-divider bg-white overflow-hidden h-full transition-shadow hover:shadow-md focus-visible:shadow-md"
+      >
+        <div
+          className="relative h-[112px] flex items-end p-4"
+          style={{ background: demo.gradient }}
+        >
+          <span className="font-display font-bold tracking-display text-lg leading-tight text-white drop-shadow-sm">
             {demo.name}
           </span>
         </div>
@@ -243,43 +419,12 @@ function CardBody({
   )
 }
 
-function BlitzCard({ demo }: { demo: BlitzDemo }) {
-  return (
-    <Link
-      href={`/demos/${demo.slug}`}
-      className="group block border border-divider bg-white overflow-hidden h-full transition-shadow hover:shadow-md focus-visible:shadow-md"
-    >
-      <div
-        className="relative h-[112px] flex items-end p-4"
-        style={{ background: demo.gradient }}
-      >
-        <span className="font-display font-bold tracking-display text-lg leading-tight text-white drop-shadow-sm">
-          {demo.name}
-        </span>
-      </div>
-      <CardBody demo={demo} suffix="lead real" />
-    </Link>
-  )
-}
-
 function Grid({ demos }: { demos: CatalogDemo[] }) {
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
       {demos.map((demo) => (
         <li key={demo.slug}>
           <DemoCard demo={demo} />
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-function BlitzGrid({ demos }: { demos: BlitzDemo[] }) {
-  return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-      {demos.map((demo) => (
-        <li key={demo.slug}>
-          <BlitzCard demo={demo} />
         </li>
       ))}
     </ul>
@@ -294,25 +439,40 @@ export default function DemoCatalog({
   blitz: BlitzDemo[]
 }) {
   const [mode, setMode] = useState<'rubro' | 'nuevos'>('rubro')
+  const catalogDemos = useMemo(() => {
+    const bySlug = new Map<string, CatalogDemo>()
+
+    blitz.forEach((demo) => {
+      bySlug.set(demo.slug, {
+        ...demo,
+        created: BLITZ_CREATED[demo.slug],
+      })
+    })
+    demos.forEach((demo) => {
+      if (!bySlug.has(demo.slug)) bySlug.set(demo.slug, demo)
+    })
+    bySlug.set(CABANAS_LA_QUEBRADA.slug, CABANAS_LA_QUEBRADA)
+
+    return [...bySlug.values()]
+  }, [blitz, demos])
   const allDemos = useMemo(
-    () => [...demos, CABANAS_LA_QUEBRADA].sort(
-      (a, b) =>
-        b.created.localeCompare(a.created) || a.name.localeCompare(b.name, 'es'),
-    ),
-    [demos],
+    () =>
+      [...catalogDemos].sort(
+        (a, b) =>
+          b.created.localeCompare(a.created) ||
+          a.name.localeCompare(b.name, 'es'),
+      ),
+    [catalogDemos],
   )
   const families = useMemo(
     () =>
       FAMILIES.map((family) => ({
         ...family,
-        demos: [
-          ...demos.filter((demo) => familyFor(demo.rubro) === family),
-          ...(family.title === 'Turismo y hospedaje'
-            ? [CABANAS_LA_QUEBRADA]
-            : []),
-        ].sort((a, b) => a.name.localeCompare(b.name, 'es')),
+        demos: catalogDemos
+          .filter((demo) => familyFor(demo.rubro) === family)
+          .sort((a, b) => a.name.localeCompare(b.name, 'es')),
       })).filter((family) => family.demos.length > 0),
-    [demos],
+    [catalogDemos],
   )
 
   return (
@@ -363,16 +523,6 @@ export default function DemoCatalog({
         </section>
       )}
 
-      <section className="mt-16">
-        <h2 className="font-display text-2xl md:text-3xl font-bold leading-display tracking-display mb-2">
-          Mockups para leads reales
-        </h2>
-        <p className="text-body-sm text-ink-muted leading-snug mb-6 max-w-xl">
-          Muestras personalizadas con identidad propia, armadas solo con
-          datos públicos de cada ficha de Google.
-        </p>
-        <BlitzGrid demos={blitz} />
-      </section>
     </div>
   )
 }
