@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:4800",
-  "fecha": "2026-09-28T04:50:46.040Z",
+  "base": "http://localhost:3010",
+  "fecha": "2026-09-28T05:10:15.822Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,47 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "automotriz-gomez": {
-      "url": "http://localhost:4800/demos/automotriz-gomez/",
+    "ferreteria-muller": {
+      "url": "http://localhost:3010/demos/ferreteria-muller/",
       "status": 200,
       "botones": [],
-      "footerPx": 93,
-      "footerPct": 11,
+      "footerPx": 126,
+      "footerPct": 14.9,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4126
-    },
-    "hospital-veterinario-talcahuano": {
-      "url": "http://localhost:4800/demos/hospital-veterinario-talcahuano/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 108,
-      "footerPct": 12.8,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4117
-    },
-    "s-j-full-car-service": {
-      "url": "http://localhost:4800/demos/s-j-full-car-service/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 92,
-      "footerPct": 10.9,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4135
+      "ms": 4419
     }
   }
 }
