@@ -711,6 +711,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #093540 0%, #0E4C5C 55%, #9FD8CB 140%)',
   },
   {
+    slug: 'cabanas-el-alto',
+    name: 'Cabañas El Alto',
+    rubro: 'Cabañas de montaña',
+    city: 'San Clemente',
+    tagline: 'Postal de cordillera: pino, crema y madera, fotos tipo polaroid y sendero punteado hasta el mapa.',
+    gradient: 'linear-gradient(135deg, #0E241B 0%, #16362A 55%, #C9713A 140%)',
+  },
+  {
     slug: 'forastero-sabor-en-cada-bocado',
     name: 'FORASTERO sabor en cada bocado',
     rubro: 'Restaurante',
