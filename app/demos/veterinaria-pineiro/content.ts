@@ -1,14 +1,14 @@
 /**
  * app/demos/veterinaria-pineiro/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps): nombre,
- * categoría «Cuidados veterinarios», comuna, dirección en Av. Huamachuco 861,
- * WhatsApp, horario publicado (lun–vie 9:00–18:30, sáb 9:00–13:15, domingo
- * cerrado) y la esterilización como servicio al que aluden varias reseñas.
- * La ficha no publica fotos y no se pudo confirmar una red social propia:
- * por eso el mockup usa una escena SVG propia en vez de fotos, y la prueba
- * social se limita a una reseña real textual. Las frases de las secciones
- * son de muestra para mostrar cómo se vería el sitio.
+ * Datos del mockup. REALES (ficha pública de Google Maps, verificada el
+ * 28-09-2026): nombre, categoría «Cuidados veterinarios», comuna, dirección
+ * en Av. Huamachuco 861, WhatsApp y horario publicado (lun–vie 9:00–18:30,
+ * sáb 9:00–13:15, domingo cerrado). La ficha no publica fotos propias ni se
+ * encontró una red social del negocio: la única imagen real disponible es la
+ * vista de Street View de la fachada sobre la avenida, que es la que se usa.
+ * No se citan reseñas: la ficha tiene 2,7 estrellas y las positivas no se
+ * pudieron verificar. Las frases de las secciones son de muestra.
  */
 
 export const BIZ = {

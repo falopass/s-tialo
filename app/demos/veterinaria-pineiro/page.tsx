@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
-import { Reveal, BlitzNav, Stars, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import OpenBadge from './open-badge'
-import { BIZ, WA_LINK, WA_LINK_HORA, MAPS_URL, MAPS_EMBED, HORARIO } from './content'
+import { BIZ, WA_LINK, WA_LINK_HORA, MAPS_URL, MAPS_EMBED, HORARIO, IMG } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -39,6 +40,7 @@ export const metadata: Metadata = demoMetadata({
   title: 'Clínica Veterinaria Piñeiro — cuidados veterinarios en San Clemente',
   description:
     'Clínica veterinaria en Av. Huamachuco 861, San Clemente. Lun–vie 9:00–18:30 y sábado 9:00–13:15. Agenda tu hora por WhatsApp.',
+  image: `${IMG}/fachada.webp`,
 })
 
 const NAV_LINKS = [
@@ -73,8 +75,8 @@ const RAZONES = [
     desc: 'En Av. Huamachuco 861, a pasos del centro: llegas a pie o en auto sin desvíos.',
   },
   {
-    title: 'Doctores que responden',
-    desc: 'Las reseñas hablan de atención amable y de mascotas que volvieron sanas a la casa.',
+    title: 'Perros y gatos, día a día',
+    desc: 'Su ficha los define como cuidados veterinarios: consulta, diagnóstico y esterilización.',
   },
   {
     title: 'Agenda directa por WhatsApp',
@@ -190,139 +192,8 @@ function PineStrip() {
   )
 }
 
-/**
- * Escena SVG propia: la fachada de la clínica sobre Av. Huamachuco al anochecer.
- * La ficha de la pyme no publica fotos, así que se ilustra el local con el
- * pino piñeiro que da nombre al apellido.
- */
-function EscenaClinica() {
-  return (
-    <svg viewBox="0 0 640 480" className="w-full h-auto block" role="img" aria-label="Ilustración de la fachada de la Clínica Veterinaria Piñeiro de noche, con un pino al costado">
-      <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#0A1824" />
-          <stop offset="0.62" stopColor="#12293B" />
-          <stop offset="1" stopColor="#1A3548" />
-        </linearGradient>
-        <radialGradient id="lampGlow" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stopColor="#F2B15C" stopOpacity="0.5" />
-          <stop offset="1" stopColor="#F2B15C" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient id="winGlow" cx="0.5" cy="0.5" r="0.55">
-          <stop offset="0" stopColor="#FFD998" />
-          <stop offset="0.7" stopColor="#F2B15C" />
-          <stop offset="1" stopColor="#E09A45" />
-        </radialGradient>
-      </defs>
-
-      <rect width="640" height="480" fill="url(#sky)" />
-
-      {/* estrellas */}
-      {[
-        [54, 44, 1.6], [120, 26, 1.2], [205, 60, 1.4], [300, 30, 1.1], [390, 52, 1.5],
-        [470, 26, 1.2], [560, 60, 1.4], [605, 110, 1.1], [40, 120, 1.1], [150, 92, 1.0],
-        [250, 120, 1.2], [520, 90, 1.0], [95, 170, 1.0], [600, 30, 1.3], [330, 80, 0.9],
-      ].map(([x, y, r], i) => (
-        <circle key={i} cx={x} cy={y} r={r} fill="#F6EFE1" opacity={i % 3 === 0 ? 0.9 : 0.55} />
-      ))}
-
-      {/* luna */}
-      <circle cx="552" cy="96" r="26" fill="#F6EFE1" opacity="0.94" />
-      <circle cx="543" cy="90" r="5" fill="#0D1F2E" opacity="0.1" />
-      <circle cx="560" cy="104" r="3.4" fill="#0D1F2E" opacity="0.08" />
-
-      {/* suelo y vereda */}
-      <rect x="0" y="392" width="640" height="88" fill="#08141F" />
-      <rect x="0" y="384" width="640" height="10" fill="#0F2733" />
-      <rect x="0" y="394" width="640" height="4" fill="#1A3548" />
-
-      {/* sombra suave bajo el edificio */}
-      <ellipse cx="280" cy="388" rx="230" ry="14" fill="#050D14" opacity="0.7" />
-
-      {/* edificio */}
-      <rect x="96" y="170" width="368" height="222" rx="6" fill="#E9DFC9" />
-      <rect x="96" y="170" width="368" height="222" rx="6" fill="#D9CBAF" opacity="0.35" />
-      {/* cornisa */}
-      <rect x="86" y="158" width="388" height="18" rx="5" fill="#0D1F2E" />
-      {/* letrero */}
-      <rect x="116" y="196" width="328" height="52" rx="6" fill="#0D1F2E" />
-      <rect x="116" y="196" width="328" height="52" rx="6" fill="none" stroke="#F2B15C" strokeOpacity="0.5" strokeWidth="2" />
-      {/* cruz veterinaria en el letrero */}
-      <g>
-        <rect x="134" y="208" width="12" height="28" rx="3" fill="#D6693B" />
-        <rect x="126" y="216" width="28" height="12" rx="3" fill="#D6693B" />
-      </g>
-      <text x="285" y="231" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontWeight="700" fontSize="18" fill="#F6EFE1" letterSpacing="1.5" style={{ color: '#F6EFE1' }}>
-        VETERINARIA PIÑEIRO
-      </text>
-
-      {/* ventana izquierda */}
-      <rect x="120" y="268" width="96" height="76" rx="4" fill="url(#winGlow)" />
-      <rect x="120" y="268" width="96" height="76" rx="4" fill="none" stroke="#0D1F2E" strokeWidth="4" />
-      <rect x="164" y="268" width="4" height="76" fill="#0D1F2E" />
-      {/* silueta de gato en la ventana */}
-      <path d="M146 330 c0-10 5-18 12-18 3 0 5 1 7 3v-8l5 5 5-5v8c2-2 4-3 7-3 7 0 12 8 12 18z" transform="translate(-14,-4)" fill="#1A3548" opacity="0.85" />
-
-      {/* puerta central con vidrio */}
-      <rect x="242" y="268" width="76" height="124" rx="4" fill="#0D1F2E" />
-      <rect x="250" y="278" width="60" height="74" rx="3" fill="url(#winGlow)" opacity="0.92" />
-      <rect x="250" y="278" width="60" height="74" rx="3" fill="none" stroke="#08141F" strokeWidth="3" />
-      <circle cx="304" cy="330" r="3.4" fill="#F2B15C" />
-      <rect x="242" y="356" width="76" height="36" fill="#12293B" />
-      <rect x="252" y="366" width="56" height="7" rx="3" fill="#F6EFE1" opacity="0.55" />
-
-      {/* ventana derecha */}
-      <rect x="344" y="268" width="96" height="76" rx="4" fill="url(#winGlow)" />
-      <rect x="344" y="268" width="96" height="76" rx="4" fill="none" stroke="#0D1F2E" strokeWidth="4" />
-      <rect x="388" y="268" width="4" height="76" fill="#0D1F2E" />
-      {/* estante con tarros */}
-      <rect x="352" y="312" width="80" height="6" fill="#1A3548" />
-      {[358, 372, 386, 400, 414].map((x, i) => (
-        <rect key={i} x={x} y={i % 2 ? 296 : 292} width="9" height={i % 2 ? 16 : 20} rx="2" fill="#1A3548" opacity="0.9" />
-      ))}
-
-      {/* resplandor cálido sobre la vereda */}
-      <ellipse cx="280" cy="392" rx="170" ry="10" fill="#F2B15C" opacity="0.12" />
-
-      {/* farol */}
-      <g>
-        <rect x="52" y="232" width="6" height="158" rx="3" fill="#0A1824" />
-        <rect x="42" y="222" width="26" height="16" rx="4" fill="#0A1824" />
-        <circle cx="55" cy="240" r="7" fill="#FFD998" />
-        <circle cx="55" cy="240" r="30" fill="url(#lampGlow)" />
-      </g>
-
-      {/* pino piñeiro (copa de sombrilla) a la derecha */}
-      <g>
-        <path d="M514 388c4-52 6-96 6-132h10c0 36 2 80 6 132z" fill="#3A2418" />
-        <ellipse cx="525" cy="186" rx="86" ry="46" fill="#2E6B57" />
-        <ellipse cx="482" cy="202" rx="56" ry="34" fill="#26594A" />
-        <ellipse cx="568" cy="200" rx="60" ry="36" fill="#26594A" />
-        <ellipse cx="525" cy="162" rx="52" ry="30" fill="#36775F" />
-        <ellipse cx="500" cy="150" rx="14" ry="9" fill="#3E8467" opacity="0.8" />
-        <ellipse cx="552" cy="170" rx="18" ry="11" fill="#3E8467" opacity="0.7" />
-      </g>
-
-      {/* perro sentado esperando junto a la puerta */}
-      <g fill="#050D14">
-        <path d="M204 388c-2-14 2-24 10-30 2-7 6-11 12-11 5 0 8 2 10 5l8-3-2 8c3 3 4 7 3 11 4 5 5 12 5 20l4 10h-8l-4-9c-3 1-7 1-10 0l-2 9h-10z" />
-        <path d="M200 370c-4-8-3-16 2-21 2 8 3 15 2 21z" />
-      </g>
-      {/* luz del perro: borde cálido */}
-      <path d="M204 388c-2-14 2-24 10-30 2-7 6-11 12-11 5 0 8 2 10 5" fill="none" stroke="#F2B15C" strokeOpacity="0.35" strokeWidth="1.5" />
-
-      {/* huellas hacia la puerta */}
-      {[0, 1, 2].map((i) => (
-        <g key={i} transform={`translate(${196 - i * 26},${396 - (i % 2) * 3})`} fill="#F6EFE1" opacity="0.28">
-          <ellipse cx="0" cy="0" rx="2.6" ry="3.4" />
-          <circle cx="-3.4" cy="-3.6" r="1.2" />
-          <circle cx="0" cy="-4.4" r="1.2" />
-          <circle cx="3.4" cy="-3.6" r="1.2" />
-        </g>
-      ))}
-    </svg>
-  )
-}
+// La única foto real disponible es la fachada en Street View; se usa tal cual
+// en el hero en vez de una ilustración.
 
 export default function DemoVeterinariaPineiro() {
   return (
@@ -410,14 +281,28 @@ export default function DemoVeterinariaPineiro() {
           </div>
 
           <Reveal delay={140} className="relative">
-            <div
+            <figure
               className="relative rounded-[26px] overflow-hidden shadow-2xl"
               style={{ border: '1px solid rgba(246,239,225,0.16)', boxShadow: '0 32px 80px -24px rgba(0,0,0,0.7)' }}
             >
-              <EscenaClinica />
-            </div>
+              <Image
+                src={`${IMG}/fachada.webp`}
+                alt={`Fachada de la ${BIZ.name} sobre ${BIZ.address}, ${BIZ.city}, vista desde la avenida`}
+                width={1024}
+                height={640}
+                priority
+                className="w-full h-auto block"
+              />
+              <figcaption
+                className={`${body.className} flex items-center justify-between gap-3 px-4 py-3 text-xs font-bold`}
+                style={{ backgroundColor: C.nocheProf, color: C.cremaDim }}
+              >
+                <span>La clínica en la avenida, foto real</span>
+                <span style={{ color: C.ambar }}>Google Street View</span>
+              </figcaption>
+            </figure>
             <div
-              className="absolute -bottom-4 left-4 md:left-6 flex items-center gap-2.5 rounded-2xl px-4 py-2.5 shadow-xl"
+              className="absolute top-4 left-4 md:left-6 flex items-center gap-2.5 rounded-2xl px-4 py-2.5 shadow-xl"
               style={{ backgroundColor: C.crema, color: C.tinta }}
             >
               <Pino className="w-4 h-4" color={C.pino} />
@@ -597,35 +482,7 @@ export default function DemoVeterinariaPineiro() {
             ))}
           </div>
 
-          {/* reseña real textual, sin número inventado */}
-          <Reveal delay={120}>
-            <figure
-              className="mt-10 rounded-[24px] p-7 md:p-10 relative"
-              style={{ backgroundColor: C.nocheProf, border: '1px solid rgba(242,177,92,0.22)' }}
-            >
-              <Ico kind="quote" className="w-9 h-9 absolute top-6 left-7 opacity-60" color={C.terracotaHi} />
-              <div className="md:pl-14 pt-9 md:pt-0">
-                <Stars value={5} color={C.ambar} className="w-4 h-4" />
-                <blockquote className={`${display.className} mt-4 text-xl md:text-2xl font-bold leading-snug`} style={{ color: C.crema }}>
-                  “Los doctores son amables y más de una vez han salvado mis perros”
-                </blockquote>
-                <figcaption className={`${body.className} mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm`} style={{ color: C.cremaFaint }}>
-                  <span className="font-bold" style={{ color: C.cremaDim }}>Kim</span>
-                  <span aria-hidden="true">·</span>
-                  <span>Reseña real en Google Maps</span>
-                  <a
-                    href={MAPS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${body.className} inline-flex items-center px-3 py-3 underline underline-offset-4 decoration-2 font-bold ${focusRing}`}
-                    style={{ color: C.ambar }}
-                  >
-                    Ver ficha
-                  </a>
-                </figcaption>
-              </div>
-            </figure>
-          </Reveal>
+          {/* no se citan reseñas: la ficha real tiene 2,7 estrellas */}
         </div>
       </section>
 
