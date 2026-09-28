@@ -61,6 +61,7 @@ const SERVICIOS = [
   {
     src: `${IMG}/detalle2.webp`,
     alt: 'Herramientas de barbería ordenadas sobre el mesón de madera: tijeras, navaja, máquinas y peinetas',
+    bosquejo: true,
     num: '01',
     tag: 'El de siempre',
     name: 'Corte clásico y fade',
@@ -69,6 +70,7 @@ const SERVICIOS = [
   {
     src: `${IMG}/ambiente.webp`,
     alt: 'Calienta toallas, brocha, espuma y navaja listos para el afeitado',
+    bosquejo: true,
     num: '02',
     tag: 'Ritual de casa',
     name: 'Afeitado con toalla caliente',
@@ -76,7 +78,7 @@ const SERVICIOS = [
   },
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'La barbería JohnBarber en Brisas de Pencahue, lista para atender',
+    alt: 'El barbero de JohnBarber en su silla de atención',
     num: '03',
     tag: 'Perfil prolijo',
     name: 'Arreglo de barba',
@@ -84,7 +86,8 @@ const SERVICIOS = [
   },
   {
     src: `${IMG}/detalle3.webp`,
-    alt: 'Silla de barbero y mesón de atención de JohnBarber, con vista a la calle',
+    alt: 'Silla de barbero y mesón de atención, con vista a la calle',
+    bosquejo: true,
     num: '04',
     tag: 'Para los chicos',
     name: 'Corte para niños',
@@ -168,7 +171,7 @@ export default function JohnBarberPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.greenDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Interior de la barbería JohnBarber: sillas de cuero, mesón de madera y vista a la calle de Pencahue"
+          alt="Interior de JohnBarber: sillones de barbero negros y dorados, espejo con el logo JB"
           fill
           priority
           sizes="100vw"
@@ -307,6 +310,14 @@ export default function JohnBarberPage() {
                         sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                         className="object-cover"
                       />
+                      {s.bosquejo && (
+                        <span
+                          className="absolute top-2 left-2 px-2 py-0.5 text-[9px] uppercase tracking-[0.16em] font-extrabold"
+                          style={{ backgroundColor: C.ink, color: C.cream }}
+                        >
+                          bosquejo
+                        </span>
+                      )}
                     </div>
                     <div className="p-5 md:p-6 flex flex-col flex-1">
                       <div className="flex items-baseline justify-between gap-3 mb-4">
@@ -329,6 +340,9 @@ export default function JohnBarberPage() {
               ))}
             </div>
           </div>
+          <p className="mt-3 text-[11px]" style={{ color: C.muted }}>
+            Las fotos marcadas «bosquejo» son de muestra: se reemplazan por fotos reales de la barbería al activar.
+          </p>
         </div>
       </section>
 
@@ -342,7 +356,7 @@ export default function JohnBarberPage() {
                 <div className="relative aspect-[4/3] overflow-hidden border-b" style={{ borderColor: C.line }}>
                   <Image
                     src={`${IMG}/detalle1.webp`}
-                    alt="La barbería JohnBarber en Brisas de Pencahue, Región del Maule"
+                    alt="El barbero de JohnBarber en su silla, en Brisas de Pencahue, Región del Maule"
                     fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
                     className="object-cover"
