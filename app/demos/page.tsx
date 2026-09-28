@@ -1174,6 +1174,14 @@ const BLITZ = [
     tagline: 'Ficha clínica suiza: papel crema, rojo del letrero y trama de cruces-pata con pacientes reales.',
     gradient: 'linear-gradient(135deg, #FAF5EA 0%, #F3E7D2 55%, #DE2B1F 140%)',
   },
+  {
+    slug: 'marco-molina-repuestos',
+    name: 'Marco Molina Repuestos',
+    rubro: 'Tienda de repuestos automotrices',
+    city: 'Linares',
+    tagline: 'La marquesina de marcas: navy del local, amarillo del logo y boletas con reseñas reales.',
+    gradient: 'linear-gradient(135deg, #0E1B4B 0%, #15265E 55%, #F7C60B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

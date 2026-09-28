@@ -1,0 +1,84 @@
+{
+  "hours": [
+    "lunes9 a.m.–6 p.m.",
+    "martes9 a.m.–6 p.m.",
+    "miércoles9 a.m.–6 p.m.",
+    "jueves9 a.m.–6 p.m.",
+    "viernes9 a.m.–6 p.m.",
+    "sábado9 a.m.–1 p.m."
+  ],
+  "reviews": [
+    {
+      "author": "Catalina Pinto morales",
+      "stars": "5 estrellas",
+      "time": "Hace 8 meses",
+      "text": "Excelente local, cuenta con una gran variedad de repuestos y una atención muy destacada. Agradezco especialmente a los vendedores por su amabilidad y disposición."
+    },
+    {
+      "author": "Catalina Pinto morales",
+      "stars": "5 estrellas",
+      "time": "Hace 8 meses",
+      "text": "Excelente local, cuenta con una gran variedad de repuestos y una atención muy destacada. Agradezco especialmente a los vendedores por su amabilidad y disposición."
+    },
+    {
+      "author": "Carolina Soto",
+      "stars": "5 estrellas",
+      "time": "Hace 8 meses",
+      "text": "Excelente lugar, muy buena atención. El señor Matías tenía todo lo que necesitaba y a muy buenos precios, lo que no tenían me lo encargaron y me solucionaron mi problema."
+    },
+    {
+      "author": "Carolina Soto",
+      "stars": "5 estrellas",
+      "time": "Hace 8 meses",
+      "text": "Excelente lugar, muy buena atención. El señor Matías tenía todo lo que necesitaba y a muy buenos precios, lo que no tenían me lo encargaron y me solucionaron mi problema."
+    },
+    {
+      "author": "Catalina Molina",
+      "stars": "5 estrellas",
+      "time": "Fecha de edición: Hace 8 meses",
+      "text": "Excelente atención y disposición. Siempre te asesoran bien y, si el repuesto no está disponible, se esfuerzan por conseguirlo rápido, se nota la preocupación hacia el cliente. Da gusto comprar en un local así."
+    },
+    {
+      "author": "Catalina Molina",
+      "stars": "5 estrellas",
+      "time": "Fecha de edición: Hace 8 meses",
+      "text": "Excelente atención y disposición. Siempre te asesoran bien y, si el repuesto no está disponible, se esfuerzan por conseguirlo rápido, se nota la preocupación hacia el cliente. Da gusto comprar en un local así."
+    },
+    {
+      "author": "Juan Pablo Aracena Cabrera",
+      "stars": "5 estrellas",
+      "time": "Hace 8 meses",
+      "text": "Buena Atencion, encontre todo lo que necesitaba"
+    },
+    {
+      "author": "Juan Pablo Aracena Cabrera",
+      "stars": "5 estrellas",
+      "time": "Hace 8 meses",
+      "text": "Buena Atencion, encontre todo lo que necesitaba"
+    },
+    {
+      "author": "Brian Medina",
+      "stars": "5 estrellas",
+      "time": "Hace 8 meses",
+      "text": "Excelente atención y rapidez."
+    },
+    {
+      "author": "Brian Medina",
+      "stars": "5 estrellas",
+      "time": "Hace 8 meses",
+      "text": "Excelente atención y rapidez."
+    },
+    {
+      "author": "sskoiv yuionb",
+      "stars": "5 estrellas",
+      "time": "Hace un año",
+      "text": "Gran variedad de repuestos de diferentes marcas y modelos"
+    },
+    {
+      "author": "sskoiv yuionb",
+      "stars": "5 estrellas",
+      "time": "Hace un año",
+      "text": "Gran variedad de repuestos de diferentes marcas y modelos"
+    }
+  ]
+}
