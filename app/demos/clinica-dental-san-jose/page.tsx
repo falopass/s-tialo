@@ -65,21 +65,21 @@ const NAV_LINKS = [
 const SERVICES = [
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Box dental de la clínica con sillón de atención e instrumental listo',
+    alt: 'Registro real de la clínica: dientes antes y después de un tratamiento',
     tag: 'Diagnóstico',
     name: 'Consulta y plan de tratamiento',
     desc: 'Evaluación completa, radiografía si corresponde y un presupuesto por escrito antes de partir. Sabes qué se va a hacer y cuánto vale.',
   },
   {
     src: `${IMG}/detalle2.webp`,
-    alt: 'Limpieza dental con ultrasonido en el box de atención',
+    alt: 'Kit de blanqueamiento Pola Night con jeringas y cubeta, usado en la clínica',
     tag: 'Prevención',
     name: 'Limpieza y control',
     desc: 'Profilaxis con ultrasonido, pulido y control de caries y encías. La idea es simple: venir dos veces al año para no llegar de urgencia.',
   },
   {
     src: `${IMG}/detalle3.webp`,
-    alt: 'Detalle de instrumental y materiales para restauraciones dentales',
+    alt: 'Molde de yeso de una dentadura, usado para diagnóstico y restauración',
     tag: 'Restauración',
     name: 'Tapaduras, coronas y estética',
     desc: 'Restauraciones del color del diente, coronas y prótesis pensadas para que el trabajo no se note. Materiales de muestra, plan real al publicar.',
@@ -365,7 +365,7 @@ export default function ClinicaDentalSanJosePage() {
               <div className="relative aspect-[4/3]">
                 <Image
                   src={`${IMG}/ambiente.webp`}
-                  alt="Ambiente de la clínica: recepción y área de atención"
+                  alt="Sonrisa de paciente de la clínica: antes y después del tratamiento"
                   fill
                   sizes="(min-width: 1024px) 44vw, 100vw"
                   className="object-cover"
@@ -584,6 +584,13 @@ export default function ClinicaDentalSanJosePage() {
       {/* ── Footer ── */}
       <footer className="pb-24" style={{ backgroundColor: '#050F14', color: C.bone }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+          <Image
+            src={`${IMG}/logo.webp`}
+            alt={`Logo de ${BIZ.name}`}
+            width={120}
+            height={120}
+            className="rounded-lg mb-3"
+          />
           <p className={`${display.className} font-semibold text-xl mb-2`} style={NEON_TEXT}>
             {BIZ.name}
           </p>
