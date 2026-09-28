@@ -1670,6 +1670,14 @@ const BLITZ = [
     tagline: 'Los listones tricolor del techo: mantel crema, espresso, tomate y albahaca en el camino a San Miguel.',
     gradient: 'linear-gradient(135deg, #F7F0E3 0%, #BE3A24 70%, #33633C 140%)',
   },
+  {
+    slug: 'aridos-los-maitenes-ltda-',
+    name: 'Áridos Los Maitenes Ltda.',
+    rubro: 'Extracción y venta de áridos',
+    city: 'San Clemente',
+    tagline: 'Ficha de planta: papel grava, amarillo CAT de la maquinaria y zebra de seguridad en el Queri.',
+    gradient: 'linear-gradient(135deg, #E7E3DB 0%, #EFA51B 70%, #191B1D 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
