@@ -92,7 +92,7 @@ export function BlitzNav({
   ctaLabel = 'WhatsApp',
   logoSrc,
 }: {
-  name: string
+  name: React.ReactNode
   links: { label: string; href: string }[]
   waLink: string
   theme: NavTheme

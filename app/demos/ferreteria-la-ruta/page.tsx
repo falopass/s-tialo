@@ -1,591 +1,500 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, WA_LINK_STOCK, MAPS_URL, MAPS_EMBED } from './content'
+import { BIZ, WA_LINK, WA_LINK_STOCK, MAPS_URL, MAPS_EMBED, IMG, HORARIO, RESENAS } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
+  src: [{ path: '../../fonts/anton/normal-400.woff2', weight: '400', style: 'normal' }],
+})
+const mono = localFont({
   src: [
-    { path: '../../fonts/fraunces/italic-100-900.woff2', weight: '100 900', style: 'italic' },
-    { path: '../../fonts/fraunces/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+    { path: '../../fonts/space-mono/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/space-mono/normal-700.woff2', weight: '700', style: 'normal' },
   ],
 })
 const body = localFont({
-  src: [
-    { path: '../../fonts/manrope/normal-200-800.woff2', weight: '200 800', style: 'normal' },
-  ],
+  src: [{ path: '../../fonts/manrope/normal-200-800.woff2', weight: '200 800', style: 'normal' }],
 })
 
+// Paleta tomada del logo real de La Ruta: amarillo de señal sobre negro.
 const C = {
-  paper: '#FFFFFF',
-  soft: '#F1F4F9',
-  blue: '#2251FF',
-  deep: '#0A1A5C',
-  deepInk: '#06123F',
-  lime: '#C6F24E',
-  ink: '#10142A',
-  muted: '#5C6478',
-  line: 'rgba(16,20,42,0.14)',
+  asphalt: '#171512',
+  asphalt2: '#211E19',
+  route: '#FFC800',
+  routeSoft: '#FFE08A',
+  paper: '#F4F0E6',
+  card: '#FCFAF3',
+  ink: '#1C1A15',
+  muted: '#6B6555',
+  line: 'rgba(28,26,21,0.16)',
+  lineLight: 'rgba(255,255,255,0.16)',
 }
 
-const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF]'
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC800]'
 
 export const metadata: Metadata = demoMetadata({
   slug: 'ferreteria-la-ruta',
-  title: 'Ferretería La Ruta — Tienda de herramientas en Pencahue',
-  description: 'Ferretería La Ruta en Villa Santa Inés, K-60, Pencahue. Herramientas manuales y eléctricas, construcción, jardín y campo. Consulta stock y precio por WhatsApp.',
-  image: '/demos/ferreteria-la-ruta/hero.webp',
+  title: 'Ferretería La Ruta — Herramientas y materiales en la K-60, Pencahue',
+  description:
+    'Ferretería La Ruta en Villa Santa Inés, ruta K-60, Pencahue. Herramientas, construcción, campo y jardín. 4,8 estrellas en Google. Consulta stock por WhatsApp.',
+  image: `${IMG}/interior-amplio.webp`,
 })
 
 const NAV_LINKS = [
-  { label: 'La carta', href: '#carta' },
-  { label: 'El negocio', href: '#negocio' },
-  { label: 'Dónde estamos', href: '#contacto' },
+  { label: 'La ruta', href: '#ruta' },
+  { label: 'Reseñas', href: '#resenas' },
+  { label: 'El local', href: '#local' },
 ]
 
-const FAMILIAS = [
+// Paraderos de la ruta: cada familia con su foto real del local.
+const PARADEROS = [
   {
-    n: 'I',
-    name: 'Herramientas manuales',
-    items: [
-      { name: 'Martillo carpintero 16 oz', price: '$8.990' },
-      { name: 'Juego destornilladores 6 piezas', price: '$7.490' },
-      { name: 'Alicate universal 8”', price: '$6.990' },
-      { name: 'Huincha de medir 5 m', price: '$4.990' },
-      { name: 'Sierra de arco + repuestos', price: '$9.490' },
-      { name: 'Juego llaves combinadas', price: '$19.990' },
-    ],
+    km: 'KM.01',
+    name: 'Herramientas manuales y eléctricas',
+    desc: 'Martillos, taladros, esmeriles, medición y sets completos: el pasillo de herramientas es el más surtido de la zona.',
+    chips: ['Herramientas de mano', 'Eléctricas', 'Consumibles'],
+    img: 'pasillo.webp',
+    alt: 'Pasillo interior de la ferretería con repisas de herramientas eléctricas',
   },
   {
-    n: 'II',
-    name: 'Eléctricas y consumibles',
-    items: [
-      { name: 'Taladro percutor 13 mm', price: '$54.990' },
-      { name: 'Esmeril angular 4½”', price: '$39.990' },
-      { name: 'Atornillador inalámbrico', price: '$49.990' },
-      { name: 'Set de brocas y puntas', price: '$12.990' },
-      { name: 'Disco de corte (unidad)', price: '$1.490' },
-      { name: 'Alargador eléctrico 10 m', price: '$9.990' },
-    ],
-  },
-  {
-    n: 'III',
+    km: 'KM.02',
     name: 'Construcción y obra',
-    items: [
-      { name: 'Cemento 25 kg', price: '$6.490' },
-      { name: 'Fierro estriado 6 mm (varilla)', price: '$3.290' },
-      { name: 'Carretilla de obra', price: '$49.990' },
-      { name: 'Clavos y pernos (caja)', price: 'desde $2.990' },
-      { name: 'Alambre negro n°16 (kg)', price: '$1.990' },
-      { name: 'Malla ACMA', price: 'a cotizar' },
-    ],
+    desc: 'Cemento, fierro, mallas y materiales de obra en el patio, listos para retirar o coordinar despacho.',
+    chips: ['Materiales de obra', 'Despacho coordinado'],
+    img: 'patio-materiales.webp',
+    alt: 'Patio de la ferretería con pallets de sacos de materiales de construcción',
   },
   {
-    n: 'IV',
-    name: 'Jardín, campo y hogar',
-    items: [
-      { name: 'Manguera ½” rollo 25 m', price: '$14.990' },
-      { name: 'Tijeras de podar', price: '$7.990' },
-      { name: 'Pala y rastrillo de jardín', price: '$9.990' },
-      { name: 'Guantes de trabajo', price: '$2.990' },
-      { name: 'Candado de seguridad', price: '$6.990' },
-      { name: 'Soga y cadena por metro', price: 'desde $990' },
-    ],
-  },
-]
-
-const SERVICIOS = [
-  { name: 'Copia de llaves', price: '$3.000' },
-  { name: 'Afilado de brocas y cuchillas', price: 'desde $2.500' },
-  { name: 'Corte de madera a medida', price: 'según pedido' },
-  { name: 'Encargo de productos sin stock', price: 'sin costo' },
-  { name: 'Despacho en Pencahue y alrededores', price: 'a convenir' },
-]
-
-const TESTIMONIALS = [
-  {
-    text: 'Para los trabajos de la parcela encuentro todo acá, sin tener que ir hasta Talca o Molina.',
-    author: 'Cliente de Villa Santa Inés',
+    km: 'KM.03',
+    name: 'Pinturas y terminaciones',
+    desc: 'Estante de pinturas, solventes y accesorios para dejar la pega terminada, no a medio hacer.',
+    chips: ['Pinturas', 'Brochas y rodillos'],
+    img: 'estanteria-pinturas.webp',
+    alt: 'Estante de la ferretería con tarros de pintura y productos de ferretería',
   },
   {
-    text: 'Te atienden al tiro y si no tienen algo, lo encargan. Eso se agradece en una comuna chica.',
-    author: 'Cliente de Pencahue',
+    km: 'KM.04',
+    name: 'Campo, jardín y despacho',
+    desc: 'Para parcela y jardín: mangueras, herramientas de poda, alambres y lo que falte se encarga.',
+    chips: ['Jardín y campo', 'Encargos sin costo'],
+    img: 'patio-camiones.webp',
+    alt: 'Patio exterior de la ferretería con camiones de despacho',
   },
-  {
-    text: 'Buen precio y buena orientación: me dijeron exactamente qué broca y qué anclaje necesitaba.',
-    author: 'Cliente de la K-60',
-  },
-]
+] as const
 
-const HORAS = [
-  { days: 'Lunes a viernes', time: '9:00 – 19:00' },
-  { days: 'Sábado', time: '9:00 – 14:00' },
-  { days: 'Domingo', time: 'Cerrado' },
-]
-
-function Wrench({ className = 'w-4 h-4', color = 'currentColor' }: { className?: string; color?: string }) {
+/** Línea central de ruta: guiones amarillos sobre asfalto. */
+function Centerline({ vertical = false }: { vertical?: boolean }) {
+  if (vertical)
+    return (
+      <span
+        aria-hidden="true"
+        className="hidden md:block absolute left-0 top-0 bottom-0 w-[4px]"
+        style={{
+          backgroundImage: `repeating-linear-gradient(180deg, ${C.route} 0 26px, transparent 26px 46px)`,
+        }}
+      />
+    )
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-    </svg>
+    <div
+      aria-hidden="true"
+      className="h-[4px] w-full"
+      style={{ backgroundImage: `repeating-linear-gradient(90deg, ${C.route} 0 30px, transparent 30px 52px)` }}
+    />
   )
 }
 
-function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
-  return (
-    <p
-      className={`${display.className} text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold`}
-      style={{ color: light ? C.lime : C.blue }}
-    >
-      <Wrench className="w-[16px] h-[16px]" />
-      {children}
-    </p>
-  )
-}
-
-function Leader({ dark = false }: { dark?: boolean }) {
+/** Letrero tipo señal de tránsito: placa amarilla con borde negro. */
+function RouteSign({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
   return (
     <span
-      aria-hidden="true"
-      className="flex-1 border-b-2 border-dotted"
-      style={{ borderColor: dark ? 'rgba(255,255,255,0.28)' : 'rgba(16,20,42,0.28)' }}
-    />
+      className={`${display.className} inline-block text-[13px] md:text-sm uppercase tracking-[0.14em] px-4 py-2 border-[3px]`}
+      style={{
+        backgroundColor: C.route,
+        color: C.asphalt,
+        borderColor: dark ? 'rgba(255,255,255,0.85)' : C.asphalt,
+        boxShadow: dark ? '0 3px 0 rgba(0,0,0,0.4)' : '4px 4px 0 ' + C.asphalt,
+      }}
+    >
+      {children}
+    </span>
+  )
+}
+
+function WaBtn({ href, label, dark = false }: { href: string; label: string; dark?: boolean }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${display.className} inline-block uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 active:scale-95 tap-44 ${FOCUS}`}
+      style={
+        dark
+          ? { backgroundColor: C.paper, color: C.ink, boxShadow: `4px 4px 0 ${C.route}` }
+          : { backgroundColor: C.route, color: C.asphalt, boxShadow: '4px 4px 0 rgba(0,0,0,0.85)' }
+      }
+    >
+      {label}
+    </a>
+  )
+}
+
+function GhostBtn({ href, label, dark = false }: { href: string; label: string; dark?: boolean }) {
+  return (
+    <a
+      href={href}
+      className={`${display.className} inline-block uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 border-2 transition-colors tap-44 ${FOCUS}`}
+      style={
+        dark
+          ? { borderColor: 'rgba(255,255,255,0.6)', color: '#fff' }
+          : { borderColor: C.ink, color: C.ink }
+      }
+    >
+      {label}
+    </a>
   )
 }
 
 export default function FerreteriaLaRutaPage() {
   return (
-    <div
-      className={`${body.className} relative min-h-screen antialiased overflow-x-clip [&>header]:!absolute`}
-      style={{ backgroundColor: C.paper, color: C.ink }}
-    >
-      <BlitzNav
-        name={BIZ.name}
-        links={NAV_LINKS}
-        waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{
-          over: 'light',
-          bar: 'rgba(255,255,255,0.94)',
-          ink: C.ink,
-          line: C.line,
-          btnBg: C.blue,
-          btnInk: '#FFFFFF',
-        }}
-      />
+    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.asphalt, color: '#fff' }}>
+      <style>{`
+        html { scroll-behavior: auto }
+        @keyframes ferre-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+        @media (prefers-reduced-motion: reduce) { .ferre-marquee { animation: none !important } }
+      `}</style>
 
-      {/* ── Portada de carta: hero tipográfico ── */}
-      <section id="inicio" className="px-4 md:px-6 pt-[76px] md:pt-[96px] pb-6" style={{ backgroundColor: C.soft }}>
-        <Reveal>
-          <div
-            className="relative max-w-5xl mx-auto text-center border-2 px-6 md:px-12 pt-9 md:pt-12 pb-8 md:pb-10"
-            style={{ borderColor: C.ink, backgroundColor: C.paper }}
-          >
-            {/* filete interior de imprenta */}
-            <div aria-hidden="true" className="pointer-events-none absolute inset-2 md:inset-2.5 border" style={{ borderColor: C.line }} />
+      {/* nav con logo real */}
+      <div className="h-0" style={{ backgroundColor: C.asphalt }}>
+        <BlitzNav
+          name={
+            <span className="flex items-center gap-2.5">
+              <Image src={`${IMG}/logo.webp`} alt="Logo de Ferretería La Ruta" width={34} height={28} className="w-[34px] h-auto" />
+              <span className={`${display.className} uppercase tracking-[0.06em]`}>{BIZ.short}</span>
+            </span>
+          }
+          links={NAV_LINKS}
+          waLink={WA_LINK}
+          fontClass=""
+          theme={{ over: 'dark', bar: 'rgba(23,21,18,0.96)', ink: '#fff', line: C.lineLight, btnBg: C.route, btnInk: C.asphalt }}
+        />
+      </div>
 
-            <div className="relative">
-              <div
-                className="flex flex-wrap items-center justify-center sm:justify-between gap-x-4 gap-y-1 border-b pb-4 text-[10px] md:text-[11px] uppercase tracking-[0.22em] font-bold"
-                style={{ borderColor: C.ink, color: C.muted }}
+      {/* ── Hero: foto real del local + señal de ruta ── */}
+      <section id="inicio" className="relative min-h-[92svh] flex flex-col justify-end overflow-hidden">
+        <Image
+          src={`${IMG}/interior-amplio.webp`}
+          alt="Interior de Ferretería La Ruta: pasillos con repisas llenas de herramientas y productos"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(180deg, rgba(23,21,18,0.72) 0%, rgba(23,21,18,0.25) 45%, rgba(23,21,18,0.94) 100%)' }}
+        />
+        <div className="relative max-w-6xl mx-auto w-full px-5 md:px-8 pt-32 pb-12 md:pb-16">
+          <Reveal className="pr-16">
+            <div className="mb-5"><RouteSign dark>Ruta K-60 · Villa Santa Inés</RouteSign></div>
+            <h1 className={`${display.className} uppercase leading-[0.95] text-[clamp(3rem,11vw,6.4rem)]`}>
+              Ferretería
+              <span className="block" style={{ color: C.route }}>La Ruta</span>
+            </h1>
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mt-5 mb-4" style={{ color: 'rgba(255,255,255,0.88)' }}>
+              Herramientas, materiales y consejo de mostrador sobre la K-60, en {BIZ.city}.
+              Consulta stock y precio por WhatsApp y retira pasando.
+            </p>
+            <div className="flex items-center gap-3 mb-8">
+              <Stars value={4.8} color={C.route} />
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${mono.className} text-xs md:text-sm underline underline-offset-4 decoration-2 tap-44`}
+                style={{ textDecorationColor: C.route }}
               >
-                <span>{BIZ.rubro}</span>
-                <span className="hidden sm:inline" style={{ color: C.blue }}>Carta de mostrador</span>
-                <span>{BIZ.city} · Maule</span>
-              </div>
-
-              <h1
-                className={`${display.className} leading-[0.95] mt-9 md:mt-11 text-[clamp(3rem,11vw,6.2rem)]`}
-                style={{ color: C.ink }}
-              >
-                Ferretería
-                <span className="block italic font-medium" style={{ color: C.blue }}>
-                  La Ruta
-                </span>
-              </h1>
-
-              <div className="mt-7 flex items-center justify-center gap-4" aria-hidden="true">
-                <span className="h-px w-14 md:w-24" style={{ backgroundColor: C.ink }} />
-                <Wrench className="w-[18px] h-[18px]" color={C.blue} />
-                <span className="h-px w-14 md:w-24" style={{ backgroundColor: C.ink }} />
-              </div>
-
-              <p className="text-base md:text-lg leading-relaxed max-w-xl mx-auto mt-7" style={{ color: C.muted }}>
-                Herramientas, materiales y consejo directo en {BIZ.address},{' '}
-                {BIZ.city}. Consulta stock y precio por WhatsApp: te
-                respondemos al tiro.
-              </p>
-
-              <p className="mt-5">
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 text-xs md:text-sm font-bold px-4 py-2 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS} tap-44`}
-                  style={{ backgroundColor: C.lime, color: C.ink }}
-                >
-                  <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]" fill={C.blue} stroke={C.blue} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
-                  </svg>
-                  {BIZ.reviews} reseñas reales en Google
-                </a>
-              </p>
-
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <a
-                  href={WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${FOCUS} tap-44`}
-                  style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
-                >
-                  Consultar por WhatsApp
-                </a>
-                <a
-                  href="#carta"
-                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border-2 border-[#10142A] text-[#10142A] transition-colors hover:bg-[#10142A] hover:text-white ${FOCUS} tap-44`}
-                >
-                  Ver la carta
-                </a>
-              </div>
-
-              <div
-                className="mt-9 border-t pt-4 flex flex-wrap items-center justify-center gap-x-7 gap-y-1.5 text-[10px] md:text-[11px] uppercase tracking-[0.18em] font-bold"
-                style={{ borderColor: C.ink, color: C.muted }}
-              >
-                <span>{BIZ.address} · {BIZ.city}</span>
-                <span>Lun–Vie 9–19 · Sáb 9–14</span>
-                <span>Encargos sin costo</span>
-                <span style={{ color: C.blue }}>sitio de ejemplo</span>
-              </div>
+                {BIZ.rating} · {BIZ.reviews} reseñas en Google
+              </a>
             </div>
+            <div className="flex flex-wrap gap-3">
+              <WaBtn href={WA_LINK} label="Consultar por WhatsApp" />
+              <GhostBtn href="#ruta" label="Ver qué hay" dark />
+            </div>
+          </Reveal>
+        </div>
+        {/* faja de datos al pie del hero */}
+        <div className="relative border-t" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(23,21,18,0.72)', backdropFilter: 'blur(6px)' }}>
+          <div className={`${mono.className} max-w-6xl mx-auto px-5 md:px-8 py-3.5 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.16em]`} style={{ color: 'rgba(255,255,255,0.72)' }}>
+            <span>{BIZ.address} · {BIZ.city}</span>
+            <span>Lun–Vie 8–19 · Sáb 8:30–18 · Dom 9–17</span>
+            <span className="hidden md:inline" style={{ color: C.route }}>sitio de ejemplo</span>
           </div>
-        </Reveal>
+        </div>
       </section>
 
-      {/* ── Franja lima de familias ── */}
-      <div className="border-y-2" style={{ backgroundColor: C.lime, borderColor: C.ink }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-3 flex flex-wrap gap-x-7 gap-y-1 justify-center">
-          {['Herramientas', 'Electricidad', 'Construcción', 'Jardín y campo', 'Llaves y afilados'].map((t) => (
-            <span key={t} className={`${display.className} text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold flex items-center gap-7`} style={{ color: C.ink }}>
-              {t} <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.blue }} aria-hidden="true" />
+      {/* ── Marquee de familias (cinta de ruta) ── */}
+      <div className="overflow-hidden border-y-4 py-3" style={{ backgroundColor: C.route, borderColor: C.asphalt }}>
+        <div className="ferre-marquee flex whitespace-nowrap" style={{ animation: 'ferre-marquee 26s linear infinite' }} aria-hidden="true">
+          {[0, 1].map((dup) => (
+            <span key={dup} className={`${display.className} uppercase text-lg md:text-xl tracking-[0.1em] flex items-center`} style={{ color: C.asphalt }}>
+              {['Herramientas', 'Electricidad', 'Construcción', 'Pinturas', 'Jardín y campo', 'Fijaciones', 'Despachos'].map((t) => (
+                <span key={t} className="flex items-center">
+                  <span className="px-5">{t}</span>
+                  <svg viewBox="0 0 24 24" className="w-[16px] h-[16px]" fill={C.asphalt} aria-hidden="true">
+                    <rect x="9" y="9" width="6" height="6" transform="rotate(45 12 12)" />
+                  </svg>
+                </span>
+              ))}
             </span>
           ))}
         </div>
       </div>
 
-      {/* ── La carta de La Ruta ── */}
-      <section id="carta" className="scroll-mt-20" style={{ backgroundColor: C.paper }}>
+      {/* ── La ruta: paraderos con fotos reales del local ── */}
+      <section id="ruta" className="scroll-mt-20" style={{ backgroundColor: C.paper }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
-            <Eyebrow>La carta</Eyebrow>
-            <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
-              <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.03]`} style={{ color: C.ink }}>
-                La carta de La Ruta:
-                <br />
-                <span className="italic" style={{ color: C.blue }}>el inventario, servido</span>
-              </h2>
-              <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
-                Una muestra de cómo se vería el catálogo: las familias,
-                productos y precios son de ejemplo. Al publicar va el
-                inventario real de la ferretería.
+            <div className="flex flex-wrap items-end justify-between gap-5 mb-12 md:mb-16">
+              <div>
+                <RouteSign>Lo que hay en el local</RouteSign>
+                <h2 className={`${display.className} uppercase leading-[0.98] text-4xl md:text-6xl mt-5`} style={{ color: C.ink }}>
+                  Cuatro paraderos,
+                  <br />
+                  <span style={{ color: C.muted }}>un solo local</span>
+                </h2>
+              </div>
+              <p className="text-sm md:text-base leading-relaxed max-w-sm" style={{ color: C.muted }}>
+                Fotos reales de La Ruta. Las familias son de muestra: el
+                inventario completo se confirma preguntando por WhatsApp.
               </p>
             </div>
           </Reveal>
 
-          {/* hoja de la carta */}
-          <Reveal delay={100}>
-            <div
-              className="border-2 overflow-hidden"
-              style={{ borderColor: C.ink, backgroundColor: C.paper }}
-            >
-              {/* cabecera de la carta */}
-              <div className="px-6 md:px-10 py-5 md:py-6 flex flex-wrap items-center justify-between gap-4" style={{ backgroundColor: C.deep }}>
-                <div>
-                  <p className={`${display.className} text-[11px] uppercase tracking-[0.3em] font-semibold`} style={{ color: C.lime }}>
-                    Carta de mostrador
-                  </p>
-                  <p className={`${display.className} italic font-medium text-xl md:text-2xl text-white mt-1`}>
-                    {BIZ.name} · {BIZ.city}
-                  </p>
-                </div>
-                <span
-                  className="text-[10px] md:text-[11px] uppercase tracking-[0.16em] font-bold px-3.5 py-1.5 rounded-full"
-                  style={{ backgroundColor: C.lime, color: C.ink }}
-                >
-                  precios de muestra
-                </span>
-              </div>
-
-              {/* familias */}
-              <div className="grid md:grid-cols-2">
-                {FAMILIAS.map((f, i) => (
-                  <div
-                    key={f.n}
-                    className="p-6 md:p-9"
-                    style={{
-                      borderRight: i % 2 === 0 ? `1px solid ${C.line}` : undefined,
-                      borderTop: i > 1 ? `1px solid ${C.line}` : undefined,
-                      borderBottom: i < 2 ? `1px solid ${C.line}` : undefined,
-                    }}
-                  >
-                    <div className="flex items-baseline gap-4 mb-4">
-                      <span
-                        className={`${display.className} italic font-medium text-2xl md:text-3xl leading-none`}
-                        style={{ color: C.blue }}
-                      >
-                        {f.n}
-                      </span>
-                      <h3 className={`${display.className} font-semibold text-xl md:text-2xl`} style={{ color: C.ink }}>
-                        {f.name}
-                      </h3>
-                      <span aria-hidden="true" className="flex-1 border-t" style={{ borderColor: C.line }} />
+          <ol className="relative md:pl-12 space-y-10 md:space-y-14">
+            <Centerline vertical />
+            {PARADEROS.map((p, i) => (
+              <Reveal key={p.km} delay={i * 60}>
+                <li className={`grid md:grid-cols-[300px_1fr] lg:grid-cols-[360px_1fr] gap-6 md:gap-10 items-center ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}>
+                  <div className="relative border-[3px] shadow-[6px_6px_0_rgba(23,21,18,0.9)]" style={{ borderColor: C.ink, backgroundColor: C.card }}>
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={`${IMG}/${p.img}`}
+                        alt={p.alt}
+                        fill
+                        loading="lazy"
+                        sizes="(min-width: 1024px) 360px, (min-width: 768px) 300px, 100vw"
+                        className="object-cover"
+                      />
                     </div>
-                    <ul>
-                      {f.items.map((item) => (
-                        <li key={item.name} className="flex items-baseline gap-x-3 py-[7px]">
-                          <span className="text-[14px] md:text-[15px] font-medium" style={{ color: C.ink }}>
-                            {item.name}
-                          </span>
-                          <Leader />
-                          <span className={`${display.className} text-[14px] md:text-base font-semibold whitespace-nowrap tabular-nums`} style={{ color: C.blue }}>
-                            {item.price}
-                          </span>
+                    <span
+                      className={`${mono.className} absolute -top-[14px] ${i % 2 === 1 ? 'md:-right-[3px] right-3' : '-left-[3px] md:-left-[52px]'} md:rotate-0 text-[11px] font-bold px-3 py-1.5 border-2`}
+                      style={{ backgroundColor: C.asphalt, color: C.route, borderColor: C.route }}
+                      aria-hidden="true"
+                    >
+                      {p.km}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className={`${display.className} uppercase text-2xl md:text-4xl leading-[1.02] mb-3`} style={{ color: C.ink }}>
+                      {p.name}
+                    </h3>
+                    <p className="text-sm md:text-base leading-relaxed mb-5 max-w-xl" style={{ color: C.muted }}>
+                      {p.desc}
+                    </p>
+                    <ul className="flex flex-wrap gap-2">
+                      {p.chips.map((chip) => (
+                        <li
+                          key={chip}
+                          className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.1em] px-3 py-1.5 border-2 font-bold`}
+                          style={{ borderColor: C.ink, color: C.ink, backgroundColor: C.routeSoft }}
+                        >
+                          {chip}
                         </li>
                       ))}
                     </ul>
                   </div>
-                ))}
-              </div>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
 
-              {/* servicios de mostrador */}
-              <div className="border-t-2" style={{ borderColor: C.ink, backgroundColor: C.soft }}>
-                <div className="px-6 md:px-10 py-7 md:py-8">
-                  <div className="flex items-baseline gap-4 mb-4">
-                    <p className={`${display.className} italic font-medium text-lg md:text-xl`} style={{ color: C.blue }}>
-                      Servicios de mostrador
-                    </p>
-                    <span aria-hidden="true" className="flex-1 border-t" style={{ borderColor: C.line }} />
-                  </div>
-                  <ul className="grid md:grid-cols-2 gap-x-12">
-                    {SERVICIOS.map((s) => (
-                      <li key={s.name} className="flex items-baseline gap-x-3 py-[7px]">
-                        <span className="text-[14px] md:text-[15px] font-medium" style={{ color: C.ink }}>
-                          {s.name}
-                        </span>
-                        <Leader />
-                        <span className={`${display.className} text-[14px] md:text-base font-semibold whitespace-nowrap tabular-nums`} style={{ color: C.blue }}>
-                          {s.price}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* pie de la carta */}
-              <div className="px-6 md:px-10 py-6 flex flex-col md:flex-row md:items-center justify-between gap-5" style={{ backgroundColor: C.deepInk }}>
-                <p className="text-xs md:text-sm leading-relaxed max-w-lg" style={{ color: 'rgba(255,255,255,0.66)' }}>
-                  Productos, precios y servicios de esta carta son{' '}
-                  <strong className="font-bold" style={{ color: C.lime }}>de muestra</strong>:
-                  al publicar van el inventario y los valores reales de {BIZ.name}.
-                </p>
-                <a
-                  href={WA_LINK_STOCK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${display.className} shrink-0 text-center font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${FOCUS} tap-44`}
-                  style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
-                >
-                  Consultar stock y precio →
-                </a>
-              </div>
+          <Reveal delay={120}>
+            <div className="mt-14 flex flex-wrap items-center justify-between gap-5 border-[3px] p-6 md:p-8" style={{ borderColor: C.ink, backgroundColor: C.card }}>
+              <p className="text-sm md:text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
+                ¿No ves lo que buscas? Pregunta directo: si no está en el
+                local, <strong style={{ color: C.ink }}>lo encargan sin costo</strong>.
+              </p>
+              <WaBtn href={WA_LINK_STOCK} label="Consultar stock y precio" />
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Sobre el negocio ── */}
-      <section id="negocio" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24" style={{ backgroundColor: C.paper }}>
-        <div className="grid lg:grid-cols-[1.1fr_1.3fr] gap-10 md:gap-14 items-start">
+      {/* ── Reseñas reales de Google ── */}
+      <section id="resenas" className="scroll-mt-20" style={{ backgroundColor: C.asphalt }}>
+        <Centerline />
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
-            <Eyebrow>El negocio</Eyebrow>
-            <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.03] mb-6`} style={{ color: C.ink }}>
-              Ferretería de barrio
-              <br />
-              <span className="italic" style={{ color: C.blue }}>en la K-60</span>
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-5 max-w-md" style={{ color: C.muted }}>
-              {BIZ.name} está en Villa Santa Inés, sobre la ruta K-60 que
-              cruza {BIZ.city}. Es la ferretería de la zona: quien trabaja
-              la parcela, la obra o la casa pasa, pregunta y sale con lo
-              que necesita.
-            </p>
-            <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: C.muted }}>
-              La atención es directa, de mostrador: se consulta, se
-              aconseja y si algo no está, se encarga. Las{' '}
-              <strong className="font-bold" style={{ color: C.ink }}>{BIZ.reviews} reseñas de Google</strong>{' '}
-              son de clientes reales de la comuna.
-            </p>
-            <ul className="space-y-3 mb-8">
-              {[
-                'Stock para obra, casa y campo en un solo local',
-                'Atención directa y consejo de mostrador',
-                'Encargos de productos sin stock',
-                'Despacho coordinado por WhatsApp',
-              ].map((t) => (
-                <li key={t} className="flex items-center gap-3 text-sm md:text-[15px] font-semibold" style={{ color: C.ink }}>
-                  <span className="shrink-0 w-[22px] h-[22px] rounded-full flex items-center justify-center" style={{ backgroundColor: C.lime }} aria-hidden="true">
-                    <svg viewBox="0 0 24 24" className="w-3 h-3" fill="none" stroke={C.ink} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`text-sm font-bold underline underline-offset-4 decoration-2 hover:opacity-70 transition-opacity ${FOCUS} tap-44`}
-              style={{ color: C.blue, textDecorationColor: 'rgba(34,81,255,0.35)' }}
-            >
-              Ver la ficha en Google →
-            </a>
-          </Reveal>
-          <div className="space-y-5">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={i} delay={120 + i * 110}>
-                <figure
-                  className="border-l-4 pl-6 md:pl-7 py-1"
-                  style={{ borderColor: C.blue }}
-                >
-                  <blockquote className={`${display.className} italic text-lg md:text-xl leading-relaxed mb-3`} style={{ color: C.ink }}>
-                    “{t.text}”
-                  </blockquote>
-                  <figcaption className="flex items-center gap-3">
-                    <span className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.muted }}>
-                      {t.author} · Reseña de ejemplo
-                    </span>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-            <p className="text-xs leading-relaxed pt-1" style={{ color: C.muted }}>
-              Estos textos son de muestra: al publicar van las reseñas
-              reales de la ficha de Google.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Dónde estamos ── */}
-      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.deep }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
-          <Reveal>
-            <Eyebrow light>Dónde estamos</Eyebrow>
-            <h2 className={`${display.className} font-semibold text-4xl md:text-5xl leading-[1.03] mb-6 text-white`}>
-              Villa Santa Inés,
-              <br />
-              <span className="italic" style={{ color: C.lime }}>ruta K-60</span>
-            </h2>
-            <address className="not-italic text-sm md:text-base leading-relaxed mb-7" style={{ color: 'rgba(255,255,255,0.75)' }}>
-              {BIZ.address}, {BIZ.postal}
-              <br />
-              {BIZ.city}, {BIZ.region}, Chile
-            </address>
-            <ul className="space-y-1 mb-3 max-w-sm">
-              {HORAS.map((h) => (
-                <li key={h.days} className="flex items-baseline gap-x-3 py-[6px] text-sm md:text-base">
-                  <span className="font-semibold text-white">{h.days}</span>
-                  <Leader dark />
-                  <span className={`${display.className} font-semibold whitespace-nowrap`} style={{ color: C.lime }}>
-                    {h.time}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              Horario referencial: al publicar van los horarios reales
-              de la ferretería.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E] tap-44`}
-                style={{ backgroundColor: C.lime, color: C.ink }}
-              >
-                Escribir por WhatsApp
-              </a>
+            <div className="flex flex-wrap items-end justify-between gap-5 mb-10 md:mb-14">
+              <div>
+                <RouteSign dark>Palabra de clientes</RouteSign>
+                <h2 className={`${display.className} uppercase leading-[0.98] text-4xl md:text-6xl mt-5`}>
+                  {BIZ.rating} en Google,
+                  <br />
+                  <span style={{ color: C.route }}>{BIZ.reviews} reseñas</span>
+                </h2>
+              </div>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border-2 border-white/50 text-white transition-colors hover:bg-white hover:text-[#0A1A5C] hover:border-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E] tap-44`}
+                className={`${mono.className} text-xs md:text-sm underline underline-offset-4 decoration-2 tap-44`}
+                style={{ color: C.routeSoft, textDecorationColor: C.route }}
               >
-                Cómo llegar →
+                Ver la ficha en Google Maps →
               </a>
             </div>
-            <p className="text-xs mt-5" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              {BIZ.phoneDisplay} ·{' '}
-              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors tap-44">
-                Facebook
-              </a>
-            </p>
           </Reveal>
-          <Reveal delay={140}>
-            <div className="rounded-3xl overflow-hidden min-h-[320px] h-full border" style={{ borderColor: 'rgba(255,255,255,0.18)', backgroundColor: C.deepInk }}>
-              <LazyMap
-                title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
-                src={MAPS_EMBED}
-                className="w-full h-full min-h-[320px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </Reveal>
+          <ul className="grid md:grid-cols-3 gap-5 md:gap-6">
+            {RESENAS.map((r, i) => (
+              <Reveal key={r.author} delay={i * 100}>
+                <figure className="h-full border-2 p-6 md:p-7 flex flex-col" style={{ borderColor: C.lineLight, backgroundColor: C.asphalt2 }}>
+                  <Stars value={5} color={C.route} className="w-3.5 h-3.5" />
+                  <blockquote className="text-sm md:text-base leading-relaxed mt-4 mb-5 flex-1" style={{ color: 'rgba(255,255,255,0.88)' }}>
+                    “{r.text}”
+                  </blockquote>
+                  <figcaption>
+                    <p className={`${display.className} uppercase text-sm tracking-[0.06em]`} style={{ color: C.route }}>{r.author}</p>
+                    <p className={`${mono.className} text-[11px] mt-1`} style={{ color: 'rgba(255,255,255,0.55)' }}>{r.meta}</p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.deepInk, color: '#FFFFFF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <p className={`${display.className} italic font-medium text-xl md:text-2xl mb-2 flex items-center gap-3`}>
-              <Wrench className="w-5 h-5" color={C.lime} />
-              {BIZ.name}
-            </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
-              {BIZ.address} · {BIZ.city}, {BIZ.region}
-            </address>
-          </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.62)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
-                {l.label}
-              </a>
-            ))}
+      {/* ── El local: fachada real + horario + mapa ── */}
+      <section id="local" className="scroll-mt-20" style={{ backgroundColor: C.paper }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <RouteSign>Dónde estamos</RouteSign>
+            <h2 className={`${display.className} uppercase leading-[0.98] text-4xl md:text-6xl mt-5 mb-12`} style={{ color: C.ink }}>
+              Sobre la K-60,
+              <br />
+              <span style={{ color: C.muted }}>en Villa Santa Inés</span>
+            </h2>
+          </Reveal>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <Reveal>
+              <div className="border-[3px] shadow-[6px_6px_0_rgba(23,21,18,0.9)]" style={{ borderColor: C.ink }}>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={`${IMG}/fachada.webp`}
+                    alt="Fachada de Ferretería La Ruta a un costado de la ruta K-60, con estacionamiento"
+                    fill
+                    loading="lazy"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                  <span className={`${mono.className} absolute bottom-0 left-0 text-[11px] font-bold px-3 py-1.5`} style={{ backgroundColor: C.route, color: C.asphalt }}>
+                    VILLA SANTA INÉS · K-60
+                  </span>
+                </div>
+              </div>
+              {/* horario real */}
+              <dl className="mt-6 border-[3px]" style={{ borderColor: C.ink, backgroundColor: C.card }}>
+                {HORARIO.map((h, i) => (
+                  <div key={h.days} className={`flex items-baseline justify-between gap-4 px-5 py-3 ${i > 0 ? 'border-t' : ''}`} style={{ borderColor: C.line }}>
+                    <dt className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.12em] font-bold`} style={{ color: C.muted }}>{h.days}</dt>
+                    <dd className={`${display.className} text-base md:text-lg`} style={{ color: C.ink }}>{h.time}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+            <Reveal delay={140}>
+              <div className="border-[3px] overflow-hidden min-h-[320px] h-full shadow-[6px_6px_0_rgba(23,21,18,0.9)]" style={{ borderColor: C.ink }}>
+                <LazyMap
+                  title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
+                  src={MAPS_EMBED}
+                  className="w-full h-full min-h-[320px]"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <address className="not-italic text-sm md:text-base leading-relaxed mt-6" style={{ color: C.muted }}>
+                {BIZ.address}, {BIZ.city}, {BIZ.region}
+                <br />
+                <a href={`tel:${BIZ.phoneTel}`} className={`${mono.className} underline underline-offset-4 decoration-2 tap-44`} style={{ color: C.ink, textDecorationColor: C.route }}>
+                  {BIZ.phoneDisplay}
+                </a>
+              </address>
+              <div className="flex flex-wrap gap-3 mt-6">
+                <WaBtn href={WA_LINK} label="Escribir por WhatsApp" />
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${display.className} inline-block uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 border-2 transition-colors tap-44 ${FOCUS}`}
+                  style={{ borderColor: C.ink, color: C.ink }}
+                >
+                  Cómo llegar →
+                </a>
+              </div>
+            </Reveal>
           </div>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 md:pb-8 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
-            Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:opacity-80 tap-44`} style={{ color: '#FFFFFF' }}>
+      </section>
+
+      {/* ── CTA final ── */}
+      <section className="relative overflow-hidden" style={{ backgroundColor: C.asphalt }}>
+        <div className="absolute inset-0 opacity-[0.15]" style={{ backgroundImage: `url(${IMG}/mostrador.webp)`, backgroundSize: 'cover', backgroundPosition: 'center' }} aria-hidden="true" />
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
+          <Reveal>
+            <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em] mb-5`} style={{ color: C.routeSoft }}>
+              Abierto hasta las 19:00 entre semana
+            </p>
+            <h2 className={`${display.className} uppercase text-[clamp(2.4rem,7.5vw,4.6rem)] leading-[0.98] mb-8`}>
+              ¿Te falta algo para la pega?
+              <br />
+              <span style={{ color: C.route }}>Pregunta al tiro</span>
+            </h2>
+            <WaBtn href={WA_LINK} label="Consultar por WhatsApp" />
+          </Reveal>
+        </div>
+        <Centerline />
+      </section>
+
+      {/* ── Footer ── */}
+      <footer style={{ backgroundColor: C.asphalt }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-7 flex flex-wrap items-center gap-4">
+          <Image src={`${IMG}/logo.webp`} alt="Logo de Ferretería La Ruta" width={40} height={32} className="w-[40px] h-auto" />
+          <div>
+            <p className={`${display.className} uppercase text-base`}>{BIZ.name}</p>
+            <address className={`${mono.className} not-italic text-[11px]`} style={{ color: 'rgba(255,255,255,0.55)' }}>
+              {BIZ.address} · {BIZ.city} ·{' '}
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
+            </address>
+          </div>
+        </div>
+        <div className="border-t" style={{ borderColor: C.lineLight }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            Sitio de ejemplo preparado por{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2 tap-44" style={{ color: C.route }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name} — así se vería tu sitio. Productos, precios y
-            horarios son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:opacity-80 tap-44`} style={{ color: C.lime }}>
+            para {BIZ.name}. Fotos, reseñas y datos tomados de su ficha pública de Google Maps; las familias de productos son de muestra.{' '}
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2 tap-44" style={{ color: C.route }}>
               ¿Lo hacemos realidad?
             </a>
           </p>
         </div>
       </footer>
+
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )
