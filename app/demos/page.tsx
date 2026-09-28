@@ -1102,6 +1102,14 @@ const BLITZ = [
     tagline: 'Pizarra oscura con carta de miaus reales, tiza crema, naranja del logo y estela de huellas.',
     gradient: 'linear-gradient(135deg, #191510 0%, #231F19 55%, #F26B21 140%)',
   },
+  {
+    slug: 'veterinaria-sos-rancagua',
+    name: 'Veterinaria S.O.S Rancagua',
+    rubro: 'Veterinaria y farmacia',
+    city: 'Rancagua',
+    tagline: 'Posta nocturna: tinta + lima del mural, boleta de farmacia, urgencias hasta las 2 AM.',
+    gradient: 'linear-gradient(135deg, #0C1120 0%, #121B30 55%, #46DC2E 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
