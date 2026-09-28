@@ -2343,6 +2343,14 @@ const BLITZ = [
     tagline: 'Vitrina de mostrador: papel hueso, burdeos del muro y el puño grabado de su logo.',
     gradient: 'linear-gradient(135deg, #F2EEE2 0%, #2B2E33 55%, #7C231C 140%)',
   },
+  {
+    slug: 'greenclub',
+    name: 'Greenclub',
+    rubro: 'Complejo deportivo',
+    city: 'Talca',
+    tagline: 'Tablero del club: carbón de camarín, verde cancha y la pizarra de sus cuatro frentes.',
+    gradient: 'linear-gradient(135deg, #0B120D 0%, #14241A 55%, #3FD96B 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
