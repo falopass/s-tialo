@@ -950,6 +950,14 @@ const BLITZ = [
     tagline: 'La veterinaria 24 h de Talca: verde pino, crema y menta, con su fachada real a sangre.',
     gradient: 'linear-gradient(135deg, #0B3128 0%, #145843 60%, #9FE3B4 140%)',
   },
+  {
+    slug: 'drivet-animals',
+    name: 'DRIVET Animals',
+    rubro: 'Hospital veterinario',
+    city: 'Talca',
+    tagline: 'El hospital del centro: teal, aqua y atención de exóticos, con su fachada real.',
+    gradient: 'linear-gradient(135deg, #083238 0%, #0E7C7B 60%, #7FD8CE 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
