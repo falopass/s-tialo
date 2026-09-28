@@ -184,6 +184,8 @@ const CABANAS_LA_QUEBRADA: CatalogDemo = {
 }
 
 const BLITZ_CREATED: Record<string, string> = {
+  alcatorce: '2026-09-28',
+  'el-uruguayo': '2026-09-28',
   'clinica-veterinaria-zoovet': '2026-09-28',
   'antumalen-restaurant': '2026-09-28',
   'taller-zunino-266': '2026-09-28',

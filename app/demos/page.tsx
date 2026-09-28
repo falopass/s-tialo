@@ -1062,6 +1062,14 @@ const BLITZ = [
     tagline: 'Índigo y cruz verde: línea de pulso, urgencias 24 h y CTA de llamada.',
     gradient: 'linear-gradient(135deg, #16203E 0%, #1E2A5A 55%, #2E8B6A 140%)',
   },
+  {
+    slug: 'alcatorce',
+    name: 'Alcatorce Restaurant',
+    rubro: 'Restaurante panorámico',
+    city: 'Concepción',
+    tagline: 'Azotea nocturna: tinta profunda, neón lima G14 y el dial del ascensor hasta el piso 14, con fotos reales.',
+    gradient: 'linear-gradient(135deg, #0B0E08 0%, #131809 55%, #C6F24E 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

@@ -277,10 +277,12 @@ export function CallFab({
   href,
   label,
   bg = '#1F2937',
+  fg = '#fff',
 }: {
   href: string
   label: string
   bg?: string
+  fg?: string
 }) {
   return (
     <a
@@ -293,7 +295,7 @@ export function CallFab({
         viewBox="0 0 24 24"
         className="w-[22px] h-[22px]"
         fill="none"
-        stroke="#fff"
+        stroke={fg}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
