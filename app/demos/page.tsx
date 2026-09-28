@@ -1478,6 +1478,14 @@ const BLITZ = [
     tagline: 'El letrero de la Dos Sur: crema pegada, naranja de cartel y fichas de repuesto.',
     gradient: 'linear-gradient(135deg, #F7F0E0 0%, #DE4A1F 60%, #2B4190 140%)',
   },
+  {
+    slug: 'gasfiteria-bastias-talca',
+    name: 'Gasfitería Bastías',
+    rubro: 'Gasfitería 24 horas',
+    city: 'Talca',
+    tagline: 'Llama azul del calefón: navy, aqua, naranja fuego y cinta de urgencia 24h.',
+    gradient: 'linear-gradient(135deg, #0A1D30 0%, #4FC3DC 60%, #F59300 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
