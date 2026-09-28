@@ -1278,6 +1278,22 @@ const BLITZ = [
     tagline: 'Papel recortado y sol de crayón: crema, verde y sol.',
     gradient: 'linear-gradient(135deg, #FAF3E3 0%, #F1E5C8 40%, #2E7D5B 140%)',
   },
+  {
+    slug: 'kine-domicilio-y-consulta-talca',
+    name: 'Kine Domicilio y Consulta Talca',
+    rubro: 'Kinesiología a domicilio y en consulta',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F6F8F6 0%, #E9F2EC 150%)',
+  },
+  {
+    slug: 'naru-cocina-japonesa-sushi-talca',
+    name: 'NARU Cocina Japonesa & Sushi',
+    rubro: 'Cocina japonesa y sushi',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #191210 0%, #F4EEE1 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
