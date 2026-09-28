@@ -295,6 +295,7 @@ const BLITZ_CREATED: Record<string, string> = {
   'fonoaudiologa-karen-oyarce': '2026-09-28',
   'nafi-arquitectura': '2026-09-28',
   'el-bajon-del-barny': '2026-09-28',
+  'integravet': '2026-09-28',
 }
 
 function familyFor(rubro: string) {

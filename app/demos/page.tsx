@@ -918,6 +918,14 @@ const BLITZ = [
     tagline: 'Neón nocturno de completos: carbón, crema y amarillo señal, con fotos reales del local.',
     gradient: 'linear-gradient(135deg, #13100C 0%, #3A2E14 55%, #FFD23F 140%)',
   },
+  {
+    slug: 'integravet',
+    name: 'Clínica Veterinaria Integravet',
+    rubro: 'Clínica veterinaria',
+    city: 'Talca',
+    tagline: 'La veterinaria 24 h de Talca: verde pino, crema y menta, con su fachada real a sangre.',
+    gradient: 'linear-gradient(135deg, #0B3128 0%, #145843 60%, #9FE3B4 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
