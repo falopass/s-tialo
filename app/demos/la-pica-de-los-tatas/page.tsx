@@ -4,7 +4,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Motif } from '../kit'
-import { Reveal, CallFab } from '../blitz-kit'
+import { Reveal, CallFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
@@ -75,26 +75,26 @@ const CARTA = [
   {
     num: '01',
     src: `${IMG}/detalle1.webp`,
-    alt: 'Bandeja de empanadas de horno recién salidas, con uslero y harina sobre el mesón de madera',
+    alt: 'Plato con empanadas de pino recién horneadas, copa de vino tinto y pebre en La Picá De Los Tatas',
     kicker: 'Del horno',
     title: 'Empanadas y masas',
     text: 'Masa hecha en casa y horno encendido desde temprano. Para comer aquí o llevar a la once.',
   },
   {
     num: '02',
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Cazuela de vacuno con choclo, zapallo, papa y zanahoria en plato de greda, con pan y pebre',
+    src: `${IMG}/detalle2.webp`,
+    alt: 'Mesa servida en La Picá De Los Tatas con plato de fondo, puré, ensalada y vino',
     kicker: 'De la olla',
     title: 'Almuerzo casero',
     text: 'Platos de olla y de fondo, con pan y pebre en la mesa, servidos sin apuro.',
   },
   {
     num: '03',
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Mesón de madera con sopaipillas bajo campana, platos, vasos y ollas humeando en la cocina',
-    kicker: 'Del mesón',
-    title: 'Picoteo y once',
-    text: 'Sopaipillas, algo para compartir y la mesa lista para quedarse conversando.',
+    src: `${IMG}/detalle3.webp`,
+    alt: 'Empanada de pino dorada servida en plato blanco, en La Picá De Los Tatas',
+    kicker: 'El clásico',
+    title: 'La empanada de la casa',
+    text: 'La de siempre: pino jugoso, horno marcado y masa que aguanta el viaje a la once.',
   },
 ]
 
@@ -127,9 +127,17 @@ export default function LaPicaDeLosTatasPage() {
         <div className="max-w-[1100px] mx-auto flex items-center justify-between gap-4 pl-5 pr-2 py-2 rounded-full border border-[#E8DCC8]/12 bg-[#0F141C]/60 backdrop-blur-xl">
           <a
             href="#inicio"
-            className={`${display.className} ${LINK_FOCUS} text-lg md:text-xl tap-44`}
+            className={`${display.className} ${LINK_FOCUS} text-lg md:text-xl tap-44 flex items-center gap-2.5`}
             style={{ color: C.white }}
           >
+            <Image
+              src={`${IMG}/logo.webp`}
+              alt=""
+              aria-hidden="true"
+              width={30}
+              height={30}
+              className="rounded-md border border-[#E8DCC8]/25"
+            />
             {BIZ.short}
           </a>
           <nav className="hidden md:flex items-center gap-7 text-sm" aria-label="Principal">
@@ -157,7 +165,7 @@ export default function LaPicaDeLosTatasPage() {
       <section id="inicio" className="relative min-h-svh flex items-center justify-center overflow-hidden">
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Comedor de La Picá De Los Tatas con mesas de madera, loza de greda y la cocina a leña al fondo"
+          alt="Fachada amarilla de La Picá De Los Tatas en Independencia 1843, Molina, con la rueda de carreta pintada en el muro"
           fill
           priority
           sizes="100vw"
@@ -207,7 +215,7 @@ export default function LaPicaDeLosTatasPage() {
           <Reveal delay={150}>
             <dl className={`${GLASS} mt-16 mx-auto max-w-[44rem] grid grid-cols-3 divide-x divide-[#E8DCC8]/12 py-5 hover:border-[#E8DCC8]/12`}>
               {[
-                { v: String(BIZ.reviews), k: 'reseñas en Google' },
+                { v: BIZ.ratingLabel, k: `${BIZ.reviews} reseñas en Google` },
                 { v: BIZ.followers, k: 'seguidores en Facebook' },
                 { v: 'Molina', k: 'Región del Maule' },
               ].map((s) => (
@@ -298,7 +306,7 @@ export default function LaPicaDeLosTatasPage() {
               <div className="relative rounded-[1.5rem] overflow-hidden border border-[#E8DCC8]/15 aspect-[4/3]">
                 <Image
                   src={`${IMG}/ambiente.webp`}
-                  alt="Fachada de La Picá De Los Tatas en calle Independencia, Molina, con la puerta abierta al comedor"
+                  alt="Comedor de La Picá De Los Tatas en Molina, con manteles rojos, madera y banderitas chilenas"
                   fill
                   sizes="(min-width: 1024px) 50vw, calc(100vw - 2.5rem)"
                   className="object-cover"
@@ -322,7 +330,7 @@ export default function LaPicaDeLosTatasPage() {
             <p className="mt-5 text-base leading-relaxed text-[#E8DCC8]/80">
               En plena calle Independencia, con la puerta abierta y la cocina a
               la vista. Quienes ya vinieron lo cuentan en Google, donde la picá
-              suma{' '}
+              tiene nota {BIZ.ratingLabel} en{' '}
               <a
                 href={MAPS_URL}
                 target="_blank"
@@ -359,10 +367,56 @@ export default function LaPicaDeLosTatasPage() {
               Reservar por teléfono
             </a>
             <p className="mt-5 text-xs text-[#E8DCC8]/55">
-              Textos de muestra: al publicar se escriben con lo que más destacan
-              las reseñas reales.
+              Fotos y reseñas citadas: ficha real de Google Maps. Los textos de
+              esta columna son de muestra.
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ── Lo que dicen en Google (reseñas reales de la ficha) ── */}
+      <section aria-label="Reseñas de Google" style={{ backgroundColor: C.coal }}>
+        <div className="max-w-[1100px] mx-auto px-5 md:px-8 py-20 md:py-24">
+          <Reveal className="text-center">
+            <Eyebrow center>Reseñas de Google</Eyebrow>
+            <div className="mt-4 flex items-center justify-center gap-3">
+              <Stars value={BIZ.rating} color={C.terraSoft} className="w-5 h-5" />
+              <p className={`${display.className} text-2xl`} style={{ color: C.white }}>
+                {BIZ.ratingLabel}
+              </p>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-sm underline underline-offset-4 decoration-[#C1663F] transition-colors hover:text-[#E39A78] ${LINK_FOCUS} tap-44`}
+                style={{ color: 'rgba(232,220,200,0.8)' }}
+              >
+                {BIZ.reviews} reseñas
+              </a>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {[
+              { q: 'Excelente atención, comida abundante y muy rica.', a: 'Francia Lizana', w: 'Hace 2 meses' },
+              { q: 'Simplemente maravilloso. Fuimos buscando comida tarde, estaban por cerrar e igual nos atendieron.', a: 'Garek', w: 'Hace 3 meses' },
+              { q: 'Llegamos por las recomendaciones de Google y cumplió con todas las expectativas.', a: 'Paulina Reyes', w: 'Hace 7 meses' },
+            ].map((r, i) => (
+              <Reveal key={r.a} delay={i * 120}>
+                <figure className={`${GLASS} h-full p-6 hover:border-[#E8DCC8]/12`}>
+                  <Stars value={5} color={C.terraSoft} className="w-3.5 h-3.5" />
+                  <blockquote className="mt-4 text-base leading-relaxed" style={{ color: 'rgba(232,220,200,0.9)' }}>
+                    “{r.q}”
+                  </blockquote>
+                  <figcaption className="mt-4 text-xs uppercase tracking-[0.14em]" style={{ color: C.terraSoft }}>
+                    {r.a} · {r.w}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-xs text-[#E8DCC8]/55">
+            Reseñas citadas textualmente de la ficha de Google de la picá.
+          </p>
         </div>
       </section>
 
@@ -462,8 +516,7 @@ export default function LaPicaDeLosTatasPage() {
                   {BIZ.postal} {BIZ.city}, {BIZ.region}
                 </address>
                 <p className="mt-6 text-sm leading-relaxed text-[#E8DCC8]/70">
-                  Horario a confirmar: al publicar va el horario real de
-                  atención.
+                  Lunes a sábado de 9:30 a 16:00 hrs. Domingo cerrado.
                 </p>
                 <div className="mt-auto pt-8 flex flex-wrap gap-3">
                   <a
@@ -539,7 +592,7 @@ export default function LaPicaDeLosTatasPage() {
             </address>
           </div>
           <p className="text-xs leading-relaxed md:max-w-[26rem] text-[#E8DCC8]/70">
-            Mockup de Sitiazo: datos del restaurante reales; carta, precios, horarios y textos de muestra.
+            Mockup de Sitiazo: datos, fotos, horario y reseñas reales (ficha de Google); carta y precios de muestra.
           </p>
         </div>
       </footer>

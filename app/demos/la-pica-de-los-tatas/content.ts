@@ -4,9 +4,9 @@
  * Datos del mockup. REALES (ficha pública de Google Maps y página de
  * Facebook): nombre, rubro, dirección, comuna, teléfono fijo
  * (75) 255 4076 (SERNATUR y Facebook; atienden por un grupo de
- * WhatsApp, no por un móvil directo), las 376 reseñas
- * y los 4.790 seguidores. Todo lo demás (carta, precios, horarios y
- * textos) es contenido de muestra para mostrar cómo se vería el sitio.
+ * WhatsApp, no por un móvil directo), nota 4,6 en 376 reseñas,
+ * horario (Lu-Sa 9:30-16:00, domingo cerrado), fotos y reseñas citadas.
+ * La carta y los precios siguen siendo contenido de muestra.
  */
 
 export const BIZ = {
@@ -20,6 +20,8 @@ export const BIZ = {
   phoneDisplay: '+56 (75) 255 4076',
   phoneTel: '+56752554076',
   reviews: 376,
+  rating: 4.6,
+  ratingLabel: '4,6',
   followers: '4.790',
   facebook: 'https://www.facebook.com/LaPicaDeLosTatas/',
 } as const
