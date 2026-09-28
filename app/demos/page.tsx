@@ -1951,6 +1951,62 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #32241E 0%, #C4AA98 55%, #8F5547 140%)',
   },
 
+  {
+    slug: 'bodega-liquidadora-neumaticos',
+    name: 'Bodega Liquidadora de Neumáticos',
+    rubro: 'Venta de neumáticos y taller',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #17181B 0%, #ECE9E2 150%)',
+  },
+  {
+    slug: 'comercializadora-oriente-talca',
+    name: 'Comercializadora Oriente Talca',
+    rubro: 'Mayorista · importadores directos',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F6F1E6 0%, #1C1C20 150%)',
+  },
+  {
+    slug: 'hostel-1760',
+    name: 'Hostel 1760',
+    rubro: 'Hostal y hospedaje',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F4EFE3 0%, #1E3D2F 150%)',
+  },
+  {
+    slug: 'jardin-bosque-de-nino',
+    name: 'Jardín Bosque de Niño',
+    rubro: 'Jardín infantil JUNJI',
+    city: 'San Clemente',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F5EFE0 0%, #1E3D2F 150%)',
+  },
+  {
+    slug: 'lavado-de-oidos-talca',
+    name: 'Lavado de oídos Talca',
+    rubro: 'Centro de salud · lavado de oídos',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #FAF6EE 0%, #20262A 150%)',
+  },
+  {
+    slug: 'los-campos-de-molina',
+    name: 'Los Campos de Molina',
+    rubro: 'Restaurante · fuente de soda',
+    city: 'Molina',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F7F0DC 0%, #33200F 150%)',
+  },
+  {
+    slug: 'mi-laser-talca',
+    name: 'Mi Láser Talca',
+    rubro: 'Depilación láser',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #FDF4F7 0%, #F6DCE8 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
