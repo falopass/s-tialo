@@ -31,6 +31,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #FBE3EE 0%, #D90E79 60%, #8B5BC7 140%)',
   },
   {
+    slug: 'sushi-wey',
+    name: 'Sushi Wey',
+    rubro: 'Sushi, handrolls y delivery',
+    city: 'Molina',
+    tagline: 'Barra de neón: negro, rosa eléctrico y tablas de sus propios posts.',
+    gradient: 'linear-gradient(135deg, #0D0D10 0%, #26101B 55%, #FF4D7E 170%)',
+  },
+  {
     slug: 'hema-parque-infantil',
     name: 'HEMA Parque Infantil',
     rubro: 'Parque infantil',
