@@ -2479,6 +2479,14 @@ const BLITZ = [
     tagline: 'Muro de vinilos en 8 Oriente: blanco polera nueva con pestañas de colores por cada trabajo.',
     gradient: 'linear-gradient(135deg, #FBFAF7 0%, #E23E28 60%, #2457E0 140%)',
   },
+  {
+    slug: 'aria-crossfit-las-rastras',
+    name: 'Aria CrossFit · HYROX Studio',
+    rubro: 'Box de CrossFit y HYROX',
+    city: 'Talca',
+    tagline: 'Tablero del box: carbón, letrero "A" en verde neón y bloques A-B-C tipo WOD.',
+    gradient: 'linear-gradient(135deg, #0A0D12 0%, #12171F 55%, #3DF096 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
