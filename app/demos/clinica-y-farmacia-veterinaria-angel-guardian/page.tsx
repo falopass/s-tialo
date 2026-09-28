@@ -6,7 +6,7 @@ import { CallFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { Fade, Parallax, TopBar } from './chrome'
 import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
-import LazyMap from \'../lazy-map\'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [

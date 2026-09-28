@@ -6,7 +6,7 @@ import { Motif } from '../kit'
 import { Reveal, BlitzNav, CallFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
-import LazyMap from \'../lazy-map\'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
