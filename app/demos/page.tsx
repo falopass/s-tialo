@@ -7,6 +7,22 @@ import { Motif, headingFont } from './kit'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'villa-antillanca-hotel-centro-eventos',
+    name: 'Villa Antillanca, Hotel & Centro de Eventos',
+    rubro: 'Hotel y eventos',
+    city: 'Talca',
+    tagline: 'Hospedaje, piscina y celebraciones camino a San Clemente.',
+    gradient: 'linear-gradient(135deg, #0C211A 0%, #527A68 55%, #C38A3A 140%)',
+  },
+  {
+    slug: 'automotriz-tudela-mecanica-electricidad',
+    name: 'Automotriz Tudela',
+    rubro: 'Mecánica y electricidad',
+    city: 'Talca',
+    tagline: 'Taller automotriz de barrio: mecánica, electricidad y diagnóstico.',
+    gradient: 'linear-gradient(135deg, #111517 0%, #39434A 55%, #F0782B 140%)',
+  },
+  {
     slug: 'hope-bakery-chile',
     name: 'Hope Bakery Chile',
     rubro: 'Panadería y pastelería',
