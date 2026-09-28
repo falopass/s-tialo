@@ -7,6 +7,14 @@ import { Motif, headingFont } from './kit'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'delicias-caseras-fabiana',
+    name: 'Delicias Caseras Fabiana',
+    rubro: 'Panadería y pastelería',
+    city: 'San Clemente',
+    tagline: 'Preparaciones caseras para compartir.',
+    gradient: 'linear-gradient(135deg, #55291F 0%, #A34127 55%, #E5BC84 140%)',
+  },
+  {
     slug: 'brilla-el-sol-talca',
     name: 'Complejo Deportivo Brilla El Sol',
     rubro: 'Recinto deportivo',
