@@ -1,24 +1,33 @@
 /**
  * app/demos/ferreteria-valdebenito/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps): nombre,
- * dirección, WhatsApp y las 13 reseñas. Todo lo demás (productos,
- * precios, horarios, reseñas) es contenido de muestra para mostrar
- * cómo se vería el sitio.
+ * Datos del mockup. REALES (ficha pública de Google Maps, sep 2026):
+ * nombre, dirección (Rengo 435, Linares), WhatsApp (+56 9 4647 3982),
+ * 4.6 estrellas con 13 reseñas y horario (lun-vie 9:00-18:00, sábado
+ * 9:00-17:00, domingo cerrado). Productos, precios y textos de
+ * secciones son de muestra; las reseñas citadas son reales de la
+ * ficha de Google.
  */
 
 export const BIZ = {
   name: 'Ferretería Valdebenito',
   short: 'F. Valdebenito',
-  rubro: 'Tienda de herramientas',
+  rubro: 'Ferretería y materiales',
   address: 'Rengo 435',
   city: 'Linares',
   region: 'Región del Maule',
   phoneDisplay: '+56 9 4647 3982',
   phoneTel: '+56946473982',
   whatsapp: '56946473982',
+  rating: '4,6',
   reviews: 13,
 } as const
+
+export const HORARIO = [
+  { days: 'Lunes a viernes', time: '9:00 a 18:00' },
+  { days: 'Sábado', time: '9:00 a 17:00' },
+  { days: 'Domingo', time: 'Cerrado' },
+] as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
   'Hola, vi la página de Ferretería Valdebenito y quiero consultar por un producto',

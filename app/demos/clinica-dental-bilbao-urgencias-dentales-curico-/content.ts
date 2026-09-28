@@ -1,11 +1,12 @@
 /**
  * app/demos/clinica-dental-bilbao-urgencias-dentales-curico-/content.ts
  *
- * Datos del mockup. REALES: nombre, comuna, dirección (Manuel Montt
- * 357, oficina 718), WhatsApp, las 45 reseñas de Google Maps y el
- * Instagram @bilbaoclinicadental (965 seguidores). Todo lo demás
- * (servicios, precios, textos de reseñas, horarios) es contenido de
- * ejemplo para mostrar cómo se vería el sitio.
+ * Datos del mockup. REALES (ficha pública de Google Maps, sep 2026):
+ * nombre, dirección (Manuel Montt 357, oficina 718, Edificio Montt),
+ * WhatsApp, 5.0 estrellas con 45 reseñas, abierto 24 horas los 7 días
+ * e Instagram @bilbaoclinicadental (965 seguidores). Servicios,
+ * precios y textos de secciones son de muestra; las reseñas citadas
+ * son reales de la ficha de Google.
  */
 
 export const BIZ = {
@@ -13,12 +14,15 @@ export const BIZ = {
   short: 'Dental Bilbao',
   rubro: 'Dentista y urgencias dentales',
   address: 'Manuel Montt 357, oficina 718',
+  building: 'Edificio Montt',
   city: 'Curicó',
   region: 'Región del Maule',
   phoneDisplay: '+56 9 2029 9944',
   phoneTel: '+56920299944',
   whatsapp: '56920299944',
+  rating: '5,0',
   reviews: 45,
+  hours: 'Abierto 24 horas, todos los días',
   instagram: 'bilbaoclinicadental',
   instagramFollowers: 965,
 } as const

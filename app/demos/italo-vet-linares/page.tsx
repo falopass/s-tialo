@@ -2,92 +2,146 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
-import { Reveal, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, Stars, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, STEPS, SERVICES, PRICES } from './content'
+import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, HORARIO, IMG } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
-    { path: '../../fonts/outfit/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+    { path: '../../fonts/baloo-2/normal-400-800.woff2', weight: '400 800', style: 'normal' },
   ],
 })
 const body = localFont({
   src: [
-    { path: '../../fonts/manrope/normal-200-800.woff2', weight: '200 800', style: 'normal' },
+    { path: '../../fonts/work-sans/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+  ],
+})
+const mono = localFont({
+  src: [
+    { path: '../../fonts/ibm-plex-mono/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/ibm-plex-mono/normal-600.woff2', weight: '600', style: 'normal' },
   ],
 })
 
 const C = {
   blue: '#2251FF',
-  blueDeep: '#0B1E6B',
+  deep: '#0B1E6B',
   lime: '#D8F878',
-  gray: '#EEF0F4',
-  ink: '#0E1330',
-  muted: '#5A6178',
-  line: 'rgba(14,19,48,0.12)',
+  ink: '#101736',
+  muted: '#59617E',
+  gray: '#EEF0F6',
+  card: '#FFFFFF',
+  line: 'rgba(16,23,54,0.13)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'italo-vet-linares',
-  title: 'Italo Vet Linares - Veterinario en Linares',
-  description: 'Veterinario en Corporación 840, Linares. Pide hora para tu mascota por WhatsApp.',
+  title: 'Italo Vet Linares — Veterinario en Linares',
+  description: 'Clínica veterinaria en Corporación 840, Linares. Consultas, vacunas y controles para perros y gatos. Pide hora por WhatsApp.',
   image: '/demos/italo-vet-linares/hero.webp',
 })
 
-function WaButton({ children, big = false }: { children: React.ReactNode; big?: boolean }) {
-  return (
-    <a
-      href={WA_LINK}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2 rounded-full font-bold transition-transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 ${
-        big ? 'min-h-[48px] px-6 text-base md:min-h-[60px] md:px-8 md:text-lg' : 'min-h-[48px] px-6 text-base'
-      } tap-44`}
-      style={{ backgroundColor: C.lime, color: C.ink, outlineColor: C.lime }}
-    >
-      {children}
-      <span aria-hidden="true">→</span>
-    </a>
-  )
-}
+const NAV_LINKS = [
+  { label: 'Pacientes', href: '#pacientes' },
+  { label: 'Cómo atendemos', href: '#flujo' },
+  { label: 'Servicios', href: '#servicios' },
+  { label: 'Horario', href: '#contacto' },
+]
 
-function Label({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
+const PACIENTES = [
+  {
+    src: `${IMG}/paciente1.webp`,
+    alt: 'Perrito mirando hacia arriba dentro de la consulta de Italo Vet',
+    cap: 'Paciente real',
+  },
+  {
+    src: `${IMG}/espera.webp`,
+    alt: 'Perro esperando su turno junto a una silla azul en la clínica',
+    cap: 'En la sala de espera',
+  },
+  {
+    src: `${IMG}/paciente2.webp`,
+    alt: 'Rottweiler con arnés llegando en auto a la clínica',
+    cap: 'Recién llegado',
+  },
+]
+
+const FLUJO = [
+  {
+    n: '01',
+    title: 'Escribes por WhatsApp',
+    desc: 'Nos cuentas qué le pasa a tu mascota y te damos hora el mismo día cuando hay cupo.',
+  },
+  {
+    n: '02',
+    title: 'Consulta en Corporación 840',
+    desc: 'Local a nivel de calle, fácil de llegar. Examen completo y diagnóstico explicado en simple.',
+  },
+  {
+    n: '03',
+    title: 'Tratamiento y seguimiento',
+    desc: 'Plan claro para la casa, controles agendados y dudas por WhatsApp después de la consulta.',
+  },
+]
+
+const SERVICES = [
+  { name: 'Consulta general', desc: 'Evaluación completa, diagnóstico y plan de tratamiento para perros y gatos.' },
+  { name: 'Vacunas y desparasitación', desc: 'Calendario al día según edad y estilo de vida, con recordatorio por WhatsApp.' },
+  { name: 'Cirugías y procedimientos', desc: 'Esterilizaciones y procedimientos con cuidados explicados antes y después.' },
+  { name: 'Controles y recuperación', desc: 'Seguimiento después de un tratamiento o cirugía, hasta el alta.' },
+]
+
+const REVIEWS = [
+  {
+    text: 'Seis años llevando a mis dos perrhijos. Explicaciones 10/10, fue el único que pudo tratar la operación de mi perrito. Atención inmediata en caso de urgencia.',
+    author: 'Constanza Castillo Morales',
+  },
+  {
+    text: 'Muy buena atención, la información es muy completa y el doctor excelente.',
+    author: 'Nadia Cerda',
+  },
+]
+
+const waBtn =
+  'inline-flex items-center justify-center gap-2 font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 active:scale-95 tap-44 focus-visible:outline-2 focus-visible:outline-offset-2'
+
+function Label({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
-      className="text-xs font-bold uppercase tracking-[0.2em] mb-4"
-      style={{ color: dark ? C.lime : C.blue }}
+      className={`${mono.className} text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold`}
+      style={{ color: light ? C.lime : C.blue }}
     >
+      <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
     </p>
   )
 }
 
 export default function ItaloVetLinaresPage() {
-  const h = display.className
-
   return (
-    <div className={body.className} style={{ backgroundColor: '#fff', color: C.ink }}>
-      {/* Hero a sangre */}
-      <section className="relative min-h-screen flex items-end overflow-hidden" style={{ backgroundColor: C.blueDeep }}>
-      <header className="absolute top-0 inset-x-0 z-20">
-        <div className="max-w-6xl mx-auto px-5 py-5 flex items-center justify-between gap-4">
-          <span className={`${h} text-white text-xl font-extrabold tracking-tight`}>
-            Italo<span style={{ color: C.lime }}>Vet</span>
-          </span>
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="min-h-[44px] inline-flex items-center rounded-full px-5 text-sm font-bold bg-white/15 text-white backdrop-blur-md border border-white/30 hover:bg-white/25 tap-44"
-          >
-            Pedir hora
-          </a>
-        </div>
-      </header>
+    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: '#fff', color: C.ink }}>
+      <BlitzNav
+        name={BIZ.short}
+        links={NAV_LINKS}
+        waLink={WA_LINK}
+        fontClass={display.className}
+        ctaLabel="Pedir hora"
+        theme={{
+          over: 'dark',
+          bar: 'rgba(255,255,255,0.95)',
+          ink: C.deep,
+          line: C.line,
+          btnBg: C.blue,
+          btnInk: '#fff',
+        }}
+      />
+
+      {/* ── Hero a sangre: paciente real ── */}
+      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <Image
-          src="/demos/italo-vet-linares/hero.webp"
-          alt="Box de atención veterinaria con mesa de acero, balanza y luz natural"
+          src={`${IMG}/hero.webp`}
+          alt="Cachorro chihuahua sobre la mesa de examen de Italo Vet Linares"
           fill
           priority
           sizes="100vw"
@@ -96,193 +150,283 @@ export default function ItaloVetLinaresPage() {
         <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(180deg, rgba(11,30,107,0.6) 0%, rgba(11,30,107,0.7) 45%, ${C.blueDeep} 100%)`,
+            background: `linear-gradient(180deg, rgba(11,30,107,0.45) 0%, rgba(11,30,107,0.25) 40%, rgba(11,30,107,0.9) 85%, ${C.deep} 100%)`,
           }}
           aria-hidden="true"
         />
-        <div className="relative max-w-6xl mx-auto w-full px-5 pb-16 pt-32 md:pb-24">
-          <p className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] mb-6" style={{ backgroundColor: C.lime, color: C.ink }}>
-            Veterinario · {BIZ.city}
-          </p>
-          <h1 className={`${h} text-white font-extrabold leading-[0.95] tracking-tight text-[clamp(2.75rem,8vw,6.5rem)] max-w-4xl`}>
-            De la consulta a la{' '}
-            <span style={{ color: C.lime }}>cola moviéndose</span> otra vez.
-          </h1>
-          <p className="text-white/85 text-lg md:text-xl mt-6 max-w-xl leading-relaxed">
-            Atención veterinaria directa en {BIZ.street}, {BIZ.city}. Escribes, te damos hora y seguimos a tu mascota hasta que vuelve a su ritmo.
-          </p>
-          <div className="flex flex-wrap items-center gap-4 mt-9">
-            <WaButton big>Pedir hora por WhatsApp</WaButton>
-            <span className="text-white/80 text-sm">
-              <strong className="text-white">{BIZ.reviews}</strong> reseñas en Google Maps
-            </span>
-          </div>
+        <div className="relative max-w-6xl mx-auto w-full px-5 md:px-8 pb-14 md:pb-20 pt-32">
+          <Reveal>
+            <p className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] mb-6" style={{ backgroundColor: C.lime, color: C.ink }}>
+              Veterinario · {BIZ.city}
+            </p>
+            <h1 className={`${display.className} text-white font-bold leading-[0.98] tracking-tight text-[clamp(2.6rem,7.5vw,5.5rem)] max-w-3xl mb-6`}>
+              Al veterinario <span style={{ color: C.lime }}>sin drama</span>, en Linares.
+            </h1>
+            <p className="text-white/85 text-base md:text-lg max-w-xl leading-relaxed mb-8">
+              Atención veterinaria directa en {BIZ.street}: escribes, te
+              damos hora y seguimos a tu mascota hasta que vuelve a su ritmo.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${waBtn} text-base px-7`}
+                style={{ backgroundColor: C.lime, color: C.ink, outlineColor: C.lime }}
+              >
+                Pedir hora por WhatsApp →
+              </a>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white tap-44"
+              >
+                <Stars value={4.6} color={C.lime} className="w-3.5 h-3.5" />
+                {BIZ.rating} · {BIZ.reviews} reseñas
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Historia por pasos */}
-      <section id="pasos" className="py-20 md:py-28" style={{ backgroundColor: C.gray }}>
-        <div className="max-w-6xl mx-auto px-5">
+      {/* ── Pacientes reales ── */}
+      <section id="pacientes" className="scroll-mt-20 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
-            <Label>Tu visita, paso a paso · recorrido de ejemplo</Label>
-            <h2 className={`${h} font-extrabold tracking-tight text-4xl md:text-6xl leading-[1] max-w-3xl`}>
-              Así se mueve una atención en Italo Vet.
-            </h2>
+            <Label>Pacientes de la casa</Label>
+            <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-12">
+              <h2 className={`${display.className} font-bold tracking-tight text-4xl md:text-5xl leading-[1.02] max-w-xl`}>
+                Los que ya pasaron por la mesa
+              </h2>
+              <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
+                Fotos reales publicadas por la clínica: así se ven sus
+                pacientes en la consulta.
+              </p>
+            </div>
           </Reveal>
-
-          <ol className="relative mt-16">
-            <span
-              className="absolute top-0 bottom-0 left-[23px] md:left-1/2 w-[3px] md:-translate-x-1/2 rounded-full"
-              style={{ background: `linear-gradient(${C.blue}, ${C.blue} 80%, ${C.lime})` }}
-              aria-hidden="true"
-            />
-            {STEPS.map((s, i) => {
-              const flip = i % 2 === 1
-              return (
-                <li key={s.n} className="relative pl-16 md:pl-0 pb-16 last:pb-0 md:grid md:grid-cols-2 md:gap-16 md:items-center">
-                  <span
-                    className={`${h} absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 z-10 w-[49px] h-[49px] rounded-full flex items-center justify-center font-extrabold text-base border-4`}
-                    style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.gray }}
-                    aria-hidden="true"
-                  >
-                    {s.n}
-                  </span>
-                  <Reveal className={flip ? 'md:order-2' : ''}>
-                    <div className="relative aspect-[3/2] rounded-3xl overflow-hidden shadow-[0_24px_60px_-30px_rgba(11,30,107,0.55)]">
-                      <Image src={s.img} alt={s.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-                    </div>
-                  </Reveal>
-                  <Reveal delay={120} className={`mt-6 md:mt-0 ${flip ? 'md:order-1 md:text-right' : ''}`}>
-                    <p className="text-sm font-bold uppercase tracking-[0.2em]" style={{ color: C.blue }}>
-                      Paso {s.n} · {s.kicker}
-                    </p>
-                    <h3 className={`${h} font-bold text-2xl md:text-4xl tracking-tight leading-tight mt-3`}>{s.title}</h3>
-                    <p className={`mt-4 text-base md:text-lg leading-relaxed max-w-md ${flip ? 'md:ml-auto' : ''}`} style={{ color: C.muted }}>
-                      {s.desc}
-                    </p>
-                  </Reveal>
-                </li>
-              )
-            })}
-          </ol>
-        </div>
-      </section>
-
-      {/* Servicios */}
-      <section id="servicios" className="py-20 md:py-28">
-        <div className="max-w-6xl mx-auto px-5">
-          <Reveal>
-            <Label>Servicios · texto de ejemplo</Label>
-            <h2 className={`${h} font-extrabold tracking-tight text-4xl md:text-5xl leading-[1.02] max-w-2xl`}>
-              Lo que resolvemos en la clínica.
-            </h2>
-          </Reveal>
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            {SERVICES.map((s, i) => (
-              <Reveal key={s.name} delay={i * 100}>
-                <article className="group h-full rounded-3xl overflow-hidden border" style={{ borderColor: C.line }}>
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image src={s.img} alt={s.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <span className={`${h} absolute top-4 left-4 rounded-full px-3 py-1 text-sm font-bold`} style={{ backgroundColor: C.blue, color: '#fff' }}>
-                      0{i + 1}
-                    </span>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+            {PACIENTES.map((p, i) => (
+              <Reveal key={p.src} delay={i * 90} className={i === 1 ? 'md:translate-y-8' : ''}>
+                <figure className="group">
+                  <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
+                    <Image
+                      src={p.src}
+                      alt={p.alt}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 50vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                    />
                   </div>
-                  <div className="p-6">
-                    <h3 className={`${h} font-bold text-xl`}>{s.name}</h3>
-                    <p className="mt-2 leading-relaxed" style={{ color: C.muted }}>{s.desc}</p>
-                  </div>
-                </article>
+                  <figcaption className={`${mono.className} mt-3 text-[10px] md:text-[11px] uppercase tracking-[0.16em]`} style={{ color: C.muted }}>
+                    {p.cap} · Italo Vet
+                  </figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Sobre el negocio */}
-      <section id="nosotros" className="py-20 md:py-28 text-white" style={{ backgroundColor: C.blue }}>
-        <div className="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-12 items-center">
+      {/* ── Flujo de atención: banda numerada ── */}
+      <section id="flujo" className="scroll-mt-20" style={{ backgroundColor: C.blue }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
-            <Label dark>Linares · atención directa</Label>
-            <h2 className={`${h} font-extrabold tracking-tight text-4xl md:text-5xl leading-[1.02]`}>
-              Un veterinario de barrio, con resultados que se notan.
+            <Label light>Cómo atendemos</Label>
+            <h2 className={`${display.className} text-white font-bold tracking-tight text-4xl md:text-6xl leading-[1] mb-12`}>
+              Escribes, vienes, <span style={{ color: C.lime }}>se acabó el drama</span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-white/85 max-w-lg">
-              En {BIZ.street} atiendes directo con quien revisa a tu mascota: sin call center ni esperas eternas. Por eso {BIZ.reviews} personas han dejado su reseña en Google Maps y más de {BIZ.followers} siguen la clínica en Facebook.
-            </p>
-            <dl className="grid grid-cols-2 gap-4 mt-10 max-w-md">
-              <div className="rounded-2xl p-5" style={{ backgroundColor: C.blueDeep }}>
-                <dt className="text-sm text-white/70">Reseñas en Google</dt>
-                <dd className={`${h} text-4xl font-extrabold mt-1`} style={{ color: C.lime }}>{BIZ.reviews}</dd>
-              </div>
-              <div className="rounded-2xl p-5" style={{ backgroundColor: C.blueDeep }}>
-                <dt className="text-sm text-white/70">Seguidores en Facebook</dt>
-                <dd className={`${h} text-4xl font-extrabold mt-1`} style={{ color: C.lime }}>{BIZ.followers}</dd>
-              </div>
-            </dl>
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="inline-block mt-6 text-sm font-bold underline underline-offset-4 hover:text-[#C6F24E] tap-44">
-              Ver la página en Facebook
-            </a>
           </Reveal>
-          <Reveal delay={150}>
-            <div className="relative aspect-[4/5] md:aspect-[4/5] rounded-[2rem] overflow-hidden">
-              <Image src="/demos/italo-vet-linares/detalle3.webp" alt="Recepción con mesón de madera, plantas y banca de espera" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-            </div>
+          <div className="grid md:grid-cols-3 gap-px rounded-3xl overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.18)' }}>
+            {FLUJO.map((s, i) => (
+              <article key={s.n} className="p-7 md:p-9" style={{ backgroundColor: C.blue }}>
+                <Reveal delay={i * 100}>
+                  <span className={`${display.className} block font-bold text-5xl md:text-6xl leading-none mb-6`} style={{ color: C.lime }}>
+                    {s.n}
+                  </span>
+                  <h3 className={`${display.className} text-white font-bold text-xl md:text-2xl leading-tight mb-3`}>
+                    {s.title}
+                  </h3>
+                  <p className="text-sm md:text-[15px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
+                    {s.desc}
+                  </p>
+                </Reveal>
+              </article>
+            ))}
+          </div>
+          <Reveal delay={200}>
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${waBtn} mt-9 bg-white hover:bg-[#EEF0F6]`}
+              style={{ color: C.blue, outlineColor: C.lime }}
+            >
+              Empezar por WhatsApp · {BIZ.phoneDisplay}
+            </a>
           </Reveal>
         </div>
       </section>
 
-      {/* Precios de referencia */}
-      <section id="precios" className="py-20 md:py-28" style={{ backgroundColor: C.gray }}>
-        <div className="max-w-3xl mx-auto px-5">
-          <Reveal>
-            <Label>Precios de referencia · muestra</Label>
-            <h2 className={`${h} font-extrabold tracking-tight text-4xl md:text-5xl leading-[1.02]`}>
-              Valores claros antes de venir.
-            </h2>
-            <p className="mt-4" style={{ color: C.muted }}>
-              Lista de muestra: los valores reales los publica la clínica. Mientras tanto, consúltalos por WhatsApp.
-            </p>
-          </Reveal>
-          <Reveal delay={100}>
-            <ul className="mt-10 rounded-3xl bg-white divide-y" style={{ borderColor: C.line }}>
-              {PRICES.map((p) => (
-                <li key={p} className="flex items-center justify-between gap-4 px-6 py-5" style={{ borderColor: C.line }}>
-                  <span className="font-medium">{p}</span>
-                  <span className={`${h} font-bold text-sm rounded-full px-3 py-1`} style={{ backgroundColor: C.gray, color: C.blue }}>
-                    $ por confirmar
-                  </span>
+      {/* ── Servicios + consulta ── */}
+      <section id="servicios" className="scroll-mt-20 py-16 md:py-24" style={{ backgroundColor: C.gray }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1fr_0.85fr] gap-10 md:gap-14 items-start">
+          <div>
+            <Reveal>
+              <Label>Servicios · muestra</Label>
+              <h2 className={`${display.className} font-bold tracking-tight text-4xl md:text-5xl leading-[1.02] mb-4`}>
+                Lo que resolvemos en la clínica
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: C.muted }}>
+                Lista de ejemplo: al publicar van las prestaciones y
+                valores reales de Italo Vet.
+              </p>
+            </Reveal>
+            <ul>
+              {SERVICES.map((s, i) => (
+                <li key={s.name}>
+                  <Reveal delay={i * 80}>
+                    <div className="py-5 border-t first:border-t-0" style={{ borderColor: C.line }}>
+                      <h3 className={`${display.className} font-bold text-xl md:text-2xl mb-1.5`} style={{ color: C.deep }}>
+                        {s.name}
+                      </h3>
+                      <p className="text-sm md:text-[15px] leading-relaxed max-w-md" style={{ color: C.muted }}>
+                        {s.desc}
+                      </p>
+                    </div>
+                  </Reveal>
                 </li>
               ))}
             </ul>
+            <Reveal delay={160}>
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${waBtn} mt-7 text-white hover:brightness-110`}
+                style={{ backgroundColor: C.blue, outlineColor: C.blue }}
+              >
+                Consultar por WhatsApp
+              </a>
+            </Reveal>
+          </div>
+          <Reveal delay={120}>
+            <figure className="lg:sticky lg:top-24">
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_24px_60px_-30px_rgba(11,30,107,0.5)]">
+                <Image
+                  src={`${IMG}/consulta.webp`}
+                  alt="Perro paciente sentado dentro de la consulta de Italo Vet"
+                  fill
+                  sizes="(min-width: 1024px) 38vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className={`${mono.className} mt-3 text-[10px] md:text-[11px] uppercase tracking-[0.16em]`} style={{ color: C.muted }}>
+                Dentro de la consulta · {BIZ.street}
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
 
-      {/* Contacto y ubicación */}
-      <section id="contacto" className="py-20 md:py-28 text-white" style={{ backgroundColor: C.blueDeep }}>
-        <div className="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-12 items-start">
+      {/* ── Reseñas reales ── */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
-            <Label dark>Contacto</Label>
-            <h2 className={`${h} font-extrabold tracking-tight text-4xl md:text-6xl leading-[0.98]`}>
-              ¿Tu mascota necesita hora? <span style={{ color: C.lime }}>Escríbenos.</span>
-            </h2>
-            <div className="mt-9">
-              <WaButton big>WhatsApp {BIZ.phoneDisplay}</WaButton>
+            <Label>Reseñas de Google</Label>
+            <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
+              <h2 className={`${display.className} font-bold tracking-tight text-4xl md:text-5xl leading-[1.02] max-w-xl`}>
+                {BIZ.reviews} reseñas, {BIZ.rating} estrellas
+              </h2>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold underline underline-offset-4 decoration-2 tap-44 focus-visible:outline-2 focus-visible:outline-offset-4"
+                style={{ color: C.blue, textDecorationColor: 'rgba(34,81,255,0.35)', outlineColor: C.blue }}
+              >
+                Ver la ficha en Google Maps →
+              </a>
             </div>
-            <address className="not-italic mt-10 text-lg leading-relaxed text-white/85">
-              <strong className="block text-white">{BIZ.name}</strong>
-              {BIZ.address}
-            </address>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm font-bold underline underline-offset-4 hover:text-[#C6F24E] tap-44">
-              Cómo llegar en Google Maps
-            </a>
           </Reveal>
-          <Reveal delay={150}>
-            <div className="rounded-3xl overflow-hidden aspect-[4/3] border-4" style={{ borderColor: C.lime }}>
+          <div className="grid md:grid-cols-2 gap-4 md:gap-5 max-w-4xl">
+            {REVIEWS.map((r, i) => (
+              <Reveal key={r.author} delay={i * 100}>
+                <figure className="h-full flex flex-col rounded-3xl p-6 md:p-7" style={{ backgroundColor: C.gray }}>
+                  <Stars value={5} color={C.blue} className="w-3.5 h-3.5 mb-4" />
+                  <blockquote className="text-sm md:text-[15px] leading-relaxed flex-1" style={{ color: C.ink }}>
+                    “{r.text}”
+                  </blockquote>
+                  <figcaption className={`${mono.className} mt-5 text-[11px] uppercase tracking-[0.16em]`} style={{ color: C.muted }}>
+                    {r.author} · Reseña de Google
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={160}>
+            <p className="text-sm mt-8" style={{ color: C.muted }}>
+              También en Facebook:{' '}
+              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.blue }}>
+                {BIZ.followers} seguidores
+              </a>
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Contacto y horario ── */}
+      <section id="contacto" className="scroll-mt-20 text-white" style={{ backgroundColor: C.deep }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
+          <Reveal>
+            <Label light>Contacto</Label>
+            <h2 className={`${display.className} font-bold tracking-tight text-4xl md:text-6xl leading-[0.98] mb-7`}>
+              {BIZ.street}, <span style={{ color: C.lime }}>Linares</span>
+            </h2>
+            <address className="not-italic text-sm md:text-base leading-relaxed mb-7" style={{ color: 'rgba(255,255,255,0.75)' }}>
+              {BIZ.address}
+              <br />
+              {BIZ.region}, Chile
+            </address>
+            <dl className="rounded-2xl border overflow-hidden text-sm mb-8" style={{ borderColor: 'rgba(255,255,255,0.16)' }}>
+              {HORARIO.map((h) => (
+                <div key={h.days} className="flex items-baseline justify-between gap-4 px-5 py-3.5 border-b last:border-b-0" style={{ borderColor: 'rgba(255,255,255,0.16)' }}>
+                  <dt className={`${mono.className} text-[10px] uppercase tracking-[0.18em] font-semibold shrink-0`} style={{ color: 'rgba(255,255,255,0.6)' }}>
+                    {h.days}
+                  </dt>
+                  <dd className="text-right font-semibold" style={{ color: h.time === 'Cerrado' ? 'rgba(255,255,255,0.6)' : C.lime }}>
+                    {h.time}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${waBtn}`}
+                style={{ backgroundColor: C.lime, color: C.ink, outlineColor: C.lime }}
+              >
+                WhatsApp {BIZ.phoneDisplay} →
+              </a>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${waBtn} border hover:bg-white/10`}
+                style={{ borderColor: 'rgba(255,255,255,0.35)', color: '#fff', outlineColor: '#fff' }}
+              >
+                Cómo llegar →
+              </a>
+            </div>
+          </Reveal>
+          <Reveal delay={140}>
+            <div className="rounded-3xl overflow-hidden border-4 min-h-[320px] h-full" style={{ borderColor: C.lime }}>
               <LazyMap
                 src={MAPS_EMBED}
                 title={`Mapa de ${BIZ.name}`}
-                className="w-full h-full"
+                className="w-full h-full min-h-[320px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -291,15 +435,15 @@ export default function ItaloVetLinaresPage() {
         </div>
       </section>
 
-      {/* Franja Sitiazo */}
+      {/* ── Franja Sitiazo + footer ── */}
       <div className="py-4 px-5 text-center text-sm font-bold" style={{ backgroundColor: C.lime, color: C.ink }}>
         Mockup preparado por{' '}
         <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">Sitiazo</a>{' '}
-        para {BIZ.name}: textos de servicios y precios son de muestra.{' '}
+        para {BIZ.name}: fotos, horario y reseñas reales; servicios y precios de muestra.{' '}
         <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">¿Lo hacemos realidad?</a>
       </div>
 
-      <footer className="pt-8 pb-24 px-5 text-center text-xs" style={{ color: C.muted }}>
+      <footer className="py-6 px-5 text-center text-xs" style={{ color: C.muted }}>
         {BIZ.name} · {BIZ.address}
       </footer>
 
