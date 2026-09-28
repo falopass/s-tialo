@@ -23,23 +23,23 @@ const body = localFont({
 })
 
 const C = {
-  paper: '#F7F9F9',
-  soft: '#E9F1F0',
-  mint: '#9FD8CB',
-  mintSoft: '#DCEDE8',
-  petrol: '#0E4C5C',
-  petrolDeep: '#09333D',
-  ink: '#232A2E',
-  muted: '#55666D',
-  line: 'rgba(35,42,46,0.18)',
-  lineLight: 'rgba(247,249,249,0.28)',
+  paper: '#FBF5F0',
+  soft: '#F6E8E2',
+  rose: '#E39DB6',
+  roseSoft: '#F5DFE6',
+  wine: '#7C2D4E',
+  wineDeep: '#3B1F2C',
+  ink: '#33222B',
+  muted: '#6E5A62',
+  line: 'rgba(51,34,43,0.18)',
+  lineLight: 'rgba(251,245,240,0.28)',
 }
 
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 const BTN = `${FOCUS} inline-flex items-center justify-center min-h-11 px-5 py-2 text-sm font-bold tracking-wide transition-colors duration-300`
-const BTN_MINT = `${BTN} bg-[#9FD8CB] text-[#09333D] hover:bg-[#F7F9F9]`
-const BTN_PETROL = `${BTN} bg-[#0E4C5C] text-[#F7F9F9] hover:bg-[#09333D]`
-const LINK = `${FOCUS} underline underline-offset-4 decoration-2 decoration-[#9FD8CB] hover:decoration-[#0E4C5C] transition-colors`
+const BTN_ROSE = `${BTN} bg-[#E39DB6] text-[#3B1F2C] hover:bg-[#FBF5F0]`
+const BTN_WINE = `${BTN} bg-[#7C2D4E] text-[#FBF5F0] hover:bg-[#3B1F2C]`
+const LINK = `${FOCUS} underline underline-offset-4 decoration-2 decoration-[#E39DB6] hover:decoration-[#7C2D4E] transition-colors`
 const KICKER = 'text-[11px] uppercase tracking-[0.24em] font-bold'
 const H2 = `${display.className} font-medium leading-[1.06] tracking-[-0.02em] text-[clamp(2.6rem,7vw,6.5rem)]`
 const WRAP = 'max-w-6xl mx-auto px-5 md:px-8'
@@ -79,9 +79,9 @@ const TRATAMIENTOS = [
   {
     n: 'Nº 2',
     src: `${IMG}/detalle3.webp`,
-    alt: 'Afiche de Hydrafacial de Issa-bella Spa: microdermoabrasión y ultrasonido facial',
+    alt: 'Afiche de Hydrafacial publicado por Issa-bella Spa: microdermoabrasión y ultrasonido facial',
     name: 'Hydrafacial',
-    desc: 'Limpieza, microdermoabrasión y ultrasonido en una sesión: exfolia, limpia los poros e introduce nutrientes a la piel.',
+    desc: 'Microdermoabrasión y ultrasonido en una sesión: exfolia, aspira los puntos negros e introduce nutrientes a la piel.',
     box: 'lg:col-span-5 lg:col-start-3 lg:-mt-6',
     aspect: 'aspect-[3/4]',
     sizes: '(min-width: 1024px) 420px, 100vw',
@@ -89,21 +89,22 @@ const TRATAMIENTOS = [
   {
     n: 'Nº 3',
     src: `${IMG}/detalle2.webp`,
-    alt: 'Masaje descontracturante de espalda en Issa-bella Spa, Curicó',
-    name: 'Masajes descontracturantes',
-    desc: 'Masaje de espalda, cuello y hombros para soltar la tensión. Con hora agendada y seguimiento por WhatsApp.',
+    alt: 'Masaje de espalda aplicado en la cabina de Issa-bella Spa',
+    name: 'Masajes terapéuticos',
+    desc: 'Descontracturante, relajante, deportivo, champi y piedras calientes: masaje de espalda, cuello y hombros para soltar la tensión.',
     box: 'lg:col-span-4 lg:col-start-9 lg:-mt-24',
     aspect: 'aspect-[4/5]',
     sizes: '(min-width: 1024px) 360px, 100vw',
   },
 ]
 
-// Servicios reales: afiches y bio de Instagram del centro.
+// Servicios reales del afiche publicado por el centro.
 const TAMBIEN = [
   'Drenaje linfático',
   'Botas de presoterapia',
-  'Depilación láser',
-  'Purificación capilar',
+  'Depilación con cera y láser',
+  'Reflexología podal',
+  'Lifting y extensión de pestañas',
   'Spa kids',
 ]
 
@@ -129,13 +130,15 @@ const QUOTE_BOX = [
   'md:col-span-3 md:mt-24',
 ]
 
+// Precios reales: promociones publicadas por el centro en Instagram.
 const PRECIOS = [
-  { name: 'Limpieza facial profunda', price: 'desde $25.000' },
-  { name: 'Sesión de fototerapia LED', price: 'desde $18.000' },
-  { name: 'Máscara hidratante + masaje facial', price: 'desde $15.000' },
-  { name: 'Perfilado de cejas', price: 'desde $8.000' },
-  { name: 'Depilación facial', price: 'desde $6.000' },
-  { name: 'Pack de 4 sesiones', price: 'a convenir' },
+  { name: 'Drenaje & Relax · presoterapia + LED (40 min)', price: '$20.000' },
+  { name: 'Pack Girasol · masaje + drenaje + piernas cansadas', price: '$25.000' },
+  { name: 'Depilación pack Rostro perfecto', price: '$15.000' },
+  { name: 'Depilación pack Piernas suaves', price: '$17.000' },
+  { name: 'Depilación pack Brazos & piernas', price: '$18.000' },
+  { name: 'Depilación pack Espalda perfecta', price: '$12.000' },
+  { name: 'Spa kids · mini tratamientos', price: '$25.000' },
 ]
 
 // Horario real de la ficha de Google Maps.
@@ -158,14 +161,14 @@ function Folio({
     <Reveal className="flex items-center gap-4 md:gap-6">
       <span
         className={`${display.className} italic shrink-0 leading-none text-5xl md:text-6xl`}
-        style={{ color: light ? C.mint : C.petrol }}
+        style={{ color: light ? C.rose : C.wine }}
         aria-hidden="true"
       >
         {n}
       </span>
       <p
         className={KICKER}
-        style={{ color: light ? 'rgba(247,249,249,0.75)' : C.muted }}
+        style={{ color: light ? 'rgba(251,245,240,0.75)' : C.muted }}
       >
         <span className="sr-only">Sección {n}: </span>
         {kicker}
@@ -185,7 +188,7 @@ export default function IssaBellaPage() {
       className={`${body.className} min-h-screen antialiased overflow-x-clip`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
-      <div style={{ backgroundColor: C.petrolDeep }}>
+      <div style={{ backgroundColor: C.wineDeep }}>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -194,10 +197,10 @@ export default function IssaBellaPage() {
         fontClass={display.className}
         theme={{
           over: 'dark',
-          bar: 'rgba(247,249,249,0.95)',
-          ink: C.petrol,
+          bar: 'rgba(251,245,240,0.95)',
+          ink: C.wine,
           line: C.line,
-          btnBg: C.petrol,
+          btnBg: C.wine,
           btnInk: C.paper,
         }}
       />
@@ -207,7 +210,7 @@ export default function IssaBellaPage() {
       <header
         id="inicio"
         className="relative min-h-svh flex flex-col"
-        style={{ backgroundColor: C.petrolDeep }}
+        style={{ backgroundColor: C.wineDeep }}
       >
         <Image
           src={`${IMG}/hero.webp`}
@@ -221,7 +224,7 @@ export default function IssaBellaPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(9,51,61,0.8) 0%, rgba(9,51,61,0.64) 34%, rgba(9,51,61,0.72) 58%, rgba(9,51,61,0.92) 100%)',
+              'linear-gradient(180deg, rgba(59,31,44,0.8) 0%, rgba(59,31,44,0.64) 34%, rgba(59,31,44,0.72) 58%, rgba(59,31,44,0.92) 100%)',
           }}
           aria-hidden="true"
         />
@@ -231,20 +234,20 @@ export default function IssaBellaPage() {
           <Reveal>
             <div
               className={`${KICKER} flex flex-wrap justify-between gap-x-6 gap-y-1 border-y py-2.5`}
-              style={{ color: 'rgba(247,249,249,0.92)', borderColor: 'rgba(247,249,249,0.35)' }}
+              style={{ color: 'rgba(251,245,240,0.92)', borderColor: 'rgba(251,245,240,0.35)' }}
             >
               <span>Edición especial · {BIZ.city}</span>
               <span>{BIZ.rubro} · Nº 01</span>
             </div>
             <p
               className={`${display.className} italic text-center leading-[0.95] mt-6 md:mt-8 text-[clamp(3.4rem,12vw,10.5rem)]`}
-              style={{ color: C.paper, textShadow: '0 4px 40px rgba(9,51,61,0.45)' }}
+              style={{ color: C.paper, textShadow: '0 4px 40px rgba(59,31,44,0.45)' }}
             >
               Issa·bella
             </p>
             <p
               className={`${KICKER} text-center mt-2 md:mt-3`}
-              style={{ color: C.mint }}
+              style={{ color: C.rose }}
             >
               SpA · centro de estética
             </p>
@@ -262,22 +265,22 @@ export default function IssaBellaPage() {
             >
               Tu piel, tratada
               <br />
-              <em className="font-normal" style={{ color: C.mint }}>
+              <em className="font-normal" style={{ color: C.rose }}>
                 como se debe.
               </em>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-md mb-8" style={{ color: 'rgba(247,249,249,0.94)' }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-md mb-8" style={{ color: 'rgba(251,245,240,0.94)' }}>
               Centro de estética facial en Sarajevo, {BIZ.city}. Atención
               con hora, en una sala luminosa y sin apuro.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={BTN_MINT + ' tap-44'}>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={BTN_ROSE + ' tap-44'}>
                 Agendar por WhatsApp
               </a>
               <a
                 href="#tratamientos"
                 className={`${BTN} border hover:bg-white/10 tap-44`}
-                style={{ borderColor: 'rgba(247,249,249,0.55)', color: C.paper }}
+                style={{ borderColor: 'rgba(251,245,240,0.55)', color: C.paper }}
               >
                 Ver tratamientos
               </a>
@@ -286,7 +289,7 @@ export default function IssaBellaPage() {
           <Reveal delay={140} className="lg:col-span-4 lg:col-start-9">
             <ul
               className="border-l pl-5 space-y-2.5"
-              style={{ borderColor: C.mint }}
+              style={{ borderColor: C.rose }}
             >
               {COVERLINES.map((c) => (
                 <li
@@ -294,7 +297,7 @@ export default function IssaBellaPage() {
                   className="text-sm md:text-base font-bold tracking-wide"
                   style={{ color: C.paper }}
                 >
-                  <span style={{ color: C.mint }} aria-hidden="true">
+                  <span style={{ color: C.rose }} aria-hidden="true">
                     +{' '}
                   </span>
                   {c}
@@ -307,7 +310,7 @@ export default function IssaBellaPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${FOCUS} text-xs font-bold px-3.5 py-2 border hover:bg-white/10 transition-colors tap-44`}
-                style={{ borderColor: 'rgba(247,249,249,0.4)', color: C.paper }}
+                style={{ borderColor: 'rgba(251,245,240,0.4)', color: C.paper }}
               >
                 {BIZ.ratingLabel} · {BIZ.reviews} reseñas en Google
               </a>
@@ -316,7 +319,7 @@ export default function IssaBellaPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${FOCUS} text-xs font-bold px-3.5 py-2 border hover:bg-white/10 transition-colors tap-44`}
-                style={{ borderColor: 'rgba(247,249,249,0.4)', color: C.paper }}
+                style={{ borderColor: 'rgba(251,245,240,0.4)', color: C.paper }}
               >
                 {BIZ.instagramHandle} · {BIZ.followers} seguidores
               </a>
@@ -327,16 +330,16 @@ export default function IssaBellaPage() {
         {/* franja de datos al pie de portada */}
         <div
           className="relative border-t"
-          style={{ borderColor: C.lineLight, backgroundColor: 'rgba(9,51,61,0.85)', backdropFilter: 'blur(6px)' }}
+          style={{ borderColor: C.lineLight, backgroundColor: 'rgba(59,31,44,0.85)', backdropFilter: 'blur(6px)' }}
         >
           <div
             className={`${WRAP} pr-20 md:pr-24 py-3.5 flex flex-wrap gap-x-8 gap-y-1 text-[11px] uppercase tracking-[0.18em]`}
-            style={{ color: 'rgba(247,249,249,0.9)' }}
+            style={{ color: 'rgba(251,245,240,0.9)' }}
           >
             <span>{BIZ.address}, {BIZ.city}</span>
             <span className="hidden md:inline">Atención con hora</span>
             <span className="hidden sm:inline">{BIZ.phoneDisplay}</span>
-            <span className="ml-auto" style={{ color: C.mint }}>
+            <span className="ml-auto" style={{ color: C.rose }}>
               sitio de ejemplo
             </span>
           </div>
@@ -347,14 +350,14 @@ export default function IssaBellaPage() {
       <section id="tratamientos" className={`scroll-mt-20 ${WRAP} pt-20 md:pt-28`}>
         <Folio n="01" kicker="Tratamientos de cabina" />
         <div className="mt-8 md:mt-12 grid gap-6 lg:grid-cols-12 lg:gap-x-10 items-end">
-          <h2 className={`${H2} lg:col-span-8`} style={{ color: C.petrol }}>
+          <h2 className={`${H2} lg:col-span-8`} style={{ color: C.wine }}>
             Lo que tu piel
             <br />
             <em className="font-normal">estaba pidiendo</em>
           </h2>
           <p className="lg:col-span-4 text-base leading-relaxed max-w-[36ch]" style={{ color: C.muted }}>
-            Carta de muestra de los tratamientos. Al publicar van los
-            servicios, las descripciones y los valores reales del centro.
+            Tratamientos, fotos y afiches reales del centro, tomados de
+            su ficha de Maps y de lo que publica en Instagram.
           </p>
         </div>
 
@@ -374,7 +377,7 @@ export default function IssaBellaPage() {
                 <p className={`${KICKER} mt-5`} style={{ color: C.muted }}>
                   {t.n}
                 </p>
-                <h3 className={`${display.className} text-3xl md:text-4xl leading-tight mt-2 mb-3`} style={{ color: C.petrol }}>
+                <h3 className={`${display.className} text-3xl md:text-4xl leading-tight mt-2 mb-3`} style={{ color: C.wine }}>
                   {t.name}
                 </h3>
                 <p className="text-base leading-relaxed max-w-[52ch]" style={{ color: C.muted }}>
@@ -385,8 +388,8 @@ export default function IssaBellaPage() {
           ))}
 
           <Reveal className="lg:col-span-4 lg:col-start-9 lg:mt-16" delay={120}>
-            <aside className="p-7 md:p-8 border" style={{ backgroundColor: C.mintSoft, borderColor: C.petrol }}>
-              <p className={`${KICKER} mb-5`} style={{ color: C.petrol }}>
+            <aside className="p-7 md:p-8 border" style={{ backgroundColor: C.roseSoft, borderColor: C.wine }}>
+              <p className={`${KICKER} mb-5`} style={{ color: C.wine }}>
                 También en cabina
               </p>
               <ul className="space-y-3 mb-7">
@@ -394,10 +397,10 @@ export default function IssaBellaPage() {
                   <li
                     key={item}
                     className="flex items-baseline justify-between gap-4 pb-3 border-b border-dotted text-base"
-                    style={{ borderColor: 'rgba(14,76,92,0.35)' }}
+                    style={{ borderColor: 'rgba(124,45,78,0.35)' }}
                   >
                     {item}
-                    <span className={`${display.className} italic text-sm`} style={{ color: C.petrol }}>
+                    <span className={`${display.className} italic text-sm`} style={{ color: C.wine }}>
                       consulta
                     </span>
                   </li>
@@ -408,12 +411,12 @@ export default function IssaBellaPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${LINK} font-bold text-base tap-44`}
-                style={{ color: C.petrol }}
+                style={{ color: C.wine }}
               >
                 Consulta por WhatsApp →
               </a>
               <p className="mt-5 text-xs leading-relaxed" style={{ color: C.muted }}>
-                Lista de muestra: al publicar va la carta real.
+                Servicios del afiche que el centro publica en redes.
               </p>
             </aside>
           </Reveal>
@@ -433,7 +436,7 @@ export default function IssaBellaPage() {
                 <p className={`${KICKER} mt-5`} style={{ color: C.muted }}>
                   {t.n}
                 </p>
-                <h3 className={`${display.className} text-2xl md:text-3xl leading-tight mt-2 mb-3`} style={{ color: C.petrol }}>
+                <h3 className={`${display.className} text-2xl md:text-3xl leading-tight mt-2 mb-3`} style={{ color: C.wine }}>
                   {t.name}
                 </h3>
                 <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
@@ -447,7 +450,7 @@ export default function IssaBellaPage() {
 
       {/* ── Doble página: foto que rompe la grilla ── */}
       <figure className="relative mt-20 md:mt-28">
-        <div className="relative w-full h-[68vw] max-h-[560px] min-h-[320px]" style={{ backgroundColor: C.petrolDeep }}>
+        <div className="relative w-full h-[68vw] max-h-[560px] min-h-[320px]" style={{ backgroundColor: C.wineDeep }}>
           <Image
             src={`${IMG}/ambiente.webp`}
             alt="Tratamiento facial en cabina de Issa-bella Spa, con luz cálida de velas"
@@ -459,7 +462,7 @@ export default function IssaBellaPage() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(90deg, rgba(9,51,61,0.82) 0%, rgba(9,51,61,0.66) 55%, rgba(9,51,61,0.55) 100%)',
+                'linear-gradient(90deg, rgba(59,31,44,0.82) 0%, rgba(59,31,44,0.66) 55%, rgba(59,31,44,0.55) 100%)',
             }}
             aria-hidden="true"
           />
@@ -467,7 +470,7 @@ export default function IssaBellaPage() {
             <Reveal>
               <blockquote
                 className={`${display.className} italic leading-[1.15] text-[clamp(1.7rem,4.2vw,3.4rem)] max-w-[16ch]`}
-                style={{ color: C.paper, textShadow: '0 2px 30px rgba(9,51,61,0.6)' }}
+                style={{ color: C.paper, textShadow: '0 2px 30px rgba(59,31,44,0.6)' }}
               >
                 “Una casa de barrio,
                 <br />
@@ -488,7 +491,7 @@ export default function IssaBellaPage() {
       {/* ── 02 · El centro ── */}
       <section id="el-centro" className={`scroll-mt-20 ${WRAP} pt-20 md:pt-28`}>
         <Folio n="02" kicker="El centro" />
-        <h2 className={`${H2} mt-8 md:mt-12 lg:w-[90%]`} style={{ color: C.petrol }}>
+        <h2 className={`${H2} mt-8 md:mt-12 lg:w-[90%]`} style={{ color: C.wine }}>
           En Sarajevo, con hora
           <br />
           <em className="font-normal">y sin apuro</em>
@@ -496,13 +499,13 @@ export default function IssaBellaPage() {
 
         <div className="mt-10 md:mt-14 grid gap-10 lg:grid-cols-12 lg:gap-x-10">
           <Reveal className="lg:col-span-3 lg:order-2">
-            <dl className="border-t-2 pt-5 space-y-5" style={{ borderColor: C.petrol }}>
+            <dl className="border-t-2 pt-5 space-y-5" style={{ borderColor: C.wine }}>
               <div>
-                <dt className={`${KICKER} mb-1`} style={{ color: C.petrol }}>Dirección</dt>
+                <dt className={`${KICKER} mb-1`} style={{ color: C.wine }}>Dirección</dt>
                 <dd className="text-base">{BIZ.address}, {BIZ.city}</dd>
               </div>
               <div>
-                <dt className={`${KICKER} mb-1`} style={{ color: C.petrol }}>Google</dt>
+                <dt className={`${KICKER} mb-1`} style={{ color: C.wine }}>Google</dt>
                 <dd className="text-base">
                   <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'}>
                     {BIZ.ratingLabel} · {BIZ.reviews} reseñas
@@ -510,7 +513,7 @@ export default function IssaBellaPage() {
                 </dd>
               </div>
               <div>
-                <dt className={`${KICKER} mb-1`} style={{ color: C.petrol }}>Instagram</dt>
+                <dt className={`${KICKER} mb-1`} style={{ color: C.wine }}>Instagram</dt>
                 <dd className="text-base">
                   <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'}>
                     {BIZ.instagramHandle} · {BIZ.followers}
@@ -518,7 +521,7 @@ export default function IssaBellaPage() {
                 </dd>
               </div>
               <div>
-                <dt className={`${KICKER} mb-1`} style={{ color: C.petrol }}>WhatsApp</dt>
+                <dt className={`${KICKER} mb-1`} style={{ color: C.wine }}>WhatsApp</dt>
                 <dd className="text-base">
                   <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'}>
                     {BIZ.phoneDisplay}
@@ -531,7 +534,7 @@ export default function IssaBellaPage() {
             <p className="text-lg md:text-xl leading-relaxed">
               <span
                 className={`${display.className} float-left text-[4.2rem] md:text-[5rem] leading-[0.8] mr-3 mt-1`}
-                style={{ color: C.petrol }}
+                style={{ color: C.wine }}
                 aria-hidden="true"
               >
                 E
@@ -550,8 +553,8 @@ export default function IssaBellaPage() {
               <p className="mt-4 md:mt-0">
                 Las clientas lo valoran: el centro acumula {BIZ.reviews}{' '}
                 reseñas en su ficha de Google y una comunidad activa en
-                Instagram. Estos párrafos son de muestra; los datos de
-                contacto y reseñas son reales.
+                Instagram, donde publica sus tratamientos y promociones.
+                Los datos de contacto, fotos y reseñas son reales.
               </p>
             </div>
           </Reveal>
@@ -562,14 +565,14 @@ export default function IssaBellaPage() {
           {QUOTES.map((q, i) => (
             <Reveal key={i} delay={i * 110} className={QUOTE_BOX[i]}>
               <figure className="border-t pt-6" style={{ borderColor: C.ink }}>
-                <Stars value={5} color={C.petrol} className="w-3.5 h-3.5 mb-4" />
+                <Stars value={5} color={C.wine} className="w-3.5 h-3.5 mb-4" />
                 <blockquote
                   className={`${display.className} italic leading-snug mb-4 ${i === 0 ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'}`}
                   style={{ color: C.ink }}
                 >
                   {q.text}
                 </blockquote>
-                <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.petrol }}>
+                <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.wine }}>
                   {q.author} · Google
                 </figcaption>
               </figure>
@@ -578,7 +581,7 @@ export default function IssaBellaPage() {
         </div>
         <p className="mt-6 text-sm" style={{ color: C.muted }}>
           Citas reales de{' '}
-          <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'} style={{ color: C.petrol }}>
+          <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'} style={{ color: C.wine }}>
             la ficha de Google
           </a>
           : {BIZ.ratingLabel} de 5 en {BIZ.reviews} reseñas.
@@ -588,20 +591,20 @@ export default function IssaBellaPage() {
       {/* ── 03 · Precios ── */}
       <section id="precios" className="scroll-mt-20 mt-20 md:mt-28" style={{ backgroundColor: C.soft }}>
         <div className={`${WRAP} py-16 md:py-24`}>
-          <Folio n="03" kicker="Precios de referencia" />
+          <Folio n="03" kicker="Precios publicados" />
           <div className="mt-8 md:mt-12 grid gap-10 lg:grid-cols-12 lg:gap-x-10">
             <div className="lg:col-span-4">
-              <h2 className={`${display.className} font-medium leading-[1.06] tracking-[-0.02em] text-[clamp(2.3rem,5vw,4.5rem)] mb-5`} style={{ color: C.petrol }}>
+              <h2 className={`${display.className} font-medium leading-[1.06] tracking-[-0.02em] text-[clamp(2.3rem,5vw,4.5rem)] mb-5`} style={{ color: C.wine }}>
                 El tarifario,
                 <br />
                 <em className="font-normal">al punto</em>
               </h2>
               <p className="text-base leading-relaxed max-w-[40ch] mb-8" style={{ color: C.muted }}>
-                Valores de muestra para esta demostración. Al publicar van
-                los precios reales: confirma el tuyo por WhatsApp antes de
-                venir.
+                Valores de las promociones que el centro publica en
+                Instagram. Confirma precio vigente y disponibilidad por
+                WhatsApp antes de venir.
               </p>
-              <a href={WA_LINK_FACIAL} target="_blank" rel="noopener noreferrer" className={BTN_PETROL + ' tap-44'}>
+              <a href={WA_LINK_FACIAL} target="_blank" rel="noopener noreferrer" className={BTN_WINE + ' tap-44'}>
                 Consultar por WhatsApp
               </a>
             </div>
@@ -612,10 +615,10 @@ export default function IssaBellaPage() {
                     <span className="text-base">{p.name}</span>
                     <span
                       className="flex-1 border-b border-dotted -translate-y-1"
-                      style={{ borderColor: 'rgba(14,76,92,0.45)' }}
+                      style={{ borderColor: 'rgba(124,45,78,0.45)' }}
                       aria-hidden="true"
                     />
-                    <span className={`${display.className} text-lg md:text-xl whitespace-nowrap`} style={{ color: C.petrol }}>
+                    <span className={`${display.className} text-lg md:text-xl whitespace-nowrap`} style={{ color: C.wine }}>
                       {p.price}
                     </span>
                   </li>
@@ -627,7 +630,7 @@ export default function IssaBellaPage() {
       </section>
 
       {/* ── 04 · Agenda y ubicación ── */}
-      <section id="agenda" className="scroll-mt-20" style={{ backgroundColor: C.petrol, color: C.paper }}>
+      <section id="agenda" className="scroll-mt-20" style={{ backgroundColor: C.wine, color: C.paper }}>
         <div className={`${WRAP} py-16 md:py-24`}>
           <Folio n="04" kicker="Agenda tu hora" light />
           <div className="mt-10 md:mt-14 grid gap-12 lg:grid-cols-12 lg:gap-x-10 items-start">
@@ -641,7 +644,7 @@ export default function IssaBellaPage() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
-                <figcaption className="pt-3 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(247,249,249,0.8)' }}>
+                <figcaption className="pt-3 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(251,245,240,0.8)' }}>
                   {BIZ.address}, {BIZ.city}
                 </figcaption>
               </figure>
@@ -650,9 +653,9 @@ export default function IssaBellaPage() {
               <h2 className={`${display.className} font-medium leading-[1.06] tracking-[-0.02em] text-[clamp(2.3rem,5vw,4.5rem)] mb-6`} style={{ color: C.paper }}>
                 {BIZ.address},
                 <br />
-                <em className="font-normal" style={{ color: C.mint }}>{BIZ.city}</em>
+                <em className="font-normal" style={{ color: C.rose }}>{BIZ.city}</em>
               </h2>
-              <address className="not-italic text-base md:text-lg leading-relaxed mb-7" style={{ color: 'rgba(247,249,249,0.85)' }}>
+              <address className="not-italic text-base md:text-lg leading-relaxed mb-7" style={{ color: 'rgba(251,245,240,0.85)' }}>
                 {BIZ.name}
                 <br />
                 {BIZ.address} · {BIZ.city}, {BIZ.region}
@@ -662,21 +665,21 @@ export default function IssaBellaPage() {
                   <li
                     key={h.days}
                     className="flex items-baseline justify-between gap-6 py-3 border-b text-base"
-                    style={{ borderColor: C.lineLight, color: 'rgba(247,249,249,0.85)' }}
+                    style={{ borderColor: C.lineLight, color: 'rgba(251,245,240,0.85)' }}
                   >
                     <span>{h.days}</span>
                     <span style={{ color: C.paper }}>{h.time}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-sm mb-8" style={{ color: 'rgba(247,249,249,0.82)' }}>
+              <p className="text-sm mb-8" style={{ color: 'rgba(251,245,240,0.82)' }}>
                 Horario según la ficha del centro en Google Maps.
               </p>
               <div className="flex flex-wrap items-center gap-4 mb-9">
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={BTN_MINT + ' tap-44'}>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={BTN_ROSE + ' tap-44'}>
                   Agendar por WhatsApp
                 </a>
-                <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} text-base underline underline-offset-4 decoration-2 decoration-[#9FD8CB]/60 hover:decoration-[#9FD8CB] tap-44`}>
+                <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} text-base underline underline-offset-4 decoration-2 decoration-[#E39DB6]/60 hover:decoration-[#E39DB6] tap-44`}>
                   {BIZ.instagramHandle}
                 </a>
               </div>
@@ -686,10 +689,10 @@ export default function IssaBellaPage() {
       </section>
 
       {/* ── Franja Sitiazo ── */}
-      <section style={{ backgroundColor: C.mint }}>
+      <section style={{ backgroundColor: C.rose }}>
         <div className={`${WRAP} py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5`}>
           <div>
-            <p className={`${display.className} italic text-2xl md:text-3xl`} style={{ color: C.petrolDeep }}>
+            <p className={`${display.className} italic text-2xl md:text-3xl`} style={{ color: C.wineDeep }}>
               Sitio de ejemplo de Sitiazo
             </p>
             <p className="mt-1 text-base" style={{ color: C.ink }}>
@@ -700,7 +703,7 @@ export default function IssaBellaPage() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${BTN_PETROL} shrink-0 self-start md:self-auto tap-44`}
+            className={`${BTN_WINE} shrink-0 self-start md:self-auto tap-44`}
           >
             Hablar con {SITE.name} →
           </a>
@@ -708,19 +711,19 @@ export default function IssaBellaPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.petrolDeep, color: C.paper }}>
+      <footer style={{ backgroundColor: C.wineDeep, color: C.paper }}>
         <div className={`${WRAP} pt-8 pb-20`}>
           <p className={`${display.className} italic text-2xl md:text-3xl mb-2`}>
             Issa·bella
           </p>
-          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.8)' }}>
+          <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,245,240,0.8)' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
             <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 tap-44`}>
               {BIZ.phoneDisplay}
             </a>
           </address>
-          <p className="mt-3 text-xs" style={{ color: 'rgba(247,249,249,0.8)' }}>
-            Sitio de ejemplo de Sitiazo: datos, fotos, logo, servicios y reseñas reales (Google Maps e Instagram); precios de muestra.
+          <p className="mt-3 text-xs" style={{ color: 'rgba(251,245,240,0.8)' }}>
+            Sitio de ejemplo de Sitiazo: datos, fotos, logo, servicios, reseñas y precios reales (Google Maps e Instagram).
           </p>
         </div>
       </footer>

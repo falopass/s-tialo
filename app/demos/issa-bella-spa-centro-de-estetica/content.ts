@@ -5,14 +5,14 @@
  * @issa_bella.spa): nombre, dirección en Sarajevo 1576, Curicó,
  * WhatsApp, Instagram (667 seguidores), nota 4,5 en 8 reseñas con
  * las citas reales, horario (Lu-Vi 9:00-21:30, Sá 10:00-19:00), logo
- * y fotos (Maps + posts de IG). Servicios tomados de los afiches que
- * el centro publica; los precios siguen siendo de muestra.
+ * (silueta con loto), fotos (Maps + posts de IG), servicios del afiche
+ * publicado y precios de las promociones publicadas en Instagram.
  */
 
 export const BIZ = {
   name: 'Issa-bella SpA centro de Estética',
   short: 'Issa·bella',
-  rubro: 'Esteticista facial',
+  rubro: 'Centro de estética y salud integral',
   address: 'Sarajevo 1576, 3340001',
   city: 'Curicó',
   region: 'Región del Maule',

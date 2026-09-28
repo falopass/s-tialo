@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T12:22:55.531Z",
+  "fecha": "2026-09-28T12:31:34.913Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "hostal-josefa": {
-      "url": "http://localhost:4800/demos/hostal-josefa/",
+    "issa-bella-spa-centro-de-estetica": {
+      "url": "http://localhost:4800/demos/issa-bella-spa-centro-de-estetica/",
       "status": 200,
       "botones": [],
-      "footerPx": 330,
-      "footerPct": 39.1,
+      "footerPx": 219,
+      "footerPct": 25.9,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4151
+      "ms": 4127
     }
   }
 }
