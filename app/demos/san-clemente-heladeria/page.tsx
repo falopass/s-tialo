@@ -268,6 +268,7 @@ export default function SanClementeHeladeriaPage() {
       <div style={{ backgroundColor: C.chocolateDeep }}>
         <BlitzNav
           name={BIZ.short}
+          logoSrc={`${IMG}/logo.webp`}
           links={NAV_LINKS}
           waLink={WA_LINK}
           fontClass={display.className}
@@ -286,7 +287,7 @@ export default function SanClementeHeladeriaPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.chocolateDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Vitrina de helados artesanales: bandejas de vainilla, frutilla, chocolate, pistacho y más sabores"
+          alt="Bandeja de helado veteado de manjar en el jardín de la Heladería San Clemente"
           fill
           priority
           loading="eager"
@@ -492,7 +493,7 @@ export default function SanClementeHeladeriaPage() {
                 >
                   <Image
                     src={`${IMG}/detalle3.webp`}
-                    alt="Pote familiar de helado casero veteado de frambuesa, con cuchara de servir"
+                    alt="Helado recién batido cayendo de la máquina a la bandeja, producción propia"
                     fill
                     sizes="(min-width: 1024px) 45vw, 100vw"
                     className="object-cover"
@@ -552,7 +553,7 @@ export default function SanClementeHeladeriaPage() {
               <div className="relative overflow-hidden rounded-[28px] border aspect-[4/3]" style={{ borderColor: 'rgba(255,246,233,0.18)' }}>
                 <Image
                   src={`${IMG}/detalle1.webp`}
-                  alt="Copa de vidrio con tres bolas de helado: vainilla con manjar, frambuesa y pistacho"
+                  alt="Bolas de helado frambuesa y crema con salsa de chocolate sobre plátano, servidas en el local"
                   fill
                   sizes="(min-width: 1024px) 42vw, 100vw"
                   className="object-cover"
@@ -629,14 +630,14 @@ export default function SanClementeHeladeriaPage() {
             <div className="relative overflow-hidden rounded-[28px] border aspect-[16/9] md:aspect-[21/8]" style={{ borderColor: C.line }}>
               <Image
                 src={`${IMG}/ambiente.webp`}
-                alt="Interior de una heladería con vitrina curva, mesas de madera y ventanal hacia la plaza"
+                alt="Interior real de Heladería San Clemente: mesas, taca-taca y ventanal hacia el jardín"
                 fill
                 sizes="(min-width: 768px) 75vw, 100vw"
                 className="object-cover"
               />
             </div>
             <p className="text-[11px] leading-relaxed mt-2.5" style={{ color: C.muted }}>
-              Ambiente de muestra: al publicar va una foto real del local.
+              Foto real del local, tomada de su Instagram @heladeriasanclemente.
             </p>
           </Reveal>
         </div>
@@ -766,8 +767,8 @@ export default function SanClementeHeladeriaPage() {
             </p>
             <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,246,233,0.8)' }}>
               Sitio de ejemplo de Sitiazo: nombre, comuna, WhatsApp, Instagram,
-              horario y sabores marcados son reales; carta completa, formatos,
-              copas y fotos son de muestra.
+              horario, sabores marcados, fotos y logo son reales; carta completa
+              y textos son de muestra.
             </p>
           </div>
         </div>

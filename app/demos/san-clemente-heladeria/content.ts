@@ -3,10 +3,12 @@
  *
  * Datos del mockup. REALES (ficha pública y redes del negocio): nombre,
  * comuna, WhatsApp, Instagram (@heladeriasanclemente, 4.866 seguidores),
- * el horario de fin de semana publicado en su Instagram y los sabores
+ * el horario de fin de semana publicado en su Instagram, los sabores
  * vistos en sus historias (yogur melón, torta manjar nuez y torta de
- * limón). Todo lo demás (carta completa, formatos, copas y textos) es
- * contenido de muestra para mostrar cómo se vería el sitio.
+ * limón), las fotos de public/demos/san-clemente-heladeria/ (posts
+ * reales de @heladeriasanclemente, vía imginn.com) y su logo de
+ * perfil. Todo lo demás (carta completa, formatos y textos) es
+ * contenido de muestra.
  */
 
 export const BIZ = {
