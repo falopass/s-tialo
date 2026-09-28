@@ -7,6 +7,22 @@ import { Motif, headingFont } from './kit'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'pannton-arquitectura',
+    name: 'Pannton, Arquitectura y Soluciones Gráficas',
+    rubro: 'Impresión y diseño',
+    city: 'Talca',
+    tagline: 'Taller de impresión en Lomas de Lircay: grafito, papel y ámbar.',
+    gradient: 'linear-gradient(135deg, #1C1B19 0%, #E0A21B 140%)',
+  },
+  {
+    slug: 'gacitua-producciones',
+    name: 'Gacitúa Producciones',
+    rubro: 'Eventos y banquetería',
+    city: 'Talca',
+    tagline: 'Eventos y arriendo de vajilla en Villa Colín Sur: verde profundo y dorado.',
+    gradient: 'linear-gradient(135deg, #1F3A2E 0%, #B8893A 140%)',
+  },
+  {
     slug: 'villa-antillanca-hotel-centro-eventos',
     name: 'Villa Antillanca, Hotel & Centro de Eventos',
     rubro: 'Hotel y eventos',
