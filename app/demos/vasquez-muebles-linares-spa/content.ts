@@ -4,8 +4,11 @@
  * Datos del mockup. REALES: nombre, rubro, comuna, dirección
  * (Callejón Los Zárate, parcela 2, Linares), WhatsApp, página de
  * Facebook (2.749 seguidores) y que hoy no tiene reseñas en Google.
- * Todo lo demás (productos, precios, horarios, reseñas, fotos) es
- * contenido de ejemplo para mostrar cómo se vería el sitio.
+ * Fotos y logo de public/demos/vasquez-muebles-linares-spa: todas reales,
+ * de la ficha de Google Maps (cocinas, closet, paneles ranurados, logo
+ * «Muebles Vasquez — Líderes en calidad»). Todo lo demás (productos,
+ * precios, reseñas) es contenido de ejemplo para mostrar cómo se vería
+ * el sitio.
  */
 
 export const BIZ = {

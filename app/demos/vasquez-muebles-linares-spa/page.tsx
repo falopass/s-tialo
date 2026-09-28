@@ -47,26 +47,26 @@ const NAV_LINKS = [
 
 const MUEBLES = [
   {
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Muebles de cocina en fabricación dentro del taller',
+    src: `${IMG}/cocina.webp`,
+    alt: 'Cocina a medida de Vasquez Muebles: módulos oscuros con isla blanca de cubierta clara',
     name: 'Cocinas a medida',
-    desc: 'Muebles de cocina, cubiertas y aireadores ajustados al centímetro de tu espacio. Eliges material, color y tiradores.',
+    desc: 'Muebles de cocina, cubiertas e islas ajustados al centímetro de tu espacio. Eliges material, color y tiradores.',
   },
   {
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Mesa de muestras con tableros, tiradores y huincha de medir',
+    src: `${IMG}/closet.webp`,
+    alt: 'Closet blanco de Vasquez Muebles con panel ranurado de madera, repisa y luz interior',
     name: 'Closets y dormitorio',
     desc: 'Closets, veladores, respaldos y cómodas pensados para descansar bien: todo a la medida de la pieza.',
   },
   {
-    src: `${IMG}/hero.webp`,
-    alt: 'Mesa de comedor de madera terminada junto al ventanal del taller',
-    name: 'Mesas y comedores',
-    desc: 'Mesas de comedor, racks de TV y muebles de terraza en madera, hechos para durar.',
+    src: `${IMG}/panel.webp`,
+    alt: 'Panel de muro ranurado de Vasquez Muebles con repisas y luz LED integrada',
+    name: 'Racks y paneles de muro',
+    desc: 'Paneles ranurados, racks de TV y muros decorativos de madera con iluminación, hechos para durar.',
   },
   {
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Banco de trabajo con cepillos, formones y una caja con ensamble cola de milano',
+    src: `${IMG}/azul.webp`,
+    alt: 'Cocina azul marino en L de Vasquez Muebles con cubierta clara y tiradores dorados',
     name: 'Encargos especiales',
     desc: '¿Una idea, una foto, un rincón difícil? Se dibuja, se cotiza y se fabrica en el taller.',
   },
@@ -197,6 +197,7 @@ export default function VasquezMueblesPage() {
     >
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo-icon.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
@@ -214,7 +215,7 @@ export default function VasquezMueblesPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Taller de Vasquez Muebles en Linares: mesa de comedor de madera junto a un ventanal con vista al bosque"
+          alt="Cocina a medida de Vasquez Muebles: módulos oscuros con isla central y ventanal, instalada en Linares"
           fill
           priority
           sizes="100vw"
@@ -303,8 +304,8 @@ export default function VasquezMueblesPage() {
               />
               <div className="relative overflow-hidden aspect-[4/5]" style={{ borderRadius: '999px 999px 32px 32px' }}>
                 <Image
-                  src={`${IMG}/ambiente.webp`}
-                  alt="Fachada del taller en Callejón Los Zárate: galpón de ladrillo con maderas apiladas, en una calle tranquila de Linares"
+                  src={`${IMG}/isla.webp`}
+                  alt="Cocina con isla entregada por Vasquez Muebles en Linares, con el logo del taller en la foto"
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"
                   className="object-cover"
@@ -327,9 +328,9 @@ export default function VasquezMueblesPage() {
               cada mueble.
             </p>
             <p className="text-[15px] md:text-base leading-relaxed mb-7" style={{ color: C.muted }}>
-              El taller todavía no acumula reseñas en Google — los encargos
-              llegan por el boca a boca y por los {BIZ.facebookFollowers} vecinos
-              que siguen el trabajo en Facebook.
+              Las fotos de esta página son trabajo real del taller, publicado
+              en su ficha de Google. Los encargos llegan por el boca a boca
+              y por los vecinos que siguen el trabajo en Facebook.
             </p>
             <ul className="space-y-3 mb-8">
               {[
@@ -373,8 +374,8 @@ export default function VasquezMueblesPage() {
                 Lo que sale del taller
               </h2>
               <p className="text-[15px] max-w-sm leading-relaxed" style={{ color: C.muted }}>
-                Productos de ejemplo: al publicar van los trabajos y
-                especialidades reales del taller.
+                Trabajos reales entregados por el taller: cocinas, closets
+                y paneles de muro, todos en su ficha de Google.
               </p>
             </div>
           </Reveal>
@@ -678,7 +679,7 @@ export default function VasquezMueblesPage() {
       </div>
       <section className="relative overflow-hidden" style={{ backgroundColor: C.deep }}>
         <div className="absolute inset-0 opacity-[0.14]" aria-hidden="true">
-          <Image src={`${IMG}/ambiente.webp`} alt="" fill sizes="100vw" className="object-cover" />
+          <Image src={`${IMG}/hero.webp`} alt="" fill sizes="100vw" className="object-cover" />
         </div>
         <Sprig className="absolute top-12 left-6 md:left-16 w-[52px] rotate-[12deg] opacity-50" color={C.terracota} />
         <Sprig className="absolute bottom-12 right-8 md:right-20 w-[40px] -rotate-[18deg] opacity-40" color={C.arena} />
@@ -710,7 +711,10 @@ export default function VasquezMueblesPage() {
       {/* ── Footer ── */}
       <footer className="pb-20" style={{ backgroundColor: C.deep, color: '#FFFFFF', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
-          <p className={`${display.className} text-xl mb-1.5`}>{BIZ.name}</p>
+          <p className={`${display.className} text-xl mb-1.5 flex items-center gap-3`}>
+            <img src={`${IMG}/logo.webp`} alt={`Logo de ${BIZ.name}`} className="h-8 w-auto rounded-sm bg-white px-1.5 py-0.5" />
+            {BIZ.name}
+          </p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
             {BIZ.address} · {BIZ.city}, {BIZ.region} ·{' '}
             <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
@@ -722,7 +726,7 @@ export default function VasquezMueblesPage() {
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.arena }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.legal}: productos, precios, reseñas y fotos son de muestra.{' '}
+            para {BIZ.legal}: precios y reseñas son de muestra; las fotos son trabajo real de su ficha de Google.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.arena }}>
               ¿Lo hacemos realidad?
             </a>
