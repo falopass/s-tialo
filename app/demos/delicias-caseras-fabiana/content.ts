@@ -12,6 +12,10 @@ export const WA_LINK = `https://wa.me/${BIZ.phone}?text=${encodeURIComponent(
   'Hola, vi la página de Delicias Caseras Fabiana y quisiera consultar.',
 )}`
 
+export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
+  `Padre Aldo Davanzo 1194, ${BIZ.city}, Chile`,
+)}&output=embed`
+
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${BIZ.address}, ${BIZ.city}, Maule, Chile`,
 )}`
