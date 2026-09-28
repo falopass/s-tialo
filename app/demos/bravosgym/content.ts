@@ -2,7 +2,8 @@
  * app/demos/bravosgym/content.ts
  *
  * Datos del mockup. REALES (ficha pública): nombre, rubro, dirección
- * (Pje. 3 1657, Molina), la reseña de su ficha de Google, el Instagram
+ * (Pje. 3 1657, Molina), el 5,0 de Google, la reseña citada de su
+ * ficha, las fotos del local, el logo naranjo "B", el Instagram
  * @bravosgym_ (252 seguidores) y el WhatsApp. Todo lo demás
  * (servicios, horarios, precios y textos) es contenido de muestra
  * para mostrar cómo se vería el sitio.

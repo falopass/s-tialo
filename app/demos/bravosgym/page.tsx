@@ -65,21 +65,27 @@ const NAV_LINKS = [
 const SERVICES = [
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Rack de mancuernas y barra olímpica en la sala de pesas de Bravosgym',
+    alt: 'Multipower y banco de Bravosgym frente al muro naranjo',
     name: 'Pesas libres y máquinas',
     desc: 'Racks, barras, mancuernas y bancos para entrenar fuerza en serio. Suficiente equipamiento para no hacer fila.',
   },
   {
     src: `${IMG}/detalle3.webp`,
-    alt: 'Zona de entrenamiento funcional con cuerdas de suspensión, kettlebells y cajones',
+    alt: 'Caminadora y pesas en la zona de cardio de Bravosgym',
     name: 'Entrenamiento funcional',
     desc: 'Suspensión, kettlebells, cajones y colchonetas: movimientos que sirven para la vida diaria, no solo para la foto.',
   },
   {
     src: `${IMG}/detalle2.webp`,
-    alt: 'Recepción de Bravosgym con pizarra de horarios, toallas y vista a la sala de máquinas',
+    alt: 'Recepción de Bravosgym con el dispensador de agua con el logo Bravos',
     name: 'Clases y atención directa',
     desc: 'Horarios de clases a la vista y gente que te recibe por tu nombre. Aquí no entrenas solo ni eres un número.',
+  },
+  {
+    src: `${IMG}/detalle4.webp`,
+    alt: 'Bicicleta de spinning junto al ventilador en Bravosgym',
+    name: 'Zona cardio',
+    desc: 'Bicicletas y caminadora para el calentamiento, la resistencia y bajar el entrenamiento.',
   },
 ]
 
@@ -143,6 +149,7 @@ export default function BravosgymPage() {
     >
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
@@ -160,7 +167,7 @@ export default function BravosgymPage() {
       <BleedPanel
         id="inicio"
         src={`${IMG}/hero.webp`}
-        alt="Interior de Bravosgym: sala de máquinas iluminada por el sol con vista a Molina"
+        alt="Muro de espejos de Bravosgym con la fila de mancuernas y la sala de máquinas al fondo"
         eager
         className="min-h-svh flex flex-col justify-end"
       >
@@ -300,8 +307,9 @@ export default function BravosgymPage() {
                 <li className="flex gap-3">
                   <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-2" style={{ backgroundColor: C.terracotta }} aria-hidden="true" />
                   <span>
-                    <strong>{BIZ.reviews} reseña</strong> en su ficha de Google Maps — recién
-                    empieza a juntar opiniones.{' '}
+                    <strong>5,0 estrellas</strong> en Google Maps. Su primera reseña dice:{' '}
+                    «Excelente ambiente para entrenar, buena atención por parte del profe,
+                    te ayuda en todo».{' '}
                     <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2A41] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8F4A2A] tap-44" style={{ color: C.terraDeep }}>
                       Ver ficha →
                     </a>
@@ -324,8 +332,8 @@ export default function BravosgymPage() {
                 </li>
               </ul>
               <p className="text-xs leading-relaxed mt-6 pt-5 border-t" style={{ color: C.muted, borderColor: C.line }}>
-                Los textos descriptivos de este sitio son de muestra: al
-                publicar van los contenidos y reseñas reales.
+                Las fotos, la reseña y los datos de la ficha son reales;
+                los textos descriptivos y los precios son de muestra.
               </p>
             </div>
           </Reveal>
@@ -398,7 +406,7 @@ export default function BravosgymPage() {
       <BleedPanel
         id="contacto"
         src={`${IMG}/ambiente.webp`}
-        alt="Fachada de Bravosgym al atardecer en Pasaje 3, centro de Molina"
+        alt="Pasillo interior de Bravosgym con máquinas, espejos y la recepción al fondo"
         className="min-h-svh flex items-center"
       >
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 py-24 md:py-32 grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
@@ -483,7 +491,8 @@ export default function BravosgymPage() {
               </a>
           </address>
           <p className="text-xs leading-relaxed mt-3" style={{ color: 'rgba(232,220,200,0.6)' }}>
-            Sitio de ejemplo de Sitiazo: textos, precios y fotos de muestra.
+            Sitio de ejemplo de Sitiazo: fotos y datos de la ficha reales;
+            textos y precios de muestra.
           </p>
         </div>
       </footer>
