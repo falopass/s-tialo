@@ -1,11 +1,14 @@
 export const BIZ = {
   name: 'Delicias Caseras Fabiana',
-  category: 'Panadería y pastelería',
+  category: 'Repostería casera',
   address: 'Villa Entre Ríos, calle Padre Aldo Davanzo #1194',
   city: 'San Clemente',
   phone: '56948446446',
-  profileSource: 'https://chilopina.com/panaderia/san-clemente/delicias-caseras-fabiana/',
-  contactSource: 'https://san-clemente-maule-cl.ude.cl/delicias-caseras-fabiana.html',
+  phoneDisplay: '+56 9 4844 6446',
+  instagram: 'https://www.instagram.com/deliciascaserasfabiana/',
+  facebook: 'https://www.facebook.com/deliciascaserasfabiana',
+  rating: '5,0',
+  reviews: '7',
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.phone}?text=${encodeURIComponent(

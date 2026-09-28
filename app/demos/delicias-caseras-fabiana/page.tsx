@@ -29,9 +29,9 @@ const C = {
 
 export const metadata: Metadata = demoMetadata({
   slug: 'delicias-caseras-fabiana',
-  title: 'Delicias Caseras Fabiana — Panadería y pastelería en San Clemente',
+  title: 'Delicias Caseras Fabiana — Tortas y repostería en San Clemente',
   description:
-    'Panadería y pastelería casera en Villa Entre Ríos, San Clemente. Consulta preparaciones, disponibilidad y encargos por WhatsApp.',
+    'Tortas de celebración y repostería casera en Villa Entre Ríos, San Clemente. Consulta preparaciones, disponibilidad y encargos por WhatsApp.',
 })
 
 const NAV_LINKS = [
@@ -42,26 +42,37 @@ const NAV_LINKS = [
 
 const MESAS = [
   {
-    title: 'Panadería',
-    lead: 'Del horno a la mesa',
-    desc: 'Pan y masas horneadas en casa, en Villa Entre Ríos. Pregunta qué hay del día antes de pasar.',
-    icon: 'pan' as const,
+    title: 'Tortas de encargo',
+    lead: 'Para celebrar',
+    desc: 'Tortas personalizadas para cumpleaños y ocasiones especiales: unicornios, dinosaurios, Avengers y lo que se te ocurra. Se conversa y se encarga por WhatsApp.',
+    icon: 'torta' as const,
   },
   {
-    title: 'Pastelería',
-    lead: 'Para celebrar',
-    desc: 'Tortas y dulces caseros para cumpleaños, once o una ocasión especial. Se conversa y se encarga por WhatsApp.',
-    icon: 'torta' as const,
+    title: 'Repostería casera',
+    lead: 'Dulces de la casa',
+    desc: 'Dulces y preparaciones caseras para la once o para regalonear. Pregunta qué hay del día antes de pasar.',
+    icon: 'pan' as const,
   },
 ]
 
 const PASOS = [
-  { t: 'Escribe', d: 'Cuéntale a Fabiana qué buscas: pan del día, una torta, algo para la once.' },
-  { t: 'Coordinen', d: 'Confirman preparación, cantidad y fecha de retiro por el mismo chat.' },
+  { t: 'Escribe', d: 'Cuéntale a Fabiana qué buscas: una torta temática, algo para la once, un dulce del día.' },
+  { t: 'Coordinen', d: 'Confirman diseño, tamaño y fecha de retiro por el mismo chat.' },
   { t: 'Retira', d: 'Recién hecho, en Padre Aldo Davanzo #1194, San Clemente.' },
 ]
 
-const SELLOS = ['Hecho en casa', 'San Clemente', 'Encargos por WhatsApp', 'Panadería', 'Pastelería', 'Villa Entre Ríos']
+const SELLOS = ['Hecho en casa', 'San Clemente', 'Encargos por WhatsApp', 'Tortas temáticas', 'Repostería', 'Villa Entre Ríos']
+
+const FOTOS = [
+  { src: '/demos/delicias-caseras-fabiana/torta-1.webp', alt: 'Torta de unicornio con crema de colores hecha por Delicias Caseras Fabiana' },
+  { src: '/demos/delicias-caseras-fabiana/torta-2.webp', alt: 'Torta de dinosaurio para cumpleaños infantil' },
+  { src: '/demos/delicias-caseras-fabiana/torta-3.webp', alt: 'Torta con rosas de crema rosadas' },
+  { src: '/demos/delicias-caseras-fabiana/torta-4.webp', alt: 'Torta de Peppa Pig para cumpleaños' },
+  { src: '/demos/delicias-caseras-fabiana/torta-5.webp', alt: 'Torta de chocolate decorada con galletas' },
+  { src: '/demos/delicias-caseras-fabiana/torta-6.webp', alt: 'Torta temática de Avengers con foto comestible' },
+]
+
+
 
 // ── Motivo: puntilla (borde festoneado de mantel de cocina) ───
 function Puntilla({ color, flip = false }: { color: string; flip?: boolean }) {
@@ -93,56 +104,6 @@ function Azucar({ id, color, opacity = 0.35 }: { id: string; color: string; opac
   )
 }
 
-// ── Escena del hero: bandeja con torta, pan y berlines ───────
-function MesaScene() {
-  return (
-    <svg viewBox="0 0 520 400" className="w-full h-auto max-w-[520px] mx-auto" role="img" aria-label="Ilustración de una torta, un pan y berlines sobre una bandeja">
-      {/* plato grande */}
-      <ellipse cx="260" cy="330" rx="240" ry="40" fill={C.butter} />
-      <ellipse cx="260" cy="324" rx="220" ry="32" fill="#FBEBC5" />
-      {/* torta de dos pisos */}
-      <g>
-        <rect x="70" y="220" width="180" height="90" rx="10" fill="#F2C8B0" />
-        <rect x="70" y="220" width="180" height="26" rx="10" fill="#FFF3E6" />
-        <path d="M70 246c10 0 10 14 20 14s10-14 20-14 10 14 20 14 10-14 20-14 10 14 20 14 10-14 20-14 10 14 20 14 10-14 20-14 10 14 20 14" fill="none" stroke="#FFF3E6" strokeWidth="9" strokeLinecap="round" />
-        <rect x="95" y="160" width="130" height="66" rx="8" fill="#F2C8B0" />
-        <rect x="95" y="160" width="130" height="20" rx="8" fill="#FFF3E6" />
-        <path d="M95 180c8 0 8 12 16 12s8-12 16-12 8 12 16 12 8-12 16-12 8 12 16 12 8-12 16-12 8 12 16 12 8-12 16-12" fill="none" stroke="#FFF3E6" strokeWidth="8" strokeLinecap="round" />
-        {/* frutillas */}
-        {[120, 160, 200].map((x) => (
-          <g key={x}>
-            <path d={`M${x} 142c-10 0-16 9-16 17 0 9 10 16 16 22 6-6 16-13 16-22 0-8-6-17-16-17Z`} fill={C.berry} />
-            <path d={`M${x - 8} 141l8-10 8 10-8 3Z`} fill="#3B7A3A" />
-            <circle cx={x - 4} cy="156" r="1.6" fill="#F6DFA6" />
-            <circle cx={x + 5} cy="162" r="1.6" fill="#F6DFA6" />
-          </g>
-        ))}
-      </g>
-      {/* pan (hogaza con cortes) */}
-      <g>
-        <path d="M290 300c0-40 30-72 80-72s80 32 80 72c0 10-6 14-16 14H306c-10 0-16-4-16-14Z" fill="#C7772F" />
-        <path d="M300 292c0-34 26-58 70-58s70 24 70 58" fill="none" stroke="#DE9B52" strokeWidth="6" strokeLinecap="round" />
-        {[330, 362, 394].map((x) => (
-          <path key={x} d={`M${x} 248l22 30`} stroke="#FFF3E6" strokeWidth="6" strokeLinecap="round" />
-        ))}
-      </g>
-      {/* berlines */}
-      <g>
-        <ellipse cx="330" cy="200" rx="34" ry="24" fill="#E7A55A" />
-        <ellipse cx="330" cy="196" rx="30" ry="18" fill="#F3C57F" />
-        <path d="M304 200h52" stroke={C.berry} strokeWidth="5" strokeLinecap="round" />
-        <ellipse cx="400" cy="196" rx="34" ry="24" fill="#E7A55A" />
-        <ellipse cx="400" cy="192" rx="30" ry="18" fill="#F3C57F" />
-        <path d="M374 196h52" stroke={C.berry} strokeWidth="5" strokeLinecap="round" />
-        {[318, 332, 346, 388, 404, 416].map((x, i) => (
-          <circle key={x} cx={x} cy={i < 3 ? 186 : 182} r="1.8" fill="#FFF7EA" />
-        ))}
-      </g>
-      {/* vapor */}
-      <path d="M368 214c-6-10 6-14 0-26M388 210c-6-10 6-14 0-26" fill="none" stroke={C.cinnamon} strokeWidth="3" strokeLinecap="round" opacity="0.45" />
-    </svg>
-  )
-}
 
 function Icono({ kind }: { kind: 'pan' | 'torta' }) {
   return kind === 'pan' ? (
@@ -199,6 +160,7 @@ export default function Page() {
         fontClass={`${display.className} font-bold`}
         theme={{ over: 'light', bar: 'rgba(255,247,234,0.92)', ink: C.cocoa, line: C.line, btnBg: C.cocoa, btnInk: C.cream }}
         ctaLabel="Escribir"
+        logoSrc="/demos/delicias-caseras-fabiana/logo.webp"
       />
 
       <main id="inicio">
@@ -209,14 +171,14 @@ export default function Page() {
             <div className="text-center md:text-left">
               <Reveal>
                 <p className="flex justify-center md:justify-start gap-2 flex-wrap mb-5">
-                  <Etiqueta>Panadería</Etiqueta>
-                  <Etiqueta tone="berry">Pastelería</Etiqueta>
+                  <Etiqueta>Tortas de encargo</Etiqueta>
+                  <Etiqueta tone="berry">Repostería casera</Etiqueta>
                 </p>
                 <h1 className={`${display.className} font-black leading-[0.98] text-[44px] sm:text-6xl lg:text-7xl tracking-tight`} style={{ color: C.cocoa }}>
                   Casero de verdad, <em className="not-italic" style={{ color: C.cinnamon, fontStyle: 'italic', fontWeight: 500 }}>hecho por Fabiana</em>
                 </h1>
                 <p className="mt-6 text-lg leading-relaxed max-w-md mx-auto md:mx-0" style={{ color: C.muted }}>
-                  Pan y dulces de casa en Villa Entre Ríos, San Clemente. Consulta qué hay hoy o encarga para tu celebración.
+                  Tortas temáticas y dulces de casa en Villa Entre Ríos, San Clemente. Consulta qué hay hoy o encarga para tu celebración.
                 </p>
                 <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                   <Btn href={WA_LINK} tone="cocoa">Consultar por WhatsApp</Btn>
@@ -225,12 +187,28 @@ export default function Page() {
               </Reveal>
             </div>
             <Reveal delay={120}>
-              <MesaScene />
+              <figure className="relative">
+                <div className="overflow-hidden rounded-[2rem] border-4" style={{ borderColor: C.card, boxShadow: '0 18px 44px rgba(62,36,24,0.18)' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/demos/delicias-caseras-fabiana/hero.webp"
+                    alt="Torta de unicornio con crema de colores, encargo real de Delicias Caseras Fabiana"
+                    className="w-full h-auto aspect-[4/3] object-cover"
+                    loading="eager"
+                  />
+                </div>
+                <figcaption
+                  className={`${display.className} absolute -bottom-4 right-5 rounded-full px-4 py-2 text-base italic shadow-lg md:right-8`}
+                  style={{ backgroundColor: C.cocoa, color: C.cream }}
+                >
+                  torta unicornio de encargo
+                </figcaption>
+              </figure>
             </Reveal>
           </div>
         </section>
 
-        {/* MESAS: panadería / pastelería */}
+        {/* MESAS: tortas de encargo / repostería casera */}
         <section id="mesas" className="relative scroll-mt-16" style={{ backgroundColor: C.butter }}>
           <Puntilla color={C.cream} />
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
@@ -259,6 +237,35 @@ export default function Page() {
             </div>
           </div>
           <Puntilla color={C.cream} flip />
+        </section>
+
+        {/* GALERÍA: tortas reales del Instagram de Fabiana */}
+        <section className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <h2 className={`${display.className} text-4xl sm:text-5xl font-black leading-[1.02] tracking-tight text-center max-w-2xl mx-auto`} style={{ color: C.cocoa }}>
+              Tortas que ya <span style={{ color: C.cinnamon, fontStyle: 'italic', fontWeight: 500 }}>salieron de acá</span>
+            </h2>
+            <p className="mt-4 text-center max-w-lg mx-auto text-base" style={{ color: C.muted }}>
+              Fotos reales de encargos publicados en el Instagram de Delicias Caseras Fabiana.
+            </p>
+          </Reveal>
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {FOTOS.map((f, i) => (
+              <Reveal key={f.src} delay={i * 70}>
+                <figure className="overflow-hidden rounded-2xl" style={{ boxShadow: '0 8px 24px rgba(62,36,24,0.10)' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={f.src} alt={f.alt} className="w-full aspect-square object-cover" loading="lazy" />
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal>
+            <p className="mt-8 text-center">
+              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${display.className} inline-flex items-center gap-2 italic text-lg underline underline-offset-4 decoration-2 tap-44`} style={{ color: C.berry, textDecorationColor: 'rgba(178,48,74,0.35)' }}>
+                Ver más en Instagram →
+              </a>
+            </p>
+          </Reveal>
         </section>
 
         {/* CINTA DE SELLOS */}
@@ -348,6 +355,9 @@ export default function Page() {
                 <br />
                 San Clemente, Región del Maule
               </address>
+              <p className="mt-3 text-sm font-bold" style={{ color: C.cinnamon }}>
+                ★ {BIZ.rating} en Google · {BIZ.reviews} reseñas · retiro y reparto
+              </p>
               <p className="mt-4 rounded-2xl px-5 py-4 text-[15px]" style={{ backgroundColor: C.butter, color: C.cocoa }}>
                 Antes de ir, confirma horario y disponibilidad por WhatsApp: así no te quedas sin lo que buscabas.
               </p>
@@ -357,8 +367,19 @@ export default function Page() {
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <div className="rounded-3xl overflow-hidden aspect-[4/3]" style={{ boxShadow: '0 12px 34px rgba(62,36,24,0.14)', backgroundColor: C.butter }}>
-                <LazyMap src={MAPS_EMBED} title={`Mapa de ${BIZ.name}`} className="w-full h-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+              <div className="grid gap-4">
+                <figure className="rounded-3xl overflow-hidden" style={{ boxShadow: '0 12px 34px rgba(62,36,24,0.14)' }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/demos/delicias-caseras-fabiana/local.webp"
+                    alt="Fachada del local de Delicias Caseras Fabiana en Villa Entre Ríos, San Clemente"
+                    className="w-full aspect-[16/10] object-cover"
+                    loading="lazy"
+                  />
+                </figure>
+                <div className="rounded-3xl overflow-hidden aspect-[4/3]" style={{ boxShadow: '0 12px 34px rgba(62,36,24,0.14)', backgroundColor: C.butter }}>
+                  <LazyMap src={MAPS_EMBED} title={`Mapa de ${BIZ.name}`} className="w-full h-full border-0" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                </div>
               </div>
             </Reveal>
           </div>
