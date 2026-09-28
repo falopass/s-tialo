@@ -15,4 +15,8 @@ export const WA_LINK = 'https://wa.me/56992268717?text=Hola%2C%20quiero%20consul
 export const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Gimnasio+Body+Fitness+Talca,+Pje.+Cuatro+Sur+1565,+Talca'
 export const PHOTO = '/demos/gimnasio-body-fitness-talca/sala-google-maps.jpg'
 
+export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
+  `${BIZ.name}, ${BIZ.address}`,
+)}&output=embed`
+
 // Fuentes consultadas: ficha de Google Maps (nombre, dirección, teléfono, horario y foto); reseñas públicas de Google Maps mencionan máquinas y pesas. La página de Facebook enlazada desde Maps solicita inicio de sesión; no se encontró un Instagram verificable.
