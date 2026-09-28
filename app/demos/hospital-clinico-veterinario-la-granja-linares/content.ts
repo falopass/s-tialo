@@ -3,7 +3,7 @@
  *
  * Datos del mockup. REALES (ficha pública de Google Maps e Instagram):
  * nombre, rubro, dirección en Colo Colo 1634 (Linares), WhatsApp, las
- * 143 reseñas de Google y los 1.913 seguidores de Instagram. Todo lo
+ * 144 reseñas de Google y los 1.913 seguidores de Instagram. Todo lo
  * demás (servicios, precios, horarios, reseñas citadas, fotos) es
  * contenido de muestra para mostrar cómo se vería el sitio.
  */
@@ -18,7 +18,7 @@ export const BIZ = {
   phoneDisplay: '+56 9 5050 6713',
   phoneTel: '+56950506713',
   whatsapp: '56950506713',
-  reviews: 143,
+  reviews: 144,
   instagram: 'https://instagram.com/hcvlagranja',
   igFollowers: '1.913',
 } as const
