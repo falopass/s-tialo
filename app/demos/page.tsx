@@ -2375,6 +2375,30 @@ const BLITZ = [
     tagline: 'Tablero del club: carbón de camarín, verde cancha y la pizarra de sus cuatro frentes.',
     gradient: 'linear-gradient(135deg, #0B120D 0%, #14241A 55%, #3FD96B 150%)',
   },
+  {
+    slug: 'ferreteria-facon',
+    name: 'Ferretería Facón',
+    rubro: 'Ferretería y materiales',
+    city: 'Molina',
+    tagline: 'El letrero de la esquina: azul de su rótulo, cinta de marcas reales y la pizarra de tiza del local.',
+    gradient: 'linear-gradient(135deg, #123047 0%, #1C5D8F 55%, #F5F0E2 150%)',
+  },
+  {
+    slug: 'comercializadora-ayl',
+    name: 'Comercializadora A y L',
+    rubro: 'Tienda de aseo y bazar',
+    city: 'Talca',
+    tagline: 'La boleta de la 1 Poniente: navy de bodega, amarillo oferta y pasillos numerados por letra.',
+    gradient: 'linear-gradient(135deg, #0E1830 0%, #16233F 60%, #FFC61A 150%)',
+  },
+  {
+    slug: 'vulcanizacion-lontue',
+    name: 'Vulcanización Lontué',
+    rubro: 'Vulcanización y neumáticos',
+    city: 'Molina',
+    tagline: 'Pintado a mano en la lata: rojo letrero, negro goma y la cinta de seguridad del taller.',
+    gradient: 'linear-gradient(135deg, #16130F 0%, #7C1B12 65%, #E9B416 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
