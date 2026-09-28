@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Reveal } from '../blitz-kit'
+import { Reveal, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
+import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, RESENAS } from './content'
 import LazyMap from '../lazy-map'
 import { Chrome } from './chrome'
 
@@ -134,11 +134,25 @@ export default function SanMartinPage() {
             <p className="mt-5 text-base md:text-lg leading-relaxed max-w-md" style={{ color: C.boneDim }}>
               Cambio de aceite, filtros y repuestos en {BIZ.address}. Consulta directo por WhatsApp.
             </p>
-            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 border" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(246,244,238,0.06)' }}>
-              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
-              <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.1em]" style={{ color: C.bone }}>
-                Lun–Vie 9:00–19:00 · Sáb 9:00–13:00
-              </span>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 px-4 py-2 border" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(246,244,238,0.06)' }}>
+                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
+                <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.1em]" style={{ color: C.bone }}>
+                  Lun–Vie 9:00–19:00 · Sáb 9:00–13:00
+                </span>
+              </div>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2.5 px-4 py-2 border ${focusRing} tap-44`}
+                style={{ borderColor: C.lineLight, backgroundColor: 'rgba(246,244,238,0.06)' }}
+              >
+                <Stars value={BIZ.rating} color={C.yellow} />
+                <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.1em]" style={{ color: C.bone }}>
+                  {BIZ.rating} · {BIZ.reviews} reseñas
+                </span>
+              </a>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -307,13 +321,68 @@ export default function SanMartinPage() {
         </div>
       </section>
 
-      {/* ── 04 Horario y ubicación ── */}
+      {/* ── 04 Qué dicen en Google ── */}
+      <section id="resenas" className="scroll-mt-20" style={{ backgroundColor: C.grafito }}>
+        <div className="h-2.5" style={{ backgroundImage: CINTA_FINA }} aria-hidden="true" />
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.bone }}>
+              <Label light><span style={{ color: C.bone }}>N°04</span> — Qué dicen en Google</Label>
+              <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.boneDim }}>
+                {BIZ.reviews} reseñas reales
+              </p>
+            </div>
+          </Reveal>
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-14 items-start">
+            <Reveal>
+              <h2 className={`${display.className} uppercase font-bold text-4xl md:text-6xl leading-[0.95] mb-5`} style={{ color: C.bone }}>
+                {BIZ.rating} de 5,
+                <br />
+                <span style={{ color: C.yellow }}>años de clientes</span>
+              </h2>
+              <Stars value={BIZ.rating} color={C.yellow} className="w-6 h-6" />
+              <p className="mt-4 text-sm md:text-base leading-relaxed max-w-sm" style={{ color: C.boneDim }}>
+                La ficha de Google del local junta {BIZ.reviews} reseñas; las que
+                más se repiten hablan del cambio de aceite y del stock.
+              </p>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-block mt-5 text-sm font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4 ${focusRing} tap-44`}
+                style={{ color: C.bone, textDecorationColor: 'rgba(246,244,238,0.4)' }}
+              >
+                Ver la ficha en Google →
+              </a>
+            </Reveal>
+            <div className="space-y-4">
+              {RESENAS.map((r, i) => (
+                <Reveal key={r.nombre} delay={i * 90}>
+                  <figure className="border px-5 md:px-6 py-5" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(246,244,238,0.05)' }}>
+                    <blockquote className="text-sm md:text-base leading-relaxed mb-3" style={{ color: C.bone }}>
+                      “{r.texto}”
+                    </blockquote>
+                    <figcaption className="flex items-center justify-between gap-4 border-t pt-3" style={{ borderColor: C.lineLight }}>
+                      <span className="text-[11px] uppercase tracking-[0.16em] font-bold" style={{ color: C.boneDim }}>
+                        {r.nombre} · Google Maps
+                      </span>
+                      <Stars value={5} color={C.yellow} className="w-3.5 h-3.5" />
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 05 Horario y ubicación ── */}
       <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.bone }}>
         <div className="h-2.5" style={{ backgroundImage: CINTA_FINA }} aria-hidden="true" />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.ink }}>
-              <Label><span style={{ color: C.ink }}>N°04</span> — Horario y ubicación</Label>
+              <Label><span style={{ color: C.ink }}>N°05</span> — Horario y ubicación</Label>
               <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.muted }}>
                 Teniente Ponce · Molina
               </p>

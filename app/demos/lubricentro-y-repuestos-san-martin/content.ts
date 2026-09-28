@@ -9,6 +9,9 @@ export const BIZ = {
   city: 'Molina',
   region: 'Región del Maule',
   whatsapp: '56985227854',
+  phoneDisplay: '+56 9 8522 7854',
+  rating: 4.6,
+  reviews: 64,
   hours: [
     { days: 'Lunes a viernes', time: '9:00–19:00' },
     { days: 'Sábado', time: '9:00–13:00' },
@@ -31,3 +34,20 @@ export const SOURCES = {
   googleMaps: MAPS_URL,
   social: 'Búsquedas por nombre y ubicación en Instagram y Facebook; no se encontró una cuenta verificable.',
 } as const
+
+/** Reseñas reales de la ficha de Google Maps (selección, en su español original). */
+export const RESENAS = [
+  {
+    nombre: 'Jean Pierre Latournerie',
+    texto:
+      'Cambio de aceite garantizado. Hace años que lo hago ahí y nunca he tenido problemas.',
+  },
+  {
+    nombre: 'Miguel Canales A.',
+    texto: 'Normalmente tiene repuestos de todo tipo.',
+  },
+  {
+    nombre: 'Esteban Rebolledo',
+    texto: 'Gran variedad, excelente servicio.',
+  },
+] as const

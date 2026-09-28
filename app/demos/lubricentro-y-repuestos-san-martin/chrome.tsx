@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: 'Qué hacemos', href: '#servicios' },
   { label: 'Cómo funciona', href: '#pasos' },
   { label: 'El local', href: '#local' },
+  { label: 'Reseñas', href: '#resenas' },
   { label: 'Horario y ubicación', href: '#contacto' },
 ]
 
