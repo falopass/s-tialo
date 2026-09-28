@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'sala-cuna-jardin-infantil-gotitas-de-amor',
+    name: 'Jardín Infantil Gotitas de Amor',
+    rubro: 'Sala cuna y jardín infantil',
+    city: 'San Clemente',
+    tagline: 'Cuaderno ilustrado: escenas de cuento marcadas como bosquejo en teal y coral.',
+    gradient: 'linear-gradient(135deg, #FFF6E8 0%, #DCEFED 55%, #E4572E 140%)',
+  },
+  {
     slug: 'la-surena-de-molina',
     name: 'La Sureña de Molina',
     rubro: 'Restaurante de comida casera',
