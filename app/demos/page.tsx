@@ -1334,6 +1334,30 @@ const BLITZ = [
     tagline: 'La vitrina de 5 Poniente: repisas con fotos reales, tortas por encargo y crema-frambuesa.',
     gradient: 'linear-gradient(135deg, #3B231B 0%, #B23455 70%, #F3E4CF 140%)',
   },
+  {
+    slug: 'psic-yaritza-daney-pino-d-az',
+    name: 'Psic. Yaritza Daney Pino Díaz',
+    rubro: 'Psicóloga clínica',
+    city: 'Talca',
+    tagline: 'El cuaderno de la consulta: papel verde niebla, serif de bitácora, sesiones con precio real y agenda por Encuadrado.',
+    gradient: 'linear-gradient(135deg, #EEF0EA 0%, #2F4A3C 120%)',
+  },
+  {
+    slug: 'aluminios-alumrod',
+    name: 'Aluminios Alumrod',
+    rubro: 'Aluminios y vidrios',
+    city: 'Talca',
+    tagline: 'El galpón de franjas rojo-amarillo: planilla de trabajos, condensada industrial y obras reales.',
+    gradient: 'linear-gradient(135deg, #1D1B17 0%, #B02218 70%, #F5B800 150%)',
+  },
+  {
+    slug: 'caba-as-cerro-colorado',
+    name: 'Cabañas Cerro Colorado',
+    rubro: 'Cabañas y alojamiento',
+    city: 'Vilches, San Clemente',
+    tagline: 'Bitácora de cordillera: curvas de nivel, ficha de alojamiento en mono y guía del entorno del lago Colbún.',
+    gradient: 'linear-gradient(135deg, #101E19 0%, #1E3D33 60%, #C25E3A 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
