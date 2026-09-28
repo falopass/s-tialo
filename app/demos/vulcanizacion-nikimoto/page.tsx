@@ -35,8 +35,8 @@ const hazard = {
 
 export const metadata: Metadata = demoMetadata({
   slug: 'vulcanizacion-nikimoto',
-  title: 'Vulcanizacion nikimoto — Taller mecánico en Pelarco',
-  description: 'Vulcanización y taller mecánico en Pelarco, Región del Maule. Pinchazos, neumáticos, frenos y mantención con atención directa. Escribe por WhatsApp.',
+  title: 'Vulcanizacion nikimoto — Taller de motos en Pelarco',
+  description: 'Taller de motos y vulcanización en Pelarco, Región del Maule. Rectificados, baterías, pinchazos y puesta a punto con atención directa. Escribe por WhatsApp.',
   image: '/demos/vulcanizacion-nikimoto/hero.webp',
 })
 
@@ -58,46 +58,46 @@ type Tile = {
 
 const TRABAJOS: Tile[] = [
   {
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Trabajo de vulcanización en el taller nikimoto',
+    src: `${IMG}/piston.webp`,
+    alt: 'Pistón ya rectificado y listo para montar, en el taller Nikimoto de Pelarco',
     n: '01',
-    name: 'Vulcanización y pinchazos',
-    desc: 'Parche por dentro, revisión de la válvula y presión correcta antes de devolverte la rueda.',
+    name: 'Rectificado de pistones',
+    desc: 'Cilindros y pistones rectificados en el torno del taller, listos para montar.',
     span: 'col-span-2 row-span-3 md:col-span-4 md:row-span-3',
   },
   {
-    src: `${IMG}/ambiente.webp`,
-    alt: 'Auto sobre caballetes con la rueda desmontada y el disco de freno a la vista',
+    src: `${IMG}/torno.webp`,
+    alt: 'Pieza de moto en el torno del taller Nikimoto, en Pelarco',
     n: '02',
-    name: 'Frenos y tren delantero',
-    desc: 'Pastillas, discos y revisión de suspensión con la rueda abajo.',
+    name: 'Trabajo en torno',
+    desc: 'Rectificados y piezas ajustadas a medida, hechos acá mismo.',
     span: 'col-span-1 row-span-2 md:col-span-2 md:row-span-2',
   },
   {
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Montaje de neumático en el taller',
+    src: `${IMG}/moto-r15.webp`,
+    alt: 'Moto deportiva azul en el taller: instalación de batería nueva',
     n: '03',
-    name: 'Cambio y montaje de neumáticos',
-    desc: 'Desmontar, montar y balancear, para auto y camioneta.',
+    name: 'Baterías y puesta a punto',
+    desc: 'Baterías nuevas para motos y cuatrimotos, instaladas al momento.',
     span: 'col-span-1 row-span-2 md:col-span-3 md:row-span-2',
   },
   {
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Mesón con filtro de aceite, filtro de aire, bujías y correa listos para una mantención',
+    src: `${IMG}/filtro.webp`,
+    alt: 'Filtro de aire amarillo nuevo sobre la mesa de trabajo del taller',
     n: '04',
-    name: 'Mantención: aceite, filtros y bujías',
-    desc: 'Cambio de aceite y filtros, bujías y correas según kilometraje.',
+    name: 'Filtros y mantención',
+    desc: 'Aceite, filtros y repuestos para mantener la moto al día.',
     span: 'col-span-2 row-span-2 md:col-span-3 md:row-span-2',
   },
 ]
 
 const PRECIOS = [
-  { name: 'Reparación de pinchazo (parche interior)', note: 'auto / camioneta' },
-  { name: 'Montaje y desmontaje de neumático', note: 'por rueda' },
-  { name: 'Balanceo', note: 'por rueda' },
-  { name: 'Cambio de pastillas de freno', note: 'eje delantero, mano de obra' },
-  { name: 'Cambio de aceite y filtro', note: 'mano de obra' },
-  { name: 'Diagnóstico general', note: 'antes de cualquier trabajo' },
+  { name: 'Reparación de pinchazo', note: 'moto / auto / camioneta' },
+  { name: 'Rectificado de cilindro o pistón', note: 'en el torno del taller' },
+  { name: 'Batería nueva instalada', note: 'motos y cuatrimotos' },
+  { name: 'Cambio de aceite y filtros', note: 'según kilometraje' },
+  { name: 'Puesta a punto general', note: 'frenos, tensado y revisión' },
+  { name: 'Diagnóstico', note: 'antes de cualquier trabajo' },
 ]
 
 function Caption({ t }: { t: Tile }) {
@@ -128,6 +128,7 @@ export default function VulcanizacionNikimotoPage() {
       <style>{`html{scroll-behavior:auto}`}</style>
       <BlitzNav
         name={BIZ.name}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
@@ -145,7 +146,7 @@ export default function VulcanizacionNikimotoPage() {
       <section className="relative min-h-[88svh] flex items-end overflow-hidden">
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Taller Vulcanizacion nikimoto en Pelarco"
+          alt="Moto en el taller Nikimoto de Pelarco, con herramientas a un costado"
           fill
           priority
           sizes="100vw"
@@ -154,7 +155,7 @@ export default function VulcanizacionNikimotoPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#17181A] via-[#17181A]/60 to-[#17181A]/10" aria-hidden="true" />
         <div className="relative w-full max-w-6xl mx-auto px-5 pb-14 md:pb-20 pt-32">
           <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] px-3 py-1.5 rounded-sm" style={{ backgroundColor: C.amarillo, color: C.negro }}>
-            Vulcanización · Taller mecánico · {BIZ.city}
+            Taller de motos · Vulcanización · {BIZ.city}
           </p>
           <h1 className={`${display.className} mt-5 text-[2.6rem] leading-[0.95] sm:text-6xl md:text-8xl font-extrabold tracking-tight max-w-4xl`}>
             Rueda pinchada,
@@ -162,7 +163,7 @@ export default function VulcanizacionNikimotoPage() {
             <span style={{ color: C.amarillo }}>se arregla hoy.</span>
           </h1>
           <p className="mt-5 max-w-xl text-base md:text-lg leading-relaxed" style={{ color: '#D5D8DC' }}>
-            Vulcanización y mecánica en Pelarco. Te decimos qué tiene el auto, cuánto sale y cuándo está listo. Sin vueltas.
+            Taller de motos y vulcanización en Pelarco. Te decimos qué tiene, cuánto sale y cuándo está lista. Sin vueltas.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -195,7 +196,7 @@ export default function VulcanizacionNikimotoPage() {
               Lo que sale del taller
             </h2>
             <p className="text-xs uppercase tracking-[0.18em]" style={{ color: C.acero }}>
-              Servicios de muestra · se confirman por WhatsApp
+              Fotos reales de @{BIZ.instagram}
             </p>
           </div>
         </Reveal>
@@ -206,11 +207,16 @@ export default function VulcanizacionNikimotoPage() {
               <Caption t={t} />
             </figure>
           ))}
-          <div className="col-span-1 row-span-1 md:col-span-2 rounded-sm p-4 md:p-5 flex flex-col justify-between" style={{ backgroundColor: C.amarillo, color: C.negro }}>
-            <span className="font-mono text-[11px] tracking-[0.2em]">NOTA</span>
-            <p className={`${display.className} text-lg md:text-2xl font-bold leading-tight`}>
-              Primero el diagnóstico, después el trabajo.
-            </p>
+          <div className="col-span-1 row-span-1 md:col-span-2 rounded-sm p-4 md:p-5 flex items-center gap-4 overflow-hidden" style={{ backgroundColor: C.amarillo, color: C.negro }}>
+            <div className="min-w-0">
+              <span className="font-mono text-[11px] tracking-[0.2em]">NOTA</span>
+              <p className={`${display.className} text-lg md:text-2xl font-bold leading-tight`}>
+                Primero el diagnóstico, después el trabajo.
+              </p>
+            </div>
+            <figure className="relative hidden md:block shrink-0 w-[104px] aspect-square rounded-sm overflow-hidden ml-auto">
+              <Image src={`${IMG}/pato.webp`} alt="El pato con casco de la vitrina del taller Nikimoto" fill sizes="104px" className="object-cover" />
+            </figure>
           </div>
           {TRABAJOS.slice(2).map((t) => (
             <figure key={t.n} className={`relative overflow-hidden rounded-sm group ${t.span}`}>
@@ -235,19 +241,18 @@ export default function VulcanizacionNikimotoPage() {
                     Un taller de Pelarco, <span style={{ color: C.amarillo }}>atendido directo.</span>
                   </h2>
                   <p className="mt-5 max-w-xl leading-relaxed" style={{ color: '#C9CDD2' }}>
-                    Hablas con quien va a meter las manos en tu auto. Te mostramos la pieza gastada, te damos el valor antes de partir y te avisamos por WhatsApp cuando está listo.
+                    Hablas con quien va a meter las manos en la moto. Te mostramos la pieza gastada, te damos el valor antes de partir y te avisamos por WhatsApp cuando está lista.
                   </p>
-                  <p className="mt-3 text-xs" style={{ color: C.acero }}>Texto de muestra.</p>
                 </div>
               </div>
             </Reveal>
             <figure className="relative col-span-2 md:col-span-2 md:row-span-2 min-h-[260px] overflow-hidden rounded-sm">
-              <Image src={`${IMG}/detalle3.webp`} alt="Recepción del taller con mesón de madera y el área de trabajo al fondo" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+              <Image src={`${IMG}/taller.webp`} alt="Interior del taller Nikimoto en Pelarco, con motos y gente trabajando" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
             </figure>
             {[
               { k: 'Directo', v: 'Sin intermediarios: presupuesto y trabajo con la misma persona.' },
-              { k: 'Claro', v: 'El valor se conversa antes de empezar, no al retirar el auto.' },
-              { k: 'Rápido', v: 'Los pinchazos no esperan turno de una semana.' },
+              { k: 'Claro', v: 'El valor se conversa antes de empezar, no al retirar la moto.' },
+              { k: 'Rápido', v: 'Los pinchazos y las baterías no esperan turno de una semana.' },
             ].map((x) => (
               <div key={x.k} className="col-span-2 md:col-span-2 rounded-sm p-5 border" style={{ borderColor: C.line }}>
                 <p className={`${display.className} text-2xl font-bold`} style={{ color: C.amarillo }}>{x.k}</p>
@@ -269,10 +274,27 @@ export default function VulcanizacionNikimotoPage() {
                 seguidores en @{BIZ.instagram}
               </a>
             </div>
-            <div className="col-span-1 md:col-span-3 rounded-sm p-5 flex flex-col justify-between border" style={{ borderColor: C.line }}>
+            <div className="col-span-1 md:col-span-3 rounded-sm p-5 flex flex-col justify-between gap-4 border" style={{ borderColor: C.line }}>
               <span className="text-xs uppercase tracking-[0.18em]" style={{ color: C.acero }}>Google Maps</span>
-              <p className={`${display.className} text-xl md:text-2xl font-bold leading-tight`}>Aún sin reseñas.</p>
-              <p className="text-sm" style={{ color: '#C9CDD2' }}>Si ya te atendimos, tu reseña ayuda a otros vecinos.</p>
+              <div>
+                <p className={`${display.className} text-3xl md:text-4xl font-extrabold leading-none`}>
+                  {BIZ.rating} <span style={{ color: C.amarillo }}>★</span>
+                </p>
+                <p className="mt-1 text-sm" style={{ color: '#C9CDD2' }}>{BIZ.reviews} reseñas en Google</p>
+                <blockquote className="mt-3 border-l-2 pl-3 text-sm leading-relaxed" style={{ borderColor: C.amarillo, color: '#C9CDD2' }}>
+                  “Buena atención y rapidez en el trabajo requerido.”
+                  <cite className="block mt-1 not-italic text-xs" style={{ color: C.acero }}>— Luis Herrera, reseña de Google</cite>
+                </blockquote>
+              </div>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-sm underline underline-offset-4 tap-44 ${focusRing}`}
+                style={{ color: C.amarillo }}
+              >
+                Ver la ficha en Google
+              </a>
             </div>
           </div>
         </div>
@@ -287,7 +309,7 @@ export default function VulcanizacionNikimotoPage() {
             </span>
             <h2 className={`${display.className} mt-4 text-4xl md:text-5xl font-extrabold tracking-tight`}>Precios de referencia</h2>
             <p className="mt-4 text-sm leading-relaxed" style={{ color: '#C9CDD2' }}>
-              Así se vería la lista con los valores reales del taller. Mientras tanto, cotiza por WhatsApp con la marca y el modelo del auto.
+              Así se vería la lista con los valores reales del taller. Mientras tanto, cotiza por WhatsApp con la marca y el modelo de la moto.
             </p>
           </Reveal>
           <ul className="md:col-span-4 border-t" style={{ borderColor: C.line }}>
@@ -327,12 +349,17 @@ export default function VulcanizacionNikimotoPage() {
               </a>
             </div>
           </div>
-          <div className="md:col-span-3 rounded-sm p-6 border" style={{ borderColor: C.line }}>
-            <span className="text-xs uppercase tracking-[0.18em]" style={{ color: C.acero }}>Dirección</span>
-            <p className={`${display.className} mt-2 text-2xl font-bold`}>{BIZ.address}</p>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`mt-3 inline-block text-sm underline underline-offset-4 ${focusRing} tap-44`} style={{ color: C.amarillo }}>
-              Abrir en Google Maps
-            </a>
+          <div className="md:col-span-3 rounded-sm p-6 border flex flex-col justify-between gap-4" style={{ borderColor: C.line }}>
+            <div>
+              <span className="text-xs uppercase tracking-[0.18em]" style={{ color: C.acero }}>Dirección</span>
+              <p className={`${display.className} mt-2 text-2xl font-bold`}>{BIZ.address}</p>
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`mt-3 inline-block text-sm underline underline-offset-4 ${focusRing} tap-44`} style={{ color: C.amarillo }}>
+                Abrir en Google Maps
+              </a>
+            </div>
+            <figure className="relative h-32 md:h-36 overflow-hidden rounded-sm">
+              <Image src={`${IMG}/fachada.webp`} alt="Fachada del taller Nikimoto en la calle de Pelarco" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+            </figure>
           </div>
           <div className="md:col-span-3 relative min-h-[220px] overflow-hidden rounded-sm border" style={{ borderColor: C.line }}>
             <LazyMap

@@ -2,22 +2,26 @@
  * app/demos/vulcanizacion-nikimoto/content.ts
  *
  * Datos del mockup. REALES (ficha pública y redes del negocio): nombre,
- * rubro, comuna, dirección tal como aparece en la ficha, WhatsApp,
- * Instagram (2.536 seguidores) y que la ficha de Google aún no tiene
- * reseñas. Todo lo demás (servicios, textos y tabla de precios) es
- * contenido de muestra para mostrar cómo se vería el sitio.
+ * rubro (taller de motos y vulcanización, según su Instagram), comuna,
+ * dirección tal como aparece en la ficha, WhatsApp, Instagram
+ * (444 seguidores) y la ficha de Google: 4,9 estrellas en 13 reseñas.
+ * Las fotos son reales, bajadas de su Instagram y de su ficha de Maps.
+ * La tabla de precios es de muestra (los servicios sí son los que
+ * publican) y se cotiza por WhatsApp.
  */
 
 export const BIZ = {
   name: 'Vulcanizacion nikimoto',
-  rubro: 'Taller mecánico',
+  rubro: 'Taller de motos y vulcanización',
   address: '3500000 Pelarco, Maule',
   city: 'Pelarco',
   region: 'Región del Maule',
   phoneDisplay: '+56 9 3251 2856',
   whatsapp: '56932512856',
   instagram: 'nikimoto.rs',
-  instagramFollowers: '2.536',
+  instagramFollowers: '444',
+  rating: '4,9',
+  reviews: 13,
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
