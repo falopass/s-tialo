@@ -1678,6 +1678,14 @@ const BLITZ = [
     tagline: 'Ficha de planta: papel grava, amarillo CAT de la maquinaria y zebra de seguridad en el Queri.',
     gradient: 'linear-gradient(135deg, #E7E3DB 0%, #EFA51B 70%, #191B1D 140%)',
   },
+  {
+    slug: 'sala-de-ventas-helados-gigi-talca',
+    name: 'Sala de Ventas Helados Gigi',
+    rubro: 'Sala de ventas de fábrica · helados y confites',
+    city: 'Talca',
+    tagline: 'Pizarra mayorista: precio por unidad, por 10 o por caja, directo de la fábrica.',
+    gradient: 'linear-gradient(135deg, #0B3C74 0%, #1463B8 55%, #D2292F 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
