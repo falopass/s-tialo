@@ -15,6 +15,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #1C4433 0%, #2E6B4F 55%, #B04A2A 140%)',
   },
   {
+    slug: 'lubricentro-huamachuco',
+    name: 'Lubricentro Huamachuco',
+    rubro: 'Lubricentro y accesorios',
+    city: 'San Clemente',
+    tagline: 'Cambio de aceite y accesorios: navy, rojo y dorado aceite.',
+    gradient: 'linear-gradient(135deg, #0E1C29 0%, #12283C 55%, #B3301C 140%)',
+  },
+  {
     slug: 'taller-zunino-266',
     name: 'Taller Zunino 266',
     rubro: 'Taller mecánico',
