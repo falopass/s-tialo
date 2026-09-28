@@ -1,218 +1,122 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
-import { SITE, whatsappLink } from '@/lib/config'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, WA_LINK_PRESUPUESTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import { BIZ, WA_LINK, WA_LINK_PRESUPUESTO, MAPS_URL, MAPS_EMBED, IMG, HORAS, RESENAS } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
-    { path: '../../fonts/bitter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-600.woff2', weight: '600', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-800.woff2', weight: '800', style: 'normal' },
   ],
 })
 const body = localFont({
-  src: [
-    { path: '../../fonts/rubik/normal-300-900.woff2', weight: '300 900', style: 'normal' },
-  ],
+  src: [{ path: '../../fonts/public-sans/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
+})
+const mono = localFont({
+  src: [{ path: '../../fonts/geist-mono/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
 })
 
+/**
+ * Paleta del demo: la marca real de Millycar — pistones rojos sobre
+ * negro. Carbón de taller, papel de orden de trabajo y el rojo del logo.
+ */
 const C = {
-  paper: '#FBFBF8',
-  card: '#FFFFFF',
-  slate: '#2F4858',
-  slateDeep: '#22353F',
-  muted: '#5C6E7B',
-  line: 'rgba(47,72,88,0.16)',
-  yellow: '#F2B705',
-  yellowSoft: '#FDF0C8',
-  soft: '#EDF2F5',
+  paper: '#F2F0EB',
+  card: '#FBFAF7',
+  carbon: '#16130F',
+  carbonSoft: '#211D18',
+  red: '#D8262E',
+  redDeep: '#9E1B21',
+  ink: '#1C1915',
+  muted: '#6E6559',
+  line: 'rgba(22,19,15,0.16)',
 }
+
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D8262E]'
+const BTN_WA = `inline-flex items-center justify-center gap-2 rounded-full font-bold transition-transform hover:-translate-y-0.5 active:scale-95 ${FOCUS}`
 
 export const metadata: Metadata = demoMetadata({
   slug: 'servicio-tecnico-automotriz-millycar',
-  title: 'Millycar — Servicio técnico automotriz en Curicó',
-  description: 'Taller mecánico en Av. Manso de Velasco 965, Curicó. Diagnóstico explicado en simple, presupuesto antes de abrir el capó y avance por WhatsApp.',
+  title: 'Millycar — Servicio Técnico Automotriz en Curicó',
+  description: 'Taller mecánico en Av. Manso de Velasco 965, Curicó. Diagnóstico honesto y trabajos reales. Agenda y presupuestos por WhatsApp.',
   image: '/demos/servicio-tecnico-automotriz-millycar/hero.webp',
 })
 
-const NAV_LINKS = [
+const NAV = [
   { label: 'Servicios', href: '#servicios' },
   { label: 'El taller', href: '#taller' },
-  { label: 'Precios', href: '#precios' },
+  { label: 'Reseñas', href: '#resenas' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
-const CAPITULOS = [
-  {
-    num: '01',
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Piezas del motor sobre la mesa de trabajo del taller',
-    name: 'Diagnóstico y escáner',
-    desc: 'Primero se lee lo que el auto dice: escaneo computarizado, prueba en ruta y revisión visual. Recién ahí se presupuesta.',
-    datum: 'Te contamos qué encontramos antes de abrir nada',
-  },
-  {
-    num: '02',
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Mecánico trabajando en el motor de un auto dentro del taller',
-    name: 'Mantención preventiva',
-    desc: 'Aceite, filtros, correas, fluidos y puntos de seguridad. La visita que evita la panne en la carretera.',
-    datum: 'La más pedida antes de un viaje',
-  },
-  {
-    num: '03',
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Detalle de trabajo en el tren delantero de un auto elevado',
-    name: 'Frenos y suspensión',
-    desc: 'Pastillas, discos, amortiguadores y términos. Si el auto suena, vibra o se va de lado, acá se revisa.',
-    datum: 'Revisión del tren delantero al momento',
-  },
+const OT = [
+  { n: 'OT-01', name: 'Diagnóstico general', desc: 'Escáner, prueba de ruta y diagnóstico explicado antes de mover una sola pieza.' },
+  { n: 'OT-02', name: 'Frenos', desc: 'Pastillas, discos, rectificado y purga del sistema completo.' },
+  { n: 'OT-03', name: 'Suspensión y dirección', desc: 'Amortiguadores, terminales, tren delantero y alineación del andar.' },
+  { n: 'OT-04', name: 'Motor y mantención', desc: 'Cambio de aceite, filtros, distribución y puesta a punto.' },
+  { n: 'OT-05', name: 'Sistema eléctrico', desc: 'Alternador, partida, cableado y diagnóstico de fallas eléctricas.' },
 ]
 
-const TAMBIEN = [
-  'Mecánica general y motor',
-  'Electricidad, baterías y luces',
-  'Escape y sistema de enfriamiento',
-  'Afinamiento y pre-revisión técnica',
+const TRABAJOS = [
+  { src: `${IMG}/boxes.webp`, alt: 'Vans y furgones dentro del taller Millycar en plena atención', label: 'El patio' },
+  { src: `${IMG}/galpon.webp`, alt: 'Furgón dentro del galpón del taller con luz de entrada', label: 'El galpón' },
+  { src: `${IMG}/espera.webp`, alt: 'Autos esperando su turno en el patio del taller', label: 'En espera' },
+  { src: `${IMG}/repuestos.webp`, alt: 'Vitrina de repuestos y lubricantes en la recepción', label: 'Repuestos' },
 ]
-
-const SENALES = [
-  {
-    num: 'A',
-    title: 'Se enciende un testigo en el tablero',
-    desc: 'Amarillo es “revísalo pronto”, rojo es “detente”. Una lectura de escáner sale más barata que adivinar.',
-  },
-  {
-    num: 'B',
-    title: 'Suena o vibra al frenar',
-    desc: 'Un chillido agudo suele ser la alarma de las pastillas. Si tiembla el pedal, pueden ser los discos.',
-  },
-  {
-    num: 'C',
-    title: 'Se acerca el kilometraje de la correa',
-    desc: 'La correa de distribución se cambia por kilometraje, no cuando se rompe. Si se rompe, el motor lo paga.',
-  },
-]
-
-const PRECIOS = [
-  { name: 'Escaneo computarizado y diagnóstico', price: 'desde $15.000' },
-  { name: 'Cambio de aceite + filtro', price: 'desde $30.000' },
-  { name: 'Pastillas de freno delanteras (mano de obra)', price: 'desde $18.000' },
-  { name: 'Mantención completa 10.000 km', price: 'desde $75.000' },
-  { name: 'Alineación y balanceo', price: 'desde $28.000' },
-]
-
-const HORAS = [
-  { days: 'Lunes a viernes', time: '9:00–18:30' },
-  { days: 'Sábado', time: '9:00–14:00' },
-]
-
-const OPINIONES = [
-  {
-    text: 'Me explicaron con la pieza en la mano qué se había gastado y por qué. Primera vez que salgo de un taller entendiendo la cuenta.',
-    author: 'Cliente de Curicó',
-  },
-  {
-    text: 'Dejé el auto en la mañana por un ruido al frenar, me mandaron foto del diagnóstico y presupuesto al almuerzo.',
-    author: 'Cliente de Curicó',
-  },
-]
-
-function Check({ className = 'w-4 h-4', color = 'currentColor' }: { className?: string; color?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M4 12.5 L9.5 18 L20 6.5" />
-    </svg>
-  )
-}
-
-function Pin({ className = 'w-4 h-4', color = 'currentColor' }: { className?: string; color?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M12 21.5s-7-5.8-7-11a7 7 0 0 1 14 0c0 5.2-7 11-7 11Z" />
-      <circle cx="12" cy="10.5" r="2.4" />
-    </svg>
-  )
-}
-
-function Clock({ className = 'w-4 h-4', color = 'currentColor' }: { className?: string; color?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7 v5 l3.5 2" />
-    </svg>
-  )
-}
-
-function Star({ className = 'w-4 h-4', color = 'currentColor' }: { className?: string; color?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill={color} stroke={color} strokeWidth="1.4" strokeLinejoin="round" aria-hidden="true">
-      <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
-    </svg>
-  )
-}
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <p
-      className="text-[11px] font-bold uppercase tracking-[0.22em] mb-4 flex items-center gap-3"
-      style={{ color: light ? C.yellow : C.slate }}
-    >
-      <span className="inline-block w-6 h-[2px]" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
+    <p className={`${mono.className} text-[11px] uppercase tracking-[0.26em] mb-4`} style={{ color: light ? '#F2A0A3' : C.red }}>
       {children}
     </p>
   )
 }
 
-function WaButton({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+export default function ServicioTecnicoMillycarPage() {
   return (
-    <a
-      href={WA_LINK}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2.5 font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 hover:brightness-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 ${className} tap-44`}
-      style={{ backgroundColor: C.yellow, color: C.slateDeep, boxShadow: '0 10px 24px rgba(242,183,5,0.35)' }}
-    >
-      <svg viewBox="0 0 24 24" className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
-      </svg>
-      {children}
-    </a>
-  )
-}
+    <div className={`${body.className} antialiased`} style={{ backgroundColor: C.paper, color: C.ink }}>
+      {/* Nav — barra carbón con el logo real */}
+      <nav
+        className="fixed top-0 inset-x-0 z-40 border-b"
+        style={{ backgroundColor: 'rgba(22,19,15,0.95)', borderColor: 'rgba(242,240,235,0.12)', backdropFilter: 'blur(8px)' }}
+        aria-label="Principal"
+      >
+        <div className="max-w-[1200px] mx-auto px-5 md:px-8 h-16 flex items-center justify-between gap-4">
+          <a href="#inicio" className={`flex items-center gap-3 ${FOCUS} tap-44 rounded-md`}>
+            <span className="relative h-9 w-14 shrink-0 rounded-md overflow-hidden">
+              <Image src={`${IMG}/logo.webp`} alt="Logo de Millycar: pistones cruzados rojos" fill className="object-cover" sizes="56px" />
+            </span>
+            <span className={`${display.className} font-extrabold text-lg md:text-xl uppercase tracking-wide`} style={{ color: C.paper }}>
+              Milly<span style={{ color: C.red }}>car</span>
+            </span>
+          </a>
+          <ul className="hidden md:flex gap-7 text-sm font-medium" style={{ color: 'rgba(242,240,235,0.75)' }}>
+            {NAV.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className={`hover:text-white rounded-sm ${FOCUS} tap-44`}>{l.label}</a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${BTN_WA} px-5 py-2.5 text-sm tap-44`}
+            style={{ backgroundColor: C.red, color: '#FFFFFF' }}
+          >
+            Agendar
+          </a>
+        </div>
+      </nav>
 
-export default function MillycarPage() {
-  return (
-    <div
-      className={`${body.className} min-h-screen antialiased overflow-x-clip`}
-      style={{ backgroundColor: C.paper, color: C.slate }}
-    >
-      <style>{`html { scroll-behavior: auto }`}</style>
-      {/* el nav fijo es transparente arriba: este wrapper declara el fondo oscuro real detrás (hero) */}
-      <div style={{ backgroundColor: C.slateDeep }}>
-        <BlitzNav
-          name={BIZ.short}
-          links={NAV_LINKS}
-          waLink={WA_LINK}
-          fontClass={`${display.className} font-bold`}
-          theme={{
-            over: 'dark',
-            bar: 'rgba(251,251,248,0.94)',
-            ink: C.slate,
-            line: C.line,
-            btnBg: C.yellow,
-            btnInk: C.slateDeep,
-          }}
-        />
-      </div>
-
-      {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.slateDeep }}>
+      {/* Hero — los boxes reales del taller */}
+      <header id="inicio" className="relative min-h-svh overflow-hidden flex flex-col justify-end" style={{ backgroundColor: C.carbon }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Fachada y box de trabajo del servicio técnico automotriz Millycar en Curicó"
+          alt="Autos en los boxes de Millycar mientras un mecánico trabaja"
           fill
           priority
           sizes="100vw"
@@ -220,497 +124,239 @@ export default function MillycarPage() {
         />
         <div
           className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(34,53,63,0.66) 0%, rgba(34,53,63,0.18) 42%, rgba(34,53,63,0.9) 100%)',
-          }}
+          style={{ background: `linear-gradient(180deg, ${C.carbon}70 0%, transparent 35%, ${C.carbon}f0 80%)` }}
+          aria-hidden="true"
         />
-        {/* sello de reseñas */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8">
+        <div className="relative z-10 max-w-[1200px] mx-auto px-5 md:px-8 w-full pb-14 pt-40">
           <Reveal>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
-              style={{ backgroundColor: 'rgba(251,251,248,0.95)', color: C.slate }}
-            >
-              <Star className="w-[15px] h-[15px]" color={C.yellow} />
-              {BIZ.reviews} reseñas en Google
-            </a>
-          </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
-            <Eyebrow light>Taller mecánico · Curicó</Eyebrow>
-            <h1
-              className={`${display.className} font-bold leading-[1.02] tracking-tight text-[clamp(2.6rem,8.5vw,5.4rem)] mb-6`}
-              style={{ color: '#FBFBF8' }}
-            >
-              Mecánica honesta,
-              <br />
-              <span
-                className="inline-block px-3 mt-1 rounded-sm"
-                style={{ backgroundColor: C.yellow, color: C.slateDeep }}
-              >
-                explicada en simple.
-              </span>
-            </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(251,251,248,0.88)' }}>
-              {BIZ.name} atiende en {BIZ.address}, {BIZ.city}: diagnóstico
-              claro, presupuesto antes de abrir el capó y fotos del avance
-              por WhatsApp.
+            <p className={`${mono.className} text-[11px] uppercase tracking-[0.26em] mb-5`} style={{ color: '#F2A0A3' }}>
+              {BIZ.rubro} · {BIZ.city}
             </p>
-            <div className="flex flex-wrap gap-3">
-              <WaButton>Agendar por WhatsApp</WaButton>
+            <h1 className={`${display.className} font-extrabold uppercase max-w-[16ch] text-5xl sm:text-6xl md:text-8xl leading-[0.95] mb-6`} style={{ color: '#FFFFFF' }}>
+              El taller que te dice <span style={{ color: C.red }}>la verdad</span>
+            </h1>
+            <p className="max-w-[34rem] text-base md:text-lg leading-relaxed mb-8" style={{ color: 'rgba(242,240,235,0.85)' }}>
+              Mecánica honesta en Av. Manso de Velasco 965: se revisa, se explica y se cobra lo que se trabajó. Nada más.
+            </p>
+            <div className="flex flex-wrap items-center gap-3">
               <a
-                href="#servicios"
-                className="inline-flex items-center font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl border-2 transition-all hover:bg-white/10 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
-                style={{ borderColor: 'rgba(251,251,248,0.55)', color: '#FBFBF8' }}
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${BTN_WA} px-7 py-3.5 text-sm md:text-base tap-44`}
+                style={{ backgroundColor: C.red, color: '#FFFFFF' }}
               >
-                Ver servicios
+                Agendar revisión
               </a>
+              <a
+                href={WA_LINK_PRESUPUESTO}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${BTN_WA} px-7 py-3.5 text-sm md:text-base tap-44 border-2`}
+                style={{ borderColor: 'rgba(242,240,235,0.45)', color: C.paper }}
+              >
+                Pedir presupuesto
+              </a>
+              <p className={`${mono.className} text-xs`} style={{ color: 'rgba(242,240,235,0.75)' }}>
+                {BIZ.rating}★ · {BIZ.reviews} reseñas en Google
+              </p>
             </div>
           </Reveal>
         </div>
-        {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(251,251,248,0.2)', backgroundColor: 'rgba(34,53,63,0.55)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs font-medium uppercase tracking-[0.16em]" style={{ color: 'rgba(251,251,248,0.8)' }}>
-            <span>{BIZ.address} · {BIZ.city}</span>
-            <span className="flex items-center gap-2">
-              <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
-              atención directa con el mecánico
-            </span>
-            <span>Presupuesto antes de abrir</span>
-            <span className="hidden md:inline" style={{ color: C.yellow }}>sitio de ejemplo</span>
+      </header>
+
+      {/* Orden de trabajo — servicios como documento de taller */}
+      <section id="servicios" className="max-w-[1200px] mx-auto px-5 md:px-8 py-16 md:py-24">
+        <Reveal className="max-w-[42rem]">
+          <Eyebrow>Servicios</Eyebrow>
+          <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-6xl leading-[0.98] mb-4`} style={{ color: C.carbon }}>
+            La orden de trabajo <span style={{ color: C.red }}>empieza aquí</span>
+          </h2>
+          <p className="text-base md:text-lg leading-relaxed" style={{ color: C.muted }}>
+            Cada auto entra con una orden clara: qué se revisa, qué se encontró y qué se hizo. Sin sorpresas en la boleta.
+          </p>
+        </Reveal>
+        <div className="mt-12 rounded-2xl overflow-hidden border-2" style={{ borderColor: C.carbon, backgroundColor: C.card }}>
+          <div className="px-6 md:px-8 py-4 flex items-center justify-between" style={{ backgroundColor: C.carbon }}>
+            <span className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.paper }}>Orden de trabajo</span>
+            <span className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.red }}>Millycar · Curicó</span>
+          </div>
+          <ol>
+            {OT.map((s, i) => (
+              <Reveal key={s.n} delay={i * 40}>
+                <li className="flex items-start gap-5 md:gap-8 px-6 md:px-8 py-5 md:py-6 border-b last:border-0" style={{ borderColor: C.line }}>
+                  <span className={`${mono.className} text-xs md:text-sm font-bold shrink-0 mt-1`} style={{ color: C.red }}>
+                    {s.n}
+                  </span>
+                  <div className="flex-1">
+                    <h3 className={`${display.className} font-extrabold uppercase text-xl md:text-2xl mb-1`} style={{ color: C.carbon }}>
+                      {s.name}
+                    </h3>
+                    <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
+                      {s.desc}
+                    </p>
+                  </div>
+                  <span className="hidden md:block w-4 h-4 mt-2 rounded-full border-2 shrink-0" style={{ borderColor: C.red }} aria-hidden="true" />
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+          <div className="px-6 md:px-8 py-4 border-t-2" style={{ borderColor: C.carbon }}>
+            <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.muted }}>
+              Presupuesto claro antes de trabajar · pide el tuyo por WhatsApp
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ── Cuerpo: columna principal + sidebar pegajoso ── */}
-      <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
-        <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_330px]">
-
-          {/* Sidebar (primero en móvil: agenda siempre a mano) */}
-          <aside className="lg:order-2">
-            <div className="lg:sticky lg:top-[92px] space-y-5">
-              {/* tarjeta de agenda */}
-              <div
-                className="rounded-2xl border p-6 md:p-7"
-                style={{ backgroundColor: C.card, borderColor: C.line, boxShadow: '0 18px 44px rgba(34,53,63,0.10)' }}
-              >
-                <p className="text-[11px] font-bold uppercase tracking-[0.22em] mb-2" style={{ color: C.muted }}>
-                  Agenda tu visita
-                </p>
-                <h2 className={`${display.className} font-bold text-2xl leading-tight mb-3`} style={{ color: C.slateDeep }}>
-                  Cuéntanos qué le pasa a tu auto
-                </h2>
-                <p className="text-sm leading-relaxed mb-5" style={{ color: C.muted }}>
-                  Describe el ruido, el testigo o la falla. Te respondemos
-                  con hora tentativa y qué traer.
-                </p>
-                <WaButton className="w-full">Escribir por WhatsApp</WaButton>
-                <a
-                  href={`tel:${BIZ.phoneTel}`}
-                  className="block text-center text-sm font-medium mt-4 underline underline-offset-4 decoration-2 hover:decoration-[3px] tap-44"
-                  style={{ color: C.slate, textDecorationColor: 'rgba(47,72,88,0.3)' }}
-                >
-                  o llama al {BIZ.phoneDisplay}
-                </a>
-              </div>
-
-              {/* ficha del taller */}
-              <div className="rounded-2xl border p-6 md:p-7" style={{ backgroundColor: C.soft, borderColor: C.line }}>
-                <p className="text-[11px] font-bold uppercase tracking-[0.22em] mb-4" style={{ color: C.muted }}>
-                  Ficha del taller
-                </p>
-                <ul className="space-y-4 text-sm">
-                  {HORAS.map((h) => (
-                    <li key={h.days} className="flex items-start gap-3">
-                      <Clock className="w-4 h-4 mt-0.5 shrink-0" color={C.slate} />
-                      <span style={{ color: C.muted }}>
-                        <strong className="font-semibold" style={{ color: C.slate }}>{h.days}:</strong> {h.time}
-                      </span>
-                    </li>
-                  ))}
-                  <li className="flex items-start gap-3">
-                    <Pin className="w-4 h-4 mt-0.5 shrink-0" color={C.slate} />
-                    <span style={{ color: C.muted }}>
-                      <strong className="font-semibold" style={{ color: C.slate }}>{BIZ.address}</strong>
-                      <br />
-                      {BIZ.city}, {BIZ.region}{' '}
-                      <a
-                        href={MAPS_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-medium underline underline-offset-4 decoration-2 hover:decoration-[3px] tap-44"
-                        style={{ color: C.slate, textDecorationColor: 'rgba(47,72,88,0.3)' }}
-                      >
-                        Cómo llegar →
-                      </a>
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Star className="w-4 h-4 mt-0.5 shrink-0" color={C.yellow} />
-                    <a
-                      href={MAPS_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium underline underline-offset-4 decoration-2 hover:decoration-[3px] tap-44"
-                      style={{ color: C.slate, textDecorationColor: 'rgba(47,72,88,0.3)' }}
-                    >
-                      {BIZ.reviews} reseñas en Google
-                    </a>
-                  </li>
-                </ul>
-                <p className="text-[11px] leading-relaxed mt-5 pt-4 border-t" style={{ color: C.muted, borderColor: C.line }}>
-                  Horarios referenciales: al publicar van los reales del
-                  taller. También estamos en{' '}
-                  <a
-                    href={BIZ.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium underline underline-offset-4 decoration-2 tap-44"
-                    style={{ color: C.slate, textDecorationColor: 'rgba(47,72,88,0.3)' }}
-                  >
-                    Facebook
-                  </a>
-                  .
-                </p>
-              </div>
-            </div>
-          </aside>
-
-          {/* Columna principal */}
-          <main className="lg:order-1 min-w-0">
-
-            {/* ── El taller ── */}
-            <section id="taller" className="scroll-mt-24 mb-16 md:mb-20">
-              <Reveal>
-                <Eyebrow>El taller</Eyebrow>
-                <h2 className={`${display.className} font-bold text-3xl md:text-[2.6rem] leading-[1.08] mb-6`} style={{ color: C.slateDeep }}>
-                  Un taller de barrio en Av. Manso de Velasco,{' '}
-                  <span style={{ boxShadow: `inset 0 -0.42em 0 ${C.yellowSoft}`, WebkitBoxDecorationBreak: 'clone', boxDecorationBreak: 'clone' }}>
-                    donde te explican
-                  </span>{' '}
-                  lo que le hacen a tu auto
-                </h2>
-                <p className="text-sm md:text-base leading-relaxed mb-6 max-w-xl" style={{ color: C.muted }}>
-                  Millycar es un servicio técnico automotriz de Curicó donde
-                  te atiende el mismo mecánico que va a ver tu auto. Nada de
-                  recepcionistas que traducen a medias: llegas, se revisa y
-                  te contamos qué encontramos con la pieza en la mano.
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {[
-                    'Atención directa con el mecánico, sin intermediarios',
-                    'Presupuesto cerrado antes de empezar el trabajo',
-                    'Fotos del avance y de las piezas por WhatsApp',
-                    `${BIZ.reviews} reseñas reales en la ficha de Google`,
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.slate }}>
-                      <Check className="w-4 h-4 shrink-0" color={C.yellow} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-              <Reveal delay={100}>
-                <figure className="relative overflow-hidden rounded-2xl aspect-[16/10] border" style={{ borderColor: C.line }}>
-                  <Image
-                    src={`${IMG}/ambiente.webp`}
-                    alt="Interior del taller Millycar: autos en los boxes de trabajo"
-                    fill
-                    sizes="(min-width: 1024px) 60vw, calc(100vw - 40px)"
-                    className="object-cover"
-                  />
+      {/* El taller — trabajos reales en foto grande */}
+      <section id="taller" className="py-16 md:py-24" style={{ backgroundColor: C.carbon }}>
+        <div className="max-w-[1200px] mx-auto px-5 md:px-8">
+          <Reveal className="max-w-[42rem]">
+            <Eyebrow light>El taller</Eyebrow>
+            <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-6xl leading-[0.98] mb-12`} style={{ color: '#FFFFFF' }}>
+              Así trabaja <span style={{ color: C.red }}>Millycar</span>
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+            {TRABAJOS.map((t, i) => (
+              <Reveal key={t.src} delay={i * 60}>
+                <figure className="group">
+                  <div className="relative h-52 md:h-80 rounded-xl overflow-hidden">
+                    <Image src={t.src} alt={t.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 25vw" />
+                  </div>
+                  <figcaption className={`${mono.className} mt-2.5 text-[11px] uppercase tracking-[0.18em]`} style={{ color: 'rgba(242,240,235,0.7)' }}>
+                    {t.label}
+                  </figcaption>
                 </figure>
               </Reveal>
-
-              {/* lo que valoran */}
-              <div className="grid sm:grid-cols-2 gap-4 mt-10">
-                {OPINIONES.map((t, i) => (
-                  <Reveal key={i} delay={i * 100}>
-                    <figure className="rounded-2xl border p-5 h-full" style={{ backgroundColor: C.card, borderColor: C.line }}>
-                      <Star className="w-4 h-4 mb-3" color={C.yellow} />
-                      <blockquote className="text-sm leading-relaxed mb-4" style={{ color: C.slate }}>
-                        “{t.text}”
-                      </blockquote>
-                      <figcaption className="text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: C.muted }}>
-                        {t.author} · Reseña de ejemplo
-                      </figcaption>
-                    </figure>
-                  </Reveal>
-                ))}
+            ))}
+          </div>
+          <Reveal delay={120}>
+            <div className="mt-12 grid md:grid-cols-2 gap-5">
+              <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
+                <Image src={`${IMG}/recepcion.webp`} alt="Mesón de recepción del taller con repuestos y lubricantes" fill className="object-cover" sizes="(max-width: 768px) 100vw, 560px" />
               </div>
-              <p className="text-xs leading-relaxed mt-4" style={{ color: C.muted }}>
-                Textos de muestra basados en lo que suelen valorar los
-                clientes: al publicar van las reseñas reales de Google.
-              </p>
-            </section>
-
-            {/* ── Servicios ── */}
-            <section id="servicios" className="scroll-mt-24 mb-16 md:mb-20">
-              <Reveal>
-                <Eyebrow>Servicios del taller</Eyebrow>
-                <h2 className={`${display.className} font-bold text-3xl md:text-[2.6rem] leading-[1.08] mb-4`} style={{ color: C.slateDeep }}>
-                  Lo que hacemos,{' '}
-                  <span style={{ boxShadow: `inset 0 -0.42em 0 ${C.yellowSoft}`, WebkitBoxDecorationBreak: 'clone', boxDecorationBreak: 'clone' }}>
-                    capítulo por capítulo
-                  </span>
-                </h2>
-                <p className="text-sm md:text-base leading-relaxed mb-10 max-w-xl" style={{ color: C.muted }}>
-                  La oferta de servicios es de muestra: al publicar va la
-                  carta real de Millycar.
+              <div className="rounded-2xl p-7 md:p-9 flex flex-col justify-center" style={{ backgroundColor: C.carbonSoft, border: '1px solid rgba(242,240,235,0.12)' }}>
+                <h3 className={`${display.className} font-extrabold uppercase text-2xl md:text-3xl mb-4`} style={{ color: '#FFFFFF' }}>
+                  En el mesón te atiende <span style={{ color: C.red }}>quien trabaja</span>
+                </h3>
+                <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: 'rgba(242,240,235,0.75)' }}>
+                  No hay vendedor de por medio: el mismo equipo que recibe el auto es el que lo diagnostica y lo repara. Por eso las explicaciones son cortas y verdaderas.
                 </p>
-              </Reveal>
-              <div className="space-y-10 md:space-y-14">
-                {CAPITULOS.map((cap, i) => (
-                  <Reveal key={cap.num} delay={i * 60}>
-                    <article className="grid md:grid-cols-[64px_minmax(0,1fr)] gap-4 md:gap-7">
-                      <p
-                        className={`${display.className} font-bold text-4xl md:text-5xl leading-none`}
-                        style={{ color: 'rgba(47,72,88,0.22)' }}
-                        aria-hidden="true"
-                      >
-                        {cap.num}
-                      </p>
-                      <div>
-                        <div className="relative overflow-hidden rounded-2xl aspect-[16/9] border mb-5" style={{ borderColor: C.line }}>
-                          <Image
-                            src={cap.src}
-                            alt={cap.alt}
-                            fill
-                            sizes="(min-width: 1024px) 55vw, calc(100vw - 40px)"
-                            className="object-cover"
-                          />
-                        </div>
-                        <h3 className={`${display.className} font-bold text-2xl md:text-[1.7rem] leading-tight mb-2`} style={{ color: C.slateDeep }}>
-                          {cap.name}
-                        </h3>
-                        <p className="text-sm md:text-base leading-relaxed max-w-lg mb-3" style={{ color: C.muted }}>
-                          {cap.desc}
-                        </p>
-                        <p className="flex items-center gap-2.5 text-xs md:text-sm font-semibold" style={{ color: C.slate }}>
-                          <Check className="w-3.5 h-3.5 shrink-0" color={C.yellow} />
-                          {cap.datum}
-                        </p>
-                      </div>
-                    </article>
-                  </Reveal>
-                ))}
+                <a
+                  href={WA_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${BTN_WA} self-start px-6 py-3 text-sm tap-44`}
+                  style={{ backgroundColor: C.red, color: '#FFFFFF' }}
+                >
+                  Consultar por mi auto
+                </a>
               </div>
-              <Reveal delay={80}>
-                <div className="rounded-2xl border p-6 md:p-8 mt-12" style={{ backgroundColor: C.yellowSoft, borderColor: 'rgba(242,183,5,0.4)' }}>
-                  <h3 className={`${display.className} font-bold text-xl md:text-2xl mb-4`} style={{ color: C.slateDeep }}>
-                    Y también revisamos
-                  </h3>
-                  <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
-                    {TAMBIEN.map((item) => (
-                      <li key={item} className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.slate }}>
-                        <Check className="w-4 h-4 shrink-0" color={C.slate} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            </section>
-
-            {/* ── Aprende a leer tu auto ── */}
-            <section className="rounded-3xl p-7 md:p-10 mb-16 md:mb-20" style={{ backgroundColor: C.slate }}>
-              <Reveal>
-                <Eyebrow light>Formación exprés</Eyebrow>
-                <h2 className={`${display.className} font-bold text-3xl md:text-[2.4rem] leading-[1.1] mb-4`} style={{ color: '#FBFBF8' }}>
-                  Aprende a leer tu auto
-                </h2>
-                <p className="text-sm md:text-base leading-relaxed mb-9 max-w-lg" style={{ color: 'rgba(251,251,248,0.75)' }}>
-                  Tres señales que conviene no ignorar. Si tu auto muestra
-                  alguna, escríbenos y te decimos si puede esperar o no.
-                </p>
-              </Reveal>
-              <div className="space-y-0">
-                {SENALES.map((s, i) => (
-                  <Reveal key={s.num} delay={i * 80}>
-                    <div
-                      className={`flex gap-5 py-5 ${i > 0 ? 'border-t' : ''}`}
-                      style={{ borderColor: 'rgba(251,251,248,0.16)' }}
-                    >
-                      <span
-                        className={`${display.className} shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base`}
-                        style={{ backgroundColor: C.yellow, color: C.slateDeep }}
-                        aria-hidden="true"
-                      >
-                        {s.num}
-                      </span>
-                      <div>
-                        <h3 className="font-semibold text-base md:text-lg mb-1" style={{ color: '#FBFBF8' }}>
-                          {s.title}
-                        </h3>
-                        <p className="text-sm leading-relaxed max-w-lg" style={{ color: 'rgba(251,251,248,0.72)' }}>
-                          {s.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </section>
-
-            {/* ── Precios de referencia ── */}
-            <section id="precios" className="scroll-mt-24 mb-16 md:mb-20">
-              <Reveal>
-                <Eyebrow>Precios de referencia</Eyebrow>
-                <h2 className={`${display.className} font-bold text-3xl md:text-[2.6rem] leading-[1.08] mb-4`} style={{ color: C.slateDeep }}>
-                  Valores claros,{' '}
-                  <span style={{ boxShadow: `inset 0 -0.42em 0 ${C.yellowSoft}`, WebkitBoxDecorationBreak: 'clone', boxDecorationBreak: 'clone' }}>
-                    antes de abrir el capó
-                  </span>
-                </h2>
-                <p className="text-sm md:text-base leading-relaxed mb-8 max-w-xl" style={{ color: C.muted }}>
-                  Todos los precios son de muestra para mostrar el formato.
-                  Las tarifas reales las confirma el taller por WhatsApp.
-                </p>
-              </Reveal>
-              <Reveal delay={100}>
-                <ul className="border-t" style={{ borderColor: C.line }}>
-                  {PRECIOS.map((p) => (
-                    <li
-                      key={p.name}
-                      className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-b py-4 md:py-5"
-                      style={{ borderColor: C.line }}
-                    >
-                      <span className="text-sm md:text-base font-medium" style={{ color: C.slate }}>
-                        {p.name}
-                      </span>
-                      <span className={`${display.className} font-bold text-base md:text-lg shrink-0`} style={{ color: C.slateDeep }}>
-                        {p.price}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-              <Reveal delay={160}>
-                <div className="flex flex-wrap items-center justify-between gap-4 mt-8">
-                  <p className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: C.muted }}>
-                    Valores de muestra · sin compromiso
-                  </p>
-                  <a
-                    href={WA_LINK_PRESUPUESTO}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 hover:brightness-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
-                    style={{ backgroundColor: C.slate, color: '#FBFBF8' }}
-                  >
-                    Pedir presupuesto real
-                  </a>
-                </div>
-              </Reveal>
-            </section>
-
-            {/* ── Contacto y mapa ── */}
-            <section id="contacto" className="scroll-mt-24">
-              <Reveal>
-                <Eyebrow>Contacto y ubicación</Eyebrow>
-                <h2 className={`${display.className} font-bold text-3xl md:text-[2.6rem] leading-[1.08] mb-6`} style={{ color: C.slateDeep }}>
-                  {BIZ.address},
-                  <br />
-                  <span style={{ boxShadow: `inset 0 -0.42em 0 ${C.yellowSoft}`, WebkitBoxDecorationBreak: 'clone', boxDecorationBreak: 'clone' }}>{BIZ.city}</span>
-                </h2>
-                <address className="not-italic text-sm md:text-base leading-relaxed mb-8" style={{ color: C.muted }}>
-                  {BIZ.address}
-                  <br />
-                  {BIZ.city}, {BIZ.region}, Chile
-                </address>
-                <div className="flex flex-wrap gap-3 mb-8">
-                  <WaButton>Escribir por WhatsApp</WaButton>
-                  <a
-                    href={MAPS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl border-2 transition-all hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
-                    style={{ borderColor: C.slate, color: C.slate }}
-                  >
-                    Cómo llegar →
-                  </a>
-                </div>
-              </Reveal>
-              <Reveal delay={120}>
-                <div className="rounded-2xl overflow-hidden border min-h-[320px]" style={{ borderColor: C.line, backgroundColor: C.soft }}>
-                  <LazyMap
-                    title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
-                    src={MAPS_EMBED}
-                    className="w-full h-full min-h-[320px]"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-              </Reveal>
-            </section>
-          </main>
-        </div>
-      </div>
-
-      {/* ── CTA final ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: C.slateDeep }}>
-        <Image
-          src={`${IMG}/hero.webp`}
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-[0.14]"
-          aria-hidden="true"
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
-          <Reveal>
-            <h2 className={`${display.className} font-bold text-[clamp(2.1rem,6vw,4rem)] leading-[1.02] mb-6`} style={{ color: '#FBFBF8' }}>
-              Trae el auto con la duda,
-              <br />
-              <span style={{ color: C.yellow }}>llévalo con la respuesta</span>
-            </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(251,251,248,0.78)' }}>
-              Escríbenos por WhatsApp, cuéntanos qué le pasa a tu auto y te
-              confirmamos hora y presupuesto.
-            </p>
-            <WaButton>Agendar por WhatsApp</WaButton>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.slate, color: '#FBFBF8' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
-          <p className={`${display.className} font-bold text-lg flex items-center gap-2.5`}>
-            <span className="inline-block w-4 h-4 rounded-sm" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
-            {BIZ.name}
-          </p>
-          <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(251,251,248,0.85)' }}>
-            {BIZ.address} · {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white focus-visible:text-white transition-colors tap-44">
-              {BIZ.phoneDisplay}
-            </a>
-            {' · '}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white focus-visible:text-white transition-colors tap-44">
-              Facebook
-            </a>
-          </address>
+      {/* Reseñas — el tema que se repite: honestidad */}
+      <section id="resenas" className="max-w-[1200px] mx-auto px-5 md:px-8 py-16 md:py-24">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+          <Reveal>
+            <Eyebrow>Reseñas</Eyebrow>
+            <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-5xl leading-[0.98] mb-4`} style={{ color: C.carbon }}>
+              {BIZ.rating} estrellas, {BIZ.reviews} <span style={{ color: C.red }}>reseñas reales</span>
+            </h2>
+            <p className="text-base leading-relaxed" style={{ color: C.muted }}>
+              La palabra que más se repite en Google no es «barato» ni «rápido»: es <strong style={{ color: C.carbon }}>honesto</strong>.
+            </p>
+          </Reveal>
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-5">
+            {RESENAS.map((r, i) => (
+              <Reveal key={r.author} delay={i * 80}>
+                <figure className="rounded-2xl p-7 h-full flex flex-col border-2" style={{ backgroundColor: C.card, borderColor: C.line }}>
+                  <div className="flex gap-1 mb-4" aria-hidden="true">
+                    {[0, 1, 2, 3, 4].map((s) => (
+                      <svg key={s} viewBox="0 0 24 24" className="w-4 h-4" fill={C.red} aria-hidden="true">
+                        <path d="M12 3.2l2.6 5.5 6 .7-4.4 4.1 1.2 5.9L12 16.6l-5.4 2.8 1.2-5.9-4.4-4.1 6-.7z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <blockquote className="text-base md:text-lg leading-relaxed flex-1 mb-5 font-medium" style={{ color: C.ink }}>
+                    “{r.text}”
+                  </blockquote>
+                  <figcaption className={`${mono.className} text-[11px] uppercase tracking-[0.18em]`} style={{ color: C.muted }}>
+                    {r.author} · {r.meta}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(251,251,248,0.14)' }}>
-          {/* pb-20 deja libre la zona de la burbuja de WhatsApp */}
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,251,248,0.85)' }}>
-            Mockup de{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellow }}>
-              Sitiazo
-            </a>{' '}
-            para {BIZ.name}; servicios, precios y reseñas de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellow }}>
-              ¿Lo hacemos realidad?
-            </a>
-          </p>
+      </section>
+
+      {/* Contacto — horario real, dirección, mapa */}
+      <section id="contacto" className="py-16 md:py-24" style={{ backgroundColor: C.carbonSoft }}>
+        <div className="max-w-[1200px] mx-auto px-5 md:px-8 grid lg:grid-cols-5 gap-6">
+          <Reveal className="lg:col-span-2">
+            <Eyebrow light>Agenda y llegada</Eyebrow>
+            <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-5xl leading-[0.98] mb-6`} style={{ color: '#FFFFFF' }}>
+              Av. Manso de Velasco 965, <span style={{ color: C.red }}>Curicó</span>
+            </h2>
+            <ul className="space-y-4 mb-8">
+              {HORAS.map((h) => (
+                <li key={h.days} className="flex flex-col gap-0.5 pb-4 border-b" style={{ borderColor: 'rgba(242,240,235,0.14)' }}>
+                  <span className={`${mono.className} text-[11px] uppercase tracking-[0.2em]`} style={{ color: 'rgba(242,240,235,0.6)' }}>{h.days}</span>
+                  <span className={`${display.className} font-extrabold text-2xl`} style={{ color: '#FFFFFF' }}>{h.time}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${BTN_WA} px-7 py-3.5 text-sm md:text-base tap-44`}
+                style={{ backgroundColor: C.red, color: '#FFFFFF' }}
+              >
+                Agendar por WhatsApp
+              </a>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${BTN_WA} px-7 py-3.5 text-sm md:text-base tap-44 border-2`}
+                style={{ borderColor: 'rgba(242,240,235,0.4)', color: C.paper }}
+              >
+                Cómo llegar
+              </a>
+            </div>
+          </Reveal>
+          <Reveal delay={100} className="lg:col-span-3">
+            <div className="rounded-2xl overflow-hidden h-80 lg:h-full min-h-[320px] border" style={{ borderColor: 'rgba(242,240,235,0.18)' }}>
+              <LazyMap
+                src={MAPS_EMBED}
+                title="Mapa: Servicio Técnico Automotriz Millycar, Av. Manso de Velasco 965, Curicó"
+                className="w-full h-full min-h-[320px]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </Reveal>
         </div>
+      </section>
+
+      <footer className="px-5 md:px-8 py-7 text-center" style={{ backgroundColor: C.carbon, color: 'rgba(242,240,235,0.55)' }}>
+        <p className="text-xs">
+          {BIZ.name} · {BIZ.address}, {BIZ.city} ·{' '}
+          <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" style={{ color: '#F2A0A3' }}>
+            Facebook
+          </a>{' '}
+          · demo de sitio web
+        </p>
       </footer>
 
-      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
+      <WaFab href={WA_LINK} label="WhatsApp del taller" />
     </div>
   )
 }

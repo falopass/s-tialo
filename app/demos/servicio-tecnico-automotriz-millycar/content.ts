@@ -2,9 +2,10 @@
  * app/demos/servicio-tecnico-automotriz-millycar/content.ts
  *
  * Datos del mockup. REALES (ficha pública de Google Maps y Facebook):
- * nombre, dirección, WhatsApp, las 19 reseñas de Google y la página de
- * Facebook. Todo lo demás —servicios, precios, horarios y reseñas— es
- * contenido de muestra para mostrar cómo se vería el sitio.
+ * nombre, dirección, WhatsApp, horario (L-V 9:00–19:00), las 19
+ * reseñas de Google (4.9★) y la página de Facebook. Servicios y
+ * textos complementarios son contenido de muestra; precios no se
+ * publican porque nunca fueron confirmados.
  */
 
 export const BIZ = {
@@ -17,6 +18,7 @@ export const BIZ = {
   phoneDisplay: '+56 9 6217 9684',
   phoneTel: '+56962179684',
   whatsapp: '56962179684',
+  rating: '4.9',
   reviews: 19,
   facebook: 'http://www.facebook.com/millycar',
 } as const
@@ -38,3 +40,23 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
 )}&output=embed`
 
 export const IMG = '/demos/servicio-tecnico-automotriz-millycar'
+
+/** Horario real de la ficha de Google Maps. */
+export const HORAS = [
+  { days: 'Lunes a viernes', time: '9:00 – 19:00' },
+  { days: 'Sábado y domingo', time: 'Cerrado' },
+] as const
+
+/** Reseñas reales de Google Maps (las más nombran la honestidad). */
+export const RESENAS = [
+  {
+    text: 'Me sorprendió su honestidad: me dijeron exactamente lo que tenía el auto y no inventaron nada más.',
+    author: 'Edgar Montero',
+    meta: 'reseña de Google',
+  },
+  {
+    text: 'Muy honestos y buen trabajo. El auto quedó perfecto.',
+    author: 'Isabeth Custodio',
+    meta: 'reseña de Google',
+  },
+] as const
