@@ -1,123 +1,255 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { DemoBand } from '../kit'
 import { demoMetadata } from '../meta'
-import { BIZ, HOURS, MAPS_URL, WA_LINK } from './content'
-import { SiteNav, WhatsAppFab } from './chrome'
+import { Chrome, Reveal } from './chrome'
+import { BIZ, C, GALERIA, HOURS, IMG, MAPS_URL, METODOS, PROPUESTA, SELLOS, WA_LINK } from './content'
 
-const display = localFont({ src: [{ path: '../../fonts/space-grotesk/normal-300-700.woff2', weight: '300 700' }] })
-const body = localFont({ src: [{ path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900' }] })
+const display = localFont({
+  src: [
+    { path: '../../fonts/fraunces/normal-100-900.woff2', style: 'normal' },
+    { path: '../../fonts/fraunces/italic-100-900.woff2', style: 'italic' },
+  ],
+  weight: '100 900',
+})
+const body = localFont({ src: '../../fonts/dm-sans/normal-100-1000.woff2', weight: '100 1000' })
 
 export const metadata: Metadata = demoMetadata({
   slug: 'monky-coffee',
-  title: 'Monky Coffee — Cafetería en Talca',
-  description: 'Cafetería de especialidad en 1 Oriente #1385, Talca. Café, conversación y métodos de filtrado.',
+  title: 'Monky Coffee · Cafetería de especialidad en Talca',
+  description:
+    'Café de especialidad, pastelería y talleres en 1 Oriente 1385, Talca. Pet friendly, desde 2014. Escríbenos por WhatsApp.',
+  image: `${IMG}/hero.webp`,
 })
 
-function CoffeeScene() {
+const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
+const btn = `${body.className} inline-flex items-center justify-center rounded-full px-6 py-3 text-[15px] font-bold tracking-wide transition-transform active:scale-95 ${focusRing} tap-44`
+
+function Eyebrow({ children, color = C.coralDeep }: { children: React.ReactNode; color?: string }) {
   return (
-    <svg viewBox="0 0 640 480" className="h-full w-full" role="img" aria-label="Ilustración de una taza de café y granos sobre una mesa">
-      <rect width="640" height="480" rx="28" fill="#E6D6B7" />
-      <circle cx="488" cy="105" r="125" fill="#C8D4BC" />
-      <path d="M0 343c135-44 222 10 337-15 119-26 195-7 303 43v109H0Z" fill="#16352B" />
-      <ellipse cx="303" cy="315" rx="143" ry="45" fill="#0C251E" opacity=".35" />
-      <path d="M182 214h218v84c0 55-46 91-109 91s-109-36-109-91Z" fill="#F7F3E9" stroke="#16352B" strokeWidth="7" />
-      <path d="M400 240c84-14 91 82 9 90" fill="none" stroke="#F7F3E9" strokeWidth="28" />
-      <path d="M217 226h148c-5 40-31 59-74 59s-69-19-74-59Z" fill="#6E3E27" />
-      <path d="M249 205c-15-23 17-32 2-54m46 56c-15-23 17-32 2-54m45 55c-15-23 17-32 2-54" fill="none" stroke="#F7F3E9" strokeWidth="7" strokeLinecap="round" opacity=".8" />
-      <ellipse cx="152" cy="371" rx="30" ry="18" fill="#A66C3A" transform="rotate(-25 152 371)" />
-      <ellipse cx="464" cy="367" rx="30" ry="18" fill="#A66C3A" transform="rotate(25 464 367)" />
-      <circle cx="521" cy="310" r="8" fill="#D5A441" /><circle cx="548" cy="335" r="5" fill="#D5A441" />
-      <path d="M89 417h467" stroke="#D5A441" strokeWidth="5" opacity=".8" />
-    </svg>
+    <p className={`${body.className} mb-3 text-[12px] font-bold uppercase tracking-[0.22em]`} style={{ color }}>
+      {children}
+    </p>
   )
 }
 
-const experiences = [
-  { title: 'Café de especialidad', text: 'Granos de fincas sostenibles de América Latina y tostado artesanal.' },
-  { title: 'Métodos que enseñan', text: 'Aeropress y cold brew: distintas formas de descubrir el café.' },
-  { title: 'Un punto de encuentro', text: 'Talleres, catas y eventos culturales alrededor de una buena taza.' },
-]
-
-export default function MonkyCoffeePage() {
+function Photo({ src, alt, className = '', ratio = 'aspect-[4/5]' }: { src: string; alt: string; className?: string; ratio?: string }) {
   return (
-    <div className={`${body.className} min-h-screen bg-[#F7F3E9] text-[#16352B] antialiased`}>
-      <SiteNav />
-      <main>
-        <section id="inicio" className="bg-[#16352B] text-[#F7F3E9]">
-          <div className="mx-auto grid min-h-[720px] max-w-6xl items-end gap-10 px-5 pb-12 pt-28 md:grid-cols-[1.05fr_1fr] md:items-center md:px-8 md:pb-16">
-            <div className="relative z-10">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#D5A441]">Cafetería · Talca · desde 2014</p>
-              <h1 className={`${display.className} max-w-xl text-6xl font-bold leading-[0.92] tracking-[-0.06em] md:text-8xl`}>
-                El café
-                <br />
-                <span className="text-[#D5A441]">se conversa.</span>
-              </h1>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-[#F7F3E9]">Monky Coffee es una cafetería de especialidad para tomar algo rico, aprender del café y quedarse un rato más.</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#D5A441] px-5 py-3 text-sm font-extrabold text-[#16352B] tap-44">Escribir por WhatsApp</a>
-                <a href="#cafe" className="rounded-full border border-[#F7F3E9]/60 px-5 py-3 text-sm font-bold text-[#F7F3E9] tap-44">Ver la experiencia</a>
-              </div>
-            </div>
-            <div className="relative aspect-[4/3] w-full max-w-xl justify-self-end rounded-[28px] bg-[#E6D6B7] p-3 shadow-2xl md:p-5">
-              <CoffeeScene />
-              <span className="absolute bottom-6 left-6 rounded-full bg-[#16352B] px-3 py-1.5 text-xs font-bold text-[#F7F3E9]">Talca · café de especialidad</span>
-            </div>
-          </div>
-        </section>
+    <figure className={`relative overflow-hidden rounded-[20px] ${ratio} ${className}`}>
+      <img src={`${IMG}/${src}.webp`} alt={alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+    </figure>
+  )
+}
 
-        <section id="cafe" className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
-          <div className="max-w-2xl">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#9A6B13]">Más que una taza</p>
-            <h2 className={`${display.className} text-4xl font-bold leading-tight tracking-[-0.05em] md:text-6xl`}>Un café con curiosidad, oficio y comunidad.</h2>
+function Stars() {
+  return (
+    <span className="inline-flex gap-0.5" aria-hidden="true">
+      {[0, 1, 2, 3, 4].map((i) => (
+        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill={C.coral}>
+          <path d="M12 2.5l2.9 6.2 6.7.8-5 4.6 1.4 6.7L12 17.4l-6 3.4 1.4-6.7-5-4.6 6.7-.8z" />
+        </svg>
+      ))}
+    </span>
+  )
+}
+
+export default function Page() {
+  return (
+    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.paper, color: C.ink }}>
+      <Chrome fontClass={display.className} />
+
+      {/* HERO — foto real de la barra, con logo en la pared */}
+      <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.green, color: C.paper }}>
+        <div className="mx-auto grid max-w-6xl items-stretch md:min-h-[88svh] md:grid-cols-[1.05fr_1fr]">
+          <div className="order-2 flex flex-col justify-center px-5 pb-12 pt-8 md:order-1 md:py-24 md:pr-12">
+            <div className="mb-5 flex items-center gap-3">
+              <img src={`${IMG}/logo.webp`} alt="Logo de Monky Coffee" width={44} height={44} className="h-11 w-11 rounded-full border-2" style={{ borderColor: C.mint }} />
+              <p className="text-[12px] font-bold uppercase tracking-[0.22em]" style={{ color: C.mint }}>
+                Cafetería de especialidad · Talca
+              </p>
+            </div>
+            <h1 className={`${display.className} text-[clamp(2.5rem,7vw,4.6rem)] font-medium leading-[1.02] tracking-tight`}>
+              Personas, café,
+              <br />
+              plantas y <em className="font-light" style={{ color: C.mint }}>cositas ricas</em>.
+            </h1>
+            <p className="mt-5 max-w-md text-[17px] leading-relaxed" style={{ color: C.mutedOnDark }}>
+              Desde {BIZ.since} en {BIZ.address.split(',')[0]}, {BIZ.city}: espresso, métodos, pastelería de la casa y un
+              rincón para juntarse. Con mascotas, bienvenidos.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={btn} style={{ backgroundColor: C.coralDeep, color: '#fff' }}>
+                Escribir por WhatsApp
+              </a>
+              <a href="#cafe" className={`${btn} border`} style={{ borderColor: 'rgba(244,239,229,0.45)', color: C.paper }}>
+                Ver el café
+              </a>
+            </div>
+            <div className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-[14px]">
+              <span className="inline-flex items-center gap-2">
+                <Stars />
+                <b>{BIZ.rating.toLocaleString('es-CL')}</b>
+                <span style={{ color: C.mutedOnDark }}>· {BIZ.reviews} reseñas en Google</span>
+              </span>
+            </div>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {SELLOS.map((s) => (
+                <li key={s} className="rounded-full border px-3 py-1 text-[12px] font-semibold" style={{ borderColor: C.lineOnDark, color: C.paper }}>
+                  {s}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {experiences.map((item, index) => (
-              <article key={item.title} className="rounded-2xl border border-[#16352B]/15 bg-[#E8E1D1] p-6">
-                <span className="text-4xl font-bold text-[#9A6B13]/45" aria-hidden="true">0{index + 1}</span>
-                <h3 className={`${display.className} mt-8 text-2xl font-bold text-[#16352B]`}>{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#355449]">{item.text}</p>
-              </article>
+          <div className="relative order-1 aspect-[4/5] md:order-2 md:aspect-auto">
+            <img
+              src={`${IMG}/hero.webp`}
+              alt="Barra de Monky Coffee con flores frescas, máquina de espresso y el logo del mono en la pared"
+              className="absolute inset-0 h-full w-full object-cover object-[50%_35%]"
+            />
+            <div
+              className="absolute inset-0 md:hidden"
+              aria-hidden="true"
+              style={{ background: `linear-gradient(180deg, rgba(30,74,60,0) 60%, ${C.green} 100%)` }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* EL CAFÉ — propuesta + galería */}
+      <section id="cafe" className="px-5 py-16 md:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-end">
+            <Reveal>
+              <Eyebrow>El café</Eyebrow>
+              <h2 className={`${display.className} text-[clamp(2rem,4.5vw,3.4rem)] font-medium leading-[1.05] tracking-tight`}>
+                Grano de origen, <em className="font-light" style={{ color: C.green }}>tostado con calma</em>.
+              </h2>
+            </Reveal>
+            <Reveal delay={80}>
+              <ol className="grid gap-4 sm:grid-cols-3">
+                {PROPUESTA.map((p) => (
+                  <li key={p.n} className="rounded-2xl border p-4" style={{ borderColor: C.line, backgroundColor: '#fff' }}>
+                    <span className={`${display.className} text-[13px] font-semibold`} style={{ color: C.coralDeep }}>
+                      {p.n}
+                    </span>
+                    <h3 className="mt-1 text-[15px] font-bold">{p.title}</h3>
+                    <p className="mt-1 text-[13px] leading-relaxed" style={{ color: C.muted }}>
+                      {p.desc}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </Reveal>
+          </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+            {GALERIA.map((g, i) => (
+              <Reveal key={g.src} delay={i * 40} className={i === 0 ? 'col-span-2 md:col-span-1 md:row-span-2' : i === 5 ? 'col-span-2' : ''}>
+                <Photo src={g.src} alt={g.alt} ratio={i === 0 ? 'aspect-[4/3] md:aspect-auto md:h-full' : i === 5 ? 'aspect-[16/9]' : 'aspect-[4/5]'} />
+              </Reveal>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="casa" className="bg-[#D5A441]">
-          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-[.9fr_1.1fr] md:items-center md:px-8 md:py-24">
-            <div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#16352B]">Diez años de historia</p>
-              <h2 className={`${display.className} text-4xl font-bold leading-tight tracking-[-0.05em] text-[#16352B] md:text-6xl`}>Un rincón para volver.</h2>
-            </div>
-            <div className="border-l border-[#16352B]/45 pl-6 text-base leading-relaxed text-[#16352B] md:pl-10">
-              <p>Desde 2014, Monky Coffee se ha consolidado en Talca como un punto de encuentro para quienes buscan café de especialidad, conversación y experiencias alrededor del grano.</p>
-              <p className="mt-5 font-semibold">Ven a probar un método distinto o simplemente a disfrutar tu café favorito.</p>
-            </div>
-          </div>
-        </section>
+      {/* MÉTODOS */}
+      <section id="metodos" className="px-5 py-16 md:py-24" style={{ backgroundColor: C.paper2 }}>
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1fr_1fr] md:items-center">
+          <Reveal>
+            <Photo src="cafe-2" alt="Flat white con arte latte en forma de tulipán sobre mesa de madera" ratio="aspect-[4/5] md:aspect-[5/6]" />
+          </Reveal>
+          <Reveal delay={80}>
+            <Eyebrow>Métodos</Eyebrow>
+            <h2 className={`${display.className} text-[clamp(2rem,4.5vw,3.4rem)] font-medium leading-[1.05] tracking-tight`}>
+              El mismo grano, <em className="font-light" style={{ color: C.green }}>tres maneras</em> de tomarlo.
+            </h2>
+            <p className="mt-4 text-[16px] leading-relaxed" style={{ color: C.muted }}>
+              Pide el de siempre o deja que el barista te recomiende. También hacemos talleres y catas para aprender a
+              prepararlo en casa.
+            </p>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {METODOS.map((m) => (
+                <li key={m} className={`${display.className} rounded-full px-4 py-2 text-[16px] font-medium`} style={{ backgroundColor: C.green, color: C.paper }}>
+                  {m}
+                </li>
+              ))}
+            </ul>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${btn} mt-7`} style={{ backgroundColor: C.ink, color: C.paper }}>
+              Preguntar por talleres
+            </a>
+          </Reveal>
+        </div>
+      </section>
 
-        <section id="contacto" className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-          <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-            <div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#9A6B13]">La casa está en Talca</p>
-              <h2 className={`${display.className} text-4xl font-bold tracking-[-0.05em] md:text-5xl`}>1 Oriente con 3 Norte.</h2>
-              <p className="mt-5 max-w-xl text-sm leading-relaxed text-[#355449]">{BIZ.address}, {BIZ.city}, {BIZ.region}.</p>
-              <div className="mt-4 grid max-w-md gap-2 text-sm font-semibold sm:grid-cols-3">
-                {HOURS.map((hour) => <p key={hour.days}><span className="block text-xs font-normal text-[#527064]">{hour.days}</span>{hour.time}</p>)}
+      {/* HORARIO + CONTACTO */}
+      <section id="horario" className="px-5 py-16 md:py-24" style={{ backgroundColor: C.green, color: C.paper }}>
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1fr_1fr]">
+          <Reveal>
+            <Eyebrow color={C.mint}>Horario</Eyebrow>
+            <h2 className={`${display.className} text-[clamp(2rem,4.5vw,3.4rem)] font-medium leading-[1.05] tracking-tight`}>
+              Abrimos <em className="font-light" style={{ color: C.mint }}>temprano</em>.
+            </h2>
+            <dl className="mt-6 divide-y" style={{ borderColor: C.lineOnDark }}>
+              {HOURS.map((h) => (
+                <div key={h.days} className="flex items-baseline justify-between gap-4 py-3" style={{ borderColor: C.lineOnDark }}>
+                  <dt className="text-[15px]" style={{ color: C.mutedOnDark }}>
+                    {h.days}
+                  </dt>
+                  <dd className={`${display.className} text-[20px] font-medium`}>{h.time}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+          <Reveal delay={80}>
+            <div id="contacto" className="rounded-[24px] p-6 md:p-8" style={{ backgroundColor: C.paper, color: C.ink }}>
+              <Eyebrow>Visítanos</Eyebrow>
+              <p className={`${display.className} text-[24px] font-medium leading-tight`}>
+                {BIZ.address}
+                <br />
+                <span style={{ color: C.muted }}>
+                  {BIZ.city}, {BIZ.region}
+                </span>
+              </p>
+              <p className="mt-4 text-[15px] leading-relaxed" style={{ color: C.muted }}>
+                Consultas, pedidos de pastelería y talleres por WhatsApp al {BIZ.phoneDisplay}.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={btn} style={{ backgroundColor: C.coralDeep, color: '#fff' }}>
+                  Escribir por WhatsApp
+                </a>
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`${btn} border`} style={{ borderColor: C.ink, color: C.ink }}>
+                  Cómo llegar
+                </a>
               </div>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#16352B] px-5 py-3 text-sm font-bold text-[#F7F3E9] tap-44">WhatsApp</a>
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#16352B]/25 px-5 py-3 text-sm font-bold text-[#16352B] tap-44">Cómo llegar</a>
-            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <footer className="px-5 py-8" style={{ backgroundColor: C.espresso, color: C.paper }}>
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
+            <img src={`${IMG}/logo.webp`} alt="" width={36} height={36} className="h-9 w-9 rounded-full" />
+            <p className={`${display.className} text-[18px] font-medium`}>{BIZ.name}</p>
           </div>
-        </section>
-      </main>
-      <footer className="bg-[#0D241D] px-5 py-8 text-[#F7F3E9] md:px-8">
-        <div className="mx-auto flex max-w-6xl flex-col gap-5 text-sm md:flex-row md:items-center md:justify-between">
-          <div><p className="font-bold">{BIZ.name}</p><p className="mt-1 text-xs text-[#D5A441]">Cafetería · Talca</p></div>
-          <div className="flex flex-wrap gap-4 text-xs font-semibold"><a href={BIZ.instagram} className="tap-44">Instagram</a><a href={BIZ.facebook} className="tap-44">Facebook</a><a href={WA_LINK} className="tap-44">WhatsApp</a></div>
+          <nav aria-label="Redes y contacto" className="flex flex-wrap gap-x-5 gap-y-2 text-[14px] font-semibold">
+            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`tap-44 underline-offset-4 hover:underline ${focusRing}`}>
+              Instagram
+            </a>
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className={`tap-44 underline-offset-4 hover:underline ${focusRing}`}>
+              Facebook
+            </a>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`tap-44 underline-offset-4 hover:underline ${focusRing}`}>
+              WhatsApp
+            </a>
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`tap-44 underline-offset-4 hover:underline ${focusRing}`}>
+              Maps
+            </a>
+          </nav>
         </div>
       </footer>
-      <WhatsAppFab />
+
+      <DemoBand name={BIZ.name} />
     </div>
   )
 }
