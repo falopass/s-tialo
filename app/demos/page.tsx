@@ -1590,6 +1590,22 @@ const BLITZ = [
     tagline: 'La muralla amarilla: mostaza, medallón festoneado, pizarra pintada y 224 reseñas reales.',
     gradient: 'linear-gradient(135deg, #171209 0%, #E8A30C 65%, #C2281B 140%)',
   },
+  {
+    slug: 'piscinas-santa-adela-molina',
+    name: 'Piscinas Santa Adela',
+    rubro: 'Piscinas y canchas sintéticas',
+    city: 'Molina',
+    tagline: 'Verano en Molina: dos piscinas, cancha sintética, quinchos y cumpleaños al final del callejón.',
+    gradient: 'linear-gradient(135deg, #05303F 0%, #0E92BC 60%, #F2B33D 140%)',
+  },
+  {
+    slug: 'panaderia-la-moderna-talca',
+    name: 'Panadería La Moderna',
+    rubro: 'Panadería y pastelería',
+    city: 'Talca',
+    tagline: 'La marraqueta que ganó el Maule en 2022: panadería de barrio en Av. Duao desde 1985.',
+    gradient: 'linear-gradient(135deg, #2B1B10 0%, #C06722 60%, #F6EDDC 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
