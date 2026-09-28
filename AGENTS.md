@@ -10,6 +10,7 @@ Las demos de pymes viven en `app/demos/<slug>/`; las reglas de diseño móvil es
 - `npm run build` — build de producción (estático, `out/`).
 - `npm run lint` — ESLint.
 - `npm run typecheck` — TypeScript sin emitir.
+- Al agregar un demo nuevo, correr `npm run fechas` antes del commit.
 
 ## Deploy
 

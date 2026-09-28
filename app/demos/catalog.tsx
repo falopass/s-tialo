@@ -3,7 +3,10 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import type { Demo } from './data'
+import creados from './creados.json'
 import { Motif, headingFont } from './kit'
+
+const CREADOS: Record<string, string> = creados
 
 export interface BlitzDemo {
   slug: string
@@ -463,13 +466,22 @@ export default function DemoCatalog({
     blitz.forEach((demo) => {
       bySlug.set(demo.slug, {
         ...demo,
-        created: BLITZ_CREATED[demo.slug],
+        created: CREADOS[demo.slug] ?? BLITZ_CREATED[demo.slug],
       })
     })
     demos.forEach((demo) => {
-      if (!bySlug.has(demo.slug)) bySlug.set(demo.slug, demo)
+      if (!bySlug.has(demo.slug)) {
+        bySlug.set(demo.slug, {
+          ...demo,
+          created: CREADOS[demo.slug] ?? demo.created,
+        })
+      }
     })
-    bySlug.set(CABANAS_LA_QUEBRADA.slug, CABANAS_LA_QUEBRADA)
+    bySlug.set(CABANAS_LA_QUEBRADA.slug, {
+      ...CABANAS_LA_QUEBRADA,
+      created:
+        CREADOS[CABANAS_LA_QUEBRADA.slug] ?? CABANAS_LA_QUEBRADA.created,
+    })
 
     return [...bySlug.values()]
   }, [blitz, demos])
