@@ -4,7 +4,6 @@ import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
-import { GridScene } from './scenes'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -42,8 +41,11 @@ export const metadata: Metadata = demoMetadata({
   description: 'Ingeniería y construcción en Talca. Cotiza tu proyecto por WhatsApp.',
 })
 
+const IMG = '/demos/santa-fe'
+
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Faenas', href: '#faenas' },
   { label: 'Proceso', href: '#proceso' },
   { label: 'Reseñas', href: '#resenas' },
   { label: 'Ubicación', href: '#ubicacion' },
@@ -52,24 +54,33 @@ const NAV_LINKS = [
 const SERVICES = [
   {
     n: '01',
-    name: 'Obras civiles',
-    desc: 'Radieres, fundaciones, obras gruesas y trabajos estructurales.',
+    name: 'Excavaciones',
+    desc: 'Excavación para fundaciones, entradas y obras con maquinaria propia.',
   },
   {
     n: '02',
-    name: 'Ampliaciones',
-    desc: 'Ampliaciones y remodelaciones de casas y locales, de principio a fin.',
+    name: 'Movimiento de tierras',
+    desc: 'Nivelación, relleno y saneamiento de terrenos listos para construir.',
   },
   {
     n: '03',
-    name: 'Proyectos a medida',
-    desc: 'Evaluación, diseño y ejecución de proyectos según tu terreno y presupuesto.',
+    name: 'Caminos y accesos',
+    desc: 'Construcción y mejoramiento de caminos interiores y accesos.',
   },
   {
     n: '04',
-    name: 'Regularización',
-    desc: 'Apoyo en la regularización de construcciones existentes.',
+    name: 'Arriendo de maquinaria',
+    desc: 'Excavadoras, bulldozer, cargador y camiones, con operador.',
   },
+]
+
+const FAENAS = [
+  { src: 'faena.webp', alt: 'Excavadora de Santa Fe trabajando en el cauce de un río' },
+  { src: 'camino.webp', alt: 'Bulldozer nivelando un camino de tierra' },
+  { src: 'camion.webp', alt: 'Camión tolva de Santa Fe en faena' },
+  { src: 'movimiento.webp', alt: 'Movimiento de tierras en terreno' },
+  { src: 'equipo.webp', alt: 'Equipo de trabajo de Santa Fe en terreno' },
+  { src: 'terreno.webp', alt: 'Cuadrilla de Santa Fe en faena al aire libre' },
 ]
 
 const STEPS = [
@@ -124,6 +135,7 @@ export default function SantaFePage() {
           links={NAV_LINKS}
           waLink={WA_LINK}
           fontClass={`${display.className} uppercase`}
+          logoSrc={`${IMG}/logo-cuadrado.webp`}
           theme={{
             over: 'dark',
             bar: 'rgba(237,239,241,0.94)',
@@ -135,21 +147,26 @@ export default function SantaFePage() {
         />
       </div>
 
-      {/* ── Hero con grilla técnica ── */}
+      {/* ── Hero con foto real de faena ── */}
       <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <GridScene className="absolute inset-0 w-full h-full" />
+        <img
+          src={`${IMG}/hero.webp`}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(22,25,29,0.4) 0%, rgba(22,25,29,0.15) 45%, rgba(22,25,29,0.85) 100%)',
+              'linear-gradient(180deg, rgba(22,25,29,0.55) 0%, rgba(22,25,29,0.45) 45%, rgba(22,25,29,0.9) 100%)',
           }}
         />
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24 pt-32">
           <Reveal>
             <p className="text-[11px] md:text-xs uppercase tracking-[0.26em] mb-5 flex items-center gap-3 font-semibold" style={{ color: C.orange }}>
               <span className="inline-block w-8 h-[2px]" style={{ backgroundColor: C.orange }} aria-hidden="true" />
-              Ingeniería y construcción en Talca
+              Excavaciones y movimiento de tierras · Talca
             </p>
             <h1
               className={`${display.className} uppercase font-semibold leading-[0.98] tracking-[0.01em] text-[clamp(2.8rem,10vw,6.4rem)] mb-5`}
@@ -160,8 +177,8 @@ export default function SantaFePage() {
               bien hechas
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-lg mb-8" style={{ color: 'rgba(237,239,241,0.8)' }}>
-              Proyectos de construcción con cotización clara y plazos
-              serios. Cotiza por WhatsApp.
+              Excavaciones, movimiento de tierras, caminos y maquinaria
+              con operador. Cotiza por WhatsApp.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -195,8 +212,8 @@ export default function SantaFePage() {
             Qué construimos
           </h2>
           <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
-            Servicios de ejemplo para mostrar el sitio: la carta real se
-            publica junto a la empresa.
+            El detalle de cada servicio se confirma por WhatsApp según
+            tu terreno y plazo.
           </p>
         </Reveal>
         <ul className="grid sm:grid-cols-2 gap-5">
@@ -264,6 +281,37 @@ export default function SantaFePage() {
         </div>
       </section>
 
+      {/* ── Faenas reales ── */}
+      <section id="faenas" className="scroll-mt-20" style={{ backgroundColor: C.card }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <p className="text-[11px] uppercase tracking-[0.26em] mb-3 font-semibold" style={{ color: C.orangeInk }}>
+              En terreno
+            </p>
+            <h2 className={`${display.className} uppercase font-semibold text-3xl md:text-5xl leading-tight mb-4`}>
+              Faenas reales
+            </h2>
+            <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
+              Fotos de trabajo real de la empresa: maquinaria, caminos y
+              equipo en terreno.
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            {FAENAS.map((f, i) => (
+              <Reveal key={f.src} delay={i * 70}>
+                <img
+                  src={`${IMG}/${f.src}`}
+                  alt={f.alt}
+                  loading="lazy"
+                  className="w-full h-40 md:h-56 object-cover border"
+                  style={{ borderColor: C.line }}
+                />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Reseñas ── */}
       <section id="resenas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <div className="grid md:grid-cols-[1fr_1.6fr] gap-8 md:gap-14 items-start">
@@ -304,7 +352,7 @@ export default function SantaFePage() {
             </Reveal>
             {[
               'Cotización clara desde el primer día y la obra avanzó según lo pactado. Se nota la seriedad.',
-              'Hicieron la ampliación de mi casa y quedó impecable, dentro del plazo acordado.',
+              'Dejaron el terreno nivelado y listo para construir, dentro del plazo acordado.',
             ].map((t, i) => (
               <Reveal key={i} delay={200 + i * 120}>
                 <figure
@@ -433,6 +481,9 @@ export default function SantaFePage() {
       <footer style={{ backgroundColor: C.deep, color: '#EDEFF1' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-10 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-6">
           <div>
+            <span className="inline-block px-4 py-2 mb-3" style={{ backgroundColor: C.paper }}>
+              <img src={`${IMG}/logo.webp`} alt="Santa Fe S.A. — Ingeniería y Construcciones" className="h-10 w-auto" />
+            </span>
             <p className={`${display.className} uppercase font-semibold text-2xl mb-2`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,239,241,0.72)' }}>
               {BIZ.address} · {BIZ.region}
