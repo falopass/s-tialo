@@ -2127,6 +2127,14 @@ const BLITZ = [
     tagline: 'La ficha clínica: crema, teal profundo y las huellas de su propia fachada.',
     gradient: 'linear-gradient(135deg, #FAF6EF 0%, #14514E 60%, #D96C4F 150%)',
   },
+  {
+    slug: 'kr-estampados',
+    name: 'KR Estampados',
+    rubro: 'Estampado personalizado',
+    city: 'Talca',
+    tagline: 'Hoja de troquel: carbón de taller, lima de su logo y línea de corte sobre sus propias fotos de IG.',
+    gradient: 'linear-gradient(135deg, #14140F 0%, #1D1D16 55%, #C6F24E 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
