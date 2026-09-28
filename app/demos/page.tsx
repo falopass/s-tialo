@@ -1054,6 +1054,14 @@ const BLITZ = [
     tagline: 'Serviteca de barrio: azul Mobil, franjas de servicio y pizarra de taller.',
     gradient: 'linear-gradient(135deg, #0C2E63 0%, #1B5ACB 55%, #E2352B 140%)',
   },
+  {
+    slug: 'hospital-veterinario-talcahuano',
+    name: 'Hospital Veterinario Talcahuano',
+    rubro: 'Hospital veterinario 24 horas',
+    city: 'Talcahuano',
+    tagline: 'Índigo y cruz verde: línea de pulso, urgencias 24 h y CTA de llamada.',
+    gradient: 'linear-gradient(135deg, #16203E 0%, #1E2A5A 55%, #2E8B6A 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

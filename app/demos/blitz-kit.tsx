@@ -90,6 +90,7 @@ export function BlitzNav({
   theme,
   fontClass = '',
   ctaLabel = 'WhatsApp',
+  logoSrc,
 }: {
   name: string
   links: { label: string; href: string }[]
@@ -97,6 +98,7 @@ export function BlitzNav({
   theme: NavTheme
   fontClass?: string
   ctaLabel?: string
+  logoSrc?: string
 }) {
   const [scrolled, setScrolled] = useState(false)
 
@@ -130,9 +132,13 @@ export function BlitzNav({
       <div className="max-w-6xl mx-auto px-5 md:px-8 h-[60px] md:h-[68px] flex items-center justify-between gap-4">
         <a
           href="#inicio"
-          className={`${fontClass} text-lg md:text-xl leading-none transition-colors duration-500 tap-44`}
+          className={`${fontClass} text-lg md:text-xl leading-none transition-colors duration-500 tap-44 flex items-center gap-2.5`}
           style={{ color: scrolled ? theme.ink : topInk }}
         >
+          {logoSrc && (
+            // eslint-disable-next-line @next/next/no-img-element -- logo ya optimizado en public/
+            <img src={logoSrc} alt="" className="h-8 w-8 rounded-full object-cover" aria-hidden="true" />
+          )}
           {name}
         </a>
         <nav className="hidden md:flex items-center gap-7" aria-label="Principal">

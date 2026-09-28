@@ -119,7 +119,8 @@ export default function AutomotrizGomezPage() {
         waLink={WA_LINK}
         ctaLabel="WhatsApp"
         fontClass={display.className}
-        theme={{ over: 'dark', bar: C.carbon, ink: '#FFFFFF', line: C.lineLight, btnBg: C.red, btnInk: '#FFFFFF' }}
+        logoSrc={`${IMG}/logo.webp`}
+        theme={{ over: 'dark', bar: C.carbon, ink: '#FFFFFF', line: C.lineLight, btnBg: C.redDeep, btnInk: '#FFFFFF' }}
       />
 
       {/* ── HERO ── */}
