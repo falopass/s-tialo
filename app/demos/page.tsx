@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'funeraria-vive-dios',
+    name: 'Funeraria Vive Dios',
+    rubro: 'Servicios funerarios',
+    city: 'Talca',
+    tagline: 'Esquela solemne: tinta, laurel dorado y la paloma de su logo real.',
+    gradient: 'linear-gradient(135deg, #131110 0%, #1C1915 55%, #C9A24B 160%)',
+  },
+  {
     slug: 'pasteleria-el-ramal',
     name: 'Pastelería El Ramal',
     rubro: 'Pastelería, botillería y banquetería',
@@ -2152,6 +2160,7 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #101216 0%, #1E222B 55%, #FFC400 140%)',
   },
   {
+<<<<<<< HEAD
     slug: 'style-kids',
     name: 'Style Kids',
     rubro: 'Peluquería infantil',
@@ -2182,6 +2191,14 @@ const BLITZ = [
     city: 'Talca',
     tagline: 'El estante de la Cuarta Norte: negro y amarillo de su letrero, catálogo real y envíos a todo Chile.',
     gradient: 'linear-gradient(135deg, #0C0B09 0%, #161512 50%, #FFD21F 135%, #E0231B 165%)',
+  },
+  {
+    slug: 'snap-print',
+    name: 'Snap print',
+    rubro: 'Tienda de camisetas personalizadas',
+    city: 'Talca',
+    tagline: 'Hoja de stickers: tinta negra, amarillo promo, magenta y cian de sus flyers, trama de semitono y tickets de precio reales.',
+    gradient: 'linear-gradient(135deg, #FAF6ED 0%, #FFC400 45%, #E6358B 105%, #00A8C6 150%)',
   },
 ]
 
