@@ -62,12 +62,13 @@ export function ParallaxImg({
       ref={ref}
       src={src}
       alt={alt}
-      fill
+      width={1600}
+      height={1200}
       sizes="100vw"
       priority={eager}
       loading={eager ? undefined : 'eager'}
       className={className}
-      style={{ top: '-10%', height: '120%' }}
+      style={{ position: 'absolute', left: 0, top: '-10%', width: '100%', height: '120%' }}
     />
   )
 }
