@@ -2151,6 +2151,14 @@ const BLITZ = [
     tagline: 'Tablero eléctrico: carbón, amarillo de seguridad y Barlow Condensed con etiquetas mono.',
     gradient: 'linear-gradient(135deg, #101216 0%, #1E222B 55%, #FFC400 140%)',
   },
+  {
+    slug: 'style-kids',
+    name: 'Style Kids',
+    rubro: 'Peluquería infantil',
+    city: 'Talca',
+    tagline: 'Pit stop del primer corte: bandera de carrera, rojo auto y Baloo de señalética infantil.',
+    gradient: 'linear-gradient(135deg, #FFFCF2 0%, #FFE9A8 55%, #DE3B2B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
