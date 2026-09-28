@@ -18,6 +18,10 @@ export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encod
   `${BIZ.address}, ${BIZ.city}, ${BIZ.region}, Chile`,
 )}`
 
+export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
+  `${BIZ.address}, ${BIZ.city}, ${BIZ.region}, Chile`,
+)}&output=embed`
+
 export const SOURCES = [
   'Google Search / ficha y resultados locales para “Estudio Jurídico Talca”',
   'Instagram: @convergenciaestudiojuridico',
