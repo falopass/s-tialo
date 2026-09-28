@@ -1606,6 +1606,30 @@ const BLITZ = [
     tagline: 'La marraqueta que ganó el Maule en 2022: panadería de barrio en Av. Duao desde 1985.',
     gradient: 'linear-gradient(135deg, #2B1B10 0%, #C06722 60%, #F6EDDC 140%)',
   },
+  {
+    slug: 'mica-electric',
+    name: 'Mica Electric',
+    rubro: 'Electricista 24/7',
+    city: 'Talca',
+    tagline: 'Tablero energizado: navy técnico, teal de circuito y amarillo señal para la asistencia de emergencia.',
+    gradient: 'linear-gradient(135deg, #0E1836 0%, #35B6CC 65%, #F6C90E 140%)',
+  },
+  {
+    slug: 'mini-restaurant-talca',
+    name: 'Mini Restaurant Talca',
+    rubro: 'Restaurante familiar',
+    city: 'Talca',
+    tagline: 'La carta de la casa: mantel crema, vino y verde del logo, foto del comedor enmarcada en arco.',
+    gradient: 'linear-gradient(135deg, #F7EFE0 0%, #9E1B24 60%, #2C4E2A 140%)',
+  },
+  {
+    slug: 'delicias-limenas-san-clemente',
+    name: 'Delicias Limeñas',
+    rubro: 'Comida peruana',
+    city: 'San Clemente',
+    tagline: 'Sazón limeña: rojo Perú, amarillo ají y el mural "sabor que te traslada a Perú" de la casa.',
+    gradient: 'linear-gradient(135deg, #FAF1DC 0%, #B3202C 60%, #E88A19 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
