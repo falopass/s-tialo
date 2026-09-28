@@ -4,9 +4,12 @@
  * Datos del mockup. REALES (ficha pública de Google Maps y Facebook):
  * nombre, dirección, las 7 reseñas, el teléfono fijo (73) 233 2070 —
  * solo llamadas, la clínica no publica WhatsApp — y la página
- * facebook.com/clinicadent.prosalud. Todo lo demás (servicios,
- * precios, horarios, textos de reseñas) es contenido de muestra para
- * mostrar cómo se vería el sitio: va marcado como tal en la página.
+ * facebook.com/clinicadent.prosalud. Las fotos de
+ * public/demos/clinica-prosaluddental/ son la fachada real en
+ * Curapalihue 442 (Google Street View, mayo 2024); los interiores
+ * de los servicios van como bosquejo marcado porque la clínica no
+ * publica fotos propias. Todo lo demás (servicios, precios, horarios,
+ * textos de reseñas) es contenido de muestra.
  */
 
 export const BIZ = {

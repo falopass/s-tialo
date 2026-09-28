@@ -51,21 +51,18 @@ const NAV_LINKS = [
 
 const SERVICIOS = [
   {
-    src: `${IMG}/detalle1.webp`,
     num: 'S-01',
     tag: 'diagnóstico',
     name: 'Evaluación y plan de tratamiento',
     desc: 'Revisión completa con diagnóstico claro y presupuesto por escrito antes de partir.',
   },
   {
-    src: `${IMG}/detalle2.webp`,
     num: 'S-02',
     tag: 'prevención',
     name: 'Limpieza y restauraciones',
     desc: 'Destartraje, pulido y tapaduras para dejar tu dentadura sana y sin sorpresas.',
   },
   {
-    src: `${IMG}/detalle3.webp`,
     num: 'S-03',
     tag: 'estética',
     name: 'Ortodoncia y estética dental',
@@ -294,14 +291,15 @@ export default function ProSaludDentalPage() {
                 className="group overflow-hidden border-2 h-full flex flex-col"
                 style={{ backgroundColor: C.white, borderColor: C.ink, boxShadow: `6px 6px 0 ${C.redSoft}` }}
               >
-                <div className="relative overflow-hidden aspect-[4/3]" style={{ borderBottom: `2px solid ${C.ink}` }}>
-                  <Image
-                    src={s.src}
-                    alt={s.name}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    priority={i === 0}
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                {/* bosquejo marcado: la clínica aún no publica fotos de su interior */}
+                <div
+                  className="relative aspect-[4/3] flex flex-col items-center justify-center gap-3"
+                  style={{ borderBottom: `2px solid ${C.ink}`, backgroundColor: C.paper }}
+                >
+                  <div
+                    className="absolute inset-3 border-2 border-dashed"
+                    style={{ borderColor: 'rgba(26,23,20,0.2)' }}
+                    aria-hidden="true"
                   />
                   <span
                     className={`${display.className} absolute top-4 left-4 text-xs font-bold tracking-[0.14em] px-3 py-1.5`}
@@ -309,6 +307,15 @@ export default function ProSaludDentalPage() {
                     aria-hidden="true"
                   >
                     {s.num}
+                  </span>
+                  <svg viewBox="0 0 24 24" className="w-12 h-12 md:w-14 md:h-14" fill="none" stroke={C.red} strokeWidth="1.4" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z" />
+                  </svg>
+                  <span
+                    className={`${display.className} text-[10px] uppercase tracking-[0.22em] font-bold`}
+                    style={{ color: C.muted }}
+                  >
+                    bosquejo · foto real pendiente
                   </span>
                 </div>
                 <div className="p-6 md:p-7 flex flex-col flex-1">
@@ -404,7 +411,7 @@ export default function ProSaludDentalPage() {
                 <figure className="col-span-3 relative overflow-hidden border-2 aspect-[4/3]" style={{ borderColor: 'rgba(255,255,255,0.35)', boxShadow: '8px 8px 0 rgba(0,0,0,0.35)' }}>
                   <Image
                     src={`${IMG}/hero.webp`}
-                    alt="Box de atención dental de la clínica en Linares"
+                    alt="Fachada real de ProSaludDental en Curapalihue 442, Linares (Google Street View)"
                     fill
                     sizes="(min-width: 1024px) 30vw, 60vw"
                     loading="eager"
@@ -414,7 +421,7 @@ export default function ProSaludDentalPage() {
                 <figure className="col-span-2 relative overflow-hidden self-end border-2 aspect-[3/4]" style={{ borderColor: 'rgba(255,255,255,0.35)', boxShadow: '8px 8px 0 rgba(0,0,0,0.35)' }}>
                   <Image
                     src={`${IMG}/ambiente.webp`}
-                    alt="Sector de Curapalihue en Linares, donde atiende la clínica"
+                    alt="Calle Curapalihue en Linares frente a la clínica (Google Street View)"
                     fill
                     sizes="(min-width: 1024px) 20vw, 40vw"
                     className="object-cover"
