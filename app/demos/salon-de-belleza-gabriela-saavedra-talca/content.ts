@@ -2,8 +2,10 @@
  * app/demos/salon-de-belleza-gabriela-saavedra-talca/content.ts
  *
  * Datos del mockup. REALES (ficha pública de Google Maps y página de
- * Facebook): nombre, rubro, dirección en Talca, teléfono/WhatsApp, las
- * 50 reseñas de Google y los 1.824 seguidores de Facebook. Todo lo
+ * Facebook): nombre, rubro, dirección en Talca, WhatsApp móvil
+ * (9 6821 5950, página de Facebook y AgendaPro; el fijo 71 221 2381
+ * solo recibe llamadas), las 50 reseñas de Google y los 1.824
+ * seguidores de Facebook. Todo lo
  * demás (servicios, precios, horarios, reseñas citadas) es contenido
  * de muestra para mostrar cómo se vería el sitio.
  */
@@ -15,9 +17,9 @@ export const BIZ = {
   address: 'Calle 32 Ote. 1327',
   city: 'Talca',
   region: 'Región del Maule',
-  phoneDisplay: '+56 71 221 2381',
-  phoneTel: '+56712212381',
-  whatsapp: '56712212381',
+  phoneDisplay: '+56 9 6821 5950',
+  phoneTel: '+56968215950',
+  whatsapp: '56968215950',
   reviews: 50,
   facebook: 'https://www.facebook.com/SalonGabrielaSaavedra',
   facebookFollowers: '1.824',

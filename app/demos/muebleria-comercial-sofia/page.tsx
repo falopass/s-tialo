@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, CallFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, WA_LINK_MEDIDA, MAPS_URL, MAPS_EMBED, IMG } from './content'
-import LazyMap from '../lazy-map'
+import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from \'../lazy-map\'
 
 const display = localFont({
   src: [
@@ -148,7 +148,8 @@ export default function MuebleriaSofiaPage() {
         <BlitzNav
           name={BIZ.short}
           links={NAV_LINKS}
-          waLink={WA_LINK}
+          waLink={CALL_LINK}
+          ctaLabel="Llamar"
           fontClass={display.className}
           theme={{
             over: 'dark',
@@ -226,9 +227,7 @@ export default function MuebleriaSofiaPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href={WA_LINK_MEDIDA}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CALL_LINK}
                 className={`${display.className} italic text-base md:text-lg px-7 py-2.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
                 style={{ backgroundColor: C.leaf, color: C.greenDeep }}
               >
@@ -366,16 +365,14 @@ export default function MuebleriaSofiaPage() {
               style={{ backgroundColor: C.earth }}
             >
               <p className={`${display.className} italic text-lg md:text-2xl leading-tight`} style={{ color: '#FBF7EF' }}>
-                ¿Tienes una idea? Cotízala al tiro por WhatsApp
+                ¿Tienes una idea? Cotízala al tiro por teléfono
               </p>
               <a
-                href={WA_LINK_MEDIDA}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CALL_LINK}
                 className="group inline-flex items-center gap-2 min-h-[44px] px-5 rounded-full text-xs md:text-sm font-semibold transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
                 style={{ backgroundColor: '#FBF7EF', color: C.greenDeep }}
               >
-                Escribir ahora <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                Llamar ahora <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
               </a>
             </div>
           </Reveal>
@@ -530,7 +527,7 @@ export default function MuebleriaSofiaPage() {
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
               Valores referenciales de muestra: cada mueble se cotiza
               según madera, medida y terminación. Los precios reales se
-              confirman por WhatsApp.
+              confirman por teléfono.
             </p>
           </div>
         </Reveal>
@@ -582,11 +579,11 @@ export default function MuebleriaSofiaPage() {
             </address>
             <ul className="space-y-2.5 mb-8">
               <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.ink }}>
-                <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="none" stroke={C.green} strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                  <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+                <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="none" stroke={C.green} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
                 <span>
-                  WhatsApp y llamadas: <strong className="font-semibold" style={{ color: C.ink }}>{BIZ.phoneDisplay}</strong>
+                  Teléfono fijo: <strong className="font-semibold" style={{ color: C.ink }}>{BIZ.phoneDisplay}</strong>
                 </span>
               </li>
               <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.ink }}>
@@ -600,13 +597,11 @@ export default function MuebleriaSofiaPage() {
             </ul>
             <div className="flex flex-wrap gap-3">
               <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CALL_LINK}
                 className={`${display.className} italic text-base md:text-lg px-7 py-2.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2C3F22]`}
                 style={{ backgroundColor: C.green, color: '#FBF7EF' }}
               >
-                Escribir por WhatsApp
+                Llamar a la mueblería
               </a>
               <a
                 href={MAPS_URL}
@@ -651,17 +646,15 @@ export default function MuebleriaSofiaPage() {
               <em style={{ color: C.earthSoft }}>le falta a tu casa</em>
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(251,247,239,0.9)' }}>
-              Escríbenos por WhatsApp con la idea y las medidas: el
+              Llámanos con la idea y las medidas: el
               taller te responde con una cotización directa.
             </p>
             <a
-              href={WA_LINK_MEDIDA}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CALL_LINK}
               className={`${display.className} italic inline-block text-base md:text-lg px-8 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
               style={{ backgroundColor: C.leaf, color: C.greenDeep }}
             >
-              Cotizar por WhatsApp
+              Cotizar por teléfono
             </a>
           </Reveal>
         </div>
@@ -686,7 +679,7 @@ export default function MuebleriaSofiaPage() {
         </div>
       </footer>
 
-      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
+      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.green} />
     </div>
   )
 }

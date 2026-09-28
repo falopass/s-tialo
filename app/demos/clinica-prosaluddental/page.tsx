@@ -3,10 +3,10 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Motif } from '../kit'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, CallFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, WA_LINK_EVAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
-import LazyMap from '../lazy-map'
+import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from \'../lazy-map\'
 
 const display = localFont({
   src: [
@@ -38,7 +38,7 @@ const C = {
 export const metadata: Metadata = demoMetadata({
   slug: 'clinica-prosaluddental',
   title: 'Clínica ProSaludDental — Dentista en Linares',
-  description: 'Clínica dental en Curapalihue, Linares, Maule. Evaluación, limpieza, restauraciones y ortodoncia con agenda puntual por WhatsApp.',
+  description: 'Clínica dental en Curapalihue, Linares, Maule. Evaluación, limpieza, restauraciones y ortodoncia con agenda puntual por teléfono.',
   image: '/demos/clinica-prosaluddental/hero.webp',
 })
 
@@ -77,7 +77,7 @@ const RUTA = [
   {
     num: '01',
     title: 'Agenda',
-    desc: 'Escríbenos por WhatsApp y te confirmamos la hora el mismo día.',
+    desc: 'Llámanos y te confirmamos la hora el mismo día.',
   },
   {
     num: '02',
@@ -133,10 +133,10 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   )
 }
 
-function WaIcon({ className = 'w-4 h-4' }: { className?: string }) {
+function PhoneIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
     </svg>
   )
 }
@@ -150,7 +150,8 @@ export default function ProSaludDentalPage() {
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
-        waLink={WA_LINK}
+        waLink={CALL_LINK}
+        ctaLabel="Llamar"
         fontClass={display.className}
         theme={{
           over: 'dark',
@@ -230,13 +231,11 @@ export default function ProSaludDentalPage() {
           <Reveal delay={200}>
             <div className="flex flex-wrap gap-3 mt-9 md:mt-12">
               <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CALL_LINK}
                 className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
                 style={{ backgroundColor: C.orangeInk, color: C.white }}
               >
-                <WaIcon />
+                <PhoneIcon />
                 Agendar mi hora
               </a>
               <a
@@ -380,7 +379,7 @@ export default function ProSaludDentalPage() {
               </p>
               <ul className="space-y-3 mb-9">
                 {[
-                  'Agenda y consultas directas por WhatsApp',
+                  'Agenda y consultas directas por teléfono',
                   'Presupuesto claro por escrito antes de empezar',
                   'Citas que se cumplen: llegas y te atienden',
                 ].map((item) => (
@@ -535,9 +534,9 @@ export default function ProSaludDentalPage() {
             </address>
             <ul className="space-y-2.5 mb-8">
               <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.muted }}>
-                <WaIcon className="w-4 h-4 shrink-0" />
+                <PhoneIcon className="w-4 h-4 shrink-0" />
                 <span>
-                  <strong className="font-bold" style={{ color: C.inkDeep }}>WhatsApp:</strong>{' '}
+                  <strong className="font-bold" style={{ color: C.inkDeep }}>Teléfono fijo:</strong>{' '}
                   {BIZ.phoneDisplay}
                 </span>
               </li>
@@ -560,20 +559,18 @@ export default function ProSaludDentalPage() {
                 </svg>
                 <span>
                   <strong className="font-bold" style={{ color: C.inkDeep }}>Horario:</strong>{' '}
-                  por confirmar — agenda tu hora por WhatsApp
+                  por confirmar — agenda tu hora por teléfono
                 </span>
               </li>
             </ul>
             <div className="flex flex-wrap gap-3">
               <a
-                href={WA_LINK_EVAL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CALL_LINK}
                 className={`${display.className} inline-flex items-center gap-2.5 text-sm font-bold px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A4E52]`}
                 style={{ backgroundColor: C.orangeInk, color: C.white }}
               >
-                <WaIcon />
-                Agendar por WhatsApp
+                <PhoneIcon />
+                Agendar por teléfono
               </a>
               <a
                 href={MAPS_URL}
@@ -618,20 +615,18 @@ export default function ProSaludDentalPage() {
             <h2 className={`${display.className} text-[clamp(2.1rem,6.5vw,4rem)] font-extrabold leading-[1.05] mb-6`} style={{ color: C.white }}>
               Tu próxima hora al dentista
               <br />
-              <span style={{ color: C.orangeLight }}>sale por un mensaje</span>
+              <span style={{ color: C.orangeLight }}>sale con una llamada</span>
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
-              Escríbenos por WhatsApp para agendar tu evaluación:
+              Llámanos para agendar tu evaluación:
               confirmamos la hora y la cumplimos.
             </p>
             <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CALL_LINK}
               className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base font-bold px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
               style={{ backgroundColor: C.orangeInk, color: C.white }}
             >
-              <WaIcon />
+              <PhoneIcon />
               Agendar mi hora
             </a>
           </Reveal>
@@ -677,7 +672,7 @@ export default function ProSaludDentalPage() {
         </div>
       </footer>
 
-      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
+      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.red} />
     </div>
   )
 }

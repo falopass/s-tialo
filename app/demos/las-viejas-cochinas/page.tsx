@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, CallFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { SITE, whatsappLink } from '@/lib/config'
-import { BIZ, WA_LINK, WA_LINK_GRUPO, MAPS_URL, MAPS_EMBED, IMG } from './content'
-import LazyMap from '../lazy-map'
+import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from \'../lazy-map\'
 
 const display = localFont({
   src: [
@@ -40,7 +40,7 @@ const fmt = (n: number) => new Intl.NumberFormat('es-CL').format(n)
 export const metadata: Metadata = demoMetadata({
   slug: 'las-viejas-cochinas',
   title: 'Las Viejas Cochinas — Restaurante en Talca',
-  description: 'Restaurante en Rivera poniente - Av. Río Claro, Talca. Cocina chilena, almuerzos y grupos. Consultas y reservas por WhatsApp.',
+  description: 'Restaurante en Rivera poniente - Av. Río Claro, Talca. Cocina chilena, almuerzos y grupos. Consultas y reservas por teléfono.',
   image: '/demos/las-viejas-cochinas/hero.webp',
 })
 
@@ -54,7 +54,7 @@ const METRICS = [
   { value: fmt(BIZ.reviews), label: 'reseñas en Google Maps', accent: true },
   { value: fmt(BIZ.followers), label: 'seguidores en Facebook' },
   { value: 'Talca', label: 'Av. Río Claro, ribera poniente' },
-  { value: 'WhatsApp', label: 'consultas y reservas directas' },
+  { value: 'Teléfono', label: 'consultas y reservas directas' },
 ]
 
 const SERVICIOS = [
@@ -85,7 +85,7 @@ const SERVICIOS = [
     src: `${IMG}/detalle2.webp`,
     alt: 'Mesón de madera con loza apilada, jarro de agua y flores, con el comedor al fondo',
     name: 'Grupos y celebraciones',
-    desc: 'Mesas armadas para la familia, la pega o el cumpleaños. Se coordina todo por WhatsApp.',
+    desc: 'Mesas armadas para la familia, la pega o el cumpleaños. Se coordina todo por teléfono.',
     rows: [
       ['Formato', 'Reserva previa'],
       ['Ejemplo', 'Almuerzo de grupo'],
@@ -183,7 +183,8 @@ export default function LasViejasCochinasPage() {
         <BlitzNav
           name={BIZ.name}
           links={NAV_LINKS}
-          waLink={WA_LINK}
+          waLink={CALL_LINK}
+          ctaLabel="Llamar"
           fontClass={display.className}
           theme={{
             over: 'dark',
@@ -222,17 +223,15 @@ export default function LasViejasCochinasPage() {
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-8" style={{ color: 'rgba(255,255,255,0.86)' }}>
               A orillas del río Claro, en Talca. Platos caseros, mesas para
-              la familia y reservas que se coordinan directo por WhatsApp.
+              la familia y reservas que se coordinan directo por teléfono.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CALL_LINK}
                 className="text-sm md:text-base font-semibold px-6 py-3.5 rounded-md transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 style={{ backgroundColor: C.red, color: C.white }}
               >
-                Reservar por WhatsApp
+                Reservar por teléfono
               </a>
               <a
                 href="#carta"
@@ -441,26 +440,22 @@ export default function LasViejasCochinasPage() {
             <div className="h-full rounded-lg p-6 md:p-8 flex flex-col" style={{ backgroundColor: C.red, color: C.white }}>
               <Label light>Contacto directo</Label>
               <h2 className={`${display.className} font-bold text-3xl md:text-4xl leading-[1.05] tracking-[-0.02em] mb-4`}>
-                Reserva o consulta por WhatsApp
+                Reserva o consulta por teléfono
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.85)' }}>
-                Mesa para hoy, almuerzo de grupo o pedido para llevar: escribe
-                y te confirmamos por el mismo chat.
+                Mesa para hoy, almuerzo de grupo o pedido para llevar: llama
+                y te confirmamos al tiro (teléfono fijo).
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 <a
-                  href={WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={CALL_LINK}
                   className="text-center text-base font-semibold px-6 py-3 md:py-4 rounded-md transition-transform active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   style={{ backgroundColor: C.white, color: C.red }}
                 >
-                  Escribir por WhatsApp
+                  Llamar al restaurante
                 </a>
                 <a
-                  href={WA_LINK_GRUPO}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={CALL_LINK}
                   className="text-center text-base font-semibold px-6 py-3 md:py-4 rounded-md border transition-colors hover:bg-white/10"
                   style={{ borderColor: 'rgba(255,255,255,0.55)', color: C.white }}
                 >
@@ -518,7 +513,7 @@ export default function LasViejasCochinasPage() {
       </footer>
 
       <SitiazoStrip />
-      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
+      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.red} />
     </div>
   )
 }

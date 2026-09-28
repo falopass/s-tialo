@@ -2,7 +2,8 @@
  * app/demos/cafe-la-francesa/content.ts
  *
  * Datos del mockup. REALES (ficha pública de Google Maps y página de
- * Facebook): nombre, dirección, comuna, teléfono/WhatsApp, las 811
+ * Facebook): nombre, dirección, comuna, WhatsApp (móvil 9 7988 4338,
+ * ficha SERNATUR; el fijo (73) 247 2127 solo recibe llamadas), las 811
  * reseñas y los 28.000 seguidores. Todo lo demás (carta, precios,
  * reseñas de ejemplo) es contenido de muestra para mostrar cómo se
  * vería el sitio publicado.
@@ -15,9 +16,9 @@ export const BIZ = {
   address: 'Manuel Rodriguez 552',
   city: 'Linares',
   region: 'Región del Maule',
-  phoneDisplay: '+56 (73) 247 2127',
-  phoneTel: '+56732472127',
-  whatsapp: '56732472127',
+  phoneDisplay: '+56 9 7988 4338',
+  phoneTel: '+56979884338',
+  whatsapp: '56979884338',
   reviews: 811,
   followers: '28.000',
   facebook: 'http://www.facebook.com/cafelafrancesa',

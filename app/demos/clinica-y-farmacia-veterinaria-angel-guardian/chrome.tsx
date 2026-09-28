@@ -27,12 +27,14 @@ export function TopBar({
   name,
   links,
   waLink,
+  ctaLabel = 'WhatsApp',
   fontClass,
   theme,
 }: {
   name: string
   links: { label: string; href: string }[]
   waLink: string
+  ctaLabel?: string
   fontClass: string
   theme: {
     bar: string
@@ -99,7 +101,7 @@ export function TopBar({
                 : { backgroundColor: 'transparent', color: theme.ink, borderColor: 'rgba(245,239,230,0.5)' }
             }
           >
-            WhatsApp
+            {ctaLabel}
           </a>
         </div>
       </header>

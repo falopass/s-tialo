@@ -4,10 +4,10 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Motif } from '../kit'
-import { Reveal, WaFab } from '../blitz-kit'
+import { Reveal, CallFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
-import LazyMap from '../lazy-map'
+import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from \'../lazy-map\'
 
 const display = localFont({
   src: [
@@ -60,7 +60,7 @@ function Eyebrow({ children, center = false }: { children: ReactNode; center?: b
 export const metadata: Metadata = demoMetadata({
   slug: 'la-pica-de-los-tatas',
   title: 'La Picá De Los Tatas - Restaurante en Molina',
-  description: 'Restaurante en Independencia 1843, Molina: comida casera, mesa tranquila y atención directa. Reserva tu mesa por WhatsApp.',
+  description: 'Restaurante en Independencia 1843, Molina: comida casera, mesa tranquila y atención directa. Reserva tu mesa por teléfono.',
   image: '/demos/la-pica-de-los-tatas/hero.webp',
 })
 
@@ -144,9 +144,7 @@ export default function LaPicaDeLosTatasPage() {
             ))}
           </nav>
           <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={CALL_LINK}
             className={`${BTN_GLOW} text-sm px-5 py-2.5`}
             style={{ backgroundColor: C.terra, color: C.coal }}
           >
@@ -195,13 +193,11 @@ export default function LaPicaDeLosTatasPage() {
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CALL_LINK}
                 className={`${BTN_GLOW} text-base px-8 py-3 md:py-4`}
                 style={{ backgroundColor: C.terra, color: C.coal }}
               >
-                Reservar por WhatsApp
+                Reservar por teléfono
               </a>
               <a href="#carta" className={`${BTN_GHOST} text-base px-8 py-3 md:py-4`} style={{ color: C.sand }}>
                 Ver la carta
@@ -356,13 +352,11 @@ export default function LaPicaDeLosTatasPage() {
               ))}
             </ul>
             <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CALL_LINK}
               className={`${BTN_GLOW} mt-9 text-sm px-6 py-3.5`}
               style={{ backgroundColor: C.terra, color: C.coal }}
             >
-              Reservar por WhatsApp
+              Reservar por teléfono
             </a>
             <p className="mt-5 text-xs text-[#E8DCC8]/55">
               Textos de muestra: al publicar se escriben con lo que más destacan
@@ -435,17 +429,15 @@ export default function LaPicaDeLosTatasPage() {
               Te guardamos la mesa
             </h2>
             <p className="mt-5 mx-auto max-w-[32rem] text-base md:text-lg leading-relaxed text-[#E8DCC8]/80">
-              Escríbenos por WhatsApp para reservar o preguntar por el menú del
+              Llámanos para reservar o preguntar por el menú del
               día. También puedes llegar directo a Independencia 1843.
             </p>
             <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CALL_LINK}
               className={`${BTN_GLOW} mt-10 text-base md:text-lg px-10 py-3 md:py-4`}
               style={{ backgroundColor: C.terra, color: C.coal }}
             >
-              Escribir por WhatsApp
+              Llamar al {BIZ.phoneDisplay}
             </a>
             <p className="mt-4 text-sm text-[#E8DCC8]/70">
               o llama al{' '}
@@ -552,7 +544,7 @@ export default function LaPicaDeLosTatasPage() {
         </div>
       </footer>
 
-      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
+      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.terra} />
     </div>
   )
 }

@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { DemoBand } from '../kit'
-import { WaFab } from '../blitz-kit'
+import { CallFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { Fade, Parallax, TopBar } from './chrome'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
-import LazyMap from '../lazy-map'
+import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import LazyMap from \'../lazy-map\'
 
 const display = localFont({
   src: [
@@ -49,7 +49,7 @@ const SCRIM = {
 export const metadata: Metadata = demoMetadata({
   slug: 'clinica-y-farmacia-veterinaria-angel-guardian',
   title: 'Clínica y Farmacia Veterinaria Ángel Guardián - Veterinaria en Linares',
-  description: 'Clínica y farmacia veterinaria en Maipú 774, Linares: consulta, vacunas, medicamentos, alimentos y accesorios para tu mascota. Agenda por WhatsApp.',
+  description: 'Clínica y farmacia veterinaria en Maipú 774, Linares: consulta, vacunas, medicamentos, alimentos y accesorios para tu mascota. Agenda por teléfono.',
   image: '/demos/clinica-y-farmacia-veterinaria-angel-guardian/hero.webp',
 })
 
@@ -83,7 +83,7 @@ const PANELES: Panel[] = [
     side: 'left',
     height: 'min-h-[100svh]',
     title: 'Consulta y control sano',
-    lead: 'Atendemos perros y gatos con hora agendada por WhatsApp. Revisamos a tu mascota, te explicamos el diagnóstico y sales con el tratamiento claro.',
+    lead: 'Atendemos perros y gatos con hora agendada por teléfono. Revisamos a tu mascota, te explicamos el diagnóstico y sales con el tratamiento claro.',
     items: [
       'Consulta general y control sano',
       'Vacunación y desparasitación',
@@ -226,7 +226,8 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       <TopBar
         name={BIZ.short}
         links={NAV_LINKS}
-        waLink={WA_LINK}
+        waLink={CALL_LINK}
+        ctaLabel="Llamar"
         fontClass={display.className}
         theme={{
           bar: 'rgba(46,22,32,0.88)',
@@ -274,13 +275,11 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CALL_LINK}
                 className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
                 style={{ backgroundColor: C.gold, color: C.wineInk }}
               >
-                Escribir por WhatsApp
+                Llamar a la clínica
               </a>
               <a
                 href="#servicios"
@@ -463,7 +462,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
               Agenda la hora de tu mascota
             </h2>
             <p className="mt-5 max-w-[34rem] text-[15px] md:text-base leading-relaxed" style={{ color: 'rgba(245,239,230,0.84)' }}>
-              Escríbenos por WhatsApp y coordinamos día y hora. También puedes
+              Llámanos y coordinamos día y hora. También puedes
               llegar directo a la clínica, en plena calle Maipú.
             </p>
             <address className="not-italic mt-8 space-y-2 text-[15px] md:text-base" style={{ color: 'rgba(245,239,230,0.9)' }}>
@@ -491,13 +490,11 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CALL_LINK}
                 className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
                 style={{ backgroundColor: C.gold, color: C.wineInk }}
               >
-                Escribir por WhatsApp
+                Llamar a la clínica
               </a>
               <a
                 href={MAPS_URL}
@@ -585,7 +582,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       <div className="ag-band">
         <DemoBand name={BIZ.name} />
       </div>
-      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
+      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.wineInk} />
     </div>
   )
 }

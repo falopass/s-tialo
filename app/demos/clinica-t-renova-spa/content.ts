@@ -2,8 +2,9 @@
  * app/demos/clinica-t-renova-spa/content.ts
  *
  * Datos del mockup. REALES: nombre, rubro (tienda de belleza y
- * salud), dirección (Kurt Moller 23, Linares), teléfono/WhatsApp,
- * canal wa.me/trenovaspa y las 109 reseñas de la ficha de Google.
+ * salud), dirección (Kurt Moller 23, Linares), WhatsApp móvil
+ * (9 7349 6860, página de agenda AgendaPro), canal wa.me/trenovaspa
+ * y las 109 reseñas de la ficha de Google.
  * Todo lo demás (servicios, proceso, precios, reseñas textuales y
  * fotos) es contenido de ejemplo para mostrar cómo se vería el sitio.
  */
@@ -16,9 +17,9 @@ export const BIZ = {
   addressFull: 'Kurt Moller 23, 3581072 Linares, Maule',
   city: 'Linares',
   region: 'Región del Maule',
-  phoneDisplay: '+56 (2) 3383 1610',
-  phoneTel: '+56233831610',
-  whatsapp: '56233831610',
+  phoneDisplay: '+56 9 7349 6860',
+  phoneTel: '+56973496860',
+  whatsapp: '56973496860',
   waChannel: 'https://wa.me/trenovaspa',
   waChannelUser: 'trenovaspa',
   reviews: 109,
