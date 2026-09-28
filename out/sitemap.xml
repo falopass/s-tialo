@@ -643,6 +643,12 @@
 <priority>0.5</priority>
 </url>
 <url>
+<loc>https://sitiazo.cl/demos/ferreteria-arimaq/</loc>
+<lastmod>2026-09-25T00:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
 <loc>https://sitiazo.cl/demos/ferreteria-avila/</loc>
 <lastmod>2026-09-25T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
@@ -1382,6 +1388,12 @@
 </url>
 <url>
 <loc>https://sitiazo.cl/demos/swissvet-talcahuano/</loc>
+<lastmod>2026-09-25T00:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://sitiazo.cl/demos/taku-nikkei/</loc>
 <lastmod>2026-09-25T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
