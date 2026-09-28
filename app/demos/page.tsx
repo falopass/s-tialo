@@ -2279,6 +2279,14 @@ const BLITZ = [
     tagline: 'Nota de trabajo del taller: Oswald condensada, carmesí del rombo VP y esquinas mitradas.',
     gradient: 'linear-gradient(135deg, #EEF0F1 0%, #1B1F24 60%, #B4122E 150%)',
   },
+  {
+    slug: 'camping-el-bosque',
+    name: 'Camping El Bosque',
+    rubro: 'Camping de temporada',
+    city: 'Molina · El Radal',
+    tagline: 'Letrero de entrada: pino noche, lima del logo y el volante real de Temporada 2026.',
+    gradient: 'linear-gradient(135deg, #F5EEDB 0%, #1C3D2C 55%, #A9CC4E 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
