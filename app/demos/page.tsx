@@ -15,6 +15,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0B2B3D 0%, #123B52 55%, #1CA7A0 150%)',
   },
   {
+    slug: 'hostal-plaza-maule-express',
+    name: 'Hostal Plaza Maule Express',
+    rubro: 'Hostal y alojamiento',
+    city: 'Talca',
+    tagline: 'Recepción arqueada: bosque, latón y habitaciones reales de su ficha.',
+    gradient: 'linear-gradient(135deg, #14291D 0%, #1E3D2F 55%, #C8A24B 160%)',
+  },
+  {
     slug: 'hema-parque-infantil',
     name: 'HEMA Parque Infantil',
     rubro: 'Parque infantil',
