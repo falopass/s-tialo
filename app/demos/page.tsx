@@ -2240,6 +2240,7 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #1E3A29 0%, #F2EAD9 150%)',
   },
   {
+<<<<<<< HEAD
     slug: 'duo-limpieza-spa',
     name: 'Dúo Limpieza SpA',
     rubro: 'Limpieza de hogares y empresas',
@@ -2278,6 +2279,22 @@ const BLITZ = [
     city: 'Talca',
     tagline: 'Nota de trabajo del taller: Oswald condensada, carmesí del rombo VP y esquinas mitradas.',
     gradient: 'linear-gradient(135deg, #EEF0F1 0%, #1B1F24 60%, #B4122E 150%)',
+=======
+    slug: 'kinebalance',
+    name: 'Kinebalance',
+    rubro: 'Centro médico · kinesiología',
+    city: 'Talca',
+    tagline: 'Línea de pulso: celeste y marino de su letrero, las tres líneas de su muro y 130 reseñas de nota perfecta.',
+    gradient: 'linear-gradient(135deg, #F4F9FB 0%, #2FA8DC 55%, #1B4F72 140%)',
+  },
+  {
+    slug: 'moli-pernos-spa',
+    name: 'Moli Pernos',
+    rubro: 'Ferretería · pernos y herramientas',
+    city: 'Molina',
+    tagline: 'Ficha técnica de ferretería: grafito, amarillo de seguridad y tuerca hexagonal de su logo, con su pared de pernos real.',
+    gradient: 'linear-gradient(135deg, #141417 0%, #2A2A31 55%, #FFC61A 140%)',
+>>>>>>> 7a52e1756d (chore(demos): regenerar fechas de creacion (red de seguridad))
   },
   {
     slug: 'camping-el-bosque',

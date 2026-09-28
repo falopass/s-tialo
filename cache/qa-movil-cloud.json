@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:4800",
-  "fecha": "2026-09-28T17:23:13.312Z",
+  "base": "http://localhost:3010",
+  "fecha": "2026-09-28T21:38:56.562Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,47 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "la-orquidea-talca": {
-      "url": "http://localhost:4800/demos/la-orquidea-talca/",
+    "funeraria-vive-dios": {
+      "url": "http://localhost:3010/demos/funeraria-vive-dios/",
       "status": 200,
       "botones": [],
-      "footerPx": 322,
-      "footerPct": 38.2,
+      "footerPx": 242,
+      "footerPct": 28.7,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4126
-    },
-    "casa-de-campo-san-clemente": {
-      "url": "http://localhost:4800/demos/casa-de-campo-san-clemente/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 326,
-      "footerPct": 38.6,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4135
-    },
-    "aluminios-y-vidrios-thonyglass": {
-      "url": "http://localhost:4800/demos/aluminios-y-vidrios-thonyglass/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 299,
-      "footerPct": 35.4,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4134
+      "ms": 26999
     }
   }
 }
