@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T15:29:48.142Z",
+  "fecha": "2026-09-28T16:26:38.296Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,47 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "las-viejas-cochinas": {
-      "url": "http://localhost:4800/demos/las-viejas-cochinas/",
+    "psic-yaritza-daney-pino-d-az": {
+      "url": "http://localhost:4800/demos/psic-yaritza-daney-pino-d-az/",
       "status": 200,
       "botones": [],
-      "footerPx": 193,
-      "footerPct": 22.9,
+      "footerPx": 299,
+      "footerPct": 35.4,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4121
+      "ms": 4134
+    },
+    "aluminios-alumrod": {
+      "url": "http://localhost:4800/demos/aluminios-alumrod/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 298,
+      "footerPct": 35.3,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4133
+    },
+    "caba-as-cerro-colorado": {
+      "url": "http://localhost:4800/demos/caba-as-cerro-colorado/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 322,
+      "footerPct": 38.2,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4140
     }
   }
 }
