@@ -188,14 +188,14 @@ export default function LuaNailsPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-base md:text-lg px-8 py-3 md:py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-base md:text-lg px-8 py-3 md:py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.gold, color: C.plumDeep }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-semibold text-base md:text-lg px-8 py-3 md:py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} font-semibold text-base md:text-lg px-8 py-3 md:py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(255,249,246,0.55)', color: C.cream }}
               >
                 Ver servicios
@@ -396,7 +396,7 @@ export default function LuaNailsPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-base md:text-lg px-8 py-3 md:py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-base md:text-lg px-8 py-3 md:py-4 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.gold, color: C.plumDeep }}
             >
               Agendar mi hora
@@ -489,7 +489,7 @@ export default function LuaNailsPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-base px-7 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-base px-7 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.plum, color: C.cream }}
               >
                 Cómo llegar →
@@ -498,7 +498,7 @@ export default function LuaNailsPage() {
                 href={WA_LINK_SERVICIO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-base px-7 py-3 rounded-full border transition-colors`}
+                className={`${display.className} font-semibold text-base px-7 py-3 rounded-full border transition-colors tap-44`}
                 style={{ borderColor: 'rgba(74,31,51,0.35)', color: C.plum }}
               >
                 Consultar por WhatsApp
@@ -540,7 +540,7 @@ export default function LuaNailsPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-base md:text-lg px-9 py-3 md:py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-base md:text-lg px-9 py-3 md:py-4 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.gold, color: C.plumDeep }}
             >
               Agendar por WhatsApp

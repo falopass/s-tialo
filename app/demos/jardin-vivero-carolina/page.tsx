@@ -527,13 +527,13 @@ export default function JardinViveroCarolinaPage() {
                 <div>
                   <dt className="text-xs font-bold tracking-[0.18em] uppercase mb-1.5" style={{ color: C.terraLight }}>Teléfono</dt>
                   <dd>
-                    <a href={`tel:${BIZ.phoneTel}`} className="text-lg underline-offset-4 hover:underline" style={{ color: C.white }}>{BIZ.phoneDisplay}</a>
+                    <a href={`tel:${BIZ.phoneTel}`} className="text-lg underline-offset-4 hover:underline tap-44" style={{ color: C.white }}>{BIZ.phoneDisplay}</a>
                   </dd>
                 </div>
                 <div>
                   <dt className="text-xs font-bold tracking-[0.18em] uppercase mb-1.5" style={{ color: C.terraLight }}>Instagram</dt>
                   <dd>
-                    <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="text-lg underline-offset-4 hover:underline" style={{ color: C.white }}>@jardinvivero.carolina</a>
+                    <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="text-lg underline-offset-4 hover:underline tap-44" style={{ color: C.white }}>@jardinvivero.carolina</a>
                   </dd>
                 </div>
               </dl>

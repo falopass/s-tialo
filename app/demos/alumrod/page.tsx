@@ -193,7 +193,7 @@ export default function AlumrodPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(242,245,247,0.96)', color: C.steel }}
             >
               <Stars value={4.6} color={C.teal} className="w-[13px] h-[13px]" />
@@ -222,14 +222,14 @@ export default function AlumrodPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.cyan, color: '#0B151B' }}
               >
                 Cotizar por WhatsApp
               </a>
               <a
                 href="#trabajos"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(242,245,247,0.55)', color: '#F2F5F7' }}
               >
                 Ver trabajos
@@ -358,7 +358,7 @@ export default function AlumrodPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold underline underline-offset-4 decoration-2"
+                className="font-bold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.teal, textDecorationColor: 'rgba(14,116,144,0.35)' }}
               >
                 @alumrodaluminios
@@ -407,7 +407,7 @@ export default function AlumrodPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.teal, textDecorationColor: 'rgba(14,116,144,0.35)' }}
               >
                 Ver la ficha en Google →
@@ -453,7 +453,7 @@ export default function AlumrodPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4 decoration-2" style={{ color: C.steel, textDecorationColor: 'rgba(20,34,43,0.3)' }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4 decoration-2 tap-44" style={{ color: C.steel, textDecorationColor: 'rgba(20,34,43,0.3)' }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -475,7 +475,7 @@ export default function AlumrodPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.teal, color: '#FFFFFF' }}
               >
                 Cómo llegar →
@@ -484,7 +484,7 @@ export default function AlumrodPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(20,34,43,0.35)', color: C.steel }}
               >
                 Escribir por WhatsApp
@@ -530,7 +530,7 @@ export default function AlumrodPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-3.5 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.cyan, color: '#0B151B' }}
             >
               Cotizar por WhatsApp
@@ -553,7 +553,7 @@ export default function AlumrodPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(242,245,247,0.82)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

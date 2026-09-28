@@ -338,7 +338,7 @@ export default function Ultrasport19Page() {
                 </dt>
                 <dd className={`${display.className} font-black text-lg md:text-2xl leading-tight mt-1`} style={{ color: C.slate }}>
                   {s.href ? (
-                    <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 decoration-[3px]">
+                    <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 decoration-[3px] tap-44">
                       {s.v}
                     </a>
                   ) : (
@@ -471,7 +471,7 @@ export default function Ultrasport19Page() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-baseline gap-3 px-4 py-3 sm:block sm:py-4 sm:border-r-[3px] last:border-r-0 border-b-[3px] sm:border-b-0 last:border-b-0 hover:bg-[#ECEAE0] transition-colors"
+                  className="flex items-baseline gap-3 px-4 py-3 sm:block sm:py-4 sm:border-r-[3px] last:border-r-0 border-b-[3px] sm:border-b-0 last:border-b-0 hover:bg-[#ECEAE0] transition-colors tap-44"
                   style={{ borderColor: C.ink }}
                 >
                   <p className={`${display.className} font-black text-2xl leading-none`} style={{ color: C.slate }}>

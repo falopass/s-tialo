@@ -47,7 +47,7 @@ export function SiteFooter({ fontClass }: { fontClass?: string }) {
           <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
             {BIZ.address}, {BIZ.city} · {BIZ.region}
             <br />
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">
               WhatsApp {BIZ.phoneDisplay}
             </a>
           </address>
@@ -60,11 +60,11 @@ export function SiteFooter({ fontClass }: { fontClass?: string }) {
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)' }}>
         <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
           Mockup preparado por{' '}
-          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#fff' }}>
             Sitiazo
           </a>{' '}
           para {BIZ.name}, así se vería tu sitio.{' '}
-          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#fff' }}>
             ¿Lo hacemos realidad?
           </a>
         </p>

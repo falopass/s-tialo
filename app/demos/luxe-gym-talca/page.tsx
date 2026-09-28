@@ -135,7 +135,7 @@ export default function LuxeGymPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6A35C]"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6A35C] tap-44"
               style={{ backgroundColor: 'rgba(242,237,227,0.96)', color: C.carbon }}
             >
               <Stars value={BIZ.rating} color={C.gold} className="w-[13px] h-[13px]" />
@@ -164,14 +164,14 @@ export default function LuxeGymPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ${BTN_SOLID} font-semibold text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_SOLID} font-semibold text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ backgroundColor: C.gold, color: C.carbon }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#zonas"
-                className={`${display.className} ${BTN_GHOST} font-semibold text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_GHOST} font-semibold text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ borderColor: 'rgba(242,237,227,0.55)', color: C.ivory }}
               >
                 Conocer el gym
@@ -292,7 +292,7 @@ export default function LuxeGymPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-8 text-sm font-semibold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6A35C]"
+              className="inline-block mt-8 text-sm font-semibold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6A35C] tap-44"
               style={{ color: C.gold }}
             >
               Leer las reseñas en Google →
@@ -341,7 +341,7 @@ export default function LuxeGymPage() {
               <address className="not-italic text-sm leading-relaxed mb-7" style={{ color: 'rgba(242,237,227,0.8)' }}>
                 {BIZ.address}, {BIZ.city}
                 <br />
-                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6A35C]" style={{ color: C.gold }}>
+                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6A35C] tap-44" style={{ color: C.gold }}>
                   {BIZ.phoneDisplay}
                 </a>
               </address>
@@ -350,7 +350,7 @@ export default function LuxeGymPage() {
                   href={WA_LINK_VISITA}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${BTN_SOLID} font-semibold text-sm px-6 py-3`}
+                  className={`${display.className} ${BTN_SOLID} font-semibold text-sm px-6 py-3 tap-44`}
                   style={{ backgroundColor: C.gold, color: C.carbon }}
                 >
                   Agendar visita
@@ -359,7 +359,7 @@ export default function LuxeGymPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${BTN_GHOST} font-semibold text-sm px-6 py-3`}
+                  className={`${display.className} ${BTN_GHOST} font-semibold text-sm px-6 py-3 tap-44`}
                   style={{ borderColor: 'rgba(242,237,227,0.5)', color: C.ivory }}
                 >
                   Cómo llegar →
@@ -393,7 +393,7 @@ export default function LuxeGymPage() {
             </div>
             <div className="text-xs leading-relaxed" style={{ color: 'rgba(242,237,227,0.6)' }}>
               <p className="font-semibold mb-1" style={{ color: 'rgba(242,237,227,0.9)' }}>Contacto</p>
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6A35C]" style={{ color: C.gold }}>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6A35C] tap-44" style={{ color: C.gold }}>
                 WhatsApp {BIZ.phoneDisplay}
               </a>
             </div>

@@ -376,7 +376,7 @@ export default function InfinityMueblesPage() {
               ))}
             </ul>
             <div className="flex flex-wrap gap-x-10 gap-y-5">
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]">
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E] tap-44">
                 <p className={`${display.className} font-bold text-3xl md:text-4xl leading-none`} style={{ color: C.concretoDeep }}>
                   {BIZ.reviews}
                 </p>
@@ -384,7 +384,7 @@ export default function InfinityMueblesPage() {
                   reseñas en Google →
                 </p>
               </a>
-              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]">
+              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="group focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E] tap-44">
                 <p className={`${display.className} font-bold text-3xl md:text-4xl leading-none`} style={{ color: C.concretoDeep }}>
                   4.050
                 </p>

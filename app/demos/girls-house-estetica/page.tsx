@@ -352,7 +352,7 @@ export default function GirlsHousePage() {
                       href={waLinkServicio(p.name)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-baseline gap-3 py-2.5 md:py-4 px-2 -mx-2 border-b border-dashed transition-colors hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300] tap-44v"
+                      className="group flex items-baseline gap-3 py-2.5 md:py-4 px-2 -mx-2 border-b border-dashed transition-colors hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300] tap-44v tap-44"
                       style={{ borderColor: 'rgba(255,255,255,0.18)' }}
                     >
                       <span className="text-sm md:text-base font-medium transition-transform group-hover:translate-x-1" style={{ color: '#FFFFFF' }}>

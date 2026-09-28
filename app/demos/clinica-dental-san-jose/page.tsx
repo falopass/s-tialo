@@ -184,7 +184,7 @@ export default function ClinicaDentalSanJosePage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${waBtn} ${FOCUS}`}
+                  className={`${waBtn} ${FOCUS} tap-44`}
                   style={{
                     backgroundColor: C.mint,
                     color: C.night,
@@ -197,7 +197,7 @@ export default function ClinicaDentalSanJosePage() {
                   href={WA_LINK_DOLOR}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${waBtn} ${FOCUS} border`}
+                  className={`${waBtn} ${FOCUS} border tap-44`}
                   style={{
                     borderColor: 'rgba(159,216,203,0.6)',
                     color: C.mint,
@@ -449,7 +449,7 @@ export default function ClinicaDentalSanJosePage() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${waBtn} ${FOCUS} mt-7 border`}
+            className={`${waBtn} ${FOCUS} mt-7 border tap-44`}
             style={{
               borderColor: 'rgba(159,216,203,0.6)',
               color: C.mint,
@@ -503,7 +503,7 @@ export default function ClinicaDentalSanJosePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${waBtn} ${FOCUS}`}
+                className={`${waBtn} ${FOCUS} tap-44`}
                 style={{
                   backgroundColor: C.mint,
                   color: C.night,
@@ -516,7 +516,7 @@ export default function ClinicaDentalSanJosePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${waBtn} ${FOCUS} border`}
+                className={`${waBtn} ${FOCUS} border tap-44`}
                 style={{ borderColor: 'rgba(247,249,249,0.3)', color: C.bone }}
               >
                 Cómo llegar →
@@ -568,7 +568,7 @@ export default function ClinicaDentalSanJosePage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${waBtn} ${FOCUS} px-8 py-4`}
+              className={`${waBtn} ${FOCUS} px-8 py-4 tap-44`}
               style={{
                 backgroundColor: C.mint,
                 color: C.night,

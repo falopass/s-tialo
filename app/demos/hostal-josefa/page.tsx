@@ -215,13 +215,13 @@ export default function HostalJosefaPage() {
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={btnSolid}
+                className={btnSolid + ' tap-44'}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#historia"
-                className={btnGhostDark}
+                className={btnGhostDark + ' tap-44'}
               >
                 Cómo es quedarse
               </a>
@@ -457,7 +457,7 @@ export default function HostalJosefaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={btnSolid}
+              className={btnSolid + ' tap-44'}
             >
               Consultar tarifa real
             </a>
@@ -511,7 +511,7 @@ export default function HostalJosefaPage() {
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={btnSolid}
+                className={btnSolid + ' tap-44'}
               >
                 Reservar por WhatsApp
               </a>
@@ -566,7 +566,7 @@ export default function HostalJosefaPage() {
               href={WA_LINK_RESERVA}
               target="_blank"
               rel="noopener noreferrer"
-              className={btnSolid}
+              className={btnSolid + ' tap-44'}
             >
               Reservar por WhatsApp
             </a>

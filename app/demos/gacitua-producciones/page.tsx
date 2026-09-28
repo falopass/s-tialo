@@ -103,14 +103,14 @@ export default function GacituaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.gold, color: '#231A0A' }}
               >
                 Cotizar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#fff' }}
               >
                 Ver servicios
@@ -128,7 +128,7 @@ export default function GacituaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-sm font-semibold"
+              className="flex items-center gap-3 text-sm font-semibold tap-44"
               style={{ color: C.ink }}
             >
               <Stars value={BIZ.rating} color={C.goldDeep} className="w-[15px] h-[15px]" />
@@ -244,7 +244,7 @@ export default function GacituaPage() {
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mt-8 text-sm font-semibold underline underline-offset-4 decoration-2"
+            className="inline-block mt-8 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
             style={{ color: C.goldDeep, textDecorationColor: 'rgba(122,90,30,0.4)' }}
           >
             Leer las reseñas en Google →
@@ -301,7 +301,7 @@ export default function GacituaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.green, color: '#fff' }}
               >
                 Cómo llegar →
@@ -310,7 +310,7 @@ export default function GacituaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors"
+                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(31,58,46,0.35)', color: C.green }}
               >
                 Cotizar por WhatsApp
@@ -350,7 +350,7 @@ export default function GacituaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95"
+              className="inline-block font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
               style={{ backgroundColor: C.gold, color: '#231A0A' }}
             >
               Cotizar por WhatsApp

@@ -283,7 +283,7 @@ export default function SalonGabrielaSaavedraPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${BTN} text-sm md:text-base px-7 py-3.5`}
+                className={`${BTN} text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ backgroundColor: C.brass, color: C.forestDeep }}
               >
                 <WaArrow />
@@ -291,7 +291,7 @@ export default function SalonGabrielaSaavedraPage() {
               </a>
               <a
                 href="#servicios"
-                className={`${BTN} text-sm md:text-base px-7 py-3.5 border hover:bg-white/10`}
+                className={`${BTN} text-sm md:text-base px-7 py-3.5 border hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(246,241,231,0.5)', color: C.cream }}
               >
                 Ver servicios
@@ -592,7 +592,7 @@ export default function SalonGabrielaSaavedraPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${BTN} text-sm px-6 py-3`}
+                  className={`${BTN} text-sm px-6 py-3 tap-44`}
                   style={{ backgroundColor: C.forest, color: C.cream }}
                 >
                   <WaArrow />
@@ -780,7 +780,7 @@ export default function SalonGabrielaSaavedraPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${BTN} text-sm md:text-base px-8 py-4`}
+                className={`${BTN} text-sm md:text-base px-8 py-4 tap-44`}
                 style={{ backgroundColor: C.brass, color: C.forestDeep }}
               >
                 <WaArrow />

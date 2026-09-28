@@ -110,14 +110,14 @@ export default function PanntonPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.accent, color: C.ink }}
               >
                 Cotizar por WhatsApp
               </a>
               <a
                 href="#trabajos"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#fff' }}
               >
                 Ver trabajos
@@ -135,7 +135,7 @@ export default function PanntonPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-sm font-semibold"
+              className="flex items-center gap-3 text-sm font-semibold tap-44"
               style={{ color: C.ink }}
             >
               <Stars value={BIZ.rating} color={C.accentDeep} className="w-[15px] h-[15px]" />
@@ -247,7 +247,7 @@ export default function PanntonPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.ink, color: '#fff' }}
               >
                 Cómo llegar →
@@ -256,7 +256,7 @@ export default function PanntonPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors"
+                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(28,27,25,0.3)', color: C.ink }}
               >
                 Cotizar por WhatsApp
@@ -313,7 +313,7 @@ export default function PanntonPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-8 text-sm font-semibold underline underline-offset-4 decoration-2"
+              className="inline-block mt-8 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
               style={{ color: C.accentDeep, textDecorationColor: 'rgba(138,94,8,0.4)' }}
             >
               Ver la ficha en Google →
@@ -353,7 +353,7 @@ export default function PanntonPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.accent, color: C.ink }}
             >
               Cotizar por WhatsApp

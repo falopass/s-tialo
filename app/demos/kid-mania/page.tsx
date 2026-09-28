@@ -186,14 +186,14 @@ export default function KidMania() {
                 href={WA_LINK_CUMPLE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.fucsia, color: '#FFFFFF' }}
               >
                 Reservar cumpleaños
               </a>
               <a
                 href="#lugar"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(255,248,239,0.5)', color: '#FFFFFF' }}
               >
                 Ver el lugar
@@ -278,7 +278,7 @@ export default function KidMania() {
               href={WA_LINK_CUMPLE}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95"
+              className="inline-block font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
               style={{ backgroundColor: C.amarillo, color: C.inkDeep }}
             >
               Cotizar mi cumpleaños
@@ -336,7 +336,7 @@ export default function KidMania() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2"
+                  className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                   style={{ color: C.amarillo, textDecorationColor: 'rgba(255,201,60,0.4)' }}
                 >
                   Ver la ficha en Google →
@@ -403,7 +403,7 @@ export default function KidMania() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.violet, color: '#FFFFFF' }}
               >
                 Cómo llegar →
@@ -412,7 +412,7 @@ export default function KidMania() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors"
+                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44"
                 style={{ borderColor: C.line, color: C.ink }}
               >
                 Escribir por WhatsApp
@@ -455,6 +455,7 @@ export default function KidMania() {
           src={`${IMG}/hero.webp`}
           alt=""
           loading="lazy"
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -480,14 +481,14 @@ export default function KidMania() {
                 href={WA_LINK_CUMPLE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.fucsia, color: '#FFFFFF' }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors"
+                className="font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(255,248,239,0.5)', color: '#FFFFFF' }}
               >
                 {BIZ.phoneDisplay}
@@ -505,7 +506,7 @@ export default function KidMania() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,248,239,0.7)' }}>
               {BIZ.address} · {BIZ.city}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2" style={{ color: '#FFFFFF' }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44" style={{ color: '#FFFFFF' }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -524,7 +525,7 @@ export default function KidMania() {
               href={SITE.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold underline underline-offset-2"
+              className="font-semibold underline underline-offset-2 tap-44"
               style={{ color: '#FFFFFF' }}
             >
               Sitiazo
@@ -534,7 +535,7 @@ export default function KidMania() {
               href={whatsappLink('contacto')}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold underline underline-offset-2"
+              className="font-semibold underline underline-offset-2 tap-44"
               style={{ color: '#FFFFFF' }}
             >
               ¿Lo hacemos realidad?

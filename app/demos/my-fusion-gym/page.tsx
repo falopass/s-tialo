@@ -237,14 +237,14 @@ export default function MyFusionGymPage() {
                 href={WA_LINK_CLASE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B] tap-44`}
                 style={{ backgroundColor: C.brass, color: C.forestDeep }}
               >
                 Agendar clase de prueba
               </a>
               <a
                 href="#gimnasio"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B] tap-44`}
                 style={{ borderColor: 'rgba(246,241,231,0.55)', color: C.cream }}
               >
                 Ver el gimnasio
@@ -452,7 +452,7 @@ export default function MyFusionGymPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E6D5A8]`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E6D5A8] tap-44`}
                 style={{ backgroundColor: C.brass, color: C.forestDeep }}
               >
                 Consultar valores reales
@@ -502,14 +502,14 @@ export default function MyFusionGymPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F]`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F] tap-44`}
                 style={{ backgroundColor: C.forest, color: C.cream }}
               >
                 Escribir por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F]`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F] tap-44`}
                 style={{ borderColor: C.forest, color: C.forest }}
               >
                 {BIZ.phoneDisplay}

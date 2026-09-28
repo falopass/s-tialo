@@ -140,14 +140,14 @@ export default function ComercialRioClaroPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ backgroundColor: C.brass, color: C.deep }}
               >
                 Cotizar por WhatsApp
               </a>
               <a
                 href="#vitrina"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(246,241,231,0.55)', color: C.crema }}
               >
                 Ver la vitrina
@@ -357,7 +357,7 @@ export default function ComercialRioClaroPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+              className={`${display.className} text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
               style={{ backgroundColor: C.forest, color: C.crema }}
             >
               Cotizar por WhatsApp →
@@ -366,7 +366,7 @@ export default function ComercialRioClaroPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} text-sm px-6 py-3 rounded-full border transition-colors hover:bg-[rgba(30,61,47,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2`}
+              className={`${display.className} text-sm px-6 py-3 rounded-full border transition-colors hover:bg-[rgba(30,61,47,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
               style={{ borderColor: 'rgba(30,61,47,0.4)', color: C.forest }}
             >
               Cómo llegar

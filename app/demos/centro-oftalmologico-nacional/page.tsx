@@ -144,14 +144,14 @@ export default function CentroOftalmologicoNacionalPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C] tap-44`}
                 style={{ backgroundColor: C.navy, color: '#F4F7F9' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3 rounded-full border transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3 rounded-full border transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C] tap-44`}
                 style={{ borderColor: C.line, color: C.navy }}
               >
                 Ver servicios
@@ -247,7 +247,7 @@ export default function CentroOftalmologicoNacionalPage() {
               href={WA_LINK_EXAMEN}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block mt-8 font-semibold text-sm md:text-base px-7 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C]`}
+              className={`${display.className} inline-block mt-8 font-semibold text-sm md:text-base px-7 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C] tap-44`}
               style={{ backgroundColor: C.navy, color: '#F4F7F9' }}
             >
               Consultar por una medición
@@ -293,7 +293,7 @@ export default function CentroOftalmologicoNacionalPage() {
               href={FACEBOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4FB7D9]"
+              className="text-sm font-semibold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4FB7D9] tap-44"
               style={{ color: C.cyan }}
             >
               Ver más en su Facebook →
@@ -324,7 +324,7 @@ export default function CentroOftalmologicoNacionalPage() {
               <strong className="block mb-1 font-semibold" style={{ color: C.ink }}>{BIZ.address}, {BIZ.city}</strong>
               Oficina 11, segundo piso · centro de Talca.
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B6D8C]" style={{ color: C.cyanDeep }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B6D8C] tap-44" style={{ color: C.cyanDeep }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -333,7 +333,7 @@ export default function CentroOftalmologicoNacionalPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C]`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C] tap-44`}
                 style={{ backgroundColor: C.navy, color: '#F4F7F9' }}
               >
                 Agendar hora
@@ -342,7 +342,7 @@ export default function CentroOftalmologicoNacionalPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C]`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C] tap-44`}
                 style={{ borderColor: C.line, color: C.navy }}
               >
                 Cómo llegar →
@@ -401,11 +401,11 @@ export default function CentroOftalmologicoNacionalPage() {
             </div>
             <div className="text-xs leading-relaxed" style={{ color: 'rgba(244,247,249,0.65)' }}>
               <p className="font-semibold mb-1" style={{ color: 'rgba(244,247,249,0.9)' }}>Contacto</p>
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4FB7D9]" style={{ color: C.cyan }}>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4FB7D9] tap-44" style={{ color: C.cyan }}>
                 WhatsApp {BIZ.phoneDisplay}
               </a>
               <br />
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4FB7D9]" style={{ color: C.cyan }}>
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4FB7D9] tap-44" style={{ color: C.cyan }}>
                 Facebook del centro
               </a>
             </div>

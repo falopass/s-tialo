@@ -176,14 +176,14 @@ export default function ViveroDonaInesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.terra, color: '#FBF7EF' }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#plantas"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: '#FBF7EF' }}
               >
                 Ver lo de temporada
@@ -395,7 +395,7 @@ export default function ViveroDonaInesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.leaf, color: '#FBF7EF' }}
               >
                 Abrir en Google Maps →
@@ -404,7 +404,7 @@ export default function ViveroDonaInesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-6 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} text-sm px-6 py-3 rounded-full border-2 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(62,107,58,0.4)', color: C.leafDeep }}
               >
                 Escribir por WhatsApp

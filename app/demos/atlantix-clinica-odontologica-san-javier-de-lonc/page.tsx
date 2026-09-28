@@ -212,7 +212,7 @@ export default function AtlantixPage() {
                   </a>
                   <a
                     href="#servicios"
-                    className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]`}
+                    className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8] tap-44`}
                     style={{ borderColor: 'rgba(232,220,200,0.45)', color: C.sand }}
                   >
                     Ver servicios
@@ -354,7 +354,7 @@ export default function AtlantixPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]`}
+                className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8] tap-44`}
                 style={{ backgroundColor: C.sand, color: C.night }}
               >
                 Ver las {BIZ.reviews} reseñas en Google →
@@ -538,7 +538,7 @@ export default function AtlantixPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-[rgba(27,42,65,0.06)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B2A41]`}
+                className={`${display.className} text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-[rgba(27,42,65,0.06)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B2A41] tap-44`}
                 style={{ borderColor: 'rgba(27,42,65,0.3)', color: C.night }}
               >
                 Cómo llegar →

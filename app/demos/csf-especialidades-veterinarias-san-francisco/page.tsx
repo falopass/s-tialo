@@ -301,7 +301,7 @@ export default function CsfVeterinariaPage() {
                 </dt>
                 <dd className={`${display.className} font-black text-base md:text-2xl leading-tight mt-1 break-words`} style={{ color: C.blue }}>
                   {s.href ? (
-                    <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 decoration-[3px]">
+                    <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 decoration-[3px] tap-44">
                       {s.v}
                     </a>
                   ) : (
@@ -439,7 +439,7 @@ export default function CsfVeterinariaPage() {
                   style={{ borderColor: C.ink }}
                 >
                   <p className={`${display.className} font-black text-2xl leading-none`} style={{ color: C.blue }}>
-                    <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 decoration-[3px]">
+                    <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 decoration-[3px] tap-44">
                       {s.v}
                     </a>
                   </p>

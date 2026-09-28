@@ -163,7 +163,7 @@ export default function ClinicaDentalBilbaoPage() {
                     href={m.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline-offset-2 decoration-[#C8A24B]/60 hover:underline focus-visible:outline-2 focus-visible:outline-[#C8A24B]"
+                    className="underline-offset-2 decoration-[#C8A24B]/60 hover:underline focus-visible:outline-2 focus-visible:outline-[#C8A24B] tap-44"
                   >
                     {m.label}
                   </a>
@@ -196,7 +196,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={WA_LINK_URGENCIA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#B08C3E]`}
+                className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#B08C3E] tap-44`}
               >
                 Urgencia: escribir ahora
               </a>
@@ -204,7 +204,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${waBtn} border border-[#1E3D2F]/40 text-[#1E3D2F] hover:bg-[#1E3D2F] hover:text-[#F6F1E7]`}
+                className={`${waBtn} border border-[#1E3D2F]/40 text-[#1E3D2F] hover:bg-[#1E3D2F] hover:text-[#F6F1E7] tap-44`}
               >
                 Agendar una hora
               </a>
@@ -370,7 +370,7 @@ export default function ClinicaDentalBilbaoPage() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${waBtn} mt-6 bg-[#1E3D2F] text-[#F6F1E7] hover:bg-[#132A1F]`}
+            className={`${waBtn} mt-6 bg-[#1E3D2F] text-[#F6F1E7] hover:bg-[#132A1F] tap-44`}
           >
             Consultar un valor por WhatsApp
           </a>
@@ -395,7 +395,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={WA_LINK_URGENCIA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#D8B868]`}
+                className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#D8B868] tap-44`}
               >
                 Escribir por urgencia
               </a>
@@ -530,7 +530,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${waBtn} bg-[#1E3D2F] text-[#F6F1E7] hover:bg-[#132A1F]`}
+                className={`${waBtn} bg-[#1E3D2F] text-[#F6F1E7] hover:bg-[#132A1F] tap-44`}
               >
                 Escribir por WhatsApp
               </a>
@@ -538,7 +538,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${waBtn} border border-[#1E3D2F]/40 text-[#1E3D2F] hover:bg-[#1E3D2F] hover:text-[#F6F1E7]`}
+                className={`${waBtn} border border-[#1E3D2F]/40 text-[#1E3D2F] hover:bg-[#1E3D2F] hover:text-[#F6F1E7] tap-44`}
               >
                 Cómo llegar →
               </a>
@@ -577,7 +577,7 @@ export default function ClinicaDentalBilbaoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#D8B868]`}
+              className={`${waBtn} bg-[#C8A24B] text-[#1E130A] hover:bg-[#D8B868] tap-44`}
             >
               Escribir a {BIZ.short}
             </a>

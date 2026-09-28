@@ -54,8 +54,8 @@ export default function MonkyCoffeePage() {
               </h1>
               <p className="mt-6 max-w-md text-base leading-relaxed text-[#F7F3E9]">Monky Coffee es una cafetería de especialidad para tomar algo rico, aprender del café y quedarse un rato más.</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#D5A441] px-5 py-3 text-sm font-extrabold text-[#16352B]">Escribir por WhatsApp</a>
-                <a href="#cafe" className="rounded-full border border-[#F7F3E9]/60 px-5 py-3 text-sm font-bold text-[#F7F3E9]">Ver la experiencia</a>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#D5A441] px-5 py-3 text-sm font-extrabold text-[#16352B] tap-44">Escribir por WhatsApp</a>
+                <a href="#cafe" className="rounded-full border border-[#F7F3E9]/60 px-5 py-3 text-sm font-bold text-[#F7F3E9] tap-44">Ver la experiencia</a>
               </div>
             </div>
             <div className="relative aspect-[4/3] w-full max-w-xl justify-self-end rounded-[28px] bg-[#E6D6B7] p-3 shadow-2xl md:p-5">
@@ -105,8 +105,8 @@ export default function MonkyCoffeePage() {
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#16352B] px-5 py-3 text-sm font-bold text-[#F7F3E9]">WhatsApp</a>
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#16352B]/25 px-5 py-3 text-sm font-bold text-[#16352B]">Cómo llegar</a>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#16352B] px-5 py-3 text-sm font-bold text-[#F7F3E9] tap-44">WhatsApp</a>
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#16352B]/25 px-5 py-3 text-sm font-bold text-[#16352B] tap-44">Cómo llegar</a>
             </div>
           </div>
         </section>
@@ -114,7 +114,7 @@ export default function MonkyCoffeePage() {
       <footer className="bg-[#0D241D] px-5 py-8 text-[#F7F3E9] md:px-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 text-sm md:flex-row md:items-center md:justify-between">
           <div><p className="font-bold">{BIZ.name}</p><p className="mt-1 text-xs text-[#D5A441]">Cafetería · Talca</p></div>
-          <div className="flex flex-wrap gap-4 text-xs font-semibold"><a href={BIZ.instagram}>Instagram</a><a href={BIZ.facebook}>Facebook</a><a href={WA_LINK}>WhatsApp</a></div>
+          <div className="flex flex-wrap gap-4 text-xs font-semibold"><a href={BIZ.instagram} className="tap-44">Instagram</a><a href={BIZ.facebook} className="tap-44">Facebook</a><a href={WA_LINK} className="tap-44">WhatsApp</a></div>
         </div>
       </footer>
       <WhatsAppFab />

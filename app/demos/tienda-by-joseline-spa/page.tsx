@@ -131,7 +131,7 @@ function Btn({
   const ext = external ? { target: '_blank', rel: 'noopener noreferrer' } : {}
   if (variant === 'solid')
     return (
-      <a href={href} {...ext} className={`${cls} bg-[#C1272D] text-white hover:bg-[#9E2025]`}>
+      <a href={href} {...ext} className={`${cls} bg-[#C1272D] text-white hover:bg-[#9E2025] tap-44`}>
         {children}
       </a>
     )
@@ -140,14 +140,14 @@ function Btn({
       <a
         href={href}
         {...ext}
-        className={`${cls} border text-white hover:bg-white/10`}
+        className={`${cls} border text-white hover:bg-white/10 tap-44`}
         style={{ borderColor: 'rgba(255,255,255,0.45)' }}
       >
         {children}
       </a>
     )
   return (
-    <a href={href} {...ext} className={`${cls} border hover:bg-black/[0.04]`} style={{ borderColor: 'rgba(35,38,40,0.4)', color: C.ink }}>
+    <a href={href} {...ext} className={`${cls} border hover:bg-black/[0.04] tap-44`} style={{ borderColor: 'rgba(35,38,40,0.4)', color: C.ink }}>
       {children}
     </a>
   )

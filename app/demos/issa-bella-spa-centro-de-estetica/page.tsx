@@ -256,7 +256,7 @@ export default function IssaBellaPage() {
               con hora, en una sala luminosa y sin apuro.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={BTN_MINT}>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={BTN_MINT + ' tap-44'}>
                 Agendar por WhatsApp
               </a>
               <a
@@ -593,7 +593,7 @@ export default function IssaBellaPage() {
                 los precios reales: confirma el tuyo por WhatsApp antes de
                 venir.
               </p>
-              <a href={WA_LINK_FACIAL} target="_blank" rel="noopener noreferrer" className={BTN_PETROL}>
+              <a href={WA_LINK_FACIAL} target="_blank" rel="noopener noreferrer" className={BTN_PETROL + ' tap-44'}>
                 Consultar por WhatsApp
               </a>
             </div>
@@ -665,7 +665,7 @@ export default function IssaBellaPage() {
                 Horario de muestra: al publicar va el horario real.
               </p>
               <div className="flex flex-wrap items-center gap-4 mb-9">
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={BTN_MINT}>
+                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={BTN_MINT + ' tap-44'}>
                   Agendar por WhatsApp
                 </a>
                 <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} text-base underline underline-offset-4 decoration-2 decoration-[#9FD8CB]/60 hover:decoration-[#9FD8CB] tap-44`}>
@@ -692,7 +692,7 @@ export default function IssaBellaPage() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${BTN_PETROL} shrink-0 self-start md:self-auto`}
+            className={`${BTN_PETROL} shrink-0 self-start md:self-auto tap-44`}
           >
             Hablar con {SITE.name} →
           </a>

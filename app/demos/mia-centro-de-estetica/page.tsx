@@ -297,14 +297,14 @@ export default function MiaCentroDeEsteticaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-base md:text-lg px-8 py-3 md:py-3.5 rounded-full transition-all duration-200 hover:brightness-[1.08] hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} text-base md:text-lg px-8 py-3 md:py-3.5 rounded-full transition-all duration-200 hover:brightness-[1.08] hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ backgroundColor: C.earth, color: '#FBF7EF' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} text-base md:text-lg px-8 py-3 md:py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} text-base md:text-lg px-8 py-3 md:py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: '#FBF7EF' }}
               >
                 Ver servicios
@@ -509,7 +509,7 @@ export default function MiaCentroDeEsteticaPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} text-base md:text-lg px-8 py-3 md:py-4 rounded-full transition-all duration-200 hover:brightness-[1.08] hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+                  className={`${display.className} text-base md:text-lg px-8 py-3 md:py-4 rounded-full transition-all duration-200 hover:brightness-[1.08] hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                   style={{ backgroundColor: C.earth, color: '#FBF7EF' }}
                 >
                   Escribir por WhatsApp
@@ -518,7 +518,7 @@ export default function MiaCentroDeEsteticaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} text-base md:text-lg px-8 py-3 md:py-4 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2`}
+                  className={`${display.className} text-base md:text-lg px-8 py-3 md:py-4 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                   style={{ borderColor: 'rgba(251,247,239,0.5)', color: '#FBF7EF' }}
                 >
                   Cómo llegar →

@@ -449,14 +449,14 @@ export default function LasViejasCochinasPage() {
               <div className="flex flex-wrap gap-3 mb-8">
                 <a
                   href={CALL_LINK}
-                  className="text-center text-base font-semibold px-6 py-3 md:py-4 rounded-md transition-transform active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  className="text-center text-base font-semibold px-6 py-3 md:py-4 rounded-md transition-transform active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44"
                   style={{ backgroundColor: C.white, color: C.red }}
                 >
                   Llamar al restaurante
                 </a>
                 <a
                   href={CALL_LINK}
-                  className="text-center text-base font-semibold px-6 py-3 md:py-4 rounded-md border transition-colors hover:bg-white/10"
+                  className="text-center text-base font-semibold px-6 py-3 md:py-4 rounded-md border transition-colors hover:bg-white/10 tap-44"
                   style={{ borderColor: 'rgba(255,255,255,0.55)', color: C.white }}
                 >
                   Reservar para grupo

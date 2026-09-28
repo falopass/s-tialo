@@ -246,14 +246,14 @@ export default function TurismoLasBrujas() {
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.laguna, color: '#FFFFFF' }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#lugar"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(247,243,232,0.5)', color: '#FFFFFF' }}
               >
                 Ver el lugar
@@ -391,7 +391,7 @@ export default function TurismoLasBrujas() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2"
+                  className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                   style={{ color: C.arena, textDecorationColor: 'rgba(228,220,198,0.4)' }}
                 >
                   Ver la ficha en Google →
@@ -446,7 +446,7 @@ export default function TurismoLasBrujas() {
             </address>
             <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
               Teléfono:{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4" style={{ color: C.ink }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.ink }}>
                 {BIZ.phoneDisplay}
               </a>
             </p>
@@ -455,7 +455,7 @@ export default function TurismoLasBrujas() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.ink, color: C.crema }}
               >
                 Cómo llegar →
@@ -464,7 +464,7 @@ export default function TurismoLasBrujas() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors"
+                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44"
                 style={{ borderColor: C.line, color: C.ink }}
               >
                 Escribir por WhatsApp
@@ -507,6 +507,7 @@ export default function TurismoLasBrujas() {
           src={`${IMG}/laguna.webp`}
           alt=""
           loading="lazy"
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -532,14 +533,14 @@ export default function TurismoLasBrujas() {
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.laguna, color: '#FFFFFF' }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors"
+                className="font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(247,243,232,0.5)', color: '#FFFFFF' }}
               >
                 {BIZ.phoneDisplay}
@@ -557,7 +558,7 @@ export default function TurismoLasBrujas() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,243,232,0.7)' }}>
               {BIZ.address} · {BIZ.city}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2" style={{ color: C.crema }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44" style={{ color: C.crema }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -576,7 +577,7 @@ export default function TurismoLasBrujas() {
               href={SITE.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold underline underline-offset-2"
+              className="font-semibold underline underline-offset-2 tap-44"
               style={{ color: C.crema }}
             >
               Sitiazo
@@ -586,7 +587,7 @@ export default function TurismoLasBrujas() {
               href={whatsappLink('contacto')}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold underline underline-offset-2"
+              className="font-semibold underline underline-offset-2 tap-44"
               style={{ color: C.crema }}
             >
               ¿Lo hacemos realidad?

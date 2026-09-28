@@ -188,14 +188,14 @@ export default function ConstructoraValdesPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3 rounded-sm transition-transform active:scale-95`}
+                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3 rounded-sm transition-transform active:scale-95 tap-44`}
                   style={{ backgroundColor: C.gold, color: '#0D0D33' }}
                 >
                   Cotizar por WhatsApp
                 </a>
                 <a
                   href="#servicios"
-                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3 rounded-sm border-2 transition-colors hover:bg-white/10`}
+                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3 rounded-sm border-2 transition-colors hover:bg-white/10 tap-44`}
                   style={{ borderColor: 'rgba(245,242,235,0.55)', color: '#F5F2EB' }}
                 >
                   Ver servicios
@@ -357,7 +357,7 @@ export default function ConstructoraValdesPage() {
               <br />
               {BIZ.address} · {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4 decoration-2" style={{ color: C.ink, textDecorationColor: 'rgba(26,26,46,0.3)' }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4 decoration-2 tap-44" style={{ color: C.ink, textDecorationColor: 'rgba(26,26,46,0.3)' }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -379,7 +379,7 @@ export default function ConstructoraValdesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm px-6 py-3 rounded-sm transition-transform active:scale-95`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm px-6 py-3 rounded-sm transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.navy, color: '#F5F2EB' }}
               >
                 Ver en Google Maps →
@@ -388,7 +388,7 @@ export default function ConstructoraValdesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm px-6 py-3 rounded-sm border-2 transition-colors`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm px-6 py-3 rounded-sm border-2 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(26,26,46,0.35)', color: C.ink }}
               >
                 Escribir por WhatsApp
@@ -428,7 +428,7 @@ export default function ConstructoraValdesPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold uppercase tracking-wide text-sm md:text-base px-8 py-3.5 rounded-sm transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold uppercase tracking-wide text-sm md:text-base px-8 py-3.5 rounded-sm transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.gold, color: '#0D0D33' }}
             >
               Cotizar por WhatsApp
@@ -451,7 +451,7 @@ export default function ConstructoraValdesPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(245,242,235,0.82)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

@@ -200,14 +200,14 @@ export default function ClinicaVeterinariaDocpinoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus-visible:outline-[#E8D9B4]`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus-visible:outline-[#E8D9B4] tap-44`}
                 style={{ backgroundColor: C.brass, color: '#142A20' }}
               >
                 Agendar hora por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-[#E8D9B4]`}
+                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-[#E8D9B4] tap-44`}
                 style={{ borderColor: 'rgba(246,241,231,0.55)', color: '#F6F1E7' }}
               >
                 Ver servicios

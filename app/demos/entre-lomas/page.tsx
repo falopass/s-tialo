@@ -162,11 +162,11 @@ function SitiazoStrip() {
         <span className="inline-block w-[6px] h-[6px] rounded-full shrink-0" style={{ backgroundColor: '#FFD60A' }} aria-hidden="true" />
         <span>
           Mockup preparado por{' '}
-          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44">
             Sitiazo
           </a>{' '}
           para {BIZ.name} — así se vería tu sitio.{' '}
-          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44">
             ¿Lo hacemos realidad?
           </a>
         </span>
@@ -222,7 +222,7 @@ export default function EntreLomasPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
+                className="text-xs font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4 tap-44"
                 style={{ color: '#F4EFE3', textDecorationColor: C.amber }}
               >
                 Ver las {BIZ.reviews} reseñas en Google →
@@ -252,14 +252,14 @@ export default function EntreLomasPage() {
                     href={WA_LINK_RESERVA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} font-bold tracking-[0.04em] text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:brightness-110 active:scale-95`}
+                    className={`${display.className} font-bold tracking-[0.04em] text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:brightness-110 active:scale-95 tap-44`}
                     style={{ backgroundColor: C.pine, color: '#F4EFE3' }}
                   >
                     Reservar por WhatsApp
                   </a>
                   <a
                     href="#complejo"
-                    className={`${display.className} font-bold tracking-[0.04em] text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-[#E4E9D8]`}
+                    className={`${display.className} font-bold tracking-[0.04em] text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-[#E4E9D8] tap-44`}
                     style={{ borderColor: C.pine, color: C.pine }}
                   >
                     Ver el complejo
@@ -448,7 +448,7 @@ export default function EntreLomasPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-sm font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
+                className="inline-block text-sm font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4 tap-44"
                 style={{ color: C.pine, textDecorationColor: C.amber }}
               >
                 Leer las {BIZ.reviews} reseñas en Google →
@@ -478,7 +478,7 @@ export default function EntreLomasPage() {
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold tracking-[0.04em] text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:brightness-105 active:scale-95`}
+                className={`${display.className} font-bold tracking-[0.04em] text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:brightness-105 active:scale-95 tap-44`}
                 style={{ backgroundColor: C.amber, color: C.deep }}
               >
                 {BIZ.phoneDisplay}
@@ -487,7 +487,7 @@ export default function EntreLomasPage() {
                 href={SITE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold tracking-[0.04em] text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold tracking-[0.04em] text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(244,239,227,0.5)', color: '#F4EFE3' }}
               >
                 {BIZ.site}
@@ -513,14 +513,14 @@ export default function EntreLomasPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
+                    className="underline underline-offset-4 decoration-2 transition-all hover:decoration-4 tap-44"
                     style={{ color: C.amber, textDecorationColor: 'rgba(209,154,62,0.4)' }}
                   >
                     Cómo llegar →
                   </a>
                   <a
                     href={`tel:${BIZ.phoneTel}`}
-                    className="underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
+                    className="underline underline-offset-4 decoration-2 transition-all hover:decoration-4 tap-44"
                     style={{ color: C.amber, textDecorationColor: 'rgba(209,154,62,0.4)' }}
                   >
                     Llamar
@@ -552,18 +552,18 @@ export default function EntreLomasPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,239,227,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors tap-44">
                 {BIZ.phoneDisplay}
               </a>
               {' · '}
-              <a href={SITE_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors">
+              <a href={SITE_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors tap-44">
                 {BIZ.site}
               </a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,239,227,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

@@ -192,14 +192,14 @@ export default function KarenOyarcePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ backgroundColor: C.tealBtn, color: '#FFFFFF' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} ${BTN_GHOST} text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_GHOST} text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ borderColor: 'rgba(14,42,40,0.4)', color: C.deep }}
               >
                 Ver servicios y valores
@@ -289,7 +289,7 @@ export default function KarenOyarcePage() {
                       href={WA_LINK}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`${BTN_SOLID} text-xs md:text-sm px-5 py-2.5 font-bold`}
+                      className={`${BTN_SOLID} text-xs md:text-sm px-5 py-2.5 font-bold tap-44`}
                       style={{ backgroundColor: C.tealBtn, color: '#FFFFFF' }}
                     >
                       Agendar →
@@ -391,7 +391,7 @@ export default function KarenOyarcePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ${BTN_SOLID} inline-block text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_SOLID} inline-block text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ backgroundColor: C.tealBtn, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
@@ -419,7 +419,7 @@ export default function KarenOyarcePage() {
                 <br />
                 {BIZ.commune}, Chile
                 <br />
-                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A9E0D2]">{BIZ.phoneDisplay}</a>
+                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A9E0D2] tap-44">{BIZ.phoneDisplay}</a>
               </address>
               <ul className="text-sm leading-relaxed mb-8 space-y-1" style={{ color: 'rgba(244,250,247,0.65)' }}>
                 {HOURS.map((h) => (
@@ -434,7 +434,7 @@ export default function KarenOyarcePage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${BTN_SOLID} text-sm px-6 py-3`}
+                  className={`${display.className} ${BTN_SOLID} text-sm px-6 py-3 tap-44`}
                   style={{ backgroundColor: C.tealBtn, color: '#FFFFFF' }}
                 >
                   Agendar hora
@@ -443,7 +443,7 @@ export default function KarenOyarcePage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${BTN_GHOST} text-sm px-6 py-3`}
+                  className={`${display.className} ${BTN_GHOST} text-sm px-6 py-3 tap-44`}
                   style={{ borderColor: 'rgba(244,250,247,0.5)', color: C.paper }}
                 >
                   Cómo llegar →
@@ -472,7 +472,7 @@ export default function KarenOyarcePage() {
           <address className="not-italic text-sm leading-relaxed" style={{ color: C.muted }}>
               {BIZ.address}, {BIZ.detail} · {BIZ.city}
               {' · '}
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-[#0E2A28] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0B4A44]">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-[#0E2A28] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0B4A44] tap-44">{BIZ.phoneDisplay}</a>
           </address>
           <p className="text-xs leading-relaxed mt-3" style={{ color: C.muted }}>
             Sitio de ejemplo de Sitiazo con datos publicados en su agenda

@@ -237,14 +237,14 @@ export default function TallerServimacPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ backgroundColor: C.red, color: '#FFFFFF' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 border-2 transition-all hover:bg-white/10 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 border-2 transition-all hover:bg-white/10 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ borderColor: 'rgba(244,244,242,0.55)', color: '#F4F4F2' }}
               >
                 Ver servicios
@@ -509,7 +509,7 @@ export default function TallerServimacPage() {
                 href={WA_LINK_PRESUPUESTO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ backgroundColor: C.signalHi, color: C.fleetDeep }}
               >
                 Pedir presupuesto real
@@ -556,7 +556,7 @@ export default function TallerServimacPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ backgroundColor: C.red, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
@@ -565,7 +565,7 @@ export default function TallerServimacPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm px-6 py-3 border-2 transition-all hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm px-6 py-3 border-2 transition-all hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ borderColor: C.fleet, color: C.fleet }}
               >
                 Cómo llegar →

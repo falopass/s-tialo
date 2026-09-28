@@ -1035,7 +1035,7 @@ export default function DemosIndex() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 font-body text-body-sm font-semibold bg-ink text-cream px-5 py-2.5 transition-transform active:scale-95"
+            className="shrink-0 font-body text-body-sm font-semibold bg-ink text-cream px-5 py-2.5 transition-transform active:scale-95 tap-44"
           >
             Hablar con {SITE.name} →
           </a>

@@ -192,14 +192,14 @@ export default function FamilyGymPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ backgroundColor: C.violetBtn, color: C.white }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#planes"
-                className={`${display.className} ${BTN_GHOST} text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_GHOST} text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ borderColor: 'rgba(239,233,250,0.55)', color: C.mist }}
               >
                 Ver planes
@@ -316,7 +316,7 @@ export default function FamilyGymPage() {
                   <span>
                     <strong>{BIZ.rating} ★</strong> en Google Maps — recién
                     empieza a juntar reseñas.{' '}
-                    <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#241040] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B21B6]" style={{ color: C.violetDeep }}>
+                    <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#241040] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B21B6] tap-44" style={{ color: C.violetDeep }}>
                       Ver ficha →
                     </a>
                   </span>
@@ -324,7 +324,7 @@ export default function FamilyGymPage() {
                 <li className="flex gap-3">
                   <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-2" style={{ backgroundColor: C.violetBtn }} aria-hidden="true" />
                   <span>
-                    <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#241040] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B21B6]" style={{ color: C.violetDeep }}>
+                    <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#241040] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5B21B6] tap-44" style={{ color: C.violetDeep }}>
                       @{BIZ.instagram}
                     </a>{' '}
                     con <strong>{BIZ.instagramFollowers} seguidores</strong> en Instagram.
@@ -395,7 +395,7 @@ export default function FamilyGymPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ backgroundColor: C.violetBtn, color: C.white }}
               >
                 Consultar planes por WhatsApp
@@ -454,7 +454,7 @@ export default function FamilyGymPage() {
                 <br />
                 {BIZ.commune}, Chile
                 <br />
-                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EFE9FA]">{BIZ.phoneDisplay}</a>
+                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EFE9FA] tap-44">{BIZ.phoneDisplay}</a>
               </address>
               <p className="text-sm leading-relaxed mb-8" style={{ color: 'rgba(239,233,250,0.65)' }}>
                 {HOURS.days}, {HOURS.time}. Clase de prueba y valores por
@@ -465,7 +465,7 @@ export default function FamilyGymPage() {
                   href={WA_LINK_VISITA}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${BTN_SOLID} text-sm px-6 py-3`}
+                  className={`${display.className} ${BTN_SOLID} text-sm px-6 py-3 tap-44`}
                   style={{ backgroundColor: C.violetBtn, color: C.white }}
                 >
                   Agendar visita
@@ -474,7 +474,7 @@ export default function FamilyGymPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${BTN_GHOST} text-sm px-6 py-3`}
+                  className={`${display.className} ${BTN_GHOST} text-sm px-6 py-3 tap-44`}
                   style={{ borderColor: 'rgba(239,233,250,0.5)', color: C.mist }}
                 >
                   Cómo llegar →
@@ -483,7 +483,7 @@ export default function FamilyGymPage() {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${BTN_GHOST} text-sm px-6 py-3`}
+                  className={`${display.className} ${BTN_GHOST} text-sm px-6 py-3 tap-44`}
                   style={{ borderColor: 'rgba(239,233,250,0.5)', color: C.mist }}
                 >
                   @{BIZ.instagram}
@@ -512,9 +512,9 @@ export default function FamilyGymPage() {
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(239,233,250,0.72)' }}>
               {BIZ.address} · {BIZ.city}
               {' · '}
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EFE9FA]">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EFE9FA] tap-44">{BIZ.phoneDisplay}</a>
               {' · '}
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EFE9FA]">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EFE9FA] tap-44">
                 @{BIZ.instagram}
               </a>
           </address>
