@@ -13,7 +13,7 @@ mkdirSync(outdir, { recursive: true })
 const raw = readFileSync(inputFile, 'utf8')
 let urls = [...raw.matchAll(/"(https:[^"]+)"/g)].map((m) => m[1])
 if (urls.length === 0) urls = raw.split(/\s+/).filter((s) => s.startsWith('http'))
-urls = urls.filter((u) => u.includes('fbcdn.net') || u.includes('googleusercontent.com'))
+urls = urls.filter((u) => u.includes('fbcdn.net') || u.includes('googleusercontent.com') || u.includes('cdninstagram.com'))
 urls = urls.filter((u) => !u.includes('emoji.php') && !u.includes('rsrc.php') && !u.includes('FBLogo'))
 
 // agrandar los thumbs de fb: ctp=s160x160 / s206x206 -> s720x720
