@@ -1,9 +1,13 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
+import LazyMap from '../lazy-map'
 import { demoMetadata } from '../meta'
 import { Chrome, Reveal } from './chrome'
-import { AREAS, BIZ, C, HOURS, MAPS_URL, PASOS, SINTOMAS, WA_LINK } from './content'
+import { AREAS, BIZ, C, HOURS, MAPS_EMBED, MAPS_URL, PASOS, SINTOMAS, WA_LINK } from './content'
+
+const IMG = '/demos/automotriz-tudela-mecanica-electricidad'
 
 const display = localFont({ src: '../../fonts/oswald/normal-200-700.woff2', weight: '200 700' })
 const body = localFont({ src: '../../fonts/space-grotesk/normal-300-700.woff2', weight: '300 700' })
@@ -32,107 +36,6 @@ function Eyebrow({ children, color = C.voltDeep }: { children: React.ReactNode; 
       <Bolt />
       {children}
     </p>
-  )
-}
-
-/** Escena del hero: frente de un auto con el capó abierto y un tester conectado a la batería. */
-function Diagnostic() {
-  return (
-    <svg viewBox="0 0 720 480" className="h-auto w-full" role="img" aria-label="Ilustración de un auto con el capó abierto y un tester eléctrico conectado a la batería">
-      <defs>
-        <linearGradient id="td-bg" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#152841" />
-          <stop offset="1" stopColor="#0E1B2E" />
-        </linearGradient>
-        <linearGradient id="td-body" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#E9EEF4" />
-          <stop offset="1" stopColor="#B9C4D2" />
-        </linearGradient>
-        <linearGradient id="td-hood" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#F4F7FA" />
-          <stop offset="1" stopColor="#CBD5E1" />
-        </linearGradient>
-        <radialGradient id="td-glow" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0" stopColor="#4FD1E0" stopOpacity="0.5" />
-          <stop offset="1" stopColor="#4FD1E0" stopOpacity="0" />
-        </radialGradient>
-        <pattern id="td-grid" width="36" height="36" patternUnits="userSpaceOnUse">
-          <path d="M36 0H0V36" fill="none" stroke="rgba(220,227,236,0.07)" />
-        </pattern>
-      </defs>
-      <rect width="720" height="480" fill="url(#td-bg)" />
-      <rect width="720" height="480" fill="url(#td-grid)" />
-      <rect y="380" width="720" height="100" fill="#0A1524" />
-      <path d="M0 380H720" stroke="rgba(220,227,236,0.2)" />
-      <ellipse cx="360" cy="384" rx="260" ry="12" fill="#000" opacity="0.5" />
-
-      {/* motor visible */}
-      <rect x="196" y="160" width="328" height="120" rx="10" fill="#1B2D46" />
-      <rect x="216" y="176" width="130" height="88" rx="8" fill="#243B5A" />
-      {[232, 262, 292, 322].map((x) => (
-        <rect key={x} x={x} y="186" width="14" height="30" rx="3" fill="#3B5578" />
-      ))}
-      <path d="M216 232 H346" stroke="#3B5578" strokeWidth="6" />
-      {/* batería */}
-      <rect x="372" y="190" width="130" height="74" rx="8" fill="#0E1B2E" stroke="#4E5B6B" strokeWidth="3" />
-      <rect x="386" y="180" width="18" height="14" rx="3" fill="#C4CEDA" />
-      <rect x="466" y="180" width="18" height="14" rx="3" fill="#F5C400" />
-      <text x="392" y="236" fontSize="22" fontWeight="700" fill="#F5C400" fontFamily="inherit">
-        12V
-      </text>
-      <path d="M470 222 H492 M481 211 V233" stroke="#F5C400" strokeWidth="4" strokeLinecap="round" />
-      <path d="M394 258 H414" stroke="#C4CEDA" strokeWidth="4" strokeLinecap="round" />
-
-      {/* carrocería */}
-      <path d="M150 380 V300 C150 288 158 280 170 280 L196 280 L216 250 C224 240 232 236 246 236 L474 236 C488 236 496 240 504 250 L524 280 L550 280 C562 280 570 288 570 300 V380 Z" fill="url(#td-body)" />
-      <path d="M150 300 L570 300" stroke="rgba(14,27,46,0.18)" strokeWidth="2" />
-      {/* parachoques */}
-      <rect x="140" y="332" width="440" height="48" rx="10" fill="#C4CEDA" />
-      <rect x="250" y="342" width="220" height="28" rx="6" fill="#0E1B2E" />
-      {[268, 300, 332, 364, 396, 428].map((x) => (
-        <rect key={x} x={x} y="348" width="10" height="16" rx="2" fill="#243B5A" />
-      ))}
-      {/* faros */}
-      <path d="M160 296 H236 C244 296 248 302 246 310 L240 326 H160 Z" fill="#F5C400" />
-      <path d="M560 296 H484 C476 296 472 302 474 310 L480 326 H560 Z" fill="#F5C400" />
-      <path d="M170 302 H228" stroke="#fff" strokeOpacity="0.6" strokeWidth="3" />
-      <path d="M492 302 H550" stroke="#fff" strokeOpacity="0.6" strokeWidth="3" />
-      {/* parrilla */}
-      <rect x="268" y="290" width="184" height="30" rx="6" fill="#0E1B2E" />
-      <rect x="276" y="298" width="168" height="4" fill="#3B5578" />
-      <rect x="276" y="308" width="168" height="4" fill="#3B5578" />
-      {/* capó abierto */}
-      <path d="M204 236 L232 128 C236 118 244 112 256 112 L464 112 C476 112 484 118 488 128 L516 236 Z" fill="url(#td-hood)" />
-      <path d="M232 128 L488 128" stroke="rgba(14,27,46,0.15)" />
-      <path d="M262 124 L262 224 M458 124 L458 224" stroke="rgba(14,27,46,0.12)" />
-      {/* soporte */}
-      <path d="M208 236 L226 150" stroke="#4E5B6B" strokeWidth="5" strokeLinecap="round" />
-      {/* ruedas */}
-      <rect x="172" y="360" width="60" height="36" rx="8" fill="#0A1524" />
-      <rect x="488" y="360" width="60" height="36" rx="8" fill="#0A1524" />
-
-      {/* tester */}
-      <g>
-        <circle cx="480" cy="196" r="52" fill="url(#td-glow)" />
-        <path d="M478 190 C540 160 600 120 620 74" stroke="#0E1B2E" strokeWidth="9" fill="none" strokeLinecap="round" />
-        <path d="M478 190 C540 160 600 120 620 74" stroke="#F5C400" strokeWidth="4" fill="none" strokeLinecap="round" />
-        <path d="M398 188 C380 150 372 110 392 74" stroke="#0E1B2E" strokeWidth="9" fill="none" strokeLinecap="round" />
-        <path d="M398 188 C380 150 372 110 392 74" stroke="#4E5B6B" strokeWidth="4" fill="none" strokeLinecap="round" />
-        <g transform="translate(560 30)">
-          <rect width="120" height="76" rx="10" fill="#F5C400" />
-          <rect x="10" y="10" width="100" height="36" rx="5" fill="#0E1B2E" />
-          <text x="18" y="37" fontSize="24" fontWeight="700" fill="#4FD1E0" fontFamily="inherit" letterSpacing="1">
-            12.6 V
-          </text>
-          {[14, 40, 66].map((x) => (
-            <circle key={x} cx={x + 6} cy="62" r="5" fill="#0E1B2E" />
-          ))}
-          <rect x="88" y="56" width="22" height="12" rx="3" fill="#0E1B2E" />
-        </g>
-      </g>
-      {/* chispa */}
-      <path d="M466 176 L458 164 L470 166 L464 154" stroke="#4FD1E0" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
   )
 }
 
@@ -201,8 +104,15 @@ export default function AutomotrizTudelaPage() {
           </Reveal>
           <Reveal delay={120}>
             <div className="relative">
-              <div className="overflow-hidden rounded-[22px] border shadow-2xl" style={{ borderColor: C.lineOnDark }}>
-                <Diagnostic />
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] border shadow-2xl" style={{ borderColor: C.lineOnDark }}>
+                <Image
+                  src={`${IMG}/hero.webp`}
+                  alt="Auto en el elevador del taller Automotriz Tudela"
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
               </div>
               <div
                 className={`${display.className} absolute -bottom-4 left-5 inline-flex items-center gap-2 rounded-md px-3.5 py-2 text-sm font-semibold uppercase tracking-[0.18em] shadow-lg md:left-8`}
@@ -237,9 +147,19 @@ export default function AutomotrizTudelaPage() {
             {AREAS.map((a, i) => (
               <Reveal key={a.n} delay={i * 100}>
                 <article
-                  className="relative flex h-full flex-col overflow-hidden rounded-[22px] p-6 transition-transform hover:-translate-y-1 md:p-8"
+                  className="relative flex h-full flex-col overflow-hidden rounded-[22px] transition-transform hover:-translate-y-1"
                   style={{ backgroundColor: i === 0 ? '#fff' : C.navy, color: i === 0 ? C.ink : C.steel, boxShadow: '0 14px 34px rgba(14,27,46,0.08)' }}
                 >
+                  <div className="relative aspect-[16/9] w-full">
+                    <Image
+                      src={`${IMG}/${a.photo}`}
+                      alt={a.photoAlt}
+                      fill
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6 md:p-8">
                   <div className="flex items-start justify-between">
                     <span className="flex h-14 w-14 items-center justify-center rounded-xl" style={{ backgroundColor: i === 0 ? C.steel : C.navy2, color: i === 0 ? C.navy : C.volt }}>
                       <AreaIcon n={a.n} />
@@ -255,6 +175,7 @@ export default function AutomotrizTudelaPage() {
                   <span className={`${display.className} mt-6 inline-flex w-fit rounded-md px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.18em]`} style={{ backgroundColor: C.volt, color: C.navy }}>
                     {a.tag}
                   </span>
+                  </div>
                 </article>
               </Reveal>
             ))}
@@ -324,6 +245,41 @@ export default function AutomotrizTudelaPage() {
         </div>
       </section>
 
+      {/* ── El taller (fotos reales de su ficha de Maps) ── */}
+      <section id="taller" className="scroll-mt-20" style={{ backgroundColor: C.navy2, color: C.steel }}>
+        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+          <Reveal>
+            <Eyebrow color={C.volt}>El taller</Eyebrow>
+            <h2 className={`${display.className} text-5xl font-bold uppercase leading-[1] md:text-6xl`}>
+              Trabajo real, <span style={{ color: C.volt }}>en el taller real.</span>
+            </h2>
+            <p className="mt-5 max-w-lg text-base leading-relaxed" style={{ color: C.mutedOnDark }}>
+              Fotos que el taller publica en su ficha de Google Maps.
+            </p>
+          </Reveal>
+          <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+            {[
+              { src: 'taller.webp', alt: 'Mecánico trabajando bajo el capó en Automotriz Tudela' },
+              { src: 'diagnostico.webp', alt: 'Diagnóstico de motor con tablet en el taller' },
+              { src: 'frenos.webp', alt: 'Trabajo de frenos en el taller Automotriz Tudela' },
+              { src: 'embrague.webp', alt: 'Pieza de embrague reparada en el taller' },
+            ].map((f, i) => (
+              <Reveal key={f.src} delay={i * 80}>
+                <li className="relative aspect-[4/5] overflow-hidden rounded-[16px] border" style={{ borderColor: C.lineOnDark }}>
+                  <Image
+                    src={`${IMG}/${f.src}`}
+                    alt={f.alt}
+                    fill
+                    sizes="(min-width: 768px) 25vw, 50vw"
+                    className="object-cover"
+                  />
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* ── Contacto ── */}
       <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: '#fff' }}>
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
@@ -372,6 +328,15 @@ export default function AutomotrizTudelaPage() {
               </div>
             </Reveal>
           </div>
+          <Reveal delay={100}>
+            <div className="mt-8 overflow-hidden rounded-[22px] border" style={{ borderColor: C.line }}>
+              <LazyMap
+                title={`Mapa: ${BIZ.name}, ${BIZ.address}, ${BIZ.city}`}
+                src={MAPS_EMBED}
+                className="h-[280px] w-full md:h-[320px]"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 

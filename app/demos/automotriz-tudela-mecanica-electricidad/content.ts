@@ -1,12 +1,13 @@
 /**
  * Datos confirmados en fuentes públicas consultadas el 28-09-2026.
- * No se encontraron perfiles sociales inequívocos para descargar fotos reales.
+ * Las fotos del demo son reales: salen de la galería que el taller
+ * publica en su ficha de Google Maps.
  */
 export const BIZ = {
   name: 'Automotriz Tudela',
   short: 'Automotriz Tudela',
   rubro: 'Mecánica y electricidad automotriz',
-  address: 'Pje. 6 1/2 Pte. 1243',
+  address: 'Pje. 8 Ote. 161',
   city: 'Talca',
   region: 'Región del Maule',
   whatsapp: '56972547754',
@@ -23,8 +24,12 @@ export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
 )}`
 
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  'Automotriz Tudela, Pje. 6 1/2 Pte. 1243, Talca, Chile',
+  'AUTOMOTRIZ TUDELA Mecánica y electricidad, Pje. 8 Ote. 161, Talca, Chile',
 )}`
+
+export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
+  'AUTOMOTRIZ TUDELA Mecánica y electricidad, Pje. 8 Ote. 161, Talca, Chile',
+)}&output=embed`
 
 /** Paleta del demo: azul noche de taller, amarillo de tester eléctrico y gris acero. */
 export const C = {
@@ -49,12 +54,16 @@ export const AREAS = [
     title: 'Mecánica',
     desc: 'Revisión y reparación mecánica del vehículo. Cuéntanos qué síntoma tiene y se coordina la visita.',
     tag: 'Taller',
+    photo: 'mecanica.webp',
+    photoAlt: 'Motor abierto en trabajo mecánico del taller Automotriz Tudela',
   },
   {
     n: '02',
     title: 'Electricidad automotriz',
     desc: 'Diagnóstico y reparación del sistema eléctrico: cuando una luz del tablero no se apaga o algo dejó de funcionar.',
     tag: 'Eléctrico',
+    photo: 'electricidad.webp',
+    photoAlt: 'Trabajo de electricidad automotriz en el compartimiento del motor',
   },
 ] as const
 
@@ -67,7 +76,7 @@ export const PASOS = [
 ] as const
 
 export const SOURCES = [
-  'Google Maps, ficha pública de Taller mecánico y electricidad Automotriz Tudela: nombre, dirección, teléfono y horario.',
-  'Chilopina, ficha indexada de Google Maps: Pje. 6 1/2 Pte. 1243, Talca; +56 9 7254 7754; lunes a viernes 09:00–19:00; sábado y domingo cerrado.',
-  'Instagram y Facebook: búsquedas por nombre exacto sin perfil oficial inequívoco disponible para reutilizar fotos.',
+  'Google Maps, ficha pública de AUTOMOTRIZ TUDELA Mecánica y electricidad: nombre, dirección actual (Pje. 8 Ote. 161, Talca), teléfono, horario y todas las fotos del demo.',
+  'Chilopina, ficha indexada de Google Maps: dirección anterior (Pje. 6 1/2 Pte. 1243, Talca); +56 9 7254 7754; lunes a viernes 09:00–19:00; sábado y domingo cerrado.',
+  'Instagram y Facebook: sin perfil oficial inequívoco; las fotos reales se tomaron de la ficha de Maps.',
 ] as const
