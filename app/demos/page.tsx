@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'antumalen-restaurant',
+    name: 'Antümalen Restaurant',
+    rubro: 'Restaurant y comida casera',
+    city: 'San Clemente',
+    tagline: 'Comida casera en Ruta 115: mostaza, terracota y crema.',
+    gradient: 'linear-gradient(135deg, #231508 0%, #B8441D 55%, #E3A008 140%)',
+  },
+  {
     slug: 'lavaseco-flash',
     name: 'Lavaseco Flash',
     rubro: 'Lavandería y lavaseco',
