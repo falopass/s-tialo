@@ -2160,7 +2160,6 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #101216 0%, #1E222B 55%, #FFC400 140%)',
   },
   {
-<<<<<<< HEAD
     slug: 'style-kids',
     name: 'Style Kids',
     rubro: 'Peluquería infantil',
@@ -2239,6 +2238,14 @@ const BLITZ = [
     city: 'Talca',
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #1E3A29 0%, #F2EAD9 150%)',
+  },
+  {
+    slug: 'duo-limpieza-spa',
+    name: 'Dúo Limpieza SpA',
+    rubro: 'Limpieza de hogares y empresas',
+    city: 'Talca',
+    tagline: 'Checklist de limpieza: crema cálida, navy+verde del logo y Baloo 2 redondo.',
+    gradient: 'linear-gradient(135deg, #F7F2E7 0%, #1C3A5E 60%, #216B45 150%)',
   },
 ]
 
