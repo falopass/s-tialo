@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/2e67b1870547635b.css","style"]
-:HL["/_next/static/chunks/431fdc9d1d90f98d.css","style"]
+:HL["/_next/static/chunks/bf5d6c477c0d313b.css","style"]
 :HL["/_next/static/media/italic_100_900-s.p.72b334cd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.77c0d914.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -19,4 +19,4 @@
 :HL["/demos/constructora-pehuenche/obra-3.webp","image"]
 :HL["/demos/constructora-pehuenche/fondo-proceso.webp","image"]
 :HL["/demos/constructora-pehuenche/fondo-cta.webp","image"]
-0:{"buildId":"DZsUl7clRhuVUsXv5ubPt","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"constructora-pehuenche","paramType":null,"paramKey":"constructora-pehuenche","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"tK6j3AWnrg_kCirZX6-DY","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"constructora-pehuenche","paramType":null,"paramKey":"constructora-pehuenche","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

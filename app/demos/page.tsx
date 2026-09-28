@@ -2415,6 +2415,30 @@ const BLITZ = [
     tagline: 'Barra oscura con pizarra, dorado del logo y cresta de montaña; fotos reales de su ficha.',
     gradient: 'linear-gradient(135deg, #0C0A07 0%, #1B1712 55%, #D9A72E 150%)',
   },
+  {
+    slug: 'imprenta-multigraf',
+    name: 'Imprenta MULTIGRAF',
+    rubro: 'Imprenta y librería',
+    city: 'Molina',
+    tagline: 'La orden de trabajo N° 2082: papel, sellos punteados y boleta, en amarillo imprenta y tinta.',
+    gradient: 'linear-gradient(135deg, #F6F0E2 0%, #F2B90B 65%, #BF2E1F 150%)',
+  },
+  {
+    slug: 'minimarket-emily',
+    name: 'Minimarket Emily',
+    rubro: 'Minimarket y almacén',
+    city: 'Molina',
+    tagline: 'La góndola del pasaje: toldo a cuadros, etiquetas de precio amarillas y abierto todos los días hasta las 10.',
+    gradient: 'linear-gradient(135deg, #FBF5E8 0%, #1E50A2 60%, #FFC51B 150%)',
+  },
+  {
+    slug: 'pizzeria-la-toscana',
+    name: 'Pizzería la Toscana',
+    rubro: 'Pizzería',
+    city: 'Molina',
+    tagline: 'La ronda de la esquina de Maipú: platos circulares, borde de masa punteado y ticket de cocina.',
+    gradient: 'linear-gradient(135deg, #211711 0%, #A33327 60%, #D9A24B 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
