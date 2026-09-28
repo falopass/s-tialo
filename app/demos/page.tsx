@@ -1126,6 +1126,14 @@ const BLITZ = [
     tagline: 'Ruta de la visita: papel crema del valle, terracota y el «un 7» que repiten sus reseñas.',
     gradient: 'linear-gradient(135deg, #1F2E1A 0%, #23301E 55%, #B8502F 160%)',
   },
+  {
+    slug: 'luze-vital',
+    name: 'Luze Vital',
+    rubro: 'Centro de estética integral',
+    city: 'Arica',
+    tagline: 'Spa de barrio: crema y teal del logo, fotos en arco y la estrella-flor de su marca.',
+    gradient: 'linear-gradient(135deg, #0E3235 0%, #17858A 55%, #F7F2E8 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

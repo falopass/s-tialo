@@ -187,6 +187,7 @@ const BLITZ_CREATED: Record<string, string> = {
   alcatorce: '2026-09-28',
   'catffeine-cafe': '2026-09-28',
   'patitas-pets-iquique': '2026-09-28',
+  'luze-vital': '2026-09-28',
   'clinica-veterinaria-zoovet': '2026-09-28',
   'antumalen-restaurant': '2026-09-28',
   'taller-zunino-266': '2026-09-28',
