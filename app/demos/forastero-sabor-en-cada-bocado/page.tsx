@@ -1,156 +1,161 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
+import { DemoBand } from '../kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_LLEVAR, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
-    { path: '../../fonts/unbounded/normal-200-900.woff2', weight: '200 900', style: 'normal' },
+    { path: '../../fonts/anton/normal-400.woff2', weight: '400', style: 'normal' },
   ],
 })
 const body = localFont({
   src: [
-    { path: '../../fonts/onest/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+    { path: '../../fonts/barlow/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/barlow/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/barlow/normal-600.woff2', weight: '600', style: 'normal' },
+    { path: '../../fonts/barlow/normal-700.woff2', weight: '700', style: 'normal' },
   ],
 })
 
 const C = {
-  night: '#060D15',
-  panel: '#0B1722',
-  panelHi: '#0F2030',
-  blue: '#1F5673',
-  cyan: '#3CD9EC',
-  cyanDeep: '#149DB4',
-  ink: '#F2F7FA',
-  muted: '#93A2B4',
-  dim: '#8494A2',
-  line: 'rgba(147,162,180,0.18)',
-} as const
+  night: '#100D09',
+  panel: '#1A1510',
+  panelHi: '#231C13',
+  gold: '#D8B45A',
+  goldBright: '#EDC979',
 
-const NEON_TEXT = {
-  color: C.cyan,
-  textShadow: `0 0 6px rgba(60,217,236,0.85), 0 0 22px rgba(60,217,236,0.45), 0 0 60px rgba(20,157,180,0.55)`,
-} as const
-
-const NEON_BOX = {
-  border: `1.5px solid rgba(60,217,236,0.75)`,
-  boxShadow: `0 0 14px rgba(60,217,236,0.35), inset 0 0 14px rgba(60,217,236,0.10)`,
+  cream: '#F5EFE3',
+  muted: '#A89B80',
+  dim: '#8A7E68',
+  line: 'rgba(216,180,90,0.22)',
 } as const
 
 const FOCUS =
-  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3CD9EC]'
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D8B45A]'
 
 export const metadata: Metadata = demoMetadata({
   slug: 'forastero-sabor-en-cada-bocado',
-  title: 'FORASTERO sabor en cada bocado — Restaurante en Pencahue',
-  description: 'Restaurante en Francisco de Villagra 704, Pencahue. Comida casera, porciones generosas y atención directa. Reserva o pide por WhatsApp.',
+  title: 'FORASTERO · Salchipapas, pizzas y delivery en Pencahue',
+  description:
+    'Restaurante en Francisco de Villagra 704, Pencahue. Salchi Forastera, Golosa y Glotona, pizzas y delivery por WhatsApp. 5,0 estrellas en Google.',
   image: '/demos/forastero-sabor-en-cada-bocado/hero.webp',
 })
 
 const NAV_LINKS = [
-  { label: 'La cocina', href: '#cocina' },
-  { label: 'La casa', href: '#la-casa' },
+  { label: 'Las salchis', href: '#salchis' },
   { label: 'La carta', href: '#carta' },
+  { label: 'Promos', href: '#promos' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
-const FICHAS = [
+const SALCHIS = [
   {
-    num: '01',
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Pastel de choclo gratinado servido en paila de greda sobre mesa de madera',
-    tag: 'clásico de la casa',
-    name: 'Pastel de choclo en paila de greda',
-    desc: 'Choclo molido con pino jugoso, gratinado al punto, servido en greda caliente con ensalada chilena y pan amasado.',
+    src: `${IMG}/salchi-forastera.webp`,
+    alt: 'Salchi Forastera: papas fritas con salchichas, carne y aros de cebolla, servida en plato blanco',
+    name: 'Salchi Forastera',
+    desc: 'La que lleva el nombre de la casa: papas con salchicha, carne y aros de cebolla dorados encima.',
   },
   {
-    num: '02',
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Pebre fresco y aliños del día preparados en la cocina de FORASTERO',
-    tag: 'hecho al día',
-    name: 'Pebre y aliños del día',
-    desc: 'Cada mañana se pica fresco: el pebre de ají, las verduras de la olla y los aliños de la cocina. Lo que llega a la mesa se preparó ese día.',
+    src: `${IMG}/salchi-golosa.webp`,
+    alt: 'Salchi Golosa: papas fritas con choclo, carne y un hilado de mayonesa',
+    name: 'Salchi Golosa',
+    desc: 'Papas con choclo dulce y su hilado de mayo, para las que se saben de memoria.',
   },
   {
-    num: '03',
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Cocina abierta de FORASTERO con ollas de cobre y mesón a la vista del comedor',
-    tag: 'a la vista',
-    name: 'Cocina abierta al mesón',
-    desc: 'Del fuego al plato sin intermediarios: la cocina queda a la vista, con ollas de cobre y la vajilla de greda lista para el servicio.',
+    src: `${IMG}/salchi-glotona.webp`,
+    alt: 'Salchi Glotona: papas fritas con trozos de carne y toppings de la casa',
+    name: 'Salchi Glotona',
+    desc: 'La más cargada de las tres: para cuando una normal no alcanza.',
   },
 ]
 
 const CARTA = [
   {
-    group: 'Platos de fondo',
-    items: [
-      { name: 'Pastel de choclo en paila', price: '$9.500' },
-      { name: 'Cazuela de vacuno o ave', price: '$8.500' },
-      { name: 'Plateada con puré y ensalada', price: '$10.500' },
-      { name: 'Porotos granados', price: '$8.000' },
-    ],
+    src: `${IMG}/pizza.webp`,
+    alt: 'Pizza recién salida del horno de FORASTERO junto a un calzone',
+    titulo: 'Pizzas',
+    bajada: 'Medianas y familiares, con la promo de 2 medianas que publican en su Facebook.',
   },
   {
-    group: 'Del día y para llevar',
-    items: [
-      { name: 'Menú del día (entrada + fondo + postre)', price: '$7.500' },
-      { name: 'Sándwich de la casa', price: '$5.500' },
-      { name: 'Empanada de horno', price: '$2.500' },
-      { name: 'Jugo natural', price: '$2.000' },
-    ],
+    src: `${IMG}/bebidas.webp`,
+    alt: 'Tragos y bebidas de la casa servidos con humo y limón en la barra de FORASTERO',
+    titulo: 'Barra y bebidas',
+    bajada: 'Bebidas, tragos y coctelería de la casa para acompañar la mesa.',
+  },
+  {
+    src: `${IMG}/coctel.webp`,
+    alt: 'Coctel de la casa de FORASTERO servido en copa con bombillas',
+    titulo: 'Completos y más',
+    bajada: 'Sándwich, completos, empanadas, churrascos y ass forasteros con papas.',
   },
 ]
 
-const TESTIMONIALS = [
+const PROMOS = [
   {
-    text: 'Porciones de verdad y sabor de casa. El pastel de choclo llega aún hirviendo en la paila.',
-    author: 'Cliente de Pencahue',
+    src: `${IMG}/promo-viernes.webp`,
+    alt: 'Promo del viernes de FORASTERO: pizzas, sándwich, salchipapas, churrascos y empanadas',
+    nota: 'Comida rápida de viernes',
   },
   {
-    text: 'Paramos de paso por la ruta y volvimos al día siguiente. Atención directa, sin vueltas.',
-    author: 'Viajero de paso',
+    src: `${IMG}/promo-pizza.webp`,
+    alt: 'Promo de FORASTERO: 2 pizzas medianas por $15.990',
+    nota: '2 medianas x $15.990',
   },
   {
-    text: 'Se nota que todo se hace ahí mismo, desde el pebre hasta el pan. Precios honestos.',
-    author: 'Vecino del centro',
+    src: `${IMG}/promo-ass.webp`,
+    alt: 'Promo 06 de FORASTERO: 4 ass forasteros a elección con papas fritas y bebida por $17.990',
+    nota: 'Promo 06 · $17.990',
   },
 ]
 
-const HORAS = [
-  { days: 'Lunes a sábado', time: 'Almuerzo y once–cena' },
-  { days: 'Domingo', time: 'Solo almuerzo' },
-]
-
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <p
-      className="text-[11px] uppercase tracking-[0.28em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: C.cyan }}
-    >
-      <span
-        className="inline-block w-8 h-[2px]"
-        style={{ backgroundColor: C.cyan, boxShadow: `0 0 8px rgba(60,217,236,0.8)` }}
-        aria-hidden="true"
-      />
-      {children}
-    </p>
-  )
-}
-
-/** Divisor en línea de ruta: las trazas discontinuas del camino. */
-function RoadLine() {
+function GoldRule() {
   return (
     <div
       className="h-[2px] w-full"
       style={{
-        backgroundImage: `repeating-linear-gradient(90deg, rgba(60,217,236,0.45) 0px, rgba(60,217,236,0.45) 26px, transparent 26px, transparent 44px)`,
+        backgroundImage: `linear-gradient(90deg, transparent 0%, ${C.gold} 18%, ${C.gold} 82%, transparent 100%)`,
       }}
       aria-hidden="true"
     />
+  )
+}
+
+function WaButton({ href, ghost = false, children }: { href: string; ghost?: boolean; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${FOCUS} inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3 rounded-full font-semibold text-[15px] tracking-wide transition-all duration-300 hover:-translate-y-0.5 active:scale-95 tap-44`}
+      style={
+        ghost
+          ? { border: `1.5px solid ${C.gold}`, color: C.gold }
+          : { backgroundColor: C.gold, color: '#100D09', boxShadow: '0 8px 24px -8px rgba(216,180,90,0.5)' }
+      }
+    >
+      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+      </svg>
+      {children}
+    </a>
+  )
+}
+
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <p
+      className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.3em] mb-4"
+      style={{ color: C.gold }}
+    >
+      <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="currentColor" aria-hidden="true">
+        <path d="M7 2v9a2 2 0 0 0 2 2h1v9h2V2h-1v7h-1V2H9v7H8V2H7zm9 0c-1.5 0-3 2.5-3 5.5 0 2.4 1 4 2 4.5V22h2V2h-1z" />
+      </svg>
+      {children}
+    </p>
   )
 }
 
@@ -158,510 +163,345 @@ export default function ForasteroPage() {
   return (
     <div
       className={`${body.className} min-h-screen antialiased`}
-      style={{ backgroundColor: C.night, color: C.ink }}
+      style={{ backgroundColor: C.night, color: C.cream }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
           over: 'dark',
-          bar: 'rgba(6,13,21,0.92)',
-          ink: C.ink,
+          bar: 'rgba(16,13,9,0.94)',
+          ink: C.cream,
           line: C.line,
-          btnBg: C.cyan,
-          btnInk: '#041019',
+          btnBg: C.gold,
+          btnInk: '#100D09',
         }}
       />
 
-      {/* ── Hero a sangre: el letrero de la ruta ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.night }}>
-        <Image
-          src={`${IMG}/hero.webp`}
-          alt="Interior de FORASTERO: comedor de madera con cocina abierta al fuego y vista a los cerros del Maule"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-          style={{ filter: 'saturate(1.05) contrast(1.08) brightness(0.9)' }}
-        />
+      {/* ── Hero: letrero dorado + plato de la casa ── */}
+      <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.night }}>
         <div
           className="absolute inset-0"
           style={{
-            background:
-              'linear-gradient(180deg, rgba(6,13,21,0.86) 0%, rgba(6,13,21,0.62) 34%, rgba(6,13,21,0.88) 78%, #060D15 100%)',
-          }}
-        />
-        {/* halo azul distribución */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 90% 55% at 50% 42%, rgba(31,86,115,0.35) 0%, transparent 70%)',
+            background: `radial-gradient(ellipse 80% 55% at 62% 30%, rgba(216,180,90,0.13) 0%, transparent 65%)`,
           }}
           aria-hidden="true"
         />
-        {/* chips de datos */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8 flex flex-col items-end gap-2.5">
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-12 md:pb-16 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <Reveal>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS} tap-44`}
-              style={{ backgroundColor: 'rgba(6,13,21,0.85)', color: C.ink, ...NEON_BOX }}
+            <p className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.3em] mb-5" style={{ color: C.muted }}>
+              <span className="inline-block w-8 h-[1.5px]" style={{ backgroundColor: C.gold }} aria-hidden="true" />
+              Restaurante · {BIZ.city} · Maule
+            </p>
+            <h1
+              className={`${display.className} leading-[0.95] tracking-[0.01em] text-[clamp(3rem,12vw,6.2rem)]`}
+              style={{ color: C.gold }}
             >
-              <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.cyan} stroke={C.cyan} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
-              </svg>
-              {BIZ.reviews} reseñas en Google
-            </a>
-          </Reveal>
-          <Reveal delay={90}>
-            <a
-              href={BIZ.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS} tap-44`}
-              style={{ backgroundColor: 'rgba(6,13,21,0.85)', color: C.muted, border: `1px solid ${C.line}` }}
-            >
-              {BIZ.fbFollowers} seguidores en Facebook
-            </a>
-          </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-40">
-          <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.3em] mb-6 font-semibold" style={{ color: C.muted }}>
-              Restaurante · Pencahue · Región del Maule
+              FORASTERO
+            </h1>
+            <p className={`${display.className} mt-3 text-lg md:text-2xl uppercase tracking-[0.32em]`} style={{ color: C.cream }}>
+              {BIZ.tagline}
             </p>
-            {/* letrero de neón */}
-            <div className="inline-block rounded-2xl px-6 md:px-10 py-5 md:py-7 mb-7" style={NEON_BOX}>
-              <h1
-                className={`${display.className} font-extrabold leading-none tracking-[0.02em] text-[clamp(2.4rem,9vw,5.4rem)]`}
-                style={NEON_TEXT}
-              >
-                FORASTERO
-              </h1>
-              <p
-                className={`${display.className} text-sm md:text-lg tracking-[0.34em] uppercase mt-3 md:mt-4`}
-                style={{ color: 'rgba(242,247,250,0.9)', textShadow: '0 0 18px rgba(60,217,236,0.5)' }}
-              >
-                sabor en cada bocado
-              </p>
-            </div>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(242,247,250,0.85)' }}>
-              El restaurant del camino: comida casera, plato lleno y
-              atención directa en Francisco de Villagra 704, Pencahue.
+            <p className="mt-6 max-w-md text-[15px] md:text-[17px] leading-relaxed" style={{ color: C.muted }}>
+              Salchipapas con nombre propio, pizzas y completos,
+              con delivery en {BIZ.city}.
             </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS} tap-44`}
-                style={{ backgroundColor: C.cyan, color: '#041019', boxShadow: '0 0 24px rgba(60,217,236,0.45)' }}
-              >
-                Reservar por WhatsApp
-              </a>
-              <a
-                href="#carta"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-colors hover:bg-white/5 ${FOCUS} tap-44`}
-                style={{ border: '1.5px solid rgba(60,217,236,0.55)', color: C.cyan }}
-              >
-                Ver la carta
-              </a>
-              <span className="flex items-center gap-2 text-xs uppercase tracking-[0.18em] font-semibold ml-1" style={{ color: C.muted }}>
-                <span className="inline-block w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: C.cyan, boxShadow: '0 0 10px rgba(60,217,236,0.9)' }} aria-hidden="true" />
-                reserva directa
-              </span>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <WaButton href={WA_LINK}>Reservar mesa</WaButton>
+              <WaButton href={WA_LINK_LLEVAR} ghost>
+                Pedir delivery
+              </WaButton>
             </div>
-          </Reveal>
-        </div>
-        {/* barra de datos al pie del hero */}
-        <div className="relative" style={{ backgroundColor: 'rgba(6,13,21,0.72)', backdropFilter: 'blur(6px)' }}>
-          <RoadLine />
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: C.muted }}>
-            <span>{BIZ.address} · {BIZ.city}</span>
-            <span>Porciones generosas</span>
-            <span>Reserva y para llevar</span>
-            <span className="hidden md:inline" style={{ color: C.cyan }}>sitio de ejemplo</span>
-          </div>
-        </div>
-      </section>
-
-      {/* ── La cocina: fichas numeradas ── */}
-      <section id="cocina" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <Reveal>
-          <Eyebrow>De la cocina a la mesa</Eyebrow>
-          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
-            <h2 className={`${display.className} font-extrabold text-3xl md:text-5xl leading-[1.12]`}>
-              Platos que hacen
-              <br />
-              <span style={NEON_TEXT}>detener el viaje</span>
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
-              Una muestra de lo que sale del fuego. Al publicar van los
-              platos y descripciones reales del restaurante.
-            </p>
-          </div>
-        </Reveal>
-        <ul className="space-y-5 md:space-y-6">
-          {FICHAS.map((f, i) => (
-            <Reveal key={f.num} delay={i * 90}>
-              <li
-                className="group grid md:grid-cols-[minmax(0,340px)_1fr] rounded-2xl overflow-hidden"
-                style={{ backgroundColor: C.panel, border: `1px solid ${C.line}` }}
-              >
-                <div className="relative overflow-hidden aspect-[16/10] md:aspect-auto md:min-h-[240px]">
-                  <Image
-                    src={f.src}
-                    alt={f.alt}
-                    fill
-                    sizes="(min-width: 768px) 340px, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                    style={{ filter: 'saturate(1.05) contrast(1.08)' }}
-                  />
-                  <span
-                    className="absolute top-4 left-4 text-[11px] font-bold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full"
-                    style={{ backgroundColor: 'rgba(6,13,21,0.85)', color: C.cyan, ...NEON_BOX }}
-                  >
-                    {f.tag}
-                  </span>
-                </div>
-                <div className="p-6 md:p-9 flex gap-5 md:gap-8 items-start">
-                  <span
-                    className={`${display.className} shrink-0 font-extrabold text-3xl md:text-5xl leading-none pt-1`}
-                    style={{ color: 'transparent', WebkitTextStroke: `1.5px rgba(60,217,236,0.7)`, textShadow: '0 0 24px rgba(60,217,236,0.25)' }}
-                    aria-hidden="true"
-                  >
-                    {f.num}
-                  </span>
-                  <div>
-                    <h3 className={`${display.className} font-semibold text-lg md:text-2xl leading-snug mb-3`}>
-                      {f.name}
-                    </h3>
-                    <p className="text-sm md:text-[15px] leading-relaxed max-w-lg" style={{ color: C.muted }}>
-                      {f.desc}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </Reveal>
-          ))}
-        </ul>
-        <Reveal delay={200}>
-          <p className="text-xs md:text-sm mt-8 text-center" style={{ color: C.dim }}>
-            Platos y descripciones de muestra — la carta real va al publicar el sitio.
-          </p>
-        </Reveal>
-      </section>
-
-      <RoadLine />
-
-      {/* ── La casa: sobre el negocio ── */}
-      <section id="la-casa" className="scroll-mt-20" style={{ backgroundColor: C.panel }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-start">
-          <Reveal>
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3]" style={{ ...NEON_BOX, transform: 'rotate(-1deg)' }}>
-              <Image
-                src={`${IMG}/ambiente.webp`}
-                alt="Terraza de FORASTERO con mesas de madera y vista a los cerros de Pencahue"
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-                style={{ filter: 'saturate(1.05) contrast(1.08)' }}
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-3 mt-6">
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-[12px] font-semibold uppercase tracking-[0.16em]" style={{ color: C.muted }}>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-xl px-2.5 py-1.5 md:px-3 md:py-3 flex items-center justify-center gap-1.5 md:gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS} tap-44`}
-                style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
+                className={`${FOCUS} inline-flex min-h-[44px] items-center gap-2 tap-44`}
+                style={{ color: C.gold }}
               >
-                <p className={`${display.className} font-extrabold text-lg md:text-2xl leading-none`} style={NEON_TEXT}>
-                  {BIZ.reviews}
-                </p>
-                <p className="text-[10px] uppercase tracking-[0.08em] leading-tight text-left" style={{ color: C.muted }}>
-                  reseñas en Google
-                </p>
+                <Stars value={5} color={C.gold} className="w-3.5 h-3.5" />
+                {BIZ.rating} · {BIZ.reviews} reseñas
               </a>
               <a
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-xl px-2.5 py-1.5 md:px-3 md:py-3 flex items-center justify-center gap-1.5 md:gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS} tap-44`}
-                style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
+                className={`${FOCUS} inline-flex min-h-[44px] items-center tap-44`}
+                style={{ color: C.muted }}
               >
-                <p className={`${display.className} font-extrabold text-lg md:text-2xl leading-none`} style={NEON_TEXT}>
-                  {BIZ.fbFollowers}
-                </p>
-                <p className="text-[10px] uppercase tracking-[0.08em] leading-tight text-left" style={{ color: C.muted }}>
-                  seguidores en Facebook
-                </p>
+                {BIZ.fbFollowers} en Facebook
               </a>
             </div>
           </Reveal>
-          <Reveal delay={120}>
-            <Eyebrow>La casa</Eyebrow>
-            <h2 className={`${display.className} font-extrabold text-3xl md:text-4xl leading-[1.15] mb-6`}>
-              La casa del
-              <br />
-              <span style={NEON_TEXT}>forastero</span>
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-5" style={{ color: C.muted }}>
-              {BIZ.name} está en {BIZ.address}, en pleno {BIZ.city}.
-              Cocina de olla y de fuego, porciones que dejan satisfecho
-              y una terraza para comer mirando los cerros del Maule.
-            </p>
-            <p className="text-sm md:text-base leading-relaxed mb-8" style={{ color: C.muted }}>
-              La atención es directa: quien te recibe en la mesa es la
-              misma persona que responde el WhatsApp. Sin formularios
-              ni esperas.
-            </p>
-            <ul className="space-y-3 mb-10">
-              {['Comida casera servida en porciones generosas', 'Reserva de mesa y pedidos para llevar por WhatsApp', 'A pasos del centro de Pencahue'].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm md:text-base">
-                  <span className="shrink-0 w-5 h-[2px]" style={{ backgroundColor: C.cyan, boxShadow: '0 0 8px rgba(60,217,236,0.8)' }} aria-hidden="true" />
-                  <span style={{ color: 'rgba(242,247,250,0.9)' }}>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-xs leading-relaxed mb-6" style={{ color: C.dim }}>
-              Los textos a continuación son de muestra: al publicar van
-              las reseñas reales de la ficha de Google.
-            </p>
-            <div className="space-y-4">
-              {TESTIMONIALS.map((t) => (
-                <figure
-                  key={t.author}
-                  className="rounded-xl p-5 md:p-6"
-                  style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
-                >
-                  <blockquote className="text-sm md:text-[15px] leading-relaxed mb-3" style={{ color: 'rgba(242,247,250,0.9)' }}>
-                    “{t.text}”
-                  </blockquote>
-                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.cyan }}>
-                    {t.author} · Reseña de ejemplo
-                  </figcaption>
-                </figure>
-              ))}
+
+          <Reveal delay={140}>
+            <div className="relative mx-auto max-w-[460px]">
+              <div
+                className="relative aspect-[4/3] overflow-hidden rounded-2xl"
+                style={{ border: `1.5px solid ${C.gold}`, boxShadow: '0 30px 60px -30px rgba(0,0,0,0.8), 0 0 40px -10px rgba(216,180,90,0.25)' }}
+              >
+                <Image
+                  src={`${IMG}/hero.webp`}
+                  alt="Plato de la casa de FORASTERO con papas, carnes y salsas servido en su mesa"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 460px, 90vw"
+                  className="object-cover"
+                />
+              </div>
+              <div
+                className="absolute -bottom-7 -left-3 md:-left-9 w-[38%] aspect-square overflow-hidden rounded-full"
+                style={{ border: `4px solid ${C.night}`, boxShadow: `0 0 0 1.5px ${C.gold}, 0 18px 36px -18px rgba(0,0,0,0.8)` }}
+              >
+                <Image
+                  src={`${IMG}/logo.webp`}
+                  alt="Logo de FORASTERO en dorado sobre fondo negro"
+                  fill
+                  sizes="180px"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </Reveal>
         </div>
+        <div className="relative" style={{ backgroundColor: 'rgba(26,21,16,0.85)' }}>
+          <GoldRule />
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold" style={{ color: C.muted }}>
+            <span>{BIZ.address} · {BIZ.city}</span>
+            <span style={{ color: C.gold }}>Delivery por WhatsApp</span>
+            <span className="hidden sm:inline">Reserva directa</span>
+          </div>
+        </div>
       </section>
 
-      <RoadLine />
-
-      {/* ── La carta: precios de referencia ── */}
-      <section id="carta" className="scroll-mt-20 max-w-4xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      {/* ── Las salchipapas con nombre propio ── */}
+      <section id="salchis" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <Eyebrow>La carta</Eyebrow>
-          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
-            <h2 className={`${display.className} font-extrabold text-3xl md:text-5xl leading-[1.12]`}>
-              Precios
-              <br />
-              <span style={NEON_TEXT}>de referencia</span>
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
-              Valores de muestra para dimensionar el sitio. La carta y
-              los precios reales se confirman por WhatsApp.
-            </p>
-          </div>
+          <Eyebrow>Las salchis de la casa</Eyebrow>
+          <h2 className={`${display.className} text-[34px] md:text-[52px] leading-[1.02] tracking-[0.01em]`}>
+            Tres papas con <span style={{ color: C.gold }}>nombre propio</span>
+          </h2>
+          <p className="mt-4 max-w-xl text-[15px] md:text-[16px] leading-relaxed" style={{ color: C.muted }}>
+            Las salchipapas que el local fotografía y publica en su Facebook.
+            También llegan por delivery: promocionan las medianas de a 2.
+          </p>
         </Reveal>
-        <Reveal delay={100}>
-          <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: C.panel, ...NEON_BOX }}>
-            {CARTA.map((g, gi) => (
-              <div key={g.group} style={{ borderTop: gi > 0 ? `1px solid ${C.line}` : 'none' }}>
-                <p
-                  className={`${display.className} text-xs md:text-sm uppercase tracking-[0.28em] font-semibold px-6 md:px-8 pt-6 md:pt-7 pb-4`}
-                  style={{ color: C.cyan }}
+        <ul className="mt-10 md:mt-14 grid sm:grid-cols-3 gap-5">
+          {SALCHIS.map((s, i) => (
+            <Reveal key={s.name} delay={i * 90}>
+              <li
+                className="h-full rounded-2xl p-5 text-center"
+                style={{ backgroundColor: C.panel, border: `1px solid ${C.line}` }}
+              >
+                <div
+                  className="relative mx-auto w-[150px] h-[150px] md:w-[170px] md:h-[170px] overflow-hidden rounded-full"
+                  style={{ border: `2px solid ${C.gold}` }}
                 >
-                  {g.group}
+                  <Image
+                    src={s.src}
+                    alt={s.alt}
+                    fill
+                    sizes="170px"
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className={`${display.className} mt-5 text-[22px] tracking-[0.02em]`} style={{ color: C.goldBright }}>
+                  {s.name}
+                </h3>
+                <p className="mt-2 text-[14px] leading-relaxed" style={{ color: C.muted }}>
+                  {s.desc}
                 </p>
-                <ul className="px-6 md:px-8 pb-6 md:pb-7 space-y-3.5">
-                  {g.items.map((it) => (
-                    <li key={it.name} className="flex items-baseline gap-3 text-sm md:text-base">
-                      <span style={{ color: 'rgba(242,247,250,0.92)' }}>{it.name}</span>
-                      <span
-                        className="flex-1 -translate-y-1"
-                        style={{ borderBottom: `2px dotted rgba(147,162,180,0.4)` }}
-                        aria-hidden="true"
-                      />
-                      <span className={`${display.className} font-semibold whitespace-nowrap`} style={{ color: C.cyan }}>
-                        {it.price}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </li>
+            </Reveal>
+          ))}
+        </ul>
+      </section>
+
+      {/* ── De la cocina y la barra ── */}
+      <section id="carta" className="scroll-mt-20" style={{ backgroundColor: C.panel }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <Eyebrow>De la cocina y la barra</Eyebrow>
+            <h2 className={`${display.className} max-w-2xl text-[34px] md:text-[52px] leading-[1.02] tracking-[0.01em]`}>
+              Lo que sale <span style={{ color: C.gold }}>de su cocina</span>
+            </h2>
+          </Reveal>
+          <div className="mt-10 md:mt-14 grid md:grid-cols-3 gap-5">
+            {CARTA.map((c, i) => (
+              <Reveal key={c.titulo} delay={i * 90}>
+                <article className="h-full rounded-2xl overflow-hidden flex flex-col" style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={c.src}
+                      alt={c.alt}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="object-cover transition-transform duration-700 hover:scale-[1.05]"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className={`${display.className} text-[22px] tracking-[0.02em]`} style={{ color: C.goldBright }}>
+                      {c.titulo}
+                    </h3>
+                    <p className="mt-2 text-[14px] leading-relaxed" style={{ color: C.muted }}>
+                      {c.bajada}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
-        </Reveal>
-        <Reveal delay={180}>
-          <div className="flex flex-wrap items-center justify-between gap-4 mt-8">
-            <p className="text-xs md:text-sm" style={{ color: C.dim }}>
-              Carta y valores de muestra. Confirmamos plato del día y precios por WhatsApp.
-            </p>
-            <a
-              href={WA_LINK_LLEVAR}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-colors hover:bg-white/5 ${FOCUS} tap-44`}
-              style={{ border: '1.5px solid rgba(60,217,236,0.55)', color: C.cyan }}
-            >
-              Preguntar por la carta →
-            </a>
-          </div>
-        </Reveal>
+        </div>
       </section>
 
-      <RoadLine />
+      {/* ── Promos reales publicadas en su Facebook ── */}
+      <section id="promos" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <Reveal>
+          <Eyebrow>Promos de su Facebook</Eyebrow>
+          <h2 className={`${display.className} max-w-2xl text-[34px] md:text-[52px] leading-[1.02] tracking-[0.01em]`}>
+            Ofertas que el local <span style={{ color: C.gold }}>publica</span>
+          </h2>
+          <p className="mt-4 max-w-xl text-[15px] md:text-[16px] leading-relaxed" style={{ color: C.muted }}>
+            Gráficas reales del Facebook de FORASTERO. La vigencia y el reparto
+            se confirman directo por WhatsApp.
+          </p>
+        </Reveal>
+        <ul className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-3 gap-5 items-start">
+          {PROMOS.map((p, i) => (
+            <Reveal key={p.src} delay={i * 90}>
+              <li className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${C.line}`, backgroundColor: C.panel }}>
+                <div className="relative aspect-[7/10] sm:aspect-[3/4]">
+                  <Image src={p.src} alt={p.alt} fill sizes="(min-width: 640px) 30vw, 100vw" className="object-cover object-top" />
+                </div>
+                <p className="px-5 py-4 text-[13px] font-semibold uppercase tracking-[0.12em]" style={{ color: C.gold }}>
+                  {p.nota}
+                </p>
+              </li>
+            </Reveal>
+          ))}
+        </ul>
+      </section>
 
-      {/* ── Contacto: ubicación + WhatsApp ── */}
-      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.panel }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-stretch">
+      {/* ── Delivery: banner real del local ── */}
+      <section className="scroll-mt-20" style={{ backgroundColor: C.panel }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-8 lg:gap-14 items-center">
           <Reveal>
-            <Eyebrow>Dónde estamos</Eyebrow>
-            <h2 className={`${display.className} font-extrabold text-3xl md:text-4xl leading-[1.15] mb-6`}>
-              Villagra 704,
-              <br />
-              <span style={NEON_TEXT}>Pencahue</span>
+            <Eyebrow>Delivery y para llevar</Eyebrow>
+            <h2 className={`${display.className} text-[34px] md:text-[46px] leading-[1.05] tracking-[0.01em]`}>
+              Pide y llega a tu casa en <span style={{ color: C.gold }}>Pencahue</span>
             </h2>
-            <address className="not-italic text-sm md:text-base leading-relaxed mb-7" style={{ color: C.muted }}>
-              {BIZ.address}
-              <br />
-              {BIZ.city}, {BIZ.region}, Chile
-            </address>
-            <ul className="space-y-2.5 mb-8">
-              {HORAS.map((h) => (
-                <li key={h.days} className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.muted }}>
-                  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="none" stroke={C.cyan} strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7 v5 l3.5 2" />
-                  </svg>
-                  <span>
-                    <strong className="font-semibold" style={{ color: C.ink }}>{h.days}:</strong> {h.time}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: C.dim }}>
-              Horario referencial: al publicar van los horarios reales
-              del restaurante.
+            <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-relaxed" style={{ color: C.muted }}>
+              El mismo WhatsApp de la reserva toma tu pedido: escríbeles, di
+              qué quieres y coordina el reparto o el retiro.
             </p>
-            {/* tarjeta WhatsApp */}
-            <div className="rounded-2xl p-6 md:p-7" style={{ backgroundColor: C.panelHi, ...NEON_BOX }}>
-              <p className="text-[11px] uppercase tracking-[0.24em] font-semibold mb-2" style={{ color: C.muted }}>
-                Reserva o pide para llevar
-              </p>
-              <p className={`${display.className} font-extrabold text-xl md:text-2xl mb-5`} style={NEON_TEXT}>
-                {BIZ.phoneDisplay}
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS} tap-44`}
-                  style={{ backgroundColor: C.cyan, color: '#041019', boxShadow: '0 0 20px rgba(60,217,236,0.4)' }}
-                >
-                  Reservar mesa
-                </a>
-                <a
-                  href={WA_LINK_LLEVAR}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-colors hover:bg-white/5 ${FOCUS} tap-44`}
-                  style={{ border: '1.5px solid rgba(60,217,236,0.55)', color: C.cyan }}
-                >
-                  Pedir para llevar
-                </a>
-              </div>
-              <p className="text-xs mt-5" style={{ color: C.dim }}>
-                También nos encuentras en{' '}
-                <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:brightness-125 ${FOCUS} tap-44`} style={{ color: C.cyan }}>
-                  Facebook
-                </a>{' '}
-                y en{' '}
-                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:brightness-125 ${FOCUS} tap-44`} style={{ color: C.cyan }}>
-                  Google Maps
-                </a>
-                .
-              </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <WaButton href={WA_LINK_LLEVAR}>Pedir por WhatsApp</WaButton>
             </div>
+            <p className={`${display.className} mt-6 text-xl md:text-2xl tracking-[0.06em]`} style={{ color: C.goldBright }}>
+              {BIZ.phoneDisplay}
+            </p>
           </Reveal>
-          <Reveal delay={140}>
-            <div className="rounded-2xl overflow-hidden min-h-[360px] h-full" style={{ border: `1px solid ${C.line}`, backgroundColor: C.panelHi }}>
-              <LazyMap
-                title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
-                src={MAPS_EMBED}
-                className="w-full h-full min-h-[360px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                style={{ filter: 'invert(0.9) hue-rotate(180deg) saturate(0.4) brightness(0.9)' }}
+          <Reveal delay={120}>
+            <div
+              className="relative aspect-[16/9] overflow-hidden rounded-2xl"
+              style={{ border: `1px solid ${C.line}`, boxShadow: '0 24px 50px -28px rgba(0,0,0,0.8)' }}
+            >
+              <Image
+                src={`${IMG}/banner.webp`}
+                alt="Portada de FORASTERO con su logo dorado y su teléfono de contacto"
+                fill
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                className="object-cover"
               />
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── CTA final ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: C.night }}>
-        <div
-          className="absolute inset-0 opacity-[0.16]"
-          style={{
-            backgroundImage: `url(${IMG}/hero.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'saturate(1.05) contrast(1.1)',
-          }}
-          aria-hidden="true"
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
-          <Reveal>
-            <div className="inline-block rounded-2xl px-8 md:px-14 py-7 md:py-9 mb-8" style={NEON_BOX}>
-              <h2 className={`${display.className} font-extrabold text-[clamp(1.7rem,5.5vw,3.2rem)] leading-[1.1]`}>
-                Se come mejor
-                <br />
-                <span style={NEON_TEXT}>donde para la ruta</span>
-              </h2>
-            </div>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(242,247,250,0.8)' }}>
-              Escríbenos por WhatsApp para reservar mesa o encargar tu
-              pedido para llevar. Respondemos el mismo día.
+      {/* ── Contacto ── */}
+      <section id="contacto" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-8 lg:gap-14 items-stretch">
+        <Reveal>
+          <Eyebrow>Dónde estamos</Eyebrow>
+          <h2 className={`${display.className} text-[34px] md:text-[46px] leading-[1.05] tracking-[0.01em]`}>
+            Villagra 704, <span style={{ color: C.gold }}>Pencahue</span>
+          </h2>
+          <address className="not-italic mt-5 text-[15px] md:text-[16px] leading-relaxed" style={{ color: C.muted }}>
+            {BIZ.address}
+            <br />
+            {BIZ.city}, {BIZ.region}, Chile
+          </address>
+          <div className="mt-8 rounded-2xl p-6" style={{ backgroundColor: C.panel, border: `1px solid ${C.line}` }}>
+            <p className="text-[11px] font-bold uppercase tracking-[0.24em]" style={{ color: C.muted }}>
+              Reserva o pide para llevar
             </p>
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS} tap-44`}
-              style={{ backgroundColor: C.cyan, color: '#041019', boxShadow: '0 0 28px rgba(60,217,236,0.5)' }}
-            >
-              Escribir por WhatsApp
-            </a>
-          </Reveal>
-        </div>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <WaButton href={WA_LINK}>Reservar mesa</WaButton>
+              <WaButton href={WA_LINK_LLEVAR} ghost>
+                Pedir para llevar
+              </WaButton>
+            </div>
+            <p className="mt-5 text-[13px]" style={{ color: C.dim }}>
+              También en{' '}
+              <a
+                href={BIZ.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${FOCUS} font-semibold underline underline-offset-2 tap-44`}
+                style={{ color: C.gold }}
+              >
+                Facebook
+              </a>
+              {' y en '}
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${FOCUS} font-semibold underline underline-offset-2 tap-44`}
+                style={{ color: C.gold }}
+              >
+                Google Maps
+              </a>
+              .
+            </p>
+          </div>
+        </Reveal>
+        <Reveal delay={140}>
+          <div className="rounded-2xl overflow-hidden min-h-[340px] h-full" style={{ border: `1px solid ${C.line}`, backgroundColor: C.panelHi }}>
+            <LazyMap
+              title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
+              src={MAPS_EMBED}
+              className="w-full h-full min-h-[340px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </Reveal>
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.night, color: C.ink }}>
-        <RoadLine />
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <footer style={{ backgroundColor: C.night }}>
+        <GoldRule />
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <p className={`${display.className} font-extrabold text-2xl mb-1`} style={NEON_TEXT}>
-              FORASTERO
+            <p className={`${display.className} text-[24px] tracking-[0.02em]`} style={{ color: C.gold }}>
+              {BIZ.short}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: C.muted }}>
-              {BIZ.address}, {BIZ.city}
+            <address className="not-italic text-[13px] leading-relaxed mt-1" style={{ color: C.muted }}>
+              {BIZ.address}, {BIZ.city} · {BIZ.tagline}
             </address>
           </div>
-          <p className="text-xs leading-relaxed md:max-w-[26rem]" style={{ color: C.muted }}>
-            Mockup de Sitiazo: datos del restaurante reales; platos, precios, horarios y reseñas de muestra.
+          <p className="text-[12px] leading-relaxed md:max-w-[26rem]" style={{ color: C.dim }}>
+            <span className="font-semibold" style={{ color: C.gold }}>Mockup de Sitiazo.</span>{' '}
+            Datos, fotos, platos y promos del local reales, publicados en su Facebook y su ficha de Google.
           </p>
+        </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pb-24 [&>div]:static [&>div]:max-w-full [&>div]:w-fit">
+          <DemoBand name={BIZ.name} />
         </div>
       </footer>
 

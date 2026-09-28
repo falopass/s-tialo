@@ -1,25 +1,30 @@
 /**
  * app/demos/forastero-sabor-en-cada-bocado/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps y Facebook):
- * nombre, dirección, las 4 reseñas de Google, los 3.852 seguidores de
- * Facebook y el WhatsApp. Todo lo demás (platos, precios, horarios,
- * reseñas citadas) es contenido de muestra para mostrar cómo se
- * vería el sitio.
+ * Datos del mockup. REALES (ficha de Google Maps y página de Facebook
+ * Forastero Pencahue): nombre, dirección (Francisco de Villagra 704,
+ * Pencahue), WhatsApp (9 4731 1047), 5,0 estrellas con 4 reseñas en
+ * Google, 3,8 mil seguidores en Facebook y los platos que publican
+ * (Salchi Forastera, Salchi Golosa, Salchi Glotona, pizzas, ass
+ * forasteros, completos, empanadas, churrascos y delivery). Las promos
+ * mostradas son las gráficas reales que el local publica en Facebook;
+ * su vigencia se confirma por WhatsApp.
  */
 
 export const BIZ = {
   name: 'FORASTERO sabor en cada bocado',
   short: 'FORASTERO',
-  rubro: 'Restaurante',
+  rubro: 'Restaurante y delivery',
+  tagline: 'sabor en cada bocado',
   address: 'Francisco de Villagra 704',
   city: 'Pencahue',
   region: 'Región del Maule',
   phoneDisplay: '+56 9 4731 1047',
   phoneTel: '+56947311047',
   whatsapp: '56947311047',
+  rating: '5,0',
   reviews: 4,
-  fbFollowers: '3.852',
+  fbFollowers: '3,8 mil',
   facebook: 'https://www.facebook.com/share/1E1vQCNkSR/',
 } as const
 
