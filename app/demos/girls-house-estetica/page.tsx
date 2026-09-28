@@ -1,70 +1,122 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
-import type { CSSProperties } from 'react'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { Vitrina } from './vitrina'
-import { BIZ, WA_LINK, waLinkServicio, IG_URL, MAPS_URL, MAPS_EMBED, IMG, C, HAZARD } from './content'
+import { BIZ, WA_LINK, IG_URL, IG_DUENA_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
-
-// globals.css redefine --spacing-5…12 (gap-10 = 128px, py-12 = 240px); este demo
-// se diseñó con la escala por defecto de Tailwind (n × 4px), así que se restaura aquí.
-const SPACING = Object.fromEntries(
-  [5, 6, 7, 8, 9, 10, 11, 12].map((n) => [`--spacing-${n}`, `${n * 4}px`]),
-) as CSSProperties
 
 const display = localFont({
   src: [
-    { path: '../../fonts/bricolage-grotesque/normal-200-800.woff2', weight: '200 800', style: 'normal' },
+    { path: '../../fonts/cormorant-garamond/normal-300-700.woff2', weight: '300 700', style: 'normal' },
+    { path: '../../fonts/cormorant-garamond/italic-300-700.woff2', weight: '300 700', style: 'italic' },
   ],
 })
 const body = localFont({
   src: [
-    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+    { path: '../../fonts/manrope/normal-200-800.woff2', weight: '200 800', style: 'normal' },
   ],
 })
 
+/**
+ * Paleta de la carta real del estudio (la tarjeta "GIRL'S HOUSE
+ * ESTETICA" que publican): mármol marfil, carbón cálido y bronce.
+ * Motivo propio: el arco de los espejos del salón — los retratos
+ * van en marcos de medio punto.
+ */
+const C = {
+  marfil: '#F7F3EC',
+  card: '#FFFFFF',
+  tinta: '#26221C',
+  bronce: '#A8865B',
+  bronceTinta: '#84652F',
+  bronceClaro: '#D9C6A3',
+  muted: '#6E6557',
+  line: 'rgba(38,34,28,0.16)',
+}
+
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#A8865B]'
+const ARCH = 'rounded-t-[999px]'
+
 export const metadata: Metadata = demoMetadata({
   slug: 'girls-house-estetica',
-  title: 'Girls House Estética — Centro de estética en Molina',
-  description: 'Centro de estética en Quechereguas 2120, Molina. Maquillaje, cejas, pestañas y faciales con precios claros y hora por WhatsApp.',
+  title: 'Girls House Estética: estudio de belleza en Molina',
+  description: 'Centro de estética en Quechereguas 2120, Molina. Uñas, pestañas, faciales, depilación y cabello. Reserva tu hora por WhatsApp.',
   image: '/demos/girls-house-estetica/hero.webp',
 })
 
 const NAV_LINKS = [
-  { label: 'La vitrina', href: '#vitrina' },
-  { label: 'El local', href: '#el-local' },
-  { label: 'Precios', href: '#precios' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'La carta', href: '#carta' },
+  { label: 'El trabajo', href: '#trabajo' },
+  { label: 'Vale', href: '#vale' },
+  { label: 'Reservas', href: '#contacto' },
 ]
 
-const SPECS = [
-  { k: 'Dirección', v: `${BIZ.address}, ${BIZ.city}` },
-  { k: 'Atención', v: 'Con hora, por WhatsApp' },
-  { k: 'Quién atiende', v: 'Vale, la dueña — la misma del Instagram' },
-  { k: 'Instagram', v: `@${BIZ.instagram} · ${BIZ.instagramFollowers} seguidores` },
-  { k: 'Reseñas en Google', v: 'Aún sin reseñas — la ficha recién se está armando' },
+// Servicios tal como los publica el estudio en su carta.
+const CARTA = [
+  {
+    title: 'Rostro y mirada',
+    items: [
+      'Lifting de pestañas',
+      'Limpieza facial',
+      'BB glow',
+      'Camuflaje de estrías',
+      'Depilación rostro',
+      'Depilación cuerpo',
+      'Maquillaje y peinado',
+    ],
+  },
+  {
+    title: 'Cabello',
+    items: [
+      'Cortes de pelo',
+      'Alisado permanente',
+      'Masaje de hidratación',
+      'Decoloración',
+    ],
+  },
+  {
+    title: 'Manos',
+    items: ['Manicure permanente'],
+  },
 ]
 
-const PRICES = [
-  { name: 'Limpieza facial profunda', price: '$25.000' },
-  { name: 'Depilación facial con hilo', price: '$6.000' },
-  { name: 'Lifting de pestañas + tinte', price: '$18.000' },
-  { name: 'Retoque de lifting (4 semanas)', price: '$10.000' },
-  { name: 'Perfilado y diseño de cejas', price: '$8.000', before: '$10.000' },
-  { name: 'Maquillaje social', price: '$30.000' },
-  { name: 'Pack novia (prueba + día)', price: '$79.000', before: '$95.000' },
+// Fotos reales del trabajo del estudio (su Instagram y su ficha de Google).
+const LAMINAS = [
+  {
+    src: `${IMG}/pestanas.webp`,
+    alt: 'Trabajo de lifting de pestañas realizado en Girls House Estética',
+    caption: 'Lifting de pestañas',
+    arch: true,
+  },
+  {
+    src: `${IMG}/unas.webp`,
+    alt: 'Manicure permanente en tono nude realizada en el estudio',
+    caption: 'Manicure permanente',
+    arch: false,
+  },
+  {
+    src: `${IMG}/cambio.webp`,
+    alt: 'Cambio de look de cabello hecho en Girls House: antes y después',
+    caption: 'Cambio de look',
+    arch: false,
+  },
+  {
+    src: `${IMG}/cabina.webp`,
+    alt: 'Cabina de atención de Girls House con camilla y carrito de trabajo',
+    caption: 'La cabina',
+    arch: true,
+  },
 ]
 
-function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <p
-      className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-bold"
-      style={{ color: light ? C.signal : C.ink }}
+      className="text-[11px] uppercase tracking-[0.3em] mb-4 flex items-center gap-3 font-bold"
+      style={{ color: C.bronceTinta }}
     >
-      <span className="inline-block w-8 h-[3px]" style={{ background: HAZARD }} aria-hidden="true" />
+      <span className="inline-block w-8 h-px" style={{ backgroundColor: C.bronceTinta }} aria-hidden="true" />
       {children}
     </p>
   )
@@ -74,358 +126,331 @@ export default function GirlsHousePage() {
   return (
     <div
       className={`${body.className} min-h-screen antialiased`}
-      style={{ ...SPACING, backgroundColor: C.paper, color: C.ink }}
+      style={{ backgroundColor: C.marfil, color: C.tinta }}
     >
-      {/* ── Escaparate (el nav fijo va dentro: flota sobre este fondo oscuro) ── */}
-      <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.ink }}>
-        <BlitzNav
-          name={BIZ.short}
-          links={NAV_LINKS}
-          waLink={WA_LINK}
-          fontClass={display.className}
-          theme={{
-            over: 'dark',
-            bar: 'rgba(23,24,26,0.95)',
-            ink: '#FFFFFF',
-            line: 'rgba(255,255,255,0.14)',
-            btnBg: C.signal,
-            btnInk: C.ink,
-          }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(90deg, #8A9199 0 1px, transparent 1px 96px)',
-          }}
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-20 md:pb-28 grid lg:grid-cols-[1.05fr_0.95fr] gap-14 md:gap-16 items-center">
+      <style>{`html { scroll-behavior: auto }`}</style>
+      <BlitzNav
+        name={BIZ.name}
+        links={NAV_LINKS}
+        waLink={WA_LINK}
+        fontClass={display.className}
+        theme={{
+          over: 'light',
+          bar: 'rgba(247,243,236,0.94)',
+          ink: C.tinta,
+          line: C.line,
+          btnBg: C.tinta,
+          btnInk: C.marfil,
+        }}
+      />
+
+      {/* Portada editorial: retrato real de novia enmarcado en arco */}
+      <section id="inicio" className="relative overflow-hidden">
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-32 md:pt-40 pb-16 md:pb-24 grid lg:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-16 items-center">
           <Reveal>
-            <Eyebrow light>Centro de estética · Molina · Maule</Eyebrow>
+            <Eyebrow>Centro de estética · Molina</Eyebrow>
             <h1
-              className={`${display.className} font-extrabold leading-[0.98] tracking-[-0.02em] text-[clamp(2.9rem,9vw,5.8rem)] mb-6 uppercase`}
-              style={{ color: '#FFFFFF' }}
+              className={`${display.className} font-medium leading-[1.02] tracking-[-0.01em] text-[clamp(2.7rem,9vw,5.6rem)] mb-6`}
+              style={{ color: C.tinta }}
             >
-              Trabajo fino,
+              Girls House,
               <br />
-              <span style={{ color: C.signal }}>precio claro.</span>
+              <em className="italic font-light" style={{ color: C.bronce }}>estética de Vale</em>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(255,255,255,0.85)' }}>
-              Maquillaje, cejas, pestañas y faciales en {BIZ.address},{' '}
-              {BIZ.city}. Cada servicio con su ficha: qué incluye, cuánto
-              dura y qué vale. Sin letra chica.
+            <p className="text-base md:text-lg leading-relaxed max-w-md mb-9" style={{ color: C.muted }}>
+              Uñas, pestañas, faciales y cabello en {BIZ.address},{' '}
+              {BIZ.city}. La que te atiende es la dueña. Se reserva por
+              WhatsApp.
             </p>
             <div className="flex flex-wrap gap-3 mb-10">
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95 uppercase tracking-wide focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300] tap-44`}
-                style={{ backgroundColor: C.signal, color: C.ink }}
+                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-8 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 hover:shadow-lg active:scale-95 tap-44`}
+                style={{ backgroundColor: C.tinta, color: C.marfil }}
               >
-                Reservar por WhatsApp
+                Reservar hora
               </a>
               <a
-                href="#vitrina"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 uppercase tracking-wide focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300] tap-44`}
-                style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
+                href="#carta"
+                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-8 py-3.5 rounded-full border transition-colors hover:bg-black/5 tap-44`}
+                style={{ borderColor: C.bronce, color: C.tinta }}
               >
-                Ver la vitrina
+                Ver la carta
               </a>
             </div>
-            <ul className="flex flex-wrap gap-x-7 gap-y-2 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            <ul className="flex flex-wrap gap-x-7 gap-y-2 text-[11px] uppercase tracking-[0.18em]" style={{ color: C.muted }}>
               <li>
-                <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
+                <a href={IG_URL} target="_blank" rel="noopener noreferrer" className={`${FOCUS} hover:underline underline-offset-4 tap-44`}>
                   @{BIZ.instagram} · {BIZ.instagramFollowers} seguidores
                 </a>
               </li>
               <li>{BIZ.address}, {BIZ.city}</li>
-              <li style={{ color: C.signal }}>Sitio de ejemplo · precios de muestra</li>
             </ul>
           </Reveal>
           <Reveal delay={140}>
-            <div className="relative">
-              {/* marco de la vitrina */}
-              <div
-                className="border-2 p-2 md:p-2.5"
-                style={{
-                  borderColor: 'rgba(255,255,255,0.28)',
-                  backgroundColor: 'rgba(255,255,255,0.05)',
-                }}
-              >
-                <div className="flex items-baseline justify-between gap-3 px-1.5 pb-2.5">
-                  <p
-                    className={`${display.className} text-[11px] md:text-xs font-bold uppercase tracking-[0.24em]`}
-                    style={{ color: C.signal }}
-                  >
-                    Girls House
-                  </p>
-                  <p className="text-[10px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                    {BIZ.address} · {BIZ.city}
-                  </p>
-                </div>
-                <div className="relative aspect-[4/3] overflow-hidden">
+            <figure className="relative mx-auto w-full max-w-[340px] md:max-w-[420px]">
+              <div className={`${ARCH} border p-2.5 md:p-3`} style={{ borderColor: C.bronce, backgroundColor: C.card }}>
+                <div className={`relative ${ARCH} overflow-hidden aspect-[4/5]`}>
                   <Image
                     src={`${IMG}/hero.webp`}
-                    alt="Sala de atención de Girls House Estética: camilla, lámpara de trabajo y vista a la calle de Molina"
+                    alt="Novia con maquillaje y peinado realizado en Girls House Estética, Molina"
                     fill
                     priority
-                    sizes="(max-width: 1024px) 100vw, 45vw"
+                    sizes="(max-width: 1024px) 80vw, 36vw"
                     className="object-cover"
                   />
-                  {/* reflejo del vidrio */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        'linear-gradient(115deg, transparent 42%, rgba(255,255,255,0.10) 48%, rgba(255,255,255,0.04) 54%, transparent 60%)',
-                    }}
-                  />
-                  <span
-                    className="absolute top-0 right-5 text-[10px] font-bold uppercase tracking-[0.14em] px-3 py-1.5"
-                    style={{ background: HAZARD, color: C.signal, textShadow: '0 1px 0 #17181A' }}
-                  >
-                    Oferta
-                  </span>
-                </div>
-                <div style={{ background: HAZARD, height: '6px' }} aria-hidden="true" />
-              </div>
-              {/* etiqueta de precio */}
-              <div
-                className="absolute -bottom-5 left-3 md:left-5 -rotate-2 shadow-xl"
-                style={{ backgroundColor: C.signal, color: C.ink }}
-              >
-                <div className="flex items-stretch">
-                  <span
-                    className="flex items-center px-2.5 border-r border-dashed"
-                    style={{ borderColor: 'rgba(23,24,26,0.35)' }}
-                    aria-hidden="true"
-                  >
-                    <span className="block w-2 h-2 rounded-full border-2" style={{ borderColor: C.ink }} />
-                  </span>
-                  <span className="block px-3.5 py-2.5">
-                    <span className="block text-[9px] font-bold uppercase tracking-[0.2em] mb-1">
-                      Lifting de pestañas
-                    </span>
-                    <span className={`${display.className} block text-xl md:text-2xl font-extrabold leading-none`}>
-                      $18.000
-                    </span>
-                  </span>
                 </div>
               </div>
-            </div>
+              <figcaption className="mt-4 text-center text-[11px] uppercase tracking-[0.24em] font-bold" style={{ color: C.bronceTinta }}>
+                Maquillaje y peinado · novia
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Cinta de precios ── */}
-      <section aria-label="Servicios y precios de muestra" style={{ backgroundColor: C.signal }}>
-        <ul
-          className={`${display.className} max-w-6xl mx-auto px-5 md:px-8 py-3 md:py-3.5 flex flex-wrap justify-center gap-x-6 gap-y-2`}
-        >
-          {PRICES.map((p) => (
-            <li
-              key={p.name}
-              className="flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-[0.12em]"
-              style={{ color: C.ink }}
-            >
-              <span>{p.name}</span>
-              <span className="px-2 py-0.5" style={{ backgroundColor: C.ink, color: C.signal }}>
-                {p.price}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* ── La vitrina ── */}
-      <section id="vitrina" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <Reveal>
-          <Eyebrow>La vitrina</Eyebrow>
-          <div className="flex flex-wrap items-end justify-between gap-4 mb-8 md:mb-10">
-            <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-5xl leading-[1.0] tracking-[-0.01em]`} style={{ color: C.ink }}>
-              Servicios, como
-              <br />
-              en la vitrina
-            </h2>
-            <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.steel }}>
-              Cada servicio con su código, su duración y su precio. Los
-              valores son de muestra: al publicar van los precios reales
-              del centro.
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={120}>
-          <Vitrina fontClass={display.className} />
-        </Reveal>
-      </section>
-
-      {/* ── Ficha del local ── */}
-      <section id="el-local" className="scroll-mt-20" style={{ backgroundColor: '#FFFFFF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
+      {/* La carta real del estudio */}
+      <section id="carta" className="scroll-mt-20" style={{ backgroundColor: C.card }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-[0.85fr_1.15fr] gap-12 md:gap-16 items-start">
           <Reveal>
-            <div className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden border" style={{ borderColor: C.line }}>
+            <figure className="relative">
+              <div className="shadow-xl border p-2" style={{ borderColor: C.line, backgroundColor: C.card, transform: 'rotate(-1.5deg)' }}>
                 <Image
-                  src={`${IMG}/ambiente.webp`}
-                  alt="Fachada de Girls House Estética en Quechereguas, Molina: vitrina encendida al atardecer"
+                  src={`${IMG}/carta.webp`}
+                  alt="Carta original de servicios de Girl's House Estética: manicure permanente, lifting de pestañas, depilación, limpieza facial, BB glow, camuflaje de estrías, maquillaje y peinado, cortes, alisado, masaje de hidratación y decoloración"
+                  width={800}
+                  height={1067}
+                  className="w-full h-auto"
+                />
+              </div>
+              <figcaption className="mt-5 text-center text-[11px] uppercase tracking-[0.22em] font-bold" style={{ color: C.bronceTinta }}>
+                La carta original del estudio
+              </figcaption>
+            </figure>
+          </Reveal>
+          <Reveal delay={140}>
+            <Eyebrow>La carta</Eyebrow>
+            <h2 className={`${display.className} font-medium text-[clamp(2.2rem,6vw,4rem)] leading-[1.05] mb-6`} style={{ color: C.tinta }}>
+              Todo lo que hace
+              <br />
+              <em className="italic font-light" style={{ color: C.bronce }}>el estudio</em>
+            </h2>
+            <p className="text-sm md:text-base leading-relaxed mb-9 max-w-md" style={{ color: C.muted }}>
+              La lista tal como la publica Girls House en su carta. El
+              precio de cada servicio se confirma al reservar por
+              WhatsApp.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-x-10 gap-y-8">
+              {CARTA.map((g) => (
+                <div key={g.title}>
+                  <h3 className={`${display.className} italic text-xl md:text-2xl mb-3`} style={{ color: C.bronce }}>
+                    {g.title}
+                  </h3>
+                  <ul>
+                    {g.items.map((item) => (
+                      <li
+                        key={item}
+                        className="text-sm md:text-[15px] py-2 border-b border-dotted font-medium"
+                        style={{ borderColor: C.line }}
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            {/* Único precio que el estudio publica abiertamente */}
+            <div className="mt-10 border-t pt-6 flex flex-wrap items-baseline gap-x-4 gap-y-1" style={{ borderColor: C.line }}>
+              <p className="text-sm md:text-base font-medium" style={{ color: C.tinta }}>
+                Masaje capilar full hidratación
+              </p>
+              <p className={`${display.className} italic text-xl md:text-2xl`} style={{ color: C.bronce }}>
+                desde $10.000
+              </p>
+            </div>
+            <p className="mt-2 text-xs" style={{ color: C.muted }}>
+              Valor publicado por el estudio en su ficha.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Lookbook: el trabajo real, como láminas */}
+      <section id="trabajo" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <Reveal>
+          <header className="max-w-xl mb-12 md:mb-16">
+            <Eyebrow>El trabajo</Eyebrow>
+            <h2 className={`${display.className} font-medium text-[clamp(2.2rem,6vw,4rem)] leading-[1.05]`} style={{ color: C.tinta }}>
+              Lo que hace,
+              <br />
+              <em className="italic font-light" style={{ color: C.bronce }}>tal como quedó</em>
+            </h2>
+            <p className="mt-5 text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
+              Fotos reales del estudio y de su Instagram
+              @{BIZ.instagram}: nada de catálogo genérico.
+            </p>
+          </header>
+        </Reveal>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 items-end">
+          {LAMINAS.map((l, i) => (
+            <Reveal key={l.caption} delay={i * 90} className={i % 2 ? 'md:translate-y-8' : ''}>
+              <figure>
+                <div
+                  className={`relative overflow-hidden ${l.arch ? ARCH : 'rounded-2xl'} aspect-[3/4] border p-1.5`}
+                  style={{ borderColor: C.bronceClaro, backgroundColor: C.card }}
+                >
+                  <div className={`relative w-full h-full overflow-hidden ${l.arch ? ARCH : 'rounded-xl'}`}>
+                    <Image
+                      src={l.src}
+                      alt={l.alt}
+                      fill
+                      sizes="(max-width: 768px) 45vw, 22vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <figcaption className="mt-3 text-center text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold" style={{ color: C.bronceTinta }}>
+                  {l.caption}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+        {/* El salón, a lo ancho */}
+        <Reveal delay={200}>
+          <figure className="mt-14 md:mt-20">
+            <div className="relative overflow-hidden rounded-2xl border p-1.5" style={{ borderColor: C.bronceClaro, backgroundColor: C.card }}>
+              <div className="relative w-full h-[260px] md:h-[420px] overflow-hidden rounded-xl">
+                <Image
+                  src={`${IMG}/salon.webp`}
+                  alt="Salón de Girls House Estética en Molina: muro de listones de madera, espejos de arco y estaciones de trabajo"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 72vw"
                   className="object-cover"
                 />
               </div>
-              <div
-                className="absolute -bottom-3 left-4 md:left-6 text-[10px] font-bold uppercase tracking-[0.18em] px-3 py-2"
-                style={{ background: HAZARD, color: C.signal, textShadow: '0 1px 0 #17181A' }}
-              >
-                Quechereguas 2120
-              </div>
             </div>
+            <figcaption className="mt-3 text-center text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold" style={{ color: C.bronceTinta }}>
+              El salón · {BIZ.address}, {BIZ.city}
+            </figcaption>
+          </figure>
+        </Reveal>
+      </section>
+
+      {/* Vale, la dueña */}
+      <section id="vale" className="scroll-mt-20 border-y" style={{ borderColor: C.line, backgroundColor: C.card }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-[auto_1fr] gap-10 md:gap-16 items-center">
+          <Reveal>
+            <figure className="mx-auto w-44 md:w-56">
+              <div className={`${ARCH} border p-2`} style={{ borderColor: C.bronce, backgroundColor: C.marfil }}>
+                <div className={`relative ${ARCH} overflow-hidden aspect-[3/4]`}>
+                  <Image
+                    src={`${IMG}/duena.webp`}
+                    alt="Vale, dueña de Girls House Estética y maquilladora detrás de @valeferrettimakeup"
+                    fill
+                    sizes="(max-width: 768px) 176px, 224px"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <figcaption className="mt-4 text-center text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-bold" style={{ color: C.bronceTinta }}>
+                Vale · la dueña
+              </figcaption>
+            </figure>
           </Reveal>
           <Reveal delay={140}>
-            <Eyebrow>El local</Eyebrow>
-            <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-5xl leading-[1.0] mb-6`} style={{ color: C.ink }}>
-              Atención directa,
+            <Eyebrow>Quién atiende</Eyebrow>
+            <h2 className={`${display.className} font-medium text-[clamp(2rem,5vw,3.6rem)] leading-[1.05] mb-6`} style={{ color: C.tinta }}>
+              La que responde el WhatsApp
               <br />
-              <span style={{ color: C.steel }}>sin intermediarios</span>
+              <em className="italic font-light" style={{ color: C.bronce }}>es la que te atiende</em>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: C.steel }}>
-              Girls House Estética es el centro de Vale en pleno Molina:
-              la misma persona que responde el WhatsApp es la que te
-              atiende. El trabajo se muestra tal cual en
-              @{BIZ.instagram}, donde ya la siguen {BIZ.instagramFollowers}
-              personas.
+            <p className="text-sm md:text-base leading-relaxed mb-4 max-w-lg" style={{ color: C.muted }}>
+              Girls House es el estudio de Vale en pleno Molina. Sin
+              recepción ni turnos perdidos: escribes, reservas y te
+              atiende la dueña.
             </p>
-            <dl className="border-t" style={{ borderColor: C.line }}>
-              {SPECS.map((s) => (
-                <div
-                  key={s.k}
-                  className="flex items-baseline justify-between gap-4 py-3 border-b border-dashed"
-                  style={{ borderColor: C.line }}
-                >
-                  <dt className="text-[11px] uppercase tracking-[0.18em] font-semibold shrink-0" style={{ color: C.steel }}>
-                    {s.k}
-                  </dt>
-                  <dd className="text-sm md:text-base font-medium text-right" style={{ color: C.ink }}>
-                    {s.v}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Lista de precios ── */}
-      <section id="precios" className="scroll-mt-20" style={{ backgroundColor: C.ink }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <div className="grid lg:grid-cols-[1fr_1.6fr] gap-10 md:gap-16 items-start">
-            <Reveal>
-              <Eyebrow light>Lista de precios</Eyebrow>
-              <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-5xl leading-[1.0] mb-6`} style={{ color: '#FFFFFF' }}>
-                Todo con
-                <br />
-                <span style={{ color: C.signal }}>su valor</span>
-              </h2>
-              <p className="text-sm md:text-base leading-relaxed max-w-sm mb-7" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                Valores de referencia para este ejemplo. Los precios
-                reales, los horarios y las promociones vigentes se
-                confirman por WhatsApp.
-              </p>
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${display.className} inline-block font-bold text-sm px-7 py-3.5 uppercase tracking-wide transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300] tap-44`}
-                style={{ backgroundColor: C.signal, color: C.ink }}
-              >
-                Consultar valor real
-              </a>
-            </Reveal>
-            <Reveal delay={120}>
-              <ul className="border-t" style={{ borderColor: 'rgba(255,255,255,0.18)' }}>
-                {PRICES.map((p) => (
-                  <li key={p.name}>
-                    <a
-                      href={waLinkServicio(p.name)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-baseline gap-3 py-2.5 md:py-4 px-2 -mx-2 border-b border-dashed transition-colors hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300] tap-44v tap-44"
-                      style={{ borderColor: 'rgba(255,255,255,0.18)' }}
-                    >
-                      <span className="text-sm md:text-base font-medium transition-transform group-hover:translate-x-1" style={{ color: '#FFFFFF' }}>
-                        {p.name}
-                      </span>
-                      <span className="flex-1 border-b border-dotted translate-y-[-4px]" style={{ borderColor: 'rgba(138,145,153,0.5)' }} aria-hidden="true" />
-                      {p.before && (
-                        <span className="text-xs line-through" style={{ color: C.steelDark }}>
-                          {p.before}
-                        </span>
-                      )}
-                      <span className={`${display.className} text-xl md:text-2xl font-extrabold`} style={{ color: C.signal }}>
-                        {p.price}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-4 text-[11px] uppercase tracking-[0.18em]" style={{ color: C.steelDark }}>
-                Lista de muestra · toca un servicio para reservarlo por WhatsApp
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Contacto ── */}
-      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.signal }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
-          <Reveal>
-            <Eyebrow>Pedidos y horas</Eyebrow>
-            <h2 className={`${display.className} font-extrabold uppercase text-4xl md:text-6xl leading-[0.98] mb-6`} style={{ color: C.ink }}>
-              Se agenda
-              <br />
-              por WhatsApp
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: 'rgba(23,24,26,0.75)' }}>
-              Escríbenos con el servicio que te interesa y te confirmamos
-              hora el mismo día. Si prefieres, ven a conocer el local:
-              estamos en {BIZ.address}, {BIZ.city}.
+            <p className="text-sm md:text-base leading-relaxed mb-8 max-w-lg" style={{ color: C.muted }}>
+              Su trabajo está en dos cuentas:{' '}
+              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-bold underline underline-offset-4 decoration-1 tap-44`} style={{ color: C.bronceTinta, textDecorationColor: 'rgba(132,101,47,0.4)' }}>
+                @{BIZ.instagram}
+              </a>{' '}
+              ({BIZ.instagramFollowers} seguidores) y su cuenta de
+              maquilladora{' '}
+              <a href={IG_DUENA_URL} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-bold underline underline-offset-4 decoration-1 tap-44`} style={{ color: C.bronceTinta, textDecorationColor: 'rgba(132,101,47,0.4)' }}>
+                @{BIZ.duenaInstagram}
+              </a>{' '}
+              ({BIZ.duenaFollowers} seguidores).
             </p>
-            <div className="flex flex-wrap gap-3 mb-8">
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 uppercase tracking-wide transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A] tap-44`}
-                style={{ backgroundColor: C.ink, color: C.signal }}
-              >
-                {BIZ.phoneDisplay}
-              </a>
+            <div className="flex flex-wrap gap-3">
               <a
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 uppercase tracking-wide border-2 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A] tap-44`}
-                style={{ borderColor: C.ink, color: C.ink }}
+                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-black/5 tap-44`}
+                style={{ borderColor: C.bronce, color: C.tinta }}
               >
-                @{BIZ.instagram}
+                Instagram del estudio
               </a>
             </div>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(23,24,26,0.75)' }}>
-              {BIZ.address}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Reservas y cómo llegar */}
+      <section id="contacto" className="scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
+          <Reveal>
+            <Eyebrow>Reservas</Eyebrow>
+            <h2 className={`${display.className} font-medium text-[clamp(2rem,5vw,3.6rem)] leading-[1.05] mb-6`} style={{ color: C.tinta }}>
+              Se reserva
               <br />
-              {BIZ.city}, {BIZ.region}
+              <em className="italic font-light" style={{ color: C.bronce }}>por WhatsApp</em>
+            </h2>
+            <p className="text-sm md:text-base leading-relaxed mb-6 max-w-md" style={{ color: C.muted }}>
+              Escríbenos con el servicio que te interesa y te confirman
+              hora y valor. El estudio no publica horario fijo: cada
+              atención es con hora agendada.
+            </p>
+            <address className="not-italic text-sm md:text-base leading-relaxed mb-8" style={{ color: C.muted }}>
+              {BIZ.address}, {BIZ.city}
+              <br />
+              {BIZ.region}, Chile
+              <br />
+              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4 tap-44`} style={{ color: C.tinta }}>
+                {BIZ.phoneDisplay}
+              </a>
             </address>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-8 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 tap-44`}
+                style={{ backgroundColor: C.tinta, color: C.marfil }}
+              >
+                Reservar por WhatsApp
+              </a>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-8 py-3.5 rounded-full border transition-colors hover:bg-black/5 tap-44`}
+                style={{ borderColor: C.bronce, color: C.tinta }}
+              >
+                Cómo llegar →
+              </a>
+            </div>
           </Reveal>
           <Reveal delay={140}>
-            <div className="h-full min-h-[320px] border-4" style={{ borderColor: C.ink }}>
+            <div className="border p-1.5 rounded-2xl" style={{ borderColor: C.bronceClaro, backgroundColor: C.card }}>
               <LazyMap
                 title={`Mapa: ${BIZ.address}, ${BIZ.city}`}
                 src={MAPS_EMBED}
-                className="w-full h-full min-h-[320px] grayscale"
+                className="w-full h-[320px] md:h-[420px] rounded-xl"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -434,35 +459,43 @@ export default function GirlsHousePage() {
         </div>
       </section>
 
-      {/* ── Footer ── */}
-      <footer style={{ backgroundColor: '#0E0F11', color: '#FFFFFF' }}>
-        <div style={{ background: HAZARD, height: '4px' }} aria-hidden="true" />
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-6 pb-16 flex flex-col gap-3">
-          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-            <p className={`${display.className} font-extrabold uppercase text-lg`}>
-              {BIZ.name}
-            </p>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs" style={{ color: C.steelDark }}>
-              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
-                @{BIZ.instagram}
-              </a>
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
-                Cómo llegar
-              </a>
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
-                {BIZ.phoneDisplay}
-              </a>
-            </div>
-          </div>
-          <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#FFFFFF' }}>
+      {/* Franja Sitiazo */}
+      <section style={{ backgroundColor: C.bronceClaro }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <p className="text-sm md:text-[15px] leading-relaxed font-semibold" style={{ color: C.tinta }}>
+            Sitio de ejemplo de{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-extrabold underline underline-offset-4 tap-44`}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name}: servicios y precios de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.signal }}>
-              ¿Lo hacemos realidad?
-            </a>
+            para {BIZ.name}. Así se vería su página publicada.
+          </p>
+          <a
+            href={whatsappLink('contacto')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${FOCUS} shrink-0 text-sm font-bold underline underline-offset-4 tap-44`}
+            style={{ color: C.tinta }}
+          >
+            ¿Lo hacemos realidad?
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={{ backgroundColor: '#211D16', color: C.marfil }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
+          <div>
+            <p className={`${display.className} italic text-2xl mb-1`}>
+              {BIZ.name}
+            </p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,243,236,0.75)' }}>
+              {BIZ.address} · {BIZ.city} · {BIZ.phoneDisplay}
+            </address>
+          </div>
+          <p className="text-xs leading-relaxed max-w-sm" style={{ color: 'rgba(247,243,236,0.7)' }}>
+            Sitio de ejemplo de Sitiazo: fotos, dirección y servicios son
+            los reales de su carta y su Instagram; los valores se
+            confirman por WhatsApp.
           </p>
         </div>
       </footer>
