@@ -55,6 +55,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #55291F 0%, #A34127 55%, #E5BC84 140%)',
   },
   {
+    slug: 'marbella-talcahuano',
+    name: 'Café Marbella',
+    rubro: 'Café y pastelería',
+    city: 'Talcahuano',
+    tagline: 'El café clásico del puerto: espresso, caramelo y vitrina de tortas.',
+    gradient: 'linear-gradient(135deg, #2A1B10 0%, #7C2E3E 55%, #E8C893 140%)',
+  },
+  {
     slug: 'brilla-el-sol-talca',
     name: 'Complejo Deportivo Brilla El Sol',
     rubro: 'Recinto deportivo',

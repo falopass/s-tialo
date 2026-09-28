@@ -187,6 +187,7 @@ const BLITZ_CREATED: Record<string, string> = {
   'lubricentro-huamachuco': '2026-09-28',
   'lavaseco-flash': '2026-09-28',
   'delicias-caseras-fabiana': '2026-09-28',
+  'marbella-talcahuano': '2026-09-28',
   'brilla-el-sol-talca': '2026-09-28',
   'pannton-arquitectura': '2026-09-28',
   'gacitua-producciones': '2026-09-28',
