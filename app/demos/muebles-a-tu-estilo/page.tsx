@@ -1,203 +1,220 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
-import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import { BIZ, HORARIO, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
-  src: [
-    { path: '../../fonts/fraunces/italic-100-900.woff2', weight: '100 900', style: 'italic' },
-    { path: '../../fonts/fraunces/normal-100-900.woff2', weight: '100 900', style: 'normal' },
-  ],
+  src: [{ path: '../../fonts/archivo-black/normal-400.woff2', weight: '400', style: 'normal' }],
 })
 const body = localFont({
   src: [
-    { path: '../../fonts/nunito-sans/normal-200-1000.woff2', weight: '200 1000', style: 'normal' },
+    { path: '../../fonts/barlow/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/barlow/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/barlow/normal-600.woff2', weight: '600', style: 'normal' },
+    { path: '../../fonts/barlow/normal-700.woff2', weight: '700', style: 'normal' },
+  ],
+})
+const mono = localFont({
+  src: [
+    { path: '../../fonts/ibm-plex-mono/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/ibm-plex-mono/normal-700.woff2', weight: '700', style: 'normal' },
   ],
 })
 
 const C = {
-  verde: '#257556',
-  verdeDeep: '#1F5E49',
-  crema: '#FDF6EC',
-  cremaDeep: '#F4EADB',
-  ambar: '#E8A33D',
-  tinta: '#1D2521',
-  muted: 'rgba(29,37,33,0.7)',
-  line: 'rgba(29,37,33,0.18)',
+  papel: '#F0EADB',
+  papel2: '#E7DFCB',
+  tinta: '#262019',
+  plano: '#2A4A80',
+  oxido: '#A8551D',
+  muted: 'rgba(38,32,25,0.72)',
+  line: 'rgba(38,32,25,0.22)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'muebles-a-tu-estilo',
   title: 'muebles a tu estilo — Fábrica de muebles en Molina',
-  description: 'Fábrica de muebles en Teniente Berguño 1369, Molina, Región del Maule. Cocinas, closets, comedores y muebles a medida, conversados directo con el taller.',
-  image: '/demos/muebles-a-tu-estilo/hero.webp',
+  description: 'Fábrica de muebles en Teniente Berguño 1369, Molina. Encargos a medida conversados directo con el taller: traes la foto y las medidas, ellos lo fabrican.',
+  image: `${IMG}/consola.webp`,
 })
 
 const NAV_LINKS = [
-  { label: 'Muebles', href: '#muebles' },
-  { label: 'El taller', href: '#taller' },
-  { label: 'Precios', href: '#precios' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'La pieza', href: '#pieza' },
+  { label: 'Cómo encargar', href: '#encargo' },
+  { label: 'Bosquejos', href: '#bosquejos' },
+  { label: 'Visítanos', href: '#visita' },
 ]
 
-const MUEBLES = [
+const PASOS = [
   {
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Muestras de tableros de madera y tiradores sobre una mesa del taller',
-    name: 'Cocinas y closets',
-    desc: 'Muebles de cocina, closets y organizadores al centímetro de tu espacio. Eliges tablero, color y tiradores.',
+    t: 'Trae la referencia',
+    d: 'Una foto del mueble que viste, un dibujo a mano o la idea nomás. Alcanza para partir.',
   },
   {
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Mesa de comedor de madera con sillas y un aparador terminados',
-    name: 'Comedores y mesas',
-    desc: 'Mesas, sillas y aparadores en madera, pensados para el uso diario de una familia.',
+    t: 'Las medidas del espacio',
+    d: 'Ancho, alto y fondo del rincón donde va a vivir el mueble. Con eso se arma el plano.',
   },
   {
-    src: `${IMG}/hero.webp`,
-    alt: 'Interior del taller con repisas, maderas y banco de trabajo',
-    name: 'Racks y repisas',
-    desc: 'Racks de TV, bibliotecas y repisas que calzan justo en el muro que tienes.',
+    t: 'Cotización directa',
+    d: 'El taller te responde por WhatsApp con precio y plazo. Sin intermediarios.',
   },
   {
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Cepillo de carpintero y virutas sobre un tablón de madera',
-    name: 'Encargos a tu estilo',
-    desc: '¿Tienes una foto, un dibujo o un rincón difícil? Se conversa, se cotiza y se fabrica en el taller.',
+    t: 'Fabricación y entrega',
+    d: 'Se corta, se ensambla y se revisa en el taller de Teniente Berguño antes de salir.',
   },
 ]
 
-const VALORES = [
-  {
-    title: 'Trato directo',
-    desc: 'Hablas con quien fabrica tu mueble, desde la primera medida hasta la entrega.',
-  },
-  {
-    title: 'Hecho a medida',
-    desc: 'Cada pieza se fabrica a pedido, según tu espacio y tu forma de usarla.',
-  },
-  {
-    title: 'Terminaciones cuidadas',
-    desc: 'Cantos, bisagras y correderas revisados antes de salir del taller.',
-  },
-]
-
-const PRECIOS = [
-  { name: 'Mueble de cocina', unit: 'metro lineal', price: 'desde $110.000' },
-  { name: 'Closet con puertas correderas', unit: 'según medida', price: 'desde $420.000' },
-  { name: 'Mesa de comedor, 6 personas', unit: 'madera', price: 'desde $350.000' },
-  { name: 'Rack de TV a medida', unit: 'según ancho', price: 'desde $170.000' },
-  { name: 'Velador', unit: 'unidad', price: 'desde $75.000' },
-]
-
-function Label({ n, children, light = false }: { n: string; children: React.ReactNode; light?: boolean }) {
+function MonoLabel({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
-      className="flex items-baseline gap-3 text-[11px] font-bold uppercase tracking-[0.22em]"
-      style={{ color: light ? 'rgba(253,246,236,0.8)' : C.verde }}
+      className={`${mono.className} text-[11px] uppercase tracking-[0.28em] flex items-center gap-3`}
+      style={{ color: light ? 'rgba(240,234,219,0.85)' : C.plano }}
     >
-      <span className="tabular-nums">{n}</span>
-      <span className="h-px w-8 self-center" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
+      <span aria-hidden="true" className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} />
       {children}
     </p>
   )
 }
 
-const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8A33D]'
+/** Cota tipo plano: línea con ganchos + etiqueta mono. */
+function Cota({ label, className, horizontal = true }: { label: string; className: string; horizontal?: boolean }) {
+  return (
+    <div className={`absolute pointer-events-none ${className}`} aria-hidden="true">
+      {horizontal ? (
+        <div className="relative w-full">
+          <div className="h-px w-full" style={{ backgroundColor: C.plano }} />
+          <div className="absolute -top-[5px] left-0 w-px h-[11px]" style={{ backgroundColor: C.plano }} />
+          <div className="absolute -top-[5px] right-0 w-px h-[11px]" style={{ backgroundColor: C.plano }} />
+          <span
+            className={`${mono.className} absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold tracking-[0.18em] px-1.5 py-0.5`}
+            style={{ backgroundColor: C.papel, color: C.plano }}
+          >
+            {label}
+          </span>
+        </div>
+      ) : (
+        <div className="relative h-full">
+          <div className="w-px h-full" style={{ backgroundColor: C.plano }} />
+          <div className="absolute -left-[5px] top-0 h-px w-[11px]" style={{ backgroundColor: C.plano }} />
+          <div className="absolute -left-[5px] bottom-0 h-px w-[11px]" style={{ backgroundColor: C.plano }} />
+          <span
+            className={`${mono.className} absolute top-1/2 left-2 -translate-y-1/2 text-[10px] font-bold tracking-[0.18em] px-1.5 py-0.5 [writing-mode:vertical-rl]`}
+            style={{ backgroundColor: C.papel, color: C.plano }}
+          >
+            {label}
+          </span>
+        </div>
+      )}
+    </div>
+  )
+}
+
+const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2A4A80]'
 
 export default function MueblesATuEstiloPage() {
   return (
     <div
       className={`${body.className} min-h-screen antialiased overflow-x-clip`}
-      style={{ backgroundColor: C.crema, color: C.tinta }}
+      style={{ backgroundColor: C.papel, color: C.tinta }}
     >
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
         waLink={WA_LINK}
-        fontClass={display.className}
+        fontClass={`${mono.className} font-bold uppercase tracking-[0.08em]`}
         theme={{
-          over: 'dark',
-          bar: 'rgba(253,246,236,0.96)',
+          over: 'light',
+          bar: 'rgba(240,234,219,0.96)',
           ink: C.tinta,
           line: C.line,
-          btnBg: C.verde,
-          btnInk: '#FFFFFF',
+          btnBg: C.plano,
+          btnInk: '#F0EADB',
         }}
       />
 
-      {/* ── Hero a sangre, con la grilla visible ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col overflow-hidden" style={{ backgroundColor: C.tinta }}>
-        <Image
-          src={`${IMG}/hero.webp`}
-          alt="Taller de muebles con repisas de madera, herramientas y un banco de trabajo"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(180deg, rgba(29,37,33,0.6) 0%, rgba(29,37,33,0.5) 45%, rgba(29,37,33,0.92) 100%)' }}
-        />
-        <div className="absolute inset-0 max-w-6xl mx-auto px-5 md:px-8 grid grid-cols-4 md:grid-cols-12 pointer-events-none" aria-hidden="true">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <span
-              key={i}
-              className={`border-l ${i >= 4 ? 'hidden md:block' : ''} ${i % 3 === 0 ? '' : 'md:border-transparent'}`}
-              style={{ borderColor: 'rgba(253,246,236,0.14)' }}
-            />
-          ))}
+      {/* ── Portada: la hoja de plano ── */}
+      <section id="inicio" className="relative border-b" style={{ borderColor: C.line }}>
+        {/* líneas de calce del plano */}
+        <div className="absolute inset-0 pointer-events-none max-w-6xl mx-auto" aria-hidden="true">
+          <span className="absolute inset-y-0 left-5 md:left-8 border-l border-dashed" style={{ borderColor: 'rgba(42,74,128,0.25)' }} />
+          <span className="absolute inset-y-0 right-5 md:right-8 border-l border-dashed" style={{ borderColor: 'rgba(42,74,128,0.25)' }} />
         </div>
 
-        <div className="relative flex-1 flex flex-col justify-end w-full max-w-6xl mx-auto px-5 md:px-8 pt-32 pb-10 md:pb-14">
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-10 md:pb-14">
+          <div className={`${mono.className} flex flex-wrap justify-between gap-3 text-[10px] md:text-[11px] uppercase tracking-[0.24em] mb-8 md:mb-10`} style={{ color: C.plano }}>
+            <span>Plano N° 001 — fábrica de muebles</span>
+            <span className="hidden sm:inline">{BIZ.address} · {BIZ.city}</span>
+            <span>Escala: a tu medida</span>
+          </div>
+
           <Reveal>
-            <div className="grid grid-cols-4 md:grid-cols-12 gap-x-5 md:gap-x-8">
-              <p className="col-span-4 md:col-span-12 text-[11px] font-bold uppercase tracking-[0.24em] mb-6" style={{ color: C.ambar }}>
-                {BIZ.rubro} — {BIZ.city}, Maule
+            <h1
+              className={`${display.className} uppercase leading-[0.92] tracking-[-0.01em] text-[clamp(2.8rem,11vw,7.4rem)] mb-8`}
+            >
+              Se mide.<br />
+              Se corta.<br />
+              <span style={{ color: C.plano }}>Se entrega.</span>
+            </h1>
+          </Reveal>
+
+          <div className="grid md:grid-cols-12 gap-x-8 gap-y-8 items-end">
+            <Reveal className="md:col-span-5" delay={80}>
+              <p className="text-base md:text-lg leading-relaxed mb-7 max-w-md" style={{ color: C.muted }}>
+                Fábrica de muebles en {BIZ.city}: traes la foto de lo que
+                quieres y las medidas de tu espacio, y el taller lo fabrica.
+                Conversas directo con quien lo hace.
               </p>
-              <h1
-                className={`${display.className} col-span-4 md:col-span-10 text-[clamp(2.9rem,10vw,7.2rem)] leading-[0.95] tracking-[-0.02em] mb-8`}
-                style={{ color: C.crema }}
-              >
-                El mueble que imaginas,
-                <br />
-                <em className="font-normal" style={{ color: C.ambar }}>a tu medida.</em>
-              </h1>
-              <p className="col-span-4 md:col-span-5 md:col-start-1 text-base md:text-lg leading-relaxed mb-8 md:mb-0" style={{ color: 'rgba(253,246,236,0.92)' }}>
-                Fabricamos cocinas, closets, comedores y encargos especiales en
-                nuestro taller de Molina. Conversas directo con quien lo hace.
-              </p>
-              <div className="col-span-4 md:col-span-4 md:col-start-9 flex flex-col gap-3 md:self-end">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-between px-6 py-3.5 md:py-4 text-sm font-extrabold uppercase tracking-[0.14em] transition-colors hover:bg-[#F0B658] active:scale-[0.98] ${focusRing} tap-44`}
-                  style={{ backgroundColor: C.ambar, color: C.tinta }}
+                  className={`inline-flex items-center justify-center gap-3 px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] transition-transform hover:-translate-y-0.5 active:scale-[0.98] ${focusRing} tap-44`}
+                  style={{ backgroundColor: C.plano, color: '#F0EADB' }}
                 >
                   Cotizar por WhatsApp <span aria-hidden="true">→</span>
                 </a>
                 <a
-                  href="#muebles"
-                  className={`self-start md:self-stretch flex items-center justify-between gap-4 px-6 py-3.5 md:py-4 text-sm font-bold uppercase tracking-[0.14em] border transition-colors hover:bg-white/10 ${focusRing} tap-44`}
-                  style={{ borderColor: 'rgba(253,246,236,0.5)', color: C.crema }}
+                  href="#pieza"
+                  className={`inline-flex items-center justify-center gap-3 px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] border transition-colors hover:bg-black/5 ${focusRing} tap-44`}
+                  style={{ borderColor: C.tinta, color: C.tinta }}
                 >
-                  Ver los muebles <span aria-hidden="true">↓</span>
+                  Ver una pieza real <span aria-hidden="true">↓</span>
                 </a>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+
+            {/* FIG.01 — el local, foto real de su ficha */}
+            <Reveal className="md:col-span-7" delay={140}>
+              <figure className="relative">
+                <span aria-hidden="true" className="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2" style={{ borderColor: C.oxido }} />
+                <span aria-hidden="true" className="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2" style={{ borderColor: C.oxido }} />
+                <span aria-hidden="true" className="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2" style={{ borderColor: C.oxido }} />
+                <span aria-hidden="true" className="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2" style={{ borderColor: C.oxido }} />
+                <div className="relative aspect-[2/1] overflow-hidden" style={{ backgroundColor: C.tinta }}>
+                  <Image
+                    src={`${IMG}/galpon.webp`}
+                    alt="Pasillo techado del local de muebles a tu estilo en Teniente Berguño 1369, Molina"
+                    fill
+                    priority
+                    sizes="(min-width: 768px) 55vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className={`${mono.className} mt-2 flex justify-between gap-3 text-[10px] uppercase tracking-[0.2em]`} style={{ color: C.plano }}>
+                  <span>Fig. 01 — el local, {BIZ.address}</span>
+                  <span>Foto real de su ficha</span>
+                </figcaption>
+              </figure>
+            </Reveal>
+          </div>
         </div>
 
-        <dl
-          className="relative border-t grid grid-cols-2 md:grid-cols-4 max-w-6xl w-full mx-auto"
-          style={{ borderColor: 'rgba(253,246,236,0.22)' }}
-        >
+        {/* Ficha técnica */}
+        <dl className="relative border-t grid grid-cols-2 md:grid-cols-4 max-w-6xl mx-auto" style={{ borderColor: C.line }}>
           {[
             ['Rubro', BIZ.rubro],
             ['Comuna', `${BIZ.city}, Maule`],
@@ -207,194 +224,184 @@ export default function MueblesATuEstiloPage() {
             <div
               key={k}
               className={`px-5 md:px-8 py-4 ${i % 2 === 1 ? 'border-l' : ''} ${i === 2 ? 'md:border-l' : ''} ${i >= 2 ? 'border-t md:border-t-0' : ''}`}
-              style={{ borderColor: 'rgba(253,246,236,0.22)' }}
+              style={{ borderColor: C.line }}
             >
-              <dt className="text-[10px] font-bold uppercase tracking-[0.24em] mb-1" style={{ color: 'rgba(253,246,236,0.78)' }}>{k}</dt>
-              <dd className="text-sm font-semibold" style={{ color: C.crema }}>{v}</dd>
+              <dt className={`${mono.className} text-[10px] uppercase tracking-[0.24em] mb-1`} style={{ color: C.plano }}>{k}</dt>
+              <dd className="text-sm font-semibold">{v}</dd>
             </div>
           ))}
         </dl>
       </section>
 
-      {/* ── 01 Muebles ── */}
-      <section id="muebles" className="scroll-mt-20 border-b" style={{ borderColor: C.line }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-12 gap-x-8 gap-y-10">
-          <Reveal className="md:col-span-4">
-            <div className="md:sticky md:top-28">
-              <Label n="01">Lo que fabricamos</Label>
-              <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.02] tracking-[-0.01em] mt-6 mb-5`}>
-                Muebles para vivir la casa
-              </h2>
-              <p className="text-[15px] leading-relaxed max-w-xs" style={{ color: C.muted }}>
-                Líneas de ejemplo: al publicar se reemplazan por los trabajos
-                reales del taller.
-              </p>
-            </div>
+      {/* ── La pieza: consola real con cotas ── */}
+      <section id="pieza" className="scroll-mt-20 border-b" style={{ backgroundColor: C.papel2, borderColor: C.line }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-12 gap-x-8 gap-y-10 items-center">
+          <Reveal className="md:col-span-5 order-2 md:order-1">
+            <MonoLabel>Fig. 02 — pieza real del taller</MonoLabel>
+            <h2 className={`${display.className} uppercase text-4xl md:text-[3.4rem] leading-[0.95] mt-5 mb-6`}>
+              Esto salió<br />del taller.
+            </h2>
+            <p className="text-[15px] md:text-base leading-relaxed mb-5 max-w-sm" style={{ color: C.muted }}>
+              Consola de madera con talla clásica, fotografiada en el patio del
+              taller antes de la entrega. Cada encargo parte así: una pieza
+              concreta, hecha para un lugar concreto.
+            </p>
+            <p className="text-[15px] md:text-base leading-relaxed max-w-sm" style={{ color: C.muted }}>
+              Muebles a medida, racks, comedores y trabajos con talla — se
+              conversan por WhatsApp con una foto y las medidas.
+            </p>
           </Reveal>
-          <div className="md:col-span-8 grid sm:grid-cols-2 gap-px" style={{ backgroundColor: C.line }}>
-            {MUEBLES.map((m, i) => (
-              <Reveal key={m.name} delay={i * 70}>
-                <article className="h-full p-5 md:p-6 flex flex-col" style={{ backgroundColor: C.crema }}>
-                  <div className="flex items-baseline justify-between mb-4 text-[11px] font-bold uppercase tracking-[0.22em]">
-                    <span style={{ color: C.verde }}>{String(i + 1).padStart(2, '0')}</span>
-                    <span style={{ color: C.muted }}>A medida</span>
-                  </div>
-                  <div className="relative aspect-[4/3] overflow-hidden mb-5 group">
+          <Reveal className="md:col-span-7 order-1 md:order-2" delay={100}>
+            <figure className="relative px-2 pt-8 md:px-10 md:pt-10">
+              <Cota label="A TU ANCHO" className="top-0 left-[8%] right-[8%]" />
+              <Cota label="A TU ALTO" horizontal={false} className="top-[14%] bottom-[10%] left-0 hidden md:block" />
+              <div className="relative aspect-[4/3] overflow-hidden border" style={{ borderColor: C.tinta, backgroundColor: C.tinta }}>
+                <Image
+                  src={`${IMG}/consola.webp`}
+                  alt="Consola de madera tallada fabricada por muebles a tu estilo, sobre el cemento del taller"
+                  fill
+                  sizes="(min-width: 768px) 55vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className={`${mono.className} mt-2 flex justify-between gap-3 text-[10px] uppercase tracking-[0.2em]`} style={{ color: C.plano }}>
+                <span>Consola con talla — encargo terminado</span>
+                <span>Foto real</span>
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Cómo encargar ── */}
+      <section id="encargo" className="scroll-mt-20 border-b" style={{ borderColor: C.line }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <MonoLabel>Procedimiento</MonoLabel>
+            <h2 className={`${display.className} uppercase text-[clamp(2rem,6vw,4.2rem)] leading-[0.95] mt-5 mb-12 md:mb-16 max-w-4xl`}>
+              Un encargo en cuatro pasos.
+            </h2>
+          </Reveal>
+          <ol className="grid md:grid-cols-4 border-t" style={{ borderColor: C.line }}>
+            {PASOS.map((p, i) => (
+              <Reveal key={p.t} delay={i * 80} className="md:border-l first:border-l-0 border-b md:border-b-0" >
+                <li className="py-8 md:py-10 md:px-6 md:first:pl-0 flex flex-col h-full" style={{ borderColor: C.line }}>
+                  <span
+                    className={`${mono.className} text-[11px] font-bold uppercase tracking-[0.24em] mb-6 flex items-center gap-3`}
+                    style={{ color: C.oxido }}
+                  >
+                    <span aria-hidden="true" className="inline-flex w-8 h-8 border rounded-full items-center justify-center" style={{ borderColor: C.oxido }}>
+                      {i + 1}
+                    </span>
+                    Paso
+                  </span>
+                  <h3 className={`${display.className} uppercase text-xl md:text-2xl leading-tight mb-3`}>{p.t}</h3>
+                  <p className="text-[15px] leading-relaxed" style={{ color: C.muted }}>{p.d}</p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+          <Reveal delay={200}>
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`mt-10 inline-flex items-center gap-3 px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] transition-transform hover:-translate-y-0.5 active:scale-[0.98] ${focusRing} tap-44`}
+              style={{ backgroundColor: C.tinta, color: C.papel }}
+            >
+              Empezar el paso 1 por WhatsApp <span aria-hidden="true">→</span>
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Bosquejos: renders marcados, no fotos ── */}
+      <section id="bosquejos" className="scroll-mt-20 border-b" style={{ borderColor: C.line }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <MonoLabel>Bosquejos de referencia</MonoLabel>
+            <h2 className={`${display.className} uppercase text-[clamp(1.8rem,5vw,3.4rem)] leading-[0.95] mt-5 mb-4 max-w-3xl`}>
+              Ideas de encargo, a lápiz.
+            </h2>
+            <p className="text-[15px] leading-relaxed mb-10 max-w-xl" style={{ color: C.muted }}>
+              Estas imágenes son <strong>bosquejos</strong> generados para el
+              mockup — muestran el tipo de encargo que se puede conversar, no
+              son piezas entregadas.
+            </p>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 gap-8 md:gap-12">
+            {[
+              { src: `${IMG}/bosquejo-cepillo.webp`, alt: 'Bosquejo: cepillo de carpintero sobre un tablón con virutas', fig: 'Fig. A — trabajo de banco' },
+              { src: `${IMG}/bosquejo-comedor.webp`, alt: 'Bosquejo: comedor de madera con sillas y aparador', fig: 'Fig. B — comedor a medida' },
+            ].map((b) => (
+              <Reveal key={b.src}>
+                <figure className="relative">
+                  <div className="relative aspect-[4/3] overflow-hidden border border-dashed" style={{ borderColor: C.plano, backgroundColor: C.papel2 }}>
                     <Image
-                      src={m.src}
-                      alt={m.alt}
+                      src={b.src}
+                      alt={b.alt}
                       fill
-                      sizes="(min-width: 768px) 30vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      sizes="(min-width: 640px) 45vw, 100vw"
+                      className="object-cover opacity-90 saturate-[0.85]"
                     />
+                    <span
+                      className={`${mono.className} absolute top-3 left-3 text-[10px] font-bold uppercase tracking-[0.24em] px-2.5 py-1`}
+                      style={{ backgroundColor: C.oxido, color: '#F0EADB' }}
+                    >
+                      Bosquejo
+                    </span>
                   </div>
-                  <h3 className={`${display.className} text-2xl md:text-[1.7rem] leading-tight mb-2`}>{m.name}</h3>
-                  <p className="text-[15px] leading-relaxed" style={{ color: C.muted }}>{m.desc}</p>
-                </article>
+                  <figcaption className={`${mono.className} mt-2 text-[10px] uppercase tracking-[0.2em]`} style={{ color: C.plano }}>
+                    {b.fig}
+                  </figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 02 El taller ── */}
-      <section id="taller" className="scroll-mt-20 border-b" style={{ backgroundColor: C.cremaDeep, borderColor: C.line }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <Reveal>
-            <Label n="02">El taller</Label>
-            <p className={`${display.className} text-[clamp(1.9rem,4.6vw,3.6rem)] leading-[1.08] tracking-[-0.01em] mt-6 mb-12 md:mb-16 max-w-4xl`}>
-              Una fábrica de barrio en Molina, donde cada mueble se{' '}
-              <em style={{ color: C.verde }}>conversa antes de cortarse.</em>
+      {/* ── Visita: horario real + mapa ── */}
+      <section id="visita" className="scroll-mt-20" style={{ backgroundColor: C.tinta, color: C.papel }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-12 gap-x-8 gap-y-12">
+          <Reveal className="md:col-span-5">
+            <MonoLabel light>El taller, en persona</MonoLabel>
+            <h2 className={`${display.className} uppercase text-[clamp(2rem,5.5vw,3.8rem)] leading-[0.95] mt-5 mb-6`}>
+              Pasa a conversar el mueble.
+            </h2>
+            <p className="text-base leading-relaxed max-w-md mb-8" style={{ color: 'rgba(240,234,219,0.85)' }}>
+              El taller atiende en {BIZ.address}, {BIZ.city} — incluso los
+              domingos por la mañana. Si prefieres, la cotización parte por
+              WhatsApp.
             </p>
-          </Reveal>
-          <div className="grid md:grid-cols-12 gap-x-8 gap-y-10">
-            <Reveal className="md:col-span-7">
-              <figure>
-                <div className="relative aspect-[3/2] overflow-hidden">
-                  <Image
-                    src={`${IMG}/ambiente.webp`}
-                    alt="Fachada de un taller de muebles con el portón abierto hacia la calle"
-                    fill
-                    sizes="(min-width: 768px) 55vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="mt-3 flex justify-between text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: C.muted }}>
-                  <span>{BIZ.address}</span>
-                  <span>Foto de muestra</span>
-                </figcaption>
-              </figure>
-            </Reveal>
-            <Reveal className="md:col-span-5" delay={120}>
-              <p className="text-[15px] md:text-base leading-relaxed mb-5" style={{ color: C.muted }}>
-                En {BIZ.address}, en {BIZ.city}, está el taller de {BIZ.name}.
-                Sin vitrinas ni vendedores: explicas lo que necesitas, se toman
-                las medidas y el mismo equipo que lo fabrica te lo entrega.
-              </p>
-              <p className="text-[15px] md:text-base leading-relaxed mb-8" style={{ color: C.muted }}>
-                Todavía no hay reseñas en Google; el trabajo se conoce por el
-                boca a boca y por los {BIZ.facebookFollowers} seguidores que lo
-                siguen en Facebook.
-              </p>
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em] mb-3" style={{ color: C.verde }}>
-                Lo que se cuida en cada encargo
-              </p>
-              <ol className="border-t" style={{ borderColor: C.line }}>
-                {VALORES.map((v, i) => (
-                  <li key={v.title} className="grid grid-cols-[2.5rem_1fr] py-4 border-b" style={{ borderColor: C.line }}>
-                    <span className="text-sm font-bold tabular-nums" style={{ color: C.verde }}>{String(i + 1).padStart(2, '0')}</span>
-                    <span>
-                      <span className="block font-bold mb-1">{v.title}</span>
-                      <span className="block text-[15px] leading-relaxed" style={{ color: C.muted }}>{v.desc}</span>
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 03 Precios ── */}
-      <section id="precios" className="scroll-mt-20 border-b" style={{ borderColor: C.line }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-12 gap-x-8 gap-y-10">
-          <Reveal className="md:col-span-4">
-            <Label n="03">Precios de referencia</Label>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.02] mt-6 mb-5`}>Para hacerse una idea</h2>
-            <p
-              className="inline-block text-[11px] font-extrabold uppercase tracking-[0.22em] px-3 py-1.5 mb-4"
-              style={{ backgroundColor: C.ambar, color: C.tinta }}
-            >
-              Valores de muestra
-            </p>
-            <p className="text-[15px] leading-relaxed max-w-xs" style={{ color: C.muted }}>
-              No son precios del taller. El valor real depende de medidas,
-              material y herrajes, y se confirma por WhatsApp.
-            </p>
-          </Reveal>
-          <Reveal className="md:col-span-8" delay={100}>
-            <table className="w-full text-left border-t-2" style={{ borderColor: C.tinta }}>
-              <thead>
-                <tr className="text-[10px] font-bold uppercase tracking-[0.24em]" style={{ color: C.muted }}>
-                  <th scope="col" className="py-3 pr-4 font-bold">Mueble</th>
-                  <th scope="col" className="py-3 pr-4 font-bold hidden sm:table-cell">Base</th>
-                  <th scope="col" className="py-3 font-bold text-right">Muestra</th>
-                </tr>
-              </thead>
+            <table className="w-full text-left border-t" style={{ borderColor: 'rgba(240,234,219,0.3)' }}>
               <tbody>
-                {PRECIOS.map((p) => (
-                  <tr key={p.name} className="border-t" style={{ borderColor: C.line }}>
-                    <th scope="row" className={`${display.className} py-4 pr-4 text-lg md:text-xl font-normal`}>{p.name}</th>
-                    <td className="py-4 pr-4 text-sm hidden sm:table-cell" style={{ color: C.muted }}>{p.unit}</td>
-                    <td className="py-4 text-right text-[15px] font-bold tabular-nums whitespace-nowrap" style={{ color: C.verde }}>{p.price}</td>
+                {HORARIO.map((h) => (
+                  <tr key={h.d} className="border-b" style={{ borderColor: 'rgba(240,234,219,0.3)' }}>
+                    <th scope="row" className="py-2.5 pr-4 text-sm font-semibold">{h.d}</th>
+                    <td className={`${mono.className} py-2.5 text-right text-sm tabular-nums`} style={{ color: 'rgba(240,234,219,0.85)' }}>{h.h}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── 04 Contacto ── */}
-      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.verdeDeep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-12 gap-x-8 gap-y-12">
-          <Reveal className="md:col-span-6">
-            <Label n="04" light>Contacto</Label>
-            <h2 className={`${display.className} text-[clamp(2.4rem,6vw,4.4rem)] leading-[1] tracking-[-0.01em] mt-6 mb-6`}>
-              Cuéntanos qué mueble tienes en mente.
-            </h2>
-            <p className="text-base leading-relaxed max-w-md mb-9" style={{ color: 'rgba(253,246,236,0.9)' }}>
-              Una foto de referencia o las medidas del espacio bastan para
-              partir. Te respondemos por WhatsApp.
-            </p>
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center justify-between max-w-md px-7 py-3 md:py-5 text-base font-extrabold uppercase tracking-[0.14em] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.45)] transition-all hover:-translate-y-0.5 hover:bg-[#F0B658] active:scale-[0.98] ${focusRing} tap-44`}
-              style={{ backgroundColor: C.ambar, color: C.tinta }}
-            >
-              Escribir por WhatsApp <span aria-hidden="true">→</span>
-            </a>
-            <p className="mt-3 text-sm" style={{ color: 'rgba(253,246,236,0.88)' }}>
-              o llama al{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4 tap-44">{BIZ.phoneDisplay}</a>
+            <p className={`${mono.className} mt-3 text-[10px] uppercase tracking-[0.2em]`} style={{ color: 'rgba(240,234,219,0.6)' }}>
+              Horario publicado en su ficha de Google
             </p>
           </Reveal>
-          <Reveal className="md:col-span-6" delay={120}>
-            <dl className="border-t mb-6" style={{ borderColor: 'rgba(253,246,236,0.3)' }}>
+          <Reveal className="md:col-span-7" delay={120}>
+            <dl className="border-t mb-6" style={{ borderColor: 'rgba(240,234,219,0.3)' }}>
               {[
                 ['Dirección', `${BIZ.address}, ${BIZ.postal} ${BIZ.city}`],
                 ['Región', BIZ.region],
                 ['WhatsApp', BIZ.phoneDisplay],
               ].map(([k, v]) => (
-                <div key={k} className="grid grid-cols-[7rem_1fr] py-3 border-b" style={{ borderColor: 'rgba(253,246,236,0.3)' }}>
-                  <dt className="text-[10px] font-bold uppercase tracking-[0.24em] pt-1" style={{ color: 'rgba(253,246,236,0.8)' }}>{k}</dt>
+                <div key={k} className="grid grid-cols-[7rem_1fr] py-3 border-b" style={{ borderColor: 'rgba(240,234,219,0.3)' }}>
+                  <dt className={`${mono.className} text-[10px] uppercase tracking-[0.24em] pt-1`} style={{ color: 'rgba(240,234,219,0.65)' }}>{k}</dt>
                   <dd className="font-semibold">{v}</dd>
                 </div>
               ))}
             </dl>
-            <div className="relative aspect-[4/3] overflow-hidden" style={{ backgroundColor: C.tinta }}>
+            <div className="relative aspect-[4/3] overflow-hidden border" style={{ borderColor: 'rgba(240,234,219,0.3)' }}>
               <LazyMap
                 src={MAPS_EMBED}
                 title={`Mapa: ${BIZ.address}, ${BIZ.city}`}
@@ -403,45 +410,44 @@ export default function MueblesATuEstiloPage() {
                 className="absolute inset-0 w-full h-full border-0 grayscale-[35%]"
               />
             </div>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`mt-3 inline-block text-[11px] font-bold uppercase tracking-[0.22em] underline underline-offset-4 ${focusRing} tap-44`}
-            >
-              Abrir en Google Maps →
-            </a>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center gap-3 px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] transition-transform hover:-translate-y-0.5 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F0EADB] tap-44`}
+                style={{ backgroundColor: C.papel, color: C.tinta }}
+              >
+                Escribir por WhatsApp <span aria-hidden="true">→</span>
+              </a>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center gap-3 px-6 py-3 text-sm font-bold uppercase tracking-[0.14em] border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F0EADB] tap-44`}
+                style={{ borderColor: 'rgba(240,234,219,0.5)', color: C.papel }}
+              >
+                Cómo llegar <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      <footer style={{ backgroundColor: C.tinta, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 grid md:grid-cols-12 gap-5 md:gap-8">
-          <div className="md:col-span-6">
-            <p className={`${display.className} text-2xl md:text-3xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(253,246,236,0.78)' }}>
-              {BIZ.address}, {BIZ.postal} {BIZ.city} · {BIZ.region}
-            </address>
+      <footer style={{ backgroundColor: C.tinta, color: 'rgba(240,234,219,0.8)' }} className="border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 grid grid-cols-2 gap-5 items-end">
+          <div>
+            <p className={`${mono.className} font-bold uppercase tracking-[0.14em] text-sm`} style={{ color: C.papel }}>{BIZ.name}</p>
+            <p className="text-xs mt-1.5">{BIZ.rubro} · {BIZ.address}, {BIZ.city}</p>
           </div>
-          <nav className="md:col-span-6 flex flex-wrap md:justify-end gap-x-6 gap-y-1.5 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: 'rgba(253,246,236,0.78)' }}>
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">{l.label}</a>
-            ))}
-          </nav>
+          <div className="text-right text-xs leading-relaxed">
+            <p>{BIZ.phoneDisplay}</p>
+            <p style={{ color: 'rgba(240,234,219,0.55)' }}>Demo de Sitiazo — datos verificados en Google Maps</p>
+          </div>
         </div>
-        <p className="border-t max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ borderColor: 'rgba(253,246,236,0.12)', color: 'rgba(253,246,236,0.78)' }}>
-          Mockup preparado por{' '}
-          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.ambar }}>
-            Sitiazo
-          </a>{' '}
-          para {BIZ.name}. Productos, precios y fotos son de muestra.{' '}
-          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.ambar }}>
-            ¿Lo hacemos realidad?
-          </a>
-        </p>
       </footer>
 
-      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
+      <WaFab href={WA_LINK} label={`WhatsApp de ${BIZ.name}`} />
     </div>
   )
 }
