@@ -2,7 +2,7 @@
 
 **Revisión:** 28 de septiembre de 2026
 
-**Resultado:** 3 prospectos verificados de un mínimo solicitado de 50.
+**Resultado:** 4 prospectos verificados de un mínimo solicitado de 50.
 
 ## Alcance y criterio de verificación
 
@@ -48,8 +48,9 @@ Sin prospectos que cumplieran todos los criterios verificables.
 
 | nombre exacto | rubro | comuna | direccion | telefono/WhatsApp | IG/FB | senal (evidencia) | por que es buena candidata |
 |---|---|---|---|---|---|---|---|
+| LUZE VITAL | Salón de belleza | Arica | Marcos Maturana 2484 | +56 9 6371 5897 | [Instagram](https://www.instagram.com/luzevital_arica/) | [Google Maps](https://www.google.com/maps/place/LUZE+VITAL/@-18.4919867,-70.3290488,14z/data=!4m10!1m2!2m1!1sspa+peluqueria+Arica+Chile!3m6!1s0x915aa99482e5cb03:0xa0f2a347385affb0!8m2!3d-18.4919867!4d-70.29094!15sChpzcGEgcGVsdXF1ZXJpYSBBcmljYSBDaGlsZZIBDGJlYXV0eV9zYWxvbpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VOTE9IVmhibEpCRUFF4AEA-gEECAAQPQ!16s%2Fg%2F11fy5g_5_t): 5,0 (21 reseñas), ficha con «Agregar sitio web». La cuenta pública muestra 953 seguidores, se identifica como estética en Arica y publicó un reel de spa el 01-08-2026 ([publicación](https://www.instagram.com/luzevital_arica/reel/DbhEMfUS-Rn/)). No apareció un dominio propio en la búsqueda por nombre. | Tiene local, reseñas y actividad social reciente, con una audiencia pequeña. Un sitio podría mostrar sus tratamientos y facilitar reservas e información del local. |
 | Taller Mecánico @CarDrag_Race | Taller mecánico | Arica | Carlos Torres - Colo Colo 1050 | +56 9 6832 2693 | [Instagram](https://www.instagram.com/cardrag_race/) | [Google Maps](https://www.google.com/maps/place/Taller+Mec%C3%A1nico+@CarDrag_Race/@-18.4682562,-70.2983061,17z/data=!3m1!4b1!4m6!3m5!1s0x915aa960324ad52d:0x8689adfc459c74f4!8m2!3d-18.4682562!4d-70.2983061!16s%2Fg%2F11ylff2stg): 5,0 (7 reseñas), ficha con «Agregar sitio web». La cuenta pública muestra 569 seguidores; una publicación del 26-09-2026 confirma servicios, local y teléfono ([publicación](https://www.instagram.com/cardrag_race/reel/DdwoEIizAWK/)). No apareció un dominio propio en la búsqueda por nombre. | Taller con dirección, teléfono y actividad reciente verificables; su audiencia social es pequeña. Un sitio podría presentar sus servicios automotrices y datos de contacto en un lugar fácil de encontrar. |
 
 ## Pendiente para alcanzar el mínimo
 
-Quedan **47 prospectos** por verificar para alcanzar los 50 solicitados. En La Serena, Coquimbo, Ovalle, Antofagasta y Calama no se encontró un negocio que cumpliera simultáneamente todos los criterios durante esta revisión; esto no significa que no existan. En las otras comunas, las fichas o cuentas revisadas con señales parciales se excluyeron cuando mostraban sitio web, no tenían teléfono público o no se pudo verificar directamente la cuenta, su audiencia y una publicación reciente.
+Quedan **46 prospectos** por verificar para alcanzar los 50 solicitados. En La Serena, Coquimbo, Ovalle, Antofagasta y Calama no se encontró un negocio que cumpliera simultáneamente todos los criterios durante esta revisión; esto no significa que no existan. En las otras comunas, las fichas o cuentas revisadas con señales parciales se excluyeron cuando mostraban sitio web, no tenían teléfono público o no se pudo verificar directamente la cuenta, su audiencia y una publicación reciente.
