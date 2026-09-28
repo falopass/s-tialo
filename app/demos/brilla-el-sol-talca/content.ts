@@ -12,6 +12,10 @@ export const WA_LINK = `https://wa.me/${BIZ.phone}?text=${encodeURIComponent(
   'Hola, vi la página del Complejo Deportivo Brilla El Sol y quisiera consultar.',
 )}`
 
+export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
+  `${BIZ.name}, ${BIZ.city}, Chile`,
+)}&output=embed`
+
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${BIZ.name}, ${BIZ.address}, ${BIZ.city}, Chile`,
 )}`
