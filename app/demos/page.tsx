@@ -2495,6 +2495,14 @@ const BLITZ = [
     tagline: 'Vitrina del patio con autos reales: letrero EN VENTA, verde del banner y placa de datos en mono.',
     gradient: 'linear-gradient(135deg, #10150F 0%, #0D2115 55%, #21A349 160%)',
   },
+  {
+    slug: 'atenea-salon',
+    name: 'Atenea Salón Spa',
+    rubro: 'Centro de estética',
+    city: 'Molina',
+    tagline: 'Su tarjeta hecha sitio: vino oscuro, rosa acuarela, arcos y la carta de precios real del salón.',
+    gradient: 'linear-gradient(135deg, #2B1A24 0%, #4A2E3C 60%, #E8ACC0 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
