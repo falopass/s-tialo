@@ -2399,6 +2399,22 @@ const BLITZ = [
     tagline: 'Pintado a mano en la lata: rojo letrero, negro goma y la cinta de seguridad del taller.',
     gradient: 'linear-gradient(135deg, #16130F 0%, #7C1B12 65%, #E9B416 150%)',
   },
+  {
+    slug: 'pasteleria-paris-talca',
+    name: 'Pastelería Paris',
+    rubro: 'Pastelería artesanal',
+    city: 'Talca',
+    tagline: 'La vitrina del barrio: crema de mantequilla, sello amarillo del logo y fotos reales de su Instagram.',
+    gradient: 'linear-gradient(135deg, #FAF2E0 0%, #F2B705 60%, #4A2E18 150%)',
+  },
+  {
+    slug: 'cordillera-san-clemente',
+    name: 'Cordillera',
+    rubro: 'Cafetería y repostería',
+    city: 'San Clemente',
+    tagline: 'Barra oscura con pizarra, dorado del logo y cresta de montaña; fotos reales de su ficha.',
+    gradient: 'linear-gradient(135deg, #0C0A07 0%, #1B1712 55%, #D9A72E 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
