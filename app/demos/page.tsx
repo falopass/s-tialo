@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'halcon-gris-seguridad',
+    name: 'Halcón Gris Seguridad',
+    rubro: 'Seguridad y formación de guardias',
+    city: 'Talca',
+    tagline: 'Dossier verificado: ficha técnica en grafito, ámbar y Street View real.',
+    gradient: 'linear-gradient(135deg, #EDEBE4 0%, #C9C4B4 50%, #D98E1B 150%)',
+  },
+  {
     slug: 'kai-sushi-talca',
     name: 'Kai Sushi',
     rubro: 'Bar & delivery nikkei',
