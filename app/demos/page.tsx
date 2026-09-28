@@ -2304,6 +2304,30 @@ const BLITZ = [
     tagline: 'Letrero de entrada: pino noche, lima del logo y el volante real de Temporada 2026.',
     gradient: 'linear-gradient(135deg, #F5EEDB 0%, #1C3D2C 55%, #A9CC4E 150%)',
   },
+  {
+    slug: 'fixstore-servicio-tecnico-talca',
+    name: 'Fix Store',
+    rubro: 'Servicio técnico de celulares',
+    city: 'Talca',
+    tagline: 'Orden de reparación en azul eléctrico: estaciones, bitácora del mesón y reseñas reales de 1 Norte.',
+    gradient: 'linear-gradient(135deg, #0B0F19 0%, #141F38 55%, #3D7BFF 150%)',
+  },
+  {
+    slug: 'promax-servicio-tecnico-talca',
+    name: 'Promax',
+    rubro: 'Servicio técnico de celulares',
+    city: 'Talca',
+    tagline: 'Afiche de vitrina en blanco y negro con cinta amarilla: cambios de pantalla y batería frente a 2 Oriente.',
+    gradient: 'linear-gradient(135deg, #0D0D0D 0%, #1B1B1B 55%, #FFD400 160%)',
+  },
+  {
+    slug: 'vivero-y-jardin-los-gomeros',
+    name: 'Vivero Los Gomeros',
+    rubro: 'Vivero y jardín',
+    city: 'Molina',
+    tagline: 'Guía de temporada en verde tinto: invernadero real, árboles en bolsa y ruta Buen Paz km 13.',
+    gradient: 'linear-gradient(135deg, #12240F 0%, #2E5B2B 55%, #A8C97F 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
