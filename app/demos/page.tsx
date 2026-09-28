@@ -734,6 +734,22 @@ const BLITZ = [
     tagline: 'Vitrina de sabores: crema, chocolate, frambuesa, pistacho y vainilla, carta por familias con fotos.',
     gradient: 'linear-gradient(135deg, #3B2416 0%, #B01E52 55%, #F2B441 140%)',
   },
+  {
+    slug: 'estudio-juridico-talca',
+    name: 'Convergencia Estudio Jurídico Talca',
+    rubro: 'Estudio jurídico',
+    city: 'Talca',
+    tagline: 'Sereno y editorial: azul noche, dorado y papel, con orientación clara.',
+    gradient: 'linear-gradient(135deg, #101A2B 0%, #304768 55%, #D4A64A 140%)',
+  },
+  {
+    slug: 'tricapa-talca-spa',
+    name: 'Tricapa Talca',
+    rubro: 'Pintura y desabolladura',
+    city: 'Talca',
+    tagline: 'Taller directo: grafito, amarillo de seguridad y escenas automotrices en SVG.',
+    gradient: 'linear-gradient(135deg, #17191B 0%, #586166 55%, #F0B323 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
