@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
-import { HeroBackdrop } from './scenes'
+import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, HORARIO, IMG } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -18,73 +18,36 @@ const body = localFont({
   ],
 })
 
+/* Paleta tomada de su letrero y logo: fucsia corazón + azul noche. */
 const C = {
-  paper: '#FBFEFD',
-  mint: '#DFF2EC',
-  mintSoft: '#F0F9F6',
-  ink: '#0F3B57',
-  muted: '#4A6B7C',
-  accent: '#1D9E8E',
-  accentDeep: '#127E71',
-  line: 'rgba(15,59,87,0.12)',
+  paper: '#FCFAFC',
+  rose: '#F5E2F0',
+  roseSoft: '#FAF1F8',
+  ink: '#2A2350',
+  muted: '#5E5876',
+  accent: '#B2298B',
+  accentDeep: '#8E1B6B',
+  line: 'rgba(42,35,80,0.12)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'triadent',
   title: 'Clínica Dental Triadent - Dentista en Talca',
   description: 'Clínica dental en el centro de Talca. Agenda tu hora por WhatsApp.',
+  image: `${IMG}/hero.webp`,
 })
 
 const NAV_LINKS = [
   { label: 'Tratamientos', href: '#tratamientos' },
+  { label: 'La clínica', href: '#clinica' },
   { label: 'Reseñas', href: '#resenas' },
-  { label: 'FAQ', href: '#faq' },
   { label: 'Ubicación', href: '#ubicacion' },
 ]
 
-function BeforeAfterPanel({ label, delay = 0 }: { label: string; delay?: number }) {
-  return (
-    <Reveal delay={delay}>
-      <div
-        className="aspect-[4/3] rounded-2xl border-2 border-dashed flex flex-col items-center justify-center gap-2"
-        style={{ borderColor: 'rgba(29,158,142,0.4)', backgroundColor: C.mintSoft }}
-      >
-        <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke={C.accentDeep} strokeOpacity="0.5" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
-          <rect x="3.5" y="5.5" width="17" height="13" rx="2" />
-          <circle cx="9" cy="10" r="1.6" />
-          <path d="M4.5 16.5 l4 -4 3 3 3.5 -3.5 4.5 4.5" />
-        </svg>
-        <p className={`${display.className} text-sm font-semibold uppercase tracking-[0.15em]`} style={{ color: C.accentDeep }}>
-          {label}
-        </p>
-        <p className="text-xs" style={{ color: C.muted }}>Imagen de ejemplo</p>
-      </div>
-    </Reveal>
-  )
-}
-
 const ICONS: Record<string, React.ReactNode> = {
-  evaluacion: (
+  general: (
     <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 4.5 C5.5 4.5 4 6.5 4 9.5 C4 14 5.5 20 7.5 20 C9 20 8.5 15.5 12 15.5 C15.5 15.5 15 20 16.5 20 C18.5 20 20 14 20 9.5 C20 6.5 18.5 4.5 16 4.5 C14 4.5 13.5 5.5 12 5.5 C10.5 5.5 10 4.5 8 4.5 Z" />
-    </g>
-  ),
-  limpieza: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 4 l1.6 3.9 L17.5 9.5 l-3.9 1.6 L12 15 l-1.6 -3.9 L6.5 9.5 l3.9 -1.6 Z" />
-      <path d="M18.5 15.5 l.9 2.1 2.1 .9 -2.1 .9 -.9 2.1 -.9 -2.1 -2.1 -.9 2.1 -.9 Z" />
-    </g>
-  ),
-  estetica: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 14 C4 10 7 7 12 7 C17 7 20 10 20 14" />
-      <path d="M7 14 C7 12 9 10.5 12 10.5 C15 10.5 17 12 17 14" />
-      <path d="M4 17 a8 8 0 0 0 16 0" />
-    </g>
-  ),
-  urgencia: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M13 3 L5.5 13.5 H11 L10 21 L18.5 10 H13 Z" />
     </g>
   ),
   ortodoncia: (
@@ -96,22 +59,63 @@ const ICONS: Record<string, React.ReactNode> = {
       <rect x="15.4" y="10.4" width="3" height="3.2" rx="0.8" />
     </g>
   ),
-  protesis: (
+  endodoncia: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 4.5 C5.5 4.5 4 6.5 4 9.5 C4 14 5.5 20 7.5 20 C9 20 8.5 15.5 12 15.5 C15.5 15.5 15 20 16.5 20 C18.5 20 20 14 20 9.5 C20 6.5 18.5 4.5 16 4.5 C14 4.5 13.5 5.5 12 5.5 C10.5 5.5 10 4.5 8 4.5 Z" />
+      <path d="M12 6.5 v6" />
+      <path d="M12 12.5 l-2 4.5 M12 12.5 l2 4.5" />
+    </g>
+  ),
+  implantes: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M9 3.5 h6 l-.8 5 h-4.4 Z" />
+      <path d="M12 8.5 v3.5 M10.6 10.5 h2.8 M10.9 12 h2.2" />
+      <path d="M10.2 12 l1.8 7.5 1.8 -7.5" />
+    </g>
+  ),
+  rehabilitacion: (
     <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4.5 13 h15 a1.5 1.5 0 0 1 0 3 h-15 a1.5 1.5 0 0 1 0 -3 Z" />
       <path d="M7 13 v-3 M12 13 v-3.5 M17 13 v-3" />
       <path d="M7 16 v2.5 M12 16 v3 M17 16 v2.5" />
     </g>
   ),
+  cirugia: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="7" cy="7" r="3" />
+      <circle cx="7" cy="17" r="3" />
+      <path d="M9.6 8.8 L20 20 M9.6 15.2 L20 4" />
+    </g>
+  ),
 }
 
+/* Servicios publicados por la clínica en su Instagram. */
 const TREATMENTS = [
-  { icon: 'evaluacion', name: 'Evaluación integral', desc: 'Diagnóstico completo y un plan de tratamiento claro desde la primera visita.' },
-  { icon: 'limpieza', name: 'Limpieza y prevención', desc: 'Profilaxis y controles periódicos para mantener tu boca sana.' },
-  { icon: 'estetica', name: 'Estética dental', desc: 'Opciones para mejorar el aspecto de tu sonrisa según tu caso.' },
-  { icon: 'urgencia', name: 'Urgencias dentales', desc: 'Dolor, fracturas o molestias que no pueden esperar una hora agendada.' },
-  { icon: 'ortodoncia', name: 'Ortodoncia', desc: 'Evaluación y seguimiento para alinear tu mordida.' },
-  { icon: 'protesis', name: 'Rehabilitación', desc: 'Restauraciones y prótesis pensadas para recuperar función y estética.' },
+  { icon: 'general', name: 'Odontología general', desc: 'Evaluación completa, limpieza y tratamientos para mantener tu boca sana.' },
+  { icon: 'ortodoncia', name: 'Ortodoncia', desc: 'Brackets y controles para alinear tu sonrisa, con seguimiento a la hora.' },
+  { icon: 'endodoncia', name: 'Endodoncia', desc: 'Tratamiento de conducto para salvar la pieza y quitarte el dolor.' },
+  { icon: 'implantes', name: 'Implantología', desc: 'Reposición de piezas faltantes con implantes, planificado a tu medida.' },
+  { icon: 'rehabilitacion', name: 'Rehabilitación oral', desc: 'Restauraciones y prótesis para recuperar función y estética.' },
+  { icon: 'cirugia', name: 'Cirugía oral', desc: 'Extracciones y procedimientos quirúrgicos con atención cercana.' },
+]
+
+/* Reseñas reales de su ficha de Google (texto original en español). */
+const REVIEWS = [
+  {
+    text: 'Excelente atención, lugar limpio y ordenado. Simpatía y buena disposición de la profesional.',
+    author: 'María Paz Astudillo Barrera',
+    meta: 'Reseña de Google · 5★',
+  },
+  {
+    text: 'Vine por una horita y me atendieron altiro, y muy bien; me explicaron lo que era mejor para mí. Excelente atención, gracias.',
+    author: 'Paola',
+    meta: 'Reseña de Google · 5★',
+  },
+  {
+    text: 'Muy buena experiencia y quedan muy rectos los dientes con brackets. Excelente trato y las doctoras son simpáticas.',
+    author: 'Marcela González',
+    meta: 'Reseña de Google · 5★',
+  },
 ]
 
 const FAQS = [
@@ -120,8 +124,8 @@ const FAQS = [
     a: 'Escríbenos por WhatsApp con tu nombre y el motivo de la consulta. Te respondemos con las horas disponibles.',
   },
   {
-    q: '¿Atienden urgencias?',
-    a: 'Si tienes dolor agudo o una fractura, escríbenos de inmediato por WhatsApp y te indicamos la hora más próxima disponible.',
+    q: '¿Cuál es el horario de atención?',
+    a: `De lunes a viernes de 10:00 a 18:30 y sábados de 10:00 a 14:00, en ${BIZ.address}.`,
   },
   {
     q: '¿Dónde están ubicados?',
@@ -141,12 +145,13 @@ export default function TriadentPage() {
     >
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
         theme={{
           over: 'light',
-          bar: 'rgba(251,254,253,0.94)',
+          bar: 'rgba(252,250,252,0.94)',
           ink: C.ink,
           line: C.line,
           btnBg: C.accentDeep,
@@ -154,10 +159,9 @@ export default function TriadentPage() {
         }}
       />
 
-      {/* ── Hero ── */}
-      <section id="inicio" className="relative overflow-hidden">
-        <HeroBackdrop className="absolute inset-0 w-full h-full" />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-32 md:pt-40 pb-16 md:pb-24 grid lg:grid-cols-[1.15fr_1fr] gap-10 md:gap-16 items-center">
+      {/* ── Hero: foto real de la fachada con el letrero ── */}
+      <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.roseSoft }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-32 md:pt-40 pb-14 md:pb-20 grid lg:grid-cols-[1.05fr_1fr] gap-10 md:gap-14 items-center">
           <Reveal>
             <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] mb-5 flex items-center gap-3" style={{ color: C.accentDeep }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: C.accent }} aria-hidden="true" />
@@ -166,7 +170,7 @@ export default function TriadentPage() {
             <h1
               className={`${display.className} font-semibold leading-[1.04] tracking-[-0.01em] text-[clamp(2.4rem,7vw,4.4rem)] mb-5`}
             >
-              Una clínica dental para sonreír tranquilo
+              Tu dentista en 1 Norte 841
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-lg mb-8" style={{ color: C.muted }}>
               Atención odontológica cercana, con explicaciones claras y
@@ -185,58 +189,46 @@ export default function TriadentPage() {
               <a
                 href="#tratamientos"
                 className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44"
-                style={{ borderColor: 'rgba(15,59,87,0.3)', color: C.ink }}
+                style={{ borderColor: 'rgba(42,35,80,0.3)', color: C.ink }}
               >
                 Ver tratamientos
               </a>
             </div>
+            <p className="mt-8 flex items-center gap-3 text-sm" style={{ color: C.muted }}>
+              <Stars value={BIZ.rating} color={C.accent} />
+              <span>
+                <strong style={{ color: C.ink }}>{BIZ.ratingLabel}</strong> en Google · {BIZ.reviews} reseñas
+              </span>
+            </p>
           </Reveal>
           <Reveal delay={150}>
-            <div
-              className="rounded-3xl p-7 md:p-8 shadow-[0_24px_60px_-24px_rgba(15,59,87,0.3)]"
-              style={{ backgroundColor: '#FFFFFF', border: `1px solid ${C.line}` }}
-            >
-              <p className={`${display.className} font-semibold text-xl mb-5`}>
-                Agenda tu hora
-              </p>
-              <ol className="space-y-3 mb-6">
-                {[
-                  'Escríbenos por WhatsApp con tu consulta.',
-                  'Te confirmamos día y hora disponible.',
-                  'Llegas a tu cita, sin trámites extra.',
-                ].map((s, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: C.muted }}>
-                    <span
-                      className={`${display.className} shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-semibold`}
-                      style={{ backgroundColor: C.mint, color: C.accentDeep }}
-                      aria-hidden="true"
-                    >
-                      {i + 1}
-                    </span>
-                    {s}
-                  </li>
-                ))}
-              </ol>
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center font-semibold text-sm px-6 py-3.5 rounded-full transition-transform active:scale-95 mb-5 tap-44"
-                style={{ backgroundColor: C.ink, color: '#fff' }}
+            <figure className="relative">
+              <div
+                className="relative overflow-hidden rounded-3xl aspect-[4/3] md:aspect-[4/3] shadow-[0_24px_60px_-24px_rgba(42,35,80,0.35)]"
+                style={{ border: `1px solid ${C.line}` }}
               >
-                Escribir ahora
-              </a>
-              <p className="flex items-center justify-center gap-2 text-xs" style={{ color: C.muted }}>
-                <Stars value={BIZ.rating} color={C.accent} />
-                {BIZ.ratingLabel} en Google con {BIZ.reviews} reseñas
-              </p>
-            </div>
+                <Image
+                  src={`${IMG}/hero.webp`}
+                  alt={`Fachada de ${BIZ.name} en el centro de Talca`}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption
+                className="absolute left-4 bottom-4 rounded-full px-4 py-2 text-xs font-semibold shadow-lg"
+                style={{ backgroundColor: 'rgba(252,250,252,0.94)', color: C.ink }}
+              >
+                1 Norte 841, a pasos de la plaza
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
 
       {/* ── Franja de confianza ── */}
-      <section style={{ backgroundColor: C.mint }}>
+      <section style={{ backgroundColor: C.rose }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
           <Reveal className="flex items-center gap-4">
             <p className={`${display.className} font-semibold text-5xl md:text-6xl leading-none`}>
@@ -252,7 +244,7 @@ export default function TriadentPage() {
           <Reveal delay={100} className="md:ml-auto flex flex-col sm:flex-row gap-4 sm:gap-10">
             <p className="text-sm font-medium flex items-center gap-2.5" style={{ color: C.ink }}>
               <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: C.accent }} aria-hidden="true" />
-              En pleno centro de Talca
+              Lun–Vie 10:00–18:30 · Sáb 10:00–14:00
             </p>
             <p className="text-sm font-medium flex items-center gap-2.5" style={{ color: C.ink }}>
               <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: C.accent }} aria-hidden="true" />
@@ -269,20 +261,19 @@ export default function TriadentPage() {
             Tratamientos
           </h2>
           <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
-            Carta referencial: al publicar el sitio van las prestaciones
-            reales de la clínica, con sus detalles.
+            Las especialidades que la clínica publica en su Instagram.
           </p>
         </Reveal>
         <ul className="grid sm:grid-cols-2 gap-5">
           {TREATMENTS.map((t, i) => (
             <Reveal key={t.name} delay={i * 80}>
               <li
-                className="flex gap-4 rounded-2xl p-5 md:p-6 border transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_36px_-18px_rgba(15,59,87,0.3)] h-full"
+                className="flex gap-4 rounded-2xl p-5 md:p-6 border transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_36px_-18px_rgba(42,35,80,0.3)] h-full"
                 style={{ backgroundColor: '#FFFFFF', borderColor: C.line }}
               >
                 <span
                   className="w-[46px] h-[46px] rounded-2xl flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: C.mintSoft, color: C.accentDeep }}
+                  style={{ backgroundColor: C.roseSoft, color: C.accentDeep }}
                 >
                   <svg viewBox="0 0 24 24" className="w-[23px] h-[23px]" aria-hidden="true">
                     {ICONS[t.icon]}
@@ -302,30 +293,68 @@ export default function TriadentPage() {
         </ul>
       </section>
 
-      {/* ── Antes / después (placeholders) ── */}
-      <section className="max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24">
-        <Reveal>
-          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`}>
-            Antes y después
-          </h2>
-          <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
-            Espacios reservados: al publicar van fotos reales de casos,
-            con autorización de los pacientes.
-          </p>
-        </Reveal>
-        <div className="grid sm:grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-6">
-          <BeforeAfterPanel label="Antes" />
-          <Reveal delay={120} className="hidden sm:flex items-center justify-center">
-            <svg viewBox="0 0 24 24" className="w-10 h-10" fill="none" stroke={C.accent} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M4 12 h14 M13 6 l6 6 -6 6" />
-            </svg>
-          </Reveal>
-          <BeforeAfterPanel label="Después" delay={160} />
+      {/* ── La clínica por dentro (fotos reales) ── */}
+      <section id="clinica" className="scroll-mt-20" style={{ backgroundColor: C.roseSoft }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-10 md:gap-14 items-start">
+            <Reveal>
+              <p className="text-[11px] uppercase tracking-[0.22em] mb-4 flex items-center gap-3" style={{ color: C.accentDeep }}>
+                <span className="inline-block w-8 h-px" style={{ backgroundColor: C.accent }} aria-hidden="true" />
+                La clínica por dentro
+              </p>
+              <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-tight mb-5`}>
+                Boxes luminosos y un equipo que explica cada paso
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
+                Fotos reales de la ficha de Google de la clínica y de su
+                Instagram: la entrada en 1 Norte, el box de atención y el
+                equipo trabajando.
+              </p>
+              <a
+                href={BIZ.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
+                style={{ color: C.accentDeep, textDecorationColor: 'rgba(178,41,139,0.35)' }}
+              >
+                {BIZ.instagramHandle} en Instagram →
+              </a>
+            </Reveal>
+            <div className="grid grid-cols-2 gap-4">
+              <Reveal delay={80} className="col-span-2">
+                <figure className="relative overflow-hidden rounded-2xl aspect-[16/9]" style={{ border: `1px solid ${C.line}` }}>
+                  <Image
+                    src={`${IMG}/box.webp`}
+                    alt="Box de atención dental de Triadent"
+                    fill
+                    sizes="(min-width: 1024px) 42vw, 100vw"
+                    className="object-cover"
+                  />
+                </figure>
+              </Reveal>
+              {[
+                { src: 'atencion', alt: 'Profesional de Triadent atendiendo a un paciente' },
+                { src: 'equipo', alt: 'Dentista de Triadent en la clínica' },
+              ].map((f, i) => (
+                <Reveal key={f.src} delay={160 + i * 100}>
+                  <figure className="relative overflow-hidden rounded-2xl aspect-[4/5]" style={{ border: `1px solid ${C.line}` }}>
+                    <Image
+                      src={`${IMG}/${f.src}.webp`}
+                      alt={f.alt}
+                      fill
+                      sizes="(min-width: 1024px) 21vw, 50vw"
+                      className="object-cover"
+                    />
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── Reseñas ── */}
-      <section id="resenas" className="scroll-mt-20" style={{ backgroundColor: C.mintSoft }}>
+      <section id="resenas" className="scroll-mt-20">
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-[1fr_1.6fr] gap-8 md:gap-14 items-start">
             <Reveal>
@@ -348,7 +377,7 @@ export default function TriadentPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
-                  style={{ color: C.accentDeep, textDecorationColor: 'rgba(18,126,113,0.4)' }}
+                  style={{ color: C.accentDeep, textDecorationColor: 'rgba(142,27,107,0.4)' }}
                 >
                   Ver la ficha en Google →
                 </a>
@@ -359,24 +388,18 @@ export default function TriadentPage() {
                 <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-tight`}>
                   Lo que dicen los pacientes
                 </h2>
-                <p className="text-sm mt-2 mb-2" style={{ color: C.muted }}>
-                  Textos de muestra: al publicar van las reseñas reales.
-                </p>
               </Reveal>
-              {[
-                'Me atendieron puntual y me explicaron cada paso del tratamiento. Cero susto con la cuenta.',
-                'Fui por una urgencia de dolor y me resolvieron el mismo día. El trato es muy humano.',
-              ].map((t, i) => (
-                <Reveal key={i} delay={200 + i * 120}>
+              {REVIEWS.map((r, i) => (
+                <Reveal key={r.author} delay={160 + i * 110}>
                   <figure
                     className="rounded-2xl p-6 md:p-7"
                     style={{ backgroundColor: '#FFFFFF', border: `1px solid ${C.line}` }}
                   >
                     <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.ink }}>
-                      “{t}”
+                      “{r.text}”
                     </blockquote>
                     <figcaption className="text-xs uppercase tracking-[0.15em]" style={{ color: C.accentDeep }}>
-                      Reseña de ejemplo
+                      {r.author} · {r.meta}
                     </figcaption>
                   </figure>
                 </Reveal>
@@ -387,18 +410,15 @@ export default function TriadentPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      <section className="max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24">
         <Reveal>
           <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-3`}>
             Preguntas de pacientes
           </h2>
-          <p className="text-sm mb-8" style={{ color: C.muted }}>
-            Preguntas y respuestas de muestra.
-          </p>
         </Reveal>
         <FaqList
           items={FAQS}
-          colors={{ q: C.ink, a: C.muted, line: C.line, plusBg: C.mint, plusInk: C.accentDeep }}
+          colors={{ q: C.ink, a: C.muted, line: C.line, plusBg: C.rose, plusInk: C.accentDeep }}
         />
       </section>
 
@@ -414,12 +434,20 @@ export default function TriadentPage() {
               <br />
               {BIZ.region}, Chile
             </address>
-            <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
+            <p className="text-sm md:text-base mb-5" style={{ color: C.muted }}>
               Teléfono:{' '}
               <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.ink }}>
                 {BIZ.phoneDisplay}
               </a>
             </p>
+            <ul className="text-sm md:text-base mb-8 space-y-1.5" style={{ color: C.muted }}>
+              {HORARIO.map((h) => (
+                <li key={h.dia} className="flex items-baseline gap-3">
+                  <span className="font-medium w-36 shrink-0" style={{ color: C.ink }}>{h.dia}</span>
+                  <span>{h.horas}</span>
+                </li>
+              ))}
+            </ul>
             <div className="flex flex-wrap gap-3">
               <a
                 href={MAPS_URL}
@@ -444,7 +472,7 @@ export default function TriadentPage() {
           <Reveal delay={150}>
             <div
               className="rounded-3xl overflow-hidden border min-h-[300px] md:min-h-0 h-full"
-              style={{ borderColor: C.line, backgroundColor: C.mintSoft }}
+              style={{ borderColor: C.line, backgroundColor: C.roseSoft }}
             >
               <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.address}`}
@@ -459,7 +487,7 @@ export default function TriadentPage() {
       </section>
 
       {/* ── CTA final ── */}
-      <section style={{ backgroundColor: C.mint }}>
+      <section style={{ backgroundColor: C.rose }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <h2 className={`${display.className} font-semibold text-[clamp(2rem,6vw,3.8rem)] leading-[1.05] mb-6`}>
@@ -474,15 +502,15 @@ export default function TriadentPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-8 py-4 rounded-full transition-transform active:scale-95 tap-44"
+                className="font-semibold text-sm px-8 py-3 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.accentDeep, color: '#fff' }}
               >
                 Agenda por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-3 md:py-4 rounded-full border transition-colors tap-44"
-                style={{ borderColor: 'rgba(15,59,87,0.3)', color: C.ink }}
+                className="font-semibold text-sm px-8 py-3 rounded-full border transition-colors tap-44"
+                style={{ borderColor: 'rgba(42,35,80,0.3)', color: C.ink }}
               >
                 {BIZ.phoneDisplay}
               </a>
@@ -496,11 +524,15 @@ export default function TriadentPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-12 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-8">
           <div>
             <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>
               {BIZ.address} · {BIZ.region}
               <br />
               <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">
                 {BIZ.phoneDisplay}
+              </a>{' '}
+              ·{' '}
+              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">
+                {BIZ.instagramHandle}
               </a>
             </address>
           </div>

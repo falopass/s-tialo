@@ -1,9 +1,11 @@
 /**
  * app/demos/triadent/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps): nombre,
- * dirección, teléfono y rating/reseñas. Todo lo demás es contenido de
- * ejemplo para mostrar cómo se vería el sitio.
+ * Datos REALES verificados (28-09-2026): ficha de Google Maps
+ * (nombre, dirección, teléfono, rating 5,0 / 119 reseñas) y su Instagram
+ * @triadent.talca (misma dirección y teléfono en la bio; horario y
+ * servicios publicados por la propia clínica). Fotos reales de la
+ * ficha de Google y del Instagram en public/demos/triadent/.
  */
 
 export const BIZ = {
@@ -15,6 +17,8 @@ export const BIZ = {
   phoneDisplay: '+56 9 6642 6337',
   phoneTel: '+56966426337',
   whatsapp: '56966426337',
+  instagram: 'https://www.instagram.com/triadent.talca/',
+  instagramHandle: '@triadent.talca',
   rating: 5,
   ratingLabel: '5,0',
   reviews: 119,
@@ -31,3 +35,12 @@ export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encod
 export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
   'Clínica Dental Triadent, 1 Norte 841, Talca, Chile',
 )}&output=embed`
+
+/** Horario publicado por la clínica en su Instagram. */
+export const HORARIO = [
+  { dia: 'Lunes a viernes', horas: '10:00 – 18:30' },
+  { dia: 'Sábado', horas: '10:00 – 14:00' },
+  { dia: 'Domingo', horas: 'Cerrado' },
+] as const
+
+export const IMG = '/demos/triadent'
