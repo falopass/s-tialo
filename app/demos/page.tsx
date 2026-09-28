@@ -31,6 +31,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #1C2733 0%, #236043 55%, #1D4F9C 150%)',
   },
   {
+    slug: 'fotos-de-embarazo-talca-photomemorym',
+    name: 'PhotoMemory Maternity',
+    rubro: 'Fotografía de embarazo',
+    city: 'Talca',
+    tagline: 'Hoja de contactos: marfil, tinta y el rojo de su vestido, fotograma a fotograma.',
+    gradient: 'linear-gradient(135deg, #F5F1EA 0%, #9E1B2F 80%, #16130F 150%)',
+  },
+  {
     slug: 'gasfiteria-tecnifem',
     name: 'Gasfitería Tecnifem',
     rubro: 'Gasfitería a domicilio',
