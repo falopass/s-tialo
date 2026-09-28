@@ -966,6 +966,14 @@ const BLITZ = [
     tagline: 'El hospital del centro: teal, aqua y atención de exóticos, con su fachada real.',
     gradient: 'linear-gradient(135deg, #083238 0%, #0E7C7B 60%, #7FD8CE 140%)',
   },
+  {
+    slug: 'veterinaria-ramadillas',
+    name: 'Veterinaria Ramadillas',
+    rubro: 'Clínica y farmacia veterinaria',
+    city: 'San Clemente',
+    tagline: 'Clínica y farmacia sobre Huamachuco: turquesa, patitas y reseñas reales.',
+    gradient: 'linear-gradient(135deg, #0B3B35 0%, #0F7A6D 55%, #35C2AC 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
