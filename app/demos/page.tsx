@@ -7,6 +7,14 @@ import { Motif, headingFont } from './kit'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'lavaseco-flash',
+    name: 'Lavaseco Flash',
+    rubro: 'Lavandería y lavaseco',
+    city: 'Talca',
+    tagline: 'Lavandería doméstica e industrial con tres sucursales.',
+    gradient: 'linear-gradient(135deg, #102A36 0%, #146B66 55%, #F5B642 140%)',
+  },
+  {
     slug: 'delicias-caseras-fabiana',
     name: 'Delicias Caseras Fabiana',
     rubro: 'Panadería y pastelería',
