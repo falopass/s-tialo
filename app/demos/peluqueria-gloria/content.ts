@@ -1,16 +1,17 @@
 /**
  * app/demos/peluqueria-gloria/content.ts
  *
- * Datos del mockup. REALES (ficha pública y redes del negocio): nombre,
- * dirección en Cumpeo, comuna de Río Claro, las 11 reseñas de la ficha
- * de Google, la página de Facebook y el WhatsApp. Todo lo demás —
- * servicios, precios, horarios y textos de reseña — es contenido de
- * muestra para mostrar cómo se vería el sitio.
+ * Datos del mockup. REALES (ficha de Google Maps y perfil público en
+ * AgendaPro): nombre, Cumpeo (Río Claro), WhatsApp, 4,5 estrellas y
+ * 11 reseñas, horario lun-sáb 11:00-13:00 y 14:00-21:30, servicios y
+ * precios publicados (corte $12.000, corte+barba $15.000, full $25.000)
+ * y las reseñas citadas con su autor. Las fotos son las reales de su
+ * ficha de Google (logo pintado en el muro e interior del salón).
  */
 
 export const BIZ = {
   name: 'Peluquería Gloria',
-  short: 'Peluquería Gloria',
+  short: 'Gloria',
   rubro: 'Peluquería',
   address: 'Cumpeo',
   city: 'Río Claro',
@@ -18,6 +19,7 @@ export const BIZ = {
   phoneDisplay: '+56 9 8150 4275',
   phoneTel: '+56981504275',
   whatsapp: '56981504275',
+  rating: '4,5',
   reviews: 11,
   facebook: 'http://www.facebook.com/peluqueriagloria',
 } as const
