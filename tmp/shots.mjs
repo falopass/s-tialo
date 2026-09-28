@@ -1,23 +1,15 @@
-import { chromium } from 'playwright'
-
-const slugs = process.argv[2].split(',')
-const w = parseInt(process.argv[3] || '390')
-const h = parseInt(process.argv[4] || '844')
-const browser = await chromium.connectOverCDP('http://localhost:29229')
-const ctx = await browser.newContext({ viewport: { width: w, height: h } })
-for (const slug of slugs) {
-  const page = await ctx.newPage()
-  await page.goto(`http://localhost:4800/demos/${slug}/`, { waitUntil: 'networkidle', timeout: 30000 })
-  await page.waitForTimeout(1500)
-  // scroll to bottom to trigger reveals, then back to top
-  await page.evaluate(async () => {
-    const h = document.body.scrollHeight
-    for (let y = 0; y <= h; y += 700) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 60)) }
-    window.scrollTo(0, 0)
-  })
-  await page.waitForTimeout(600)
-  await page.screenshot({ path: `/tmp/shot_${slug}_${w}.png`, fullPage: true })
-  await page.close()
+import { chromium } from 'playwright';
+const shots = [
+  ['piscinas-santa-adela-molina', 390], ['piscinas-santa-adela-molina', 1440],
+  ['panaderia-la-moderna-talca', 390], ['panaderia-la-moderna-talca', 1440],
+];
+const b = await chromium.launch();
+for (const [slug, w] of shots) {
+  const p = await b.newPage({ viewport: { width: w, height: 844 } });
+  await p.goto(`http://localhost:3010/demos/${slug}/`, { waitUntil: 'networkidle' });
+  await p.evaluate(async () => { await new Promise(r => { let y = 0; const t = setInterval(() => { y += 700; scrollTo(0, y); if (y >= document.body.scrollHeight) { clearInterval(t); r(); } }, 60); }); });
+  await p.waitForTimeout(2600);
+  await p.screenshot({ path: `tmp/shot-${slug}-${w}.png`, fullPage: true });
+  await p.close();
 }
-await ctx.close()
-process.exit(0)
+await b.close();
