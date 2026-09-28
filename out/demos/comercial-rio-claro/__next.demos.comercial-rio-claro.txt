@@ -1,14 +1,4 @@
 1:"$Sreact.fragment"
-<<<<<<< Updated upstream
 2:I[39756,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
 3:I[37457,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
-0:{"buildId":"uV9BR19EQEU45KtvG2sHv","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
-||||||| constructed merge base
-2:I[39756,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
-3:I[37457,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
-0:{"buildId":"NZePKeIzq4xggmUaWBisW","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
-=======
-2:I[39756,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/52652041917684c2.js"],"default"]
-3:I[37457,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/52652041917684c2.js"],"default"]
-0:{"buildId":"Dhhm45i0DgQzjaz3SPhd9","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
->>>>>>> Stashed changes
+0:{"buildId":"04KKpbRszsvCzLH_NXWwT","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
