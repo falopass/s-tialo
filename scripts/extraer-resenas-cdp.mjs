@@ -15,7 +15,8 @@ const ev = async (e) => (await send('Runtime.evaluate', { expression: e, returnB
 
 await send('Page.enable')
 await send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false })
-await send('Page.navigate', { url: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}` })
+try { await send('Emulation.setLocaleOverride', { locale: 'es-CL' }) } catch {}
+await send("Page.navigate", { url: query.startsWith("http") ? query : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}` })
 await sleep(6000)
 await ev(`(() => { const b=[...document.querySelectorAll('button,div[role=button]')].find(e=>/aceptar todo|accept all|rechazar todo/i.test(e.innerText||'')); if(b) b.click(); return 1 })()`)
 await sleep(2500)

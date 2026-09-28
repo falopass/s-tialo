@@ -1647,6 +1647,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0A1D30 0%, #4FC3DC 60%, #F59300 140%)',
   },
   {
+    slug: 'gasfiteria-y-electricidad',
+    name: 'Gasfitería y Electricidad',
+    rubro: 'Gasfitería y electricidad a domicilio',
+    city: 'San Clemente',
+    tagline: 'Plano de obra: azul profundo, ámbar de seguridad y órdenes de trabajo numeradas.',
+    gradient: 'linear-gradient(135deg, #0B1220 0%, #101A2C 55%, #F5A623 140%)',
+  },
+  {
     slug: 'nogal-consulta-veterinaria',
     name: 'Nogal consulta veterinaria',
     rubro: 'Veterinario',
