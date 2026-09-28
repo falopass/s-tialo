@@ -3,7 +3,7 @@ import Image from 'next/image'
 import localFont from 'next/font/local'
 import { Reveal } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, PHOTO } from './content'
+import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, PHOTO, PHOTOS } from './content'
 import LazyMap from '../lazy-map'
 import { Chrome } from './chrome'
 
@@ -81,26 +81,6 @@ export default function BodyFitnessPage() {
             }}
             aria-hidden="true"
           />
-          {/* tipografía outline decorativa */}
-          <svg
-            aria-hidden="true"
-            className="absolute top-[14%] left-0 w-full h-[26vw] max-h-64 pointer-events-none select-none"
-            viewBox="0 0 1200 300"
-            preserveAspectRatio="xMidYMid meet"
-          >
-            <text
-              x="600"
-              y="235"
-              textAnchor="middle"
-              fill="none"
-              stroke="rgba(245,245,242,0.22)"
-              strokeWidth="1.5"
-              fontSize="250"
-              style={{ fontFamily: display.style.fontFamily }}
-            >
-              FUERZA
-            </text>
-          </svg>
           <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-24 pb-12 md:pb-14">
             <Reveal>
               <Label>Gimnasio en Talca · Máquinas y pesas</Label>
@@ -199,26 +179,35 @@ export default function BodyFitnessPage() {
               <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.humo }}>
                 <Label><span style={{ color: C.humo }}>N°02</span> — La sala</Label>
                 <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.faint }}>
-                  foto real de su ficha
+                  fotos reales de su ficha
                 </p>
               </div>
             </Reveal>
-            <Reveal>
-              <figure className="border" style={{ borderColor: C.lineLight, backgroundColor: C.card }}>
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image
-                    src={PHOTO}
-                    alt={BIZ.photoAlt}
-                    fill
-                    sizes="(min-width: 1024px) 80vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="px-5 py-3 border-t text-[10px] uppercase tracking-[0.18em] font-bold flex flex-wrap items-center justify-between gap-2" style={{ borderColor: C.lineLight, color: C.faint }}>
-                  <span>Fig. 01 — Sala, foto de la ficha de Google Maps</span>
-                  <span style={{ color: C.lime }}>Body Fitness · Talca</span>
-                </figcaption>
-              </figure>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+              {PHOTOS.slice(1).map((p, i) => (
+                <Reveal key={p.src} delay={i * 90} className="h-full">
+                  <figure className="border h-full flex flex-col" style={{ borderColor: C.lineLight, backgroundColor: C.card }}>
+                    <div className="relative aspect-[3/4] overflow-hidden">
+                      <Image
+                        src={p.src}
+                        alt={p.alt}
+                        fill
+                        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <figcaption className="px-4 py-2.5 border-t text-[10px] uppercase tracking-[0.18em] font-bold flex items-center justify-between gap-2" style={{ borderColor: C.lineLight, color: C.faint }}>
+                      <span>Fig. {String(i + 2).padStart(2, '0')} — {p.caption}</span>
+                      <span style={{ color: C.lime }}>Maps</span>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal delay={120}>
+              <p className="mt-5 text-[10px] uppercase tracking-[0.18em] font-bold" style={{ color: C.faint }}>
+                Fotos publicadas por el gimnasio en su ficha de Google Maps · Body Fitness · Talca
+              </p>
             </Reveal>
           </div>
         </section>
