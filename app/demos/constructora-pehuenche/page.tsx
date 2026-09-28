@@ -360,7 +360,7 @@ export default function ConstructoraPehuenchePage() {
             <div className="flex flex-wrap gap-3">
               <a
                 href={CALL_LINK}
-                className={`${display.className} font-bold text-base px-7 py-2.5 rounded-sm transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-base px-7 py-2.5 rounded-sm transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.deep, color: '#F5F1E8' }}
               >
                 Llamar: {BIZ.phoneDisplay}
@@ -435,7 +435,7 @@ export default function ConstructoraPehuenchePage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(245,241,232,0.82)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

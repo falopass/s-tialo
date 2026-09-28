@@ -219,7 +219,7 @@ export default function BrillaElSolPage() {
       </section>
 
       {/* MARCADOR */}
-      <section className="relative" style={{ backgroundColor: C.sun }}>
+      <section className="relative overflow-hidden" style={{ backgroundColor: C.sun }}>
         <div className="max-w-6xl mx-auto px-5 py-5 grid grid-cols-3 gap-3 text-center">
           {[
             ['12 Sur', 'con 6 Oriente'],

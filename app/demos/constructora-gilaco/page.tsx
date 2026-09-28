@@ -286,7 +286,7 @@ export default function ConstructoraGilacoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold tracking-wide text-sm px-5 py-2.5 rounded-sm self-start transition-transform active:scale-95`}
+                className={`${display.className} font-bold tracking-wide text-sm px-5 py-2.5 rounded-sm self-start transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.deep, color: '#F2F0EC' }}
               >
                 Consultar →
@@ -494,7 +494,7 @@ export default function ConstructoraGilacoPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(242,240,236,0.82)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

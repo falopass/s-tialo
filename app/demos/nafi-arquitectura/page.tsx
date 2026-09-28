@@ -344,9 +344,9 @@ export default function NafiPage() {
           </div>
           <nav className="flex gap-4 text-sm">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:underline">{l.label}</a>
+              <a key={l.href} href={l.href} className="hover:underline tap-44">{l.label}</a>
             ))}
-            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="hover:underline">Instagram</a>
+            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="hover:underline tap-44">Instagram</a>
           </nav>
         </div>
         <div className="px-5 mt-6 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">

@@ -352,7 +352,7 @@ export default function LavasecoFlashPage() {
           </div>
           <nav className="flex gap-4 text-sm">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:underline">{l.label}</a>
+              <a key={l.href} href={l.href} className="hover:underline tap-44">{l.label}</a>
             ))}
           </nav>
         </div>
