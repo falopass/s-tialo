@@ -613,7 +613,7 @@ export default function VictoriaNailSchoolPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.58)' }}>
             Sitio de ejemplo preparado por Sitiazo para {BIZ.name}. Textos,
             servicios, precios y fotos son de muestra.
           </p>

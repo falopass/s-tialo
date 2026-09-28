@@ -131,7 +131,7 @@ export default function AtlantixPage() {
           bar: 'rgba(246,241,230,0.94)',
           ink: C.night,
           line: C.lineLight,
-          btnBg: C.terra,
+          btnBg: C.terraInk,
           btnInk: '#FCFAF4',
         }}
       />
@@ -204,7 +204,7 @@ export default function AtlantixPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]`}
-                    style={{ backgroundColor: C.terra, color: '#FCFAF4' }}
+                    style={{ backgroundColor: C.terraInk, color: '#FCFAF4' }}
                   >
                     <WaIcon />
                     Agendar mi hora
@@ -529,7 +529,7 @@ export default function AtlantixPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} inline-flex items-center gap-2.5 text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B2A41]`}
-                style={{ backgroundColor: C.terra, color: '#FCFAF4' }}
+                style={{ backgroundColor: C.terraInk, color: '#FCFAF4' }}
               >
                 <WaIcon />
                 Agendar por WhatsApp
@@ -586,7 +586,7 @@ export default function AtlantixPage() {
               target="_blank"
               rel="noopener noreferrer"
               className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]`}
-              style={{ backgroundColor: C.terra, color: '#FCFAF4' }}
+              style={{ backgroundColor: C.terraInk, color: '#FCFAF4' }}
             >
               <WaIcon />
               Agendar mi hora

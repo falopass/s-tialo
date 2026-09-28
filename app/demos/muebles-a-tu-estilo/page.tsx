@@ -19,7 +19,7 @@ const body = localFont({
 })
 
 const C = {
-  verde: '#2A7F62',
+  verde: '#257556',
   verdeDeep: '#1F5E49',
   crema: '#FDF6EC',
   cremaDeep: '#F4EADB',

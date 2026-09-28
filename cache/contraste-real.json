@@ -1,0 +1,973 @@
+{
+ "atlantix-clinica-odontologica-san-javier-de-lonc": [],
+ "barberia-rulos-style-barberia-curico": [],
+ "beauty-love": [
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "Pedicura",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "20px",
+   "fontWeight": "900",
+   "textStroke": "1px rgb(159, 216, 203)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(7,38,48)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.text-xl.md:text-3xl.font-black.uppercase",
+   "rect": {
+    "x": 212,
+    "y": 865,
+    "w": 99,
+    "h": 28
+   },
+   "crop": "cache/crops/beauty-love-0.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "Higiene",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "20px",
+   "fontWeight": "900",
+   "textStroke": "1px rgb(159, 216, 203)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(7,38,48)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.text-xl.md:text-3xl.font-black.uppercase",
+   "rect": {
+    "x": 176,
+    "y": 901,
+    "w": 77,
+    "h": 28
+   },
+   "crop": "cache/crops/beauty-love-1.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "Notre Damme 913",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "20px",
+   "fontWeight": "900",
+   "textStroke": "1px rgb(159, 216, 203)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(7,38,48)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.text-xl.md:text-3xl.font-black.uppercase",
+   "rect": {
+    "x": 102,
+    "y": 937,
+    "w": 185,
+    "h": 28
+   },
+   "crop": "cache/crops/beauty-love-2.png"
+  }
+ ],
+ "bravosgym": [],
+ "brutal-curico": [],
+ "cafe-la-francesa": [],
+ "clinica-dental-san-jose": [],
+ "clinica-prosaluddental": [
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "DENTAL",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "128px",
+   "fontWeight": "800",
+   "textStroke": "1.5px rgba(255, 255, 255, 0.18)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(193,39,45)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": "rgb(142,27,32)"
+   },
+   "sel": "span.display_914d23ad-module__HwjLqa__className.absolute.-bottom-6.right-0",
+   "rect": {
+    "x": -482,
+    "y": 740,
+    "w": 872,
+    "h": 128
+   },
+   "crop": "cache/crops/clinica-prosaluddental-0.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "es tu hora",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "54.4px",
+   "fontWeight": "800",
+   "textStroke": "2px rgba(255, 255, 255, 0.9)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(193,39,45)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.block.leading-[0.9].tracking-[-0.02em].font-extrabold",
+   "rect": {
+    "x": 20,
+    "y": 314,
+    "w": 350,
+    "h": 98
+   },
+   "crop": "cache/crops/clinica-prosaluddental-1.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "puntual",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "66.3px",
+   "fontWeight": "800",
+   "textStroke": "1.5px rgba(255, 255, 255, 0.12)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(142,27,32)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_914d23ad-module__HwjLqa__className.whitespace-nowrap.font-extrabold.leading-none",
+   "rect": {
+    "x": -7,
+    "y": 7447,
+    "w": 404,
+    "h": 66
+   },
+   "crop": "cache/crops/clinica-prosaluddental-2.png"
+  }
+ ],
+ "csf-especialidades-veterinarias-san-francisco": [],
+ "clinica-y-farmacia-veterinaria-angel-guardian": [
+  {
+   "ratio": 1,
+   "minimo": 4.5,
+   "texto": "Ángel Guardián",
+   "color": "rgb(245, 239, 230)",
+   "fontSize": "15px",
+   "fontWeight": "700",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(245,239,230)",
+   "backdrop": {
+    "media": {
+     "sel": "img.absolute.inset-x-0.top-[-8%].w-full",
+     "tag": "IMG"
+    },
+    "imgBg": {
+     "sel": "div.absolute.inset-0",
+     "img": "linear-gradient(rgba(46, 22, 32, 0.74) 0%, rgba(46, 22, 32, "
+    },
+    "solidBg": "rgb(46,22,32)"
+   },
+   "sel": "a.display_6079b759-module__aateSa__className.text-[15px].md:text-lg.font-bold",
+   "rect": {
+    "x": 20,
+    "y": 24,
+    "w": 109,
+    "h": 15
+   },
+   "crop": "cache/crops/clinica-y-farmacia-veterinaria-angel-guardian-0.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 4.5,
+   "texto": "WhatsApp",
+   "color": "rgb(245, 239, 230)",
+   "fontSize": "13px",
+   "fontWeight": "600",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(245,239,230)",
+   "backdrop": {
+    "media": {
+     "sel": "img.absolute.inset-x-0.top-[-8%].w-full",
+     "tag": "IMG"
+    },
+    "imgBg": {
+     "sel": "div.absolute.inset-0",
+     "img": "linear-gradient(rgba(46, 22, 32, 0.74) 0%, rgba(46, 22, 32, "
+    },
+    "solidBg": "rgb(46,22,32)"
+   },
+   "sel": "a.display_6079b759-module__aateSa__className.shrink-0.text-[13px].md:text-sm",
+   "rect": {
+    "x": 269,
+    "y": 12,
+    "w": 101,
+    "h": 38
+   },
+   "crop": "cache/crops/clinica-y-farmacia-veterinaria-angel-guardian-1.png"
+  }
+ ],
+ "damianstyle": [],
+ "distribuidora-mym-curico": [
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "MYM",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "176px",
+   "fontWeight": "700",
+   "textStroke": "1.5px rgba(237, 230, 218, 0.13)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(58,63,68)",
+   "backdrop": {
+    "media": null,
+    "imgBg": {
+     "sel": "body.font-body.text-body.text-ink.leading-body::before",
+     "img": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000"
+    },
+    "solidBg": "rgb(58,63,68)"
+   },
+   "sel": "div.display_405d28b1-module__ILOS9G__className.absolute.right-0.-bottom-10",
+   "rect": {
+    "x": -30,
+    "y": 708,
+    "w": 420,
+    "h": 176
+   },
+   "crop": "cache/crops/distribuidora-mym-curico-0.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "Hogar",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "64px",
+   "fontWeight": "700",
+   "textStroke": "1.5px rgba(43, 47, 51, 0.25)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(216,79,38)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "div.display_405d28b1-module__ILOS9G__className.absolute.inset-x-0.-top-6",
+   "rect": {
+    "x": 0,
+    "y": 6429,
+    "w": 390,
+    "h": 64
+   },
+   "crop": "cache/crops/distribuidora-mym-curico-1.png"
+  }
+ ],
+ "italo-vet-linares": [],
+ "ferreteria-valdebenito": [],
+ "forastero-sabor-en-cada-bocado": [
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "01",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "30px",
+   "fontWeight": "800",
+   "textStroke": "1.5px rgba(60, 217, 236, 0.7)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": "rgba(60, 217, 236, 0.25) 0px 0px 24px",
+   "fondo": "rgb(11,23,34)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_23113b7b-module__M0qb9q__className.shrink-0.font-extrabold.text-3xl",
+   "rect": {
+    "x": 45,
+    "y": 1360,
+    "w": 44,
+    "h": 34
+   },
+   "crop": "cache/crops/forastero-sabor-en-cada-bocado-0.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "02",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "30px",
+   "fontWeight": "800",
+   "textStroke": "1.5px rgba(60, 217, 236, 0.7)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": "rgba(60, 217, 236, 0.25) 0px 0px 24px",
+   "fondo": "rgb(11,23,34)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_23113b7b-module__M0qb9q__className.shrink-0.font-extrabold.text-3xl",
+   "rect": {
+    "x": 45,
+    "y": 1800,
+    "w": 54,
+    "h": 34
+   },
+   "crop": "cache/crops/forastero-sabor-en-cada-bocado-1.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "03",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "30px",
+   "fontWeight": "800",
+   "textStroke": "1.5px rgba(60, 217, 236, 0.7)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": "rgba(60, 217, 236, 0.25) 0px 0px 24px",
+   "fondo": "rgb(11,23,34)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_23113b7b-module__M0qb9q__className.shrink-0.font-extrabold.text-3xl",
+   "rect": {
+    "x": 45,
+    "y": 2240,
+    "w": 54,
+    "h": 34
+   },
+   "crop": "cache/crops/forastero-sabor-en-cada-bocado-2.png"
+  }
+ ],
+ "johnbarber": [],
+ "la-terraza": [],
+ "las-viejas-cochinas": [],
+ "le-petit-pasteleria": [
+  {
+   "ratio": 2.71,
+   "minimo": 3,
+   "texto": "03",
+   "color": "rgb(176, 128, 0)",
+   "fontSize": "38.4px",
+   "fontWeight": "900",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(47,72,88)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_ef2b8e81-module__iLVq_G__className.font-black.leading-none.text-[clamp(2.4rem,6vw,4rem)]",
+   "rect": {
+    "x": 20,
+    "y": 4728,
+    "w": 46,
+    "h": 38
+   },
+   "crop": "cache/crops/le-petit-pasteleria-0.png"
+  }
+ ],
+ "muebleria-infinity-muebles-talca": [
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "01",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "60px",
+   "fontWeight": "700",
+   "textStroke": "1.5px rgb(228, 87, 46)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(255,255,255)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_405d28b1-module__8aOnwa__className.absolute.-top-8.right-5",
+   "rect": {
+    "x": 284,
+    "y": 1347,
+    "w": 66,
+    "h": 60
+   },
+   "crop": "cache/crops/muebleria-infinity-muebles-talca-0.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "02",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "60px",
+   "fontWeight": "700",
+   "textStroke": "1.5px rgb(228, 87, 46)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(255,255,255)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_405d28b1-module__8aOnwa__className.absolute.-top-8.right-5",
+   "rect": {
+    "x": 275,
+    "y": 1797,
+    "w": 75,
+    "h": 60
+   },
+   "crop": "cache/crops/muebleria-infinity-muebles-talca-1.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "03",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "60px",
+   "fontWeight": "700",
+   "textStroke": "1.5px rgb(228, 87, 46)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(255,255,255)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_405d28b1-module__8aOnwa__className.absolute.-top-8.right-5",
+   "rect": {
+    "x": 275,
+    "y": 2247,
+    "w": 75,
+    "h": 60
+   },
+   "crop": "cache/crops/muebleria-infinity-muebles-talca-2.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "01",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "48px",
+   "fontWeight": "700",
+   "textStroke": "1.5px rgb(237, 230, 218)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(58,63,68)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_405d28b1-module__8aOnwa__className.block.text-5xl.md:text-6xl",
+   "rect": {
+    "x": 20,
+    "y": 4581,
+    "w": 350,
+    "h": 48
+   },
+   "crop": "cache/crops/muebleria-infinity-muebles-talca-3.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "02",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "48px",
+   "fontWeight": "700",
+   "textStroke": "1.5px rgb(237, 230, 218)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(58,63,68)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_405d28b1-module__8aOnwa__className.block.text-5xl.md:text-6xl",
+   "rect": {
+    "x": 20,
+    "y": 4780,
+    "w": 350,
+    "h": 48
+   },
+   "crop": "cache/crops/muebleria-infinity-muebles-talca-4.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "03",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "48px",
+   "fontWeight": "700",
+   "textStroke": "1.5px rgb(237, 230, 218)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(58,63,68)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_405d28b1-module__8aOnwa__className.block.text-5xl.md:text-6xl",
+   "rect": {
+    "x": 20,
+    "y": 4980,
+    "w": 350,
+    "h": 48
+   },
+   "crop": "cache/crops/muebleria-infinity-muebles-talca-5.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "04",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "48px",
+   "fontWeight": "700",
+   "textStroke": "1.5px rgb(237, 230, 218)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(58,63,68)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_405d28b1-module__8aOnwa__className.block.text-5xl.md:text-6xl",
+   "rect": {
+    "x": 20,
+    "y": 5179,
+    "w": 350,
+    "h": 48
+   },
+   "crop": "cache/crops/muebleria-infinity-muebles-talca-6.png"
+  }
+ ],
+ "muebles-a-tu-estilo": [],
+ "nativa-curico": [
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "01",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "60px",
+   "fontWeight": "800",
+   "textStroke": "1.5px rgb(185, 139, 78)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(21,10,15)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "p.display_489f2861-module__BnSfxG__className.font-extrabold.text-6xl.md:text-7xl",
+   "rect": {
+    "x": 20,
+    "y": 1577,
+    "w": 350,
+    "h": 60
+   },
+   "crop": "cache/crops/nativa-curico-0.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "02",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "60px",
+   "fontWeight": "800",
+   "textStroke": "1.5px rgb(185, 139, 78)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(21,10,15)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "p.display_489f2861-module__BnSfxG__className.font-extrabold.text-6xl.md:text-7xl",
+   "rect": {
+    "x": 20,
+    "y": 2131,
+    "w": 350,
+    "h": 60
+   },
+   "crop": "cache/crops/nativa-curico-1.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "03",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "60px",
+   "fontWeight": "800",
+   "textStroke": "1.5px rgb(185, 139, 78)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(21,10,15)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "p.display_489f2861-module__BnSfxG__className.font-extrabold.text-6xl.md:text-7xl",
+   "rect": {
+    "x": 20,
+    "y": 2684,
+    "w": 350,
+    "h": 60
+   },
+   "crop": "cache/crops/nativa-curico-2.png"
+  },
+  {
+   "ratio": 1,
+   "minimo": 3,
+   "texto": "04",
+   "color": "rgba(0, 0, 0, 0)",
+   "fontSize": "60px",
+   "fontWeight": "800",
+   "textStroke": "1.5px rgb(185, 139, 78)",
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(21,10,15)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "p.display_489f2861-module__BnSfxG__className.font-extrabold.text-6xl.md:text-7xl",
+   "rect": {
+    "x": 20,
+    "y": 3216,
+    "w": 350,
+    "h": 60
+   },
+   "crop": "cache/crops/nativa-curico-3.png"
+  }
+ ],
+ "nailsyus": [],
+ "one-health": [],
+ "pasteleria-y-panaderia-eluney": [
+  {
+   "ratio": 1.23,
+   "minimo": 3,
+   "texto": "01",
+   "color": "rgba(34, 81, 255, 0.14)",
+   "fontSize": "60px",
+   "fontWeight": "800",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(255,255,255)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_6739b8ea-module__c_Hc5a__className.block.font-extrabold.leading-none",
+   "rect": {
+    "x": 96,
+    "y": 1496,
+    "w": 274,
+    "h": 60
+   },
+   "crop": "cache/crops/pasteleria-y-panaderia-eluney-0.png"
+  },
+  {
+   "ratio": 1.23,
+   "minimo": 3,
+   "texto": "02",
+   "color": "rgba(34, 81, 255, 0.14)",
+   "fontSize": "60px",
+   "fontWeight": "800",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(255,255,255)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_6739b8ea-module__c_Hc5a__className.block.font-extrabold.leading-none",
+   "rect": {
+    "x": 96,
+    "y": 1971,
+    "w": 274,
+    "h": 60
+   },
+   "crop": "cache/crops/pasteleria-y-panaderia-eluney-1.png"
+  },
+  {
+   "ratio": 1.23,
+   "minimo": 3,
+   "texto": "03",
+   "color": "rgba(34, 81, 255, 0.14)",
+   "fontSize": "60px",
+   "fontWeight": "800",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(255,255,255)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_6739b8ea-module__c_Hc5a__className.block.font-extrabold.leading-none",
+   "rect": {
+    "x": 96,
+    "y": 2446,
+    "w": 274,
+    "h": 60
+   },
+   "crop": "cache/crops/pasteleria-y-panaderia-eluney-2.png"
+  }
+ ],
+ "restaurant-el-encuentro": [],
+ "servicio-tecnico-automotriz-millycar": [
+  {
+   "ratio": 1.45,
+   "minimo": 3,
+   "texto": "01",
+   "color": "rgba(47, 72, 88, 0.22)",
+   "fontSize": "36px",
+   "fontWeight": "700",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(251,251,248)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "p.display_115f0937-module__vVLllq__className.font-bold.text-4xl.md:text-5xl",
+   "rect": {
+    "x": 20,
+    "y": 2988,
+    "w": 350,
+    "h": 36
+   },
+   "crop": "cache/crops/servicio-tecnico-automotriz-millycar-0.png"
+  },
+  {
+   "ratio": 1.45,
+   "minimo": 3,
+   "texto": "02",
+   "color": "rgba(47, 72, 88, 0.22)",
+   "fontSize": "36px",
+   "fontWeight": "700",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(251,251,248)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "p.display_115f0937-module__vVLllq__className.font-bold.text-4xl.md:text-5xl",
+   "rect": {
+    "x": 20,
+    "y": 3432,
+    "w": 350,
+    "h": 36
+   },
+   "crop": "cache/crops/servicio-tecnico-automotriz-millycar-1.png"
+  },
+  {
+   "ratio": 1.45,
+   "minimo": 3,
+   "texto": "03",
+   "color": "rgba(47, 72, 88, 0.22)",
+   "fontSize": "36px",
+   "fontWeight": "700",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(251,251,248)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "p.display_115f0937-module__vVLllq__className.font-bold.text-4xl.md:text-5xl",
+   "rect": {
+    "x": 20,
+    "y": 3852,
+    "w": 350,
+    "h": 36
+   },
+   "crop": "cache/crops/servicio-tecnico-automotriz-millycar-2.png"
+  }
+ ],
+ "santa-fe": [
+  {
+   "ratio": 1.16,
+   "minimo": 3,
+   "texto": "01",
+   "color": "rgba(38, 43, 49, 0.08)",
+   "fontSize": "64px",
+   "fontWeight": "600",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(247,248,249)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_42abb20-module__dolidG__className.absolute.-top-1.right-4",
+   "rect": {
+    "x": 293,
+    "y": 1073,
+    "w": 60,
+    "h": 64
+   },
+   "crop": "cache/crops/santa-fe-0.png"
+  },
+  {
+   "ratio": 1.16,
+   "minimo": 3,
+   "texto": "02",
+   "color": "rgba(38, 43, 49, 0.08)",
+   "fontSize": "64px",
+   "fontWeight": "600",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(247,248,249)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_42abb20-module__dolidG__className.absolute.-top-1.right-4",
+   "rect": {
+    "x": 286,
+    "y": 1257,
+    "w": 67,
+    "h": 64
+   },
+   "crop": "cache/crops/santa-fe-1.png"
+  },
+  {
+   "ratio": 1.16,
+   "minimo": 3,
+   "texto": "03",
+   "color": "rgba(38, 43, 49, 0.08)",
+   "fontSize": "64px",
+   "fontWeight": "600",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(247,248,249)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_42abb20-module__dolidG__className.absolute.-top-1.right-4",
+   "rect": {
+    "x": 286,
+    "y": 1440,
+    "w": 67,
+    "h": 64
+   },
+   "crop": "cache/crops/santa-fe-2.png"
+  },
+  {
+   "ratio": 1.16,
+   "minimo": 3,
+   "texto": "04",
+   "color": "rgba(38, 43, 49, 0.08)",
+   "fontSize": "64px",
+   "fontWeight": "600",
+   "textStroke": null,
+   "textFill": null,
+   "bgClip": null,
+   "textShadow": null,
+   "fondo": "rgb(247,248,249)",
+   "backdrop": {
+    "media": null,
+    "imgBg": null,
+    "solidBg": null
+   },
+   "sel": "span.display_42abb20-module__dolidG__className.absolute.-top-1.right-4",
+   "rect": {
+    "x": 285,
+    "y": 1624,
+    "w": 68,
+    "h": 64
+   },
+   "crop": "cache/crops/santa-fe-3.png"
+  }
+ ],
+ "sigel": [],
+ "ultrasport19": [],
+ "triadent": [],
+ "vasquez-muebles-linares-spa": [],
+ "victoria-nail-school": [],
+ "vivero-entre-raices": [],
+ "wow-park": []
+}

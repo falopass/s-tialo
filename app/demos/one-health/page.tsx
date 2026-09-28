@@ -477,7 +477,7 @@ export default function OneHealthPage() {
               </a>
             </address>
           </div>
-          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.8)' }}>
+          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.9)' }}>
             © {new Date().getFullYear()} {BIZ.name}
           </p>
         </div>

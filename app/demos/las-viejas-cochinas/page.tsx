@@ -110,7 +110,7 @@ function Label({ children, light = false }: { children: React.ReactNode; light?:
   return (
     <p
       className="text-[11px] font-semibold uppercase tracking-[0.2em] mb-3 flex items-center gap-2"
-      style={{ color: light ? 'rgba(255,255,255,0.75)' : C.muted }}
+      style={{ color: light ? 'rgba(255,255,255,0.9)' : C.muted }}
     >
       <span className="inline-block w-2 h-2" style={{ backgroundColor: C.signal }} aria-hidden="true" />
       {children}
@@ -475,7 +475,7 @@ export default function LasViejasCochinasPage() {
                   ['Región', BIZ.region],
                 ].map(([k, v]) => (
                   <div key={k} className="flex justify-between gap-4 py-3 border-b" style={{ borderColor: 'rgba(255,255,255,0.25)' }}>
-                    <dt style={{ color: 'rgba(255,255,255,0.7)' }}>{k}</dt>
+                    <dt style={{ color: 'rgba(255,255,255,0.9)' }}>{k}</dt>
                     <dd className="font-semibold text-right">
                       {k === 'Teléfono' ? <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{v}</a> : v}
                     </dd>

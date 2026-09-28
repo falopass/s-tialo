@@ -33,7 +33,7 @@ const C = {
   vino: '#6B2737',
   vinoDeep: '#441722',
   oro: '#B98B4E',
-  oroSoft: '#D8BC8F',
+  oroSoft: '#E5C99E',
   hoja: '#4F6748',
   hojaDeep: '#3F5238',
   tinta: '#2C1B20',

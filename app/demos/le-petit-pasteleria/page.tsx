@@ -105,7 +105,7 @@ function SectionNum({ n, label, light = false }: { n: string; label: string; lig
     <div className="flex items-baseline gap-4 mb-6">
       <span
         className={`${display.className} font-black leading-none text-[clamp(2.4rem,6vw,4rem)]`}
-        style={{ color: C.yellow }}
+        style={{ color: '#B08000' }}
       >
         {n}
       </span>

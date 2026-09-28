@@ -30,7 +30,7 @@ const C = {
   mintHi: '#DDF3EC',
   bone: '#F7F9F9',
   muted: 'rgba(247,249,249,0.64)',
-  faint: 'rgba(247,249,249,0.38)',
+  faint: 'rgba(247,249,249,0.56)',
   line: 'rgba(159,216,203,0.20)',
   lineSoft: 'rgba(159,216,203,0.10)',
 } as const

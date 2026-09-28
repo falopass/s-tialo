@@ -22,7 +22,7 @@ const C = {
   mint: '#DFF2EC',
   mintSoft: '#F0F9F6',
   ink: '#0F3B57',
-  muted: '#4F7284',
+  muted: '#4A6B7C',
   accent: '#1D9E8E',
   accentDeep: '#127E71',
   line: 'rgba(15,59,87,0.12)',

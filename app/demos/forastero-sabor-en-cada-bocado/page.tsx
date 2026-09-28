@@ -25,7 +25,7 @@ const C = {
   cyanDeep: '#149DB4',
   ink: '#F2F7FA',
   muted: '#93A2B4',
-  dim: '#6E7B8B',
+  dim: '#8494A2',
   line: 'rgba(147,162,180,0.18)',
 } as const
 

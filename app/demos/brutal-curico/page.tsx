@@ -506,7 +506,7 @@ export default function BrutalCuricoPage() {
                   <h3 className={`${display.className} font-bold text-xl mb-1`} style={{ color: '#241A08' }}>
                     Síguenos en Instagram
                   </h3>
-                  <p className="text-sm font-medium" style={{ color: 'rgba(36,26,8,0.72)' }}>
+                  <p className="text-sm font-medium" style={{ color: 'rgba(36,26,8,0.85)' }}>
                     {BIZ.instagramHandle} — entrenamientos y vida del gym
                   </p>
                 </div>

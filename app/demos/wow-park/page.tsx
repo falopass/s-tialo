@@ -217,7 +217,7 @@ export default function WowParkPage() {
         </div>
         {/* barra de datos al pie del hero */}
         <div className="relative border-t" style={{ borderColor: 'rgba(255,255,255,0.22)', backgroundColor: 'rgba(14,47,94,0.88)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-16 flex flex-wrap items-center gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em] font-bold" style={{ color: 'rgba(255,255,255,0.92)' }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-16 flex flex-wrap items-center gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em] font-bold" style={{ color: 'rgba(255,255,255,0.98)' }}>
             <span>{BIZ.city} · {BIZ.region}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
@@ -310,7 +310,7 @@ export default function WowParkPage() {
               <br />
               <span className="inline-block rounded-2xl px-3 rotate-[-1deg]" style={{ backgroundColor: C.blueInk, color: C.yellow }}>tú solo llegas</span>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md font-semibold" style={{ color: 'rgba(255,255,255,0.92)' }}>
+            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md font-semibold" style={{ color: 'rgba(255,255,255,0.98)' }}>
               Reservas el horario, cuentas cuántos invitados son y el
               equipo arma la mesa, la decoración y el juego. Los datos
               de abajo son de muestra: al publicar van los paquetes
@@ -318,7 +318,7 @@ export default function WowParkPage() {
             </p>
             <ul className="space-y-3 mb-9">
               {CUMPLE_INCLUYE.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm md:text-base font-bold" style={{ color: 'rgba(255,255,255,0.92)' }}>
+                <li key={item} className="flex items-center gap-3 text-sm md:text-base font-bold" style={{ color: 'rgba(255,255,255,0.98)' }}>
                   <Balloon className="w-4 h-4 shrink-0" color={C.yellow} />
                   {item}
                   <span className="text-[10px] uppercase tracking-[0.14em] font-extrabold px-2 py-0.5 rounded-full" style={{ backgroundColor: C.blueInk, color: '#FFFFFF' }}>
@@ -538,7 +538,7 @@ export default function WowParkPage() {
               <br />
               <span style={{ color: C.yellow }}>y que empiece el juego</span>
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed font-semibold" style={{ color: 'rgba(255,255,255,0.92)' }}>
+            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed font-semibold" style={{ color: 'rgba(255,255,255,0.98)' }}>
               Escríbenos por WhatsApp para reservar un cumpleaños o
               consultar por entradas y horarios. Respondemos el mismo día.
             </p>
@@ -563,7 +563,7 @@ export default function WowParkPage() {
               <Balloon className="w-5 h-5" color={C.yellow} />
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.92)' }}>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.98)' }}>
               {BIZ.rubro} · {BIZ.city}, {BIZ.region}
             </address>
           </div>

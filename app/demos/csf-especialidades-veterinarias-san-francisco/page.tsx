@@ -295,7 +295,7 @@ export default function CsfVeterinariaPage() {
               { v: 'San Francisco', l: 'sector · Talca' },
             ].map((s, i) => (
               <div key={s.l} className={`border-r-[3px] last:border-r-0 ${i % 2 === 1 ? 'max-md:border-r-0' : ''} min-w-0 px-4 md:px-6 py-4 md:py-5`} style={{ borderColor: C.ink }}>
-                <dt className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: 'rgba(14,14,14,0.55)' }}>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: 'rgba(14,14,14,0.65)' }}>
                   {s.l}
                 </dt>
                 <dd className={`${display.className} font-black text-base md:text-2xl leading-tight mt-1 break-words`} style={{ color: C.blue }}>
@@ -405,7 +405,7 @@ export default function CsfVeterinariaPage() {
                   className="object-cover"
                 />
               </div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] px-4 py-3 border-t-[3px]" style={{ borderColor: C.ink, color: 'rgba(14,14,14,0.55)' }}>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] px-4 py-3 border-t-[3px]" style={{ borderColor: C.ink, color: 'rgba(14,14,14,0.65)' }}>
                 La clínica a nivel de calle · {BIZ.sector}, {BIZ.city}
               </p>
             </div>
@@ -464,7 +464,7 @@ export default function CsfVeterinariaPage() {
                   <blockquote className={`${display.className} font-bold text-base md:text-lg leading-snug mb-4`}>
                     “{r.text}”
                   </blockquote>
-                  <figcaption className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: 'rgba(14,14,14,0.55)' }}>
+                  <figcaption className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: 'rgba(14,14,14,0.65)' }}>
                     {r.author} · reseña de muestra
                   </figcaption>
                 </figure>
@@ -472,7 +472,7 @@ export default function CsfVeterinariaPage() {
             ))}
           </div>
           <Reveal delay={200}>
-            <p className="font-mono text-[10px] uppercase tracking-[0.14em] mt-6" style={{ color: 'rgba(14,14,14,0.5)' }}>
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] mt-6" style={{ color: 'rgba(14,14,14,0.65)' }}>
               La clínica acumula {BIZ.reviews} reseñas reales en Google Maps; estos textos son de muestra.
             </p>
           </Reveal>
@@ -542,7 +542,7 @@ export default function CsfVeterinariaPage() {
                         <p className={`${display.className} font-extrabold uppercase text-base md:text-lg leading-tight`}>
                           {p.name}
                         </p>
-                        <p className="text-xs md:text-sm mt-0.5" style={{ color: 'rgba(14,14,14,0.55)' }}>
+                        <p className="text-xs md:text-sm mt-0.5" style={{ color: 'rgba(14,14,14,0.65)' }}>
                           {p.desc}
                         </p>
                       </div>

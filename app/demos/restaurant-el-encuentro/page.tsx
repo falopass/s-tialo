@@ -33,7 +33,7 @@ const C = {
   mustardSoft: '#EDD9A0',
   wood: '#7C5230',
   ink: '#1F2B24',
-  muted: '#656A5B',
+  muted: '#5F6455',
   line: 'rgba(31,43,36,0.28)',
   lineSoft: 'rgba(31,43,36,0.14)',
   lineLight: 'rgba(244,241,232,0.3)',

@@ -23,7 +23,7 @@ const C = {
   ink: '#3A3F44',
   muted: '#5A6066',
   orange: '#E4572E',
-  orangeDark: '#B93A17',
+  orangeDark: '#AD3513',
   orangeSoft: '#F9DED4',
   orangeLite: '#F4A98E',
   line: 'rgba(58,63,68,0.14)',

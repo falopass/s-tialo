@@ -20,7 +20,7 @@ const body = localFont({
 const C = {
   blue: '#2251FF',
   blueDeep: '#0B1E6B',
-  lime: '#C6F24E',
+  lime: '#D8F878',
   gray: '#EEF0F4',
   ink: '#0E1330',
   muted: '#5A6178',

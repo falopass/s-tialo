@@ -137,7 +137,7 @@ function Tag({ children, dark = false }: { children: React.ReactNode; dark?: boo
 function SpecStrip({ left, right }: { left: string; right: string }) {
   return (
     <div className="border-b-[3px]" style={{ borderColor: C.ink, backgroundColor: C.white }}>
-      <div className="max-w-6xl mx-auto px-5 md:px-8 h-[38px] flex items-center gap-4 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold whitespace-nowrap" style={{ color: 'rgba(16,20,24,0.55)' }}>
+      <div className="max-w-6xl mx-auto px-5 md:px-8 h-[38px] flex items-center gap-4 font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold whitespace-nowrap" style={{ color: 'rgba(16,20,24,0.65)' }}>
         <span>{left}</span>
         <span
           aria-hidden="true"
@@ -332,7 +332,7 @@ export default function Ultrasport19Page() {
               { v: 'Pencahue', l: 'Región del Maule' },
             ].map((s, i) => (
               <div key={s.l} className={`border-r-[3px] last:border-r-0 ${i % 2 === 1 ? 'max-md:border-r-0' : ''} px-4 md:px-6 py-4 md:py-5`} style={{ borderColor: C.ink }}>
-                <dt className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: 'rgba(16,20,24,0.55)' }}>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.18em]" style={{ color: 'rgba(16,20,24,0.65)' }}>
                   {s.l}
                 </dt>
                 <dd className={`${display.className} font-black text-lg md:text-2xl leading-tight mt-1`} style={{ color: C.slate }}>
@@ -437,7 +437,7 @@ export default function Ultrasport19Page() {
                   className="object-cover"
                 />
               </div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] px-4 py-3 border-t-[3px]" style={{ borderColor: C.ink, color: 'rgba(16,20,24,0.55)' }}>
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] px-4 py-3 border-t-[3px]" style={{ borderColor: C.ink, color: 'rgba(16,20,24,0.65)' }}>
                 El gimnasio a nivel de calle · {BIZ.city}
               </p>
             </div>
@@ -501,7 +501,7 @@ export default function Ultrasport19Page() {
                   <blockquote className={`${display.className} font-bold italic text-base md:text-lg leading-snug mb-4`}>
                     “{r.text}”
                   </blockquote>
-                  <figcaption className="font-mono text-[10px] uppercase tracking-[0.16em]" style={{ color: 'rgba(16,20,24,0.55)' }}>
+                  <figcaption className="font-mono text-[10px] uppercase tracking-[0.16em]" style={{ color: 'rgba(16,20,24,0.65)' }}>
                     {r.author} · Reseña de ejemplo
                   </figcaption>
                 </figure>
@@ -592,7 +592,7 @@ export default function Ultrasport19Page() {
                     { k: 'Instagram', v: `${BIZ.igUser} · ${BIZ.igFollowers} seguidores`, href: BIZ.instagram },
                   ].map((d) => (
                     <div key={d.k} className="grid sm:grid-cols-[140px_1fr] gap-1 sm:gap-4 px-5 md:px-7 py-4 border-b-[3px] last:border-b-0" style={{ borderColor: C.ink }}>
-                      <dt className="font-mono text-[11px] uppercase tracking-[0.18em] font-bold self-center" style={{ color: 'rgba(16,20,24,0.55)' }}>
+                      <dt className="font-mono text-[11px] uppercase tracking-[0.18em] font-bold self-center" style={{ color: 'rgba(16,20,24,0.65)' }}>
                         {d.k}
                       </dt>
                       <dd>

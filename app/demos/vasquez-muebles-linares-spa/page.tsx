@@ -24,7 +24,7 @@ const C = {
   arena: '#E8DCC8',
   arenaSoft: '#F3EDE0',
   terracota: '#C1663F',
-  terracotaInk: '#9E5227',
+  terracotaInk: '#95491F',
   paper: '#FFFFFF',
   muted: 'rgba(27,42,65,0.72)',
   line: 'rgba(27,42,65,0.14)',

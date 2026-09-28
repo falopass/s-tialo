@@ -33,7 +33,7 @@ const C = {
   roseGlow: '#F08CA8',
   bone: '#F5EFE6',
   muted: 'rgba(245,239,230,0.62)',
-  faint: 'rgba(245,239,230,0.38)',
+  faint: 'rgba(245,239,230,0.56)',
   line: 'rgba(185,139,78,0.28)',
 }
 
@@ -485,7 +485,7 @@ export default function NativaCuricoPage() {
           {/* reseñas de muestra */}
           <div className="mt-14 md:mt-20">
             <Reveal>
-              <p className={`${display.className} text-[11px] uppercase tracking-[0.3em] font-semibold mb-6`} style={{ color: 'rgba(245,239,230,0.5)' }}>
+              <p className={`${display.className} text-[11px] uppercase tracking-[0.3em] font-semibold mb-6`} style={{ color: 'rgba(245,239,230,0.62)' }}>
                 Lo que valoran las clientas · textos de muestra
               </p>
             </Reveal>
@@ -549,7 +549,7 @@ export default function NativaCuricoPage() {
                 </li>
               ))}
             </ul>
-            <p className={`${display.className} text-center uppercase text-[10px] tracking-[0.28em] font-semibold mt-8`} style={{ color: 'rgba(245,239,230,0.45)' }}>
+            <p className={`${display.className} text-center uppercase text-[10px] tracking-[0.28em] font-semibold mt-8`} style={{ color: 'rgba(245,239,230,0.62)' }}>
               Carta de muestra · valores por confirmar
             </p>
           </div>

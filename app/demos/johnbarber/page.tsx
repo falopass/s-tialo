@@ -309,7 +309,7 @@ export default function JohnBarberPage() {
                     </div>
                     <div className="p-5 md:p-6 flex flex-col flex-1">
                       <div className="flex items-baseline justify-between gap-3 mb-4">
-                        <span className={`${display.className} italic text-lg`} style={{ color: C.amber }}>
+                        <span className={`${display.className} italic text-lg`} style={{ color: '#8F6418' }}>
                           {s.num}
                         </span>
                         <span className="text-[10px] uppercase tracking-[0.18em] font-extrabold" style={{ color: C.green }}>

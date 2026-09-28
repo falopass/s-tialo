@@ -134,7 +134,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-bold"
-      style={{ color: light ? C.yellow : C.blue }}
+      style={{ color: light ? '#FFEB64' : C.blue }}
     >
       <Bolt className="w-[16px] h-[16px]" />
       {children}
@@ -321,7 +321,7 @@ export default function SigelPage() {
                 >
                   <span
                     className={`${display.className} block font-black text-4xl mb-4`}
-                    style={{ color: i === 0 ? C.yellow : C.blue, WebkitTextStroke: i === 0 ? undefined : undefined }}
+                    style={{ color: i === 0 ? C.yellow : '#6B8AFF' }}
                   >
                     {String(i + 1).padStart(2, '0')}
                   </span>

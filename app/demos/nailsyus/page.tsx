@@ -351,7 +351,7 @@ export default function NailsyusPage() {
                 <p className={`${display.className} font-bold uppercase text-2xl md:text-3xl leading-[1.05] mb-3`}>
                   Consulta por tu diseño
                 </p>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.85)' }}>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: 'rgba(255,255,255,0.98)' }}>
                   Nail art, kapping o algo que viste en Instagram: pregúntanos por WhatsApp.
                 </p>
                 <a

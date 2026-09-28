@@ -34,6 +34,8 @@ const C = {
   terraDeep: '#8F4A2A',
   // fondo de botones con texto blanco (≥4.5:1)
   terraBtn: '#A9552F',
+  // terracota claro: números y acentos pequeños sobre navy (≥4.5:1)
+  terraLite: '#D08A64',
   white: '#FFFFFF',
   ink: '#232B36',
   muted: '#5A6068',
@@ -352,7 +354,7 @@ export default function BravosgymPage() {
                   style={{ borderColor: 'rgba(232,220,200,0.22)' }}
                 >
                   <div className="flex items-baseline gap-4 md:gap-6">
-                    <span className={`${display.className} text-lg md:text-xl w-8`} style={{ color: C.terracotta }} aria-hidden="true">
+                    <span className={`${display.className} text-lg md:text-xl w-8`} style={{ color: C.terraLite }} aria-hidden="true">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>

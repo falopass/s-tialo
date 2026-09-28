@@ -31,7 +31,7 @@ const C = {
   arena: '#E8DCC8',
   arenaSoft: '#F4EEE3',
   terracota: '#C1663F',
-  terracotaDeep: '#A4502D',
+  terracotaDeep: '#98491F',
   blanco: '#FFFFFF',
   muted: '#55607A',
   line: 'rgba(27,42,65,0.14)',

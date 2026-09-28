@@ -557,7 +557,7 @@ export default function ViveroEntreRaicesPage() {
                     </span>
                   </li>
                 ))}
-                <li className="text-xs pt-1" style={{ color: 'rgba(247,249,249,0.6)' }}>
+                <li className="text-xs pt-1" style={{ color: 'rgba(247,249,249,0.75)' }}>
                   Horario de muestra: al publicar van los horarios reales.
                 </li>
               </ul>

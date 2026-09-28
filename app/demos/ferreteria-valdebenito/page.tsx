@@ -22,7 +22,7 @@ const C = {
   panel: '#10161F',
   blue: '#1F5673',
   blueDeep: '#123347',
-  gray: '#6E7B8B',
+  gray: '#8494A2',
   cyan: '#45D5E8',
   ink: '#EEF4F9',
   muted: '#93A0AF',
@@ -410,7 +410,7 @@ export default function FerreteriaValdebenitoPage() {
                   </li>
                 ))}
               </ul>
-              <p className="text-xs mt-5" style={{ color: 'rgba(238,244,249,0.5)' }}>
+              <p className="text-xs mt-5" style={{ color: 'rgba(238,244,249,0.62)' }}>
                 Esquema de precios de muestra: los valores reales se confirman por WhatsApp.
               </p>
             </Reveal>

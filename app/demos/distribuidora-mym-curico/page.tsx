@@ -18,7 +18,7 @@ const body = localFont({
 })
 
 const C = {
-  orange: '#E4572E',
+  orange: '#D84F26',
   orangeDeep: '#B03C1A',
   orangeLight: '#FF8A5C',
   onOrange: '#16181A',
@@ -296,7 +296,7 @@ export default function DistribuidoraMymCuricoPage() {
       <section aria-label="Categorías" style={{ backgroundColor: C.orange }}>
         <ul
           className={`${display.className} max-w-6xl mx-auto px-5 md:px-8 py-3.5 md:py-4 flex flex-wrap justify-center items-center gap-x-5 gap-y-1.5 text-[12px] md:text-sm font-bold uppercase tracking-[0.14em]`}
-          style={{ color: C.onOrange }}
+          style={{ color: '#0B0C0D' }}
         >
           {CATEGORIAS.map((cat, i) => (
             <li key={cat} className="flex items-center gap-5">
@@ -635,7 +635,7 @@ export default function DistribuidoraMymCuricoPage() {
           <Reveal>
             <h2
               className={`${display.className} font-bold uppercase text-[clamp(2.2rem,7vw,4.5rem)] leading-[0.95] tracking-[-0.01em] mb-6`}
-              style={{ color: C.onOrange }}
+              style={{ color: '#0B0C0D' }}
             >
               ¿Algo pa’ la casa?
               <br />
@@ -643,7 +643,7 @@ export default function DistribuidoraMymCuricoPage() {
             </h2>
             <p
               className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed font-medium"
-              style={{ color: C.onOrange }}
+              style={{ color: '#0B0C0D' }}
             >
               Escríbenos por WhatsApp y te confirmamos stock y precio al
               momento. Respondemos el mismo día.

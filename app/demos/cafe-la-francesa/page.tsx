@@ -27,7 +27,7 @@ const body = localFont({
 const C = {
   campo: '#4C6B3C',
   campoInk: '#27361F',
-  tierra: '#8C6239',
+  tierra: '#7C5330',
   crema: '#FBF7EF',
   hoja: '#DDE7C7',
   ink: '#2A2C22',
