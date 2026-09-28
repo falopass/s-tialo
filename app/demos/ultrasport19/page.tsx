@@ -54,26 +54,26 @@ const ENTRENAMIENTO = [
   {
     num: '01',
     src: `${IMG}/detalle1.webp`,
-    alt: 'Rack de mancuernas hexagonales y barra olímpica sobre piso de caucho en Ultrasport19',
+    alt: 'Interior de Ultrasport19: multigym, caminadoras y trofeos bajo el techo de madera',
     name: 'Sala de fuerza',
-    desc: 'Racks, bancas, barras y discos para trabajar con técnica. Pesas libres y máquinas para todos los niveles.',
-    tag: 'pesas libres · máquinas',
+    desc: 'Multigym, bancas, barras y discos para trabajar con técnica. Máquinas y peso libre para todos los niveles.',
+    tag: 'máquinas · peso libre',
   },
   {
     num: '02',
     src: `${IMG}/detalle3.webp`,
-    alt: 'Zona funcional del gimnasio: estructura con correas TRX, anillas, kettlebells y cajones',
-    name: 'Entrenamiento funcional',
-    desc: 'TRX, anillas, kettlebells y cajones. Circuitos para moverte mejor, ganar resistencia y quemar energía.',
-    tag: 'TRX · kettlebells · circuitos',
+    alt: 'Zona de cardio y funcional de Ultrasport19: remo ergómetro y colchonetas junto a la ventana',
+    name: 'Cardio y funcional',
+    desc: 'Caminadoras, bicicletas de spinning, remo y espacio de colchonetas. Circuitos para moverte mejor y ganar resistencia.',
+    tag: 'remo · spinning · colchonetas',
   },
   {
     num: '03',
     src: `${IMG}/detalle2.webp`,
-    alt: 'Recepción del gimnasio con toallas, botellas y pizarrón de horarios de la semana',
+    alt: 'Socios de Ultrasport19 entrenando en la sala; al fondo la caminadora y el pizarrón del gimnasio',
     name: 'Plan y seguimiento',
-    desc: 'Evaluación inicial, rutina según tu objetivo y revisión de cómo vas mes a mes. Nadie entrena a ciegas.',
-    tag: 'evaluación · rutina · progreso',
+    desc: 'El entrenador adapta la rutina a tu objetivo y te corrige en la sala. Nadie entrena a ciegas.',
+    tag: 'rutina · técnica · progreso',
   },
 ]
 
@@ -110,12 +110,20 @@ const PRECIOS = [
 
 const RESENAS = [
   {
-    text: 'Buen ambiente y equipos en buen estado. Te corrigen la técnica y se preocupan de que progreses.',
-    author: 'Socio del gimnasio · Pencahue',
+    text: 'Excelente gimnasio, con instalaciones limpias, equipos de calidad y un gran ambiente. Lo que más destaco es el entrenador: brinda atención personalizada, adapta los entrenamientos a los objetivos de cada persona y motiva constantemente.',
+    author: 'JNGN',
   },
   {
-    text: 'Se agradece un gimnasio así en la comuna: atención directa, sin filas para las máquinas y buena onda.',
-    author: 'Socia del gimnasio · Pencahue',
+    text: 'Estoy muy contenta con mi experiencia en Ultra Sport 19. Se nota el esfuerzo y crecimiento que han tenido con el tiempo, incorporando cada vez más espacios y una gran variedad de máquinas para entrenar.',
+    author: 'María José Castro',
+  },
+  {
+    text: 'Nos gusta ir a entrenar a Ultrasport19 porque hemos visto resultados y seguiremos yendo para mejorar aún más. Aparte el ambiente es muy grato.',
+    author: 'Paula Urrutia',
+  },
+  {
+    text: 'Me parece un lugar muy agradable y de buen ambiente para hacer ejercicio y despejar la mente.',
+    author: 'Axel Castro',
   },
 ]
 
@@ -276,7 +284,7 @@ export default function Ultrasport19Page() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.slateDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Interior de Ultrasport19: racks de sentadilla, bancas y mancuernas, con la torre de la iglesia de Pencahue por el ventanal"
+          alt="Sala principal de Ultrasport19: rack de sentadillas, mancuernas y bicicletas de spinning bajo el techo de madera"
           fill
           priority
           sizes="100vw"
@@ -327,7 +335,7 @@ export default function Ultrasport19Page() {
         <div className="relative border-t-[3px]" style={{ borderColor: C.ink, backgroundColor: C.paper }}>
           <dl className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4">
             {[
-              { v: `${BIZ.reviews}`, l: 'reseñas en Google', href: MAPS_URL },
+              { v: `${BIZ.rating}★`, l: `${BIZ.reviews} opiniones en Google`, href: MAPS_URL },
               { v: BIZ.igFollowers, l: 'seguidores en Instagram', href: BIZ.instagram },
               { v: BIZ.phoneDisplay, l: 'WhatsApp directo', href: WA_LINK },
               { v: 'Pencahue', l: 'Región del Maule' },
@@ -365,7 +373,7 @@ export default function Ultrasport19Page() {
                 de <Mark>entrenar</Mark>
               </>
             }
-            note="Listado de muestra: al publicar van las clases y horarios reales del gimnasio."
+            note="Fotos reales de la sala; la parrilla de clases y horarios se confirma por WhatsApp."
           />
           <ul>
             {ENTRENAMIENTO.map((s, i) => (
@@ -430,14 +438,14 @@ export default function Ultrasport19Page() {
               <div className="relative aspect-[4/3]">
                 <Image
                   src={`${IMG}/ambiente.webp`}
-                  alt="Fachada de Ultrasport19: edificio de hormigón a nivel de calle con ventanales donde se ven las máquinas"
+                  alt="Socios de Ultrasport19 en la sala: entrenamiento en máquina entre amigos"
                   fill
                   sizes="(min-width: 1024px) 45vw, 92vw"
                   className="object-cover"
                 />
               </div>
               <p className="font-mono text-[10px] uppercase tracking-[0.18em] px-4 py-3 border-t-[3px]" style={{ borderColor: C.ink, color: 'rgba(16,20,24,0.65)' }}>
-                El gimnasio a nivel de calle · {BIZ.city}
+                El ambiente dentro de la sala · {BIZ.city}
               </p>
             </div>
           </Reveal>
@@ -462,7 +470,7 @@ export default function Ultrasport19Page() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 border-[3px]" style={{ borderColor: C.ink, backgroundColor: C.paper }}>
               {[
-                { v: `${BIZ.reviews}`, l: 'reseñas en Google', href: MAPS_URL },
+                { v: `${BIZ.rating}★`, l: `${BIZ.reviews} opiniones en Google`, href: MAPS_URL },
                 { v: BIZ.igFollowers, l: 'seguidores en Instagram', href: BIZ.instagram },
                 { v: 'Directo', l: 'hablas con el equipo', href: WA_LINK },
               ].map((s) => (
@@ -488,7 +496,7 @@ export default function Ultrasport19Page() {
         {/* reseñas de muestra */}
         <div className="max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] font-bold mb-6" style={{ color: 'rgba(255,255,255,0.6)' }}>
-            Lo que dicen los socios — textos de muestra; al publicar van las reseñas reales de Google
+            Lo que dicen los socios — {BIZ.rating}★ en {BIZ.reviews} opiniones en Google
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {RESENAS.map((r, i) => (
@@ -501,7 +509,7 @@ export default function Ultrasport19Page() {
                     “{r.text}”
                   </blockquote>
                   <figcaption className="font-mono text-[10px] uppercase tracking-[0.16em]" style={{ color: 'rgba(16,20,24,0.65)' }}>
-                    {r.author} · Reseña de ejemplo
+                    {r.author} · Reseña en Google
                   </figcaption>
                 </figure>
               </Reveal>
@@ -586,6 +594,7 @@ export default function Ultrasport19Page() {
                 <dl className="flex-1">
                   {[
                     { k: 'Ubicación', v: `${BIZ.city}, ${BIZ.region} · ${BIZ.postal}`, href: MAPS_URL },
+                    { k: 'Horario', v: BIZ.hoursShort, href: MAPS_URL },
                     { k: 'WhatsApp', v: BIZ.phoneDisplay, href: WA_LINK },
                     { k: 'Correo', v: BIZ.email, href: `mailto:${BIZ.email}` },
                     { k: 'Instagram', v: `${BIZ.igUser} · ${BIZ.igFollowers} seguidores`, href: BIZ.instagram },
@@ -683,7 +692,7 @@ export default function Ultrasport19Page() {
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(245,244,239,0.78)' }}>
             Sitio de ejemplo preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellow }}>Sitiazo</a>{' '}
-            para {BIZ.name}. Textos, precios, horarios y fotos son de muestra.{' '}
+            para {BIZ.name}. Fotos, reseñas y datos son reales de su ficha de Google; los precios y textos de apoyo son de muestra.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellow }}>¿Lo hacemos realidad?</a>
           </p>
         </div>
