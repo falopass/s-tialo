@@ -1294,6 +1294,22 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #191210 0%, #F4EEE1 150%)',
   },
+  {
+    slug: 'yum-express-talca',
+    name: 'Yum Express Talca',
+    rubro: 'Envíos y encomiendas',
+    city: 'Talca',
+    tagline: 'Tablero de salidas: navy, azul YUM y amarillo con etiqueta de despacho.',
+    gradient: 'linear-gradient(135deg, #0B2B4A 0%, #1B8BD0 70%, #FFC72C 140%)',
+  },
+  {
+    slug: 'camping-y-cabanas-jemaresdagu',
+    name: 'Camping y Cabañas Jemaresdagu',
+    rubro: 'Camping y cabañas',
+    city: 'San Clemente',
+    tagline: 'Señalética de parque: crema, madera y búho dorado con tarifas 2026 reales.',
+    gradient: 'linear-gradient(135deg, #1E3D2F 0%, #5B3A1E 70%, #C8A24B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
