@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/71ead0d37bf96467.css","style"]
-:HL["/_next/static/chunks/4b5d31c7a59df824.css","style"]
+:HL["/_next/static/chunks/6bd200c85d2a6f60.css","style"]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.5cdc884e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.940f8791.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -9,4 +9,4 @@
 :HL["/_next/static/media/normal_400-s.p.17abc3a0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/chunks/2526846a5d5ed758.css","style"]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"buildId":"YkKAkkqKUlD6awFfgtUji","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"hair-home-studio-claudia-beltran","paramType":null,"paramKey":"hair-home-studio-claudia-beltran","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"2i1Q1jAt4x2ud4LlZ6IRx","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"hair-home-studio-claudia-beltran","paramType":null,"paramKey":"hair-home-studio-claudia-beltran","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

@@ -7,6 +7,14 @@ import { Motif, headingFont } from './kit'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'brilla-el-sol-talca',
+    name: 'Complejo Deportivo Brilla El Sol',
+    rubro: 'Recinto deportivo',
+    city: 'Talca',
+    tagline: 'Cancha de fútbol en el sector suroriente de Talca.',
+    gradient: 'linear-gradient(135deg, #10392E 0%, #178553 55%, #F4C64E 140%)',
+  },
+  {
     slug: 'pannton-arquitectura',
     name: 'Pannton, Arquitectura y Soluciones Gráficas',
     rubro: 'Impresión y diseño',
