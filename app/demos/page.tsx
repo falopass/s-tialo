@@ -2439,6 +2439,30 @@ const BLITZ = [
     tagline: 'La ronda de la esquina de Maipú: platos circulares, borde de masa punteado y ticket de cocina.',
     gradient: 'linear-gradient(135deg, #211711 0%, #A33327 60%, #D9A24B 150%)',
   },
+  {
+    slug: 'pixels-chile',
+    name: 'Pixels Chile',
+    rubro: 'Impresión y rotulación',
+    city: 'Talca',
+    tagline: 'Plancha de imprenta: tinta, magenta de proceso y marcas de registro; trabajos reales.',
+    gradient: 'linear-gradient(135deg, #121417 0%, #E5007D 130%)',
+  },
+  {
+    slug: 'central-insumos',
+    name: 'Central Insumos',
+    rubro: 'Insumos de repostería',
+    city: 'Molina',
+    tagline: 'Ticket de turno y góndola: crema, chocolate y naranjo del letrero; logo y repisas reales.',
+    gradient: 'linear-gradient(135deg, #F7F0E1 0%, #E8641C 80%, #3B2A1E 140%)',
+  },
+  {
+    slug: 'carnes-bravo',
+    name: 'Carnes Bravo',
+    rubro: 'Carnicería',
+    city: 'Molina',
+    tagline: 'Pizarra de carnicería rural: tiza sobre negro, rojo ladrillo y ganchos de riel.',
+    gradient: 'linear-gradient(135deg, #1D1712 0%, #B5442F 130%)',
+  },
 ]
 
 export const metadata: Metadata = {
