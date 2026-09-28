@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'kevin-celedon-psicologo-talca',
+    name: 'Kevin Celedón | Psicólogo',
+    rubro: 'Psicólogo',
+    city: 'Talca',
+    tagline: 'Espacio seguro: teal del logo, pizarra de la consulta y calma editorial.',
+    gradient: 'linear-gradient(135deg, #F5F2EA 0%, #DDF0ED 55%, #0FA394 140%)',
+  },
+  {
     slug: 'clinica-veterinaria-ecovets',
     name: 'Clínica Veterinaria Ecovets',
     rubro: 'Clínica veterinaria',
