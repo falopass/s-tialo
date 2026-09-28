@@ -1030,6 +1030,22 @@ const BLITZ = [
     tagline: 'Don Scanner: osciloscopio ámbar sobre negro de taller, terminal de diagnóstico y reseñas reales.',
     gradient: 'linear-gradient(135deg, #0C0F0B 0%, #2A2608 55%, #FFB11F 140%)',
   },
+  {
+    slug: 'automotriz-gomez',
+    name: 'Automotriz Gomez',
+    rubro: 'Taller mecánico',
+    city: 'Concepción',
+    tagline: 'Bandera de meta: carbón y rojo carrera, diagnóstico con fotos y rincón de clásicos.',
+    gradient: 'linear-gradient(135deg, #141619 0%, #2A2E35 55%, #D9261D 140%)',
+  },
+  {
+    slug: 's-j-full-car-service',
+    name: 'S & J Full Car Service',
+    rubro: 'Taller mecánico y serviteca',
+    city: 'Talcahuano',
+    tagline: 'Serviteca de barrio: azul Mobil, franjas de servicio y pizarra de taller.',
+    gradient: 'linear-gradient(135deg, #0C2E63 0%, #1B5ACB 55%, #E2352B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {

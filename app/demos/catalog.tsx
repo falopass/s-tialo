@@ -309,6 +309,8 @@ const BLITZ_CREATED: Record<string, string> = {
   'el-uruguayo': '2026-09-28',
   'globalauto': '2026-09-28',
   'mecanico-juan-vivar': '2026-09-28',
+  'automotriz-gomez': '2026-09-28',
+  's-j-full-car-service': '2026-09-28',
 }
 
 function familyFor(rubro: string) {
