@@ -23,6 +23,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #160F07 0%, #23402B 55%, #B7632A 140%)',
   },
   {
+    slug: 'artesanal-y-gourmet',
+    name: 'Artesanal y Gourmet',
+    rubro: 'Comida casera',
+    city: 'Molina',
+    tagline: 'Pizarra del día: crema, terracota y menú casero con fotos reales.',
+    gradient: 'linear-gradient(135deg, #F6EFE0 0%, #D8BE93 55%, #B9502B 140%)',
+  },
+  {
     slug: 'halcon-gris-seguridad',
     name: 'Halcón Gris Seguridad',
     rubro: 'Seguridad y formación de guardias',
