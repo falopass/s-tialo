@@ -990,6 +990,14 @@ const BLITZ = [
     tagline: 'El taller que llega a donde estés: celeste de ruta, asfalto y señalética, con fotos reales del furgón.',
     gradient: 'linear-gradient(135deg, #0C1824 0%, #1B4A68 55%, #3E9BD0 140%)',
   },
+  {
+    slug: 'veterinaria-pineiro',
+    name: 'Veterinaria Piñeiro',
+    rubro: 'Cuidados veterinarios',
+    city: 'San Clemente',
+    tagline: 'Noche azul, terracota y un pino de guardián: horario real y agenda por WhatsApp.',
+    gradient: 'linear-gradient(135deg, #0A1824 0%, #12293B 55%, #D6693B 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
