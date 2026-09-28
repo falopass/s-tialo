@@ -1326,6 +1326,14 @@ const BLITZ = [
     tagline: 'Ficha técnica de distribuidor Midea y Trane: navy, reglas de plano y tres sucursales.',
     gradient: 'linear-gradient(135deg, #0B2D4E 0%, #14639C 60%, #EFF4F8 140%)',
   },
+  {
+    slug: 'pasteler-a-mi-caba-a',
+    name: 'Pastelería mi cabaña',
+    rubro: 'Pastelería',
+    city: 'Talca',
+    tagline: 'La vitrina de 5 Poniente: repisas con fotos reales, tortas por encargo y crema-frambuesa.',
+    gradient: 'linear-gradient(135deg, #3B231B 0%, #B23455 70%, #F3E4CF 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
