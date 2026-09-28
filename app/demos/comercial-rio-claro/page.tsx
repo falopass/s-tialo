@@ -2,61 +2,105 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { Vitrina } from './vitrina'
-import { BIZ, C, WA_LINK, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import {
+  BIZ,
+  C,
+  HORARIO,
+  REVIEWS,
+  WA_LINK,
+  waLinkLinea,
+  IG_URL,
+  MAPS_URL,
+  MAPS_EMBED,
+  IMG,
+} from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
-    { path: '../../fonts/dm-serif-display/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-600.woff2', weight: '600', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-700.woff2', weight: '700', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-800.woff2', weight: '800', style: 'normal' },
   ],
 })
 const body = localFont({
   src: [
-    { path: '../../fonts/dm-sans/normal-100-1000.woff2', weight: '100 1000', style: 'normal' },
+    { path: '../../fonts/barlow/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/barlow/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/barlow/normal-600.woff2', weight: '600', style: 'normal' },
+    { path: '../../fonts/barlow/normal-700.woff2', weight: '700', style: 'normal' },
+  ],
+})
+const mono = localFont({
+  src: [
+    { path: '../../fonts/ibm-plex-mono/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/ibm-plex-mono/normal-600.woff2', weight: '600', style: 'normal' },
   ],
 })
 
 export const metadata: Metadata = demoMetadata({
   slug: 'comercial-rio-claro',
   title: 'Comercial Río Claro — Artículos para la higiene por mayor en Talca',
-  description: 'Mayorista de artículos para la higiene en Av. Ignacio Carrera Pinto 088, Talca. Limpieza, menaje y descartables para casas y negocios. Cotiza por WhatsApp.',
+  description: 'Mayorista de artículos para la higiene en Av. Ignacio Carrera Pinto 088, Talca. Detergentes, guantes de nitrilo y papel para casas y negocios. Cotiza por WhatsApp.',
   image: '/demos/comercial-rio-claro/hero.webp',
 })
 
 const NAV_LINKS = [
-  { label: 'La vitrina', href: '#vitrina' },
-  { label: 'Precios', href: '#precios' },
-  { label: 'El local', href: '#el-local' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Las líneas', href: '#lineas' },
+  { label: 'Reseñas', href: '#resenas' },
+  { label: 'Horario y local', href: '#local' },
+  { label: 'Cotizar', href: '#cotizar' },
 ]
 
-const PRICE_LIST = [
-  { name: 'Escobillón y escoba de paja', price: 'desde $3.500', unit: 'por unidad' },
-  { name: 'Balde plástico reforzado', price: 'desde $2.900', unit: 'por unidad' },
-  { name: 'Bidón de cloro 5 L', price: 'desde $6.500', unit: 'por bidón' },
-  { name: 'Papel higiénico industrial', price: 'desde $11.900', unit: 'pack ×6' },
-  { name: 'Guantes descartables', price: 'desde $8.400', unit: 'caja ×100' },
-  { name: 'Olla de peltre esmaltado', price: 'desde $7.900', unit: 'por pieza' },
+/** Las líneas nombran lo que se ve en las fotos reales del local —
+ *  marcas y formatos confirmados en la ficha del negocio. */
+const LINEAS = [
+  {
+    n: '01',
+    name: 'Detergentes Winkler',
+    tags: ['Lavaloza concentrado', 'Desengrasante alto poder', 'Desodorante ambiental'],
+    detalle: 'Botellas de 1 L y bidones de 5 L, para la cocina de la casa o la cocinería del negocio.',
+    shots: [
+      { src: `${IMG}/bidones.webp`, alt: 'Bidones de 5 litros Winkler: lavaloza concentrado y desengrasante alto poder' },
+      { src: `${IMG}/botellas.webp`, alt: 'Botellas de 1 litro Winkler: desengrasante y desodorante ambiental citrus' },
+    ],
+  },
+  {
+    n: '02',
+    name: 'Guantes de nitrilo CleanCarrier',
+    tags: ['Caja ×100', 'Tallas S · M · L', 'Sin polvo'],
+    detalle: 'Nitrilo negro ambidiestro, desechable no estéril — los que usan peluquerías, cocinas y talleres.',
+    shots: [
+      { src: `${IMG}/guantes.webp`, alt: 'Cajas de guantes de nitrilo CleanCarrier en tallas S, M y L junto a bidón de desengrasante' },
+    ],
+  },
+  {
+    n: '03',
+    name: 'Papel y descartables',
+    tags: ['Toalla Nova Ovella', 'Papel higiénico', 'Formato industrial'],
+    detalle: 'Papel para el baño y la cocina en formato mayorista, junto al resto del stock de la repisa.',
+    shots: [
+      { src: `${IMG}/papel.webp`, alt: 'Torres de toalla Nova Ovella y cajas ProPaper apiladas en el stock del local' },
+    ],
+  },
 ]
 
-const TESTIMONIALS = [
-  'Siempre tienen lo que necesito para el almacén y el precio por mayor es de verdad conveniente.',
-  'Atienden ellos mismos y te ayudan a cargar. A la antigua, como corresponde.',
-  'Compro los descartables del negocio acá hace tiempo. Precioso local y buen trato.',
-]
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-3'
 
-function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+function MonoTag({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <p
-      className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: light ? C.brassSoft : C.brassInk }}
+    <span
+      className={`${mono.className} text-[10px] md:text-[11px] uppercase tracking-[0.14em] px-2.5 py-1 border`}
+      style={{
+        borderColor: light ? 'rgba(246,241,231,0.4)' : C.line,
+        color: light ? C.brassSoft : C.brassInk,
+      }}
     >
-      <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
-    </p>
+    </span>
   )
 }
 
@@ -67,12 +111,12 @@ export default function ComercialRioClaroPage() {
       style={{ backgroundColor: C.crema, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
-      <div style={{ backgroundColor: C.deep }}>
       <BlitzNav
-        name={BIZ.name}
+        name={<span className={`${display.className} font-bold uppercase tracking-[0.04em]`}>{BIZ.name}</span>}
         links={NAV_LINKS}
         waLink={WA_LINK}
-        fontClass={display.className}
+        fontClass={`${display.className} font-bold uppercase tracking-[0.04em]`}
+        ctaLabel="Cotizar"
         theme={{
           over: 'dark',
           bar: 'rgba(246,241,231,0.94)',
@@ -82,13 +126,12 @@ export default function ComercialRioClaroPage() {
           btnInk: C.crema,
         }}
       />
-      </div>
 
-      {/* ── Hero a sangre ── */}
+      {/* ── Hero a sangre: la góndola real ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Interior de Comercial Río Claro: repisas llenas de baldes, escobas y artículos de limpieza, con el mesón al fondo"
+          alt="La repisa de Comercial Río Claro: detergentes Winkler, toallas Ovella, guantes CleanCarrier y cajas de stock"
           fill
           priority
           sizes="100vw"
@@ -98,322 +141,313 @@ export default function ComercialRioClaroPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(19,35,24,0.55) 0%, rgba(19,35,24,0.35) 35%, rgba(19,35,24,0.88) 100%)',
+              'linear-gradient(180deg, rgba(19,35,24,0.6) 0%, rgba(19,35,24,0.3) 38%, rgba(19,35,24,0.93) 100%)',
           }}
+          aria-hidden="true"
         />
-        {/* sello de reseñas */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-36 pb-10 md:pb-14">
           <Reveal>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg tap-44"
-              style={{ backgroundColor: 'rgba(246,241,231,0.94)', color: C.forest }}
-            >
-              <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.brass} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11Z" />
-                <circle cx="12" cy="10" r="2.4" />
-              </svg>
-              {BIZ.reviews} reseñas en Google
-            </a>
-          </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
-            <Eyebrow light>Artículos para la higiene · Talca · al por mayor y detalle</Eyebrow>
-            <h1
-              className={`${display.className} leading-[1.0] text-[clamp(2.9rem,10.5vw,6.2rem)] mb-6`}
-              style={{ color: C.crema }}
-            >
-              El almacén de la
-              <br />
-              <em className="not-italic" style={{ color: C.brassSoft }}>limpieza de Talca</em>
-            </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(246,241,231,0.88)' }}>
-              Escobas, baldes, menaje y todo el aseo para casas, almacenes
-              y cocinerías del Maule. Precio mayorista con la atención de
-              siempre, en Carrera Pinto.
-            </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap items-center gap-3 mb-6">
               <a
-                href={WA_LINK}
+                href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
-                style={{ backgroundColor: C.brass, color: C.deep }}
+                className={`inline-flex items-center gap-2 text-xs md:text-sm font-semibold px-4 py-2 tap-44 ${FOCUS} focus-visible:outline-[#E9D9AE]`}
+                style={{ backgroundColor: 'rgba(246,241,231,0.95)', color: C.forest }}
               >
-                Cotizar por WhatsApp
+                <Stars value={5} color={C.brass} className="w-3.5 h-3.5" />
+                {BIZ.rating} en Google · {BIZ.reviewsCount} reseñas
               </a>
-              <a
-                href="#vitrina"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
-                style={{ borderColor: 'rgba(246,241,231,0.55)', color: C.crema }}
+              <span
+                className={`${mono.className} text-[10px] md:text-[11px] uppercase tracking-[0.18em] px-3 py-2`}
+                style={{ color: 'rgba(246,241,231,0.85)', border: '1px dashed rgba(246,241,231,0.45)' }}
               >
-                Ver la vitrina
-              </a>
+                Mayor y detalle
+              </span>
+            </div>
+            <h1
+              className={`${display.className} font-bold uppercase leading-[0.9] tracking-[-0.01em] text-[clamp(3rem,11.5vw,7.5rem)] mb-6`}
+              style={{ color: C.crema }}
+            >
+              Insumos de aseo
+              <br />
+              <span style={{ color: C.brassSoft }}>por mayor en Talca</span>
+            </h1>
+            <div className="grid md:grid-cols-[1.2fr_1fr] gap-7 md:gap-12 items-end">
+              <p className="text-base md:text-lg leading-relaxed max-w-xl" style={{ color: 'rgba(246,241,231,0.9)' }}>
+                Detergentes, guantes de nitrilo y papel en Av. Ignacio Carrera
+                Pinto. Mandas la lista por WhatsApp y te confirman precio y
+                stock al tiro.
+              </p>
+              <div className="flex flex-wrap md:justify-end gap-3">
+                <a
+                  href={WA_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${display.className} inline-flex items-center justify-center min-h-[48px] px-7 font-bold uppercase tracking-[0.06em] text-base transition hover:brightness-110 active:scale-95 tap-44 ${FOCUS} focus-visible:outline-[#E9D9AE]`}
+                  style={{ backgroundColor: C.brass, color: C.deep }}
+                >
+                  Cotizar por WhatsApp
+                </a>
+                <a
+                  href="#lineas"
+                  className={`${display.className} inline-flex items-center min-h-[48px] px-7 font-bold uppercase tracking-[0.06em] text-base border tap-44 ${FOCUS} focus-visible:outline-[#E9D9AE]`}
+                  style={{ borderColor: 'rgba(246,241,231,0.55)', color: C.crema }}
+                >
+                  Ver las líneas
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
-        {/* barra de datos al pie del hero */}
-        <div className="relative border-t" style={{ borderColor: 'rgba(246,241,231,0.22)', backgroundColor: 'rgba(19,35,24,0.45)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,231,0.78)' }}>
+        {/* rótulo de datos al pie del hero */}
+        <div className="relative border-t" style={{ borderColor: 'rgba(246,241,231,0.22)', backgroundColor: 'rgba(19,35,24,0.5)' }}>
+          <div className={`${mono.className} max-w-6xl mx-auto px-5 md:px-8 py-3.5 flex flex-wrap gap-x-8 gap-y-1.5 text-[10px] md:text-[11px] uppercase tracking-[0.18em]`} style={{ color: 'rgba(246,241,231,0.8)' }}>
             <span>Carrera Pinto 088</span>
-            <span>Mayor y detalle</span>
-            <span>Despacho en Talca</span>
-            <span className="hidden md:inline" style={{ color: C.brassSoft }}>sitio de ejemplo</span>
+            <span>L–V 9:00–18:00 · Sáb 9:00–13:00</span>
+            <span>{BIZ.phoneDisplay}</span>
+            <span className="hidden md:inline" style={{ color: C.brassSoft }}>Sitio de ejemplo</span>
           </div>
         </div>
       </section>
 
-      {/* ── La vitrina ── */}
-      <section id="vitrina" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      {/* ── Reseñas reales ── */}
+      <section id="resenas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20">
         <Reveal>
-          <Eyebrow>La vitrina</Eyebrow>
-          <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-12">
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.forest }}>
-              Lo que hay
-              <br />
-              en la repisa
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <h2 className={`${display.className} font-bold uppercase leading-[0.9] tracking-[-0.01em] text-4xl md:text-6xl`} style={{ color: C.forest }}>
+              Lo que dice<br />la ficha de Google
             </h2>
-            <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
-              Una muestra del surtido: al publicar van los productos y
-              precios reales del negocio. Estos valores son de ejemplo.
+            <p className={`${mono.className} text-[11px] uppercase tracking-[0.18em] max-w-xs`} style={{ color: C.muted }}>
+              {BIZ.reviewsCount} reseñas publicadas · promedio {BIZ.rating}
             </p>
           </div>
         </Reveal>
-        <Reveal delay={100}>
-          <Vitrina fontClass={display.className} />
-        </Reveal>
+        <div className="grid md:grid-cols-3 gap-px border" style={{ borderColor: C.line, backgroundColor: C.line }}>
+          {REVIEWS.map((r, i) => (
+            <Reveal key={r.name} delay={i * 90} className="h-full">
+              <figure className="h-full p-6 flex flex-col" style={{ backgroundColor: C.card }}>
+                <Stars value={r.stars} color={C.brass} className="w-4 h-4" />
+                {r.text ? (
+                  <blockquote className="mt-4 text-[15px] leading-relaxed flex-1" style={{ color: C.ink }}>
+                    “{r.text}”
+                  </blockquote>
+                ) : (
+                  <p className="mt-4 text-[15px] leading-relaxed flex-1" style={{ color: C.muted }}>
+                    Cinco estrellas, sin texto.
+                  </p>
+                )}
+                <figcaption className={`${mono.className} mt-5 text-[10px] uppercase tracking-[0.18em]`} style={{ color: C.muted }}>
+                  {r.name}{r.when ? ` · ${r.when}` : ''}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+        <p className={`${mono.className} mt-4 text-[10px] uppercase tracking-[0.18em]`} style={{ color: C.muted }}>
+          Reseñas textuales de la ficha pública en Google Maps
+        </p>
       </section>
 
-      {/* ── Precios de referencia ── */}
-      <section id="precios" className="scroll-mt-20 border-t" style={{ borderColor: C.line, backgroundColor: '#EFE8D8' }}>
+      {/* ── Las líneas de la casa ── */}
+      <section id="lineas" className="scroll-mt-20 border-t" style={{ borderColor: C.line, backgroundColor: '#EFE9DA' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
-            <Eyebrow>Lista de precios</Eyebrow>
-            <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
-              <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.forest }}>
-                Precios de referencia
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
+              <h2 className={`${display.className} font-bold uppercase leading-[0.9] tracking-[-0.01em] text-4xl md:text-6xl`} style={{ color: C.forest }}>
+                Las tres líneas<br />de la repisa
               </h2>
               <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
-                Lista de muestra para ilustrar el sitio. Los valores y el
-                stock se confirman por WhatsApp.
+                Lo que se ve en las fotos es el stock real del local. Precio y
+                disponibilidad se confirman por WhatsApp — al mayor y al detalle.
               </p>
             </div>
           </Reveal>
-          <Reveal delay={120}>
-            <div
-              className="rounded-2xl border overflow-hidden"
-              style={{ borderColor: C.line, backgroundColor: C.card }}
-            >
-              {PRICE_LIST.map((p, i) => (
-                <div
-                  key={p.name}
-                  className="flex items-baseline justify-between gap-4 px-5 md:px-7 py-4 border-b last:border-b-0"
-                  style={{ borderColor: C.line, backgroundColor: i % 2 ? 'transparent' : 'rgba(30,61,47,0.03)' }}
+
+          <div>
+            {LINEAS.map((l, i) => (
+              <Reveal key={l.n} delay={i * 70}>
+                <article
+                  className="grid md:grid-cols-[220px_1fr_minmax(0,340px)] gap-6 md:gap-10 py-8 md:py-10 border-t items-start"
+                  style={{ borderColor: C.line }}
                 >
-                  <div className="flex items-baseline gap-4 min-w-0">
-                    <span className={`${display.className} text-sm w-6 shrink-0`} style={{ color: C.brassInk }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <div className="min-w-0">
-                      <p className="font-semibold text-sm md:text-base" style={{ color: C.ink }}>{p.name}</p>
-                      <p className="text-[11px] uppercase tracking-[0.14em]" style={{ color: C.muted }}>{p.unit}</p>
-                    </div>
+                  <div>
+                    <p className={`${mono.className} text-xs mb-2`} style={{ color: C.brassInk }}>
+                      Línea {l.n}
+                    </p>
+                    <h3 className={`${display.className} font-bold uppercase leading-[0.95] text-2xl md:text-3xl`} style={{ color: C.ink }}>
+                      {l.name}
+                    </h3>
                   </div>
-                  <p className={`${display.className} text-lg md:text-2xl shrink-0`} style={{ color: C.forest }}>
-                    {p.price}
-                  </p>
-                </div>
-              ))}
-              <p className="px-5 md:px-7 py-4 text-xs leading-relaxed" style={{ color: C.muted, backgroundColor: 'rgba(200,162,75,0.10)' }}>
-                Precios de muestra para el ejemplo. En el sitio real van la
-                lista y las condiciones de mayorista del negocio.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── El local ── */}
-      <section id="el-local" className="scroll-mt-20" style={{ backgroundColor: C.deep }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
-          <Reveal>
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}>
-              <Image
-                src={`${IMG}/ambiente.webp`}
-                alt="Fachada de Comercial Río Claro en Carrera Pinto: cortina levantada, escobas y baldes asomando a la calle"
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={140}>
-            <Eyebrow light>El negocio</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.crema }}>
-              Una casa comercial
-              <br />
-              <em className="not-italic" style={{ color: C.brassSoft }}>de las de antes</em>
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: 'rgba(246,241,231,0.75)' }}>
-              En Av. Ignacio Carrera Pinto, Comercial Río Claro abastece a
-              almacenes, cocinerías y familias de Talca con artículos de
-              higiene y menaje. Se atiende directo, se conversa el precio
-              por mayor y se conoce al cliente por su nombre.
-            </p>
-            <ul className="space-y-3 mb-9">
-              {[
-                `Venta por mayor y detalle, en local y por WhatsApp`,
-                `Atención directa en ${BIZ.address}, ${BIZ.city}`,
-                `${BIZ.instagramFollowers} seguidores en Instagram`,
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'rgba(246,241,231,0.88)' }}>
-                  <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: C.brass }} aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a
-              href={IG_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
-              style={{ borderColor: 'rgba(246,241,231,0.45)', color: C.crema }}
-            >
-              @{BIZ.instagram} en Instagram
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Lo que valoran los clientes ── */}
-      <section className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <div className="grid md:grid-cols-[1fr_1.6fr] gap-8 md:gap-14 items-start">
-          <Reveal>
-            <Eyebrow>Opiniones</Eyebrow>
-            <h2 className={`${display.className} text-3xl md:text-4xl leading-tight mb-4`} style={{ color: C.forest }}>
-              El trato que se nota
-            </h2>
-            <p className="text-sm leading-relaxed mb-5" style={{ color: C.muted }}>
-              Comercial Río Claro registra {BIZ.reviews} reseñas en su
-              ficha de Google. Estos textos son de muestra: al publicar
-              van las reseñas reales.
-            </p>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
-              style={{ color: C.brassInk, textDecorationColor: 'rgba(122,94,30,0.35)' }}
-            >
-              Ver la ficha en Google →
-            </a>
-          </Reveal>
-          <div className="space-y-5">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={i} delay={120 + i * 110}>
-                <figure
-                  className="rounded-2xl p-6 md:p-7 border"
-                  style={{ backgroundColor: C.card, borderColor: C.line }}
-                >
-                  <blockquote className={`${display.className} text-base md:text-lg leading-relaxed mb-4`} style={{ color: C.ink }}>
-                    “{t}”
-                  </blockquote>
-                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.brassInk }}>
-                    Reseña de ejemplo
-                  </figcaption>
-                </figure>
+                  <div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {l.tags.map((t) => (
+                        <MonoTag key={t}>{t}</MonoTag>
+                      ))}
+                    </div>
+                    <p className="text-sm md:text-[15px] leading-relaxed max-w-md" style={{ color: C.muted }}>
+                      {l.detalle}
+                    </p>
+                    <a
+                      href={waLinkLinea(l.name)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${display.className} inline-flex items-center gap-2 mt-5 min-h-[44px] font-bold uppercase tracking-[0.06em] text-sm underline underline-offset-4 decoration-1 tap-44 ${FOCUS} focus-visible:outline-[#1E3D2F]`}
+                      style={{ color: C.forest }}
+                    >
+                      Cotizar esta línea →
+                    </a>
+                  </div>
+                  <div className={`flex gap-4 ${l.shots.length > 1 ? '' : ''}`}>
+                    {l.shots.map((s, j) => (
+                      <div
+                        key={s.src}
+                        className={`relative overflow-hidden ${l.shots.length > 1 ? 'w-1/2 aspect-[4/5]' : 'w-full aspect-[4/3]'}`}
+                        style={{ boxShadow: `0 0 0 1px ${C.line}` }}
+                      >
+                        <Image
+                          src={s.src}
+                          alt={s.alt}
+                          fill
+                          sizes="(min-width: 768px) 340px, 90vw"
+                          className="object-cover"
+                          loading="lazy"
+                        />
+                        {l.shots.length > 1 && j === 0 && (
+                          <span className={`${mono.className} absolute bottom-2 left-2 text-[9px] uppercase tracking-[0.14em] px-2 py-1`} style={{ backgroundColor: 'rgba(19,35,24,0.85)', color: C.crema }}>
+                            5 L
+                          </span>
+                        )}
+                        {l.shots.length > 1 && j === 1 && (
+                          <span className={`${mono.className} absolute bottom-2 left-2 text-[9px] uppercase tracking-[0.14em] px-2 py-1`} style={{ backgroundColor: 'rgba(19,35,24,0.85)', color: C.crema }}>
+                            1 L
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Contacto y ubicación ── */}
-      <section id="contacto" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
-        <Reveal>
-          <Eyebrow>Contacto</Eyebrow>
-          <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.forest }}>
-            Carrera Pinto 088,
-            <br />
-            Talca
-          </h2>
-          <address className="not-italic text-sm md:text-base leading-relaxed mb-7" style={{ color: C.muted }}>
-            {BIZ.address}
-            <br />
-            {BIZ.city}, {BIZ.region}, Chile
-            <br />
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
-          </address>
-          <p className="text-sm md:text-base leading-relaxed mb-8 max-w-sm" style={{ color: C.muted }}>
-            Escríbenos por WhatsApp con lo que necesitas — producto,
-            cantidad y si es para casa o negocio — y te confirmamos precio
-            y stock al tiro.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${display.className} text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
-              style={{ backgroundColor: C.forest, color: C.crema }}
-            >
-              Cotizar por WhatsApp →
-            </a>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${display.className} text-sm px-6 py-3 rounded-full border transition-colors hover:bg-[rgba(30,61,47,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
-              style={{ borderColor: 'rgba(30,61,47,0.4)', color: C.forest }}
-            >
-              Cómo llegar
-            </a>
+      {/* ── El local: fachada, horario, mapa ── */}
+      <section id="local" className="scroll-mt-20" style={{ backgroundColor: C.deep }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
+              <h2 className={`${display.className} font-bold uppercase leading-[0.9] tracking-[-0.01em] text-4xl md:text-6xl`} style={{ color: C.crema }}>
+                El local en<br /><span style={{ color: C.brassSoft }}>Carrera Pinto</span>
+              </h2>
+              <p className="text-sm max-w-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.75)' }}>
+                Una casa comercial de barrio en el sur de Talca: atiende la
+                misma gente que arma tu pedido.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+            <Reveal>
+              <figure>
+                <div className="relative aspect-[16/10] overflow-hidden" style={{ boxShadow: `0 0 0 1px rgba(246,241,231,0.25)` }}>
+                  <Image
+                    src={`${IMG}/fachada.webp`}
+                    alt="La cuadra de Av. Ignacio Carrera Pinto donde está Comercial Río Claro, en Talca"
+                    fill
+                    sizes="(min-width: 1024px) 45vw, 90vw"
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption className={`${mono.className} mt-3 text-[10px] uppercase tracking-[0.18em]`} style={{ color: 'rgba(246,241,231,0.65)' }}>
+                  Av. Ignacio Carrera Pinto 088 · Talca
+                </figcaption>
+              </figure>
+
+              <dl className="mt-8 border-t" style={{ borderColor: 'rgba(246,241,231,0.2)' }}>
+                {HORARIO.map((h) => (
+                  <div key={h.days} className="grid grid-cols-[1fr_auto] gap-4 py-3.5 border-b" style={{ borderColor: 'rgba(246,241,231,0.2)' }}>
+                    <dt className={`${mono.className} text-[11px] uppercase tracking-[0.18em] pt-0.5`} style={{ color: 'rgba(246,241,231,0.7)' }}>
+                      {h.days}
+                    </dt>
+                    <dd className="text-sm font-semibold" style={{ color: h.time === 'Cerrado' ? 'rgba(246,241,231,0.55)' : C.crema }}>
+                      {h.time}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className={`${mono.className} mt-5 text-[10px] uppercase tracking-[0.18em]`} style={{ color: 'rgba(246,241,231,0.6)' }}>
+                Horario de la ficha de Google
+              </p>
+            </Reveal>
+
+            <Reveal delay={140}>
+              <div className="overflow-hidden" style={{ boxShadow: `0 0 0 1px rgba(246,241,231,0.25)` }}>
+                <LazyMap
+                  title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
+                  src={MAPS_EMBED}
+                  className="w-full h-[320px] md:h-[420px] border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="mt-6 grid sm:grid-cols-2 gap-4">
+                <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.8)' }}>
+                  <p className={`${mono.className} text-[10px] uppercase tracking-[0.18em] mb-2`} style={{ color: C.brassSoft }}>
+                    Dirección
+                  </p>
+                  {BIZ.address}
+                  <br />
+                  {BIZ.city}, {BIZ.region}
+                </address>
+                <div className="text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.8)' }}>
+                  <p className={`${mono.className} text-[10px] uppercase tracking-[0.18em] mb-2`} style={{ color: C.brassSoft }}>
+                    Contacto
+                  </p>
+                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 tap-44 ${FOCUS} focus-visible:outline-[#E9D9AE]`}>
+                    {BIZ.phoneDisplay}
+                  </a>
+                  <br />
+                  <a href={IG_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 tap-44 ${FOCUS} focus-visible:outline-[#E9D9AE]`}>
+                    @{BIZ.instagram}
+                  </a>
+                </div>
+              </div>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${display.className} inline-flex items-center gap-2 mt-7 min-h-[44px] font-bold uppercase tracking-[0.06em] text-sm border px-5 tap-44 transition hover:bg-white/10 ${FOCUS} focus-visible:outline-[#E9D9AE]`}
+                style={{ borderColor: 'rgba(246,241,231,0.45)', color: C.crema }}
+              >
+                Cómo llegar →
+              </a>
+            </Reveal>
           </div>
-        </Reveal>
-        <Reveal delay={140}>
-          <div className="rounded-2xl overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.card }}>
-            <LazyMap
-              title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
-              src={MAPS_EMBED}
-              className="w-full h-full min-h-[320px]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </Reveal>
+        </div>
       </section>
 
-      {/* ── CTA final ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: C.forest }}>
-        <div
-          className="absolute inset-0 opacity-[0.14]"
-          style={{
-            backgroundImage: `url(${IMG}/hero.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-          aria-hidden="true"
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
+      {/* ── Cierre ── */}
+      <section id="cotizar" className="scroll-mt-20" style={{ backgroundColor: C.brass }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 text-center">
           <Reveal>
-            <h2 className={`${display.className} text-[clamp(2.1rem,6.5vw,4rem)] leading-[1.05] mb-6`} style={{ color: C.crema }}>
-              Cotiza tu pedido,
+            <h2 className={`${display.className} font-bold uppercase leading-[0.9] tracking-[-0.01em] text-[clamp(2.4rem,8vw,5.5rem)]`} style={{ color: C.deep }}>
+              Mandas la lista,
               <br />
-              <em className="not-italic" style={{ color: C.brassSoft }}>mayor o detalle</em>
+              vuelve la cotización
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
-              Mándanos la lista por WhatsApp y te respondemos con precio y
-              stock el mismo día. Retiras en el local o coordinamos despacho.
+            <p className="text-sm md:text-base max-w-md mx-auto mt-6 mb-9 leading-relaxed" style={{ color: 'rgba(19,35,24,0.85)' }}>
+              Producto, cantidad y si es para casa o negocio. Te responden con
+              precio y stock el mismo día.
             </p>
             <a
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
-              style={{ backgroundColor: C.brass, color: C.deep }}
+              className={`${display.className} inline-flex items-center justify-center min-h-[48px] px-8 font-bold uppercase tracking-[0.06em] text-base transition hover:brightness-110 active:scale-95 tap-44 ${FOCUS} focus-visible:outline-[#132318]`}
+              style={{ backgroundColor: C.forest, color: C.crema }}
             >
               Escribir por WhatsApp
             </a>
@@ -425,11 +459,11 @@ export default function ComercialRioClaroPage() {
       <footer style={{ backgroundColor: C.deep, color: C.crema }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <p className={`${display.className} text-xl md:text-2xl mb-2`}>{BIZ.name}</p>
+            <p className={`${display.className} font-bold uppercase tracking-[0.04em] text-xl md:text-2xl mb-1.5`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.8)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
               {' · '}
               <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">
                 @{BIZ.instagram}
@@ -447,7 +481,7 @@ export default function ComercialRioClaroPage() {
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 flex flex-col gap-3">
             <p className="text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.75)' }}>
-              Textos, productos, precios y fotos son de muestra.
+              Textos de muestra; datos, fotos y reseñas corresponden a la ficha pública del negocio.
             </p>
             <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex!">
               <DemoBand name={BIZ.name} />
