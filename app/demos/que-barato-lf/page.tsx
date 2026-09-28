@@ -2,34 +2,35 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, C, HOURS, IMG, MAPS_EMBED, MAPS_URL, WA_LINK, WA_LINK2 } from './content'
+import { BIZ, C, HOURS, IMG, MAPS_EMBED, MAPS_URL, REVIEWS, WA_LINK, WA_LINK2 } from './content'
 import { Catalogo } from './catalogo'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
-  src: [
-    { path: '../../fonts/sora/normal-100-800.woff2', weight: '100 800', style: 'normal' },
-  ],
+  src: [{ path: '../../fonts/anton/normal-400.woff2', weight: '400', style: 'normal' }],
 })
 const body = localFont({
-  src: [
-    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
-  ],
+  src: [{ path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
+})
+const mono = localFont({
+  src: [{ path: '../../fonts/geist-mono/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
 })
 
 export const metadata: Metadata = demoMetadata({
   slug: 'que-barato-lf',
-  title: 'QUE BARATO LF — De todo un poco en Talca',
-  description: 'Curas y botiquín, útiles escolares, manualidades y hogar en 34 Ote. 3404, Talca. Detalle y mayor desde 3 unidades; compra en tienda, a domicilio o con envío a regiones. Cotiza por WhatsApp.',
-  image: '/demos/que-barato-lf/hero.webp',
+  title: 'QUE BARATO LF — El dato para ahorrar en Talca',
+  description:
+    'Insumos médicos, artículos de aseo y varios en 34 Ote. 3404, Talca. Ventas por mayor y detalle, abierto todos los días de 10:00 a 21:00. Cotiza por WhatsApp.',
+  image: '/demos/que-barato-lf/fachada.webp',
 })
 
 const NAV_LINKS = [
   { label: 'Catálogo', href: '#catalogo' },
+  { label: 'Reseñas', href: '#resenas' },
   { label: 'Cómo comprar', href: '#como-comprar' },
-  { label: 'El local', href: '#nosotros' },
+  { label: 'El local', href: '#local' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -69,75 +70,212 @@ function WaIcon({ className = 'w-4 h-4' }: { className?: string }) {
   )
 }
 
+/** Etiqueta de precio: el motivo gráfico del demo (del logo «el dato para ahorrar»). */
+function Tag({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  return (
+    <span
+      className={`${display.className} inline-flex items-center gap-2 uppercase tracking-wide ${className}`}
+      style={{
+        backgroundColor: C.rojo,
+        color: C.blanco,
+        padding: '8px 16px 8px 20px',
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 8px 50%)',
+      }}
+    >
+      {children}
+    </span>
+  )
+}
+
+const DATOS = [
+  { k: 'Mayor', v: 'desde 3 un. del mismo producto' },
+  { k: 'Horario', v: 'lun–dom 10:00–21:00 continuo' },
+  { k: 'Entrega', v: 'en tienda, a domicilio o a regiones' },
+  { k: 'Google', v: '4.9★ · 133 reseñas' },
+]
+
 export default function QueBaratoLf() {
   return (
-    <div className={`${body.className} antialiased`} style={{ backgroundColor: C.paper, color: C.navy }}>
+    <div className={`${body.className} antialiased`} style={{ backgroundColor: C.papel, color: C.tinta }}>
       <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
-        name={BIZ.name}
+        name={
+          <span className="uppercase tracking-tight">
+            Que Barato <span style={{ color: 'inherit' }}>LF</span>
+          </span>
+        }
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
-        fontClass={`${display.className} font-bold tracking-tight`}
-        theme={{ over: 'dark', bar: 'rgba(245,248,250,0.94)', ink: C.navy, line: C.line, btnBg: C.navy, btnInk: C.white }}
+        fontClass={`${display.className}`}
+        theme={{ over: 'light', bar: 'rgba(247,243,234,0.94)', ink: C.azulDeep, line: C.line, btnBg: C.rojo, btnInk: C.blanco }}
       />
 
-      {/* ── Hero compacto ────────────────────────────────── */}
-      <section id="inicio" className="relative overflow-hidden text-white" style={{ backgroundColor: C.navy }}>
-        <svg
-          viewBox="0 0 24 24"
-          className="absolute -right-8 -top-6 w-[220px] md:w-[340px] opacity-[0.07] pointer-events-none"
-          fill="none"
-          stroke={C.sky}
-          strokeWidth="1.4"
+      {/* ── Hero: el dato ────────────────────────────────── */}
+      <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.papel }}>
+        {/* trama de etiquetas */}
+        <div
           aria-hidden="true"
-        >
-          <path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z" />
-        </svg>
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-32 pb-24 md:pb-28">
-          <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.2em]" style={{ color: C.sky }}>
-            {BIZ.rubro} · {BIZ.city}, Maule
-          </p>
-          <h1 className={`${display.className} mt-4 font-bold leading-[1.02] tracking-[-0.02em] text-4xl md:text-6xl max-w-3xl`}>
-            De todo un poco,{' '}
-            <span style={{ color: C.sky }}>al detalle y por mayor.</span>
-          </h1>
-          <p className="mt-5 max-w-xl text-base md:text-lg leading-relaxed text-white/85">
-            Curas y botiquín, útiles escolares y artículos de hogar en 34 Oriente, Talca.
-            Cotiza tu lista por WhatsApp en un minuto.
-          </p>
-          <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-white/85">
-            <li className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.green }} aria-hidden="true" />
-              {BIZ.reviews} reseñas en Google
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.green }} aria-hidden="true" />
-              Precio mayor desde 3 unidades
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.green }} aria-hidden="true" />
-              En tienda, a domicilio o envío a regiones
-            </li>
-          </ul>
+          className="absolute inset-0 opacity-[0.05] pointer-events-none"
+          style={{
+            backgroundImage: `repeating-linear-gradient(45deg, ${C.azul} 0 1px, transparent 1px 14px)`,
+          }}
+        />
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-24 md:pt-32 pb-14 md:pb-20 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <div>
+            <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.22em] font-medium`} style={{ color: C.rojo }}>
+              Comercializadora · 34 Oriente · Talca
+            </p>
+            <h1 className={`${display.className} mt-4 uppercase leading-[0.95] tracking-tight text-[clamp(2.9rem,11vw,6.5rem)]`} style={{ color: C.azulDeep }}>
+              Aquí está<br />
+              <span style={{ color: C.rojo }}>el dato</span> para<br />
+              ahorrar
+            </h1>
+            <p className="mt-6 max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.gris }}>
+              Insumos médicos, artículos de aseo y varios — al detalle y por mayor.
+              El local de Talca donde la plata rinde más.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 min-h-[48px] px-6 text-sm font-bold uppercase tracking-wide transition-transform active:scale-[0.98] tap-44"
+                style={{ backgroundColor: C.rojo, color: C.blanco, clipPath: 'polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}
+              >
+                <WaIcon className="w-4 h-4" />
+                Cotizar por WhatsApp
+              </a>
+              <a
+                href="#catalogo"
+                className="inline-flex items-center gap-2.5 min-h-[48px] px-6 text-sm font-bold uppercase tracking-wide transition-transform active:scale-[0.98] tap-44"
+                style={{ border: `2px solid ${C.azul}`, color: C.azulDeep, backgroundColor: 'transparent' }}
+              >
+                Ver precios reales
+                <Arrow className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Collage de fotos reales del local */}
+          <div className="relative">
+            <div className="grid grid-cols-2 gap-3 md:gap-4">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-lg rotate-[-2deg]">
+                <Image
+                  src={`${IMG}/fachada.webp`}
+                  alt="Fachada de Que Barato LF: letrero azul «ventas por mayor y detalle»"
+                  fill
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-lg rotate-[2deg] translate-y-6">
+                <Image
+                  src={`${IMG}/meson.webp`}
+                  alt="Mesón de madera del local con el sello Que Barato"
+                  fill
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element -- logo real optimizado en public/ */}
+            <img
+              src={`${IMG}/logo.webp`}
+              alt="Logo de Que Barato LF: ventas mayoristas y minoristas"
+              className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-24 h-24 md:w-28 md:h-28 rounded-full ring-4 shadow-xl"
+              style={{ ['--tw-ring-color' as string]: C.papel }}
+            />
+          </div>
         </div>
       </section>
 
+      {/* ── Franja de datos ──────────────────────────────── */}
+      <section className="text-white" style={{ backgroundColor: C.azulDeep }}>
+        <dl className="max-w-6xl mx-auto px-5 md:px-8 py-6 md:py-7 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5">
+          {DATOS.map((d) => (
+            <div key={d.k}>
+              <dt className={`${display.className} uppercase tracking-wide text-base md:text-lg`} style={{ color: '#F2C14E' }}>
+                {d.k}
+              </dt>
+              <dd className="mt-1 text-xs md:text-sm leading-snug text-white/85">{d.v}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
       {/* ── Catálogo + cotizador ─────────────────────────── */}
-      <section id="catalogo" className="scroll-mt-16 pb-20 md:pb-28" style={{ backgroundColor: C.paper }}>
+      <section id="catalogo" className="scroll-mt-16 py-16 md:py-24" style={{ backgroundColor: C.papel }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
-          <Catalogo fontClass={display.className} />
+          <Reveal>
+            <div className="mb-8 md:mb-12">
+              <Tag className="text-xs md:text-sm">Precios del local</Tag>
+              <h2 className={`${display.className} mt-4 uppercase leading-[0.95] tracking-tight text-4xl md:text-6xl`} style={{ color: C.azulDeep }}>
+                Lo que venden<br />y a cuánto
+              </h2>
+              <p className="mt-4 max-w-lg text-base md:text-lg leading-relaxed" style={{ color: C.gris }}>
+                Precios reales del catálogo de la tienda. Marca lo que necesitas y
+                enviamos tu lista por WhatsApp al tiro.
+              </p>
+            </div>
+          </Reveal>
+          <Catalogo fontClass={display.className} monoClass={mono.className} />
+        </div>
+      </section>
+
+      {/* ── Reseñas reales ───────────────────────────────── */}
+      <section id="resenas" className="scroll-mt-16 py-16 md:py-24" style={{ backgroundColor: C.blanco }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-5 mb-10 md:mb-14">
+              <h2 className={`${display.className} uppercase leading-[0.95] tracking-tight text-4xl md:text-6xl`} style={{ color: C.azulDeep }}>
+                Lo que dice<br />la gente
+              </h2>
+              <div className="flex items-center gap-3">
+                <Stars value={4.9} color={C.rojo} className="w-5 h-5" />
+                <p className={`${mono.className} text-sm font-semibold`} style={{ color: C.tinta }}>
+                  {BIZ.rating} · {BIZ.reviews} reseñas en Google
+                </p>
+              </div>
+            </div>
+          </Reveal>
+          <div className="grid gap-5 md:grid-cols-3">
+            {REVIEWS.map((r, i) => (
+              <Reveal key={r.name} delay={i * 100}>
+                <figure
+                  className="h-full p-6 md:p-7 rounded-lg"
+                  style={{ backgroundColor: C.papel, border: `1px dashed ${C.azul}` }}
+                >
+                  <Stars value={5} color={C.rojo} className="w-4 h-4" />
+                  <blockquote className="mt-4 text-[15px] md:text-base leading-relaxed" style={{ color: C.tinta }}>
+                    «{r.text}»
+                  </blockquote>
+                  <figcaption className="mt-5">
+                    <p className={`${display.className} uppercase tracking-wide text-sm`} style={{ color: C.azulDeep }}>
+                      {r.name}
+                    </p>
+                    <p className={`${mono.className} mt-0.5 text-[11px] uppercase tracking-wider`} style={{ color: C.gris }}>
+                      Google Maps · {r.when}
+                    </p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ── Cómo comprar (flyer real del local) ──────────── */}
-      <section id="como-comprar" className="scroll-mt-16 py-16 md:py-24 text-white" style={{ backgroundColor: C.navyDeep }}>
+      <section id="como-comprar" className="scroll-mt-16 py-16 md:py-24 text-white" style={{ backgroundColor: C.azul }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10 md:mb-14">
-              <h2 className={`${display.className} font-bold tracking-tight leading-[1.05] text-3xl md:text-5xl max-w-xl`}>
-                ¿Cómo comprar con {BIZ.name}?
+              <h2 className={`${display.className} uppercase tracking-tight leading-[0.95] text-4xl md:text-6xl max-w-xl`}>
+                Cómo comprar
               </h2>
-              <p className="max-w-sm text-sm md:text-base leading-relaxed text-white/75">
+              <p className="max-w-sm text-sm md:text-base leading-relaxed text-white/85">
                 Tal como lo explica el local: todo parte por WhatsApp y tú eliges si compras en tienda, a domicilio o con envío a regiones.
               </p>
             </div>
@@ -147,14 +285,14 @@ export default function QueBaratoLf() {
               <li key={p.title}>
                 <Reveal delay={i * 110}>
                   <div
-                    className="h-full rounded-2xl p-6 md:p-7"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: `1px solid ${C.lineOnDark}` }}
+                    className="h-full rounded-lg p-6 md:p-7"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: `1px solid ${C.lineOnDark}` }}
                   >
-                    <span className={`${display.className} inline-flex items-center justify-center w-10 h-10 rounded-full text-base font-bold`} style={{ backgroundColor: C.sky, color: C.navyDeep }}>
+                    <span className={`${display.className} inline-flex items-center justify-center w-10 h-10 text-xl`} style={{ backgroundColor: C.rojo, color: C.blanco, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 9px 50%)', paddingLeft: '9px' }}>
                       {i + 1}
                     </span>
-                    <h3 className={`${display.className} mt-4 font-bold text-xl`}>{p.title}</h3>
-                    <p className="mt-2 text-sm md:text-[15px] leading-relaxed text-white/80">{p.desc}</p>
+                    <h3 className={`${display.className} mt-4 uppercase tracking-wide text-lg md:text-xl leading-tight`}>{p.title}</h3>
+                    <p className="mt-2 text-sm md:text-[15px] leading-relaxed text-white/85">{p.desc}</p>
                   </div>
                 </Reveal>
               </li>
@@ -163,135 +301,125 @@ export default function QueBaratoLf() {
 
           <Reveal delay={120}>
             <div
-              className="mt-10 md:mt-14 rounded-2xl p-6 md:p-8 grid gap-8 md:grid-cols-2"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: `1px solid ${C.lineOnDark}` }}
+              className="mt-10 md:mt-14 rounded-lg p-6 md:p-8 grid gap-8 md:grid-cols-2"
+              style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: `1px solid ${C.lineOnDark}` }}
             >
               <div>
-                <h3 className={`${display.className} font-bold text-lg md:text-xl`}>Formas de entrega</h3>
-                <ul className="mt-3 space-y-2.5 text-sm md:text-[15px] leading-relaxed text-white/80">
+                <h3 className={`${display.className} uppercase tracking-wide text-lg md:text-xl`}>Formas de entrega</h3>
+                <ul className="mt-3 space-y-2.5 text-sm md:text-[15px] leading-relaxed text-white/85">
                   <li className="flex gap-2.5">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: C.sky }} aria-hidden="true" />
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: '#F2C14E' }} aria-hidden="true" />
                     Compra directamente en tienda: {BIZ.address}, {BIZ.city}.
                   </li>
                   <li className="flex gap-2.5">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: C.sky }} aria-hidden="true" />
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: '#F2C14E' }} aria-hidden="true" />
                     Despacho a domicilio, coordinado por WhatsApp.
                   </li>
                   <li className="flex gap-2.5">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: C.sky }} aria-hidden="true" />
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: '#F2C14E' }} aria-hidden="true" />
                     Envíos a regiones.
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className={`${display.className} font-bold text-lg md:text-xl`}>Medios de pago</h3>
-                <ul className="mt-3 space-y-2.5 text-sm md:text-[15px] leading-relaxed text-white/80">
+                <h3 className={`${display.className} uppercase tracking-wide text-lg md:text-xl`}>Medios de pago</h3>
+                <ul className="mt-3 space-y-2.5 text-sm md:text-[15px] leading-relaxed text-white/85">
                   <li className="flex gap-2.5">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: C.sky }} aria-hidden="true" />
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: '#F2C14E' }} aria-hidden="true" />
                     En entregas presenciales: efectivo o transferencia.
                   </li>
                   <li className="flex gap-2.5">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: C.sky }} aria-hidden="true" />
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: '#F2C14E' }} aria-hidden="true" />
                     Pedidos con envío: se paga el 100% de la compra, con boleta o factura.
-                  </li>
-                  <li className="flex gap-2.5">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: C.green }} aria-hidden="true" />
-                    Próximamente: pago con tarjeta.
                   </li>
                 </ul>
               </div>
             </div>
           </Reveal>
-          <Reveal delay={160}>
-            <p className="mt-6 text-xs md:text-sm text-white/70">
-              Al detalle y por mayor: el precio «mayor» de la tabla corre desde 3 unidades del mismo producto.
-            </p>
-          </Reveal>
         </div>
       </section>
 
-      {/* ── Sobre el negocio ─────────────────────────────── */}
-      <section id="nosotros" className="scroll-mt-16 py-16 md:py-24" style={{ backgroundColor: C.white }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 grid gap-10 md:grid-cols-2 md:items-center">
+      {/* ── El local ─────────────────────────────────────── */}
+      <section id="local" className="scroll-mt-16 py-16 md:py-24" style={{ backgroundColor: C.papel }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden" style={{ backgroundColor: '#E3ECF2' }}>
-              <Image
-                src={`${IMG}/ambiente.webp`}
-                alt="Pasillo del local con estanterías ordenadas de productos"
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-              />
-              <span
-                className={`${display.className} absolute left-4 bottom-4 px-3.5 py-1.5 rounded-full text-xs font-bold text-white`}
-                style={{ backgroundColor: C.navy }}
-              >
-                El local en Talca
-              </span>
-            </div>
-          </Reveal>
-          <div>
-            <Reveal>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: C.steel }}>
+            <div className="flex flex-wrap items-end justify-between gap-4 mb-8 md:mb-12">
+              <h2 className={`${display.className} uppercase leading-[0.95] tracking-tight text-4xl md:text-6xl`} style={{ color: C.azulDeep }}>
+                El local,<br />tal cual es
+              </h2>
+              <p className={`${mono.className} text-xs md:text-sm uppercase tracking-[0.16em]`} style={{ color: C.rojo }}>
                 {BIZ.address} · {BIZ.city}
               </p>
-              <h2 className={`${display.className} mt-3 font-bold tracking-tight leading-[1.05] text-3xl md:text-5xl`}>
-                La tienda del barrio donde alcanza para más
-              </h2>
-              <p className="mt-5 text-base md:text-lg leading-relaxed" style={{ color: C.steel }}>
-                {BIZ.name} es la tienda del barrio de todo un poco: atención directa, precios a la
-                vista, detalle y mayor desde 3 unidades. Entras por una venda y sales con la
-                lista del colegio resuelta — o te la llevamos a la casa.
-              </p>
-            </Reveal>
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <Reveal delay={80}>
-                <div className="rounded-xl p-4 md:p-5" style={{ backgroundColor: C.paper, border: `1px solid ${C.line}` }}>
-                  <p className={`${display.className} font-bold text-2xl md:text-3xl`} style={{ color: C.navy }}>
-                    {BIZ.reviews}
-                  </p>
-                  <p className="mt-1 text-xs md:text-sm leading-snug" style={{ color: C.steel }}>
-                    reseñas en Google Maps
-                  </p>
-                </div>
-              </Reveal>
-              <Reveal delay={160}>
-                <div className="rounded-xl p-4 md:p-5" style={{ backgroundColor: C.paper, border: `1px solid ${C.line}` }}>
-                  <p className={`${display.className} font-bold text-2xl md:text-3xl`} style={{ color: C.navy }}>
-                    Mayor desde 3 un.
-                  </p>
-                  <p className="mt-1 text-xs md:text-sm leading-snug" style={{ color: C.steel }}>
-                    del mismo producto, sin mínimo de compra
-                  </p>
-                </div>
-              </Reveal>
             </div>
-            <Reveal delay={200}>
-              <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-4 text-sm">
-                <div>
-                  <dt className="font-semibold" style={{ color: C.navy }}>Horario de referencia</dt>
-                  {HOURS.map((h) => (
-                    <dd key={h.days} className="flex justify-between gap-4 mt-1" style={{ color: C.steel }}>
-                      <span>{h.days}</span>
-                      <span className="tabular-nums">{h.time}</span>
-                    </dd>
-                  ))}
-                </div>
-              </dl>
-              <p className="mt-2 text-xs" style={{ color: C.steel }}>Horario referencial del mockup.</p>
+          </Reveal>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
+            <Reveal className="relative aspect-[3/4] rounded-lg overflow-hidden">
+              <Image
+                src={`${IMG}/pasillo.webp`}
+                alt="Pasillo de la tienda con estanterías repletas de papel y productos"
+                fill
+                sizes="(min-width: 1024px) 33vw, 50vw"
+                className="object-cover"
+              />
+            </Reveal>
+            <Reveal delay={90} className="relative aspect-[3/4] rounded-lg overflow-hidden lg:translate-y-6">
+              <Image
+                src={`${IMG}/canasto.webp`}
+                alt="Interior del local: canasto rojo de compras y repisas ordenadas"
+                fill
+                sizes="(min-width: 1024px) 33vw, 50vw"
+                className="object-cover"
+              />
+            </Reveal>
+            <Reveal delay={180} className="relative aspect-[3/4] rounded-lg overflow-hidden col-span-2 lg:col-span-1 aspect-[16/10] lg:aspect-[3/4]">
+              <Image
+                src={`${IMG}/compra.webp`}
+                alt="Compra lista en el mesón: bolsas con productos de la tienda"
+                fill
+                sizes="(min-width: 1024px) 33vw, 100vw"
+                className="object-cover"
+              />
             </Reveal>
           </div>
+          <Reveal delay={200}>
+            <dl className="mt-8 md:mt-10 flex flex-wrap gap-x-12 gap-y-4 text-sm">
+              <div>
+                <dt className={`${display.className} uppercase tracking-wide text-base`} style={{ color: C.azulDeep }}>Horario</dt>
+                {HOURS.map((h) => (
+                  <dd key={h.days} className="mt-1 flex gap-3" style={{ color: C.gris }}>
+                    <span>{h.days}</span>
+                    <span className={`${mono.className} font-semibold`} style={{ color: C.tinta }}>{h.time}</span>
+                  </dd>
+                ))}
+              </div>
+              <div>
+                <dt className={`${display.className} uppercase tracking-wide text-base`} style={{ color: C.azulDeep }}>Instagram</dt>
+                <dd className="mt-1">
+                  <a
+                    href={BIZ.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold underline underline-offset-2 tap-44"
+                    style={{ color: C.rojo }}
+                  >
+                    {BIZ.instagram}
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </Reveal>
         </div>
       </section>
 
       {/* ── Contacto ─────────────────────────────────────── */}
-      <section id="contacto" className="scroll-mt-16 py-16 md:py-24" style={{ backgroundColor: C.paper }}>
+      <section id="contacto" className="scroll-mt-16 py-16 md:py-24" style={{ backgroundColor: C.blanco }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <h2 className={`${display.className} font-bold tracking-tight leading-[1.05] text-3xl md:text-5xl`}>
-              Cotiza tu pedido por WhatsApp
+            <Tag className="text-xs md:text-sm">El dato final</Tag>
+            <h2 className={`${display.className} mt-4 uppercase tracking-tight leading-[0.95] text-4xl md:text-6xl`} style={{ color: C.azulDeep }}>
+              Cotiza tu lista por WhatsApp
             </h2>
-            <p className="mt-5 max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.steel }}>
+            <p className="mt-5 max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.gris }}>
               Manda tu lista —del botiquín, del colegio o de la casa— y te confirmamos
               stock al tiro. Es el canal más rápido.
             </p>
@@ -299,34 +427,32 @@ export default function QueBaratoLf() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-7 inline-flex items-center gap-3 min-h-[52px] px-6 rounded-xl text-base font-bold transition-transform active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 tap-44"
-              style={{ backgroundColor: C.green, color: C.greenInk, outlineColor: C.navy }}
+              className="group mt-7 inline-flex items-center gap-3 min-h-[52px] px-7 text-base font-bold uppercase tracking-wide transition-transform active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 tap-44"
+              style={{ backgroundColor: C.rojo, color: C.blanco, outlineColor: C.azulDeep, clipPath: 'polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%)' }}
             >
               <WaIcon className="w-5 h-5" />
-              <span>
-                Escribir al {BIZ.phoneDisplay}
-              </span>
+              <span>Escribir al {BIZ.phoneDisplay}</span>
               <Arrow className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </a>
-            <p className="mt-3 text-sm" style={{ color: C.steel }}>
+            <p className="mt-3 text-sm" style={{ color: C.gris }}>
               También puedes escribirnos al{' '}
               <a
                 href={WA_LINK2}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold underline underline-offset-2 tap-44"
-                style={{ color: C.navy }}
+                style={{ color: C.azulDeep }}
               >
                 {BIZ.phone2Display}
               </a>
             </p>
-            <dl className="mt-8 space-y-2 text-sm" style={{ color: C.steel }}>
+            <dl className="mt-8 space-y-2 text-sm" style={{ color: C.gris }}>
               <div className="flex gap-2">
-                <dt className="font-semibold" style={{ color: C.navy }}>Dirección:</dt>
+                <dt className="font-semibold" style={{ color: C.azulDeep }}>Dirección:</dt>
                 <dd>{BIZ.address}, {BIZ.city}</dd>
               </div>
               <div className="flex gap-2">
-                <dt className="font-semibold" style={{ color: C.navy }}>Teléfonos:</dt>
+                <dt className="font-semibold" style={{ color: C.azulDeep }}>Teléfonos:</dt>
                 <dd>
                   <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">
                     {BIZ.phoneDisplay}
@@ -341,7 +467,7 @@ export default function QueBaratoLf() {
           </Reveal>
 
           <Reveal delay={120}>
-            <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: C.white, border: `1px solid ${C.line}` }}>
+            <div className="rounded-lg overflow-hidden" style={{ backgroundColor: C.papel, border: `1px solid ${C.line}` }}>
               <div className="aspect-[4/3] w-full">
                 <LazyMap
                   src={MAPS_EMBED}
@@ -352,7 +478,7 @@ export default function QueBaratoLf() {
                 />
               </div>
               <div className="p-5 flex flex-wrap items-center justify-between gap-3">
-                <p className="text-sm font-semibold" style={{ color: C.navy }}>
+                <p className="text-sm font-semibold" style={{ color: C.azulDeep }}>
                   {BIZ.address}, {BIZ.city}
                 </p>
                 <a
@@ -360,7 +486,7 @@ export default function QueBaratoLf() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 min-h-[40px] text-sm font-semibold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 tap-44"
-                  style={{ color: C.navy, outlineColor: C.navy }}
+                  style={{ color: C.rojo, outlineColor: C.azulDeep }}
                 >
                   Cómo llegar <Arrow className="w-4 h-4" />
                 </a>
@@ -371,15 +497,15 @@ export default function QueBaratoLf() {
       </section>
 
       {/* ── Franja Sitiazo ────────────────────────────────── */}
-      <footer className="text-white" style={{ backgroundColor: C.navyDeep }}>
+      <footer className="text-white" style={{ backgroundColor: C.azulDeep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 pt-6 pb-20 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-sm">
           <div>
-            <p className={`${display.className} text-lg font-bold`}>{BIZ.name}</p>
+            <p className={`${display.className} text-lg uppercase tracking-wide`}>{BIZ.name}</p>
             <p className="mt-1 text-sm font-medium text-white/85">
               {BIZ.phoneDisplay} · {BIZ.phone2Display}
             </p>
             <p className="mt-1 text-xs text-white/70">
-              Sitio de ejemplo de Sitiazo · Datos de contacto y precios del catálogo reales; textos y horarios de muestra; fotos referenciales.
+              Sitio de ejemplo de Sitiazo · Datos, precios, horario y fotos reales del local; textos de muestra.
             </p>
           </div>
           <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex!">
