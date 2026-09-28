@@ -149,7 +149,7 @@ function SectionHead({
         </div>
         {note && (
           <p
-            className="shrink-0 text-[10px] md:text-[11px] uppercase tracking-[0.24em] font-medium"
+            className="min-w-0 text-right text-[10px] md:text-[11px] uppercase tracking-[0.24em] font-medium"
             style={{ color: dark ? C.sandSoft : C.muted }}
           >
             {note}

@@ -607,7 +607,7 @@ export default function RestobarLosLeonesPage() {
           <Reveal>
             <Issue n="N° 04" title="Ubicación y contacto" light />
           </Reveal>
-          <div className="grid grid-cols-12 gap-10 md:gap-12 items-stretch">
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 md:gap-12 items-stretch">
             <div className="col-span-12 lg:col-span-6">
               <Reveal>
                 <h3
