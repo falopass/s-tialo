@@ -1,37 +1,75 @@
-import { BIZ, MAPS_URL, WA_LINK } from './content'
+import { SITE, whatsappLink } from '@/lib/config'
+import { BlitzNav, WaFab } from '../blitz-kit'
+import { BIZ, WA_LINK } from './content'
 
-export function Header() {
-  return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 text-white backdrop-blur-md" style={{ backgroundColor: 'rgba(16,23,20,0.94)' }}>
-      <div className="mx-auto flex h-[64px] max-w-6xl items-center justify-between gap-3 px-5 md:px-8">
-        <a href="#inicio" className="text-xs font-bold uppercase tracking-[0.12em] sm:text-sm">
-          MyM <span className="text-[#D2F36B]">·</span> Taller mecánico
-        </a>
-        <nav aria-label="Principal" className="hidden items-center gap-7 text-sm md:flex" style={{ color: 'rgba(255,255,255,0.85)' }}>
-          <a href="#servicios" className="hover:text-white">Servicios</a>
-          <a href="#contacto" className="hover:text-white">Ubicación y horario</a>
-        </nav>
-        <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="flex h-11 shrink-0 items-center rounded-full bg-[#D2F36B] px-4 text-sm font-bold text-[#172016] hover:bg-[#e1ff87]">
-          WhatsApp
-        </a>
-      </div>
-    </header>
-  )
+const NAV_LINKS = [
+  { label: 'Dos modos', href: '#servicios' },
+  { label: 'Trabajo real', href: '#trabajo' },
+  { label: 'Horario y ubicación', href: '#contacto' },
+]
+
+const C = {
+  ink: '#0B1220',
+  humo: '#E9ECF0',
+  orange: '#F26B1D',
+  muted: 'rgba(11,18,32,0.66)',
+  line: 'rgba(11,18,32,0.16)',
 }
 
-export function Footer() {
+const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
+
+export function Chrome({ children, fontClass = '' }: { children: React.ReactNode; fontClass?: string }) {
   return (
-    <footer className="bg-[#101714] px-5 py-8 text-white md:px-8">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-5 text-xs leading-relaxed sm:text-sm">
-        <div>
-          <p className="font-bold">{BIZ.name}</p>
-          <p className="mt-1" style={{ color: 'rgba(255,255,255,0.75)' }}>Talca, Región del Maule</p>
+    <>
+      <BlitzNav
+        name="MyM"
+        links={NAV_LINKS}
+        waLink={WA_LINK}
+        fontClass={fontClass}
+        theme={{
+          over: 'dark',
+          bar: 'rgba(233,236,240,0.95)',
+          ink: C.ink,
+          line: C.line,
+          btnBg: C.orange,
+          btnInk: '#0B1220',
+        }}
+      />
+      {children}
+      <footer className="border-t-2" style={{ backgroundColor: C.humo, borderColor: C.ink }}>
+        <div className="max-w-6xl mx-auto pl-5 pr-[4.5rem] md:px-8 pt-8 pb-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-8 mb-5">
+            <div>
+              <p className={`${fontClass} font-semibold text-2xl md:text-3xl mb-1 uppercase`} style={{ color: C.ink }}>
+                {BIZ.name}
+              </p>
+              <address className="not-italic text-sm leading-relaxed" style={{ color: C.muted }}>
+                {BIZ.address}
+              </address>
+            </div>
+            <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold" aria-label="Pie">
+              {NAV_LINKS.map((l) => (
+                <a key={l.href} href={l.href} className={`transition-opacity hover:opacity-60 ${focusRing} tap-44`} style={{ color: C.ink }}>
+                  {l.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+          <div className="border-t pt-4" style={{ borderColor: C.line }}>
+            <p className="text-xs leading-relaxed" style={{ color: C.muted }}>
+              Mockup preparado por{' '}
+              <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.ink }}>
+                Sitiazo
+              </a>
+              : textos y servicios de muestra.{' '}
+              <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.ink }}>
+                ¿Lo hacemos realidad?
+              </a>
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col items-start gap-2" style={{ color: 'rgba(255,255,255,0.85)' }}>
-          <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Ver ubicación</a>
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Consultar por WhatsApp</a>
-        </div>
-      </div>
-    </footer>
+      </footer>
+      <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
+    </>
   )
 }

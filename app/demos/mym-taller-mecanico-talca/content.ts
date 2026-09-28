@@ -16,4 +16,8 @@ export const WA_LINK = 'https://wa.me/56975450216?text=Hola%2C%20quiero%20consul
 export const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=MyM+Taller+mec%C3%A1nico+y+mec%C3%A1nica+a+domicilio,+44+y+medio+oriente+y+6+y+medio+sur+477,+Talca'
 export const PHOTO = '/demos/mym-taller-mecanico-talca/servicio-fiat-palio.jpg'
 
+export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
+  `${BIZ.name}, ${BIZ.address}`,
+)}&output=embed`
+
 // Fuentes consultadas: ficha de Google Maps (nombre, dirección, teléfono y horario); página pública de Facebook “Mym Mecánica a domicilio | Talca” (mecánica automotriz a domicilio y publicación de un Fiat Palio). No se encontró un Instagram verificable.
