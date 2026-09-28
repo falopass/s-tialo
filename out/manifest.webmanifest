@@ -1,0 +1,31 @@
+{
+  "name": "Sitiazo.cl",
+  "short_name": "Sitiazo",
+  "description": "Páginas web que sí venden para pymes chilenas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#FFD60A",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/pwa/android-pwa.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/pwa/pwa-splash.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}
