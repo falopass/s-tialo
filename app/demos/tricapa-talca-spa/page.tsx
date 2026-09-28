@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { demoMetadata } from '../meta'
 import { Chrome, Reveal } from './chrome'
-import { BIZ, C, CAPAS, MAPS_URL, PASOS, SERVICES, WA_LINK } from './content'
+import { BIZ, C, CAPAS, HORARIO, IMG, MAPS_URL, PASOS, REVIEWS, SERVICES, TRABAJOS, WA_LINK } from './content'
 
 const display = localFont({
   src: [
@@ -50,124 +51,6 @@ function Eyebrow({ children, color = C.redDeep }: { children: React.ReactNode; c
       <span className="h-[2px] w-6" style={{ backgroundColor: color }} aria-hidden="true" />
       {children}
     </p>
-  )
-}
-
-/** Escena del hero: auto de perfil en cabina de pintura, con la pistola aplicando la capa de color. */
-function PaintBooth() {
-  return (
-    <svg viewBox="0 0 720 460" className="h-auto w-full" role="img" aria-label="Ilustración de un auto en cabina de pintura, con la pistola aplicando color">
-      <defs>
-        <linearGradient id="tc-floor" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#2B3036" />
-          <stop offset="1" stopColor="#15171A" />
-        </linearGradient>
-        <linearGradient id="tc-body" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#8E949B" />
-          <stop offset="0.48" stopColor="#8E949B" />
-          <stop offset="0.52" stopColor="#C9202F" />
-          <stop offset="1" stopColor="#E23B49" />
-        </linearGradient>
-        <linearGradient id="tc-gloss" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor="#fff" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#fff" stopOpacity="0" />
-        </linearGradient>
-        <radialGradient id="tc-spray" cx="0" cy="0.5" r="1">
-          <stop offset="0" stopColor="#E23B49" stopOpacity="0.55" />
-          <stop offset="1" stopColor="#E23B49" stopOpacity="0" />
-        </radialGradient>
-        <pattern id="tc-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-          <path d="M40 0H0V40" fill="none" stroke="rgba(243,239,230,0.07)" strokeWidth="1" />
-        </pattern>
-      </defs>
-
-      {/* cabina */}
-      <rect width="720" height="460" fill="#1C1F23" />
-      <rect width="720" height="460" fill="url(#tc-grid)" />
-      <rect x="0" y="330" width="720" height="130" fill="url(#tc-floor)" />
-      <path d="M0 330H720" stroke="rgba(243,239,230,0.18)" />
-      {/* luces de cabina */}
-      {[120, 360, 600].map((x) => (
-        <g key={x}>
-          <rect x={x - 70} y="28" width="140" height="10" rx="5" fill="#F3EFE6" opacity="0.9" />
-          <path d={`M${x - 70} 38 L${x - 130} 330 H${x + 130} L${x + 70} 38 Z`} fill="#F3EFE6" opacity="0.045" />
-        </g>
-      ))}
-
-      {/* sombra */}
-      <ellipse cx="340" cy="338" rx="270" ry="14" fill="#000" opacity="0.45" />
-
-      {/* carrocería */}
-      <g>
-        <path
-          d="M92 300 C92 270 100 252 130 240 L200 226 L252 170 C262 158 276 152 292 152 L446 152 C470 152 490 160 506 178 L556 226 L612 236 C640 242 654 262 654 290 L654 300 C654 312 644 320 630 320 L116 320 C102 320 92 312 92 300 Z"
-          fill="url(#tc-body)"
-        />
-        {/* barniz */}
-        <path d="M130 240 L200 226 L252 170 C262 158 276 152 292 152 L446 152 C470 152 490 160 506 178 L556 226 L612 236 C620 238 626 241 632 246 L124 246 C126 243 128 241 130 240 Z" fill="url(#tc-gloss)" />
-        {/* ventanas */}
-        <path d="M222 226 L262 178 C268 170 278 166 290 166 L356 166 L356 226 Z" fill="#0F1114" />
-        <path d="M376 166 L446 166 C462 166 476 172 486 184 L526 226 L376 226 Z" fill="#0F1114" />
-        <path d="M232 220 L266 182 C270 177 276 175 284 175 L344 175 L344 220 Z" fill="#4A5560" opacity="0.6" />
-        {/* línea de cintura */}
-        <path d="M110 268 H640" stroke="rgba(0,0,0,0.25)" strokeWidth="2" />
-        {/* manillas */}
-        <rect x="318" y="248" width="34" height="7" rx="3.5" fill="#0F1114" opacity="0.8" />
-        <rect x="392" y="248" width="34" height="7" rx="3.5" fill="#0F1114" opacity="0.8" />
-        {/* focos */}
-        <path d="M92 292 C92 282 100 276 112 276 L134 276 L128 300 L100 300 C94 300 92 296 92 292 Z" fill="#F3EFE6" />
-        <path d="M654 288 C654 280 646 276 636 276 L616 276 L620 300 L644 300 C650 300 654 294 654 288 Z" fill="#C9202F" opacity="0.9" />
-        {/* ruedas */}
-        {[190, 556].map((cx) => (
-          <g key={cx}>
-            <circle cx={cx} cy="316" r="44" fill="#0F1114" />
-            <circle cx={cx} cy="316" r="26" fill="#2B3036" stroke="#8E949B" strokeWidth="3" />
-            <circle cx={cx} cy="316" r="8" fill="#8E949B" />
-            {[0, 60, 120].map((a) => (
-              <path key={a} d={`M${cx - 22} ${316} H${cx + 22}`} stroke="#0F1114" strokeWidth="4" transform={`rotate(${a} ${cx} 316)`} />
-            ))}
-          </g>
-        ))}
-        {/* cinta de enmascarar */}
-        <path d="M356 158 V226" stroke="#E8D9A8" strokeWidth="4" strokeDasharray="6 4" opacity="0.9" />
-        <path d="M376 158 V226" stroke="#E8D9A8" strokeWidth="4" strokeDasharray="6 4" opacity="0.9" />
-      </g>
-
-      {/* niebla de pintura */}
-      <ellipse cx="470" cy="236" rx="120" ry="60" fill="url(#tc-spray)" />
-
-      {/* pistola de pintura */}
-      <g transform="translate(560 110) rotate(18)">
-        <rect x="0" y="0" width="92" height="30" rx="8" fill="#F3EFE6" />
-        <rect x="-14" y="6" width="22" height="18" rx="4" fill="#8E949B" />
-        <rect x="52" y="26" width="24" height="52" rx="6" fill="#F3EFE6" transform="rotate(-10 64 26)" />
-        <rect x="18" y="-40" width="34" height="42" rx="8" fill="#C9202F" />
-        <rect x="26" y="-48" width="18" height="12" rx="3" fill="#0F1114" />
-        <circle cx="-4" cy="15" r="3" fill="#0F1114" />
-      </g>
-      {/* gotas de spray */}
-      {[
-        [520, 232, 4],
-        [500, 214, 3],
-        [534, 256, 2.5],
-        [488, 246, 2],
-        [548, 222, 2],
-      ].map(([x, y, r]) => (
-        <circle key={`${x}-${y}`} cx={x} cy={y} r={r} fill="#E23B49" opacity="0.8" />
-      ))}
-
-      {/* etiqueta de capas */}
-      <g transform="translate(36 380)">
-        {CAPAS.map((c, i) => (
-          <g key={c.name} transform={`translate(${i * 150} 0)`}>
-            <rect width="16" height="16" rx="3" fill={c.color} />
-            <text x="24" y="13" fontSize="14" fontFamily="inherit" fontWeight="700" fill="#F3EFE6" letterSpacing="1.5">
-              {c.name.toUpperCase()}
-            </text>
-          </g>
-        ))}
-      </g>
-    </svg>
   )
 }
 
@@ -292,13 +175,20 @@ export default function TricapaTalcaPage() {
           <Reveal delay={120}>
             <div className="relative">
               <div className="overflow-hidden rounded-[26px] border shadow-2xl" style={{ borderColor: C.lineOnDark }}>
-                <PaintBooth />
+                <Image
+                  src={`${IMG}/hero.webp`}
+                  alt="Camioneta en preparación e imprimación dentro del taller Tricapa"
+                  width={1200}
+                  height={675}
+                  className="h-auto w-full"
+                  priority
+                />
               </div>
               <div
                 className={`${display.className} absolute -bottom-4 left-5 rounded-md px-3.5 py-2 text-sm font-bold uppercase tracking-[0.18em] shadow-lg md:left-8`}
                 style={{ backgroundColor: C.paper, color: C.ink }}
               >
-                Cabina de pintura
+                Trabajo real del taller
               </div>
             </div>
           </Reveal>
@@ -367,6 +257,46 @@ export default function TricapaTalcaPage() {
         </div>
       </section>
 
+      {/* ── Trabajo real ── */}
+      <section id="trabajo" className="scroll-mt-20">
+        <div className="mx-auto max-w-6xl px-5 pb-16 md:px-8 md:pb-24">
+          <Reveal>
+            <div className="grid gap-6 md:grid-cols-[1fr_1fr] md:items-end">
+              <div>
+                <Eyebrow>Trabajo real</Eyebrow>
+                <h2 className={`${display.className} text-5xl font-extrabold uppercase leading-[0.92] tracking-[-0.02em] md:text-7xl`}>
+                  Del golpe <span style={{ color: C.red }}>a la entrega.</span>
+                </h2>
+              </div>
+              <p className="max-w-lg text-base leading-relaxed md:text-lg" style={{ color: C.muted }}>
+                Fotos reales del taller: vehículos que llegaron dañados y salieron pintados. Sin fotos de stock.
+              </p>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-3 md:gap-5">
+            {TRABAJOS.map((t, i) => (
+              <Reveal key={t.src} delay={i * 60}>
+                <figure className="group relative overflow-hidden rounded-[18px] border" style={{ borderColor: C.line }}>
+                  <Image
+                    src={`${IMG}/${t.src}.webp`}
+                    alt={t.alt}
+                    width={1200}
+                    height={900}
+                    className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <figcaption
+                    className={`${display.className} absolute bottom-3 left-3 rounded-md px-2.5 py-1 text-xs font-bold uppercase tracking-[0.16em]`}
+                    style={{ backgroundColor: C.ink, color: C.paper }}
+                  >
+                    {t.cap}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Tres capas ── */}
       <section id="capas" className="scroll-mt-20" style={{ backgroundColor: C.ink, color: C.paper }}>
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1fr_1fr] md:items-center md:gap-16 md:px-8 md:py-24">
@@ -400,6 +330,42 @@ export default function TricapaTalcaPage() {
           <Reveal delay={120}>
             <LayerStack />
           </Reveal>
+        </div>
+      </section>
+
+      {/* ── Reseñas ── */}
+      <section id="resenas" className="scroll-mt-20" style={{ backgroundColor: C.paper2 }}>
+        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <Eyebrow>Lo que dicen</Eyebrow>
+                <h2 className={`${display.className} text-5xl font-extrabold uppercase leading-[0.92] tracking-[-0.02em] md:text-6xl`}>
+                  5,0 en Google.
+                </h2>
+              </div>
+              <p className="inline-flex items-center gap-2 text-sm font-semibold" style={{ color: C.muted }}>
+                <span style={{ color: '#8A5800' }} aria-hidden="true">★★★★★</span>
+                {BIZ.reviews} reseñas reales
+              </p>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid gap-4 md:mt-14 md:grid-cols-3 md:gap-5">
+            {REVIEWS.map((r, i) => (
+              <Reveal key={r.name} delay={i * 100}>
+                <figure className="flex h-full flex-col rounded-[22px] border bg-white p-6" style={{ borderColor: C.line }}>
+                  <span className="text-base" style={{ color: C.amber }} aria-label="5 de 5 estrellas">★★★★★</span>
+                  <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed" style={{ color: C.ink }}>
+                    &ldquo;{r.text}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-5 flex items-center justify-between border-t pt-4 text-sm" style={{ borderColor: C.line }}>
+                    <span className="font-semibold">{r.name}</span>
+                    <span style={{ color: C.muted }}>{r.when} · Google</span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -498,9 +464,14 @@ export default function TricapaTalcaPage() {
                     </div>
                   ))}
                 </dl>
-                <p className="mt-4 text-sm leading-relaxed" style={{ color: C.muted }}>
-                  El horario de atención se confirma por WhatsApp.
-                </p>
+                <ul className="mt-4 space-y-1.5 border-t pt-4 text-[15px]" style={{ borderColor: C.line }}>
+                  {HORARIO.map((h) => (
+                    <li key={h.d} className="flex justify-between gap-4">
+                      <span className="font-semibold" style={{ color: C.muted }}>{h.d}</span>
+                      <span className="font-semibold">{h.h}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Reveal>
           </div>

@@ -1,7 +1,10 @@
 /**
- * Datos públicos verificados el 28-09-2026 en Google Maps y sus perfiles
- * enlazados. No se encontró un horario detallado publicado; se omite.
+ * Datos públicos verificados el 28-09-2026 en la ficha de Google Maps
+ * (dirección, teléfono, horario, reseñas y fotos subidas por el taller).
+ * No se encontraron perfiles públicos de Instagram/Facebook.
  */
+
+export const IMG = '/demos/tricapa-talca-spa'
 
 export const BIZ = {
   name: 'Tricapa Talca spa',
@@ -68,6 +71,40 @@ export const CAPAS = [
   { name: 'Barniz', role: 'Brillo y protección final', color: '#E8ECEF' },
 ] as const
 
+export const HORARIO = [
+  { d: 'Lunes a viernes', h: '8:30–18:30' },
+  { d: 'Sábado y domingo', h: 'Cerrado' },
+] as const
+
+/** Reseñas reales de Google, texto original en español. */
+export const REVIEWS = [
+  {
+    name: 'Cristian Altamirano',
+    when: 'hace 5 meses',
+    text: 'Súper bien hecho el trabajo de desabolladura y pintura, 100% recomendado. Cumplen con los días de entrega mejor que las aseguradoras; sin duda, maestros en lo que hacen.',
+  },
+  {
+    name: 'Betzabe Carrillo',
+    when: 'hace 5 meses',
+    text: 'Conforme con el pintado de mi auto, son todos unos profesionales. Recomendable sin duda alguna.',
+  },
+  {
+    name: 'Nelson Figueroa',
+    when: 'hace 2 meses',
+    text: 'Impecable, me quedó como nuevo.',
+  },
+] as const
+
+/** Fotos reales del taller (subidas por el negocio a su ficha de Google Maps). */
+export const TRABAJOS = [
+  { src: 'dano', alt: 'SUV con el frontal dañado antes de la reparación', cap: 'Así llegó' },
+  { src: 'desabolladura', alt: 'Costado de SUV en proceso de desabolladura', cap: 'Desabolladura' },
+  { src: 'camion', alt: 'Cabina de camión en reparación dentro del taller', cap: 'En el taller' },
+  { src: 'enmascarado', alt: 'Auto enmascarado y listo para entrar a pintura', cap: 'Listo para pintar' },
+  { src: 'blanco', alt: 'SUV blanco terminado después del pintado', cap: 'Pintado' },
+  { src: 'rojo', alt: 'SUV rojo con el pintado terminado', cap: 'Entregado' },
+] as const
+
 export const PASOS = [
   { title: 'Envía una foto del daño', desc: 'Por WhatsApp, con una toma general y otra de cerca.' },
   { title: 'Se revisa el trabajo', desc: 'Se evalúa qué necesita: desabollar, pintar o cambiar la pieza.' },
@@ -75,6 +112,5 @@ export const PASOS = [
 ] as const
 
 export const SOURCES = [
-  'Google Maps / ficha de Tricapa Talca spa (Pintura, Desabolladura y Venta de Repuestos)',
-  'Perfiles de Instagram y Facebook enlazados desde la ficha',
+  'Google Maps / ficha de Tricapa Talca spa (Pintura, Desabolladura y Venta de Repuestos): datos, horario, reseñas y fotos',
 ] as const

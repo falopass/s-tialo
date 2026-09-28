@@ -12,7 +12,8 @@ export function Chrome({ fontClass }: { fontClass: string }) {
         name={BIZ.displayName}
         links={[
           { label: 'Servicios', href: '#servicios' },
-          { label: 'Tres capas', href: '#capas' },
+          { label: 'Trabajo', href: '#trabajo' },
+          { label: 'Reseñas', href: '#resenas' },
           { label: 'Cotizar', href: '#cotizar' },
           { label: 'Contacto', href: '#contacto' },
         ]}
