@@ -1118,6 +1118,14 @@ const BLITZ = [
     tagline: 'Tienda de barrio: crema y verde del logo, mural polaroid y etiquetas colgando del cordel.',
     gradient: 'linear-gradient(135deg, #1D3B0E 0%, #4C8C1E 55%, #FBF5E8 140%)',
   },
+  {
+    slug: 'centro-veterinario-colchagua',
+    name: 'Centro Veterinario Colchagua',
+    rubro: 'Veterinaria a domicilio y clínica',
+    city: 'San Fernando',
+    tagline: 'Ruta de la visita: papel crema del valle, terracota y el «un 7» que repiten sus reseñas.',
+    gradient: 'linear-gradient(135deg, #1F2E1A 0%, #23301E 55%, #B8502F 160%)',
+  },
 ]
 
 export const metadata: Metadata = {

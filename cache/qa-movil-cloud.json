@@ -1,14 +1,6 @@
 {
-<<<<<<< HEAD
-  "base": "http://localhost:3010",
-  "fecha": "2026-09-28T05:26:29.873Z",
-||||||| parent of 9eb07b2b (demo: veterinaria-sos-rancagua — posta nocturna, boleta de farmacia y mural del local)
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T04:50:46.040Z",
-=======
-  "base": "http://localhost:4800",
-  "fecha": "2026-09-28T05:37:54.853Z",
->>>>>>> 9eb07b2b (demo: veterinaria-sos-rancagua — posta nocturna, boleta de farmacia y mural del local)
+  "fecha": "2026-09-28T05:54:04.538Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -20,69 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-<<<<<<< HEAD
-    "emporio-vintage-cafe": {
-      "url": "http://localhost:3010/demos/emporio-vintage-cafe/",
-||||||| parent of 9eb07b2b (demo: veterinaria-sos-rancagua — posta nocturna, boleta de farmacia y mural del local)
-    "automotriz-gomez": {
-      "url": "http://localhost:4800/demos/automotriz-gomez/",
-=======
-    "veterinaria-sos-rancagua": {
-      "url": "http://localhost:4800/demos/veterinaria-sos-rancagua/",
->>>>>>> 9eb07b2b (demo: veterinaria-sos-rancagua — posta nocturna, boleta de farmacia y mural del local)
+    "centro-veterinario-colchagua": {
+      "url": "http://localhost:4800/demos/centro-veterinario-colchagua/",
       "status": 200,
       "botones": [],
-<<<<<<< HEAD
-      "footerPx": 271,
-      "footerPct": 32.1,
-||||||| parent of 9eb07b2b (demo: veterinaria-sos-rancagua — posta nocturna, boleta de farmacia y mural del local)
-      "footerPx": 93,
-      "footerPct": 11,
-=======
-      "footerPx": 167,
-      "footerPct": 19.8,
->>>>>>> 9eb07b2b (demo: veterinaria-sos-rancagua — posta nocturna, boleta de farmacia y mural del local)
+      "footerPx": 137,
+      "footerPct": 16.2,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-<<<<<<< HEAD
-      "ms": 4368
-||||||| parent of 9eb07b2b (demo: veterinaria-sos-rancagua — posta nocturna, boleta de farmacia y mural del local)
-      "ms": 4126
-    },
-    "hospital-veterinario-talcahuano": {
-      "url": "http://localhost:4800/demos/hospital-veterinario-talcahuano/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 108,
-      "footerPct": 12.8,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4117
-    },
-    "s-j-full-car-service": {
-      "url": "http://localhost:4800/demos/s-j-full-car-service/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 92,
-      "footerPct": 10.9,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4135
-=======
-      "ms": 4106
->>>>>>> 9eb07b2b (demo: veterinaria-sos-rancagua — posta nocturna, boleta de farmacia y mural del local)
+      "ms": 4102
     }
   }
 }

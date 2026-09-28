@@ -319,6 +319,8 @@ const BLITZ_CREATED: Record<string, string> = {
   'automotriz-gomez': '2026-09-28',
   's-j-full-car-service': '2026-09-28',
   'hospital-veterinario-talcahuano': '2026-09-28',
+  'veterinaria-sos-rancagua': '2026-09-28',
+  'centro-veterinario-colchagua': '2026-09-28',
 }
 
 function familyFor(rubro: string) {
