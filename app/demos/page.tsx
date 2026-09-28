@@ -2159,6 +2159,30 @@ const BLITZ = [
     tagline: 'Pit stop del primer corte: bandera de carrera, rojo auto y Baloo de señalética infantil.',
     gradient: 'linear-gradient(135deg, #FFFCF2 0%, #FFE9A8 55%, #DE3B2B 140%)',
   },
+  {
+    slug: 'electronica-gafline',
+    name: 'Electrónica GafLine',
+    rubro: 'Accesorios y servicio técnico',
+    city: 'Molina',
+    tagline: 'La vitrina de Quechereguas: azul de su letrero, ticker con su lista real y muralla de accesorios.',
+    gradient: 'linear-gradient(135deg, #070A24 0%, #1824C9 60%, #FFD60A 150%)',
+  },
+  {
+    slug: 'jl-automotriz-talca',
+    name: 'JL Automotriz',
+    rubro: 'Taller mecánico y pintura',
+    city: 'Talca',
+    tagline: 'Cinta de enmascarar sobre grafito: diagnóstico honesto, pintura y horario extendido en la Quinta Norte.',
+    gradient: 'linear-gradient(135deg, #0E0E10 0%, #232327 55%, #FFB400 140%)',
+  },
+  {
+    slug: 'turbomoto-spa',
+    name: 'TurboMoto',
+    rubro: 'Repuestos y accesorios para motos',
+    city: 'Talca',
+    tagline: 'El estante de la Cuarta Norte: negro y amarillo de su letrero, catálogo real y envíos a todo Chile.',
+    gradient: 'linear-gradient(135deg, #0C0B09 0%, #161512 50%, #FFD21F 135%, #E0231B 165%)',
+  },
 ]
 
 export const metadata: Metadata = {
