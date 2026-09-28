@@ -2,17 +2,19 @@
  * app/demos/distribuidora-renato-molina/content.ts
  *
  * Datos del mockup. REALES (ficha pública y redes del negocio): nombre,
- * rubro, dirección, comuna, WhatsApp, Instagram (2.039 seguidores) y el
- * dato de que la ficha de Google aún no acumula reseñas. Todo lo demás
- * (categorías, textos y tabla de precios) es contenido de muestra; los
- * precios quedan como marcadores para que el negocio ponga sus valores.
- * Las fotos son referenciales.
+ * rubro (distribuidora de agua embotellada, bebidas y licores, según la
+ * bio de su Instagram), dirección, comuna, WhatsApp, Instagram
+ * (2.039 seguidores), horarios publicados en la bio y el dato de que la
+ * ficha de Google aún no acumula reseñas. Todo lo demás (categorías,
+ * textos y tabla de precios) es contenido de muestra; los precios
+ * quedan como marcadores para que el negocio ponga sus valores.
+ * Las fotos son reales: fachada en Google Maps e Instagram del local.
  */
 
 export const BIZ = {
   name: 'Distribuidora Renato Molina',
   short: 'Renato',
-  rubro: 'Mercado',
+  rubro: 'Distribuidora de bebidas',
   address: 'C. Membrillar 1585',
   postal: '3380978',
   city: 'Molina',
@@ -22,6 +24,7 @@ export const BIZ = {
   whatsapp: '56929668115',
   instagram: 'distribuidora.renato',
   instagramFollowers: '2.039',
+  hours: 'Lun–Mié 07:30–15:00 · Jue–Sáb 07:30–16:00',
 } as const
 
 const wa = (text: string) =>

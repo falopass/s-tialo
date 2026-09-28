@@ -45,8 +45,8 @@ const focusRing =
 
 export const metadata: Metadata = demoMetadata({
   slug: 'distribuidora-renato-molina',
-  title: 'Distribuidora Renato Molina — Mercado en Molina',
-  description: 'Distribuidora en C. Membrillar 1585, Molina. Plásticos, aseo y menaje para la casa y el negocio. Haz tu pedido por WhatsApp.',
+  title: 'Distribuidora Renato Molina — Bebidas y licores en Molina',
+  description: 'Distribuidora en C. Membrillar 1585, Molina. Agua embotellada, bebidas y licores para la casa y el negocio. Haz tu pedido por WhatsApp.',
   image: '/demos/distribuidora-renato-molina/hero.webp',
 })
 
@@ -62,24 +62,24 @@ const RUTA = ['Pedido', 'Preparación', 'Retiro']
 const ANDENES = [
   {
     n: '01',
-    title: 'Aseo',
-    text: 'Escobas, traperos, baldes, escobillas y paños por unidad o por bulto.',
-    src: `${IMG}/ambiente.webp`,
-    alt: 'Escobas, traperos y baldes de colores ordenados junto a estanterías metálicas',
+    title: 'Agua y bebidas',
+    text: 'Agua embotellada y bebidas de todo formato, por unidad o por caja.',
+    src: `${IMG}/detalle3.webp`,
+    alt: 'Bicicleta de exhibición frente a cajas de agua embotellada en el local',
   },
   {
     n: '02',
-    title: 'Cocina y menaje',
-    text: 'Ollas enlozadas, cucharones, potes herméticos y paños de cocina.',
+    title: 'Mascotas y la casa',
+    text: 'Alimento de mascotas, licores y lo que falte para la casa o la celebración.',
     src: `${IMG}/detalle2.webp`,
-    alt: 'Ollas enlozadas blancas, cucharones de acero y potes plásticos en un estante de madera',
+    alt: 'Productos del local sobre el mesón: alimento de mascotas y caja de bebidas',
   },
   {
     n: '03',
-    title: 'Orden y almacenaje',
-    text: 'Canastos, cajas organizadoras y contenedores para la casa o la bodega.',
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Mesón de madera con canastos organizadores grises y blancos apilados',
+    title: 'Bodega y despacho',
+    text: 'Todo lo que se publica sale de esta bodega: mandas la lista y te lo dejan listo.',
+    src: `${IMG}/ambiente.webp`,
+    alt: 'Interior de la bodega de la distribuidora con productos apilados',
   },
 ]
 
@@ -99,12 +99,11 @@ const VALORES = [
 ]
 
 const PRECIOS = [
-  { item: 'Balde plástico', unit: 'unidad' },
-  { item: 'Escoba', unit: 'unidad' },
-  { item: 'Trapero de algodón', unit: 'unidad' },
-  { item: 'Set de potes herméticos', unit: 'set' },
-  { item: 'Canasto organizador', unit: 'unidad' },
-  { item: 'Paños de cocina', unit: 'pack' },
+  { item: 'Agua embotellada', unit: 'botellón o sachet' },
+  { item: 'Bebidas', unit: 'unidad o caja' },
+  { item: 'Licores y vinos', unit: 'unidad' },
+  { item: 'Alimento de mascotas', unit: 'por kg o saco' },
+  { item: 'Promo de la semana', unit: 'la que esté en el Instagram' },
 ]
 
 function Arrow({ className = 'w-5 h-5' }: { className?: string }) {
@@ -135,6 +134,7 @@ export default function DistribuidoraRenatoMolina() {
       <style>{`html { scroll-behavior: auto }`}</style>
       <BlitzNav
         name={BIZ.name}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={`${display.className} font-extrabold tracking-tight`}
@@ -171,7 +171,7 @@ export default function DistribuidoraRenatoMolina() {
           <div className="mt-10 md:mt-14 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div>
               <p className="max-w-xl text-base md:text-lg leading-relaxed text-white/90">
-                Plásticos, aseo y menaje para la casa y el negocio en calle Membrillar. Mandas tu lista por
+                Agua embotellada, bebidas y licores en calle Membrillar. Mandas tu lista por
                 WhatsApp y la dejamos preparada para que pases a retirar.
               </p>
               <ol className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold" aria-label="Cómo funciona">
@@ -205,16 +205,17 @@ export default function DistribuidoraRenatoMolina() {
           <div className="max-w-6xl mx-auto pl-5 pr-20 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1 text-xs md:text-sm font-medium text-white/85">
             <span>{BIZ.address}, {BIZ.city}</span>
             <span>@{BIZ.instagram} · {BIZ.instagramFollowers} seguidores</span>
+            <span>{BIZ.hours}</span>
             <span>{BIZ.phoneDisplay}</span>
           </div>
         </div>
       </section>
 
       {/* ── Foto a sangre ─────────────────────────────────── */}
-      <section aria-label="Interior de la distribuidora" className="relative h-[62vh] md:h-[82vh]">
+      <section aria-label="Fachada de la distribuidora" className="relative h-[62vh] md:h-[82vh]">
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Pasillo con estanterías metálicas llenas de baldes, ollas, escobas y cajas organizadoras"
+          alt="Fachada de Distribuidora Renato en C. Membrillar 1585, Molina, con el letrero rojo"
           fill
           sizes="100vw"
           priority
@@ -223,7 +224,7 @@ export default function DistribuidoraRenatoMolina() {
         <div className="absolute left-0 bottom-0 flex items-stretch">
           <span className="w-3" style={{ backgroundColor: C.senal }} aria-hidden="true" />
           <p className={`${display.className} px-5 md:px-8 py-4 md:py-5 text-lg md:text-2xl font-bold text-white`} style={{ backgroundColor: C.gris }}>
-            Stock a la vista, pasillo por pasillo.
+            El local en Membrillar 1585, Molina.
           </p>
         </div>
       </section>
@@ -238,6 +239,7 @@ export default function DistribuidoraRenatoMolina() {
               </h2>
               <p className="max-w-sm text-base leading-relaxed" style={{ color: C.gris }}>
                 Tres andenes con lo que más se mueve. Si no lo ves acá, pregunta: probablemente está en bodega.
+                Fotos reales del local y de su Instagram.
               </p>
             </div>
           </Reveal>
@@ -263,7 +265,7 @@ export default function DistribuidoraRenatoMolina() {
               </Reveal>
             ))}
           </div>
-          <p className="mt-8 text-xs" style={{ color: C.gris }}>Categorías de muestra · fotos referenciales.</p>
+          <p className="mt-8 text-xs" style={{ color: C.gris }}>Categorías de muestra · fotos reales del local.</p>
         </div>
       </section>
 
@@ -273,7 +275,7 @@ export default function DistribuidoraRenatoMolina() {
           <div className="relative min-h-[320px] md:min-h-[640px]">
             <Image
               src={`${IMG}/detalle1.webp`}
-              alt="Fachada de un local con la cortina abierta y escobas y baldes a la entrada, en una calle con árboles"
+              alt="Otra vista de la fachada de Distribuidora Renato con banderas de bebidas en la entrada"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
@@ -288,8 +290,9 @@ export default function DistribuidoraRenatoMolina() {
                 Cumplir es la parte fácil cuando todo está a mano.
               </h2>
               <p className="mt-6 text-base md:text-lg leading-relaxed text-white/85 max-w-lg">
-                Una distribuidora de barrio en Molina: atiendes con la misma persona que arma tu pedido, preguntas
-                por WhatsApp y te dicen al tiro si hay.
+                Una distribuidora de barrio en Molina — agua embotellada, bebidas y licores según su propia
+                bio: atiendes con la misma persona que arma tu pedido, preguntas por WhatsApp y te dicen al
+                tiro si hay. Atención {BIZ.hours}.
               </p>
             </Reveal>
             <div className="mt-10 grid gap-px" style={{ backgroundColor: 'rgba(255,255,255,0.18)' }}>
@@ -418,6 +421,7 @@ export default function DistribuidoraRenatoMolina() {
                   <p className="text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: C.gris }}>Retiro en local</p>
                   <p className={`${display.className} mt-1 text-xl font-bold`}>{BIZ.address}</p>
                   <p className="text-[15px]" style={{ color: C.gris }}>{BIZ.postal} {BIZ.city}, Maule</p>
+                  <p className="text-[13px] mt-1" style={{ color: C.gris }}>{BIZ.hours}</p>
                 </address>
                 <a
                   href={MAPS_URL}
@@ -440,7 +444,7 @@ export default function DistribuidoraRenatoMolina() {
           <div>
             <p className={`${display.className} text-lg font-bold`}>{BIZ.name}</p>
             <p className="text-xs text-white/70">
-              Sitio de ejemplo de Sitiazo · Datos de contacto reales; categorías, textos y precios de muestra; fotos referenciales.
+              Sitio de ejemplo de Sitiazo · Datos de contacto reales; categorías, textos y precios de muestra; fotos reales de Google Maps e Instagram.
             </p>
           </div>
           <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex!">
