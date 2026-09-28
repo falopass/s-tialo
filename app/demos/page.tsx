@@ -1254,6 +1254,14 @@ const BLITZ = [
     tagline: 'Construcción y gasfitería en tierra y negro: servicios, urgencias y WhatsApp directo.',
     gradient: 'linear-gradient(135deg, #F6F2EA 0%, #1B1610 150%)',
   },
+  {
+    slug: 'gacitua-producciones-eventos-y-arrie',
+    name: 'Gacitúa Producciones y Eventos',
+    rubro: 'Banquetería, producción de eventos y arriendo de vajilla',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F7F3EA 0%, #211E17 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
