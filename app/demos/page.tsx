@@ -23,6 +23,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #EDF1F6 0%, #B7C9DC 55%, #1D4E89 140%)',
   },
   {
+    slug: 'taller-ferrasil',
+    name: 'Taller Ferrasil',
+    rubro: 'Taller mecánico',
+    city: 'Concepción',
+    tagline: 'Garaje de noche: carbón, amarillo seguridad y muro de reseñas reales.',
+    gradient: 'linear-gradient(135deg, #141518 0%, #2A2D33 55%, #F2C200 140%)',
+  },
+  {
     slug: 'clinica-veterinaria-zoovet',
     name: 'Clínica Veterinaria Zoovet',
     rubro: 'Clínica veterinaria',
