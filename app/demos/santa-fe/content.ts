@@ -31,3 +31,17 @@ export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encod
 export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
   'Ingeniería y Construcciones Santa Fe, 4 Norte 30, Talca, Chile',
 )}&output=embed`
+
+/** Reseñas reales publicadas en la ficha de Google Maps */
+export const RESENAS = [
+  {
+    texto: 'Muy buena onda.',
+    autor: 'Miguel Angel S.',
+    estrellas: 5,
+  },
+  {
+    texto: 'Porque es excelente.',
+    autor: 'Nicolás H.',
+    estrellas: 5,
+  },
+] as const

@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
+import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, RESENAS } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -151,8 +151,7 @@ export default function SantaFePage() {
       <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <img
           src={`${IMG}/hero.webp`}
-          alt=""
-          aria-hidden="true"
+          alt="Excavadora de Santa Fe trabajando en una faena en el Maule"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div
@@ -347,23 +346,23 @@ export default function SantaFePage() {
                 Lo que dicen los clientes
               </h2>
               <p className="text-sm mt-2 mb-2" style={{ color: C.muted }}>
-                Textos de muestra: al publicar van las reseñas reales.
+                Reseñas reales publicadas en su ficha de Google.
               </p>
             </Reveal>
-            {[
-              'Cotización clara desde el primer día y la obra avanzó según lo pactado. Se nota la seriedad.',
-              'Dejaron el terreno nivelado y listo para construir, dentro del plazo acordado.',
-            ].map((t, i) => (
-              <Reveal key={i} delay={200 + i * 120}>
+            {RESENAS.map((r, i) => (
+              <Reveal key={r.autor} delay={200 + i * 120}>
                 <figure
                   className="p-6 md:p-7 border"
                   style={{ backgroundColor: C.card, borderColor: C.line }}
                 >
+                  <div className="mb-3">
+                    <Stars value={r.estrellas} color={C.orange} />
+                  </div>
                   <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.graphite }}>
-                    “{t}”
+                    “{r.texto}”
                   </blockquote>
                   <figcaption className="text-xs uppercase tracking-[0.18em] font-semibold" style={{ color: C.orangeInk }}>
-                    Reseña de ejemplo
+                    {r.autor} · reseña de Google
                   </figcaption>
                 </figure>
               </Reveal>
@@ -460,14 +459,14 @@ export default function SantaFePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 py-4 transition-transform active:scale-95 tap-44`}
+                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 h-[52px] inline-flex items-center justify-center transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.deep, color: '#fff' }}
               >
                 Cotiza tu proyecto
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 py-3 md:py-4 border-2 transition-colors tap-44`}
+                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 h-[50px] inline-flex items-center justify-center border-2 transition-colors tap-44`}
                 style={{ borderColor: C.deep, color: C.deep }}
               >
                 {BIZ.phoneDisplay}
@@ -479,12 +478,12 @@ export default function SantaFePage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.deep, color: '#EDEFF1' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 md:py-10 flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-6">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-7 md:py-10 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6">
           <div>
-            <span className="inline-block px-4 py-2 mb-3" style={{ backgroundColor: C.paper }}>
-              <img src={`${IMG}/logo.webp`} alt="Santa Fe S.A. — Ingeniería y Construcciones" className="h-10 w-auto" />
+            <span className="inline-block px-3 py-1.5 mb-2" style={{ backgroundColor: C.paper }}>
+              <img src={`${IMG}/logo.webp`} alt="Santa Fe S.A. — Ingeniería y Construcciones" className="h-8 w-auto" />
             </span>
-            <p className={`${display.className} uppercase font-semibold text-2xl mb-2`}>{BIZ.name}</p>
+            <p className={`${display.className} uppercase font-semibold text-xl mb-1`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,239,241,0.72)' }}>
               {BIZ.address} · {BIZ.region}
               {' · '}
@@ -499,7 +498,7 @@ export default function SantaFePage() {
         </div>
         {/* Aviso de mockup en el flujo (no flotante) para no tapar contenido; pb deja libre la burbuja de WhatsApp */}
         <div style={{ borderTop: '1px solid rgba(237,239,241,0.15)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(237,239,241,0.75)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-3 pb-4 text-xs leading-relaxed" style={{ color: 'rgba(237,239,241,0.75)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#fff' }}>
               Sitiazo
