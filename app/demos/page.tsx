@@ -1718,6 +1718,14 @@ const BLITZ = [
     tagline: 'La celosía del pasillo de macetas: papel crema, verde hoja y coral de las gerberas.',
     gradient: 'linear-gradient(135deg, #F6F1E4 0%, #1E4A2C 70%, #D9573F 140%)',
   },
+  {
+    slug: 'topomaule',
+    name: 'Topomaule — Soluciones Topográficas',
+    rubro: 'Topografía y fotogrametría',
+    city: 'Talca',
+    tagline: 'Plano de replanteo: papel topográfico, coordenadas, cartela y fotos aéreas reales.',
+    gradient: 'linear-gradient(135deg, #1A2620 0%, #2E5A3C 55%, #E8960F 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
