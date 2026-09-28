@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T05:54:04.538Z",
+  "fecha": "2026-09-28T06:30:38.567Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "centro-veterinario-colchagua": {
-      "url": "http://localhost:4800/demos/centro-veterinario-colchagua/",
+    "swissvet-talcahuano": {
+      "url": "http://localhost:4800/demos/swissvet-talcahuano/",
       "status": 200,
       "botones": [],
-      "footerPx": 137,
-      "footerPct": 16.2,
+      "footerPx": 184,
+      "footerPct": 21.8,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4102
+      "ms": 4109
     }
   }
 }

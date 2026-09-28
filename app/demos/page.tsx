@@ -1142,6 +1142,14 @@ const BLITZ = [
     tagline: 'Plano de obra en ciruela: registro numerado de torres reales y una columna de pisos que se apilan.',
     gradient: 'linear-gradient(135deg, #13091F 0%, #1B0F2B 55%, #C77DFF 140%)',
   },
+  {
+    slug: 'swissvet-talcahuano',
+    name: 'SwissVet Talcahuano',
+    rubro: 'Veterinaria y peluquería',
+    city: 'Talcahuano',
+    tagline: 'Ficha clínica suiza: papel crema, rojo del letrero y trama de cruces-pata con pacientes reales.',
+    gradient: 'linear-gradient(135deg, #FAF5EA 0%, #F3E7D2 55%, #DE2B1F 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
