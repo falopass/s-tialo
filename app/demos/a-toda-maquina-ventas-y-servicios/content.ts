@@ -11,7 +11,7 @@ export const BIZ = {
   name: 'A Toda Maquina Ventas y Servicios',
   short: 'A Toda Maquina',
   rubro: 'Tienda de máquinas de coser',
-  address: 'Unnamed Road, Linares',
+  address: 'Alfarfares 808',
   city: 'Linares',
   region: 'Región del Maule',
   phoneDisplay: '+56 9 8204 7466',

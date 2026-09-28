@@ -54,14 +54,14 @@ export default function LaPicaDelMateoPage() {
   return (
     <div className={`${body.className} bg-[#EEF3F6] text-[#123547] antialiased`}>
       {/* ── Hero a sangre ── */}
-      <header className="relative min-h-[100svh] overflow-hidden bg-[#123547]">
+      <header id="inicio" className="relative min-h-[100svh] overflow-hidden bg-[#123547]">
         <Image src={`${IMG}/hero.webp`} alt="" fill priority sizes="100vw" className="object-cover" />
         <div
           className="absolute inset-0"
           style={{ background: `linear-gradient(180deg, ${C.deep}cc 0%, ${C.deep}55 40%, ${C.deep}f2 100%)` }}
         />
         <nav className="relative z-10 max-w-[1200px] mx-auto px-5 md:px-8 pt-6 flex items-center justify-between gap-4" aria-label="Principal">
-          <a href="#" className={`${display.className} text-white text-sm md:text-base font-bold tracking-tight rounded-sm ${FOCUS}`}>
+          <a href="#inicio" className={`${display.className} text-white text-sm md:text-base font-bold tracking-tight rounded-sm ${FOCUS}`}>
             La Pica <span className="text-[#3CC4DC]">del Mateo</span>
           </a>
           <ul className="hidden md:flex gap-7 text-sm text-white/80">
