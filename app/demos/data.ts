@@ -134,6 +134,7 @@ export interface Demo {
   slug: string
   name: string
   rubro: string
+  created: string
   city: string
   tagline: string
   intro: string
@@ -161,6 +162,7 @@ export const DEMOS: Demo[] = [
     slug: 'escuela-vial-maule',
     name: 'Escuela Vial Maule',
     rubro: 'Escuela de conductores',
+    created: '2026-09-25',
     city: 'Talca',
     tagline: 'Aprende a manejar con calma, paso a paso y sin sustos.',
     intro:
@@ -335,6 +337,7 @@ export const DEMOS: Demo[] = [
     slug: 'vetsur',
     name: 'VetSur',
     rubro: 'Clínica veterinaria',
+    created: '2026-09-25',
     city: 'Talca',
     tagline: 'Tu mascota en buenas manos, de día y de noche.',
     intro:
@@ -499,6 +502,7 @@ export const DEMOS: Demo[] = [
     slug: 'vivero-los-aromos',
     name: 'Vivero Los Aromos',
     rubro: 'Vivero y plantas',
+    created: '2026-09-25',
     city: 'Talca',
     tagline: 'Plantas sanas, de temporada y con consejo incluido.',
     intro:
@@ -634,6 +638,7 @@ export const DEMOS: Demo[] = [
     slug: 'optica-central',
     name: 'Óptica Central',
     rubro: 'Óptica',
+    created: '2026-09-25',
     city: 'Curicó',
     tagline: 'Ver bien no tiene por qué costar un ojo de la cara.',
     intro:
@@ -797,6 +802,7 @@ export const DEMOS: Demo[] = [
     slug: 'cabanas-rio-claro',
     name: 'Cabañas Río Claro',
     rubro: 'Cabañas y turismo',
+    created: '2026-09-25',
     city: 'San Clemente',
     tagline: 'Desconecta junto al río, entre pinos y cielo abierto.',
     intro:
@@ -949,6 +955,7 @@ export const DEMOS: Demo[] = [
     slug: 'ferreteria-el-martillo',
     name: 'Ferretería El Martillo',
     rubro: 'Ferretería',
+    created: '2026-09-25',
     city: 'Molina',
     tagline: 'Todo para la construcción, el campo y la casa.',
     intro:
@@ -1101,6 +1108,7 @@ export const DEMOS: Demo[] = [
     slug: 'dental-norte',
     name: 'Dental Norte',
     rubro: 'Clínica dental',
+    created: '2026-09-25',
     city: 'Talca',
     tagline: 'Odontología moderna, amable y con presupuesto claro.',
     intro:
@@ -1241,6 +1249,7 @@ export const DEMOS: Demo[] = [
     slug: 'servitec-maule',
     name: 'Servitec Maule',
     rubro: 'Gasfitería y técnico SEC',
+    created: '2026-09-25',
     city: 'Talca',
     tagline: 'Gasfiter certificado SEC. Urgencias el mismo día.',
     intro:
@@ -1409,6 +1418,7 @@ export const DEMOS: Demo[] = [
     slug: 'agencia-cumbre',
     name: 'Agencia Cumbre',
     rubro: 'Agencia de publicidad',
+    created: '2026-09-25',
     city: 'Talca',
     tagline: 'Ideas que se ven. Publicidad y diseño para marcas del Maule.',
     intro:
@@ -1594,6 +1604,7 @@ export const DEMOS: Demo[] = [
     slug: 'estudio-contable-munoz',
     name: 'Estudio Contable Muñoz',
     rubro: 'Contador auditor',
+    created: '2026-09-25',
     city: 'Curicó',
     tagline: 'Tu contabilidad al día y cero sustos con el SII.',
     intro:
@@ -1785,6 +1796,7 @@ export const DEMOS: Demo[] = [
     slug: 'gruas-ruta-5',
     name: 'Grúas Ruta 5',
     rubro: 'Grúas y transporte',
+    created: '2026-09-25',
     city: 'Talca',
     tagline: 'Grúa 24/7 en la Ruta 5 y la región del Maule.',
     intro:
@@ -1969,6 +1981,7 @@ export const DEMOS: Demo[] = [
     slug: 'mg-publicidad',
     name: 'MG Publicidad',
     rubro: 'Agencia de publicidad',
+    created: '2026-09-25',
     city: 'Talca',
     tagline: 'Publicidad que se nota. Marca, campañas y contenido para pymes del Maule.',
     intro:
@@ -2119,6 +2132,7 @@ export const DEMOS: Demo[] = [
     slug: 'mym-taller',
     name: 'MyM Taller mecánico',
     rubro: 'Taller mecánico',
+    created: '2026-09-25',
     city: 'Talca',
     tagline: 'Mecánica general en Talca y servicio a domicilio.',
     intro:
@@ -2277,6 +2291,7 @@ export const DEMOS: Demo[] = [
     slug: 'pannton',
     name: 'Pannton',
     rubro: 'Arquitectura y Soluciones Gráficas',
+    created: '2026-09-25',
     city: 'Talca',
     tagline: 'Del archivo al papel: impresión con oficio.',
     intro:
@@ -2485,6 +2500,7 @@ export const DEMOS: Demo[] = [
     slug: 'family-gym',
     name: 'Family Gym',
     rubro: 'Gimnasio',
+    created: '2026-09-26',
     city: 'Talca',
     tagline: 'Entrena fuerte, cerca de casa. Planes desde un mes.',
     intro:

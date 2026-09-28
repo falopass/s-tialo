@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE, whatsappLink } from '@/lib/config'
 import { DEMOS } from './data'
-import { Motif, headingFont } from './kit'
+import DemoCatalog from './catalog'
 
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
@@ -920,13 +920,6 @@ const BLITZ = [
   },
 ]
 
-const DEMOS_ORDENADOS = [...DEMOS].sort((a, b) =>
-  a.rubro.localeCompare(b.rubro, 'es'),
-)
-const BLITZ_ORDENADOS = [...BLITZ].sort((a, b) =>
-  a.rubro.localeCompare(b.rubro, 'es'),
-)
-
 export const metadata: Metadata = {
   title: 'Demos por rubro — ejemplos de sitios para pymes',
   description:
@@ -960,125 +953,7 @@ export default function DemosIndex() {
           </p>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {DEMOS_ORDENADOS.map((d) => (
-            <li key={d.slug}>
-              <Link
-                href={`/demos/${d.slug}`}
-                className="group block border border-divider bg-white overflow-hidden h-full transition-shadow hover:shadow-md focus-visible:shadow-md"
-              >
-                <div
-                  className="relative h-[112px] flex items-end p-4"
-                  style={{
-                    background: `linear-gradient(135deg, ${d.theme.accent} 0%, ${d.theme.soft} 140%)`,
-                  }}
-                >
-                  <Motif
-                    motif={d.motif}
-                    className="absolute top-3 right-3 w-[40px] opacity-30"
-                  />
-                  <span
-                    className={`${headingFont(d.theme)} text-lg leading-tight drop-shadow-sm`}
-                    style={{ color: '#fff' }}
-                  >
-                    {d.name}
-                  </span>
-                </div>
-                <div className="p-4">
-                  <p className="font-mono text-[10px] uppercase tracking-ui text-ink-muted mb-1">
-                    {d.rubro} · {d.city}
-                  </p>
-                  <p className="text-body-sm text-ink-muted leading-snug mb-3">
-                    {d.tagline}
-                  </p>
-                  <span className="font-body text-body-sm font-medium text-ink underline decoration-yellow decoration-2 underline-offset-4">
-                    Ver demo →
-                  </span>
-                </div>
-              </Link>
-            </li>
-          ))}
-          <li>
-            <Link
-              href="/demos/cabanas-la-quebrada"
-              className="group block border border-divider bg-white overflow-hidden h-full transition-shadow hover:shadow-md focus-visible:shadow-md"
-            >
-              <div
-                className="relative h-[112px] flex items-end p-4"
-                style={{
-                  background:
-                    'linear-gradient(135deg, #0E241B 0%, #173A2B 55%, #C4704B 140%)',
-                }}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="absolute top-3 right-3 w-[40px] opacity-30"
-                  fill="none"
-                  stroke="#FAF7F0"
-                  strokeWidth="1.4"
-                  aria-hidden="true"
-                >
-                  <path d="M3 19 L9 7 L13 14 L16 9 L21 19 Z" />
-                  <circle cx="17.5" cy="5" r="1.8" />
-                </svg>
-                <span className="font-display font-bold tracking-display text-lg leading-tight text-[#FAF7F0] drop-shadow-sm">
-                  Cabañas La Quebrada
-                </span>
-              </div>
-              <div className="p-4">
-                <p className="font-mono text-[10px] uppercase tracking-ui text-ink-muted mb-1">
-                  Cabañas · Talca · lead real
-                </p>
-                <p className="text-body-sm text-ink-muted leading-snug mb-3">
-                  Mockup premium con identidad propia: refugio natural del Maule.
-                </p>
-                <span className="font-body text-body-sm font-medium text-ink underline decoration-yellow decoration-2 underline-offset-4">
-                  Ver demo →
-                </span>
-              </div>
-            </Link>
-          </li>
-        </ul>
-
-        <div className="mt-16">
-          <h2 className="font-display text-2xl md:text-3xl font-bold leading-display tracking-display mb-2">
-            Mockups para leads reales
-          </h2>
-          <p className="text-body-sm text-ink-muted leading-snug mb-6 max-w-xl">
-            Muestras personalizadas con identidad propia, armadas solo con
-            datos públicos de cada ficha de Google.
-          </p>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {BLITZ_ORDENADOS.map((d) => (
-              <li key={d.slug}>
-                <Link
-                  href={`/demos/${d.slug}`}
-                  className="group block border border-divider bg-white overflow-hidden h-full transition-shadow hover:shadow-md focus-visible:shadow-md"
-                >
-                  <div
-                    className="relative h-[112px] flex items-end p-4"
-                    style={{ background: d.gradient }}
-                  >
-                    <span className="font-display font-bold tracking-display text-lg leading-tight text-white drop-shadow-sm">
-                      {d.name}
-                    </span>
-                  </div>
-                  <div className="p-4">
-                    <p className="font-mono text-[10px] uppercase tracking-ui text-ink-muted mb-1">
-                      {d.rubro} · {d.city} · lead real
-                    </p>
-                    <p className="text-body-sm text-ink-muted leading-snug mb-3">
-                      {d.tagline}
-                    </p>
-                    <span className="font-body text-body-sm font-medium text-ink underline decoration-yellow decoration-2 underline-offset-4">
-                      Ver demo →
-                    </span>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <DemoCatalog demos={DEMOS} blitz={BLITZ} />
 
         <div className="mt-16 pt-8 border-t border-divider flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
           <p className="text-body-sm text-ink-muted">
