@@ -750,6 +750,22 @@ const BLITZ = [
     tagline: 'Taller directo: grafito, amarillo de seguridad y escenas automotrices en SVG.',
     gradient: 'linear-gradient(135deg, #17191B 0%, #586166 55%, #F0B323 140%)',
   },
+  {
+    slug: 'centro-oftalmologico-nacional',
+    name: 'Centro Oftalmológico Nacional',
+    rubro: 'Oftalmólogo y óptica',
+    city: 'Talca',
+    tagline: 'Hero tipográfico con optotipo: azul profundo, cian y blanco clínico, vitrina de armazones con fotos reales.',
+    gradient: 'linear-gradient(135deg, #0B2740 0%, #123A5C 55%, #4FB7D9 140%)',
+  },
+  {
+    slug: 'luxe-gym-talca',
+    name: 'Luxe Gym',
+    rubro: 'Gimnasio',
+    city: 'Talca',
+    tagline: 'Premium oscuro: carbón y dorado champagne, foto a sangre y reseñas 5.0 con fotos reales.',
+    gradient: 'linear-gradient(135deg, #0D0D10 0%, #26262C 55%, #C6A35C 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
