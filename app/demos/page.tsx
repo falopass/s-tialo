@@ -143,6 +143,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #1C1F22 0%, #00A6C4 140%)',
   },
   {
+    slug: 'lubricentro-y-repuestos-san-martin',
+    name: 'Lubricentro y repuestos San Martín',
+    rubro: 'Lubricentro y repuestos',
+    city: 'Molina',
+    tagline: 'Identidad de taller: grafito, hueso y amarillo aceite.',
+    gradient: 'linear-gradient(135deg, #191D1F 0%, #586064 55%, #F2AE38 140%)',
+  },
+  {
     slug: 'salon-de-belleza-gabriela-saavedra-talca',
     name: 'Salón de Belleza Gabriela Saavedra',
     rubro: 'Centro de estética',
