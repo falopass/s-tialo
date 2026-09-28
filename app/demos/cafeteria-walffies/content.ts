@@ -3,11 +3,11 @@
  *
  * Datos del mockup. REALES (verificados en Google Maps e Instagram):
  * nombre, dirección (Clodomiro Silva 66, San Clemente), WhatsApp
- * (+56 9 5471 0210), horario (de la bio de Instagram), rating 5,0 con
- * 58 reseñas e Instagram @walffies (648 seguidores). Los productos vienen
- * de sus historias destacadas (waffles, fondue, hot chocolate, pasteles,
- * cafetería, extras) y de las fotos reales de la ficha. Las reseñas y
- * precios de la página son de muestra.
+ * (+56 9 5471 0210), horario (de la ficha de Google Maps), rating 5,0
+ * con 58 reseñas e Instagram @walffies (648 seguidores). Los productos
+ * vienen de sus historias destacadas (waffles, fondue, hot chocolate,
+ * pasteles, cafetería, extras), las reseñas citadas son reales de
+ * Google y los textos descriptivos son de muestra.
  */
 
 export const BIZ = {

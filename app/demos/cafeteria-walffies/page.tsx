@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
+import { DemoBand } from '../kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_PEDIDO, IG_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
@@ -48,20 +49,20 @@ const NAV_LINKS = [
 ]
 
 const HORARIO = [
-  { dia: 'Lunes a viernes', hora: '10:45 – 20:00' },
+  { dia: 'Lunes a viernes', hora: '11:00 – 20:00' },
   { dia: 'Sábado', hora: '12:45 – 19:00' },
   { dia: 'Domingo', hora: 'Cerrado' },
 ]
 
 const CARTA = [
   {
-    src: `${IMG}/detalle1.webp`,
+    src: `${IMG}/waffle-frutas.webp`,
     name: 'Waffles y crepes',
     desc: 'El que da nombre a la casa: waffle con Nutella, frutillas, manjar o crema. Dulce, recién hecho y para llevar si quieres.',
     tag: 'La especialidad',
   },
   {
-    src: `${IMG}/detalle2.webp`,
+    src: `${IMG}/espresso.webp`,
     name: 'Cafés y mocaccinos',
     desc: 'Espresso, capuchino y mocaccino con arte latte: el café de acompañamiento para el waffle o para el break de la tarde.',
     tag: 'Cafetería',
@@ -73,6 +74,18 @@ const CARTA = [
     tag: 'Para compartir',
   },
   {
+    src: `${IMG}/taza.webp`,
+    name: 'Café de grano',
+    desc: '«El mejor café de grano de Sancle», dicen en sus reseñas: la taza verde de la casa, para quedarse o para llevar.',
+    tag: 'El que más repiten',
+  },
+  {
+    src: `${IMG}/detalle1.webp`,
+    name: 'Waffles y detalles',
+    desc: 'El waffle de siempre con sus toppings: fruta, salsa y helado según la temporada y lo que anuncian en historias.',
+    tag: 'Clásicos',
+  },
+  {
     src: `${IMG}/hero.webp`,
     name: 'Hot chocolate y más',
     desc: 'Chocolate caliente, pasteles, tortas y bebidas frías: la carta crece por temporada y se anuncia en sus historias.',
@@ -81,16 +94,28 @@ const CARTA = [
 ]
 
 const VALORAN = [
-  'Los waffles, sin discusión',
-  'El hot chocolate',
-  'La variedad de la carta',
-  'La música y el ambiente',
+  'El café de grano',
+  'Los waffles',
+  'La atención amable',
+  'Los precios justos',
 ]
 
+/** Reseñas reales de su ficha de Google (5,0 · 58 reseñas). */
 const TESTIMONIALS = [
-  'El mejor waffle que he probado en la zona, y el mocaccino lo mismo. El local es chico pero muy acogedor.',
-  'Fui por el hot chocolate y volví por el fondue. Atención de diez y precios justos.',
-  '5 estrellas merecidas: todo recién hecho y el lugar tiene buena onda. Recomendado para la once.',
+  {
+    nombre: 'Lucia Quiteros',
+    texto:
+      'Todo delicioso, variedad de productos, café de grano, ideal para disfrutar con amigos o una cita.',
+  },
+  {
+    nombre: 'Francisca',
+    texto:
+      'En simples palabras INCREÍBLE, desde la atención hasta su comida: volvería nuevamente sin pensarlo.',
+  },
+  {
+    nombre: 'Peter Abarzua',
+    texto: 'El mejor café de grano de Sancle.',
+  },
 ]
 
 // ── Piezas de la vitrina ─────────────────────────────────────
@@ -181,6 +206,7 @@ export default function CafeteriaWalffiesPage() {
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
+        logoSrc={`${IMG}/logo.webp`}
         theme={{
           over: 'dark',
           bar: 'rgba(251,242,228,0.95)',
@@ -285,7 +311,7 @@ export default function CafeteriaWalffiesPage() {
             </p>
           </div>
         </Reveal>
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-5">
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-5">
           {CARTA.map((p, i) => (
             <li
               key={p.name}
@@ -329,6 +355,18 @@ export default function CafeteriaWalffiesPage() {
                     alt="Fachada nocturna de Cafetería Walffies en Clodomiro Silva, San Clemente"
                     fill
                     sizes="(min-width: 1024px) 50vw, calc(100vw - 2.5rem)"
+                    className="object-cover"
+                  />
+                </div>
+                <div
+                  className="absolute -bottom-6 -left-3 md:-left-5 w-32 md:w-40 overflow-hidden rounded-2xl aspect-square"
+                  style={{ rotate: '-4deg', boxShadow: '0 12px 30px rgba(33,18,8,0.25)', border: '4px solid #FDF8EE' }}
+                >
+                  <Image
+                    src={`${IMG}/vitrina.webp`}
+                    alt="La vitrina con pasteles y dulces dentro de Walffies"
+                    fill
+                    sizes="160px"
                     className="object-cover"
                   />
                 </div>
@@ -397,16 +435,17 @@ export default function CafeteriaWalffiesPage() {
           </Reveal>
           <div className="grid gap-5">
             {TESTIMONIALS.map((t, i) => (
-              <Reveal key={i} delay={i * 110}>
+              <Reveal key={t.nombre} delay={i * 110}>
                 <figure
                   className="rounded-[22px] p-5 md:p-6"
                   style={{ backgroundColor: '#FDF8EE', rotate: i === 1 ? '0.5deg' : '-0.5deg', boxShadow: '0 3px 14px rgba(33,18,8,0.08)' }}
                 >
+                  <Stars value={5} color={C.waffle} className="w-3.5 h-3.5 mb-3" />
                   <blockquote className="text-[15px] md:text-base leading-relaxed mb-4" style={{ color: C.ink }}>
-                    “{t}”
+                    “{t.texto}”
                   </blockquote>
                   <figcaption className="text-[10px] uppercase tracking-[0.2em] font-extrabold" style={{ color: C.naranjo }}>
-                    Reseña de muestra · al publicar van las reales
+                    {t.nombre} · Reseña de Google
                   </figcaption>
                 </figure>
               </Reveal>
@@ -538,10 +577,13 @@ export default function CafeteriaWalffiesPage() {
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,242,228,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(251,242,228,0.7)' }}>
-            Fotos reales de la ficha de Google y su Instagram; los textos,
-            precios y reseñas de la página son de muestra. WhatsApp,
-            dirección, horario e Instagram son los reales.
+            Fotos y reseñas reales de la ficha de Google y su Instagram;
+            los textos son de muestra. WhatsApp, dirección, horario e
+            Instagram son los reales.
           </p>
+        </div>
+        <div className="px-5 pt-1 pb-6 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+          <DemoBand name={BIZ.name} />
         </div>
       </footer>
 
