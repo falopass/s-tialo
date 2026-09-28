@@ -177,14 +177,14 @@ export default function TriadentPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.accentDeep, color: '#fff' }}
               >
                 Agenda por WhatsApp
               </a>
               <a
                 href="#tratamientos"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(15,59,87,0.3)', color: C.ink }}
               >
                 Ver tratamientos
@@ -221,7 +221,7 @@ export default function TriadentPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center font-semibold text-sm px-6 py-3.5 rounded-full transition-transform active:scale-95 mb-5"
+                className="block text-center font-semibold text-sm px-6 py-3.5 rounded-full transition-transform active:scale-95 mb-5 tap-44"
                 style={{ backgroundColor: C.ink, color: '#fff' }}
               >
                 Escribir ahora
@@ -347,7 +347,7 @@ export default function TriadentPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2"
+                  className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                   style={{ color: C.accentDeep, textDecorationColor: 'rgba(18,126,113,0.4)' }}
                 >
                   Ver la ficha en Google →
@@ -416,7 +416,7 @@ export default function TriadentPage() {
             </address>
             <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
               Teléfono:{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4" style={{ color: C.ink }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.ink }}>
                 {BIZ.phoneDisplay}
               </a>
             </p>
@@ -425,7 +425,7 @@ export default function TriadentPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.ink, color: '#fff' }}
               >
                 Cómo llegar →
@@ -434,7 +434,7 @@ export default function TriadentPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors"
+                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44"
                 style={{ borderColor: C.line, color: C.ink }}
               >
                 Escribir por WhatsApp
@@ -474,14 +474,14 @@ export default function TriadentPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-8 py-4 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-8 py-4 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.accentDeep, color: '#fff' }}
               >
                 Agenda por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-3 md:py-4 rounded-full border transition-colors"
+                className="font-semibold text-sm px-8 py-3 md:py-4 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(15,59,87,0.3)', color: C.ink }}
               >
                 {BIZ.phoneDisplay}
@@ -499,7 +499,7 @@ export default function TriadentPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
               {BIZ.address} · {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -512,11 +512,11 @@ export default function TriadentPage() {
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#fff' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}, así se vería tu sitio.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#fff' }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

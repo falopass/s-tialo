@@ -123,14 +123,14 @@ function Sidebar() {
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="block text-center font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-200 hover:brightness-[1.05] hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="block text-center font-semibold text-sm px-6 py-3.5 rounded-full transition-all duration-200 hover:brightness-[1.05] hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
           style={{ backgroundColor: '#FBF7EF', color: C.deep }}
         >
           Escribir por WhatsApp
         </a>
         <a
           href={`tel:${BIZ.phoneTel}`}
-          className="block text-center text-sm mt-3 underline underline-offset-4 decoration-2 transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="block text-center text-sm mt-3 underline underline-offset-4 decoration-2 transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
           style={{ color: '#FBF7EF', textDecorationColor: 'rgba(251,247,239,0.45)' }}
         >
           {BIZ.phoneDisplay}
@@ -179,7 +179,7 @@ function Sidebar() {
           href={MAPS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block text-sm font-semibold underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="inline-block text-sm font-semibold underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
           style={{ color: C.field, textDecorationColor: 'rgba(76,107,60,0.35)' }}
         >
           Cómo llegar →
@@ -199,7 +199,7 @@ function Sidebar() {
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2"
+            className="underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
             style={{ color: C.field, textDecorationColor: 'rgba(76,107,60,0.35)' }}
           >
             Google Maps
@@ -208,7 +208,7 @@ function Sidebar() {
             href={BIZ.facebook}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2"
+            className="underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
             style={{ color: C.field, textDecorationColor: 'rgba(76,107,60,0.35)' }}
           >
             Facebook · {BIZ.facebookFollowers} seguidores
@@ -265,7 +265,7 @@ export default function MiaCentroDeEsteticaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 hover:bg-white hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-all duration-200 hover:bg-white hover:-translate-y-px active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
               style={{ backgroundColor: 'rgba(251,247,239,0.94)', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.earth} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -400,7 +400,7 @@ export default function MiaCentroDeEsteticaPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block text-sm font-semibold underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2"
+                    className="inline-block text-sm font-semibold underline underline-offset-4 decoration-2 transition-all hover:underline-offset-8 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
                     style={{ color: C.field, textDecorationColor: 'rgba(76,107,60,0.35)' }}
                   >
                     Ver la ficha en Google →
@@ -537,9 +537,9 @@ export default function MiaCentroDeEsteticaPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.85)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
               {' · '}
-              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2">
+              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 tap-44">
                 Facebook
               </a>
             </address>
@@ -548,11 +548,11 @@ export default function MiaCentroDeEsteticaPage() {
         <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.8)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2" style={{ color: '#FBF7EF' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44" style={{ color: '#FBF7EF' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Servicios, precios, horarios y reseñas citadas son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2" style={{ color: C.earthSoft }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44" style={{ color: C.earthSoft }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

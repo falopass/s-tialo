@@ -162,7 +162,7 @@ function SitiazoStrip() {
             href={SITE.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline underline-offset-2 hover:text-yellow"
+            className="font-semibold underline underline-offset-2 hover:text-yellow tap-44"
           >
             Sitiazo
           </a>{' '}
@@ -171,7 +171,7 @@ function SitiazoStrip() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline underline-offset-2 hover:text-yellow"
+            className="font-semibold underline underline-offset-2 hover:text-yellow tap-44"
           >
             ¿Lo hacemos realidad?
           </a>
@@ -342,7 +342,7 @@ export default function BarberiaRulosStylePage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(237,230,218,0.95)', color: C.ink }}
             >
               <IconStar className="w-[15px] h-[15px]" color={C.orange} />
@@ -371,14 +371,14 @@ export default function BarberiaRulosStylePage() {
                 href={WA_LINK_HORA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.orangeDark, color: '#FFFFFF' }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(237,230,218,0.55)', color: '#EDE6DA' }}
               >
                 Ver servicios y precios
@@ -391,7 +391,7 @@ export default function BarberiaRulosStylePage() {
           <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-24 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(237,230,218,0.9)' }}>
             <span>Av. Rauquén 1967 · Curicó</span>
             <span>Corte · barba · afeitado</span>
-            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
               Instagram {BIZ.instagramHandle}
             </a>
             <span className="hidden md:inline" style={{ color: C.orangeLite }}>sitio de ejemplo</span>
@@ -442,7 +442,7 @@ export default function BarberiaRulosStylePage() {
                 </p>
                 <a
                   href="#ubicacion"
-                  className={`${display.className} self-start mt-5 text-sm font-semibold underline underline-offset-4 decoration-2`}
+                  className={`${display.className} self-start mt-5 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44`}
                   style={{ color: C.orangeLite, textDecorationColor: 'rgba(244,169,142,0.5)' }}
                 >
                   Ver ubicación y horarios →
@@ -565,7 +565,7 @@ export default function BarberiaRulosStylePage() {
                       href={waServicio(s.wa)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`${display.className} self-start text-sm font-semibold underline underline-offset-4 decoration-2`}
+                      className={`${display.className} self-start text-sm font-semibold underline underline-offset-4 decoration-2 tap-44`}
                       style={{ color: C.orangeLite, textDecorationColor: 'rgba(244,169,142,0.5)' }}
                     >
                       Agendar por WhatsApp →
@@ -594,7 +594,7 @@ export default function BarberiaRulosStylePage() {
                     href={waServicio(s.wa)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} mt-auto text-sm font-semibold underline underline-offset-4 decoration-2`}
+                    className={`${display.className} mt-auto text-sm font-semibold underline underline-offset-4 decoration-2 tap-44`}
                     style={{ color: C.orangeDark, textDecorationColor: 'rgba(185,58,23,0.35)' }}
                   >
                     Agendar por WhatsApp →
@@ -628,7 +628,7 @@ export default function BarberiaRulosStylePage() {
                   href={waServicio('corte y barba')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} shrink-0 text-sm md:text-base font-semibold px-6 py-3 rounded-full transition-transform active:scale-95`}
+                  className={`${display.className} shrink-0 text-sm md:text-base font-semibold px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                   style={{ backgroundColor: '#FFFFFF', color: C.orangeDark }}
                 >
                   Agendar el combo
@@ -719,7 +719,7 @@ export default function BarberiaRulosStylePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm font-semibold px-5 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm font-semibold px-5 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.deep, color: '#FFFFFF' }}
               >
                 Ver la ficha en Google →
@@ -728,7 +728,7 @@ export default function BarberiaRulosStylePage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} inline-flex items-center gap-2 text-sm font-semibold px-5 py-3 rounded-full border-2 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(58,63,68,0.22)', color: C.deep }}
               >
                 <IconInstagram className="w-4 h-4" />
@@ -788,7 +788,7 @@ export default function BarberiaRulosStylePage() {
                 href={WA_LINK_HORA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base font-semibold px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm md:text-base font-semibold px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.orangeDark, color: '#FFFFFF' }}
               >
                 Reservar por WhatsApp
@@ -797,18 +797,18 @@ export default function BarberiaRulosStylePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base font-semibold px-6 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} text-sm md:text-base font-semibold px-6 py-3 rounded-full border-2 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(228,87,46,0.4)', color: C.deep }}
               >
                 Cómo llegar →
               </a>
             </div>
             <p className="text-sm mt-6" style={{ color: C.muted }}>
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4" style={{ color: C.ink }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.ink }}>
                 {BIZ.phoneDisplay}
               </a>{' '}
               ·{' '}
-              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
+              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 tap-44">
                 {BIZ.instagramHandle}
               </a>
             </p>
@@ -853,7 +853,7 @@ export default function BarberiaRulosStylePage() {
               href={WA_LINK_HORA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base font-semibold px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block text-sm md:text-base font-semibold px-8 py-4 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: '#FFFFFF', color: C.orangeDark }}
             >
               Escribir por WhatsApp
@@ -868,7 +868,7 @@ export default function BarberiaRulosStylePage() {
           <p className={`${display.className} font-semibold text-xl mb-1`}>{BIZ.name}</p>
           <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(237,230,218,0.8)' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(237,230,218,0.8)' }}>
             Sitio de ejemplo de Sitiazo: dirección, WhatsApp, reseñas y

@@ -276,7 +276,7 @@ export default function HairHomeStudioPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative inline-flex items-center gap-2 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition duration-300 hover:scale-[1.05] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1F3229]"
+              className="relative inline-flex items-center gap-2 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition duration-300 hover:scale-[1.05] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1F3229] tap-44"
               style={{
                 backgroundColor: C.mustard,
                 color: C.greenDeep,
@@ -322,14 +322,14 @@ export default function HairHomeStudioPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0]`}
+                className={`${display.className} font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0] tap-44`}
                 style={{ backgroundColor: C.mustard, color: C.greenDeep, boxShadow: '0 6px 18px rgba(0,0,0,0.3)' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0]`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0] tap-44`}
                 style={{ borderColor: 'rgba(246,239,224,0.6)', color: '#F6EFE0' }}
               >
                 Ver los servicios
@@ -513,7 +513,7 @@ export default function HairHomeStudioPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 text-sm font-bold px-5 py-3 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0]"
+              className="inline-flex items-center gap-2.5 text-sm font-bold px-5 py-3 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0] tap-44"
               style={{ backgroundColor: 'rgba(246,239,224,0.12)', color: '#F6EFE0', border: '1.5px solid rgba(246,239,224,0.4)' }}
             >
               <Star className="w-4 h-4" color={C.mustard} />
@@ -544,7 +544,7 @@ export default function HairHomeStudioPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2 text-[#2E4A3C] decoration-[#2e4a3c59] transition-colors hover:text-[#1F3229] hover:decoration-[#1F3229] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9A441]"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 text-[#2E4A3C] decoration-[#2e4a3c59] transition-colors hover:text-[#1F3229] hover:decoration-[#1F3229] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9A441] tap-44"
               >
                 Ver la ficha en Google →
               </a>
@@ -597,7 +597,7 @@ export default function HairHomeStudioPage() {
               href={WA_LINK_HORA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0]`}
+              className={`${display.className} inline-block font-extrabold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0] tap-44`}
               style={{ backgroundColor: C.mustard, color: C.greenDeep }}
             >
               Consultar por WhatsApp
@@ -697,7 +697,7 @@ export default function HairHomeStudioPage() {
                   href={BIZ.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold underline underline-offset-4 decoration-2 text-[#2E4A3C] decoration-[#2e4a3c59] transition-colors hover:text-[#1F3229] hover:decoration-[#1F3229] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9A441]"
+                  className="font-bold underline underline-offset-4 decoration-2 text-[#2E4A3C] decoration-[#2e4a3c59] transition-colors hover:text-[#1F3229] hover:decoration-[#1F3229] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D9A441] tap-44"
                 >
                   {BIZ.instagramUser}
                 </a>
@@ -711,7 +711,7 @@ export default function HairHomeStudioPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-extrabold text-sm px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2E4A3C]`}
+                className={`${display.className} font-extrabold text-sm px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2E4A3C] tap-44`}
                 style={{ backgroundColor: C.green, color: '#F6EFE0' }}
               >
                 Agendar por WhatsApp
@@ -720,7 +720,7 @@ export default function HairHomeStudioPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-white/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2E4A3C]`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-white/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2E4A3C] tap-44`}
                 style={{ borderColor: 'rgba(46,74,60,0.4)', color: C.greenDeep }}
               >
                 Cómo llegar →
@@ -789,7 +789,7 @@ export default function HairHomeStudioPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-extrabold text-sm md:text-base px-8 py-4 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0]`}
+              className={`${display.className} inline-block font-extrabold text-sm md:text-base px-8 py-4 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F6EFE0] tap-44`}
               style={{ backgroundColor: C.mustard, color: C.greenDeep, boxShadow: '0 8px 24px rgba(0,0,0,0.35)' }}
             >
               Escribir por WhatsApp
@@ -812,11 +812,11 @@ export default function HairHomeStudioPage() {
         <div className="border-t" style={{ borderColor: 'rgba(246,239,224,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,239,224,0.8)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.mustardSoft }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.mustardSoft }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}: servicios, precios, reseñas citadas y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.mustardSoft }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.mustardSoft }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

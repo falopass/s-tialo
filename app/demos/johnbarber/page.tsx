@@ -192,7 +192,7 @@ export default function JohnBarberPage() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:shadow-lg ${focusRing}`}
+              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:shadow-lg ${focusRing} tap-44`}
               style={{ backgroundColor: 'rgba(253,246,236,0.95)', color: C.green }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.green} strokeWidth="1.8" aria-hidden="true">
@@ -223,14 +223,14 @@ export default function JohnBarberPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${body.className} font-extrabold uppercase tracking-[0.08em] text-xs md:text-sm px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${body.className} font-extrabold uppercase tracking-[0.08em] text-xs md:text-sm px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.amber, color: C.ink }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${body.className} font-extrabold uppercase tracking-[0.08em] text-xs md:text-sm px-7 py-3.5 border transition-colors hover:bg-white/10 ${focusRing}`}
+                className={`${body.className} font-extrabold uppercase tracking-[0.08em] text-xs md:text-sm px-7 py-3.5 border transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(253,246,236,0.6)', color: C.cream }}
               >
                 Ver servicios
@@ -391,7 +391,7 @@ export default function JohnBarberPage() {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${body.className} font-extrabold uppercase tracking-[0.08em] text-xs px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                  className={`${body.className} font-extrabold uppercase tracking-[0.08em] text-xs px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                   style={{ backgroundColor: C.green, color: C.cream }}
                 >
                   Ver Instagram →
@@ -400,7 +400,7 @@ export default function JohnBarberPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${body.className} font-extrabold uppercase tracking-[0.08em] text-xs px-6 py-3 border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                  className={`${body.className} font-extrabold uppercase tracking-[0.08em] text-xs px-6 py-3 border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                   style={{ borderColor: C.ink, color: C.ink }}
                 >
                   Agendar hora
@@ -446,7 +446,7 @@ export default function JohnBarberPage() {
                 href={WA_LINK_BARBA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
+                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
                 style={{ color: C.amber, textDecorationColor: 'rgba(232,163,61,0.4)' }}
               >
                 Consultar valor exacto por WhatsApp →
@@ -517,7 +517,7 @@ export default function JohnBarberPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${body.className} inline-block font-extrabold uppercase tracking-[0.08em] text-xs md:text-sm px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                    className={`${body.className} inline-block font-extrabold uppercase tracking-[0.08em] text-xs md:text-sm px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                     style={{ backgroundColor: C.amber, color: C.ink }}
                   >
                     Escribir a JohnBarber
@@ -539,7 +539,7 @@ export default function JohnBarberPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
+                    className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
                     style={{ color: C.green, textDecorationColor: 'rgba(42,127,98,0.35)' }}
                   >
                     Cómo llegar →
@@ -597,7 +597,7 @@ export default function JohnBarberPage() {
             </div>
             <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold" aria-label="Pie">
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className={`transition-opacity hover:opacity-60 ${focusRing}`} style={{ color: C.ink }}>
+                <a key={l.href} href={l.href} className={`transition-opacity hover:opacity-60 ${focusRing} tap-44`} style={{ color: C.ink }}>
                   {l.label}
                 </a>
               ))}
@@ -606,11 +606,11 @@ export default function JohnBarberPage() {
           <div className="border-t pt-4" style={{ borderColor: C.line }}>
             <p className="text-xs leading-relaxed" style={{ color: C.muted }}>
               Mockup preparado por{' '}
-              <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.ink }}>
+              <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.ink }}>
                 Sitiazo
               </a>
               : textos, precios, horarios y fotos de muestra.{' '}
-              <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.green }}>
+              <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.green }}>
                 ¿Lo hacemos realidad?
               </a>
             </p>

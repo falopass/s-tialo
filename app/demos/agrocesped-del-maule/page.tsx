@@ -106,7 +106,7 @@ function SitiazoStrip() {
             href={SITE.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline underline-offset-2 hover:text-yellow"
+            className="font-semibold underline underline-offset-2 hover:text-yellow tap-44"
           >
             Sitiazo
           </a>{' '}
@@ -115,7 +115,7 @@ function SitiazoStrip() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline underline-offset-2 hover:text-yellow"
+            className="font-semibold underline underline-offset-2 hover:text-yellow tap-44"
           >
             ¿Lo hacemos realidad?
           </a>
@@ -185,7 +185,7 @@ export default function AgroCespedPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(244,248,250,0.94)', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.blue} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -217,14 +217,14 @@ export default function AgroCespedPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.cyan, color: C.deep }}
               >
                 Cotizar por WhatsApp
               </a>
               <a
                 href="#surtido"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(244,248,250,0.55)', color: '#F4F8FA' }}
               >
                 Ver el surtido
@@ -374,7 +374,7 @@ export default function AgroCespedPage() {
                       href={MAPS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`${display.className} text-2xl font-semibold underline underline-offset-4 decoration-2`}
+                      className={`${display.className} text-2xl font-semibold underline underline-offset-4 decoration-2 tap-44`}
                       style={{ color: C.blue, textDecorationColor: 'rgba(31,86,115,0.3)' }}
                     >
                       {BIZ.reviews}
@@ -390,7 +390,7 @@ export default function AgroCespedPage() {
                       href={BIZ.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`${display.className} text-2xl font-semibold underline underline-offset-4 decoration-2`}
+                      className={`${display.className} text-2xl font-semibold underline underline-offset-4 decoration-2 tap-44`}
                       style={{ color: C.blue, textDecorationColor: 'rgba(31,86,115,0.3)' }}
                     >
                       {BIZ.fbFollowers}
@@ -481,7 +481,7 @@ export default function AgroCespedPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -494,7 +494,7 @@ export default function AgroCespedPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
@@ -503,7 +503,7 @@ export default function AgroCespedPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44`}
                 style={{ borderColor: 'rgba(31,86,115,0.4)', color: C.blue }}
               >
                 Cómo llegar →
@@ -550,7 +550,7 @@ export default function AgroCespedPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.cyan, color: C.deep }}
             >
               Cotizar por WhatsApp
@@ -566,12 +566,12 @@ export default function AgroCespedPage() {
             <p className={`${display.className} font-semibold text-lg mb-1`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,248,250,0.8)' }}>
               {BIZ.address} ·{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
             </address>
           </div>
           <p className="text-xs" style={{ color: 'rgba(244,248,250,0.75)' }}>
             Sitio de ejemplo por Sitiazo · textos y precios de muestra ·{' '}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white">
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white tap-44">
               Facebook
             </a>
           </p>

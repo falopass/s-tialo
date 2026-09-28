@@ -452,7 +452,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold underline underline-offset-4 decoration-2 text-[#7A5F22] decoration-[#C8A24B]/40 hover:text-[#1E3D2F] transition-colors focus-visible:outline-2 focus-visible:outline-[#C8A24B]"
+                className="text-sm font-semibold underline underline-offset-4 decoration-2 text-[#7A5F22] decoration-[#C8A24B]/40 hover:text-[#1E3D2F] transition-colors focus-visible:outline-2 focus-visible:outline-[#C8A24B] tap-44"
               >
                 Ver la ficha en Google →
               </a>
@@ -460,7 +460,7 @@ export default function ClinicaDentalBilbaoPage() {
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold underline underline-offset-4 decoration-2 text-[#7A5F22] decoration-[#C8A24B]/40 hover:text-[#1E3D2F] transition-colors focus-visible:outline-2 focus-visible:outline-[#C8A24B]"
+                className="text-sm font-semibold underline underline-offset-4 decoration-2 text-[#7A5F22] decoration-[#C8A24B]/40 hover:text-[#1E3D2F] transition-colors focus-visible:outline-2 focus-visible:outline-[#C8A24B] tap-44"
               >
                 @{BIZ.instagram} en Instagram →
               </a>
@@ -593,11 +593,11 @@ export default function ClinicaDentalBilbaoPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
               {BIZ.address} · {BIZ.city}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors tap-44">
                 {BIZ.phoneDisplay}
               </a>
               {' · '}
-              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors">
+              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors tap-44">
                 Instagram
               </a>
             </address>
@@ -607,7 +607,7 @@ export default function ClinicaDentalBilbaoPage() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Escribir por WhatsApp a ${BIZ.name}`}
-            className="shrink-0 w-[48px] h-[48px] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95"
+            className="shrink-0 w-[48px] h-[48px] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95 tap-44"
             style={{ backgroundColor: '#25D366' }}
           >
             <svg
@@ -627,11 +627,11 @@ export default function ClinicaDentalBilbaoPage() {
         <div className="border-t" style={{ borderColor: 'rgba(246,241,231,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,241,231,0.78)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#F6F1E7' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#F6F1E7' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}: textos, servicios, precios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.brassSoft }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.brassSoft }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

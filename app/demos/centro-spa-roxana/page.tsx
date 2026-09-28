@@ -216,14 +216,14 @@ export default function CentroSpaRoxanaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform active:translate-y-[1px]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform active:translate-y-[1px] tap-44`}
                 style={{ backgroundColor: C.mint, color: C.petrolDeep }}
               >
                 Pedir hora por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(247,249,249,0.55)', color: '#F7F9F9' }}
               >
                 Ver servicios
@@ -244,13 +244,13 @@ export default function CentroSpaRoxanaPage() {
             className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-2 text-[11px] md:text-xs uppercase tracking-[0.18em]"
             style={{ color: 'rgba(247,249,249,0.78)' }}
           >
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
               {BIZ.address}, {BIZ.city}
             </a>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
               {BIZ.reviews} reseñas en Google
             </a>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
               WhatsApp {BIZ.phoneDisplay}
             </a>
             <span className="hidden md:inline" style={{ color: C.mint }}>
@@ -267,7 +267,7 @@ export default function CentroSpaRoxanaPage() {
             En este número
           </span>
           {INDICE.map((s) => (
-            <a key={s.href} href={s.href} className="group flex items-baseline gap-2">
+            <a key={s.href} href={s.href} className="group flex items-baseline gap-2 tap-44">
               <span className={`${display.className} text-lg leading-none`} style={{ color: C.petrol }}>
                 {s.n}
               </span>
@@ -337,7 +337,7 @@ export default function CentroSpaRoxanaPage() {
                 href={WA_LINK_CONSULTA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base underline underline-offset-4 decoration-2`}
+                className={`${display.className} font-semibold text-sm md:text-base underline underline-offset-4 decoration-2 tap-44`}
                 style={{ color: C.petrol, textDecorationColor: C.mint }}
               >
                 Consultar por WhatsApp →
@@ -408,7 +408,7 @@ export default function CentroSpaRoxanaPage() {
                       href={MAPS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline underline-offset-4 decoration-2"
+                      className="underline underline-offset-4 decoration-2 tap-44"
                       style={{ textDecorationColor: C.mint }}
                     >
                       {BIZ.reviews} reseñas en Google
@@ -422,7 +422,7 @@ export default function CentroSpaRoxanaPage() {
                       href={BIZ.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline underline-offset-4 decoration-2"
+                      className="underline underline-offset-4 decoration-2 tap-44"
                       style={{ textDecorationColor: C.mint }}
                     >
                       @sparoxana, {BIZ.followers} seguidores
@@ -436,7 +436,7 @@ export default function CentroSpaRoxanaPage() {
                       href={WA_LINK}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline underline-offset-4 decoration-2"
+                      className="underline underline-offset-4 decoration-2 tap-44"
                       style={{ textDecorationColor: C.mint }}
                     >
                       {BIZ.phoneDisplay}
@@ -535,7 +535,7 @@ export default function CentroSpaRoxanaPage() {
               href={WA_LINK_CONSULTA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block mt-10 font-semibold text-sm md:text-base px-7 py-3.5 transition-transform active:translate-y-[1px]`}
+              className={`${display.className} inline-block mt-10 font-semibold text-sm md:text-base px-7 py-3.5 transition-transform active:translate-y-[1px] tap-44`}
               style={{ backgroundColor: C.petrol, color: '#F7F9F9' }}
             >
               Consultar por WhatsApp
@@ -582,7 +582,7 @@ export default function CentroSpaRoxanaPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform active:translate-y-[1px]`}
+                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform active:translate-y-[1px] tap-44`}
                   style={{ backgroundColor: C.mint, color: C.petrolDeep }}
                 >
                   Pedir hora por WhatsApp
@@ -591,7 +591,7 @@ export default function CentroSpaRoxanaPage() {
                   href={BIZ.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm underline underline-offset-4 decoration-2"
+                  className="text-sm underline underline-offset-4 decoration-2 tap-44"
                   style={{ color: 'rgba(247,249,249,0.85)', textDecorationColor: 'rgba(159,216,203,0.6)' }}
                 >
                   @sparoxana
@@ -638,7 +638,7 @@ export default function CentroSpaRoxanaPage() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${display.className} shrink-0 font-semibold text-sm px-6 py-3 transition-transform active:translate-y-[1px]`}
+            className={`${display.className} shrink-0 font-semibold text-sm px-6 py-3 transition-transform active:translate-y-[1px] tap-44`}
             style={{ backgroundColor: C.petrol, color: '#F7F9F9' }}
           >
             Hablar con {SITE.name} →

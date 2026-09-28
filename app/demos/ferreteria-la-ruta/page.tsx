@@ -223,7 +223,7 @@ export default function FerreteriaLaRutaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 text-xs md:text-sm font-bold px-4 py-2 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS}`}
+                  className={`inline-flex items-center gap-2 text-xs md:text-sm font-bold px-4 py-2 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS} tap-44`}
                   style={{ backgroundColor: C.lime, color: C.ink }}
                 >
                   <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]" fill={C.blue} stroke={C.blue} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -238,14 +238,14 @@ export default function FerreteriaLaRutaPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${FOCUS}`}
+                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${FOCUS} tap-44`}
                   style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
                 >
                   Consultar por WhatsApp
                 </a>
                 <a
                   href="#carta"
-                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border-2 border-[#10142A] text-[#10142A] transition-colors hover:bg-[#10142A] hover:text-white ${FOCUS}`}
+                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border-2 border-[#10142A] text-[#10142A] transition-colors hover:bg-[#10142A] hover:text-white ${FOCUS} tap-44`}
                 >
                   Ver la carta
                 </a>
@@ -396,7 +396,7 @@ export default function FerreteriaLaRutaPage() {
                   href={WA_LINK_STOCK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} shrink-0 text-center font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${FOCUS}`}
+                  className={`${display.className} shrink-0 text-center font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${FOCUS} tap-44`}
                   style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
                 >
                   Consultar stock y precio →
@@ -450,7 +450,7 @@ export default function FerreteriaLaRutaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-sm font-bold underline underline-offset-4 decoration-2 hover:opacity-70 transition-opacity ${FOCUS}`}
+              className={`text-sm font-bold underline underline-offset-4 decoration-2 hover:opacity-70 transition-opacity ${FOCUS} tap-44`}
               style={{ color: C.blue, textDecorationColor: 'rgba(34,81,255,0.35)' }}
             >
               Ver la ficha en Google →
@@ -517,7 +517,7 @@ export default function FerreteriaLaRutaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E] tap-44`}
                 style={{ backgroundColor: C.lime, color: C.ink }}
               >
                 Escribir por WhatsApp
@@ -526,14 +526,14 @@ export default function FerreteriaLaRutaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border-2 border-white/50 text-white transition-colors hover:bg-white hover:text-[#0A1A5C] hover:border-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border-2 border-white/50 text-white transition-colors hover:bg-white hover:text-[#0A1A5C] hover:border-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E] tap-44`}
               >
                 Cómo llegar →
               </a>
             </div>
             <p className="text-xs mt-5" style={{ color: 'rgba(255,255,255,0.55)' }}>
               {BIZ.phoneDisplay} ·{' '}
-              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors">
+              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors tap-44">
                 Facebook
               </a>
             </p>
@@ -566,7 +566,7 @@ export default function FerreteriaLaRutaPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}
@@ -575,12 +575,12 @@ export default function FerreteriaLaRutaPage() {
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 md:pb-8 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:opacity-80`} style={{ color: '#FFFFFF' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:opacity-80 tap-44`} style={{ color: '#FFFFFF' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name} — así se vería tu sitio. Productos, precios y
             horarios son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:opacity-80`} style={{ color: C.lime }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:opacity-80 tap-44`} style={{ color: C.lime }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

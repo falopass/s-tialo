@@ -112,7 +112,7 @@ export default async function DemoPage({
                 <dd>
                   <a
                     href={`tel:${demo.phone.replace(/\s/g, '')}`}
-                    className="underline underline-offset-2"
+                    className="underline underline-offset-2 tap-44"
                   >
                     {demo.phone}
                   </a>
@@ -136,7 +136,7 @@ export default async function DemoPage({
               href={waLink(demo)}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 block text-center font-semibold text-sm px-6 py-3 transition-transform active:scale-[0.98]"
+              className="mt-6 block text-center font-semibold text-sm px-6 py-3 transition-transform active:scale-[0.98] tap-44"
               style={{
                 backgroundColor: t.accent,
                 color: t.accentInk,

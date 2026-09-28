@@ -230,7 +230,7 @@ function WaButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2.5 min-h-[48px] px-6 rounded-full font-bold text-[15px] transition-transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${className}`}
+      className={`inline-flex items-center justify-center gap-2.5 min-h-[48px] px-6 rounded-full font-bold text-[15px] transition-transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${className} tap-44`}
       style={s}
     >
       <WaIcon />
@@ -302,7 +302,7 @@ export default function JardinViveroCarolinaPage() {
             <WaButton>Consultar por WhatsApp</WaButton>
             <a
               href="#directorio"
-              className="self-start sm:self-auto inline-flex items-center justify-center min-h-[48px] px-6 rounded-full font-bold text-[15px] border transition-colors hover:bg-white/10"
+              className="self-start sm:self-auto inline-flex items-center justify-center min-h-[48px] px-6 rounded-full font-bold text-[15px] border transition-colors hover:bg-white/10 tap-44"
               style={{ borderColor: 'rgba(255,255,255,0.45)', color: C.white }}
             >
               Ver lo que hay en el vivero
@@ -316,7 +316,7 @@ export default function JardinViveroCarolinaPage() {
         <ol className="max-w-6xl mx-auto px-5 md:px-8 grid grid-cols-2 md:grid-cols-4">
           {NAV_LINKS.map((l, i) => (
             <li key={l.href} className="border-white/10 border-b md:border-b-0 md:border-r last:border-r-0 odd:border-r md:odd:border-r">
-              <a href={l.href} className="flex items-center gap-3 py-3 md:py-5 px-1 md:px-5 text-sm font-semibold transition-colors hover:text-white" style={{ color: C.sand }}>
+              <a href={l.href} className="flex items-center gap-3 py-3 md:py-5 px-1 md:px-5 text-sm font-semibold transition-colors hover:text-white tap-44" style={{ color: C.sand }}>
                 <span className="text-xs tabular-nums" style={{ color: C.terraLight }}>0{i + 1}</span>
                 {l.label}
               </a>
@@ -364,7 +364,7 @@ export default function JardinViveroCarolinaPage() {
                         href={`https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(`Hola, vi la página de ${BIZ.name} y quiero consultar por ${d.wa}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 min-h-[44px] px-4 rounded-full text-sm font-bold border transition-colors hover:bg-[#1B2A41] hover:text-white"
+                        className="inline-flex items-center gap-2 min-h-[44px] px-4 rounded-full text-sm font-bold border transition-colors hover:bg-[#1B2A41] hover:text-white tap-44"
                         style={{ borderColor: C.night, color: C.night }}
                       >
                         <WaIcon className="w-4 h-4" />
@@ -433,7 +433,7 @@ export default function JardinViveroCarolinaPage() {
               href={BIZ.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-bold underline underline-offset-4"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-bold underline underline-offset-4 tap-44"
               style={{ color: C.night }}
             >
               Ver fotos del vivero en Instagram
@@ -501,7 +501,7 @@ export default function JardinViveroCarolinaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 min-h-[48px] py-2 pl-2 pr-6 rounded-full transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-3 min-h-[48px] py-2 pl-2 pr-6 rounded-full transition-transform hover:-translate-y-0.5 tap-44"
                 style={{ backgroundColor: C.terraDeep, color: C.white }}
               >
                 <span className="w-9 h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
@@ -519,7 +519,7 @@ export default function JardinViveroCarolinaPage() {
                     {BIZ.city}, {BIZ.region}
                   </dd>
                   <dd className="mt-3">
-                    <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-bold underline underline-offset-4" style={{ color: C.sand }}>
+                    <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-sm font-bold underline underline-offset-4 tap-44" style={{ color: C.sand }}>
                       Abrir ruta en Google Maps
                     </a>
                   </dd>

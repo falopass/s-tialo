@@ -299,7 +299,7 @@ export default function QueBaratoLf() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-7 inline-flex items-center gap-3 min-h-[52px] px-6 rounded-xl text-base font-bold transition-transform active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4"
+              className="group mt-7 inline-flex items-center gap-3 min-h-[52px] px-6 rounded-xl text-base font-bold transition-transform active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 tap-44"
               style={{ backgroundColor: C.green, color: C.greenInk, outlineColor: C.navy }}
             >
               <WaIcon className="w-5 h-5" />
@@ -314,7 +314,7 @@ export default function QueBaratoLf() {
                 href={WA_LINK2}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold underline underline-offset-2"
+                className="font-semibold underline underline-offset-2 tap-44"
                 style={{ color: C.navy }}
               >
                 {BIZ.phone2Display}
@@ -328,11 +328,11 @@ export default function QueBaratoLf() {
               <div className="flex gap-2">
                 <dt className="font-semibold" style={{ color: C.navy }}>Teléfonos:</dt>
                 <dd>
-                  <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+                  <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">
                     {BIZ.phoneDisplay}
                   </a>
                   {' · '}
-                  <a href={`tel:${BIZ.phone2Tel}`} className="underline underline-offset-2">
+                  <a href={`tel:${BIZ.phone2Tel}`} className="underline underline-offset-2 tap-44">
                     {BIZ.phone2Display}
                   </a>
                 </dd>
@@ -359,7 +359,7 @@ export default function QueBaratoLf() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 min-h-[40px] text-sm font-semibold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4"
+                  className="inline-flex items-center gap-2 min-h-[40px] text-sm font-semibold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 tap-44"
                   style={{ color: C.navy, outlineColor: C.navy }}
                 >
                   Cómo llegar <Arrow className="w-4 h-4" />

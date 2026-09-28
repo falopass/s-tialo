@@ -170,7 +170,7 @@ export default function MatrokinPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg mb-6"
+              className="inline-flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg mb-6 tap-44"
               style={{ backgroundColor: 'rgba(251,248,241,0.94)', color: C.charcoal }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.sageDeep} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -413,7 +413,7 @@ export default function MatrokinPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold underline underline-offset-4 decoration-2"
+                className="text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.sageDeep, textDecorationColor: 'rgba(124,143,123,0.4)' }}
               >
                 Ver la ficha en Google →
@@ -528,7 +528,7 @@ export default function MatrokinPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-8 py-3.5 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block text-sm md:text-base px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.sand, color: C.charcoal }}
             >
               Reservar por WhatsApp
@@ -544,17 +544,17 @@ export default function MatrokinPage() {
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,248,241,0.82)' }}>
             {BIZ.address} · {BIZ.city}, {BIZ.region}
             <br />
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,248,241,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,248,241,0.82)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.sand }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.sand }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Textos, precios, horarios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.sand }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.sand }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

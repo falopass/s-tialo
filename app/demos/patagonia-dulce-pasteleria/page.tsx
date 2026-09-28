@@ -190,14 +190,14 @@ export default function PatagoniaDulcePage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold transition-colors hover:bg-[#F7F9F9]`}
+                  className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold transition-colors hover:bg-[#F7F9F9] tap-44`}
                   style={{ backgroundColor: C.mint, color: C.deep }}
                 >
                   Hacer un pedido por WhatsApp
                 </a>
                 <a
                   href="#vitrina"
-                  className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold border transition-colors hover:bg-white/10`}
+                  className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold border transition-colors hover:bg-white/10 tap-44`}
                   style={{ borderColor: 'rgba(247,249,249,0.6)', color: C.paper }}
                 >
                   Ver la vitrina
@@ -208,7 +208,7 @@ export default function PatagoniaDulcePage() {
               <div>
                 <dt className={`${KICKER} mb-1`} style={{ color: C.mint }}>Instagram</dt>
                 <dd className={`${display.className} text-3xl md:text-4xl`} style={{ color: C.paper }}>
-                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} transition-colors hover:text-[#9FD8CB]`}>
+                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} transition-colors hover:text-[#9FD8CB] tap-44`}>
                     {BIZ.followers}
                   </a>
                 </dd>
@@ -366,7 +366,7 @@ export default function PatagoniaDulcePage() {
                   <div>
                     <dt className="font-bold mb-1" style={{ color: C.petrol }}>WhatsApp</dt>
                     <dd style={{ color: C.muted }}>
-                      <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#0E4C5C]`} style={{ textDecorationColor: C.mint }}>
+                      <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#0E4C5C] tap-44`} style={{ textDecorationColor: C.mint }}>
                         {BIZ.phoneDisplay}
                       </a>
                     </dd>
@@ -374,7 +374,7 @@ export default function PatagoniaDulcePage() {
                   <div>
                     <dt className="font-bold mb-1" style={{ color: C.petrol }}>Instagram</dt>
                     <dd style={{ color: C.muted }}>
-                      <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#0E4C5C]`} style={{ textDecorationColor: C.mint }}>
+                      <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#0E4C5C] tap-44`} style={{ textDecorationColor: C.mint }}>
                         @patagoniadulcepasteleria
                       </a>
                     </dd>
@@ -467,7 +467,7 @@ export default function PatagoniaDulcePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold transition-colors hover:bg-[#F7F9F9]`}
+                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold transition-colors hover:bg-[#F7F9F9] tap-44`}
                 style={{ backgroundColor: C.mint, color: C.deep }}
               >
                 Hacer un pedido por WhatsApp
@@ -499,7 +499,7 @@ export default function PatagoniaDulcePage() {
                 href={WA_LINK_TORTA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold transition-colors hover:bg-[#093540]`}
+                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold transition-colors hover:bg-[#093540] tap-44`}
                 style={{ backgroundColor: C.petrol, color: C.paper }}
               >
                 Encargar una torta
@@ -508,7 +508,7 @@ export default function PatagoniaDulcePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold border transition-colors hover:bg-[#0E4C5C] hover:text-[#F7F9F9]`}
+                className={`${FOCUS} inline-flex items-center min-h-12 px-7 text-sm md:text-base font-bold border transition-colors hover:bg-[#0E4C5C] hover:text-[#F7F9F9] tap-44`}
                 style={{ borderColor: C.petrol, color: C.petrol }}
               >
                 Cómo llegar →
@@ -519,7 +519,7 @@ export default function PatagoniaDulcePage() {
               <br />
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#2F7A6A]`} style={{ textDecorationColor: C.mint, color: C.petrol }}>
+              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4 decoration-2 transition-colors hover:text-[#2F7A6A] tap-44`} style={{ textDecorationColor: C.mint, color: C.petrol }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -546,18 +546,18 @@ export default function PatagoniaDulcePage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.78)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 transition-colors hover:text-white`}>
+              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 transition-colors hover:text-white tap-44`}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.78)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors`}>
+              <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors tap-44`}>
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} hover:text-white transition-colors`}>
+            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} hover:text-white transition-colors tap-44`}>
               Instagram
             </a>
           </div>

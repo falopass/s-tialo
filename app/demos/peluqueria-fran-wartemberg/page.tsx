@@ -260,7 +260,7 @@ function WaButton({ href, label, ghost = false }: { href: string; label: string;
       rel="noopener noreferrer"
       className={`${display.className} inline-block font-bold text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current ${
         ghost ? 'hover:bg-white/10' : 'hover:brightness-95'
-      }`}
+      } tap-44`}
       style={
         ghost
           ? { border: `1.5px solid rgba(255,255,255,0.55)`, color: '#FFFFFF' }
@@ -323,7 +323,7 @@ export default function PeluqueriaFranWartembergPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 tap-44"
               style={{ backgroundColor: C.signal, color: C.taller }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -356,7 +356,7 @@ export default function PeluqueriaFranWartembergPage() {
               <WaButton href={WA_LINK} label="Agendar hora por WhatsApp" />
               <a
                 href="#carta"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-[1.5px] transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-[1.5px] transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver carta de servicios
@@ -394,7 +394,7 @@ export default function PeluqueriaFranWartembergPage() {
                     href={f.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                    className="underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current tap-44"
                     style={{ textDecorationColor: C.signal }}
                   >
                     {f.d}
@@ -579,7 +579,7 @@ export default function PeluqueriaFranWartembergPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current tap-44"
                 style={{ color: C.taller, textDecorationColor: C.signal }}
               >
                 Ver la página en Facebook →
@@ -603,7 +603,7 @@ export default function PeluqueriaFranWartembergPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current tap-44"
                   style={{ color: C.taller, textDecorationColor: C.signal }}
                 >
                   Ver la ficha en Google →
@@ -669,7 +669,7 @@ export default function PeluqueriaFranWartembergPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
             </address>
             <p className="text-sm md:text-base leading-relaxed mb-8 max-w-sm" style={{ color: C.muted }}>
               La agenda se toma por WhatsApp: escribes, te confirman hora
@@ -680,7 +680,7 @@ export default function PeluqueriaFranWartembergPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current`}
+                className={`${display.className} font-bold text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current tap-44`}
                 style={{ backgroundColor: C.taller, color: C.signal }}
               >
                 Agendar por WhatsApp
@@ -689,7 +689,7 @@ export default function PeluqueriaFranWartembergPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 border-[1.5px] transition-colors hover:bg-[#17181A] hover:text-[#FFC300] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current`}
+                className={`${display.className} font-bold text-sm px-6 py-3 border-[1.5px] transition-colors hover:bg-[#17181A] hover:text-[#FFC300] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current tap-44`}
                 style={{ borderColor: C.taller, color: C.taller }}
               >
                 Cómo llegar →
@@ -744,17 +744,17 @@ export default function PeluqueriaFranWartembergPage() {
           <p className={`${display.className} font-bold text-xl mb-2 uppercase`}>{BIZ.name}</p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: C.steel }}>
             {BIZ.address} · {BIZ.city}, {BIZ.region} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
         </div>
         <div className="border-t" style={{ borderColor: C.lineLight }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-5 text-xs leading-relaxed" style={{ color: C.steel }}>
             Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: C.signal }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2 tap-44" style={{ color: C.signal }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Textos, servicios, precios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: C.signal }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2 tap-44" style={{ color: C.signal }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

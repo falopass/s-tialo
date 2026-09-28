@@ -227,7 +227,7 @@ export default function ClinicaDentalSanJosePage() {
                 </dt>
                 <dd className="text-sm md:text-base font-bold" style={{ color: C.bone }}>
                   {r.link ? (
-                    <a href={r.link} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-[rgba(159,216,203,0.45)] hover:text-[#9FD8CB] transition-colors ${FOCUS}`}>
+                    <a href={r.link} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-[rgba(159,216,203,0.45)] hover:text-[#9FD8CB] transition-colors ${FOCUS} tap-44`}>
                       {r.v}
                     </a>
                   ) : (
@@ -338,7 +338,7 @@ export default function ClinicaDentalSanJosePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-colors ${FOCUS}`}
+                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-colors ${FOCUS} tap-44`}
                 style={{ color: C.mint, textDecorationColor: 'rgba(159,216,203,0.4)' }}
               >
                 Ver la ficha en Google →
@@ -347,7 +347,7 @@ export default function ClinicaDentalSanJosePage() {
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-colors ${FOCUS}`}
+                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-colors ${FOCUS} tap-44`}
                 style={{ color: C.mint, textDecorationColor: 'rgba(159,216,203,0.4)' }}
               >
                 @{BIZ.instagram} en Instagram →
@@ -589,11 +589,11 @@ export default function ClinicaDentalSanJosePage() {
           </p>
           <address className="not-italic text-sm font-light leading-relaxed" style={{ color: C.muted }}>
             {BIZ.address} · {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className={`underline underline-offset-2 hover:text-white transition-colors ${FOCUS}`}>
+            <a href={`tel:${BIZ.phoneTel}`} className={`underline underline-offset-2 hover:text-white transition-colors ${FOCUS} tap-44`}>
               {BIZ.phoneDisplay}
             </a>{' '}
             ·{' '}
-            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 hover:text-white transition-colors ${FOCUS}`}>
+            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 hover:text-white transition-colors ${FOCUS} tap-44`}>
               Instagram
             </a>
           </address>

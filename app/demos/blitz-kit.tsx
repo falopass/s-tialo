@@ -130,7 +130,7 @@ export function BlitzNav({
       <div className="max-w-6xl mx-auto px-5 md:px-8 h-[60px] md:h-[68px] flex items-center justify-between gap-4">
         <a
           href="#inicio"
-          className={`${fontClass} text-lg md:text-xl leading-none transition-colors duration-500`}
+          className={`${fontClass} text-lg md:text-xl leading-none transition-colors duration-500 tap-44`}
           style={{ color: scrolled ? theme.ink : topInk }}
         >
           {name}
@@ -140,7 +140,7 @@ export function BlitzNav({
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium transition-colors duration-500"
+              className="text-sm font-medium transition-colors duration-500 tap-44"
               style={{ color: scrolled ? theme.ink : topLink }}
             >
               {l.label}
@@ -151,7 +151,7 @@ export function BlitzNav({
           href={waLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-all duration-500 active:scale-95"
+          className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-all duration-500 active:scale-95 tap-44"
           style={
             scrolled
               ? { backgroundColor: theme.btnBg, color: theme.btnInk }
@@ -240,7 +240,7 @@ export function FaqList({
             style={{ borderColor: colors.line }}
           >
             <summary
-              className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base md:text-lg"
+              className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base md:text-lg tap-44"
               style={{ color: colors.q }}
             >
               {f.q}

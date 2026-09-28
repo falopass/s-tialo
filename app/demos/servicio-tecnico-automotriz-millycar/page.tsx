@@ -172,7 +172,7 @@ function WaButton({ children, className = '' }: { children: React.ReactNode; cla
       href={WA_LINK}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2.5 font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 hover:brightness-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 ${className}`}
+      className={`inline-flex items-center justify-center gap-2.5 font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 hover:brightness-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 ${className} tap-44`}
       style={{ backgroundColor: C.yellow, color: C.slateDeep, boxShadow: '0 10px 24px rgba(242,183,5,0.35)' }}
     >
       <svg viewBox="0 0 24 24" className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -232,7 +232,7 @@ export default function MillycarPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="flex items-center gap-2 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
               style={{ backgroundColor: 'rgba(251,251,248,0.95)', color: C.slate }}
             >
               <Star className="w-[15px] h-[15px]" color={C.yellow} />
@@ -265,7 +265,7 @@ export default function MillycarPage() {
               <WaButton>Agendar por WhatsApp</WaButton>
               <a
                 href="#servicios"
-                className="inline-flex items-center font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl border-2 transition-all hover:bg-white/10 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2"
+                className="inline-flex items-center font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl border-2 transition-all hover:bg-white/10 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
                 style={{ borderColor: 'rgba(251,251,248,0.55)', color: '#FBFBF8' }}
               >
                 Ver servicios
@@ -312,7 +312,7 @@ export default function MillycarPage() {
                 <WaButton className="w-full">Escribir por WhatsApp</WaButton>
                 <a
                   href={`tel:${BIZ.phoneTel}`}
-                  className="block text-center text-sm font-medium mt-4 underline underline-offset-4 decoration-2 hover:decoration-[3px]"
+                  className="block text-center text-sm font-medium mt-4 underline underline-offset-4 decoration-2 hover:decoration-[3px] tap-44"
                   style={{ color: C.slate, textDecorationColor: 'rgba(47,72,88,0.3)' }}
                 >
                   o llama al {BIZ.phoneDisplay}
@@ -343,7 +343,7 @@ export default function MillycarPage() {
                         href={MAPS_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium underline underline-offset-4 decoration-2 hover:decoration-[3px]"
+                        className="font-medium underline underline-offset-4 decoration-2 hover:decoration-[3px] tap-44"
                         style={{ color: C.slate, textDecorationColor: 'rgba(47,72,88,0.3)' }}
                       >
                         Cómo llegar →
@@ -356,7 +356,7 @@ export default function MillycarPage() {
                       href={MAPS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium underline underline-offset-4 decoration-2 hover:decoration-[3px]"
+                      className="font-medium underline underline-offset-4 decoration-2 hover:decoration-[3px] tap-44"
                       style={{ color: C.slate, textDecorationColor: 'rgba(47,72,88,0.3)' }}
                     >
                       {BIZ.reviews} reseñas en Google
@@ -370,7 +370,7 @@ export default function MillycarPage() {
                     href={BIZ.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium underline underline-offset-4 decoration-2"
+                    className="font-medium underline underline-offset-4 decoration-2 tap-44"
                     style={{ color: C.slate, textDecorationColor: 'rgba(47,72,88,0.3)' }}
                   >
                     Facebook
@@ -599,7 +599,7 @@ export default function MillycarPage() {
                     href={WA_LINK_PRESUPUESTO}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 hover:brightness-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2"
+                    className="inline-flex items-center font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 hover:brightness-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
                     style={{ backgroundColor: C.slate, color: '#FBFBF8' }}
                   >
                     Pedir presupuesto real
@@ -628,7 +628,7 @@ export default function MillycarPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl border-2 transition-all hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2"
+                    className="inline-flex items-center font-semibold text-sm md:text-base px-7 py-3.5 rounded-xl border-2 transition-all hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
                     style={{ borderColor: C.slate, color: C.slate }}
                   >
                     Cómo llegar →
@@ -686,11 +686,11 @@ export default function MillycarPage() {
           </p>
           <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(251,251,248,0.85)' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white focus-visible:text-white transition-colors">
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white focus-visible:text-white transition-colors tap-44">
               {BIZ.phoneDisplay}
             </a>
             {' · '}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white focus-visible:text-white transition-colors">
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white focus-visible:text-white transition-colors tap-44">
               Facebook
             </a>
           </address>
@@ -699,11 +699,11 @@ export default function MillycarPage() {
           {/* pb-20 deja libre la zona de la burbuja de WhatsApp */}
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(251,251,248,0.85)' }}>
             Mockup de{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellow }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellow }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}; servicios, precios y reseñas de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellow }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellow }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

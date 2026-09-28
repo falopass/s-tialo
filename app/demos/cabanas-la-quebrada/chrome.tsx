@@ -91,7 +91,7 @@ export function SiteNav({ name, fontClass }: { name: string; fontClass: string }
       <div className="max-w-6xl mx-auto px-5 md:px-8 h-[60px] md:h-[68px] flex items-center justify-between gap-4">
         <a
           href="#inicio"
-          className={`${fontClass} text-lg md:text-xl leading-none transition-colors duration-500`}
+          className={`${fontClass} text-lg md:text-xl leading-none transition-colors duration-500 tap-44`}
           style={{ color: scrolled ? '#173A2B' : '#FAF7F0' }}
         >
           {name}
@@ -101,7 +101,7 @@ export function SiteNav({ name, fontClass }: { name: string; fontClass: string }
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium transition-colors duration-500"
+              className="text-sm font-medium transition-colors duration-500 tap-44"
               style={{ color: scrolled ? '#3D5548' : 'rgba(250,247,240,0.85)' }}
             >
               {l.label}
@@ -112,7 +112,7 @@ export function SiteNav({ name, fontClass }: { name: string; fontClass: string }
           href={WA_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-all duration-500 active:scale-95"
+          className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-all duration-500 active:scale-95 tap-44"
           style={
             scrolled
               ? { backgroundColor: '#173A2B', color: '#FAF7F0' }
@@ -133,7 +133,7 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escribir por WhatsApp a Cabañas La Quebrada"
-      className="shrink-0 w-[48px] h-[48px] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95"
+      className="shrink-0 w-[48px] h-[48px] rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95 tap-44"
       style={{ backgroundColor: '#25D366' }}
     >
       <svg

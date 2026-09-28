@@ -204,7 +204,7 @@ function Card({ p, fontClass }: { p: (typeof PRODUCTS)[number]; fontClass: strin
             href={waLinkProducto(p.name)}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-2 rounded-full transition-colors hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2"
+            className="text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-2 rounded-full transition-colors hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
             style={{ backgroundColor: C.forest, color: C.crema }}
           >
             Cotizar
@@ -300,7 +300,7 @@ export function Vitrina({ fontClass }: { fontClass: string }) {
               type="button"
               onClick={() => setFilter(f.key)}
               aria-pressed={active}
-              className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.14em] px-4 py-2 rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.14em] px-4 py-2 rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
               style={{
                 backgroundColor: active ? C.forest : 'transparent',
                 borderColor: active ? C.forest : C.line,

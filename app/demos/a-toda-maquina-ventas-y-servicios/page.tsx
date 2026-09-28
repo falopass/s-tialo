@@ -222,14 +222,14 @@ export default function ATodaMaquinaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.mostaza, color: C.verdeDeep }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#proceso"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-lg border-2 transition-colors hover:bg-white/10 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-lg border-2 transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(244,237,225,0.55)', color: C.paper }}
               >
                 Cómo funciona
@@ -435,7 +435,7 @@ export default function ATodaMaquinaPage() {
                   href={FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                   style={{ backgroundColor: C.verde, color: C.paper }}
                 >
                   Ver Facebook →
@@ -444,7 +444,7 @@ export default function ATodaMaquinaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-lg border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-lg border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                   style={{ borderColor: 'rgba(46,74,60,0.35)', color: C.tinta }}
                 >
                   Ver las reseñas en Google →
@@ -498,7 +498,7 @@ export default function ATodaMaquinaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
+                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
                 style={{ color: C.verde, textDecorationColor: 'rgba(46,74,60,0.35)' }}
               >
                 Consultar valor exacto por WhatsApp →
@@ -571,7 +571,7 @@ export default function ATodaMaquinaPage() {
                 href={WA_LINK_SERVICIO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.mostaza, color: C.verdeDeep }}
               >
                 Consultar por WhatsApp
@@ -580,7 +580,7 @@ export default function ATodaMaquinaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-lg border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-lg border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(46,74,60,0.35)', color: C.tinta }}
               >
                 Cómo llegar →
@@ -629,7 +629,7 @@ export default function ATodaMaquinaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing}`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing} tap-44`}
               style={{ backgroundColor: C.mostaza, color: C.verdeDeep }}
             >
               Escribir a A Toda Maquina
@@ -656,7 +656,7 @@ export default function ATodaMaquinaPage() {
             </div>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,237,225,0.62)' }}>
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing}`}>
+                <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing} tap-44`}>
                   {l.label}
                 </a>
               ))}
@@ -666,12 +666,12 @@ export default function ATodaMaquinaPage() {
         <div className="border-t" style={{ borderColor: 'rgba(244,237,225,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(244,237,225,0.75)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-80 ${focusRing}`} style={{ color: C.paper }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-80 ${focusRing} tap-44`} style={{ color: C.paper }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name} — así se vería tu sitio. Textos, precios y fotos
             son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-80 ${focusRing}`} style={{ color: C.mostaza }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-80 ${focusRing} tap-44`} style={{ color: C.mostaza }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

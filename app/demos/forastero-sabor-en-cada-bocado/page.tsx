@@ -210,7 +210,7 @@ export default function ForasteroPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS}`}
+              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS} tap-44`}
               style={{ backgroundColor: 'rgba(6,13,21,0.85)', color: C.ink, ...NEON_BOX }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.cyan} stroke={C.cyan} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -224,7 +224,7 @@ export default function ForasteroPage() {
               href={BIZ.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS}`}
+              className={`text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-transform hover:-translate-y-0.5 ${FOCUS} tap-44`}
               style={{ backgroundColor: 'rgba(6,13,21,0.85)', color: C.muted, border: `1px solid ${C.line}` }}
             >
               {BIZ.fbFollowers} seguidores en Facebook
@@ -260,14 +260,14 @@ export default function ForasteroPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS}`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS} tap-44`}
                 style={{ backgroundColor: C.cyan, color: '#041019', boxShadow: '0 0 24px rgba(60,217,236,0.45)' }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#carta"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-colors hover:bg-white/5 ${FOCUS}`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-colors hover:bg-white/5 ${FOCUS} tap-44`}
                 style={{ border: '1.5px solid rgba(60,217,236,0.55)', color: C.cyan }}
               >
                 Ver la carta
@@ -379,7 +379,7 @@ export default function ForasteroPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-xl px-2.5 py-1.5 md:px-3 md:py-3 flex items-center justify-center gap-1.5 md:gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
+                className={`rounded-xl px-2.5 py-1.5 md:px-3 md:py-3 flex items-center justify-center gap-1.5 md:gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS} tap-44`}
                 style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
               >
                 <p className={`${display.className} font-extrabold text-lg md:text-2xl leading-none`} style={NEON_TEXT}>
@@ -393,7 +393,7 @@ export default function ForasteroPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`rounded-xl px-2.5 py-1.5 md:px-3 md:py-3 flex items-center justify-center gap-1.5 md:gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS}`}
+                className={`rounded-xl px-2.5 py-1.5 md:px-3 md:py-3 flex items-center justify-center gap-1.5 md:gap-2 text-center transition-transform hover:-translate-y-0.5 ${FOCUS} tap-44`}
                 style={{ backgroundColor: C.panelHi, border: `1px solid ${C.line}` }}
               >
                 <p className={`${display.className} font-extrabold text-lg md:text-2xl leading-none`} style={NEON_TEXT}>
@@ -510,7 +510,7 @@ export default function ForasteroPage() {
               href={WA_LINK_LLEVAR}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-colors hover:bg-white/5 ${FOCUS}`}
+              className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-colors hover:bg-white/5 ${FOCUS} tap-44`}
               style={{ border: '1.5px solid rgba(60,217,236,0.55)', color: C.cyan }}
             >
               Preguntar por la carta →
@@ -566,7 +566,7 @@ export default function ForasteroPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS}`}
+                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS} tap-44`}
                   style={{ backgroundColor: C.cyan, color: '#041019', boxShadow: '0 0 20px rgba(60,217,236,0.4)' }}
                 >
                   Reservar mesa
@@ -575,7 +575,7 @@ export default function ForasteroPage() {
                   href={WA_LINK_LLEVAR}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-colors hover:bg-white/5 ${FOCUS}`}
+                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-colors hover:bg-white/5 ${FOCUS} tap-44`}
                   style={{ border: '1.5px solid rgba(60,217,236,0.55)', color: C.cyan }}
                 >
                   Pedir para llevar
@@ -583,11 +583,11 @@ export default function ForasteroPage() {
               </div>
               <p className="text-xs mt-5" style={{ color: C.dim }}>
                 También nos encuentras en{' '}
-                <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:brightness-125 ${FOCUS}`} style={{ color: C.cyan }}>
+                <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:brightness-125 ${FOCUS} tap-44`} style={{ color: C.cyan }}>
                   Facebook
                 </a>{' '}
                 y en{' '}
-                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:brightness-125 ${FOCUS}`} style={{ color: C.cyan }}>
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:brightness-125 ${FOCUS} tap-44`} style={{ color: C.cyan }}>
                   Google Maps
                 </a>
                 .
@@ -638,7 +638,7 @@ export default function ForasteroPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS}`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 ${FOCUS} tap-44`}
               style={{ backgroundColor: C.cyan, color: '#041019', boxShadow: '0 0 28px rgba(60,217,236,0.5)' }}
             >
               Escribir por WhatsApp

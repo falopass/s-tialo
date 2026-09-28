@@ -175,7 +175,7 @@ function MosaicTile({ tile, index }: { tile: Tile; index: number }) {
             href={WA_LINK_OFICINA}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 transition-[transform,filter] hover:brightness-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="inline-block text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 transition-[transform,filter] hover:brightness-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44"
             style={{ backgroundColor: C.cyan, color: C.blueDeep }}
           >
             {tile.cta} →
@@ -286,7 +286,7 @@ export default function WakeUpPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-[transform,background-color] hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-[transform,background-color] hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44"
               style={{ backgroundColor: 'rgba(255,255,255,0.95)', color: C.blueDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.cyan} stroke={C.cyan} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -316,14 +316,14 @@ export default function WakeUpPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-[transform,filter] hover:brightness-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-[transform,filter] hover:brightness-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
                 style={{ backgroundColor: C.cyan, color: C.blueDeep }}
               >
                 Pedir por WhatsApp
               </a>
               <a
                 href="#mosaico"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#fff' }}
               >
                 Ver el mosaico
@@ -339,7 +339,7 @@ export default function WakeUpPage() {
               <span className="inline-block w-1.5 h-1.5 animate-pulse" style={{ backgroundColor: C.cyan }} aria-hidden="true" />
               desayuno · once · para llevar
             </span>
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44">
               {BIZ.fbFollowers} seguidores en Facebook
             </a>
             <span className="hidden md:inline" style={{ color: C.cyan }}>sitio de ejemplo</span>
@@ -398,7 +398,7 @@ export default function WakeUpPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 transition-[transform,filter] hover:brightness-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F5673]"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 transition-[transform,filter] hover:brightness-110 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F5673] tap-44"
                 style={{ backgroundColor: C.blue, color: '#fff' }}
               >
                 <svg viewBox="0 0 24 24" className="w-[13px] h-[13px]" fill={C.cyan} stroke={C.cyan} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -410,7 +410,7 @@ export default function WakeUpPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 border transition-[transform,background-color] hover:bg-[rgba(31,86,115,0.08)] active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F5673]"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] px-5 py-2.5 border transition-[transform,background-color] hover:bg-[rgba(31,86,115,0.08)] active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1F5673] tap-44"
                 style={{ borderColor: C.line, color: C.blue }}
               >
                 Facebook · {BIZ.fbFollowers} seguidores
@@ -542,7 +542,7 @@ export default function WakeUpPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm px-6 py-3 transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.cyan, color: C.blueDeep }}
               >
                 WhatsApp {BIZ.phoneDisplay}
@@ -551,7 +551,7 @@ export default function WakeUpPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.4)', color: '#fff' }}
               >
                 Cómo llegar →
@@ -592,7 +592,7 @@ export default function WakeUpPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.cyan, color: C.blueDeep }}
             >
               Escribir por WhatsApp
@@ -615,11 +615,11 @@ export default function WakeUpPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
               Facebook
             </a>
           </div>
@@ -627,12 +627,12 @@ export default function WakeUpPage() {
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.cyan }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.cyan }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Textos, carta, horarios y fotos son de muestra;
             los datos de contacto son los publicados por el negocio.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.cyan }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.cyan }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

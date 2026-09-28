@@ -145,7 +145,7 @@ export default function ViveroDonaInesPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(251,247,239,0.95)', color: C.leafDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.terra} stroke={C.terra} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -301,7 +301,7 @@ export default function ViveroDonaInesPage() {
               href={WA_LINK_FRUTAL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.terra, color: '#FBF7EF' }}
             >
               Consultar por un frutal
@@ -327,7 +327,7 @@ export default function ViveroDonaInesPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold underline underline-offset-4 decoration-2"
+              className="text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
               style={{ color: C.terra, textDecorationColor: 'rgba(193,102,63,0.35)' }}
             >
               Ver la ficha en Google →
@@ -451,7 +451,7 @@ export default function ViveroDonaInesPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: '#FBF7EF', color: C.terra }}
             >
               Escribir por WhatsApp
@@ -469,17 +469,17 @@ export default function ViveroDonaInesPage() {
           </p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.85)' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.8)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.terraSoft }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.terraSoft }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}: productos, horarios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.terraSoft }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.terraSoft }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

@@ -161,7 +161,7 @@ export default function NicolasAtelierPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(251,247,239,0.94)', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.earth} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -205,14 +205,14 @@ export default function NicolasAtelierPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
+                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF] tap-44`}
                 style={{ backgroundColor: C.paper, color: C.deep }}
               >
                 Reservar hora
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
+                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF] tap-44`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: C.paper }}
               >
                 Ver servicios
@@ -308,7 +308,7 @@ export default function NicolasAtelierPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-flex items-center gap-3 text-lg px-7 py-2.5 md:py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4`}
+                className={`${display.className} inline-flex items-center gap-3 text-lg px-7 py-2.5 md:py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 tap-44`}
                 style={{ backgroundColor: C.green, color: C.paper, outlineColor: C.green }}
               >
                 Agenda por WhatsApp
@@ -381,7 +381,7 @@ export default function NicolasAtelierPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs md:text-sm font-semibold px-4 py-2 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
+                  className="text-xs md:text-sm font-semibold px-4 py-2 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44"
                   style={{ borderColor: 'rgba(251,247,239,0.35)', color: C.paper }}
                 >
                   {BIZ.reviews} reseñas en Google
@@ -390,7 +390,7 @@ export default function NicolasAtelierPage() {
                   href={BIZ.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs md:text-sm font-semibold px-4 py-2 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
+                  className="text-xs md:text-sm font-semibold px-4 py-2 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44"
                   style={{ borderColor: 'rgba(251,247,239,0.35)', color: C.paper }}
                 >
                   {BIZ.igHandle} · {BIZ.igFollowers} seguidores
@@ -434,7 +434,7 @@ export default function NicolasAtelierPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-8 text-sm font-semibold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
+                className="inline-block mt-8 text-sm font-semibold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44"
                 style={{ color: C.leaf, textDecorationColor: 'rgba(220,228,200,0.4)' }}
               >
                 Ver las {BIZ.reviews} reseñas en Google →
@@ -518,7 +518,7 @@ export default function NicolasAtelierPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
+                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF] tap-44`}
                 style={{ backgroundColor: C.paper, color: C.deep }}
               >
                 Reservar hora
@@ -527,7 +527,7 @@ export default function NicolasAtelierPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]`}
+                className={`${display.className} text-lg px-7 py-2.5 md:py-3.5 border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF] tap-44`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: C.paper }}
               >
                 Ver Instagram
@@ -538,7 +538,7 @@ export default function NicolasAtelierPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]" style={{ textDecorationColor: 'rgba(220,228,200,0.4)' }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44" style={{ textDecorationColor: 'rgba(220,228,200,0.4)' }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -557,7 +557,7 @@ export default function NicolasAtelierPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-sm font-semibold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
+              className="inline-flex items-center gap-2 mt-4 text-sm font-semibold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44"
               style={{ color: C.leaf, textDecorationColor: 'rgba(220,228,200,0.4)' }}
             >
               Cómo llegar →
@@ -574,12 +574,12 @@ export default function NicolasAtelierPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.72)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-opacity hover:opacity-75">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-opacity hover:opacity-75 tap-44">{BIZ.phoneDisplay}</a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(251,247,239,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}
@@ -588,11 +588,11 @@ export default function NicolasAtelierPage() {
         <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(251,247,239,0.75)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.earthSoft }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.earthSoft }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Textos, servicios, precios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.earthSoft }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.earthSoft }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

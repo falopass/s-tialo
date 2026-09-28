@@ -327,14 +327,14 @@ export default function BxtrainingPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.yellow, color: C.ink }}
               >
                 Escribir por WhatsApp
               </a>
               <a
                 href="#espacio"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver el espacio
@@ -395,7 +395,7 @@ export default function BxtrainingPage() {
                   href={BIZ.facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
+                  className={`font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
                   style={{ color: C.ink, textDecorationColor: C.yellow }}
                 >
                   página de Facebook
@@ -407,7 +407,7 @@ export default function BxtrainingPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                  className={`${display.className} font-bold text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                   style={{ backgroundColor: C.ink, color: '#FFFFFF' }}
                 >
                   Ver las reseñas en Google →
@@ -416,7 +416,7 @@ export default function BxtrainingPage() {
                   href={WA_LINK_CLASE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                  className={`${display.className} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                   style={{ borderColor: 'rgba(23,24,26,0.3)', color: C.ink }}
                 >
                   Probar una clase
@@ -490,7 +490,7 @@ export default function BxtrainingPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
+                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
                 style={{ color: C.yellow, textDecorationColor: 'rgba(255,195,0,0.4)' }}
               >
                 Consultar valor exacto por WhatsApp →
@@ -570,7 +570,7 @@ export default function BxtrainingPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.yellow, color: C.ink }}
               >
                 Escribir por WhatsApp
@@ -579,7 +579,7 @@ export default function BxtrainingPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                className={`${display.className} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(23,24,26,0.3)', color: C.ink }}
               >
                 Cómo llegar →
@@ -634,7 +634,7 @@ export default function BxtrainingPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing}`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing} tap-44`}
               style={{ backgroundColor: C.yellow, color: C.ink }}
             >
               Escribir a {BIZ.name}
@@ -661,7 +661,7 @@ export default function BxtrainingPage() {
             </div>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: C.steel }}>
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing}`}>
+                <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing} tap-44`}>
                   {l.label}
                 </a>
               ))}
@@ -669,11 +669,11 @@ export default function BxtrainingPage() {
           </div>
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-75 ${focusRing}`} style={{ color: '#FFFFFF' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-75 ${focusRing} tap-44`} style={{ color: '#FFFFFF' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Textos, precios, horarios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-75 ${focusRing}`} style={{ color: C.yellow }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 hover:opacity-75 ${focusRing} tap-44`} style={{ color: C.yellow }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

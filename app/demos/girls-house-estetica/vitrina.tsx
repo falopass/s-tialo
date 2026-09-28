@@ -126,7 +126,7 @@ export function Vitrina({ fontClass }: { fontClass: string }) {
               type="button"
               onClick={() => setFilter(f.key)}
               aria-pressed={active}
-              className={`text-[11px] md:text-xs font-semibold uppercase tracking-[0.14em] px-4 py-2 border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]${active ? '' : ' hover:border-[#5A6169] hover:text-[#17181A]'}`}
+              className={`text-[11px] md:text-xs font-semibold uppercase tracking-[0.14em] px-4 py-2 border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]${active ? '' : ' hover:border-[#5A6169] hover:text-[#17181A]'} tap-44`}
               style={{
                 backgroundColor: active ? C.signal : 'transparent',
                 borderColor: active ? C.signal : C.line,
@@ -224,7 +224,7 @@ export function Vitrina({ fontClass }: { fontClass: string }) {
                   href={waLinkServicio(p.name)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-2 transition-colors hover:bg-[#FFC300] hover:text-[#17181A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A]"
+                  className="text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-2 transition-colors hover:bg-[#FFC300] hover:text-[#17181A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A] tap-44"
                   style={{ backgroundColor: C.ink, color: '#fff' }}
                 >
                   Reservar

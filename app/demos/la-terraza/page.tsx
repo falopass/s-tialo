@@ -197,7 +197,7 @@ function WaButton({ href = WA_LINK, children, tone = 'terracota', className = ''
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2.5 font-bold text-sm md:text-base px-6 py-3.5 min-h-[48px] rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] ${focusRing} ${className}`}
+      className={`inline-flex items-center justify-center gap-2.5 font-bold text-sm md:text-base px-6 py-3.5 min-h-[48px] rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] ${focusRing} ${className} tap-44`}
       style={style}
     >
       <Icon name="chat" className="w-[18px] h-[18px]" />
@@ -255,7 +255,7 @@ export default function LaTerrazaPage() {
               <WaButton tone="arena">Pedir por WhatsApp</WaButton>
               <a
                 href="#carta"
-                className={`inline-flex items-center font-bold text-sm md:text-base px-6 py-3.5 min-h-[48px] rounded-lg border-2 transition-colors hover:bg-white/10 ${focusRing}`}
+                className={`inline-flex items-center font-bold text-sm md:text-base px-6 py-3.5 min-h-[48px] rounded-lg border-2 transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(232,220,200,0.5)', color: C.blanco }}
               >
                 Ver la carta
@@ -284,7 +284,7 @@ export default function LaTerrazaPage() {
                   href={f.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-4 px-5 py-2.5 bg-white transition-colors hover:bg-[#F4EEE3] ${focusRing}`}
+                  className={`flex items-center gap-4 px-5 py-2.5 bg-white transition-colors hover:bg-[#F4EEE3] ${focusRing} tap-44`}
                 >
                   <span className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: C.arena }}>
                     <Icon name={f.icon} className="w-5 h-5" color={C.terracotaDeep} />
@@ -334,7 +334,7 @@ export default function LaTerrazaPage() {
                       href={WA_LINK}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 text-sm font-bold px-4 py-2.5 min-h-[44px] rounded-lg border-2 transition-colors hover:bg-[#F4EEE3] ${focusRing}`}
+                      className={`col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-2 text-sm font-bold px-4 py-2.5 min-h-[44px] rounded-lg border-2 transition-colors hover:bg-[#F4EEE3] ${focusRing} tap-44`}
                       style={{ borderColor: C.terracotaDeep, color: C.terracotaDeep }}
                     >
                       <Icon name="chat" className="w-4 h-4" />
@@ -392,7 +392,7 @@ export default function LaTerrazaPage() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center font-bold text-sm md:text-base px-6 py-3.5 min-h-[48px] rounded-lg border-2 transition-colors hover:bg-white/10 ${focusRing}`}
+                className={`inline-flex items-center font-bold text-sm md:text-base px-6 py-3.5 min-h-[48px] rounded-lg border-2 transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(232,220,200,0.4)', color: C.blanco }}
               >
                 Ver Instagram
@@ -484,7 +484,7 @@ export default function LaTerrazaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-4 rounded-xl px-5 py-2 md:py-3.5 mb-6 transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing}`}
+              className={`flex items-center gap-4 rounded-xl px-5 py-2 md:py-3.5 mb-6 transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing} tap-44`}
               style={{ backgroundColor: C.terracotaDeep, color: C.blanco }}
             >
               <span className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.16)' }}>
@@ -507,7 +507,7 @@ export default function LaTerrazaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center font-bold text-sm px-5 py-3 min-h-[44px] rounded-lg border-2 transition-colors hover:bg-white ${focusRing}`}
+              className={`inline-flex items-center font-bold text-sm px-5 py-3 min-h-[44px] rounded-lg border-2 transition-colors hover:bg-white ${focusRing} tap-44`}
               style={{ borderColor: C.line, color: C.noche }}
             >
               Cómo llegar en Google Maps →
@@ -538,11 +538,11 @@ export default function LaTerrazaPage() {
           </div>
           <p className="text-xs leading-relaxed md:max-w-xs" style={{ color: 'rgba(255,255,255,0.62)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.blanco }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.blanco }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}, así se vería tu sitio.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.blanco }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.blanco }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

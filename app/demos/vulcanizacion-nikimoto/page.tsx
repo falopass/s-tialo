@@ -169,14 +169,14 @@ export default function VulcanizacionNikimotoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 min-h-[52px] px-6 rounded-sm font-semibold text-base transition-transform hover:-translate-y-0.5 ${focusRing}`}
+              className={`inline-flex items-center gap-2 min-h-[52px] px-6 rounded-sm font-semibold text-base transition-transform hover:-translate-y-0.5 ${focusRing} tap-44`}
               style={{ backgroundColor: C.amarillo, color: C.negro }}
             >
               <WaIcon /> Escribir por WhatsApp
             </a>
             <a
               href="#trabajos"
-              className={`inline-flex items-center min-h-[52px] px-6 rounded-sm font-semibold border ${focusRing}`}
+              className={`inline-flex items-center min-h-[52px] px-6 rounded-sm font-semibold border ${focusRing} tap-44`}
               style={{ borderColor: 'rgba(255,255,255,0.35)' }}
             >
               Ver trabajos
@@ -264,7 +264,7 @@ export default function VulcanizacionNikimotoPage() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#17181A]"
+                className="text-sm underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#17181A] tap-44"
               >
                 seguidores en @{BIZ.instagram}
               </a>
@@ -320,7 +320,7 @@ export default function VulcanizacionNikimotoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 min-h-[52px] px-6 rounded-sm font-semibold transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#17181A]"
+                className="mt-6 inline-flex items-center gap-2 min-h-[52px] px-6 rounded-sm font-semibold transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#17181A] tap-44"
                 style={{ backgroundColor: C.negro, color: C.amarillo }}
               >
                 <WaIcon /> WhatsApp {BIZ.phoneDisplay}
@@ -330,7 +330,7 @@ export default function VulcanizacionNikimotoPage() {
           <div className="md:col-span-3 rounded-sm p-6 border" style={{ borderColor: C.line }}>
             <span className="text-xs uppercase tracking-[0.18em]" style={{ color: C.acero }}>Dirección</span>
             <p className={`${display.className} mt-2 text-2xl font-bold`}>{BIZ.address}</p>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`mt-3 inline-block text-sm underline underline-offset-4 ${focusRing}`} style={{ color: C.amarillo }}>
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`mt-3 inline-block text-sm underline underline-offset-4 ${focusRing} tap-44`} style={{ color: C.amarillo }}>
               Abrir en Google Maps
             </a>
           </div>

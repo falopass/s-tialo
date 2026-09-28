@@ -172,14 +172,14 @@ export default function DanybloomPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 tap-44`}
                 style={{ backgroundColor: C.signal, color: C.ink }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-3 border-2 transition-all hover:bg-white/10 hover:-translate-y-0.5 active:scale-95`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-3 border-2 transition-all hover:bg-white/10 hover:-translate-y-0.5 active:scale-95 tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.5)', color: '#FFFFFF' }}
               >
                 Ver servicios
@@ -245,7 +245,7 @@ export default function DanybloomPage() {
                     href={WA_LINK_SERVICIO}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} inline-flex items-center gap-2 font-bold uppercase tracking-wide text-sm underline underline-offset-8 decoration-4 hover:decoration-[6px] transition-all`}
+                    className={`${display.className} inline-flex items-center gap-2 font-bold uppercase tracking-wide text-sm underline underline-offset-8 decoration-4 hover:decoration-[6px] transition-all tap-44`}
                     style={{ color: C.ink, textDecorationColor: C.signal }}
                   >
                     Agendar este servicio →
@@ -315,7 +315,7 @@ export default function DanybloomPage() {
                         href={BIZ.instagramUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline underline-offset-4 decoration-2"
+                        className="underline underline-offset-4 decoration-2 tap-44"
                         style={{ textDecorationColor: C.signal }}
                       >
                         {f.v}
@@ -402,7 +402,7 @@ export default function DanybloomPage() {
               </address>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="text-sm md:text-base font-medium mb-8 underline underline-offset-4 decoration-2"
+                className="text-sm md:text-base font-medium mb-8 underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.ink, textDecorationColor: C.signal }}
               >
                 {BIZ.phoneDisplay}
@@ -412,7 +412,7 @@ export default function DanybloomPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95`}
+                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 tap-44`}
                   style={{ backgroundColor: C.ink, color: '#FFFFFF' }}
                 >
                   WhatsApp directo
@@ -421,7 +421,7 @@ export default function DanybloomPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-3 border-2 transition-all hover:bg-black/5 hover:-translate-y-0.5 active:scale-95`}
+                  className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-3 border-2 transition-all hover:bg-black/5 hover:-translate-y-0.5 active:scale-95 tap-44`}
                   style={{ borderColor: C.ink, color: C.ink }}
                 >
                   Cómo llegar →
@@ -456,7 +456,7 @@ export default function DanybloomPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold uppercase tracking-wide text-base md:text-lg px-8 py-3 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95`}
+              className={`${display.className} inline-block font-bold uppercase tracking-wide text-base md:text-lg px-8 py-3 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 tap-44`}
               style={{ backgroundColor: C.ink, color: C.signal }}
             >
               Escribir por WhatsApp
@@ -479,11 +479,11 @@ export default function DanybloomPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: C.steel }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
               Instagram
             </a>
           </div>
@@ -491,12 +491,12 @@ export default function DanybloomPage() {
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.72)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signal }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.signal }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}: servicios, precios y fotos son de muestra; nombre,
             dirección, WhatsApp e Instagram son reales.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signal }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.signal }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

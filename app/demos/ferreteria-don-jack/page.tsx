@@ -98,10 +98,10 @@ export default function Page() {
             {BIZ.name}: gasfitería, riego, herramientas y materiales para la casa y el campo, con atención directa en el mesón.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="min-h-[48px] inline-flex items-center justify-center px-7 rounded-full font-medium focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: C.crema, color: C.campoDeep }}>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="min-h-[48px] inline-flex items-center justify-center px-7 rounded-full font-medium focus-visible:outline-2 focus-visible:outline-offset-2 tap-44" style={{ background: C.crema, color: C.campoDeep }}>
               Consultar por WhatsApp
             </a>
-            <a href="#carta" className="min-h-[48px] inline-flex items-center justify-center px-7 rounded-full border" style={{ borderColor: 'rgba(251,247,239,0.5)' }}>
+            <a href="#carta" className="min-h-[48px] inline-flex items-center justify-center px-7 rounded-full border tap-44" style={{ borderColor: 'rgba(251,247,239,0.5)' }}>
               Ver la carta
             </a>
           </div>
@@ -175,9 +175,9 @@ export default function Page() {
               <Leader label="Cerca de casa, en Pencahue" value="iii" serifValue valueColor={C.campoDeep} />
             </ul>
             <p className="mt-6 text-[15px]" style={{ color: C.campoDeep }}>
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" style={{ color: C.campo }}>{BIZ.reviews} reseñas en Google Maps</a>
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 tap-44" style={{ color: C.campo }}>{BIZ.reviews} reseñas en Google Maps</a>
               {' '}y{' '}
-              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" style={{ color: C.campo }}>{BIZ.followers.toLocaleString('es-CL')} seguidores en Facebook</a>.
+              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 tap-44" style={{ color: C.campo }}>{BIZ.followers.toLocaleString('es-CL')} seguidores en Facebook</a>.
             </p>
           </div>
         </div>
@@ -220,7 +220,7 @@ export default function Page() {
             <p className="mt-5 text-[16px] leading-relaxed opacity-90 max-w-md">
               Mande una foto de la pieza o la lista de lo que necesita y le respondemos por WhatsApp.
             </p>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="mt-8 min-h-[48px] inline-flex items-center gap-3 px-8 rounded-full text-[17px] font-semibold shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: '#25D366', color: '#0B2A14' }}>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="mt-8 min-h-[48px] inline-flex items-center gap-3 px-8 rounded-full text-[17px] font-semibold shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 tap-44" style={{ background: '#25D366', color: '#0B2A14' }}>
               Escribir al {BIZ.phoneDisplay}
             </a>
             <dl className="mt-10 space-y-4 text-[15px]">
@@ -231,10 +231,10 @@ export default function Page() {
               </div>
               <div>
                 <dt className="text-[11px] uppercase tracking-[0.25em]" style={{ color: C.hoja }}>Teléfono</dt>
-                <dd><a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4">{BIZ.phoneDisplay}</a></dd>
+                <dd><a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 tap-44">{BIZ.phoneDisplay}</a></dd>
               </div>
             </dl>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block underline underline-offset-4" style={{ color: C.hoja }}>
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block underline underline-offset-4 tap-44" style={{ color: C.hoja }}>
               Cómo llegar en Google Maps
             </a>
           </div>
@@ -247,9 +247,9 @@ export default function Page() {
       {/* Franja Sitiazo */}
       <footer className="px-5 py-6 pb-24 text-center text-[13px]" style={{ background: C.tierra, color: C.crema }}>
         Sitio de ejemplo de{' '}
-        <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">Sitiazo</a>{' '}
+        <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44">Sitiazo</a>{' '}
         para {BIZ.name}. Surtido, precios y textos son de muestra.{' '}
-        <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2">¿Lo hacemos realidad?</a>
+        <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44">¿Lo hacemos realidad?</a>
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />

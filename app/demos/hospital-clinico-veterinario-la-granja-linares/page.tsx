@@ -189,12 +189,12 @@ export default function LaGranjaPage() {
             <span>Linares, domingo 27 de septiembre de 2026</span>
             <nav className="flex flex-wrap gap-x-5 gap-y-1" aria-label="Secciones">
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF]" style={{ color: C.blue }}>
+                <a key={l.href} href={l.href} className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF] tap-44" style={{ color: C.blue }}>
                   {l.label}
                 </a>
               ))}
             </nav>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF]" style={{ color: C.blue }}>
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF] tap-44" style={{ color: C.blue }}>
               {BIZ.reviews} reseñas en Google
             </a>
           </div>
@@ -242,7 +242,7 @@ export default function LaGranjaPage() {
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-4 md:top-6 right-4 md:right-6 flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]"
+            className="absolute top-4 md:top-6 right-4 md:right-6 flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E] tap-44x"
             style={{ backgroundColor: 'rgba(255,255,255,0.96)', color: C.blue }}
           >
             <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.blue} aria-hidden="true">
@@ -267,14 +267,14 @@ export default function LaGranjaPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]`}
+                    className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E] tap-44`}
                     style={{ backgroundColor: C.lime, color: C.ink }}
                   >
                     Agendar hora por WhatsApp
                   </a>
                   <a
                     href="#pacientes"
-                    className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 border-2 border-white/70 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]`}
+                    className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 border-2 border-white/70 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E] tap-44`}
                   >
                     Leer la edición
                   </a>
@@ -475,7 +475,7 @@ export default function LaGranjaPage() {
                   href={BIZ.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 block text-center text-sm font-bold px-4 py-3 border-2 text-[#2251FF] transition-colors hover:bg-[#2251FF] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF]"
+                  className="mt-5 block text-center text-sm font-bold px-4 py-3 border-2 text-[#2251FF] transition-colors hover:bg-[#2251FF] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2251FF] tap-44"
                   style={{ borderColor: C.blue }}
                 >
                   Ver Instagram →
@@ -536,7 +536,7 @@ export default function LaGranjaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]`}
+                className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E] tap-44`}
                 style={{ backgroundColor: C.lime, color: C.ink }}
               >
                 Consultar valor exacto →
@@ -593,7 +593,7 @@ export default function LaGranjaPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} block text-center font-bold text-sm md:text-lg leading-tight md:leading-normal px-4 py-2 md:px-7 md:py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#10152B]`}
+                    className={`${display.className} block text-center font-bold text-sm md:text-lg leading-tight md:leading-normal px-4 py-2 md:px-7 md:py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#10152B] tap-44`}
                     style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
                   >
                     Agendar por WhatsApp — {BIZ.phoneDisplay}
@@ -602,7 +602,7 @@ export default function LaGranjaPage() {
                     href={WA_LINK_URGENCIA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} block text-center font-bold text-sm px-7 py-3 border-2 text-[#10152B] transition-colors hover:bg-[#10152B] hover:text-[#C6F24E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#10152B]`}
+                    className={`${display.className} block text-center font-bold text-sm px-7 py-3 border-2 text-[#10152B] transition-colors hover:bg-[#10152B] hover:text-[#C6F24E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#10152B] tap-44`}
                     style={{ borderColor: C.ink }}
                   >
                     Tengo una urgencia →
@@ -633,7 +633,7 @@ export default function LaGranjaPage() {
           </p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
             {BIZ.address}, {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E]">
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C6F24E] tap-44">
               {BIZ.phoneDisplay}
             </a>
           </address>
@@ -641,11 +641,11 @@ export default function LaGranjaPage() {
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
           <p className="max-w-6xl mx-auto pl-5 pr-20 md:px-8 py-4 pb-20 md:pb-4 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.lime }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.lime }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Textos, servicios, precios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.lime }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.lime }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

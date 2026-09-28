@@ -220,7 +220,7 @@ export default function DamianStylePage() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing}`}
+              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing} tap-44`}
               style={{ backgroundColor: 'rgba(245,239,230,0.95)', color: C.vino }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.vino} strokeWidth="1.8" aria-hidden="true">
@@ -252,14 +252,14 @@ export default function DamianStylePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.oro, color: C.vinoDeep }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(245,239,230,0.55)', color: C.paper }}
               >
                 Ver servicios
@@ -386,7 +386,7 @@ export default function DamianStylePage() {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                   style={{ backgroundColor: C.vino, color: C.paper }}
                 >
                   Ver Instagram →
@@ -395,7 +395,7 @@ export default function DamianStylePage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                   style={{ borderColor: 'rgba(44,27,32,0.3)', color: C.tinta }}
                 >
                   Agendar hora
@@ -426,7 +426,7 @@ export default function DamianStylePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
+                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
                 style={{ color: C.vino, textDecorationColor: 'rgba(107,39,55,0.3)' }}
               >
                 Ver la ficha en Google →
@@ -481,7 +481,7 @@ export default function DamianStylePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
+                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
                 style={{ color: C.oroSoft, textDecorationColor: 'rgba(216,188,143,0.4)' }}
               >
                 Consultar valor exacto por WhatsApp →
@@ -568,7 +568,7 @@ export default function DamianStylePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.vino, color: C.paper }}
               >
                 Agendar por WhatsApp
@@ -577,7 +577,7 @@ export default function DamianStylePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(44,27,32,0.3)', color: C.tinta }}
               >
                 Cómo llegar →
@@ -634,7 +634,7 @@ export default function DamianStylePage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing}`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing} tap-44`}
               style={{ backgroundColor: C.oro, color: C.vinoDeep }}
             >
               Escribir a DamianStyle

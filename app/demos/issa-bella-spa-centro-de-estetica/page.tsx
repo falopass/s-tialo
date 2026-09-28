@@ -261,7 +261,7 @@ export default function IssaBellaPage() {
               </a>
               <a
                 href="#tratamientos"
-                className={`${BTN} border hover:bg-white/10`}
+                className={`${BTN} border hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(247,249,249,0.55)', color: C.paper }}
               >
                 Ver tratamientos
@@ -291,7 +291,7 @@ export default function IssaBellaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} text-xs font-bold px-3.5 py-2 border hover:bg-white/10 transition-colors`}
+                className={`${FOCUS} text-xs font-bold px-3.5 py-2 border hover:bg-white/10 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(247,249,249,0.4)', color: C.paper }}
               >
                 {BIZ.reviews} reseñas en Google
@@ -300,7 +300,7 @@ export default function IssaBellaPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} text-xs font-bold px-3.5 py-2 border hover:bg-white/10 transition-colors`}
+                className={`${FOCUS} text-xs font-bold px-3.5 py-2 border hover:bg-white/10 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(247,249,249,0.4)', color: C.paper }}
               >
                 {BIZ.instagramHandle} · {BIZ.followers} seguidores
@@ -392,7 +392,7 @@ export default function IssaBellaPage() {
                 href={WA_LINK_FACIAL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${LINK} font-bold text-base`}
+                className={`${LINK} font-bold text-base tap-44`}
                 style={{ color: C.petrol }}
               >
                 Consulta por WhatsApp →
@@ -489,7 +489,7 @@ export default function IssaBellaPage() {
               <div>
                 <dt className={`${KICKER} mb-1`} style={{ color: C.petrol }}>Google</dt>
                 <dd className="text-base">
-                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={LINK}>
+                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'}>
                     {BIZ.reviews} reseñas
                   </a>
                 </dd>
@@ -497,7 +497,7 @@ export default function IssaBellaPage() {
               <div>
                 <dt className={`${KICKER} mb-1`} style={{ color: C.petrol }}>Instagram</dt>
                 <dd className="text-base">
-                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={LINK}>
+                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'}>
                     {BIZ.instagramHandle} · {BIZ.followers}
                   </a>
                 </dd>
@@ -505,7 +505,7 @@ export default function IssaBellaPage() {
               <div>
                 <dt className={`${KICKER} mb-1`} style={{ color: C.petrol }}>WhatsApp</dt>
                 <dd className="text-base">
-                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={LINK}>
+                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'}>
                     {BIZ.phoneDisplay}
                   </a>
                 </dd>
@@ -570,7 +570,7 @@ export default function IssaBellaPage() {
         <p className="mt-6 text-sm" style={{ color: C.muted }}>
           Las reseñas citadas son de muestra. Al publicar van los textos
           reales de{' '}
-          <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={LINK} style={{ color: C.petrol }}>
+          <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'} style={{ color: C.petrol }}>
             la ficha de Google
           </a>
           .
@@ -668,7 +668,7 @@ export default function IssaBellaPage() {
                 <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={BTN_MINT}>
                   Agendar por WhatsApp
                 </a>
-                <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} text-base underline underline-offset-4 decoration-2 decoration-[#9FD8CB]/60 hover:decoration-[#9FD8CB]`}>
+                <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} text-base underline underline-offset-4 decoration-2 decoration-[#9FD8CB]/60 hover:decoration-[#9FD8CB] tap-44`}>
                   {BIZ.instagramHandle}
                 </a>
               </div>
@@ -707,7 +707,7 @@ export default function IssaBellaPage() {
           </p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.8)' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2`}>
+            <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 tap-44`}>
               {BIZ.phoneDisplay}
             </a>
           </address>

@@ -179,14 +179,14 @@ export default function BeautyLovePage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bl-cta inline-flex items-center gap-2 min-h-[48px] px-7 rounded-full text-sm font-black uppercase tracking-[0.14em] transition-shadow"
+              className="bl-cta inline-flex items-center gap-2 min-h-[48px] px-7 rounded-full text-sm font-black uppercase tracking-[0.14em] transition-shadow tap-44"
               style={{ backgroundColor: C.mint, color: C.night, boxShadow: GLOW }}
             >
               Agendar por WhatsApp
             </a>
             <a
               href="#servicios"
-              className="inline-flex items-center min-h-[48px] px-7 rounded-full text-sm font-bold uppercase tracking-[0.14em]"
+              className="inline-flex items-center min-h-[48px] px-7 rounded-full text-sm font-bold uppercase tracking-[0.14em] tap-44"
               style={{ color: C.paper, border: `1px solid ${C.line}` }}
             >
               Ver servicios
@@ -325,7 +325,7 @@ export default function BeautyLovePage() {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} inline-block text-4xl font-extrabold`}
+                  className={`${display.className} inline-block text-4xl font-extrabold tap-44`}
                   style={{ color: C.mint, textShadow: GLOW }}
                 >
                   {BIZ.instagramFollowers}
@@ -392,7 +392,7 @@ export default function BeautyLovePage() {
               href={WA_LINK_PRECIOS}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center min-h-[48px] px-7 rounded-full text-sm font-bold uppercase tracking-[0.14em]"
+              className="inline-flex items-center min-h-[48px] px-7 rounded-full text-sm font-bold uppercase tracking-[0.14em] tap-44"
               style={{ color: C.mint, boxShadow: `0 0 0 1px ${C.mint}` }}
             >
               Consultar valores
@@ -424,7 +424,7 @@ export default function BeautyLovePage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bl-cta mt-9 inline-flex items-center gap-3 min-h-[52px] px-6 md:px-9 rounded-full text-sm md:text-base font-black uppercase tracking-[0.08em] md:tracking-[0.14em] transition-shadow"
+              className="bl-cta mt-9 inline-flex items-center gap-3 min-h-[52px] px-6 md:px-9 rounded-full text-sm md:text-base font-black uppercase tracking-[0.08em] md:tracking-[0.14em] transition-shadow tap-44"
               style={{ backgroundColor: C.mint, color: C.night, boxShadow: GLOW }}
             >
               <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -437,7 +437,7 @@ export default function BeautyLovePage() {
               <div>
                 <dt className="text-xs font-black uppercase tracking-[0.25em]" style={{ color: C.mint }}>Dirección</dt>
                 <dd className="mt-1">
-                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">
+                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 tap-44">
                     {BIZ.address}, {BIZ.postal} {BIZ.city}, Maule
                   </a>
                 </dd>
@@ -445,7 +445,7 @@ export default function BeautyLovePage() {
               <div>
                 <dt className="text-xs font-black uppercase tracking-[0.25em]" style={{ color: C.mint }}>Instagram</dt>
                 <dd className="mt-1">
-                  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">
+                  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 tap-44">
                     @{BIZ.instagram}
                   </a>
                 </dd>

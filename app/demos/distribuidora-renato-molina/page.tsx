@@ -192,7 +192,7 @@ export default function DistribuidoraRenatoMolina() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${focusRing} group inline-flex items-center justify-between gap-6 min-h-[48px] px-6 text-base font-bold transition-transform active:scale-[0.98]`}
+              className={`${focusRing} group inline-flex items-center justify-between gap-6 min-h-[48px] px-6 text-base font-bold transition-transform active:scale-[0.98] tap-44`}
               style={{ backgroundColor: C.blanco, color: C.rojo }}
             >
               Pedir por WhatsApp
@@ -305,7 +305,7 @@ export default function DistribuidoraRenatoMolina() {
             <p className="mt-8 text-sm text-white/70">
               La ficha de Google todavía no tiene reseñas: los primeros comentarios pueden ser los tuyos.
               Mientras tanto, {BIZ.instagramFollowers} personas siguen la distribuidora en{' '}
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className={`${focusRing} underline underline-offset-4 font-semibold text-white`}>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className={`${focusRing} underline underline-offset-4 font-semibold text-white tap-44`}>
                 Instagram
               </a>
               .
@@ -365,7 +365,7 @@ export default function DistribuidoraRenatoMolina() {
                   href={WA_LINK_LISTA}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center gap-3 min-h-[48px] px-5 font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-4"
+                  className="mt-6 inline-flex items-center gap-3 min-h-[48px] px-5 font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-4 tap-44"
                   style={{ backgroundColor: C.tinta, outlineColor: C.rojo }}
                 >
                   Enviar mi lista para cotizar
@@ -391,7 +391,7 @@ export default function DistribuidoraRenatoMolina() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${focusRing} group mt-8 flex w-full max-w-md items-center justify-between gap-4 min-h-[48px] py-1 px-6 md:px-8 text-base md:text-lg font-bold shadow-[8px_8px_0_#1E2022] transition-transform active:translate-x-[4px] active:translate-y-[4px] active:shadow-[4px_4px_0_#1E2022]`}
+              className={`${focusRing} group mt-8 flex w-full max-w-md items-center justify-between gap-4 min-h-[48px] py-1 px-6 md:px-8 text-base md:text-lg font-bold shadow-[8px_8px_0_#1E2022] transition-transform active:translate-x-[4px] active:translate-y-[4px] active:shadow-[4px_4px_0_#1E2022] tap-44`}
               style={{ backgroundColor: C.blanco, color: C.rojo }}
             >
               <span>
@@ -423,7 +423,7 @@ export default function DistribuidoraRenatoMolina() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 min-h-[44px] font-semibold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4"
+                  className="inline-flex items-center gap-2 min-h-[44px] font-semibold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 tap-44"
                   style={{ color: C.rojo, outlineColor: C.rojo }}
                 >
                   Cómo llegar <Arrow className="w-4 h-4" />

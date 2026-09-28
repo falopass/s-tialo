@@ -160,7 +160,7 @@ export default function ParrilladasCaupolicanPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 shadow-lg transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 shadow-lg transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
               style={{ backgroundColor: 'rgba(246,241,228,0.95)', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.wood} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -192,14 +192,14 @@ export default function ParrilladasCaupolicanPage() {
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-[transform,filter] hover:brightness-95 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-[transform,filter] hover:brightness-95 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ backgroundColor: C.mustard, color: C.deep }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#carta"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ borderColor: 'rgba(246,241,228,0.55)', color: '#F6F1E4' }}
               >
                 Ver la carta
@@ -403,7 +403,7 @@ export default function ParrilladasCaupolicanPage() {
                   href={BIZ.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2E24] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                  className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2E24] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
                   style={{ color: C.green, textDecorationColor: 'rgba(217,164,65,0.5)' }}
                 >
                   {BIZ.fbFollowers} seguidores en Facebook
@@ -415,7 +415,7 @@ export default function ParrilladasCaupolicanPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#5d3c20] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#5d3c20] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
               style={{ color: C.wood, textDecorationColor: 'rgba(138,90,51,0.35)' }}
             >
               Ver la ficha en Google →
@@ -461,7 +461,7 @@ export default function ParrilladasCaupolicanPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 decoration-2 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2" style={{ textDecorationColor: 'rgba(217,164,65,0.5)' }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 decoration-2 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 tap-44" style={{ textDecorationColor: 'rgba(217,164,65,0.5)' }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -470,7 +470,7 @@ export default function ParrilladasCaupolicanPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-[transform,filter] hover:brightness-95 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-[transform,filter] hover:brightness-95 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ backgroundColor: C.mustard, color: C.deep }}
               >
                 Escribir por WhatsApp
@@ -479,7 +479,7 @@ export default function ParrilladasCaupolicanPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ borderColor: 'rgba(246,241,228,0.45)', color: '#F6F1E4' }}
               >
                 Facebook
@@ -529,7 +529,7 @@ export default function ParrilladasCaupolicanPage() {
               href={WA_LINK_RESERVA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-[transform,filter] hover:brightness-95 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-[transform,filter] hover:brightness-95 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
               style={{ backgroundColor: C.mustard, color: C.deep }}
             >
               Reservar por WhatsApp
@@ -546,12 +546,12 @@ export default function ParrilladasCaupolicanPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,228,0.82)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,228,0.82)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

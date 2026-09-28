@@ -127,7 +127,7 @@ export default function LaPicaDeLosTatasPage() {
         <div className="max-w-[1100px] mx-auto flex items-center justify-between gap-4 pl-5 pr-2 py-2 rounded-full border border-[#E8DCC8]/12 bg-[#0F141C]/60 backdrop-blur-xl">
           <a
             href="#inicio"
-            className={`${display.className} ${LINK_FOCUS} text-lg md:text-xl`}
+            className={`${display.className} ${LINK_FOCUS} text-lg md:text-xl tap-44`}
             style={{ color: C.white }}
           >
             {BIZ.short}
@@ -137,7 +137,7 @@ export default function LaPicaDeLosTatasPage() {
               <a
                 key={l.href}
                 href={l.href}
-                className={`transition-colors text-[#E8DCC8]/75 hover:text-white ${LINK_FOCUS}`}
+                className={`transition-colors text-[#E8DCC8]/75 hover:text-white ${LINK_FOCUS} tap-44`}
               >
                 {l.label}
               </a>
@@ -145,7 +145,7 @@ export default function LaPicaDeLosTatasPage() {
           </nav>
           <a
             href={CALL_LINK}
-            className={`${BTN_GLOW} text-sm px-5 py-2.5`}
+            className={`${BTN_GLOW} text-sm px-5 py-2.5 tap-44`}
             style={{ backgroundColor: C.terra, color: C.coal }}
           >
             Reservar
@@ -194,12 +194,12 @@ export default function LaPicaDeLosTatasPage() {
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <a
                 href={CALL_LINK}
-                className={`${BTN_GLOW} text-base px-8 py-3 md:py-4`}
+                className={`${BTN_GLOW} text-base px-8 py-3 md:py-4 tap-44`}
                 style={{ backgroundColor: C.terra, color: C.coal }}
               >
                 Reservar por teléfono
               </a>
-              <a href="#carta" className={`${BTN_GHOST} text-base px-8 py-3 md:py-4`} style={{ color: C.sand }}>
+              <a href="#carta" className={`${BTN_GHOST} text-base px-8 py-3 md:py-4 tap-44`} style={{ color: C.sand }}>
                 Ver la carta
               </a>
             </div>
@@ -327,7 +327,7 @@ export default function LaPicaDeLosTatasPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`font-semibold underline underline-offset-4 decoration-[#C1663F] transition-colors hover:text-[#E39A78] ${LINK_FOCUS}`}
+                className={`font-semibold underline underline-offset-4 decoration-[#C1663F] transition-colors hover:text-[#E39A78] ${LINK_FOCUS} tap-44`}
                 style={{ color: C.white }}
               >
                 {BIZ.reviews} reseñas
@@ -353,7 +353,7 @@ export default function LaPicaDeLosTatasPage() {
             </ul>
             <a
               href={CALL_LINK}
-              className={`${BTN_GLOW} mt-9 text-sm px-6 py-3.5`}
+              className={`${BTN_GLOW} mt-9 text-sm px-6 py-3.5 tap-44`}
               style={{ backgroundColor: C.terra, color: C.coal }}
             >
               Reservar por teléfono
@@ -434,7 +434,7 @@ export default function LaPicaDeLosTatasPage() {
             </p>
             <a
               href={CALL_LINK}
-              className={`${BTN_GLOW} mt-10 text-base md:text-lg px-10 py-3 md:py-4`}
+              className={`${BTN_GLOW} mt-10 text-base md:text-lg px-10 py-3 md:py-4 tap-44`}
               style={{ backgroundColor: C.terra, color: C.coal }}
             >
               Llamar al {BIZ.phoneDisplay}
@@ -443,7 +443,7 @@ export default function LaPicaDeLosTatasPage() {
               o llama al{' '}
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`underline underline-offset-4 transition-colors hover:text-[#E39A78] ${LINK_FOCUS}`}
+                className={`underline underline-offset-4 transition-colors hover:text-[#E39A78] ${LINK_FOCUS} tap-44`}
                 style={{ color: C.white }}
               >
                 {BIZ.phoneDisplay}
@@ -470,7 +470,7 @@ export default function LaPicaDeLosTatasPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${BTN_GHOST} text-sm px-5 py-3`}
+                    className={`${BTN_GHOST} text-sm px-5 py-3 tap-44`}
                     style={{ color: C.sand }}
                   >
                     Cómo llegar
@@ -479,7 +479,7 @@ export default function LaPicaDeLosTatasPage() {
                     href={BIZ.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${BTN_GHOST} text-sm px-5 py-3`}
+                    className={`${BTN_GHOST} text-sm px-5 py-3 tap-44`}
                     style={{ color: C.sand }}
                   >
                     Facebook
@@ -509,7 +509,7 @@ export default function LaPicaDeLosTatasPage() {
               href={SITE.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold underline underline-offset-4 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F141C]"
+              className="font-bold underline underline-offset-4 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F141C] tap-44"
             >
               Sitiazo
             </a>{' '}
@@ -519,7 +519,7 @@ export default function LaPicaDeLosTatasPage() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 text-sm font-bold underline underline-offset-4 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F141C]"
+            className="shrink-0 text-sm font-bold underline underline-offset-4 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F141C] tap-44"
             style={{ color: C.coal }}
           >
             ¿Lo hacemos realidad?

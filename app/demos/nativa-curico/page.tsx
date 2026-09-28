@@ -240,7 +240,7 @@ export default function NativaCuricoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} flex items-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.12em] px-4 py-2.5 rounded-full`}
+              className={`${display.className} flex items-center gap-2.5 text-xs md:text-sm font-semibold uppercase tracking-[0.12em] px-4 py-2.5 rounded-full tap-44`}
               style={{
                 backgroundColor: 'rgba(21,10,15,0.72)',
                 color: C.goldGlow,
@@ -283,13 +283,13 @@ export default function NativaCuricoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} nativa-cta uppercase font-bold text-sm tracking-[0.1em] px-8 py-4 rounded-full active:scale-95`}
+                className={`${display.className} nativa-cta uppercase font-bold text-sm tracking-[0.1em] px-8 py-4 rounded-full active:scale-95 tap-44`}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#menu"
-                className={`${display.className} nativa-ghost uppercase font-semibold text-sm tracking-[0.1em] px-8 py-3.5 md:py-4 rounded-full`}
+                className={`${display.className} nativa-ghost uppercase font-semibold text-sm tracking-[0.1em] px-8 py-3.5 md:py-4 rounded-full tap-44`}
               >
                 Ver el menú
               </a>
@@ -307,7 +307,7 @@ export default function NativaCuricoPage() {
           >
             <span>Carmen 775 · Ofi. 304</span>
             <span>Torre Carmen, Curicó</span>
-            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
               @{BIZ.instagram}
             </a>
             <span className="hidden md:inline" style={{ color: C.roseGlow, textShadow: '0 0 10px rgba(226,112,143,0.5)' }}>sitio de ejemplo</span>
@@ -417,7 +417,7 @@ export default function NativaCuricoPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} uppercase text-xs font-semibold tracking-[0.18em] underline underline-offset-[6px] decoration-1 transition-colors hover:text-white`}
+                    className={`${display.className} uppercase text-xs font-semibold tracking-[0.18em] underline underline-offset-[6px] decoration-1 transition-colors hover:text-white tap-44`}
                     style={{ color: C.goldGlow, textDecorationColor: 'rgba(185,139,78,0.5)' }}
                   >
                     Consultar esta hora →
@@ -472,7 +472,7 @@ export default function NativaCuricoPage() {
                       {s.value}
                     </dd>
                     <dt className="text-sm text-right leading-snug" style={{ color: 'rgba(245,239,230,0.7)' }}>
-                      <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                      <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
                         {s.label}
                       </a>
                     </dt>
@@ -589,7 +589,7 @@ export default function NativaCuricoPage() {
                 href={WA_LINK_HORA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} nativa-cta uppercase font-bold text-sm tracking-[0.1em] px-7 py-3.5 rounded-full active:scale-95`}
+                className={`${display.className} nativa-cta uppercase font-bold text-sm tracking-[0.1em] px-7 py-3.5 rounded-full active:scale-95 tap-44`}
               >
                 Pedir hora por WhatsApp
               </a>
@@ -597,7 +597,7 @@ export default function NativaCuricoPage() {
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} nativa-ghost uppercase font-semibold text-sm tracking-[0.1em] px-7 py-3.5 rounded-full`}
+                className={`${display.className} nativa-ghost uppercase font-semibold text-sm tracking-[0.1em] px-7 py-3.5 rounded-full tap-44`}
               >
                 @{BIZ.instagram}
               </a>
@@ -648,7 +648,7 @@ export default function NativaCuricoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} nativa-cta inline-block uppercase font-bold text-sm md:text-base tracking-[0.1em] px-9 py-4 rounded-full active:scale-95`}
+              className={`${display.className} nativa-cta inline-block uppercase font-bold text-sm md:text-base tracking-[0.1em] px-9 py-4 rounded-full active:scale-95 tap-44`}
             >
               Reservar por WhatsApp
             </a>
@@ -666,18 +666,18 @@ export default function NativaCuricoPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: C.faint }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors tap-44">
                 {BIZ.phoneDisplay}
               </a>
               {' · '}
-              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors">
+              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors tap-44">
                 @{BIZ.instagram}
               </a>
             </address>
           </div>
           <div className={`${display.className} flex flex-wrap gap-x-6 gap-y-2 text-xs uppercase tracking-[0.16em]`} style={{ color: C.faint }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}
@@ -686,12 +686,12 @@ export default function NativaCuricoPage() {
         <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.1)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.7)' }}>
             Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.bone }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.bone }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Los servicios, precios, horarios y textos de
             reseñas son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.goldGlow }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.goldGlow }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

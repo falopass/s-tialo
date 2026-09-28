@@ -256,7 +256,7 @@ export default function CafeLaFrancesaPage() {
         <header className="relative z-20 w-full max-w-[1300px] mx-auto px-5 md:px-10 pt-5 flex items-center justify-between gap-4">
           <a
             href="#inicio"
-            className={`${display.className} ${FOCUS} relative -rotate-2 px-4 py-1.5 text-xl md:text-2xl leading-none shadow-md`}
+            className={`${display.className} ${FOCUS} relative -rotate-2 px-4 py-1.5 text-xl md:text-2xl leading-none shadow-md tap-44`}
             style={{ backgroundColor: C.crema, backgroundImage: PAPER, color: C.campoInk }}
           >
             {BIZ.name}
@@ -270,7 +270,7 @@ export default function CafeLaFrancesaPage() {
               <a
                 key={l.href}
                 href={l.href}
-                className={`${FOCUS} text-sm font-medium text-[#FBF7EF] underline-offset-4 decoration-2 hover:underline`}
+                className={`${FOCUS} text-sm font-medium text-[#FBF7EF] underline-offset-4 decoration-2 hover:underline tap-44`}
               >
                 {l.label}
               </a>
@@ -280,7 +280,7 @@ export default function CafeLaFrancesaPage() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${FOCUS} shrink-0 rotate-2 inline-flex items-center gap-2 px-4 py-2 text-[13px] md:text-sm font-semibold rounded-full shadow-md`}
+            className={`${FOCUS} shrink-0 rotate-2 inline-flex items-center gap-2 px-4 py-2 text-[13px] md:text-sm font-semibold rounded-full shadow-md tap-44`}
             style={{ backgroundColor: C.campo, color: C.crema }}
           >
             <WaIcon className="h-4 w-4" />
@@ -316,7 +316,7 @@ export default function CafeLaFrancesaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm md:text-base font-semibold transition-transform active:scale-95`}
+                className={`${FOCUS} inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm md:text-base font-semibold transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.campo, color: C.crema }}
               >
                 <WaIcon className="h-5 w-5" />
@@ -324,7 +324,7 @@ export default function CafeLaFrancesaPage() {
               </a>
               <a
                 href="#carta"
-                className={`${FOCUS} px-6 py-2.5 rounded-full text-sm md:text-base font-semibold border-2 transition-colors hover:bg-[#DDE7C7]`}
+                className={`${FOCUS} px-6 py-2.5 rounded-full text-sm md:text-base font-semibold border-2 transition-colors hover:bg-[#DDE7C7] tap-44`}
                 style={{ borderColor: C.campo, color: C.campoInk }}
               >
                 Ver la carta
@@ -470,7 +470,7 @@ export default function CafeLaFrancesaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} underline underline-offset-4 decoration-2`}
+                className={`${FOCUS} underline underline-offset-4 decoration-2 tap-44`}
                 style={{ color: C.campo, textDecorationColor: C.tierra }}
               >
                 Leer las {BIZ.reviews} reseñas en Google
@@ -479,7 +479,7 @@ export default function CafeLaFrancesaPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} underline underline-offset-4 decoration-2`}
+                className={`${FOCUS} underline underline-offset-4 decoration-2 tap-44`}
                 style={{ color: C.campo, textDecorationColor: C.tierra }}
               >
                 Página de Facebook
@@ -572,7 +572,7 @@ export default function CafeLaFrancesaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative -rotate-1 inline-flex items-center gap-3 px-7 py-2.5 rounded-full text-base md:text-lg font-semibold shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] transition-transform hover:rotate-0 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
+                className="relative -rotate-1 inline-flex items-center gap-3 px-7 py-2.5 rounded-full text-base md:text-lg font-semibold shadow-[0_12px_24px_-10px_rgba(0,0,0,0.5)] transition-transform hover:rotate-0 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF] tap-44"
                 style={{ backgroundColor: C.crema, color: C.campoInk }}
               >
                 <WaIcon className="h-6 w-6" />
@@ -587,7 +587,7 @@ export default function CafeLaFrancesaPage() {
               <p>
                 <a
                   href={`tel:${BIZ.phoneTel}`}
-                  className="underline underline-offset-4 decoration-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
+                  className="underline underline-offset-4 decoration-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF] tap-44"
                 >
                   {BIZ.phoneDisplay}
                 </a>
@@ -597,7 +597,7 @@ export default function CafeLaFrancesaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-block text-sm font-semibold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF]"
+              className="mt-6 inline-block text-sm font-semibold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FBF7EF] tap-44"
               style={{ color: C.hoja }}
             >
               Cómo llegar en Google Maps
@@ -632,7 +632,7 @@ export default function CafeLaFrancesaPage() {
               href={SITE.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${FOCUS} font-bold underline underline-offset-4`}
+              className={`${FOCUS} font-bold underline underline-offset-4 tap-44`}
             >
               Sitiazo
             </a>{' '}
@@ -642,7 +642,7 @@ export default function CafeLaFrancesaPage() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${FOCUS} shrink-0 text-sm font-semibold underline underline-offset-4`}
+            className={`${FOCUS} shrink-0 text-sm font-semibold underline underline-offset-4 tap-44`}
             style={{ color: C.campoInk }}
           >
             ¿Lo hacemos realidad?

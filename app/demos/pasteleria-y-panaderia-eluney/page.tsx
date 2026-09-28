@@ -180,7 +180,7 @@ export default function EluneyPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing}`}
+              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing} tap-44`}
               style={{ backgroundColor: 'rgba(255,255,255,0.95)', color: C.blueDeep }}
             >
               <Star className="w-[14px] h-[14px]" color={C.blue} />
@@ -209,14 +209,14 @@ export default function EluneyPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.lime, color: C.blueDeep }}
               >
                 Pedir por WhatsApp
               </a>
               <a
                 href="#historia"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: C.paper }}
               >
                 Un día en Eluney ↓
@@ -382,7 +382,7 @@ export default function EluneyPage() {
                   href={FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                   style={{ backgroundColor: C.blue, color: '#fff' }}
                 >
                   Facebook de Eluney →
@@ -391,7 +391,7 @@ export default function EluneyPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                  className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                   style={{ borderColor: 'rgba(11,16,48,0.28)', color: C.ink }}
                 >
                   Ver reseñas en Google
@@ -422,7 +422,7 @@ export default function EluneyPage() {
                 href={WA_LINK_TORTA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
+                className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
                 style={{ color: C.lime, textDecorationColor: 'rgba(198,242,78,0.4)' }}
               >
                 Consultar precio exacto por WhatsApp →
@@ -508,7 +508,7 @@ export default function EluneyPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.blue, color: '#fff' }}
               >
                 Pedir por WhatsApp
@@ -517,7 +517,7 @@ export default function EluneyPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(11,16,48,0.28)', color: C.ink }}
               >
                 Cómo llegar →
@@ -572,7 +572,7 @@ export default function EluneyPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing}`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing} tap-44`}
               style={{ backgroundColor: C.lime, color: C.blueDeep }}
             >
               Escribir a Eluney
@@ -596,11 +596,11 @@ export default function EluneyPage() {
           </address>
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.paper }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.paper }}>
               Sitiazo
             </a>
             : textos, precios, horarios y fotos de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing}`} style={{ color: C.lime }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`font-semibold underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.lime }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

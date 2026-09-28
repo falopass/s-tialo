@@ -206,7 +206,7 @@ export default function TallerServimacPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${mono.className} flex items-center gap-2.5 text-xs md:text-sm font-medium px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+              className={`${mono.className} flex items-center gap-2.5 text-xs md:text-sm font-medium px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
               style={{ backgroundColor: 'rgba(244,244,242,0.95)', color: C.ink }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.red} stroke={C.red} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -407,7 +407,7 @@ export default function TallerServimacPage() {
               href={BIZ.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${mono.className} text-xs md:text-sm font-medium underline underline-offset-4 decoration-2 transition-all hover:decoration-[3px] focus-visible:outline-2 focus-visible:outline-offset-2`}
+              className={`${mono.className} text-xs md:text-sm font-medium underline underline-offset-4 decoration-2 transition-all hover:decoration-[3px] focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
               style={{ color: C.fleet, textDecorationColor: 'rgba(74,78,82,0.35)' }}
             >
               Ver la página en Facebook →
@@ -434,7 +434,7 @@ export default function TallerServimacPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${mono.className} text-xs md:text-sm font-medium underline underline-offset-4 decoration-2 transition-all hover:decoration-[3px] focus-visible:outline-2 focus-visible:outline-offset-2`}
+                className={`${mono.className} text-xs md:text-sm font-medium underline underline-offset-4 decoration-2 transition-all hover:decoration-[3px] focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ color: C.red, textDecorationColor: 'rgba(193,39,45,0.35)' }}
               >
                 Ver la ficha en Google →
@@ -611,7 +611,7 @@ export default function TallerServimacPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} uppercase tracking-[0.04em] inline-block text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+              className={`${display.className} uppercase tracking-[0.04em] inline-block text-sm md:text-base px-8 py-4 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
               style={{ backgroundColor: C.red, color: '#FFFFFF' }}
             >
               Agendar por WhatsApp
@@ -634,11 +634,11 @@ export default function TallerServimacPage() {
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs" style={{ color: 'rgba(244,244,242,0.85)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white focus-visible:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white focus-visible:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white focus-visible:text-white transition-colors">
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white focus-visible:text-white transition-colors tap-44">
               Facebook
             </a>
           </div>
@@ -646,13 +646,13 @@ export default function TallerServimacPage() {
         <div className="border-t" style={{ borderColor: 'rgba(244,244,242,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-3 pb-5 text-[11px] leading-snug" style={{ color: 'rgba(244,244,242,0.85)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signalHi }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.signalHi }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Servicios, precios, horarios y reseñas son de
             muestra; nombre, dirección, teléfono y redes son datos públicos
             del taller.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signalHi }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.signalHi }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

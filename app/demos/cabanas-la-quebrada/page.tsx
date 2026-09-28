@@ -238,14 +238,14 @@ export default function CabanasLaQuebrada() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.terracotaInk, color: C.crema }}
               >
                 Consultar disponibilidad
               </a>
               <a
                 href="#cabanas"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors"
+                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(250,247,240,0.5)', color: C.crema }}
               >
                 Ver las cabañas
@@ -304,7 +304,7 @@ export default function CabanasLaQuebrada() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 text-sm font-semibold underline underline-offset-4 decoration-2"
+                    className="inline-block mt-4 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                     style={{ color: C.terracotaInk, textDecorationColor: 'rgba(158,79,44,0.4)' }}
                   >
                     Consultar por WhatsApp →
@@ -425,7 +425,7 @@ export default function CabanasLaQuebrada() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2"
+                  className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                   style={{ color: C.arena, textDecorationColor: 'rgba(232,220,200,0.4)' }}
                 >
                   Ver la ficha en Google →
@@ -489,7 +489,7 @@ export default function CabanasLaQuebrada() {
             </address>
             <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
               Teléfono:{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4" style={{ color: C.bosque }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.bosque }}>
                 {BIZ.phoneDisplay}
               </a>
             </p>
@@ -498,7 +498,7 @@ export default function CabanasLaQuebrada() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.bosque, color: C.crema }}
               >
                 Cómo llegar →
@@ -507,7 +507,7 @@ export default function CabanasLaQuebrada() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors"
+                className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44"
                 style={{ borderColor: C.line, color: C.bosque }}
               >
                 Escribir por WhatsApp
@@ -542,7 +542,7 @@ export default function CabanasLaQuebrada() {
           {FAQS.map((f, i) => (
             <Reveal key={f.q} delay={i * 80}>
               <details className="group border-b py-5" style={{ borderColor: C.line }}>
-                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base md:text-lg" style={{ color: C.bosque }}>
+                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base md:text-lg tap-44" style={{ color: C.bosque }}>
                   {f.q}
                   <span
                     className="shrink-0 w-[30px] h-[30px] rounded-full flex items-center justify-center text-lg leading-none transition-transform group-open:rotate-45"
@@ -585,14 +585,14 @@ export default function CabanasLaQuebrada() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.terracotaInk, color: C.crema }}
               >
                 Consultar disponibilidad
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors"
+                className="font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors tap-44"
                 style={{ borderColor: 'rgba(250,247,240,0.5)', color: C.crema }}
               >
                 {BIZ.phoneDisplay}
@@ -610,7 +610,7 @@ export default function CabanasLaQuebrada() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(250,247,240,0.65)' }}>
               {BIZ.address} · {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2" style={{ color: C.crema }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44" style={{ color: C.crema }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -632,7 +632,7 @@ export default function CabanasLaQuebrada() {
               href={SITE.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold underline underline-offset-2"
+              className="font-semibold underline underline-offset-2 tap-44"
               style={{ color: C.crema }}
             >
               Sitiazo
@@ -642,7 +642,7 @@ export default function CabanasLaQuebrada() {
               href={whatsappLink('contacto')}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold underline underline-offset-2"
+              className="font-semibold underline underline-offset-2 tap-44"
               style={{ color: C.crema }}
             >
               ¿Lo hacemos realidad?

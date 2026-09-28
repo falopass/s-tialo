@@ -73,7 +73,7 @@ export function TopBar({
         <div className="max-w-[1400px] mx-auto px-5 md:px-10 h-[62px] md:h-[72px] flex items-center justify-between gap-4">
           <a
             href="#inicio"
-            className={`${fontClass} text-[15px] md:text-lg font-bold tracking-[-0.01em] leading-none`}
+            className={`${fontClass} text-[15px] md:text-lg font-bold tracking-[-0.01em] leading-none tap-44`}
             style={{ color: theme.ink }}
           >
             {name}
@@ -83,7 +83,7 @@ export function TopBar({
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm transition-opacity hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B98B4E]"
+                className="text-sm transition-opacity hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B98B4E] tap-44"
                 style={{ color: theme.ink }}
               >
                 {l.label}
@@ -94,7 +94,7 @@ export function TopBar({
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${fontClass} shrink-0 text-[13px] md:text-sm font-semibold px-4 py-2 rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
+            className={`${fontClass} shrink-0 text-[13px] md:text-sm font-semibold px-4 py-2 rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
             style={
               scrolled
                 ? { backgroundColor: theme.solidBg, color: theme.solidInk, borderColor: 'transparent' }

@@ -191,7 +191,7 @@ export default function MyFusionGymPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B] tap-44"
               style={{ backgroundColor: 'rgba(246,241,231,0.95)', color: C.forestDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.brass} stroke={C.brass} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -205,7 +205,7 @@ export default function MyFusionGymPage() {
               href={BIZ.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[11px] md:text-xs font-bold px-3.5 py-2 rounded-full transition-colors hover:bg-[rgba(20,42,32,0.85)] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B]"
+              className="flex items-center gap-2 text-[11px] md:text-xs font-bold px-3.5 py-2 rounded-full transition-colors hover:bg-[rgba(20,42,32,0.85)] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8A24B] tap-44"
               style={{ backgroundColor: 'rgba(20,42,32,0.92)', color: C.brassSoft, border: `1px solid ${C.lineLight}` }}
             >
               <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
@@ -367,7 +367,7 @@ export default function MyFusionGymPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#C8A24B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F]"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#C8A24B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F] tap-44"
                 style={{ color: C.forest, textDecorationColor: 'rgba(200,162,75,0.5)' }}
               >
                 Ver la ficha en Google →
@@ -376,7 +376,7 @@ export default function MyFusionGymPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#C8A24B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F]"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#C8A24B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1E3D2F] tap-44"
                 style={{ color: C.forest, textDecorationColor: 'rgba(200,162,75,0.5)' }}
               >
                 {BIZ.igUser} en Instagram →
@@ -544,7 +544,7 @@ export default function MyFusionGymPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.82)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

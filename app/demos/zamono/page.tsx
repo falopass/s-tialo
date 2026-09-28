@@ -166,7 +166,7 @@ export default function ZamonoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(255,255,255,0.95)', color: C.graphite }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.aqua} stroke={C.aqua} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -196,14 +196,14 @@ export default function ZamonoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.aquaDeep, color: '#FFFFFF' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver servicios
@@ -344,7 +344,7 @@ export default function ZamonoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-bold underline underline-offset-4 decoration-2"
+              className="text-sm font-bold underline underline-offset-4 decoration-2 tap-44"
               style={{ color: C.aquaDeep, textDecorationColor: 'rgba(0,117,138,0.35)' }}
             >
               Consultar valor exacto por WhatsApp →
@@ -409,7 +409,7 @@ export default function ZamonoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.aquaDeep, color: '#FFFFFF' }}
               >
                 Agendar mi lavado
@@ -461,7 +461,7 @@ export default function ZamonoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-bold underline underline-offset-4 decoration-2"
+              className="text-sm font-bold underline underline-offset-4 decoration-2 tap-44"
               style={{ color: C.aquaDeep, textDecorationColor: 'rgba(0,117,138,0.35)' }}
             >
               Ver la ficha en Google →
@@ -527,7 +527,7 @@ export default function ZamonoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.aquaDeep, color: '#FFFFFF' }}
               >
                 Cómo llegar →
@@ -536,7 +536,7 @@ export default function ZamonoPage() {
                 href={WA_LINK_ACEITE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(28,31,34,0.35)', color: C.graphite }}
               >
                 Consultar cambio de aceite
@@ -583,7 +583,7 @@ export default function ZamonoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.aquaDeep, color: '#FFFFFF' }}
             >
               Agendar por WhatsApp
@@ -606,11 +606,11 @@ export default function ZamonoPage() {
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-5 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#FFFFFF' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#FFFFFF' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Servicios, precios, horarios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.aquaSoft }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.aquaSoft }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

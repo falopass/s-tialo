@@ -108,7 +108,7 @@ export default function ComercialRioClaroPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(246,241,231,0.94)', color: C.forest }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.brass} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -279,7 +279,7 @@ export default function ComercialRioClaroPage() {
               href={IG_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+              className={`${display.className} inline-block text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
               style={{ borderColor: 'rgba(246,241,231,0.45)', color: C.crema }}
             >
               @{BIZ.instagram} en Instagram
@@ -305,7 +305,7 @@ export default function ComercialRioClaroPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold underline underline-offset-4 decoration-2"
+              className="text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
               style={{ color: C.brassInk, textDecorationColor: 'rgba(122,94,30,0.35)' }}
             >
               Ver la ficha en Google →
@@ -345,7 +345,7 @@ export default function ComercialRioClaroPage() {
             <br />
             {BIZ.city}, {BIZ.region}, Chile
             <br />
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
           <p className="text-sm md:text-base leading-relaxed mb-8 max-w-sm" style={{ color: C.muted }}>
             Escríbenos por WhatsApp con lo que necesitas — producto,
@@ -412,7 +412,7 @@ export default function ComercialRioClaroPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2`}
+              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
               style={{ backgroundColor: C.brass, color: C.deep }}
             >
               Escribir por WhatsApp
@@ -429,16 +429,16 @@ export default function ComercialRioClaroPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.8)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
               {' · '}
-              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">
                 @{BIZ.instagram}
               </a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.8)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

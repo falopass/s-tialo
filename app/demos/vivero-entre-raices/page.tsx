@@ -168,7 +168,7 @@ export default function ViveroEntreRaicesPage() {
                 <a
                   key={l.href}
                   href={l.href}
-                  className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C]"
+                  className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C] tap-44"
                   style={{ color: C.petrol }}
                 >
                   {l.label}
@@ -179,7 +179,7 @@ export default function ViveroEntreRaicesPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C]"
+              className="hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C] tap-44"
               style={{ color: C.petrol }}
             >
               {BIZ.reviews} reseñas en Google
@@ -209,13 +209,13 @@ export default function ViveroEntreRaicesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm md:text-base font-bold px-7 py-3.5 bg-[#0E4C5C] text-[#F7F9F9] transition-colors hover:bg-[#093540] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]"
+                className="text-sm md:text-base font-bold px-7 py-3.5 bg-[#0E4C5C] text-[#F7F9F9] transition-colors hover:bg-[#093540] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C] tap-44"
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#vivero"
-                className="text-sm md:text-base font-bold px-7 py-3.5 border-2 border-[#0E4C5C] text-[#0E4C5C] transition-colors hover:bg-[#0E4C5C] hover:text-[#F7F9F9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]"
+                className="text-sm md:text-base font-bold px-7 py-3.5 border-2 border-[#0E4C5C] text-[#0E4C5C] transition-colors hover:bg-[#0E4C5C] hover:text-[#F7F9F9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C] tap-44"
               >
                 Leer la edición
               </a>
@@ -239,7 +239,7 @@ export default function ViveroEntreRaicesPage() {
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-4 md:top-6 right-4 md:right-6 flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]"
+            className="absolute top-4 md:top-6 right-4 md:right-6 flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C] tap-44x"
             style={{ backgroundColor: 'rgba(247,249,249,0.96)', color: C.petrol }}
           >
             <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.petrol} aria-hidden="true">
@@ -360,7 +360,7 @@ export default function ViveroEntreRaicesPage() {
                   href={WA_LINK_FRUTAL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2 hover:text-[#093540] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C]"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 hover:text-[#093540] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C] tap-44"
                   style={{ color: C.petrol, textDecorationColor: C.mint }}
                 >
                   Consultar por un frutal →
@@ -463,7 +463,7 @@ export default function ViveroEntreRaicesPage() {
                   href={BIZ.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-5 text-sm font-bold underline underline-offset-4 decoration-2 hover:text-[#093540] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C]"
+                  className="inline-block mt-5 text-sm font-bold underline underline-offset-4 decoration-2 hover:text-[#093540] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0E4C5C] tap-44"
                   style={{ color: C.petrol, textDecorationColor: C.mint }}
                 >
                   Ver la página de Facebook →
@@ -565,7 +565,7 @@ export default function ViveroEntreRaicesPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm md:text-base font-bold px-7 py-3.5 bg-[#9FD8CB] text-[#093540] transition-colors hover:bg-[#F7F9F9] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]"
+                  className="text-sm md:text-base font-bold px-7 py-3.5 bg-[#9FD8CB] text-[#093540] transition-colors hover:bg-[#F7F9F9] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB] tap-44"
                 >
                   Escribir por WhatsApp
                 </a>
@@ -573,7 +573,7 @@ export default function ViveroEntreRaicesPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm md:text-base font-bold px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]"
+                  className="text-sm md:text-base font-bold px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB] tap-44"
                   style={{ borderColor: 'rgba(247,249,249,0.55)', color: C.paper }}
                 >
                   Abrir en Google Maps →
@@ -608,7 +608,7 @@ export default function ViveroEntreRaicesPage() {
             </p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.85)' }}>
               {BIZ.address}, {BIZ.city} ·{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9FD8CB]">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9FD8CB] tap-44">{BIZ.phoneDisplay}</a>
             </address>
           </div>
           <p className="text-xs leading-relaxed md:max-w-[26rem]" style={{ color: 'rgba(247,249,249,0.78)' }}>

@@ -185,14 +185,14 @@ export default function VictoriaNailSchoolPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
                 style={{ backgroundColor: C.orange, color: '#1C1E20' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver servicios
@@ -208,7 +208,7 @@ export default function VictoriaNailSchoolPage() {
               href={BIZ.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-4 decoration-1 hover:text-white transition-colors"
+              className="underline underline-offset-4 decoration-1 hover:text-white transition-colors tap-44"
             >
               {BIZ.instagram} · {BIZ.followers}
             </a>
@@ -359,7 +359,7 @@ export default function VictoriaNailSchoolPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
                 style={{ backgroundColor: C.orange, color: '#1C1E20' }}
               >
                 Agendar mi hora
@@ -420,7 +420,7 @@ export default function VictoriaNailSchoolPage() {
               href={BIZ.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block self-start font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2`}
+              className={`${display.className} inline-block self-start font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
               style={{ borderColor: C.red, color: C.red, outlineColor: C.red }}
             >
               Ver Instagram →
@@ -449,7 +449,7 @@ export default function VictoriaNailSchoolPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold underline underline-offset-4 decoration-2 transition-colors hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="text-sm font-semibold underline underline-offset-4 decoration-2 transition-colors hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44"
               style={{ color: C.red, textDecorationColor: 'rgba(193,39,45,0.35)', outlineColor: C.red }}
             >
               Ver la ficha en Google →
@@ -546,14 +546,14 @@ export default function VictoriaNailSchoolPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
                 style={{ backgroundColor: C.orange, color: '#1C1E20' }}
               >
                 Escribir por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.4)', color: '#FFFFFF' }}
               >
                 {BIZ.phoneDisplay}
@@ -569,7 +569,7 @@ export default function VictoriaNailSchoolPage() {
                 href={BIZ.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline underline-offset-4 decoration-1 hover:text-white transition-colors"
+                className="underline underline-offset-4 decoration-1 hover:text-white transition-colors tap-44"
                 style={{ color: 'rgba(255,255,255,0.75)' }}
               >
                 {BIZ.instagram}
@@ -598,14 +598,14 @@ export default function VictoriaNailSchoolPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors tap-44">
                 {BIZ.phoneDisplay}
               </a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

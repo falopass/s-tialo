@@ -228,14 +228,14 @@ export default function PeluqueriaGloriaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 hover:shadow-lg active:scale-95`}
+                className={`${FOCUS} ${display.className} text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 hover:shadow-lg active:scale-95 tap-44`}
                 style={{ backgroundColor: C.hoja, color: C.verdeDeep }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${FOCUS} ${display.className} text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10`}
+                className={`${FOCUS} ${display.className} text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: C.crema }}
               >
                 Ver la carta
@@ -251,7 +251,7 @@ export default function PeluqueriaGloriaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} hover:underline underline-offset-4`}
+                className={`${FOCUS} hover:underline underline-offset-4 tap-44`}
               >
                 {BIZ.reviews} reseñas en Google
               </a>
@@ -259,7 +259,7 @@ export default function PeluqueriaGloriaPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} hover:underline underline-offset-4`}
+                className={`${FOCUS} hover:underline underline-offset-4 tap-44`}
               >
                 Facebook /peluqueriagloria
               </a>
@@ -377,7 +377,7 @@ export default function PeluqueriaGloriaPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} underline underline-offset-4 decoration-2`}
+                className={`${FOCUS} underline underline-offset-4 decoration-2 tap-44`}
                 style={{ color: C.verde, textDecorationColor: 'rgba(76,107,60,0.35)' }}
               >
                 Facebook →
@@ -386,7 +386,7 @@ export default function PeluqueriaGloriaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} underline underline-offset-4 decoration-2`}
+                className={`${FOCUS} underline underline-offset-4 decoration-2 tap-44`}
                 style={{ color: C.verde, textDecorationColor: 'rgba(76,107,60,0.35)' }}
               >
                 Ficha en Google Maps →
@@ -455,7 +455,7 @@ export default function PeluqueriaGloriaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} inline-block text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95`}
+                className={`${FOCUS} ${display.className} inline-block text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 tap-44`}
                 style={{ backgroundColor: C.verde, color: C.crema }}
               >
                 Consultar valor exacto por WhatsApp
@@ -519,7 +519,7 @@ export default function PeluqueriaGloriaPage() {
               <br />
               {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4`}>
+              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4 tap-44`}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -542,7 +542,7 @@ export default function PeluqueriaGloriaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95`}
+                className={`${FOCUS} ${display.className} text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 tap-44`}
                 style={{ backgroundColor: C.tierraSoft, color: C.verdeDeep }}
               >
                 Agendar por WhatsApp
@@ -551,7 +551,7 @@ export default function PeluqueriaGloriaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10`}
+                className={`${FOCUS} ${display.className} text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(251,247,239,0.5)', color: C.crema }}
               >
                 Cómo llegar →
@@ -577,7 +577,7 @@ export default function PeluqueriaGloriaPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <p className="text-sm md:text-[15px] leading-relaxed font-semibold" style={{ color: C.ink }}>
             Sitio de ejemplo de{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-extrabold underline underline-offset-4`}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-extrabold underline underline-offset-4 tap-44`}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Así se vería su página publicada.
@@ -586,7 +586,7 @@ export default function PeluqueriaGloriaPage() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${FOCUS} shrink-0 text-sm font-bold underline underline-offset-4`}
+            className={`${FOCUS} shrink-0 text-sm font-bold underline underline-offset-4 tap-44`}
             style={{ color: C.verde }}
           >
             ¿Lo hacemos realidad?

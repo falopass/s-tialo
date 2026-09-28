@@ -146,7 +146,7 @@ function WaButton({ href, children, full = false }: { href: string; children: Re
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${focusRing} ${full ? 'w-full' : ''} inline-flex items-center justify-center gap-2 min-h-[48px] px-5 rounded-md font-semibold text-[15px] transition-transform hover:-translate-y-0.5 active:translate-y-0`}
+      className={`${focusRing} ${full ? 'w-full' : ''} inline-flex items-center justify-center gap-2 min-h-[48px] px-5 rounded-md font-semibold text-[15px] transition-transform hover:-translate-y-0.5 active:translate-y-0 tap-44`}
       style={{ backgroundColor: C.lapiz, color: C.ink, outlineColor: C.lapiz }}
     >
       <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -172,7 +172,7 @@ function Sidebar() {
         </div>
         <a
           href={`tel:${BIZ.phoneTel}`}
-          className={`${focusRing} mt-3 block text-center text-[14px] underline underline-offset-4`}
+          className={`${focusRing} mt-3 block text-center text-[14px] underline underline-offset-4 tap-44`}
           style={{ color: C.white, outlineColor: C.lapiz }}
         >
           o llama al {BIZ.phoneDisplay}
@@ -206,7 +206,7 @@ function Sidebar() {
           href={MAPS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${focusRing} mt-3 inline-flex min-h-[44px] items-center text-[14px] font-semibold underline underline-offset-4`}
+          className={`${focusRing} mt-3 inline-flex min-h-[44px] items-center text-[14px] font-semibold underline underline-offset-4 tap-44`}
           style={{ color: C.pizarra, outlineColor: C.pizarra }}
         >
           Cómo llegar
@@ -215,7 +215,7 @@ function Sidebar() {
           href={INSTAGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${focusRing} mt-1 flex min-h-[44px] items-center gap-2 text-[14px]`}
+          className={`${focusRing} mt-1 flex min-h-[44px] items-center gap-2 text-[14px] tap-44`}
           style={{ color: C.gris, outlineColor: C.pizarra }}
         >
           @{BIZ.instagram} · {BIZ.instagramFollowers} seguidores
@@ -276,7 +276,7 @@ export default function DefensaMolinaPage() {
               <WaButton href={WA_LINK}>Cuéntanos tu caso</WaButton>
               <a
                 href="#areas"
-                className={`${focusRing} inline-flex min-h-[48px] items-center px-2 text-[15px] font-medium underline underline-offset-4`}
+                className={`${focusRing} inline-flex min-h-[48px] items-center px-2 text-[15px] font-medium underline underline-offset-4 tap-44`}
                 style={{ color: C.white, outlineColor: C.lapiz }}
               >
                 Ver en qué te ayudamos
@@ -324,7 +324,7 @@ export default function DefensaMolinaPage() {
                         href={waArea(a.wa)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${focusRing} mt-5 self-start inline-flex min-h-[44px] items-center gap-2 text-[15px] font-semibold underline underline-offset-4`}
+                        className={`${focusRing} mt-5 self-start inline-flex min-h-[44px] items-center gap-2 text-[15px] font-semibold underline underline-offset-4 tap-44`}
                         style={{ color: C.pizarra, outlineColor: C.pizarra }}
                       >
                         Consultar por {a.title.toLowerCase()} →
@@ -473,7 +473,7 @@ export default function DefensaMolinaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${focusRing} mt-2 inline-flex min-h-[44px] items-center font-semibold underline underline-offset-4`}
+                  className={`${focusRing} mt-2 inline-flex min-h-[44px] items-center font-semibold underline underline-offset-4 tap-44`}
                   style={{ color: C.pizarra, outlineColor: C.pizarra }}
                 >
                   Abrir en Google Maps

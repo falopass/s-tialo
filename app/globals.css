@@ -241,3 +241,25 @@ body::before {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+/* Área táctil mínima en demos (WCAG 2.5.8 / HIG 44px) sin alterar el diseño:
+   un ::before absoluto agranda la zona clicable ±15px sin cambiar el layout.
+   .tap-44 para elementos estáticos; .tap-44x para los ya posicionados;
+   .tap-44v solo expande en vertical (elementos de ancho completo: evita
+   desborde horizontal en el borde del viewport). */
+.tap-44,
+.tap-44v {
+  position: relative;
+}
+.tap-44::before,
+.tap-44x::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+}
+.tap-44v::before {
+  content: "";
+  position: absolute;
+  inset-block: -15px;
+  inset-inline: 0;
+}

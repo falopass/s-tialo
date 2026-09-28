@@ -105,8 +105,8 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Vendas, cartulina, algodón, marcadores…"
-              className="w-full bg-transparent text-base md:text-lg outline-none placeholder:text-slate-400"
-              style={{ color: C.navy }}
+              className="w-full bg-transparent text-base md:text-lg outline-none placeholder:text-slate-400 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2"
+              style={{ color: C.navy, outlineColor: C.navy }}
             />
           </div>
         </div>
@@ -254,7 +254,7 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
                                     type="button"
                                     onClick={() => toggle(p.name)}
                                     aria-pressed={inList}
-                                    className="inline-flex items-center gap-1 md:gap-1.5 min-h-[36px] px-2.5 md:px-3 rounded-full text-[11px] md:text-xs font-bold transition-colors whitespace-nowrap"
+                                    className="inline-flex items-center gap-1 md:gap-1.5 min-h-[36px] px-2.5 md:px-3 rounded-full text-[11px] md:text-xs font-bold transition-colors whitespace-nowrap tap-44"
                                     style={
                                       inList
                                         ? { backgroundColor: C.green, color: C.greenInk }
@@ -336,15 +336,15 @@ export function Catalogo({ fontClass }: { fontClass: string }) {
             onChange={(e) => setNota(e.target.value)}
             rows={3}
             placeholder="Ej: 3 toallitas antisépticas, 1 silicona, 6 paños amarillos…"
-            className="mt-2 w-full rounded-lg px-3 py-2.5 text-sm outline-none placeholder:text-white/60"
-            style={{ backgroundColor: 'rgba(255,255,255,0.10)', color: C.white, border: '1px solid rgba(255,255,255,0.18)' }}
+            className="mt-2 w-full rounded-lg px-3 py-2.5 text-sm outline-none placeholder:text-white/60 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2"
+            style={{ backgroundColor: 'rgba(255,255,255,0.10)', color: C.white, border: '1px solid rgba(255,255,255,0.18)', outlineColor: C.sky }}
           />
 
           <a
             href={sel.length ? waLink(mensaje) : WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 flex items-center justify-center gap-2 min-h-[48px] rounded-xl text-sm font-bold transition-transform active:scale-[0.98]"
+            className="mt-4 flex items-center justify-center gap-2 min-h-[48px] rounded-xl text-sm font-bold transition-transform active:scale-[0.98] tap-44"
             style={{ backgroundColor: C.green, color: C.greenInk }}
           >
             <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

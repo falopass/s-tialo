@@ -237,7 +237,7 @@ export default function SalonGabrielaSaavedraPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${BTN} text-xs md:text-sm px-4 py-2.5 shadow-lg`}
+                className={`${BTN} text-xs md:text-sm px-4 py-2.5 shadow-lg tap-44`}
                 style={{ backgroundColor: 'rgba(246,241,231,0.95)', color: C.forestDeep }}
               >
                 <svg
@@ -308,7 +308,7 @@ export default function SalonGabrielaSaavedraPage() {
               <div>
                 <dt className="mb-1" style={{ color: C.brass }}>Teléfono</dt>
                 <dd>
-                  <a href={`tel:${BIZ.phoneTel}`} className={`hover:text-white transition-colors ${FOCUS}`}>
+                  <a href={`tel:${BIZ.phoneTel}`} className={`hover:text-white transition-colors ${FOCUS} tap-44`}>
                     {BIZ.phoneDisplay}
                   </a>
                 </dd>
@@ -409,7 +409,7 @@ export default function SalonGabrielaSaavedraPage() {
                     href={waServicio(s.name)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${BTN} self-start text-sm px-6 py-3 border ${dark ? 'hover:bg-white/10' : 'hover:bg-[#1E3D2F]/5'}`}
+                    className={`${BTN} self-start text-sm px-6 py-3 border ${dark ? 'hover:bg-white/10' : 'hover:bg-[#1E3D2F]/5'} tap-44`}
                     style={{
                       borderColor: dark ? 'rgba(246,241,231,0.45)' : 'rgba(30,61,47,0.4)',
                       color: dark ? C.cream : C.forest,
@@ -502,7 +502,7 @@ export default function SalonGabrielaSaavedraPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${LINK} text-sm`}
+                  className={`${LINK} text-sm tap-44`}
                   style={{ color: C.brassSoft, textDecorationColor: 'rgba(200,162,75,0.5)' }}
                 >
                   Ver la ficha en Google →
@@ -511,7 +511,7 @@ export default function SalonGabrielaSaavedraPage() {
                   href={BIZ.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${LINK} text-sm`}
+                  className={`${LINK} text-sm tap-44`}
                   style={{ color: C.brassSoft, textDecorationColor: 'rgba(200,162,75,0.5)' }}
                 >
                   Facebook del salón →
@@ -686,7 +686,7 @@ export default function SalonGabrielaSaavedraPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${BTN} text-sm md:text-base px-7 py-4 mb-8 self-start`}
+              className={`${BTN} text-sm md:text-base px-7 py-4 mb-8 self-start tap-44`}
               style={{ backgroundColor: C.brass, color: C.forestDeep }}
             >
               <WaArrow />
@@ -720,7 +720,7 @@ export default function SalonGabrielaSaavedraPage() {
             <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={LINK}
+                className={LINK + ' tap-44'}
                 style={{ color: C.forest, textDecorationColor: 'rgba(30,61,47,0.35)' }}
               >
                 {BIZ.phoneDisplay}
@@ -729,7 +729,7 @@ export default function SalonGabrielaSaavedraPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={LINK}
+                className={LINK + ' tap-44'}
                 style={{ color: C.forest, textDecorationColor: 'rgba(30,61,47,0.35)' }}
               >
                 Facebook del salón
@@ -738,7 +738,7 @@ export default function SalonGabrielaSaavedraPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={LINK}
+                className={LINK + ' tap-44'}
                 style={{ color: C.forest, textDecorationColor: 'rgba(30,61,47,0.35)' }}
               >
                 Cómo llegar →
@@ -759,7 +759,7 @@ export default function SalonGabrielaSaavedraPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.forestDeep }}>
-        <Image src={`${IMG}/hero.webp`} alt="" fill sizes="100vw" className="object-cover opacity-[0.16]" />
+        <Image src={`${IMG}/hero.webp`} alt="" fill sizes="100vw" className="object-cover opacity-[0.16]" aria-hidden="true" />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <div className="max-w-2xl mx-auto border-y py-12 md:py-14 px-4" style={{ borderColor: C.lineLight }}>
@@ -801,7 +801,7 @@ export default function SalonGabrielaSaavedraPage() {
             href="https://sitiazo.cl"
             target="_blank"
             rel="noopener noreferrer"
-            className={`${LINK} text-[11px] md:text-xs`}
+            className={`${LINK} text-[11px] md:text-xs tap-44`}
             style={{ color: C.forestDeep, textDecorationColor: 'rgba(21,44,34,0.4)' }}
           >
             sitiazo.cl →
@@ -823,7 +823,7 @@ export default function SalonGabrielaSaavedraPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(246,241,231,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS}`}>
+              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS} tap-44`}>
                 {l.label}
               </a>
             ))}

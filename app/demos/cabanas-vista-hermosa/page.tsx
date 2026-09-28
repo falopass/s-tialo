@@ -249,7 +249,7 @@ function SitiazoStrip() {
             href={SITE.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline underline-offset-2"
+            className="font-semibold underline underline-offset-2 tap-44"
           >
             Sitiazo
           </a>{' '}
@@ -258,7 +258,7 @@ function SitiazoStrip() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline underline-offset-2"
+            className="font-semibold underline underline-offset-2 tap-44"
           >
             ¿Lo hacemos realidad?
           </a>
@@ -323,7 +323,7 @@ export default function CabanasVistaHermosaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
+                className="text-xs font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4 tap-44"
                 style={{ color: '#F7F9F9', textDecorationColor: C.mint }}
               >
                 Ver las {BIZ.reviews} reseñas en Google →
@@ -357,14 +357,14 @@ export default function CabanasVistaHermosaPage() {
                     href={WA_LINK_RESERVA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 transition-all hover:brightness-110 active:scale-95`}
+                    className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 transition-all hover:brightness-110 active:scale-95 tap-44`}
                     style={{ backgroundColor: C.petro, color: '#F7F9F9' }}
                   >
                     Reservar por WhatsApp
                   </a>
                   <a
                     href="#cabanas"
-                    className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-[#E7F1EE]`}
+                    className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-[#E7F1EE] tap-44`}
                     style={{ borderColor: C.petro, color: C.petro }}
                   >
                     Ver las cabañas
@@ -492,7 +492,7 @@ export default function CabanasVistaHermosaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4 tap-44"
                   style={{ color: C.petro, textDecorationColor: C.mint }}
                 >
                   Ver la ficha en Google →
@@ -501,7 +501,7 @@ export default function CabanasVistaHermosaPage() {
                   href={IG_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-all hover:decoration-4 tap-44"
                   style={{ color: C.petro, textDecorationColor: C.mint }}
                 >
                   {BIZ.igHandle} · {BIZ.igFollowers} seguidores →
@@ -585,7 +585,7 @@ export default function CabanasVistaHermosaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase inline-block font-bold tracking-[0.05em] text-sm md:text-base px-8 py-3.5 transition-all hover:brightness-110 active:scale-95`}
+                className={`${display.className} uppercase inline-block font-bold tracking-[0.05em] text-sm md:text-base px-8 py-3.5 transition-all hover:brightness-110 active:scale-95 tap-44`}
                 style={{ backgroundColor: C.petro, color: '#F7F9F9' }}
               >
                 Consultar tarifa real →
@@ -614,7 +614,7 @@ export default function CabanasVistaHermosaPage() {
                 href={WA_LINK_RESERVA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 transition-all hover:brightness-105 active:scale-95`}
+                className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 transition-all hover:brightness-105 active:scale-95 tap-44`}
                 style={{ backgroundColor: C.mint, color: C.deep }}
               >
                 {BIZ.phoneDisplay}
@@ -623,7 +623,7 @@ export default function CabanasVistaHermosaPage() {
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} uppercase font-bold tracking-[0.05em] text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(247,249,249,0.5)', color: '#F7F9F9' }}
               >
                 Instagram
@@ -650,14 +650,14 @@ export default function CabanasVistaHermosaPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
+                    className="underline underline-offset-4 decoration-2 transition-all hover:decoration-4 tap-44"
                     style={{ color: C.mint, textDecorationColor: 'rgba(159,216,203,0.4)' }}
                   >
                     Cómo llegar →
                   </a>
                   <a
                     href={`tel:${BIZ.phoneTel}`}
-                    className="underline underline-offset-4 decoration-2 transition-all hover:decoration-4"
+                    className="underline underline-offset-4 decoration-2 transition-all hover:decoration-4 tap-44"
                     style={{ color: C.mint, textDecorationColor: 'rgba(159,216,203,0.4)' }}
                   >
                     Llamar
@@ -686,16 +686,16 @@ export default function CabanasVistaHermosaPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors tap-44">{BIZ.phoneDisplay}</a>
               {' · '}
-              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors">
+              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors tap-44">
                 {BIZ.igHandle}
               </a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(247,249,249,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

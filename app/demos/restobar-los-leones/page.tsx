@@ -197,7 +197,7 @@ export default function RestobarLosLeonesPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="ll-btn ll-btn-dark flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className="ll-btn ll-btn-dark flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: C.lime, color: C.ink }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -236,14 +236,14 @@ export default function RestobarLosLeonesPage() {
                 href={WA_LINK_MESA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ backgroundColor: C.lime, color: C.ink }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#precios"
-                className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 border-2 hover:bg-white/10`}
+                className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 border-2 hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#FFFFFF' }}
               >
                 Ver la carta
@@ -464,7 +464,7 @@ export default function RestobarLosLeonesPage() {
                       href={BIZ.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-bold underline underline-offset-4 decoration-2"
+                      className="font-bold underline underline-offset-4 decoration-2 tap-44"
                       style={{ color: C.blue, textDecorationColor: 'rgba(34,81,255,0.35)' }}
                     >
                       {BIZ.igUser}
@@ -527,7 +527,7 @@ export default function RestobarLosLeonesPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} inline-block text-sm font-extrabold uppercase tracking-wide underline underline-offset-4 decoration-2`}
+                  className={`${display.className} inline-block text-sm font-extrabold uppercase tracking-wide underline underline-offset-4 decoration-2 tap-44`}
                   style={{ color: C.blue, textDecorationColor: 'rgba(34,81,255,0.35)' }}
                 >
                   Ver la ficha real en Google →
@@ -589,7 +589,7 @@ export default function RestobarLosLeonesPage() {
               href={WA_LINK_MESA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} ll-btn inline-block font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 mt-8`}
+              className={`${display.className} ll-btn inline-block font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 mt-8 tap-44`}
               style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
             >
               Pedir o reservar por WhatsApp
@@ -624,7 +624,7 @@ export default function RestobarLosLeonesPage() {
                   <br />
                   {BIZ.city}, {BIZ.region}, Chile
                   <br />
-                  <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+                  <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">
                     {BIZ.phoneDisplay}
                   </a>
                 </address>
@@ -633,7 +633,7 @@ export default function RestobarLosLeonesPage() {
                     href={WA_LINK_MESA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5`}
+                    className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 tap-44`}
                     style={{ backgroundColor: C.lime, color: C.ink }}
                   >
                     Escribir por WhatsApp
@@ -642,7 +642,7 @@ export default function RestobarLosLeonesPage() {
                     href={BIZ.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 border-2 hover:bg-white/10`}
+                    className={`${display.className} ll-btn ll-btn-dark font-bold uppercase tracking-wide text-sm md:text-base px-7 py-3.5 border-2 hover:bg-white/10 tap-44`}
                     style={{ borderColor: 'rgba(255,255,255,0.6)', color: '#FFFFFF' }}
                   >
                     {BIZ.igUser}
@@ -678,9 +678,9 @@ export default function RestobarLosLeonesPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
               {' · '}
-              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">
                 {BIZ.igUser}
               </a>
             </address>
@@ -689,12 +689,12 @@ export default function RestobarLosLeonesPage() {
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#FFFFFF' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#FFFFFF' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. La carta, los precios, las reseñas y las fotos
             son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.lime }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.lime }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

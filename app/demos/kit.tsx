@@ -179,7 +179,7 @@ export function DemoHeader({ demo }: { demo: Demo }) {
       <div className="max-w-6xl mx-auto px-5 md:px-8 h-[56px] md:h-[64px] flex items-center justify-between gap-4">
         <a
           href="#inicio"
-          className={`${headingFont(t)} text-lg md:text-xl leading-none`}
+          className={`${headingFont(t)} text-lg md:text-xl leading-none tap-44`}
         >
           {demo.name}
         </a>
@@ -188,7 +188,7 @@ export function DemoHeader({ demo }: { demo: Demo }) {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium transition-colors"
+              className="text-sm font-medium transition-colors tap-44"
               style={{ color: t.muted }}
             >
               {l.label}
@@ -199,7 +199,7 @@ export function DemoHeader({ demo }: { demo: Demo }) {
           href={waLink(demo)}
           target="_blank"
           rel="noopener noreferrer"
-          className="shrink-0 text-sm font-semibold px-4 py-2 transition-transform active:scale-95"
+          className="shrink-0 text-sm font-semibold px-4 py-2 transition-transform active:scale-95 tap-44"
           style={{
             backgroundColor: t.accent,
             color: t.accentInk,
@@ -226,7 +226,7 @@ export function DemoBand({ name }: { name: string }) {
           href={SITE.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold underline underline-offset-2 hover:text-yellow"
+          className="font-semibold underline underline-offset-2 hover:text-yellow tap-44"
         >
           Sitiazo
         </a>{' '}
@@ -235,7 +235,7 @@ export function DemoBand({ name }: { name: string }) {
           href={whatsappLink('contacto')}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold underline underline-offset-2 hover:text-yellow"
+          className="font-semibold underline underline-offset-2 hover:text-yellow tap-44"
         >
           ¿Lo hacemos realidad?
         </a>
@@ -298,7 +298,7 @@ function HeroContent({ demo }: { demo: Demo }) {
           href={waLink(demo)}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-semibold text-sm px-6 py-3 transition-transform active:scale-95"
+          className="font-semibold text-sm px-6 py-3 transition-transform active:scale-95 tap-44"
           style={{
             backgroundColor: t.accent,
             color: t.accentInk,
@@ -309,7 +309,7 @@ function HeroContent({ demo }: { demo: Demo }) {
         </a>
         <a
           href="#contacto"
-          className="font-semibold text-sm px-6 py-3 border transition-colors"
+          className="font-semibold text-sm px-6 py-3 border transition-colors tap-44"
           style={{ borderColor: t.line, borderRadius: t.radius }}
         >
           Ver contacto
@@ -424,7 +424,7 @@ export function DemoHero({ demo }: { demo: Demo }) {
                   href={waLink(demo)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-sm px-6 py-3 transition-transform active:scale-95"
+                  className="font-semibold text-sm px-6 py-3 transition-transform active:scale-95 tap-44"
                   style={{
                     backgroundColor: t.accent,
                     color: t.accentInk,
@@ -435,7 +435,7 @@ export function DemoHero({ demo }: { demo: Demo }) {
                 </a>
                 <a
                   href="#cotiza"
-                  className="font-semibold text-sm px-6 py-3 border transition-colors"
+                  className="font-semibold text-sm px-6 py-3 border transition-colors tap-44"
                   style={{ borderColor: t.line, borderRadius: t.radius }}
                 >
                   Cotiza tu impresión
@@ -556,7 +556,7 @@ export function DemoHero({ demo }: { demo: Demo }) {
             <div className="flex flex-wrap gap-3 mb-10">
               <a
                 href="#cotiza"
-                className="font-semibold text-sm px-6 py-3 transition-transform active:scale-95"
+                className="font-semibold text-sm px-6 py-3 transition-transform active:scale-95 tap-44"
                 style={{
                   backgroundColor: t.accent,
                   color: t.accentInk,
@@ -569,7 +569,7 @@ export function DemoHero({ demo }: { demo: Demo }) {
                 href={waLink(demo)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 border transition-colors"
+                className="font-semibold text-sm px-6 py-3 border transition-colors tap-44"
                 style={{ borderColor: t.line, borderRadius: t.radius }}
               >
                 Escribir por WhatsApp
@@ -1168,7 +1168,7 @@ function RenderSection({ s, demo }: { s: DemoSection; demo: Demo }) {
               href={waLink(demo)}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 font-semibold text-sm px-6 py-3 transition-transform active:scale-95"
+              className="shrink-0 font-semibold text-sm px-6 py-3 transition-transform active:scale-95 tap-44"
               style={{
                 backgroundColor: t.accentInk,
                 color: t.accent,
@@ -1236,7 +1236,7 @@ export function Faq({ demo }: { demo: Demo }) {
             className="group border-b py-4"
             style={{ borderColor: t.line }}
           >
-            <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base">
+            <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base tap-44">
               {f.q}
               <span
                 className="shrink-0 text-xl leading-none transition-transform group-open:rotate-45"
@@ -1287,7 +1287,7 @@ export function DemoFooter({ demo }: { demo: Demo }) {
               )}
               {demo.city}, Región del Maule
               <br />
-              <a href={`tel:${demo.phone.replace(/\s/g, '')}`} className="underline underline-offset-2">
+              <a href={`tel:${demo.phone.replace(/\s/g, '')}`} className="underline underline-offset-2 tap-44">
                 {demo.phone}
               </a>
               {demo.instagram && (
@@ -1297,7 +1297,7 @@ export function DemoFooter({ demo }: { demo: Demo }) {
                     href={demo.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-2"
+                    className="underline underline-offset-2 tap-44"
                   >
                     @{demo.instagram.replace(/\/$/, '').split('/').pop()}
                   </a>
@@ -1310,7 +1310,7 @@ export function DemoFooter({ demo }: { demo: Demo }) {
                     href={demo.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline underline-offset-2"
+                    className="underline underline-offset-2 tap-44"
                   >
                     Facebook
                   </a>

@@ -167,7 +167,7 @@ export default function PanaderiaBravoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(251,245,233,0.95)', color: C.chocoDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.gold} stroke={C.gold} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -198,14 +198,14 @@ export default function PanaderiaBravoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.gold, color: '#211204' }}
               >
                 Pedir por WhatsApp
               </a>
               <a
                 href="#horno"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(251,245,233,0.55)', color: '#FBF5E9' }}
               >
                 Ver lo del horno
@@ -323,7 +323,7 @@ export default function PanaderiaBravoPage() {
               href={WA_LINK_TORTA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.gold, color: '#211204' }}
             >
               Encargar mi torta
@@ -385,7 +385,7 @@ export default function PanaderiaBravoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.berry, textDecorationColor: 'rgba(163,59,68,0.35)' }}
               >
                 Ver la ficha en Google →
@@ -452,7 +452,7 @@ export default function PanaderiaBravoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.berry, color: '#FBF5E9' }}
               >
                 Cómo llegar →
@@ -461,7 +461,7 @@ export default function PanaderiaBravoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(59,42,27,0.35)', color: C.choco }}
               >
                 Escribir por WhatsApp
@@ -508,7 +508,7 @@ export default function PanaderiaBravoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.gold, color: '#211204' }}
             >
               Pedir por WhatsApp

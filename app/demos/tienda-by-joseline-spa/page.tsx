@@ -199,7 +199,7 @@ export default function TiendaByJoselineSpaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-9 inline-flex items-center gap-2.5 text-[11px] md:text-xs font-semibold tracking-[0.12em] uppercase transition-colors hover:text-[#C1272D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F]"
+              className="mt-9 inline-flex items-center gap-2.5 text-[11px] md:text-xs font-semibold tracking-[0.12em] uppercase transition-colors hover:text-[#C1272D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F] tap-44"
               style={{ color: C.fleet }}
             >
               <Stars value={5} color={C.gold} className="w-[11px] h-[11px]" />
@@ -286,7 +286,7 @@ export default function TiendaByJoselineSpaPage() {
                       href={waLinkProducto(p.name)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[11px] font-semibold uppercase tracking-[0.2em] underline underline-offset-[6px] decoration-1 transition-colors hover:text-[#C1272D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F]"
+                      className="text-[11px] font-semibold uppercase tracking-[0.2em] underline underline-offset-[6px] decoration-1 transition-colors hover:text-[#C1272D] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F] tap-44"
                       style={{ color: C.fleet, textDecorationColor: 'rgba(185,154,95,0.7)' }}
                     >
                       Consultar →
@@ -353,7 +353,7 @@ export default function TiendaByJoselineSpaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline underline-offset-4 decoration-1 font-medium transition-colors hover:text-[#9E2025] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F]"
+                  className="underline underline-offset-4 decoration-1 font-medium transition-colors hover:text-[#9E2025] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F] tap-44"
                   style={{ color: C.red, textDecorationColor: 'rgba(193,39,45,0.4)' }}
                 >
                   Ver la ficha →
@@ -458,7 +458,7 @@ export default function TiendaByJoselineSpaPage() {
               <br />
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="underline underline-offset-4 decoration-1 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F]"
+                className="underline underline-offset-4 decoration-1 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F] tap-44"
               >
                 {BIZ.phoneDisplay}
               </a>
@@ -467,7 +467,7 @@ export default function TiendaByJoselineSpaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline underline-offset-4 decoration-1 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F]"
+                className="underline underline-offset-4 decoration-1 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F] tap-44"
               >
                 Cómo llegar
               </a>
@@ -484,18 +484,18 @@ export default function TiendaByJoselineSpaPage() {
             {BIZ.rubro} · {BIZ.city} ·{' '}
             <a
               href={`tel:${BIZ.phoneTel}`}
-              className="underline underline-offset-2 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F]"
+              className="underline underline-offset-2 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B99A5F] tap-44"
             >
               {BIZ.phoneDisplay}
             </a>
           </p>
           <p className="text-[11px] leading-[1.75] border-t pt-4" style={{ color: C.muted, borderColor: C.line }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.red }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.red }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Textos, productos, precios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.red }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.red }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

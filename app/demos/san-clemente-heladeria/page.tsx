@@ -307,7 +307,7 @@ export default function SanClementeHeladeriaPage() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing}`}
+              className={`flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl ${focusRing} tap-44`}
               style={{ backgroundColor: 'rgba(255,246,233,0.95)', color: C.frambuesaFuerte }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
@@ -341,14 +341,14 @@ export default function SanClementeHeladeriaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.vainilla, color: C.chocolate }}
               >
                 Pedir por WhatsApp
               </a>
               <a
                 href="#vitrina"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(255,246,233,0.55)', color: C.crema }}
               >
                 Ver la vitrina
@@ -465,7 +465,7 @@ export default function SanClementeHeladeriaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing}`}
+                className={`font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
                 style={{ color: C.frambuesaFuerte, textDecorationColor: 'rgba(176,30,82,0.35)' }}
               >
                 WhatsApp
@@ -601,7 +601,7 @@ export default function SanClementeHeladeriaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                className={`${display.className} inline-block font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.vainilla, color: C.chocolate }}
               >
                 Pedir por WhatsApp
@@ -687,7 +687,7 @@ export default function SanClementeHeladeriaPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} font-bold text-sm px-5 py-2.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing}`}
+                    className={`${display.className} font-bold text-sm px-5 py-2.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
                     style={{ backgroundColor: C.frambuesaFuerte, color: C.crema }}
                   >
                     Pedir por WhatsApp
@@ -696,7 +696,7 @@ export default function SanClementeHeladeriaPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} font-bold text-sm px-5 py-2.5 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                    className={`${display.className} font-bold text-sm px-5 py-2.5 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                     style={{ borderColor: 'rgba(59,36,22,0.3)', color: C.chocolate }}
                   >
                     Cómo llegar →
@@ -741,7 +741,7 @@ export default function SanClementeHeladeriaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing}`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing} tap-44`}
               style={{ backgroundColor: C.vainilla, color: C.chocolate }}
             >
               Pedir por WhatsApp

@@ -154,7 +154,7 @@ function SitiazoStrip() {
             href={SITE.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline underline-offset-2"
+            className="font-semibold underline underline-offset-2 tap-44"
           >
             Sitiazo
           </a>{' '}
@@ -163,7 +163,7 @@ function SitiazoStrip() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline underline-offset-2"
+            className="font-semibold underline underline-offset-2 tap-44"
           >
             ¿Lo hacemos realidad?
           </a>
@@ -228,14 +228,14 @@ export default function LasViejasCochinasPage() {
             <div className="flex flex-wrap gap-3">
               <a
                 href={CALL_LINK}
-                className="text-sm md:text-base font-semibold px-6 py-3.5 rounded-md transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="text-sm md:text-base font-semibold px-6 py-3.5 rounded-md transition-colors hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44"
                 style={{ backgroundColor: C.red, color: C.white }}
               >
                 Reservar por teléfono
               </a>
               <a
                 href="#carta"
-                className="text-sm md:text-base font-semibold px-6 py-3.5 rounded-md border transition-colors hover:bg-white/10"
+                className="text-sm md:text-base font-semibold px-6 py-3.5 rounded-md border transition-colors hover:bg-white/10 tap-44"
                 style={{ borderColor: 'rgba(255,255,255,0.5)', color: C.white }}
               >
                 Ver la carta
@@ -380,10 +380,10 @@ export default function LasViejasCochinasPage() {
               reseñas de Google.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm font-semibold">
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" style={{ color: C.red }}>
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 tap-44" style={{ color: C.red }}>
                 Ver reseñas en Google →
               </a>
-              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4" style={{ color: C.fleet }}>
+              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 tap-44" style={{ color: C.fleet }}>
                 Facebook →
               </a>
             </div>
@@ -471,7 +471,7 @@ export default function LasViejasCochinasPage() {
                   <div key={k} className="flex justify-between gap-4 py-3 border-b" style={{ borderColor: 'rgba(255,255,255,0.25)' }}>
                     <dt style={{ color: 'rgba(255,255,255,0.9)' }}>{k}</dt>
                     <dd className="font-semibold text-right">
-                      {k === 'Teléfono' ? <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{v}</a> : v}
+                      {k === 'Teléfono' ? <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{v}</a> : v}
                     </dd>
                   </div>
                 ))}
@@ -482,7 +482,7 @@ export default function LasViejasCochinasPage() {
             <div className="h-full rounded-lg border overflow-hidden flex flex-col" style={{ backgroundColor: C.white, borderColor: C.line }}>
               <div className="flex items-center justify-between gap-3 px-4 py-3 border-b" style={{ borderColor: C.line }}>
                 <p className="text-sm font-semibold truncate">{BIZ.address} · {BIZ.city}</p>
-                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="shrink-0 text-sm font-semibold" style={{ color: C.red }}>
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="shrink-0 text-sm font-semibold tap-44" style={{ color: C.red }}>
                   Abrir en Maps →
                 </a>
               </div>
@@ -504,7 +504,7 @@ export default function LasViejasCochinasPage() {
           <p className={`${display.className} font-bold text-xl mb-1`}>{BIZ.name}</p>
           <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(255,255,255,0.82)' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>
             Sitio de ejemplo de Sitiazo: platos y precios son de muestra; nombre, dirección, contacto y reseñas son reales.

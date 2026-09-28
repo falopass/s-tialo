@@ -212,14 +212,14 @@ export default function BrutalCuricoPage() {
                   href={WA_LINK_CLASE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${FOCUS} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]`}
+                  className={`${display.className} ${FOCUS} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97] tap-44`}
                   style={{ backgroundColor: C.mustard, color: '#241A08' }}
                 >
                   Agendar clase de prueba
                 </a>
                 <a
                   href="#el-gym"
-                  className={`${display.className} ${FOCUS} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                  className={`${display.className} ${FOCUS} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
                   style={{ borderColor: 'rgba(244,239,228,0.55)', color: '#F4EFE4' }}
                 >
                   Conocer el gym
@@ -254,7 +254,7 @@ export default function BrutalCuricoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} absolute top-4 right-4 flex items-center gap-2 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-[0.97]`}
+                className={`${FOCUS} absolute top-4 right-4 flex items-center gap-2 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-[0.97] tap-44x`}
                 style={{ backgroundColor: 'rgba(244,239,228,0.94)', color: C.deep }}
               >
                 <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.wood} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -480,7 +480,7 @@ export default function BrutalCuricoPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${FOCUS} text-sm font-semibold underline underline-offset-4 decoration-2 hover:text-white transition-colors`}
+                  className={`${FOCUS} text-sm font-semibold underline underline-offset-4 decoration-2 hover:text-white transition-colors tap-44`}
                   style={{ color: C.mustardSoft, textDecorationColor: 'rgba(217,164,65,0.4)' }}
                 >
                   Ver la ficha en Google →
@@ -516,7 +516,7 @@ export default function BrutalCuricoPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Abrir ${BIZ.instagramHandle} en Instagram`}
-                  className={`${display.className} ${FOCUS} shrink-0 w-11 h-11 rounded-full flex items-center justify-center text-xl font-extrabold transition-transform hover:translate-x-1`}
+                  className={`${display.className} ${FOCUS} shrink-0 w-11 h-11 rounded-full flex items-center justify-center text-xl font-extrabold transition-transform hover:translate-x-1 tap-44`}
                   style={{ backgroundColor: '#241A08', color: C.mustard }}
                 >
                   →
@@ -593,7 +593,7 @@ export default function BrutalCuricoPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${FOCUS} text-center font-bold text-sm px-5 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]`}
+                  className={`${display.className} ${FOCUS} text-center font-bold text-sm px-5 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97] tap-44`}
                   style={
                     p.highlight
                       ? { backgroundColor: C.mustard, color: '#241A08' }
@@ -639,7 +639,7 @@ export default function BrutalCuricoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ${FOCUS} font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]`}
+                className={`${display.className} ${FOCUS} font-bold text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97] tap-44`}
                 style={{ backgroundColor: C.mustard, color: '#241A08' }}
               >
                 Escribir por WhatsApp
@@ -648,7 +648,7 @@ export default function BrutalCuricoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ${FOCUS} font-bold text-sm px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} ${FOCUS} font-bold text-sm px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(244,239,228,0.45)', color: '#F4EFE4' }}
               >
                 Cómo llegar →
@@ -695,7 +695,7 @@ export default function BrutalCuricoPage() {
               href={WA_LINK_CLASE}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} ${FOCUS} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97]`}
+              className={`${display.className} ${FOCUS} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97] tap-44`}
               style={{ backgroundColor: C.mustard, color: '#241A08' }}
             >
               Agendar clase de prueba
@@ -710,17 +710,17 @@ export default function BrutalCuricoPage() {
           <p className={`${display.className} font-extrabold text-xl mb-1.5`}>{BIZ.name}</p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,239,228,0.78)' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 hover:text-white transition-colors`}>{BIZ.phoneDisplay}</a>
+            <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-2 hover:text-white transition-colors tap-44`}>{BIZ.phoneDisplay}</a>
           </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(244,239,228,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(244,239,228,0.72)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2`} style={{ color: C.mustardSoft }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 tap-44`} style={{ color: C.mustardSoft }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}: servicios, precios, horarios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2`} style={{ color: C.mustardSoft }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 tap-44`} style={{ color: C.mustardSoft }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

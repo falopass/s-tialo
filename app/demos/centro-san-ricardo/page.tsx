@@ -199,7 +199,7 @@ export default function CentroSanRicardoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 mb-6 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]"
+              className="inline-flex items-center gap-2.5 mb-6 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44"
               style={{ backgroundColor: '#FBFAF6', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.yellow} stroke={C.slate} strokeWidth="1.2" aria-hidden="true">
@@ -226,14 +226,14 @@ export default function CentroSanRicardoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${BTN_SOLID} focus-visible:outline-[#F2B705] text-sm md:text-base px-7 py-3.5 rounded-lg`}
+                className={`${BTN_SOLID} focus-visible:outline-[#F2B705] text-sm md:text-base px-7 py-3.5 rounded-lg tap-44`}
                 style={{ backgroundColor: C.yellow, color: C.deep }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#como-funciona"
-                className={`${BTN_GHOST} focus-visible:outline-[#FBFAF6] text-sm md:text-base px-7 py-3.5 rounded-lg border hover:bg-white/10`}
+                className={`${BTN_GHOST} focus-visible:outline-[#FBFAF6] text-sm md:text-base px-7 py-3.5 rounded-lg border hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(251,250,246,0.55)', color: '#FBFAF6' }}
               >
                 Cómo funciona
@@ -422,7 +422,7 @@ export default function CentroSanRicardoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${BTN_SOLID} focus-visible:outline-[#2F4858] text-sm px-6 py-3 rounded-lg`}
+                className={`${BTN_SOLID} focus-visible:outline-[#2F4858] text-sm px-6 py-3 rounded-lg tap-44`}
                 style={{ backgroundColor: C.slate, color: '#FBFAF6' }}
               >
                 Ver reseñas en Google →
@@ -431,7 +431,7 @@ export default function CentroSanRicardoPage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${BTN_GHOST} focus-visible:outline-[#2F4858] text-sm px-6 py-3 rounded-lg border hover:bg-[#2F4858]/10`}
+                className={`${BTN_GHOST} focus-visible:outline-[#2F4858] text-sm px-6 py-3 rounded-lg border hover:bg-[#2F4858]/10 tap-44`}
                 style={{ borderColor: 'rgba(47,72,88,0.35)', color: C.slate }}
               >
                 @{BIZ.instagramUser} en Instagram
@@ -490,7 +490,7 @@ export default function CentroSanRicardoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${BTN_SOLID} focus-visible:outline-[#F2B705] inline-block text-sm md:text-base px-7 py-3.5 rounded-lg`}
+                className={`${BTN_SOLID} focus-visible:outline-[#F2B705] inline-block text-sm md:text-base px-7 py-3.5 rounded-lg tap-44`}
                 style={{ backgroundColor: C.yellow, color: C.deep }}
               >
                 Consultar valores reales
@@ -543,7 +543,7 @@ export default function CentroSanRicardoPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2" style={{ color: C.slate }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44" style={{ color: C.slate }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -557,7 +557,7 @@ export default function CentroSanRicardoPage() {
                 href={WA_LINK_CLASES}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${BTN_SOLID} focus-visible:outline-[#2F4858] text-sm md:text-base px-7 py-3.5 rounded-lg`}
+                className={`${BTN_SOLID} focus-visible:outline-[#2F4858] text-sm md:text-base px-7 py-3.5 rounded-lg tap-44`}
                 style={{ backgroundColor: C.yellow, color: C.deep }}
               >
                 Escribir por WhatsApp
@@ -566,7 +566,7 @@ export default function CentroSanRicardoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${BTN_GHOST} focus-visible:outline-[#2F4858] text-sm px-6 py-3.5 rounded-lg border hover:bg-[#2F4858]/10`}
+                className={`${BTN_GHOST} focus-visible:outline-[#2F4858] text-sm px-6 py-3.5 rounded-lg border hover:bg-[#2F4858]/10 tap-44`}
                 style={{ borderColor: 'rgba(47,72,88,0.35)', color: C.slate }}
               >
                 Cómo llegar →
@@ -593,7 +593,7 @@ export default function CentroSanRicardoPage() {
           <p className={`${display.className} font-semibold text-xl mb-1`}>{BIZ.name}</p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: '#D5D9DB' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,250,246,0.14)' }}>

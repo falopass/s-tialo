@@ -121,14 +121,14 @@ export default function GirlsHousePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95 uppercase tracking-wide focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-transform active:scale-95 uppercase tracking-wide focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300] tap-44`}
                 style={{ backgroundColor: C.signal, color: C.ink }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#vitrina"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 uppercase tracking-wide focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 uppercase tracking-wide focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300] tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver la vitrina
@@ -136,7 +136,7 @@ export default function GirlsHousePage() {
             </div>
             <ul className="flex flex-wrap gap-x-7 gap-y-2 text-[11px] uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.6)' }}>
               <li>
-                <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
                   @{BIZ.instagram} · {BIZ.instagramFollowers} seguidores
                 </a>
               </li>
@@ -338,7 +338,7 @@ export default function GirlsHousePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block font-bold text-sm px-7 py-3.5 uppercase tracking-wide transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]`}
+                className={`${display.className} inline-block font-bold text-sm px-7 py-3.5 uppercase tracking-wide transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300] tap-44`}
                 style={{ backgroundColor: C.signal, color: C.ink }}
               >
                 Consultar valor real
@@ -352,7 +352,7 @@ export default function GirlsHousePage() {
                       href={waLinkServicio(p.name)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-baseline gap-3 py-2.5 md:py-4 px-2 -mx-2 border-b border-dashed transition-colors hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300]"
+                      className="group flex items-baseline gap-3 py-2.5 md:py-4 px-2 -mx-2 border-b border-dashed transition-colors hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFC300] tap-44v"
                       style={{ borderColor: 'rgba(255,255,255,0.18)' }}
                     >
                       <span className="text-sm md:text-base font-medium transition-transform group-hover:translate-x-1" style={{ color: '#FFFFFF' }}>
@@ -399,7 +399,7 @@ export default function GirlsHousePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 uppercase tracking-wide transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A]`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 uppercase tracking-wide transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A] tap-44`}
                 style={{ backgroundColor: C.ink, color: C.signal }}
               >
                 {BIZ.phoneDisplay}
@@ -408,7 +408,7 @@ export default function GirlsHousePage() {
                 href={IG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 uppercase tracking-wide border-2 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A]`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 uppercase tracking-wide border-2 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17181A] tap-44`}
                 style={{ borderColor: C.ink, color: C.ink }}
               >
                 @{BIZ.instagram}
@@ -443,24 +443,24 @@ export default function GirlsHousePage() {
               {BIZ.name}
             </p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs" style={{ color: C.steelDark }}>
-              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <a href={IG_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
                 @{BIZ.instagram}
               </a>
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
                 Cómo llegar
               </a>
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
                 {BIZ.phoneDisplay}
               </a>
             </div>
           </div>
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#FFFFFF' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#FFFFFF' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}: servicios y precios de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.signal }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.signal }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

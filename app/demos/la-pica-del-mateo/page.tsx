@@ -56,23 +56,23 @@ export default function LaPicaDelMateoPage() {
     <div className={`${body.className} bg-[#EEF3F6] text-[#123547] antialiased`}>
       {/* ── Hero a sangre ── */}
       <header id="inicio" className="relative min-h-[100svh] overflow-hidden bg-[#123547]">
-        <Image src={`${IMG}/hero.webp`} alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image src={`${IMG}/hero.webp`} alt="" fill priority sizes="100vw" className="object-cover" aria-hidden="true" />
         <div
           className="absolute inset-0"
           style={{ background: `linear-gradient(180deg, ${C.deep}cc 0%, ${C.deep}55 40%, ${C.deep}f2 100%)` }}
         />
         <nav className="relative z-10 max-w-[1200px] mx-auto px-5 md:px-8 pt-6 flex items-center justify-between gap-4" aria-label="Principal">
-          <a href="#inicio" className={`${display.className} text-white text-sm md:text-base font-bold tracking-tight rounded-sm ${FOCUS}`}>
+          <a href="#inicio" className={`${display.className} text-white text-sm md:text-base font-bold tracking-tight rounded-sm ${FOCUS} tap-44`}>
             La Pica <span className="text-[#3CC4DC]">del Mateo</span>
           </a>
           <ul className="hidden md:flex gap-7 text-sm text-white/80">
             {NAV.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className={`hover:text-white rounded-sm ${FOCUS}`}>{l.label}</a>
+                <a href={l.href} className={`hover:text-white rounded-sm ${FOCUS} tap-44`}>{l.label}</a>
               </li>
             ))}
           </ul>
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} px-4 py-2 text-sm`}>
+          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} px-4 py-2 text-sm tap-44`}>
             Pedir
           </a>
         </nav>
@@ -89,10 +89,10 @@ export default function LaPicaDelMateoPage() {
             por mesa completa, directo por WhatsApp.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3">
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} px-7 py-3 md:py-4 text-base`}>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} px-7 py-3 md:py-4 text-base tap-44`}>
               Hacer un pedido por WhatsApp
             </a>
-            <a href="#carta" className={`${BTN_LINE} px-7 py-3 md:py-4 text-base`}>Ver la carta</a>
+            <a href="#carta" className={`${BTN_LINE} px-7 py-3 md:py-4 text-base tap-44`}>Ver la carta</a>
           </div>
 
           <dl className="mt-14 grid grid-cols-3 max-w-[34rem] divide-x divide-white/20 border-y border-white/20 text-white">
@@ -194,7 +194,7 @@ export default function LaPicaDelMateoPage() {
             </ul>
             <p className="mt-10 text-sm text-white/75">
               {BIZ.reviews} reseñas en Google Maps y {BIZ.followers} seguidores en{' '}
-              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 hover:text-white rounded-sm ${FOCUS}`}>
+              <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 hover:text-white rounded-sm ${FOCUS} tap-44`}>
                 Facebook
               </a>
               .
@@ -259,7 +259,7 @@ export default function LaPicaDelMateoPage() {
             <p className="mt-6 text-base md:text-lg text-white/75 leading-relaxed">
               Escribe por WhatsApp con la cantidad y la hora de retiro. Te confirman el pedido directo.
             </p>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} mt-9 px-8 py-3 md:py-4 text-base md:text-lg self-start`}>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${BTN_WA} mt-9 px-8 py-3 md:py-4 text-base md:text-lg self-start tap-44`}>
               WhatsApp {BIZ.phoneDisplay}
             </a>
             <address className="not-italic mt-auto pt-12 text-white/80 leading-relaxed">
@@ -268,7 +268,7 @@ export default function LaPicaDelMateoPage() {
               <br />
               {BIZ.postal} {BIZ.city}, {BIZ.region}
               <br />
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`inline-block mt-3 font-semibold text-white underline underline-offset-4 rounded-sm ${FOCUS}`}>
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`inline-block mt-3 font-semibold text-white underline underline-offset-4 rounded-sm ${FOCUS} tap-44`}>
                 Cómo llegar en Google Maps
               </a>
             </address>

@@ -251,14 +251,14 @@ export default function VasquezMueblesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-8 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] active:scale-95`}
+                className={`${display.className} text-sm md:text-base px-8 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] active:scale-95 tap-44`}
                 style={{ backgroundColor: C.terracotaInk, color: '#FFFFFF' }}
               >
                 Cotizar mi mueble
               </a>
               <a
                 href="#muebles"
-                className={`${display.className} text-sm md:text-base px-8 py-3.5 rounded-full border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8]`}
+                className={`${display.className} text-sm md:text-base px-8 py-3.5 rounded-full border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver el trabajo
@@ -351,7 +351,7 @@ export default function VasquezMueblesPage() {
               href={BIZ.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[15px] font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#C1663F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F]"
+              className="text-[15px] font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#C1663F] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F] tap-44"
               style={{ color: C.noche, textDecorationColor: 'rgba(193,102,63,0.5)' }}
             >
               Ver el trabajo en Facebook →
@@ -426,7 +426,7 @@ export default function VasquezMueblesPage() {
                       href={WA_LINK_ENCARGO}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[15px] font-bold underline decoration-transparent underline-offset-4 transition-all hover:decoration-current hover:gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F]"
+                      className="inline-flex items-center gap-2 text-[15px] font-bold underline decoration-transparent underline-offset-4 transition-all hover:decoration-current hover:gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F] tap-44"
                       style={{ color: C.terracotaInk }}
                     >
                       Cotizar algo así
@@ -565,7 +565,7 @@ export default function VasquezMueblesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[15px] font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2A41] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F]"
+                className="text-[15px] font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2A41] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F] tap-44"
                 style={{ color: C.terracotaInk, textDecorationColor: 'rgba(158,82,39,0.4)' }}
               >
                 Ver la ubicación en Google →
@@ -627,7 +627,7 @@ export default function VasquezMueblesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B2A41] active:scale-95`}
+                className={`${display.className} text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B2A41] active:scale-95 tap-44`}
                 style={{ backgroundColor: C.terracotaInk, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
@@ -636,7 +636,7 @@ export default function VasquezMueblesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-7 py-3.5 rounded-full border transition-colors duration-300 hover:bg-white/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B2A41]`}
+                className={`${display.className} text-sm px-7 py-3.5 rounded-full border transition-colors duration-300 hover:bg-white/50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1B2A41] tap-44`}
                 style={{ borderColor: 'rgba(27,42,65,0.35)', color: C.noche }}
               >
                 Cómo llegar →
@@ -645,7 +645,7 @@ export default function VasquezMueblesPage() {
             <p className="text-[15px] mt-6 font-semibold" style={{ color: C.noche }}>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="underline decoration-transparent underline-offset-4 transition-colors hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F]"
+                className="underline decoration-transparent underline-offset-4 transition-colors hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C1663F] tap-44"
               >
                 {BIZ.phoneDisplay}
               </a>
@@ -698,7 +698,7 @@ export default function VasquezMueblesPage() {
               href={WA_LINK_ENCARGO}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-9 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] active:scale-95`}
+              className={`${display.className} inline-block text-sm md:text-base px-9 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] active:scale-95 tap-44`}
               style={{ backgroundColor: C.terracotaInk, color: '#FFFFFF' }}
             >
               Cotizar por WhatsApp
@@ -713,17 +713,17 @@ export default function VasquezMueblesPage() {
           <p className={`${display.className} text-xl mb-1.5`}>{BIZ.name}</p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
             {BIZ.address} · {BIZ.city}, {BIZ.region} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.arena }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.arena }}>
               Sitiazo
             </a>{' '}
             para {BIZ.legal}: productos, precios, reseñas y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.arena }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.arena }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

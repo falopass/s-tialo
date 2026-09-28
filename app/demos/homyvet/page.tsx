@@ -184,14 +184,14 @@ export default function HomyvetPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95"
+                className="font-bold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.mustard, color: C.navyDeep }}
               >
                 Reserva por WhatsApp
               </a>
               <a
                 href="#como-atendemos"
-                className="font-bold text-sm px-7 py-3.5 rounded-full border-2 transition-colors"
+                className="font-bold text-sm px-7 py-3.5 rounded-full border-2 transition-colors tap-44"
                 style={{ borderColor: C.navy, color: C.navy }}
               >
                 Cómo atendemos
@@ -313,7 +313,7 @@ export default function HomyvetPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2"
+                className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.mustard, textDecorationColor: 'rgba(217,160,43,0.4)' }}
               >
                 Ver la ficha en Google →
@@ -365,7 +365,7 @@ export default function HomyvetPage() {
             </address>
             <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
               Teléfono:{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4" style={{ color: C.navy }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4 tap-44" style={{ color: C.navy }}>
                 {BIZ.phoneDisplay}
               </a>
             </p>
@@ -374,7 +374,7 @@ export default function HomyvetPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95"
+                className="font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.navy, color: '#fff' }}
               >
                 Cómo llegar →
@@ -383,7 +383,7 @@ export default function HomyvetPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors"
+                className="font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors tap-44"
                 style={{ borderColor: C.navy, color: C.navy }}
               >
                 Reservar por WhatsApp
@@ -439,14 +439,14 @@ export default function HomyvetPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold text-sm px-8 py-3 md:py-4 rounded-full transition-transform active:scale-95"
+                className="font-bold text-sm px-8 py-3 md:py-4 rounded-full transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.navy, color: '#fff' }}
               >
                 Reserva por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-bold text-sm px-8 py-3 md:py-4 rounded-full border-2 transition-colors"
+                className="font-bold text-sm px-8 py-3 md:py-4 rounded-full border-2 transition-colors tap-44"
                 style={{ borderColor: C.navy, color: C.navy }}
               >
                 {BIZ.phoneDisplay}
@@ -464,7 +464,7 @@ export default function HomyvetPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,242,231,0.65)' }}>
               {BIZ.address} · {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -477,11 +477,11 @@ export default function HomyvetPage() {
         <div style={{ borderTop: '1px solid rgba(247,242,231,0.15)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(247,242,231,0.75)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#fff' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}, así se vería tu sitio.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#fff' }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

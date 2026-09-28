@@ -213,7 +213,7 @@ export default function ClinicaTRenovaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB] tap-44"
               style={{ backgroundColor: 'rgba(247,249,249,0.95)', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.mint} stroke={C.petrol} strokeWidth="1.4" strokeLinejoin="round" aria-hidden="true">
@@ -243,14 +243,14 @@ export default function ClinicaTRenovaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F7F9F9]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F7F9F9] tap-44`}
                 style={{ backgroundColor: C.mint, color: C.deep }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#tu-visita"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F7F9F9]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F7F9F9] tap-44`}
                 style={{ borderColor: 'rgba(247,249,249,0.55)', color: '#F7F9F9' }}
               >
                 Ver cómo es la visita
@@ -430,7 +430,7 @@ export default function ClinicaTRenovaPage() {
               href={WA_LINK_SERVICIO}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block mt-8 font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]`}
+              className={`${display.className} inline-block mt-8 font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C] tap-44`}
               style={{ backgroundColor: C.petrol, color: '#F7F9F9' }}
             >
               Agendar por WhatsApp
@@ -480,7 +480,7 @@ export default function ClinicaTRenovaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]`}
+                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C] tap-44`}
                   style={{ backgroundColor: C.petrol, color: '#F7F9F9' }}
                 >
                   Ver reseñas en Google →
@@ -489,7 +489,7 @@ export default function ClinicaTRenovaPage() {
                   href={BIZ.waChannel}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]`}
+                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors hover:bg-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C] tap-44`}
                   style={{ borderColor: 'rgba(14,76,92,0.35)', color: C.petrol }}
                 >
                   wa.me/{BIZ.waChannelUser}
@@ -549,7 +549,7 @@ export default function ClinicaTRenovaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]`}
+                className={`${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB] tap-44`}
                 style={{ backgroundColor: C.mint, color: C.deep }}
               >
                 Agendar por WhatsApp
@@ -601,7 +601,7 @@ export default function ClinicaTRenovaPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]" style={{ color: C.petrol }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C] tap-44" style={{ color: C.petrol }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -615,7 +615,7 @@ export default function ClinicaTRenovaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C] tap-44`}
                 style={{ backgroundColor: C.petrol, color: '#F7F9F9' }}
               >
                 Agendar por WhatsApp
@@ -624,7 +624,7 @@ export default function ClinicaTRenovaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3.5 rounded-full border transition-colors hover:bg-[#E4F2EE] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C]`}
+                className={`${display.className} font-semibold text-sm px-6 py-3.5 rounded-full border transition-colors hover:bg-[#E4F2EE] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E4C5C] tap-44`}
                 style={{ borderColor: 'rgba(14,76,92,0.35)', color: C.petrol }}
               >
                 Cómo llegar →
@@ -671,7 +671,7 @@ export default function ClinicaTRenovaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB] tap-44`}
               style={{ backgroundColor: C.mint, color: C.deep }}
             >
               Agendar por WhatsApp
@@ -687,16 +687,16 @@ export default function ClinicaTRenovaPage() {
             <p className={`${display.className} font-semibold text-xl`}>{BIZ.name}</p>
             <p className="text-sm" style={{ color: 'rgba(247,249,249,0.85)' }}>
               {BIZ.addressFull} ·{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB]">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9FD8CB] tap-44">{BIZ.phoneDisplay}</a>
             </p>
           </div>
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(247,249,249,0.8)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#F7F9F9' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#F7F9F9' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}: servicios, precios, reseñas textuales y fotos de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.mint }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.mint }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

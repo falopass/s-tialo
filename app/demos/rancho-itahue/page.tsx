@@ -148,7 +148,7 @@ export default function RanchoItahuePage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(245,240,227,0.94)', color: C.deep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.amber} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -180,14 +180,14 @@ export default function RanchoItahuePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.amber, color: '#1E130A' }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#el-dia"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(245,240,227,0.55)', color: '#F5F0E3' }}
               >
                 Conocer el rancho
@@ -339,7 +339,7 @@ export default function RanchoItahuePage() {
               href={WA_LINK_EVENTO}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.amber, color: '#1E130A' }}
             >
               Cotizar mi evento
@@ -401,7 +401,7 @@ export default function RanchoItahuePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold underline underline-offset-4 decoration-2"
+                className="text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.amberText, textDecorationColor: 'rgba(185,126,51,0.35)' }}
               >
                 Ver la ficha en Google →
@@ -453,7 +453,7 @@ export default function RanchoItahuePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.forest, color: '#F5F0E3' }}
               >
                 Cómo llegar →
@@ -462,7 +462,7 @@ export default function RanchoItahuePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44`}
                 style={{ borderColor: 'rgba(31,59,43,0.4)', color: C.forest }}
               >
                 Escribir por WhatsApp
@@ -509,7 +509,7 @@ export default function RanchoItahuePage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.amber, color: '#1E130A' }}
             >
               Reservar por WhatsApp
@@ -526,12 +526,12 @@ export default function RanchoItahuePage() {
             <address className="not-italic text-xs leading-relaxed" style={{ color: 'rgba(245,240,227,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
             </address>
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(245,240,227,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}
@@ -540,11 +540,11 @@ export default function RanchoItahuePage() {
         <div className="border-t" style={{ borderColor: 'rgba(245,240,227,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(245,240,227,0.75)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.amberSoft }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.amberSoft }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Textos, actividades y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.amberSoft }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.amberSoft }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

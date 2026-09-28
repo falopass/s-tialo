@@ -186,7 +186,7 @@ export default function MuebleriaSofiaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44"
               style={{ backgroundColor: 'rgba(251,247,239,0.95)', color: C.greenDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.earth} stroke={C.earth} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -200,7 +200,7 @@ export default function MuebleriaSofiaPage() {
               href={BIZ.fbUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44"
               style={{ backgroundColor: 'rgba(251,247,239,0.95)', color: C.greenDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.green} aria-hidden="true">
@@ -369,7 +369,7 @@ export default function MuebleriaSofiaPage() {
               </p>
               <a
                 href={CALL_LINK}
-                className="group inline-flex items-center gap-2 min-h-[44px] px-5 rounded-full text-xs md:text-sm font-semibold transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]"
+                className="group inline-flex items-center gap-2 min-h-[44px] px-5 rounded-full text-xs md:text-sm font-semibold transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44"
                 style={{ backgroundColor: '#FBF7EF', color: C.greenDeep }}
               >
                 Llamar ahora <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
@@ -444,7 +444,7 @@ export default function MuebleriaSofiaPage() {
                       href={MAPS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4C6B3C] rounded-sm"
+                      className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4C6B3C] rounded-sm tap-44"
                       style={{ color: C.greenDeep }}
                     >
                       Ver la ficha →
@@ -469,7 +469,7 @@ export default function MuebleriaSofiaPage() {
                       href={BIZ.fbUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] rounded-sm"
+                      className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] rounded-sm tap-44"
                     >
                       Facebook →
                     </a>

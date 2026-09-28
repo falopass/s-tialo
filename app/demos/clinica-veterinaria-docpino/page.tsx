@@ -170,7 +170,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-[#E8D9B4]"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-[#E8D9B4] tap-44"
               style={{ backgroundColor: 'rgba(246,241,231,0.95)', color: C.forestDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.brass} stroke={C.brass} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -438,7 +438,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} block text-center text-sm px-5 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 mb-3 focus-visible:outline-[#E8D9B4]`}
+                  className={`${display.className} block text-center text-sm px-5 py-3.5 rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 mb-3 focus-visible:outline-[#E8D9B4] tap-44`}
                   style={{ backgroundColor: C.brass, color: '#142A20' }}
                 >
                   Escribir por WhatsApp
@@ -447,7 +447,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                   href={WA_LINK_URGENCIA}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-center text-xs font-bold uppercase tracking-[0.14em] py-2 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-[#E8D9B4]"
+                  className="block text-center text-xs font-bold uppercase tracking-[0.14em] py-2 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-[#E8D9B4] tap-44"
                   style={{ borderColor: 'rgba(246,241,231,0.35)', color: 'rgba(246,241,231,0.85)' }}
                 >
                   Es una urgencia
@@ -497,7 +497,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-[#1E3D2F]"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 focus-visible:outline-[#1E3D2F] tap-44"
                   style={{ color: C.forest, textDecorationColor: 'rgba(200,162,75,0.6)' }}
                 >
                   Abrir en Google Maps →
@@ -507,7 +507,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
                     href={BIZ.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 text-sm font-bold transition-opacity hover:opacity-75 focus-visible:outline-[#1E3D2F]"
+                    className="flex items-center gap-2.5 text-sm font-bold transition-opacity hover:opacity-75 focus-visible:outline-[#1E3D2F] tap-44"
                     style={{ color: C.forest }}
                   >
                     <svg viewBox="0 0 24 24" className="w-4 h-4" fill={C.forest} aria-hidden="true">
@@ -560,7 +560,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus-visible:outline-[#E8D9B4]`}
+              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 focus-visible:outline-[#E8D9B4] tap-44`}
               style={{ backgroundColor: C.brass, color: '#142A20' }}
             >
               Agendar por WhatsApp
@@ -585,7 +585,7 @@ export default function ClinicaVeterinariaDocpinoPage() {
               href="https://sitiazo.cl"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold underline underline-offset-2"
+              className="font-bold underline underline-offset-2 tap-44"
               style={{ color: C.brassSoft }}
             >
               Sitiazo

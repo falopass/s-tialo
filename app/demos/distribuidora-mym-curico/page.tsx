@@ -239,14 +239,14 @@ export default function DistribuidoraMymCuricoPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95`}
+                  className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 tap-44`}
                   style={{ backgroundColor: C.orangeDeep, color: '#FFFFFF' }}
                 >
                   Escribir por WhatsApp
                 </a>
                 <a
                   href="#productos"
-                  className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
+                  className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 tap-44`}
                   style={{ borderColor: 'rgba(237,230,218,0.5)', color: C.arena }}
                 >
                   Ver productos
@@ -266,7 +266,7 @@ export default function DistribuidoraMymCuricoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${FOCUS} flex items-center gap-2 font-semibold transition-colors hover:text-white`}
+              className={`${FOCUS} flex items-center gap-2 font-semibold transition-colors hover:text-white tap-44`}
             >
               <Star color={C.orange} className="w-[13px] h-[13px]" />
               {BIZ.reviews} reseñas en Google
@@ -275,13 +275,13 @@ export default function DistribuidoraMymCuricoPage() {
               href={BIZ.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${FOCUS} font-semibold transition-colors hover:text-white`}
+              className={`${FOCUS} font-semibold transition-colors hover:text-white tap-44`}
             >
               +{BIZ.followers} seguidores en Facebook
             </a>
             <a
               href={`tel:${BIZ.phoneTel}`}
-              className={`${FOCUS} font-semibold transition-colors hover:text-white`}
+              className={`${FOCUS} font-semibold transition-colors hover:text-white tap-44`}
             >
               {BIZ.phoneDisplay}
             </a>
@@ -517,7 +517,7 @@ export default function DistribuidoraMymCuricoPage() {
                 href={WA_LINK_PRECIO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS_LIGHT} ${display.className} font-bold text-sm px-6 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95`}
+                className={`${FOCUS_LIGHT} ${display.className} font-bold text-sm px-6 py-3 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 tap-44`}
                 style={{ backgroundColor: C.orangeDeep, color: '#FFFFFF' }}
               >
                 Consultar precio real por WhatsApp
@@ -573,7 +573,7 @@ export default function DistribuidoraMymCuricoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95`}
+                className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 active:scale-95 tap-44`}
                 style={{ backgroundColor: C.orangeDeep, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
@@ -582,7 +582,7 @@ export default function DistribuidoraMymCuricoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-all duration-200 hover:-translate-y-0.5 hover:bg-black/5`}
+                className={`${FOCUS} ${display.className} font-bold text-sm md:text-base px-7 py-3.5 border-2 transition-all duration-200 hover:-translate-y-0.5 hover:bg-black/5 tap-44`}
                 style={{ borderColor: 'rgba(58,63,68,0.35)', color: C.concrete }}
               >
                 Cómo llegar →
@@ -594,7 +594,7 @@ export default function DistribuidoraMymCuricoPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} font-semibold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70`}
+                className={`${FOCUS} font-semibold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 tap-44`}
                 style={{ color: C.concrete, textDecorationColor: 'rgba(228,87,46,0.4)' }}
               >
                 Facebook
@@ -652,7 +652,7 @@ export default function DistribuidoraMymCuricoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${FOCUS_LIGHT} ${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-125 active:scale-95`}
+              className={`${FOCUS_LIGHT} ${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:brightness-125 active:scale-95 tap-44`}
               style={{ backgroundColor: C.deep, color: C.arena }}
             >
               Hablar con MyM por WhatsApp
@@ -675,7 +675,7 @@ export default function DistribuidoraMymCuricoPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(237,230,218,0.78)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

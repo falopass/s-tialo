@@ -204,7 +204,7 @@ export default function AtlantixPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]`}
+                    className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8] tap-44`}
                     style={{ backgroundColor: C.terraInk, color: '#FCFAF4' }}
                   >
                     <WaIcon />
@@ -401,7 +401,7 @@ export default function AtlantixPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2 text-[#E4B08F] decoration-[rgba(228,176,143,0.35)] transition-colors hover:text-[#FCFAF4] hover:decoration-[#FCFAF4] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 text-[#E4B08F] decoration-[rgba(228,176,143,0.35)] transition-colors hover:text-[#FCFAF4] hover:decoration-[#FCFAF4] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8] tap-44"
                 >
                   Ver la ficha en Google →
                 </a>
@@ -507,7 +507,7 @@ export default function AtlantixPage() {
                 </svg>
                 <span>
                   <strong className="font-bold" style={{ color: C.night }}>Instagram:</strong>{' '}
-                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 transition-colors hover:text-[#C1663F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B2A41]">
+                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 transition-colors hover:text-[#C1663F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B2A41] tap-44">
                     @clinicaatlantix
                   </a>
                 </span>
@@ -528,7 +528,7 @@ export default function AtlantixPage() {
                 href={WA_LINK_EVAL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-flex items-center gap-2.5 text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B2A41]`}
+                className={`${display.className} inline-flex items-center gap-2.5 text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B2A41] tap-44`}
                 style={{ backgroundColor: C.terraInk, color: '#FCFAF4' }}
               >
                 <WaIcon />
@@ -585,7 +585,7 @@ export default function AtlantixPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]`}
+              className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8] tap-44`}
               style={{ backgroundColor: C.terraInk, color: '#FCFAF4' }}
             >
               <WaIcon />
@@ -609,7 +609,7 @@ export default function AtlantixPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(232,220,200,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}
@@ -618,10 +618,10 @@ export default function AtlantixPage() {
         <div className="border-t" style={{ borderColor: 'rgba(232,220,200,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-5 text-xs leading-relaxed" style={{ color: 'rgba(232,220,200,0.78)' }}>
             Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.terraSoft }}>Sitiazo</a>{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.terraSoft }}>Sitiazo</a>{' '}
             para {BIZ.name}. Textos, servicios, precios, horarios, reseñas y
             fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.terraSoft }}>¿Lo hacemos realidad?</a>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.terraSoft }}>¿Lo hacemos realidad?</a>
           </p>
         </div>
       </footer>

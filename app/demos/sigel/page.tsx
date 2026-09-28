@@ -187,7 +187,7 @@ export default function SigelPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(245,246,249,0.95)', color: C.grafito }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.blue} stroke={C.blue} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -218,14 +218,14 @@ export default function SigelPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.yellow, color: '#15171C' }}
               >
                 Cotizar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(245,246,249,0.55)', color: '#F5F6F9' }}
               >
                 Ver servicios
@@ -367,7 +367,7 @@ export default function SigelPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.yellow, color: '#15171C' }}
               >
                 Cotizar por WhatsApp
@@ -376,7 +376,7 @@ export default function SigelPage() {
                 href={WA_LINK_EMERGENCIA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Tengo una emergencia
@@ -443,7 +443,7 @@ export default function SigelPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.blue, textDecorationColor: 'rgba(27,77,255,0.35)' }}
               >
                 Ver la ficha en Google →
@@ -488,7 +488,7 @@ export default function SigelPage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4 decoration-2" style={{ color: C.grafito, textDecorationColor: 'rgba(21,23,28,0.3)' }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4 decoration-2 tap-44" style={{ color: C.grafito, textDecorationColor: 'rgba(21,23,28,0.3)' }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -514,7 +514,7 @@ export default function SigelPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
               >
                 Cómo llegar →
@@ -523,7 +523,7 @@ export default function SigelPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(21,23,28,0.35)', color: C.grafito }}
               >
                 Escribir por WhatsApp
@@ -569,7 +569,7 @@ export default function SigelPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.yellow, color: '#15171C' }}
             >
               Cotizar por WhatsApp
@@ -592,7 +592,7 @@ export default function SigelPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(245,246,249,0.82)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}

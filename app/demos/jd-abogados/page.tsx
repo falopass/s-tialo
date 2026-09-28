@@ -165,14 +165,14 @@ export default function JdAbogadosPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-7 py-3.5 transition-transform active:scale-95"
+                className="font-semibold text-sm px-7 py-3.5 transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.graphite, color: '#fff' }}
               >
                 Escríbenos por WhatsApp
               </a>
               <a
                 href="#areas"
-                className="font-semibold text-sm px-7 py-3.5 border transition-colors"
+                className="font-semibold text-sm px-7 py-3.5 border transition-colors tap-44"
                 style={{ borderColor: C.ink, color: C.ink }}
               >
                 Áreas de práctica
@@ -235,7 +235,7 @@ export default function JdAbogadosPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-semibold text-sm px-8 py-4 transition-transform active:scale-95"
+                className="inline-block font-semibold text-sm px-8 py-4 transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.graphite, color: '#fff' }}
               >
                 Escribir ahora
@@ -267,7 +267,7 @@ export default function JdAbogadosPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2"
+                className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.ink, textDecorationColor: 'rgba(165,136,90,0.5)' }}
               >
                 Ver la ficha en Google →
@@ -319,7 +319,7 @@ export default function JdAbogadosPage() {
             </address>
             <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
               Teléfono:{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4" style={{ color: C.ink }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.ink }}>
                 {BIZ.phoneDisplay}
               </a>
             </p>
@@ -328,7 +328,7 @@ export default function JdAbogadosPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 transition-transform active:scale-95"
+                className="font-semibold text-sm px-6 py-3 transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.graphite, color: '#fff' }}
               >
                 Cómo llegar →
@@ -337,7 +337,7 @@ export default function JdAbogadosPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-6 py-3 border transition-colors"
+                className="font-semibold text-sm px-6 py-3 border transition-colors tap-44"
                 style={{ borderColor: C.ink, color: C.ink }}
               >
                 Escríbenos por WhatsApp
@@ -393,14 +393,14 @@ export default function JdAbogadosPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-8 py-3 md:py-4 transition-transform active:scale-95"
+                className="font-semibold text-sm px-8 py-3 md:py-4 transition-transform active:scale-95 tap-44"
                 style={{ backgroundColor: C.graphite, color: '#fff' }}
               >
                 Escríbenos por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-3 md:py-4 border transition-colors"
+                className="font-semibold text-sm px-8 py-3 md:py-4 border transition-colors tap-44"
                 style={{ borderColor: C.ink, color: C.ink }}
               >
                 {BIZ.phoneDisplay}
@@ -418,7 +418,7 @@ export default function JdAbogadosPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,245,240,0.6)' }}>
               {BIZ.address} · {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -432,11 +432,11 @@ export default function JdAbogadosPage() {
           style={{ color: 'rgba(247,245,240,0.75)', borderColor: 'rgba(247,245,240,0.14)' }}
         >
           Mockup preparado por{' '}
-          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.goldSoft }}>
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.goldSoft }}>
             Sitiazo
           </a>{' '}
           para {BIZ.name}, así se vería tu sitio.{' '}
-          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.goldSoft }}>
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.goldSoft }}>
             ¿Lo hacemos realidad?
           </a>
         </p>

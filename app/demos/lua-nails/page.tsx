@@ -157,7 +157,7 @@ export default function LuaNailsPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-medium px-4 py-2.5 rounded-full shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-medium px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(255,249,246,0.95)', color: C.plum }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.gold} stroke={C.gold} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -421,7 +421,7 @@ export default function LuaNailsPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium underline underline-offset-4 decoration-2"
+              className="text-sm font-medium underline underline-offset-4 decoration-2 tap-44"
               style={{ color: C.rose, textDecorationColor: 'rgba(148,72,95,0.4)' }}
             >
               Ver la ficha en Google →
@@ -563,7 +563,7 @@ export default function LuaNailsPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs md:text-sm font-light" style={{ color: 'rgba(255,249,246,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}
@@ -572,13 +572,13 @@ export default function LuaNailsPage() {
         <div className="border-t" style={{ borderColor: 'rgba(255,249,246,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs font-light leading-relaxed" style={{ color: 'rgba(255,249,246,0.78)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-2" style={{ color: C.cream }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-2 tap-44" style={{ color: C.cream }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Servicios, precios, horarios y fotos son de
             muestra; el nombre, la dirección, el WhatsApp y las reseñas
             son datos reales de su ficha pública.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-2" style={{ color: C.cream }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-2 tap-44" style={{ color: C.cream }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

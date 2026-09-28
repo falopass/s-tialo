@@ -199,7 +199,7 @@ export default function FerreteriaWilliamsPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
+              className={`${display.className} flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
               style={{ backgroundColor: 'rgba(245,239,230,0.94)', color: C.vinoDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke={C.oro} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -231,14 +231,14 @@ export default function FerreteriaWilliamsPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-[transform,filter] hover:brightness-110 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5EFE6]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-[transform,filter] hover:brightness-110 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5EFE6] tap-44`}
                 style={{ backgroundColor: C.oro, color: C.vinoDeep }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#mosaico"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5EFE6]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5EFE6] tap-44`}
                 style={{ borderColor: 'rgba(245,239,230,0.55)', color: '#F5EFE6' }}
               >
                 Ver la ferretería
@@ -379,7 +379,7 @@ export default function FerreteriaWilliamsPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm font-semibold underline underline-offset-4 decoration-2 hover:decoration-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B98B4E]`}
+                className={`${display.className} text-sm font-semibold underline underline-offset-4 decoration-2 hover:decoration-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#B98B4E] tap-44`}
                 style={{ color: C.oroSoft, textDecorationColor: 'rgba(185,139,78,0.4)' }}
               >
                 Ver la ficha en Google →
@@ -482,7 +482,7 @@ export default function FerreteriaWilliamsPage() {
                 href={WA_LINK_PEDIDO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-[transform,filter] hover:brightness-125 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
+                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-[transform,filter] hover:brightness-125 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
                 style={{ backgroundColor: C.vino, color: '#F5EFE6' }}
               >
                 Escribir por WhatsApp
@@ -491,21 +491,21 @@ export default function FerreteriaWilliamsPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors hover:bg-[rgba(107,39,55,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
+                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors hover:bg-[rgba(107,39,55,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
                 style={{ borderColor: 'rgba(107,39,55,0.4)', color: C.vino }}
               >
                 Cómo llegar →
               </a>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm" style={{ color: C.muted }}>
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-2 hover:decoration-[#B98B4E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm" style={{ color: C.ink }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-2 hover:decoration-[#B98B4E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm tap-44" style={{ color: C.ink }}>
                 {BIZ.phoneDisplay}
               </a>
               <a
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold underline underline-offset-2 hover:decoration-[#B98B4E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm"
+                className="font-semibold underline underline-offset-2 hover:decoration-[#B98B4E] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm tap-44"
                 style={{ color: C.ink }}
               >
                 Facebook
@@ -553,7 +553,7 @@ export default function FerreteriaWilliamsPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-[transform,filter] hover:brightness-110 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5EFE6]`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-[transform,filter] hover:brightness-110 hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5EFE6] tap-44`}
               style={{ backgroundColor: C.oro, color: C.vinoDeep }}
             >
               Consultar por WhatsApp
@@ -570,12 +570,12 @@ export default function FerreteriaWilliamsPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(245,239,230,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm tap-44">{BIZ.phoneDisplay}</a>
             </address>
           </div>
           <div className={`${display.className} flex flex-wrap gap-x-6 gap-y-2 text-sm`} style={{ color: 'rgba(245,239,230,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] rounded-sm tap-44">
                 {l.label}
               </a>
             ))}
@@ -584,9 +584,9 @@ export default function FerreteriaWilliamsPage() {
         <div className="border-t" style={{ borderColor: 'rgba(245,239,230,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.78)' }}>
             Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.oroSoft }}>Sitiazo</a>{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.oroSoft }}>Sitiazo</a>{' '}
             para {BIZ.name}. Textos, precios, horarios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.oroSoft }}>¿Lo hacemos realidad?</a>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.oroSoft }}>¿Lo hacemos realidad?</a>
           </p>
         </div>
       </footer>

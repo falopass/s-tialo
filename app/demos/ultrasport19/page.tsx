@@ -238,7 +238,7 @@ export default function Ultrasport19Page() {
         style={{ backgroundColor: C.paper, borderColor: C.ink }}
       >
         <div className="max-w-6xl mx-auto px-5 md:px-8 h-[60px] md:h-[68px] flex items-center justify-between gap-4">
-          <a href="#inicio" className="flex items-center gap-2.5 leading-none">
+          <a href="#inicio" className="flex items-center gap-2.5 leading-none tap-44">
             <span
               className={`${display.className} font-black text-base md:text-lg px-2 py-1 border-[3px]`}
               style={{ backgroundColor: C.yellow, color: C.ink, borderColor: C.ink }}
@@ -254,7 +254,7 @@ export default function Ultrasport19Page() {
               <a
                 key={l.href}
                 href={l.href}
-                className="font-mono text-[11px] uppercase tracking-[0.18em] font-bold hover:underline underline-offset-4 decoration-2"
+                className="font-mono text-[11px] uppercase tracking-[0.18em] font-bold hover:underline underline-offset-4 decoration-2 tap-44"
               >
                 {l.label}
               </a>
@@ -264,7 +264,7 @@ export default function Ultrasport19Page() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${display.className} shrink-0 font-black uppercase text-xs md:text-sm px-4 md:px-5 py-2.5 border-[3px] transition-[transform,box-shadow] shadow-[4px_4px_0_#101418] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#101418] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none`}
+            className={`${display.className} shrink-0 font-black uppercase text-xs md:text-sm px-4 md:px-5 py-2.5 border-[3px] transition-[transform,box-shadow] shadow-[4px_4px_0_#101418] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#101418] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none tap-44`}
             style={{ backgroundColor: C.slate, color: C.white, borderColor: C.ink }}
           >
             WhatsApp
@@ -309,14 +309,14 @@ export default function Ultrasport19Page() {
                 href={WA_LINK_CLASE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-black uppercase text-sm md:text-base px-7 py-3 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[6px_6px_0_#2F4858] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0_#2F4858] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none`}
+                className={`${display.className} font-black uppercase text-sm md:text-base px-7 py-3 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[6px_6px_0_#2F4858] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0_#2F4858] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none tap-44`}
                 style={{ backgroundColor: C.yellow, color: C.ink, borderColor: C.ink }}
               >
                 Agendar clase de prueba →
               </a>
               <a
                 href="#entrenamiento"
-                className={`${display.className} font-black uppercase text-sm md:text-base px-7 py-3 md:py-4 border-[3px] border-white text-white transition-colors hover:bg-white hover:text-[#101418]`}
+                className={`${display.className} font-black uppercase text-sm md:text-base px-7 py-3 md:py-4 border-[3px] border-white text-white transition-colors hover:bg-white hover:text-[#101418] tap-44`}
               >
                 Qué puedes entrenar
               </a>
@@ -405,7 +405,7 @@ export default function Ultrasport19Page() {
                         href={WA_LINK}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block font-mono text-[11px] uppercase tracking-[0.18em] font-bold underline underline-offset-4 decoration-2 hover:decoration-[3px] hover:underline-offset-8 transition-all"
+                        className="inline-block font-mono text-[11px] uppercase tracking-[0.18em] font-bold underline underline-offset-4 decoration-2 hover:decoration-[3px] hover:underline-offset-8 transition-all tap-44"
                         style={{ color: C.slate, textDecorationColor: C.slate }}
                       >
                         Consultar por WhatsApp →
@@ -595,7 +595,7 @@ export default function Ultrasport19Page() {
                         {d.k}
                       </dt>
                       <dd>
-                        <a href={d.href} target="_blank" rel="noopener noreferrer" className={`${display.className} font-bold text-base md:text-lg hover:underline underline-offset-4 decoration-2`} style={{ color: C.slate }}>
+                        <a href={d.href} target="_blank" rel="noopener noreferrer" className={`${display.className} font-bold text-base md:text-lg hover:underline underline-offset-4 decoration-2 tap-44`} style={{ color: C.slate }}>
                           {d.v}
                         </a>
                       </dd>
@@ -607,7 +607,7 @@ export default function Ultrasport19Page() {
                     href={WA_LINK_CLASE}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} block text-center font-black uppercase text-sm md:text-base px-6 py-3 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[5px_5px_0_#2F4858] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_#2F4858] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none`}
+                    className={`${display.className} block text-center font-black uppercase text-sm md:text-base px-6 py-3 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[5px_5px_0_#2F4858] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_#2F4858] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none tap-44`}
                     style={{ backgroundColor: C.yellow, color: C.ink, borderColor: C.ink }}
                   >
                     Escribir por WhatsApp →
@@ -659,7 +659,7 @@ export default function Ultrasport19Page() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-black uppercase text-sm md:text-base px-8 py-3 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[6px_6px_0_#101418] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0_#101418] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none`}
+              className={`${display.className} inline-block font-black uppercase text-sm md:text-base px-8 py-3 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[6px_6px_0_#101418] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0_#101418] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none tap-44`}
               style={{ backgroundColor: C.yellow, color: C.ink, borderColor: C.ink }}
             >
               Escribir por WhatsApp
@@ -682,9 +682,9 @@ export default function Ultrasport19Page() {
           </address>
           <p className="text-xs leading-relaxed" style={{ color: 'rgba(245,244,239,0.78)' }}>
             Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellow }}>Sitiazo</a>{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellow }}>Sitiazo</a>{' '}
             para {BIZ.name}. Textos, precios, horarios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellow }}>¿Lo hacemos realidad?</a>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellow }}>¿Lo hacemos realidad?</a>
           </p>
         </div>
       </footer>

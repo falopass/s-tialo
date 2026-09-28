@@ -171,7 +171,7 @@ export default function LePetitPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 underline underline-offset-4 decoration-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]"
+                className="flex items-center gap-2 underline underline-offset-4 decoration-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44"
                 style={{ textDecorationColor: C.yellow }}
               >
                 <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]" fill={C.yellow} stroke={C.yellow} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -202,14 +202,14 @@ export default function LePetitPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]`}
+                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44`}
                   style={{ backgroundColor: C.yellow, color: C.slateInk }}
                 >
                   Encargar por WhatsApp
                 </a>
                 <a
                   href="#vitrina"
-                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]`}
+                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44`}
                   style={{ borderColor: 'rgba(255,255,255,0.6)', color: C.white }}
                 >
                   Ver la vitrina
@@ -222,7 +222,7 @@ export default function LePetitPage() {
         <div className="relative border-t" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(27,41,51,0.8)', backdropFilter: 'blur(6px)' }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.78)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
-            <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]" style={{ textDecorationColor: C.yellow }}>
+            <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44" style={{ textDecorationColor: C.yellow }}>
               {BIZ.instagram}
             </a>
             <span className="hidden md:inline">Atención directa por WhatsApp</span>
@@ -405,7 +405,7 @@ export default function LePetitPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#22353F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858]"
+                  className="inline-block text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-[#22353F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858] tap-44"
                   style={{ color: C.slate, textDecorationColor: C.yellow }}
                 >
                   Leer las {BIZ.reviews} reseñas reales en Google →
@@ -457,7 +457,7 @@ export default function LePetitPage() {
                 href={WA_LINK_TORTA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44`}
                 style={{ backgroundColor: C.yellow, color: C.slateInk }}
               >
                 Encargar una torta
@@ -497,7 +497,7 @@ export default function LePetitPage() {
                   <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: C.yellow }} aria-hidden="true" />
                   <span>
                     <strong className="font-semibold" style={{ color: C.slate }}>Instagram:</strong>{' '}
-                    <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-2 transition-colors hover:text-[#22353F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858]" style={{ textDecorationColor: C.yellow }}>
+                    <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-2 transition-colors hover:text-[#22353F] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858] tap-44" style={{ textDecorationColor: C.yellow }}>
                       {BIZ.instagram}
                     </a>
                   </span>
@@ -512,7 +512,7 @@ export default function LePetitPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858]`}
+                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858] tap-44`}
                   style={{ backgroundColor: C.slate, color: C.white }}
                 >
                   Escribir por WhatsApp
@@ -521,7 +521,7 @@ export default function LePetitPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-[rgba(47,72,88,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858]`}
+                  className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-[rgba(47,72,88,0.07)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F4858] tap-44`}
                   style={{ borderColor: C.slate, color: C.slate }}
                 >
                   Cómo llegar →
@@ -564,7 +564,7 @@ export default function LePetitPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44`}
               style={{ backgroundColor: C.yellow, color: C.slateInk }}
             >
               Hacer un pedido por WhatsApp
@@ -586,11 +586,11 @@ export default function LePetitPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs md:text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44">
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]">
+            <a href={BIZ.instagramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44">
               Instagram
             </a>
           </div>
@@ -598,9 +598,9 @@ export default function LePetitPage() {
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
             Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]" style={{ color: C.yellowSoft }}>Sitiazo</a>{' '}
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44" style={{ color: C.yellowSoft }}>Sitiazo</a>{' '}
             para {BIZ.name}. Textos, productos, precios, horarios y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]" style={{ color: C.yellowSoft }}>¿Lo hacemos realidad?</a>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44" style={{ color: C.yellowSoft }}>¿Lo hacemos realidad?</a>
           </p>
         </div>
       </footer>

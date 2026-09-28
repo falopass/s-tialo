@@ -177,14 +177,14 @@ export default function MueblesATuEstiloPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-between px-6 py-3.5 md:py-4 text-sm font-extrabold uppercase tracking-[0.14em] transition-colors hover:bg-[#F0B658] active:scale-[0.98] ${focusRing}`}
+                  className={`flex items-center justify-between px-6 py-3.5 md:py-4 text-sm font-extrabold uppercase tracking-[0.14em] transition-colors hover:bg-[#F0B658] active:scale-[0.98] ${focusRing} tap-44`}
                   style={{ backgroundColor: C.ambar, color: C.tinta }}
                 >
                   Cotizar por WhatsApp <span aria-hidden="true">→</span>
                 </a>
                 <a
                   href="#muebles"
-                  className={`self-start md:self-stretch flex items-center justify-between gap-4 px-6 py-3.5 md:py-4 text-sm font-bold uppercase tracking-[0.14em] border transition-colors hover:bg-white/10 ${focusRing}`}
+                  className={`self-start md:self-stretch flex items-center justify-between gap-4 px-6 py-3.5 md:py-4 text-sm font-bold uppercase tracking-[0.14em] border transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                   style={{ borderColor: 'rgba(253,246,236,0.5)', color: C.crema }}
                 >
                   Ver los muebles <span aria-hidden="true">↓</span>
@@ -371,14 +371,14 @@ export default function MueblesATuEstiloPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center justify-between max-w-md px-7 py-3 md:py-5 text-base font-extrabold uppercase tracking-[0.14em] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.45)] transition-all hover:-translate-y-0.5 hover:bg-[#F0B658] active:scale-[0.98] ${focusRing}`}
+              className={`flex items-center justify-between max-w-md px-7 py-3 md:py-5 text-base font-extrabold uppercase tracking-[0.14em] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.45)] transition-all hover:-translate-y-0.5 hover:bg-[#F0B658] active:scale-[0.98] ${focusRing} tap-44`}
               style={{ backgroundColor: C.ambar, color: C.tinta }}
             >
               Escribir por WhatsApp <span aria-hidden="true">→</span>
             </a>
             <p className="mt-3 text-sm" style={{ color: 'rgba(253,246,236,0.88)' }}>
               o llama al{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-bold underline underline-offset-4 tap-44">{BIZ.phoneDisplay}</a>
             </p>
           </Reveal>
           <Reveal className="md:col-span-6" delay={120}>
@@ -407,7 +407,7 @@ export default function MueblesATuEstiloPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`mt-3 inline-block text-[11px] font-bold uppercase tracking-[0.22em] underline underline-offset-4 ${focusRing}`}
+              className={`mt-3 inline-block text-[11px] font-bold uppercase tracking-[0.22em] underline underline-offset-4 ${focusRing} tap-44`}
             >
               Abrir en Google Maps →
             </a>
@@ -425,17 +425,17 @@ export default function MueblesATuEstiloPage() {
           </div>
           <nav className="md:col-span-6 flex flex-wrap md:justify-end gap-x-6 gap-y-1.5 text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: 'rgba(253,246,236,0.78)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">{l.label}</a>
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">{l.label}</a>
             ))}
           </nav>
         </div>
         <p className="border-t max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ borderColor: 'rgba(253,246,236,0.12)', color: 'rgba(253,246,236,0.78)' }}>
           Mockup preparado por{' '}
-          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.ambar }}>
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.ambar }}>
             Sitiazo
           </a>{' '}
           para {BIZ.name}. Productos, precios y fotos son de muestra.{' '}
-          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.ambar }}>
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.ambar }}>
             ¿Lo hacemos realidad?
           </a>
         </p>

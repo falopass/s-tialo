@@ -201,14 +201,14 @@ export default function WowParkPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 shadow-lg`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 shadow-lg tap-44`}
                 style={{ backgroundColor: C.yellow, color: C.blueInk }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#juegos"
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver las zonas de juego
@@ -332,7 +332,7 @@ export default function WowParkPage() {
               href={WA_LINK_CUMPLE}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 shadow-lg`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 shadow-lg tap-44`}
               style={{ backgroundColor: C.coralDeep, color: '#FFFFFF' }}
             >
               Reservar cumpleaños
@@ -409,7 +409,7 @@ export default function WowParkPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} inline-block font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.blue, color: '#FFFFFF' }}
               >
                 Consultar horarios y valores
@@ -437,7 +437,7 @@ export default function WowParkPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-extrabold underline underline-offset-4 decoration-2"
+                className="text-sm font-extrabold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.blue, textDecorationColor: 'rgba(30,111,217,0.35)' }}
               >
                 Ver la ficha en Google →
@@ -490,7 +490,7 @@ export default function WowParkPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.coralDeep, color: '#FFFFFF' }}
               >
                 Cómo llegar →
@@ -499,7 +499,7 @@ export default function WowParkPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors`}
+                className={`${display.className} font-bold text-sm px-6 py-3 rounded-full border-2 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(27,43,69,0.3)', color: C.blueInk }}
               >
                 Escribir por WhatsApp
@@ -547,7 +547,7 @@ export default function WowParkPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95 shadow-lg`}
+              className={`${display.className} inline-block font-bold text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95 shadow-lg tap-44`}
               style={{ backgroundColor: C.yellow, color: C.blueInk }}
             >
               Reservar por WhatsApp
@@ -570,11 +570,11 @@ export default function WowParkPage() {
           </div>
           <p className="text-xs leading-relaxed max-w-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellowSoft }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellowSoft }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name} — así se vería tu sitio. Textos, valores y fotos son de muestra.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: C.yellowSoft }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellowSoft }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

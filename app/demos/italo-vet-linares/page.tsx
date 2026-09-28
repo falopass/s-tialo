@@ -43,7 +43,7 @@ function WaButton({ children, big = false }: { children: React.ReactNode; big?: 
       rel="noopener noreferrer"
       className={`inline-flex items-center justify-center gap-2 rounded-full font-bold transition-transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 ${
         big ? 'min-h-[48px] px-6 text-base md:min-h-[60px] md:px-8 md:text-lg' : 'min-h-[48px] px-6 text-base'
-      }`}
+      } tap-44`}
       style={{ backgroundColor: C.lime, color: C.ink, outlineColor: C.lime }}
     >
       {children}
@@ -79,7 +79,7 @@ export default function ItaloVetLinaresPage() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="min-h-[44px] inline-flex items-center rounded-full px-5 text-sm font-bold bg-white/15 text-white backdrop-blur-md border border-white/30 hover:bg-white/25"
+            className="min-h-[44px] inline-flex items-center rounded-full px-5 text-sm font-bold bg-white/15 text-white backdrop-blur-md border border-white/30 hover:bg-white/25 tap-44"
           >
             Pedir hora
           </a>
@@ -219,7 +219,7 @@ export default function ItaloVetLinaresPage() {
                 <dd className={`${h} text-4xl font-extrabold mt-1`} style={{ color: C.lime }}>{BIZ.followers}</dd>
               </div>
             </dl>
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="inline-block mt-6 text-sm font-bold underline underline-offset-4 hover:text-[#C6F24E]">
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="inline-block mt-6 text-sm font-bold underline underline-offset-4 hover:text-[#C6F24E] tap-44">
               Ver la página en Facebook
             </a>
           </Reveal>
@@ -273,7 +273,7 @@ export default function ItaloVetLinaresPage() {
               <strong className="block text-white">{BIZ.name}</strong>
               {BIZ.address}
             </address>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm font-bold underline underline-offset-4 hover:text-[#C6F24E]">
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-sm font-bold underline underline-offset-4 hover:text-[#C6F24E] tap-44">
               Cómo llegar en Google Maps
             </a>
           </Reveal>
@@ -294,9 +294,9 @@ export default function ItaloVetLinaresPage() {
       {/* Franja Sitiazo */}
       <div className="py-4 px-5 text-center text-sm font-bold" style={{ backgroundColor: C.lime, color: C.ink }}>
         Mockup preparado por{' '}
-        <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">Sitiazo</a>{' '}
+        <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">Sitiazo</a>{' '}
         para {BIZ.name}: textos de servicios y precios son de muestra.{' '}
-        <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">¿Lo hacemos realidad?</a>
+        <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">¿Lo hacemos realidad?</a>
       </div>
 
       <footer className="pt-8 pb-24 px-5 text-center text-xs" style={{ color: C.muted }}>

@@ -193,14 +193,14 @@ export default function IusAbogadosLinaresPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm md:text-base px-6 py-3 md:px-7 md:py-4 transition-transform hover:-translate-y-0.5 active:scale-95 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-6 py-3 md:px-7 md:py-4 transition-transform hover:-translate-y-0.5 active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.mostaza, color: C.verdeDeep, borderRadius: '3px', boxShadow: `4px 4px 0 ${C.madera}` }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#proceso"
-                className={`${display.className} font-bold text-sm md:text-base px-6 py-3 md:px-7 md:py-4 border-2 transition-colors hover:bg-white/10 ${focusRing}`}
+                className={`${display.className} font-bold text-sm md:text-base px-6 py-3 md:px-7 md:py-4 border-2 transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                 style={{ borderColor: 'rgba(244,239,228,0.6)', color: C.hueso, borderRadius: '3px' }}
               >
                 Ver cómo trabajamos
@@ -334,7 +334,7 @@ export default function IusAbogadosLinaresPage() {
                     href={`https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(`Hola, quiero consultar por un tema de ${a.name.toLowerCase()}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} text-sm font-bold underline underline-offset-4 decoration-2 ${focusRing}`}
+                    className={`${display.className} text-sm font-bold underline underline-offset-4 decoration-2 ${focusRing} tap-44`}
                     style={{ color: C.verde, textDecorationColor: C.mostaza }}
                   >
                     Consultar {a.name.toLowerCase()} →
@@ -396,7 +396,7 @@ export default function IusAbogadosLinaresPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 ${focusRing}`}
+                className={`${display.className} font-bold text-sm px-6 py-3 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.verde, color: C.hueso, borderRadius: '3px' }}
               >
                 Ver reseñas en Google →
@@ -405,7 +405,7 @@ export default function IusAbogadosLinaresPage() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-black/5 ${focusRing}`}
+                className={`${display.className} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                 style={{ borderColor: C.verde, color: C.verde, borderRadius: '3px' }}
               >
                 @{BIZ.instagram}
@@ -481,7 +481,7 @@ export default function IusAbogadosLinaresPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} flex items-center justify-between gap-4 w-full max-w-md px-5 py-2 md:py-4 mb-8 transition-transform hover:-translate-y-0.5 active:scale-[0.98] ${focusRing}`}
+              className={`${display.className} flex items-center justify-between gap-4 w-full max-w-md px-5 py-2 md:py-4 mb-8 transition-transform hover:-translate-y-0.5 active:scale-[0.98] ${focusRing} tap-44`}
               style={{ backgroundColor: C.mostaza, color: C.verdeDeep, borderRadius: '3px', boxShadow: `6px 6px 0 ${C.madera}` }}
             >
               <span>
@@ -498,7 +498,7 @@ export default function IusAbogadosLinaresPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-sm font-bold underline underline-offset-4 decoration-2 ${focusRing}`}
+              className={`text-sm font-bold underline underline-offset-4 decoration-2 ${focusRing} tap-44`}
               style={{ color: C.mostaza }}
             >
               Cómo llegar →
@@ -530,7 +530,7 @@ export default function IusAbogadosLinaresPage() {
           </div>
           <nav className="flex flex-wrap gap-x-5 gap-y-2 text-xs" style={{ color: 'rgba(244,239,228,0.75)' }} aria-label="Pie de página">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing}`}>
+              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${focusRing} tap-44`}>
                 {l.label}
               </a>
             ))}
@@ -542,12 +542,12 @@ export default function IusAbogadosLinaresPage() {
           style={{ color: 'rgba(244,239,228,0.75)', borderColor: 'rgba(244,239,228,0.14)' }}
         >
           Mockup preparado por{' '}
-          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing}`} style={{ color: C.mostaza }}>
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.mostaza }}>
             Sitiazo
           </a>{' '}
           para {BIZ.name}. Textos y fotos son de muestra; dirección, WhatsApp,
           Instagram y reseñas son datos reales.{' '}
-          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing}`} style={{ color: C.mostaza }}>
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing} tap-44`} style={{ color: C.mostaza }}>
             ¿Lo hacemos realidad?
           </a>
         </p>

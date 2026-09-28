@@ -185,14 +185,14 @@ export default function BravosgymPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ backgroundColor: C.terraBtn, color: C.white }}
               >
                 Consultar por WhatsApp
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} ${BTN_GHOST} text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_GHOST} text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ borderColor: 'rgba(232,220,200,0.55)', color: C.sand }}
               >
                 Conocer el gym
@@ -302,7 +302,7 @@ export default function BravosgymPage() {
                   <span>
                     <strong>{BIZ.reviews} reseña</strong> en su ficha de Google Maps — recién
                     empieza a juntar opiniones.{' '}
-                    <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2A41] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8F4A2A]" style={{ color: C.terraDeep }}>
+                    <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2A41] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8F4A2A] tap-44" style={{ color: C.terraDeep }}>
                       Ver ficha →
                     </a>
                   </span>
@@ -310,7 +310,7 @@ export default function BravosgymPage() {
                 <li className="flex gap-3">
                   <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-2" style={{ backgroundColor: C.terracotta }} aria-hidden="true" />
                   <span>
-                    <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2A41] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8F4A2A]" style={{ color: C.terraDeep }}>
+                    <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-4 decoration-2 transition-colors hover:text-[#1B2A41] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8F4A2A] tap-44" style={{ color: C.terraDeep }}>
                       @{BIZ.instagram}
                     </a>{' '}
                     con <strong>{BIZ.instagramFollowers} seguidores</strong> en Instagram.
@@ -380,7 +380,7 @@ export default function BravosgymPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5`}
+                className={`${display.className} ${BTN_SOLID} text-sm md:text-base px-7 py-3.5 tap-44`}
                 style={{ backgroundColor: C.terraBtn, color: C.white }}
               >
                 Consultar precios por WhatsApp
@@ -418,7 +418,7 @@ export default function BravosgymPage() {
                 <br />
                 {BIZ.commune}, Chile
                 <br />
-                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]">{BIZ.phoneDisplay}</a>
+                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8] tap-44">{BIZ.phoneDisplay}</a>
               </address>
               <p className="text-sm leading-relaxed mb-8" style={{ color: 'rgba(232,220,200,0.65)' }}>
                 Horarios y disponibilidad de clases: consulta directo por
@@ -429,7 +429,7 @@ export default function BravosgymPage() {
                   href={WA_LINK_VISITA}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${BTN_SOLID} text-sm px-6 py-3`}
+                  className={`${display.className} ${BTN_SOLID} text-sm px-6 py-3 tap-44`}
                   style={{ backgroundColor: C.terraBtn, color: C.white }}
                 >
                   Agendar visita
@@ -438,7 +438,7 @@ export default function BravosgymPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${BTN_GHOST} text-sm px-6 py-3`}
+                  className={`${display.className} ${BTN_GHOST} text-sm px-6 py-3 tap-44`}
                   style={{ borderColor: 'rgba(232,220,200,0.5)', color: C.sand }}
                 >
                   Cómo llegar →
@@ -447,7 +447,7 @@ export default function BravosgymPage() {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${BTN_GHOST} text-sm px-6 py-3`}
+                  className={`${display.className} ${BTN_GHOST} text-sm px-6 py-3 tap-44`}
                   style={{ borderColor: 'rgba(232,220,200,0.5)', color: C.sand }}
                 >
                   @{BIZ.instagram}
@@ -476,9 +476,9 @@ export default function BravosgymPage() {
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(232,220,200,0.72)' }}>
               {BIZ.address} · {BIZ.city}
               {' · '}
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]">{BIZ.phoneDisplay}</a>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8] tap-44">{BIZ.phoneDisplay}</a>
               {' · '}
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8]">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E8DCC8] tap-44">
                 @{BIZ.instagram}
               </a>
           </address>

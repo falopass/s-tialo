@@ -240,13 +240,13 @@ export default function NailsyusPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={BTN_SOLID}
+                  className={BTN_SOLID + ' tap-44'}
                 >
                   Agendar por WhatsApp
                 </a>
                 <a
                   href="#servicios"
-                  className={BTN_GHOST}
+                  className={BTN_GHOST + ' tap-44'}
                   style={{ borderColor: 'rgba(237,230,218,0.75)', color: C.sand }}
                 >
                   Ver servicios
@@ -270,7 +270,7 @@ export default function NailsyusPage() {
                   </dt>
                   <dd className="text-xs md:text-sm font-medium" style={{ color: C.sand }}>
                     {f.href ? (
-                      <a href={f.href} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:opacity-80 ${FOCUS} focus-visible:outline-[#EDE6DA]`}>
+                      <a href={f.href} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:opacity-80 ${FOCUS} focus-visible:outline-[#EDE6DA] tap-44`}>
                         {f.v}
                       </a>
                     ) : (
@@ -291,7 +291,7 @@ export default function NailsyusPage() {
             <li key={l.href} style={{ backgroundColor: C.sand }}>
               <a
                 href={l.href}
-                className={`group flex items-baseline gap-3 h-full py-4 md:py-5 px-4 md:px-5 transition-colors hover:bg-white ${FOCUS} focus-visible:outline-[#E4572E]`}
+                className={`group flex items-baseline gap-3 h-full py-4 md:py-5 px-4 md:px-5 transition-colors hover:bg-white ${FOCUS} focus-visible:outline-[#E4572E] tap-44`}
               >
                 <span className={`${display.className} font-bold text-xs md:text-sm`} style={{ color: C.orangeInk }}>
                   {l.num}
@@ -359,7 +359,7 @@ export default function NailsyusPage() {
                   href={WA_LINK_SERVICIO}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} inline-block font-bold uppercase tracking-[0.06em] text-xs px-5 py-3 border border-white/70 text-white transition hover:bg-white/10 active:scale-95 ${FOCUS} focus-visible:outline-white`}
+                  className={`${display.className} inline-block font-bold uppercase tracking-[0.06em] text-xs px-5 py-3 border border-white/70 text-white transition hover:bg-white/10 active:scale-95 ${FOCUS} focus-visible:outline-white tap-44`}
                 >
                   Consultar →
                 </a>
@@ -398,7 +398,7 @@ export default function NailsyusPage() {
                     </dt>
                     <dd className="text-sm font-medium">
                       {f.href ? (
-                        <a href={f.href} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:text-[#B23A17] transition-colors ${FOCUS} focus-visible:outline-[#E4572E]`}>
+                        <a href={f.href} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:text-[#B23A17] transition-colors ${FOCUS} focus-visible:outline-[#E4572E] tap-44`}>
                           {f.v}
                         </a>
                       ) : (
@@ -489,7 +489,7 @@ export default function NailsyusPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={BTN_SOLID}
+                  className={BTN_SOLID + ' tap-44'}
                 >
                   WhatsApp {BIZ.phoneDisplay}
                 </a>
@@ -497,7 +497,7 @@ export default function NailsyusPage() {
                   href={IG_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={BTN_GHOST}
+                  className={BTN_GHOST + ' tap-44'}
                   style={{ borderColor: C.lineDark, color: C.sand }}
                 >
                   @{BIZ.igUser}
@@ -544,7 +544,7 @@ export default function NailsyusPage() {
                   style={{ borderColor: C.lineDark, color: 'rgba(237,230,218,0.75)' }}
                 >
                   <span>Fig. 02 · Cómo llegar</span>
-                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:text-white transition-colors shrink-0 ${FOCUS} focus-visible:outline-[#EDE6DA]`}>
+                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:text-white transition-colors shrink-0 ${FOCUS} focus-visible:outline-[#EDE6DA] tap-44`}>
                     Abrir en Maps →
                   </a>
                 </figcaption>
@@ -567,7 +567,7 @@ export default function NailsyusPage() {
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-[11px] uppercase tracking-[0.16em]" style={{ color: 'rgba(237,230,218,0.75)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS} focus-visible:outline-[#EDE6DA]`}>
+              <a key={l.href} href={l.href} className={`hover:text-white transition-colors ${FOCUS} focus-visible:outline-[#EDE6DA] tap-44`}>
                 {l.label}
               </a>
             ))}

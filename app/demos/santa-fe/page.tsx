@@ -168,14 +168,14 @@ export default function SantaFePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-7 py-3.5 transition-transform active:scale-95`}
+                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-7 py-3.5 transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.orangeInk, color: '#fff' }}
               >
                 Cotiza tu proyecto
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-7 py-3.5 border transition-colors`}
+                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-7 py-3.5 border transition-colors tap-44`}
                 style={{ borderColor: 'rgba(237,239,241,0.5)', color: '#EDEFF1' }}
               >
                 Ver servicios
@@ -286,7 +286,7 @@ export default function SantaFePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2"
+                className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.graphite, textDecorationColor: 'rgba(232,99,26,0.5)' }}
               >
                 Ver la ficha en Google →
@@ -338,7 +338,7 @@ export default function SantaFePage() {
             </address>
             <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
               Teléfono:{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4" style={{ color: C.graphite }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.graphite }}>
                 {BIZ.phoneDisplay}
               </a>
             </p>
@@ -347,7 +347,7 @@ export default function SantaFePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-6 py-3 transition-transform active:scale-95`}
+                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-6 py-3 transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.graphite, color: '#fff' }}
               >
                 Cómo llegar →
@@ -356,7 +356,7 @@ export default function SantaFePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-6 py-3 border transition-colors`}
+                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-6 py-3 border transition-colors tap-44`}
                 style={{ borderColor: C.graphite, color: C.graphite }}
               >
                 Cotiza tu proyecto
@@ -412,14 +412,14 @@ export default function SantaFePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 py-4 transition-transform active:scale-95`}
+                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 py-4 transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.deep, color: '#fff' }}
               >
                 Cotiza tu proyecto
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 py-3 md:py-4 border-2 transition-colors`}
+                className={`${display.className} uppercase tracking-[0.08em] font-semibold text-sm px-8 py-3 md:py-4 border-2 transition-colors tap-44`}
                 style={{ borderColor: C.deep, color: C.deep }}
               >
                 {BIZ.phoneDisplay}
@@ -437,7 +437,7 @@ export default function SantaFePage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(237,239,241,0.72)' }}>
               {BIZ.address} · {BIZ.region}
               {' · '}
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -450,11 +450,11 @@ export default function SantaFePage() {
         <div style={{ borderTop: '1px solid rgba(237,239,241,0.15)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(237,239,241,0.75)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#fff' }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}, así se vería tu sitio.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2" style={{ color: '#fff' }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#fff' }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

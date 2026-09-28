@@ -939,7 +939,7 @@ export default function DemosIndex() {
       <header className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-4">
         <Link
           href="/"
-          className="font-mono text-xs uppercase tracking-ui text-ink-muted hover:text-ink transition-colors"
+          className="font-mono text-xs uppercase tracking-ui text-ink-muted hover:text-ink transition-colors tap-44"
         >
           ← sitiazo.cl
         </Link>

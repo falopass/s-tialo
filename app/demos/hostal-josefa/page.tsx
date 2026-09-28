@@ -184,7 +184,7 @@ export default function HostalJosefaPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(237,230,218,0.95)', color: C.concreteDeep }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.orange} stroke={C.orange} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -351,7 +351,7 @@ export default function HostalJosefaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${FOCUS} flex items-center gap-2 text-sm font-bold px-5 py-3 border-2 transition-colors hover:bg-white/10`}
+                  className={`${display.className} ${FOCUS} flex items-center gap-2 text-sm font-bold px-5 py-3 border-2 transition-colors hover:bg-white/10 tap-44`}
                   style={{ borderColor: C.orange, color: C.orangeSoft }}
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4" fill={C.orange} stroke={C.orange} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -363,7 +363,7 @@ export default function HostalJosefaPage() {
                   href={BIZ.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${FOCUS} flex items-center gap-2 text-sm font-bold px-5 py-3 border-2 transition-colors hover:bg-white/10`}
+                  className={`${display.className} ${FOCUS} flex items-center gap-2 text-sm font-bold px-5 py-3 border-2 transition-colors hover:bg-white/10 tap-44`}
                   style={{ borderColor: 'rgba(237,230,218,0.4)', color: 'rgba(237,230,218,0.85)' }}
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -519,7 +519,7 @@ export default function HostalJosefaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} ${FOCUS} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-[#3A3F44]/5`}
+                className={`${display.className} ${FOCUS} font-bold text-sm px-6 py-3 border-2 transition-colors hover:bg-[#3A3F44]/5 tap-44`}
                 style={{ borderColor: 'rgba(58,63,68,0.4)', color: C.concrete }}
               >
                 Cómo llegar →

@@ -223,14 +223,14 @@ export default function EmporioVintageCafePage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95`}
+                    className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 tap-44`}
                     style={{ backgroundColor: C.ambar, color: C.ink }}
                   >
                     Escribir por WhatsApp
                   </a>
                   <a
                     href="#carta"
-                    className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:text-[#FDF6EC] hover:bg-[#2A7F62]`}
+                    className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:text-[#FDF6EC] hover:bg-[#2A7F62] tap-44`}
                     style={{ borderColor: C.verde, color: C.verde }}
                   >
                     Ver la carta
@@ -248,7 +248,7 @@ export default function EmporioVintageCafePage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${FOCUS} hover:underline underline-offset-4`}
+                  className={`${FOCUS} hover:underline underline-offset-4 tap-44`}
                 >
                   <span style={{ color: C.ambar }} aria-hidden="true">★</span> {BIZ.reviews} reseñas en Google
                 </a>
@@ -256,7 +256,7 @@ export default function EmporioVintageCafePage() {
                   href={BIZ.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${FOCUS} hover:underline underline-offset-4`}
+                  className={`${FOCUS} hover:underline underline-offset-4 tap-44`}
                 >
                   {BIZ.followers} seguidores en Instagram
                 </a>
@@ -338,7 +338,7 @@ export default function EmporioVintageCafePage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${FOCUS} ${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95`}
+                  className={`${FOCUS} ${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 tap-44`}
                   style={{ backgroundColor: C.verde, color: C.crema }}
                 >
                   Pedir por WhatsApp
@@ -408,7 +408,7 @@ export default function EmporioVintageCafePage() {
                 href={BIZ.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} underline underline-offset-4 decoration-2`}
+                className={`${FOCUS} underline underline-offset-4 decoration-2 tap-44`}
                 style={{ color: C.verdeDeep, textDecorationColor: 'rgba(23,62,50,0.35)' }}
               >
                 Instagram · @{BIZ.instagram.split('/').pop()}
@@ -417,7 +417,7 @@ export default function EmporioVintageCafePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} underline underline-offset-4 decoration-2`}
+                className={`${FOCUS} underline underline-offset-4 decoration-2 tap-44`}
                 style={{ color: C.verdeDeep, textDecorationColor: 'rgba(23,62,50,0.35)' }}
               >
                 Ficha en Google Maps →
@@ -465,7 +465,7 @@ export default function EmporioVintageCafePage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${FOCUS} text-sm font-bold underline underline-offset-4 decoration-2`}
+              className={`${FOCUS} text-sm font-bold underline underline-offset-4 decoration-2 tap-44`}
               style={{ color: C.verde, textDecorationColor: 'rgba(42,127,98,0.35)' }}
             >
               Leer las {BIZ.reviews} reseñas en Google →
@@ -489,7 +489,7 @@ export default function EmporioVintageCafePage() {
               <br />
               {BIZ.city}, {BIZ.region}, Chile
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4`}>
+              <a href={`tel:${BIZ.phoneTel}`} className={`${FOCUS} underline underline-offset-4 tap-44`}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
@@ -508,7 +508,7 @@ export default function EmporioVintageCafePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95`}
+                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 tap-44`}
                 style={{ backgroundColor: C.ambar, color: C.ink }}
               >
                 Escribir por WhatsApp
@@ -517,7 +517,7 @@ export default function EmporioVintageCafePage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10`}
+                className={`${FOCUS} ${display.className} font-semibold text-sm md:text-base px-7 py-3.5 border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(253,246,236,0.5)', color: C.crema }}
               >
                 Cómo llegar →
@@ -543,7 +543,7 @@ export default function EmporioVintageCafePage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <p className="text-sm md:text-[15px] leading-relaxed font-semibold" style={{ color: C.ink }}>
             Sitio de ejemplo de{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-extrabold underline underline-offset-4`}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-extrabold underline underline-offset-4 tap-44`}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Así se vería su página publicada.
@@ -552,7 +552,7 @@ export default function EmporioVintageCafePage() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${FOCUS} shrink-0 text-sm font-bold underline underline-offset-4`}
+            className={`${FOCUS} shrink-0 text-sm font-bold underline underline-offset-4 tap-44`}
             style={{ color: C.ink }}
           >
             ¿Lo hacemos realidad?
@@ -569,11 +569,11 @@ export default function EmporioVintageCafePage() {
           </p>
           <nav className="flex flex-wrap gap-x-5 gap-y-2 text-[13px]" style={{ color: 'rgba(253,246,236,0.75)' }} aria-label="Pie">
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors`}>
+              <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors tap-44`}>
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} hover:text-white transition-colors`}>
+            <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${FOCUS} hover:text-white transition-colors tap-44`}>
               Instagram
             </a>
           </nav>

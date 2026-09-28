@@ -194,7 +194,7 @@ export default function InfinityMueblesPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA] tap-44"
               style={{ backgroundColor: C.arena, color: C.concretoDeep, clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)' }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.naranja} stroke={C.naranja} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -234,14 +234,14 @@ export default function InfinityMueblesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-4 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA] tap-44`}
                 style={{ backgroundColor: C.naranjaDark, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
               >
                 Cotizar por WhatsApp
               </a>
               <a
                 href="#trabajos"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-3.5 md:py-4 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm md:text-base px-8 py-3.5 md:py-4 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA] tap-44`}
                 style={{ borderColor: 'rgba(237,230,218,0.55)', color: C.arena, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
               >
                 Ver trabajos
@@ -417,7 +417,7 @@ export default function InfinityMueblesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]"
+                className="text-sm font-bold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E] tap-44"
                 style={{ color: C.naranjaText, textDecorationColor: 'rgba(228,87,46,0.35)' }}
               >
                 Ver la ficha en Google →
@@ -580,7 +580,7 @@ export default function InfinityMueblesPage() {
                 <Chevron className="w-4 h-4 shrink-0" color={C.naranja} />
                 <span>
                   Instagram:{' '}
-                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E]" style={{ color: C.naranjaText, textDecorationColor: 'rgba(228,87,46,0.35)' }}>
+                  <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4572E] tap-44" style={{ color: C.naranjaText, textDecorationColor: 'rgba(228,87,46,0.35)' }}>
                     {BIZ.instagramUser}
                   </a>
                 </span>
@@ -595,7 +595,7 @@ export default function InfinityMueblesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm px-7 py-3.5 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2F33]`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm px-7 py-3.5 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2F33] tap-44`}
                 style={{ backgroundColor: C.naranjaDark, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)' }}
               >
                 Escribir por WhatsApp
@@ -604,7 +604,7 @@ export default function InfinityMueblesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-bold uppercase tracking-wide text-sm px-7 py-3.5 border-2 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2F33]`}
+                className={`${display.className} font-bold uppercase tracking-wide text-sm px-7 py-3.5 border-2 transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2B2F33] tap-44`}
                 style={{ borderColor: C.concreto, color: C.concretoDeep, clipPath: 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%)' }}
               >
                 Cómo llegar →
@@ -666,7 +666,7 @@ export default function InfinityMueblesPage() {
               href={WA_LINK_MEDIDA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold uppercase tracking-wide text-sm md:text-base px-9 py-4 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA]`}
+              className={`${display.className} inline-block font-bold uppercase tracking-wide text-sm md:text-base px-9 py-4 transition-transform active:scale-95 hover:translate-x-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EDE6DA] tap-44`}
               style={{ backgroundColor: C.naranjaDark, color: C.blanco, clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)' }}
             >
               Agendar medición →
@@ -689,7 +689,7 @@ export default function InfinityMueblesPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(237,230,218,0.62)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:text-white focus-visible:underline">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors focus-visible:text-white focus-visible:underline tap-44">
                 {l.label}
               </a>
             ))}

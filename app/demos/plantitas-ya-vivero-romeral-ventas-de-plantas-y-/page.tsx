@@ -296,14 +296,14 @@ export default function PlantitasYaPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS}`}
+                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS} tap-44`}
                   style={{ backgroundColor: C.petrol, color: C.paper, outlineColor: C.petrol }}
                 >
                   Pedir por WhatsApp
                 </a>
                 <a
                   href="#listado"
-                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-[rgba(14,76,92,0.07)] ${FOCUS}`}
+                  className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-[rgba(14,76,92,0.07)] ${FOCUS} tap-44`}
                   style={{ borderColor: 'rgba(14,76,92,0.35)', color: C.petrol, outlineColor: C.petrol }}
                 >
                   Ver listado y precios
@@ -314,7 +314,7 @@ export default function PlantitasYaPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`font-semibold underline underline-offset-4 decoration-2 transition-colors ${FOCUS}`}
+                  className={`font-semibold underline underline-offset-4 decoration-2 transition-colors ${FOCUS} tap-44`}
                   style={{ color: C.petrol, textDecorationColor: 'rgba(14,76,92,0.3)', outlineColor: C.petrol }}
                 >
                   {BIZ.reviews} reseñas en Google →
@@ -323,7 +323,7 @@ export default function PlantitasYaPage() {
                   href={BIZ.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`font-semibold underline underline-offset-4 decoration-2 transition-colors ${FOCUS}`}
+                  className={`font-semibold underline underline-offset-4 decoration-2 transition-colors ${FOCUS} tap-44`}
                   style={{ color: C.petrol, textDecorationColor: 'rgba(14,76,92,0.3)', outlineColor: C.petrol }}
                 >
                   {BIZ.followers} seguidores en Facebook →
@@ -373,7 +373,7 @@ export default function PlantitasYaPage() {
                 <dd className="text-sm md:text-base leading-snug">
                   <a
                     href={`tel:${BIZ.phoneTel}`}
-                    className={`underline underline-offset-2 ${FOCUS}`}
+                    className={`underline underline-offset-2 ${FOCUS} tap-44`}
                     style={{ color: C.ink, outlineColor: C.petrol }}
                   >
                     {BIZ.phoneDisplay}
@@ -456,7 +456,7 @@ export default function PlantitasYaPage() {
                 href={WA_LINK_PEDIDO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS}`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS} tap-44`}
                 style={{ backgroundColor: C.petrol, color: C.paper, outlineColor: C.petrol }}
               >
                 Consultar stock por WhatsApp
@@ -562,7 +562,7 @@ export default function PlantitasYaPage() {
               href={BIZ.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-sm font-semibold underline underline-offset-4 decoration-2 ${FOCUS}`}
+              className={`text-sm font-semibold underline underline-offset-4 decoration-2 ${FOCUS} tap-44`}
               style={{ color: C.petrol, textDecorationColor: 'rgba(14,76,92,0.3)', outlineColor: C.petrol }}
             >
               Ver la página en Facebook →
@@ -586,7 +586,7 @@ export default function PlantitasYaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-semibold underline underline-offset-4 decoration-2 ${FOCUS}`}
+                className={`text-sm font-semibold underline underline-offset-4 decoration-2 ${FOCUS} tap-44`}
                 style={{ color: C.petrol, textDecorationColor: 'rgba(14,76,92,0.3)', outlineColor: C.petrol }}
               >
                 Ver la ficha en Google →
@@ -631,7 +631,7 @@ export default function PlantitasYaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block shrink-0 font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS} focus-visible:outline-white`}
+              className={`${display.className} inline-block shrink-0 font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS} focus-visible:outline-white tap-44`}
               style={{ backgroundColor: C.mint, color: C.deep }}
             >
               Escribir por WhatsApp
@@ -675,7 +675,7 @@ export default function PlantitasYaPage() {
               <br />
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`underline underline-offset-2 ${FOCUS}`}
+                className={`underline underline-offset-2 ${FOCUS} tap-44`}
                 style={{ outlineColor: C.petrol }}
               >
                 {BIZ.phoneDisplay}
@@ -691,7 +691,7 @@ export default function PlantitasYaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS}`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-[transform,filter] hover:brightness-110 active:scale-95 ${FOCUS} tap-44`}
                 style={{ backgroundColor: C.petrol, color: C.paper, outlineColor: C.petrol }}
               >
                 Escribir por WhatsApp
@@ -700,7 +700,7 @@ export default function PlantitasYaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors hover:bg-[rgba(14,76,92,0.07)] ${FOCUS}`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors hover:bg-[rgba(14,76,92,0.07)] ${FOCUS} tap-44`}
                 style={{ borderColor: 'rgba(14,76,92,0.35)', color: C.petrol, outlineColor: C.petrol }}
               >
                 Cómo llegar →
@@ -728,7 +728,7 @@ export default function PlantitasYaPage() {
             <p className={`${display.className} font-semibold text-2xl mb-1`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,249,249,0.85)' }}>
               {BIZ.address}, {BIZ.city} ·{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className={`underline underline-offset-2 ${FOCUS} focus-visible:outline-white`}>
+              <a href={`tel:${BIZ.phoneTel}`} className={`underline underline-offset-2 ${FOCUS} focus-visible:outline-white tap-44`}>
                 {BIZ.phoneDisplay}
               </a>
             </address>

@@ -276,14 +276,14 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             <div className="flex flex-wrap gap-3">
               <a
                 href={CALL_LINK}
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
                 style={{ backgroundColor: C.gold, color: C.wineInk }}
               >
                 Llamar a la clínica
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
                 style={{ borderColor: 'rgba(245,239,230,0.55)', color: C.bone }}
               >
                 Ver servicios
@@ -303,7 +303,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-4 transition-colors hover:text-[#F5EFE6]"
+            className="underline underline-offset-4 transition-colors hover:text-[#F5EFE6] tap-44"
           >
             {BIZ.reviews} reseñas en Google
           </a>
@@ -375,7 +375,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline underline-offset-4 decoration-1"
+                className="underline underline-offset-4 decoration-1 tap-44"
                 style={{ color: C.bone }}
               >
                 Ver la ficha en Google
@@ -384,7 +384,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline underline-offset-4 decoration-1"
+                className="underline underline-offset-4 decoration-1 tap-44"
                 style={{ color: C.bone }}
               >
                 Página de Facebook
@@ -470,7 +470,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
                 {BIZ.address}, {BIZ.city}, {BIZ.region}
               </p>
               <p>
-                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 decoration-1">
+                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-4 decoration-1 tap-44">
                   {BIZ.phoneDisplay}
                 </a>
               </p>
@@ -491,7 +491,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             <div className="mt-9 flex flex-wrap gap-3">
               <a
                 href={CALL_LINK}
-                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
+                className={`${display.className} font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
                 style={{ backgroundColor: C.gold, color: C.wineInk }}
               >
                 Llamar a la clínica
@@ -500,7 +500,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B98B4E] tap-44`}
                 style={{ borderColor: 'rgba(245,239,230,0.55)', color: C.bone }}
               >
                 Abrir en Google Maps
@@ -533,7 +533,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
               href={SITE.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold underline underline-offset-4"
+              className="font-bold underline underline-offset-4 tap-44"
             >
               Sitiazo
             </a>{' '}
@@ -543,7 +543,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${display.className} shrink-0 text-sm font-semibold underline underline-offset-4`}
+            className={`${display.className} shrink-0 text-sm font-semibold underline underline-offset-4 tap-44`}
             style={{ color: C.wineInk }}
           >
             ¿Lo hacemos realidad?
@@ -564,7 +564,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
             href={BIZ.facebook}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs underline underline-offset-4 transition-colors hover:text-[#F5EFE6]"
+            className="text-xs underline underline-offset-4 transition-colors hover:text-[#F5EFE6] tap-44"
             style={{ color: 'rgba(245,239,230,0.78)' }}
           >
             Facebook

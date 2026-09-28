@@ -153,14 +153,14 @@ function SectionHead({
         color={light ? C.mustard : C.green}
       />
       <div className="flex items-baseline justify-between gap-4 pt-4 pb-10 md:pb-14">
-        <p
+        <h2
           className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.28em] font-medium`}
           style={{ color: light ? C.mustardSoft : C.green }}
         >
           <span style={{ color: light ? C.mustard : C.wood }}>{num}</span>
           <span className="mx-2.5" aria-hidden="true">/</span>
           {title}
-        </p>
+        </h2>
         {note && (
           <p
             className={`${mono.className} hidden md:block text-[10px] uppercase tracking-[0.22em] shrink-0`}
@@ -226,7 +226,7 @@ export default function RestaurantElEncuentroPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${mono.className} ${FOCUS} flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[0.2em] shrink-0 hover:text-[#2E4A3C] transition-colors`}
+              className={`${mono.className} ${FOCUS} flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[0.2em] shrink-0 hover:text-[#2E4A3C] transition-colors tap-44`}
               style={{ color: C.ink }}
             >
               <svg viewBox="0 0 20 20" className="w-3.5 h-3.5" fill={C.mustard} aria-hidden="true">
@@ -275,14 +275,14 @@ export default function RestaurantElEncuentroPage() {
                     href={WA_LINK_RESERVA}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-colors hover:bg-[#2E4A3C] hover:text-[#F4F1E8] active:scale-95`}
+                    className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-colors hover:bg-[#2E4A3C] hover:text-[#F4F1E8] active:scale-95 tap-44`}
                     style={{ backgroundColor: C.mustard, color: C.deep }}
                   >
                     Reservar por WhatsApp
                   </a>
                   <a
                     href="#carta"
-                    className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-[#1F2B24] hover:text-[#F4F1E8]`}
+                    className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-[#1F2B24] hover:text-[#F4F1E8] tap-44`}
                     style={{ borderColor: C.ink, color: C.ink }}
                   >
                     Ver la carta
@@ -440,7 +440,7 @@ export default function RestaurantElEncuentroPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${mono.className} ${FOCUS} inline-block mt-6 text-[11px] uppercase tracking-[0.2em] underline underline-offset-4 decoration-2 hover:decoration-[#7C5230] transition-colors`}
+              className={`${mono.className} ${FOCUS} inline-block mt-6 text-[11px] uppercase tracking-[0.2em] underline underline-offset-4 decoration-2 hover:decoration-[#7C5230] transition-colors tap-44`}
               style={{ color: C.wood, textDecorationColor: 'rgba(124,82,48,0.4)' }}
             >
               Ver la ficha en Google →
@@ -555,7 +555,7 @@ export default function RestaurantElEncuentroPage() {
             href={WA_LINK_RESERVA}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${display.className} ${FOCUS} group self-start md:self-auto shrink-0 inline-flex items-center gap-3 font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-colors hover:bg-[#2E4A3C] active:scale-95`}
+            className={`${display.className} ${FOCUS} group self-start md:self-auto shrink-0 inline-flex items-center gap-3 font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-colors hover:bg-[#2E4A3C] active:scale-95 tap-44`}
             style={{ backgroundColor: C.deep, color: C.paper }}
           >
             Reservar mesa
@@ -605,7 +605,7 @@ export default function RestaurantElEncuentroPage() {
                   href={WA_LINK_RESERVA}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-colors hover:bg-[#F4F1E8] active:scale-95`}
+                  className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 transition-colors hover:bg-[#F4F1E8] active:scale-95 tap-44`}
                   style={{ backgroundColor: C.mustard, color: C.deep }}
                 >
                   WhatsApp {BIZ.phoneDisplay}
@@ -614,7 +614,7 @@ export default function RestaurantElEncuentroPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10`}
+                  className={`${display.className} ${FOCUS} font-semibold uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3.5 border transition-colors hover:bg-white/10 tap-44`}
                   style={{ borderColor: 'rgba(244,241,232,0.4)', color: C.paper }}
                 >
                   Cómo llegar →
@@ -624,7 +624,7 @@ export default function RestaurantElEncuentroPage() {
                 href={BIZ.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${mono.className} ${FOCUS} inline-block mt-6 text-[11px] uppercase tracking-[0.2em] underline underline-offset-4 decoration-2 hover:text-[#F4F1E8] transition-colors`}
+                className={`${mono.className} ${FOCUS} inline-block mt-6 text-[11px] uppercase tracking-[0.2em] underline underline-offset-4 decoration-2 hover:text-[#F4F1E8] transition-colors tap-44`}
                 style={{ color: 'rgba(244,241,232,0.6)', textDecorationColor: 'rgba(244,241,232,0.25)' }}
               >
                 Facebook · {BIZ.fbFollowers} seguidores →
@@ -659,7 +659,7 @@ export default function RestaurantElEncuentroPage() {
             </div>
             <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(244,241,232,0.6)' }} aria-label="Pie">
               {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors`}>
+                <a key={l.href} href={l.href} className={`${FOCUS} hover:text-white transition-colors tap-44`}>
                   {l.label}
                 </a>
               ))}
@@ -668,12 +668,12 @@ export default function RestaurantElEncuentroPage() {
           <div className="border-t" style={{ borderColor: 'rgba(244,241,232,0.12)' }}>
             <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 md:pb-8 text-xs leading-relaxed" style={{ color: 'rgba(244,241,232,0.75)' }}>
               Mockup preparado por{' '}
-              <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:text-[#D9A441]`} style={{ color: C.paper }}>
+              <a href={SITE.url} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:text-[#D9A441] tap-44`} style={{ color: C.paper }}>
                 Sitiazo
               </a>{' '}
               para {BIZ.name} — así se vería tu sitio. Carta, precios y
               horarios son de muestra.{' '}
-              <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:text-[#D9A441]`} style={{ color: C.mustard }}>
+              <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${FOCUS} font-semibold underline underline-offset-2 hover:text-[#D9A441] tap-44`} style={{ color: C.mustard }}>
                 ¿Lo hacemos realidad?
               </a>
             </p>

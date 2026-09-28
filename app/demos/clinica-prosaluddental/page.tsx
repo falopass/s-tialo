@@ -232,7 +232,7 @@ export default function ProSaludDentalPage() {
             <div className="flex flex-wrap gap-3 mt-9 md:mt-12">
               <a
                 href={CALL_LINK}
-                className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
                 style={{ backgroundColor: C.orangeInk, color: C.white }}
               >
                 <PhoneIcon />
@@ -240,7 +240,7 @@ export default function ProSaludDentalPage() {
               </a>
               <a
                 href="#servicios"
-                className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                className={`${display.className} text-sm md:text-base font-bold px-7 py-3.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.6)', color: C.white }}
               >
                 Ver servicios →
@@ -393,7 +393,7 @@ export default function ProSaludDentalPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+                className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base font-bold px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
                 style={{ backgroundColor: C.white, color: C.inkDeep }}
               >
                 Ver las {BIZ.reviews} reseñas en Google →
@@ -441,7 +441,7 @@ export default function ProSaludDentalPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-white"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-colors hover:text-white tap-44"
                   style={{ color: C.orangeLight, textDecorationColor: 'rgba(255,184,140,0.4)' }}
                 >
                   Ver la ficha en Google →
@@ -547,7 +547,7 @@ export default function ProSaludDentalPage() {
                 </svg>
                 <span>
                   <strong className="font-bold" style={{ color: C.inkDeep }}>Facebook:</strong>{' '}
-                  <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 transition-colors hover:text-[#C1272D] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A4E52]">
+                  <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 transition-colors hover:text-[#C1272D] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A4E52] tap-44">
                     clinicadent.prosalud
                   </a>
                 </span>
@@ -566,7 +566,7 @@ export default function ProSaludDentalPage() {
             <div className="flex flex-wrap gap-3">
               <a
                 href={CALL_LINK}
-                className={`${display.className} inline-flex items-center gap-2.5 text-sm font-bold px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A4E52]`}
+                className={`${display.className} inline-flex items-center gap-2.5 text-sm font-bold px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A4E52] tap-44`}
                 style={{ backgroundColor: C.orangeInk, color: C.white }}
               >
                 <PhoneIcon />
@@ -576,7 +576,7 @@ export default function ProSaludDentalPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm font-bold px-6 py-3 border-2 transition-colors hover:bg-[rgba(193,39,45,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A4E52]`}
+                className={`${display.className} text-sm font-bold px-6 py-3 border-2 transition-colors hover:bg-[rgba(193,39,45,0.08)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A4E52] tap-44`}
                 style={{ borderColor: 'rgba(74,78,82,0.35)', color: C.inkDeep }}
               >
                 Cómo llegar →
@@ -623,7 +623,7 @@ export default function ProSaludDentalPage() {
             </p>
             <a
               href={CALL_LINK}
-              className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base font-bold px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
+              className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base font-bold px-8 py-4 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white tap-44`}
               style={{ backgroundColor: C.orangeInk, color: C.white }}
             >
               <PhoneIcon />
@@ -647,11 +647,11 @@ export default function ProSaludDentalPage() {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
             {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-white transition-colors">
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
                 {l.label}
               </a>
             ))}
-            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors tap-44">
               Facebook
             </a>
           </div>
@@ -659,13 +659,13 @@ export default function ProSaludDentalPage() {
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-5 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
             Mockup preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: C.white }}>
+            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2 tap-44" style={{ color: C.white }}>
               Sitiazo
             </a>{' '}
             para {BIZ.name}. Textos, servicios, precios, horarios, reseñas y
             fotos son de muestra; el nombre, la dirección, el teléfono y el
             conteo de reseñas son datos públicos reales.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: C.white }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2 tap-44" style={{ color: C.white }}>
               ¿Lo hacemos realidad?
             </a>
           </p>

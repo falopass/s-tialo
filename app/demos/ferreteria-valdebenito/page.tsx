@@ -220,7 +220,7 @@ export default function FerreteriaValdebenitoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]"
+              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8] tap-44"
               style={{ ...GLASS, color: C.ink, boxShadow: '0 0 20px rgba(69,213,232,0.15)' }}
             >
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.cyan} stroke={C.cyan} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
@@ -252,14 +252,14 @@ export default function FerreteriaValdebenitoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8] tap-44`}
                 style={GLOW_BTN}
               >
                 Escribir por WhatsApp
               </a>
               <a
                 href="#surtido"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8] tap-44`}
                 style={{ ...GLASS, color: C.ink }}
               >
                 Ver el surtido
@@ -371,7 +371,7 @@ export default function FerreteriaValdebenitoPage() {
                 href={WA_LINK_BULTO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
+                className={`${display.className} inline-block font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8] tap-44`}
                 style={GLOW_BTN}
               >
                 Cotizar por volumen
@@ -445,7 +445,7 @@ export default function FerreteriaValdebenitoPage() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 flex items-center gap-4 rounded-2xl px-5 py-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]"
+              className="mt-5 flex items-center gap-4 rounded-2xl px-5 py-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8] tap-44"
               style={{ ...GLASS, boxShadow: '0 0 24px rgba(69,213,232,0.1)' }}
             >
               <span className={`${display.className} font-extrabold text-2xl leading-none shrink-0`} style={{ color: C.cyan }}>
@@ -570,7 +570,7 @@ export default function FerreteriaValdebenitoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold underline underline-offset-4 decoration-[rgba(69,213,232,0.4)] transition-colors hover:decoration-[#45D5E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]"
+                className="font-semibold underline underline-offset-4 decoration-[rgba(69,213,232,0.4)] transition-colors hover:decoration-[#45D5E8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8] tap-44"
                 style={{ color: C.ink }}
               >
                 {BIZ.phoneDisplay}
@@ -598,7 +598,7 @@ export default function FerreteriaValdebenitoPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
+                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8] tap-44`}
                 style={GLOW_BTN}
               >
                 Escribir por WhatsApp
@@ -607,7 +607,7 @@ export default function FerreteriaValdebenitoPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3.5 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
+                className={`${display.className} font-semibold text-sm px-6 py-3.5 rounded-full transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8] tap-44`}
                 style={{ ...GLASS, color: C.ink }}
               >
                 Cómo llegar →
@@ -662,7 +662,7 @@ export default function FerreteriaValdebenitoPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8]`}
+              className={`${display.className} inline-block font-semibold text-sm md:text-base px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45D5E8] tap-44`}
               style={GLOW_BTN}
             >
               Escribir por WhatsApp

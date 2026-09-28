@@ -59,7 +59,7 @@ function SitiazoStrip() {
             href={SITE.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline underline-offset-2 hover:text-yellow"
+            className="font-semibold underline underline-offset-2 hover:text-yellow tap-44"
           >
             Sitiazo
           </a>{' '}
@@ -68,7 +68,7 @@ function SitiazoStrip() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline underline-offset-2 hover:text-yellow"
+            className="font-semibold underline underline-offset-2 hover:text-yellow tap-44"
           >
             ¿Lo hacemos realidad?
           </a>
@@ -185,14 +185,14 @@ export default function AltosDeLircayPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.copperInk, color: '#fff' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href="#tratamientos"
-                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors`}
+                className={`${display.className} font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44`}
                 style={{ borderColor: 'rgba(252,253,251,0.5)', backgroundColor: C.forestDeep, color: '#FCFDFB' }}
               >
                 Ver tratamientos
@@ -336,7 +336,7 @@ export default function AltosDeLircayPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2"
+                className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.copperSoft, textDecorationColor: 'rgba(216,150,114,0.4)' }}
               >
                 Ver la ficha en Google →
@@ -410,7 +410,7 @@ export default function AltosDeLircayPage() {
             </div>
             <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
               Teléfono:{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4" style={{ color: C.forest }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.forest }}>
                 {BIZ.phoneDisplay}
               </a>
             </p>
@@ -419,7 +419,7 @@ export default function AltosDeLircayPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.forest, color: '#fff' }}
               >
                 Cómo llegar →
@@ -428,7 +428,7 @@ export default function AltosDeLircayPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors`}
+                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44`}
                 style={{ borderColor: 'rgba(36,80,58,0.35)', color: C.forest }}
               >
                 Agendar por WhatsApp
@@ -484,14 +484,14 @@ export default function AltosDeLircayPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.forest, color: '#fff' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`${display.className} font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors`}
+                className={`${display.className} font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors tap-44`}
                 style={{ borderColor: 'rgba(22,52,42,0.35)', color: C.forestDeep }}
               >
                 {BIZ.phoneDisplay}
@@ -509,7 +509,7 @@ export default function AltosDeLircayPage() {
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(252,253,251,0.65)' }}>
               {BIZ.address} · {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">
                 {BIZ.phoneDisplay}
               </a>
             </address>
