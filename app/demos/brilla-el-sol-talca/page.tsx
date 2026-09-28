@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { demoMetadata } from '../meta'
-import { BlitzNav, Reveal, WaFab } from '../blitz-kit'
+import { BlitzNav, Reveal, Stars, WaFab } from '../blitz-kit'
 import { DemoBand } from '../kit'
 import LazyMap from '../lazy-map'
-import { BIZ, MAPS_EMBED, MAPS_URL, WA_LINK } from './content'
+import { BIZ, MAPS_EMBED, MAPS_URL, RESENAS, WA_LINK } from './content'
 
 const IMG = '/demos/brilla-el-sol-talca'
 
@@ -19,9 +19,10 @@ const body = localFont({ src: '../../fonts/rubik/normal-300-900.woff2', weight: 
 
 export const metadata: Metadata = demoMetadata({
   slug: 'brilla-el-sol-talca',
-  title: 'Complejo Deportivo Brilla El Sol — Recinto deportivo en Talca',
+  title: 'Complejo Deportivo Brilla El Sol — Arriendo de cancha en Talca',
   description:
-    'Recinto deportivo en 12 Sur con 6 Oriente, Talca. Consulta disponibilidad, horarios y reservas por WhatsApp.',
+    'Campo de fútbol en 12 Sur con 6 Oriente, Talca. Cancha sintética con focos, abierto todos los días de 9:00 a 24:00. Reserva tu bloque de 90 minutos por WhatsApp.',
+  image: `${IMG}/hero.webp`,
 })
 
 const C = {
@@ -29,34 +30,52 @@ const C = {
   pitchDeep: '#08301C',
   grass: '#1F7A43',
   sun: '#FFC63D',
-  sunDeep: '#8A5200',
+  sunDeep: '#7A4A00',
   chalk: '#F5F7F2',
   ink: '#10231A',
-  muted: '#4B5E52',
+  muted: '#46594D',
   line: 'rgba(16,35,26,0.14)',
 }
 
 const NAV_LINKS = [
-  { label: 'Recinto', href: '#recinto' },
+  { label: 'La cancha', href: '#cancha' },
+  { label: 'Reseñas', href: '#resenas' },
   { label: 'Reservar', href: '#reservar' },
   { label: 'Dónde', href: '#ubicacion' },
 ]
 
-const PHONE_DISPLAY = '+56 9 8181 2455'
-
 const USOS = [
-  { n: '01', t: 'Partidos', d: 'Junta a tu equipo y consulta la disponibilidad del recinto para el día que quieran jugar.' },
-  { n: '02', t: 'Entrenamientos', d: 'Espacio para practicar con regularidad: pregunta por bloques semanales.' },
-  { n: '03', t: 'Actividades y eventos', d: 'Campeonatos, jornadas deportivas o actividades de barrio: escribe y coordina.' },
+  {
+    n: '01',
+    t: 'Partidos con tu equipo',
+    d: 'Cancha sintética con iluminación para jugar de día o de noche. La reserva es por bloques de 90 minutos.',
+  },
+  {
+    n: '02',
+    t: 'Escuela de fútbol',
+    d: 'En el recinto entrena la escuela Rojinegros Talca Nuñez, con niños y niñas de 4 a 18 años.',
+  },
+  {
+    n: '03',
+    t: 'Campeonatos y eventos',
+    d: 'Torneos, jornadas deportivas y actividades de barrio: hay estacionamiento y espacio para el público.',
+  },
 ]
 
 const PASOS = [
-  { t: 'Escribe', d: 'Cuéntanos qué día, a qué hora y para qué actividad necesitas el recinto.' },
-  { t: 'Confirma', d: 'Te respondemos por WhatsApp con la disponibilidad y las condiciones.' },
-  { t: 'A jugar', d: 'Llega a 12 Sur con 6 Oriente, Talca, y disfruta tu bloque.' },
+  { t: 'Escribe', d: 'Cuéntanos qué día y a qué hora quieres la cancha: atendemos todos los días de 9:00 a 24:00.' },
+  { t: 'Confirma', d: 'Te respondemos por WhatsApp con la disponibilidad del bloque de 90 minutos y el valor.' },
+  { t: 'A jugar', d: 'Llega a 12 Sur con 6 Oriente, Talca. Hay estacionamiento en el recinto.' },
 ]
 
-const CONSULTAS = ['Disponibilidad', 'Horarios', 'Valores', 'Bloques semanales', 'Campeonatos', 'Pádel', 'Eventos']
+const FOTOS = [
+  { src: 'entrenamiento.webp', alt: 'Entrenamiento de la escuela de fútbol con conos y vallas en la cancha sintética' },
+  { src: 'partido.webp', alt: 'Partido de niños en la cancha del Complejo Deportivo Brilla El Sol' },
+  { src: 'cancha.webp', alt: 'Vista general de la cancha con familias mirando un partido desde la banda' },
+  { src: 'entrada.webp', alt: 'Entrada y estacionamiento del recinto, con guardia en la garita' },
+  { src: 'padel.webp', alt: 'Plaza con toldo y bancas junto a las canchas del complejo' },
+  { src: 'padel2.webp', alt: 'Niño corriendo en el pasto de la plaza del recinto deportivo' },
+]
 
 function Rayos({ id, color, opacity = 0.12 }: { id: string; color: string; opacity?: number }) {
   return (
@@ -98,13 +117,13 @@ function Btn({
       ? { backgroundColor: C.sun, color: C.ink }
       : tone === 'pitch'
         ? { backgroundColor: C.pitch, color: C.chalk }
-        : { backgroundColor: 'transparent', color: C.chalk, boxShadow: `inset 0 0 0 2px ${C.chalk}` }
+        : { backgroundColor: 'rgba(0,0,0,0.55)', color: '#FFFFFF', boxShadow: 'inset 0 0 0 2px rgba(255,255,255,0.85)' }
   return (
     <a
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
-      className={`${display.className} inline-flex items-center justify-center px-6 py-3 rounded-xl text-lg tracking-wide uppercase transition-transform active:scale-[0.97] tap-44`}
+      className={`${display.className} inline-flex items-center justify-center px-6 py-2.5 rounded-xl text-lg tracking-wide uppercase transition-transform active:scale-[0.97] tap-44`}
       style={st}
     >
       {children}
@@ -124,78 +143,81 @@ export default function BrillaElSolPage() {
         ctaLabel="Reservar"
       />
 
-      {/* HERO */}
-      <section id="inicio" className="relative overflow-hidden pt-24 pb-14 md:pt-32 md:pb-20" style={{ backgroundColor: C.pitchDeep }}>
-        <Rayos id="bes-hero" color={C.sun} opacity={0.07} />
-        <div className="relative max-w-6xl mx-auto px-5 grid md:grid-cols-[1.05fr_1fr] gap-10 items-center">
-          <div>
-            <Reveal>
-              <p className={`${display.className} inline-flex items-center gap-2 px-3 py-1 rounded-md text-sm uppercase tracking-widest`} style={{ backgroundColor: C.sun, color: C.ink }}>
-                Recinto deportivo · Talca
-              </p>
-            </Reveal>
-            <Reveal delay={80}>
-              <h1 className={`${display.className} mt-5 text-[52px] leading-[0.92] md:text-[84px] uppercase`} style={{ color: C.chalk }}>
-                Sale el sol,
-                <br />
-                <span style={{ color: C.sun }}>sale el partido</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="mt-6 text-lg leading-relaxed max-w-md" style={{ color: 'rgba(245,247,242,0.82)' }}>
-                Complejo Deportivo Brilla El Sol, en 12 Sur con 6 Oriente. Consulta disponibilidad y reserva tu bloque
-                por WhatsApp.
-              </p>
-            </Reveal>
-            <Reveal delay={240}>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Btn href={WA_LINK} tone="sun">Reservar por WhatsApp</Btn>
-                <Btn href="#reservar" tone="chalk" external={false}>Cómo funciona</Btn>
-              </div>
-            </Reveal>
-          </div>
-          <Reveal delay={150}>
-            <div className="relative aspect-[4/3] rounded-[28px] overflow-hidden" style={{ boxShadow: '0 30px 60px rgba(0,0,0,0.35)' }}>
-              <Image
-                src={`${IMG}/hero.webp`}
-                alt="Partido nocturno bajo los focos en el Complejo Deportivo Brilla El Sol"
-                fill
-                priority
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-              />
+      {/* HERO — foto nocturna real del recinto */}
+      <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: '#0B1A10' }}>
+        <div className="absolute inset-0">
+          <Image
+            src={`${IMG}/hero.webp`}
+            alt="Entrenamiento nocturno bajo los focos en el Complejo Deportivo Brilla El Sol"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(5,16,11,0.88) 0%, rgba(5,16,11,0.8) 55%, rgba(5,16,11,0.94) 100%)',
+            }}
+            aria-hidden="true"
+          />
+        </div>
+        <div className="relative max-w-6xl mx-auto px-5 pt-28 pb-16 md:pt-40 md:pb-24">
+          <Reveal>
+            <p className={`${display.className} inline-flex items-center gap-2 px-3 py-1 rounded-md text-sm uppercase tracking-widest`} style={{ backgroundColor: C.sun, color: C.ink }}>
+              Campo de fútbol · Talca
+            </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className={`${display.className} mt-5 text-[54px] leading-[0.92] md:text-[96px] uppercase max-w-3xl`} style={{ color: '#FFFFFF', textShadow: '0 3px 24px rgba(0,0,0,0.45)' }}>
+              Arrienda tu cancha,
+              <br />
+              <span style={{ color: C.sun }}>juega hasta medianoche</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="mt-6 text-lg leading-relaxed max-w-xl font-medium" style={{ color: 'rgba(255,255,255,0.92)' }}>
+              Cancha sintética con focos en 12 Sur con 6 Oriente. Abierto todos los días de 9:00 a 24:00;
+              reserva tu bloque de 90 minutos por WhatsApp.
+            </p>
+          </Reveal>
+          <Reveal delay={240}>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <Btn href={WA_LINK} tone="sun">Reservar por WhatsApp</Btn>
+              <Btn href="#cancha" tone="chalk" external={false}>Ver el recinto</Btn>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* MARCADOR */}
+      {/* MARCADOR — datos reales de la ficha */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.sun }}>
-        <div className="max-w-6xl mx-auto px-5 py-5 grid grid-cols-3 gap-3 text-center">
+        <div className="max-w-6xl mx-auto px-5 py-5 grid grid-cols-3 gap-2 text-center">
           {[
-            ['12 Sur', 'con 6 Oriente'],
-            ['Talca', 'Región del Maule'],
-            ['WhatsApp', 'respuesta directa'],
+            [`${BIZ.rating}★`, `${BIZ.reviews} reseñas en Google`],
+            ['9–24 h', 'todos los días'],
+            [BIZ.bloque, 'por bloque de arriendo'],
           ].map(([a, b]) => (
             <div key={a}>
               <p className={`${display.className} text-2xl md:text-3xl uppercase leading-none`} style={{ color: C.ink }}>{a}</p>
-              <p className="text-xs md:text-sm mt-1 font-medium" style={{ color: '#4A3A08' }}>{b}</p>
+              <p className="text-xs md:text-sm mt-1 font-semibold" style={{ color: '#3D3005' }}>{b}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* RECINTO */}
-      <section id="recinto" className="relative py-16 md:py-24">
+      <section id="cancha" className="relative py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-5">
           <Reveal>
-            <p className={`${display.className} text-sm uppercase tracking-widest`} style={{ color: C.sunDeep }}>El recinto</p>
+            <p className={`${display.className} text-sm uppercase tracking-widest`} style={{ color: C.sunDeep }}>La cancha</p>
             <h2 className={`${display.className} mt-2 text-4xl md:text-6xl uppercase leading-[0.95]`} style={{ color: C.pitchDeep }}>
-              Un lugar para <span style={{ color: C.grass }}>jugar</span>
+              La cancha del <span style={{ color: C.grass }}>suroriente</span> de Talca
             </h2>
             <p className="mt-4 max-w-2xl text-lg" style={{ color: C.muted }}>
-              Recinto deportivo en Talca, pensado para equipos, grupos de amigos y organizaciones que necesitan un
-              espacio para su actividad.
+              Sintética, iluminada y con estacionamiento. Partidos, entrenamientos y campeonatos se
+              coordinan por WhatsApp.
             </p>
           </Reveal>
           <div className="mt-10 grid md:grid-cols-3 gap-5">
@@ -212,34 +234,17 @@ export default function BrillaElSolPage() {
               </Reveal>
             ))}
           </div>
-          <Reveal delay={100}>
-            <div className="mt-8 flex flex-wrap gap-2">
-              {CONSULTAS.map((c) => (
-                <span key={c} className="px-3 py-1.5 rounded-md text-sm font-semibold" style={{ backgroundColor: 'rgba(31,122,67,0.12)', color: C.pitch }}>
-                  {c}
-                </span>
-              ))}
-              <span className="px-3 py-1.5 text-sm" style={{ color: C.muted }}>— todo se consulta por WhatsApp</span>
-            </div>
-          </Reveal>
 
           {/* fotos reales del recinto (ficha de Google Maps) */}
           <Reveal delay={140}>
-            <ul className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3">
-              {[
-                { src: 'entrenamiento.webp', alt: 'Entrenamiento de día en la cancha del recinto' },
-                { src: 'partido.webp', alt: 'Partido en la cancha sintética de Brilla El Sol' },
-                { src: 'padel.webp', alt: 'Cancha de pádel del Complejo Deportivo Brilla El Sol' },
-                { src: 'entrada.webp', alt: 'Entrada del recinto deportivo' },
-                { src: 'cancha.webp', alt: 'Jugadores junto a la cancha del recinto' },
-                { src: 'padel2.webp', alt: 'Cancha de pádel con malla de cierre' },
-              ].map((f) => (
+            <ul className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3">
+              {FOTOS.map((f) => (
                 <li key={f.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl" style={{ boxShadow: '0 10px 24px rgba(16,35,26,0.12)' }}>
                   <Image
                     src={`${IMG}/${f.src}`}
                     alt={f.alt}
                     fill
-                    sizes="(min-width: 768px) 25vw, 50vw"
+                    sizes="(min-width: 768px) 33vw, 50vw"
                     className="object-cover"
                   />
                 </li>
@@ -252,32 +257,73 @@ export default function BrillaElSolPage() {
         </div>
       </section>
 
-      {/* RESERVAR */}
-      <section id="reservar" className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundColor: C.pitch }}>
+      {/* RESEÑAS — texto real de Google */}
+      <section id="resenas" className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundColor: C.pitch }}>
         <Rayos id="bes-res" color={C.chalk} opacity={0.06} />
+        <div className="relative max-w-6xl mx-auto px-5">
+          <Reveal>
+            <p className={`${display.className} text-sm uppercase tracking-widest`} style={{ color: C.sun }}>Lo que dice la gente</p>
+            <div className="mt-2 flex flex-wrap items-end gap-x-5 gap-y-2">
+              <h2 className={`${display.className} text-4xl md:text-6xl uppercase leading-[0.95]`} style={{ color: C.chalk }}>
+                {BIZ.rating} en Google
+              </h2>
+              <div className="pb-1 flex items-center gap-2">
+                <Stars value={4.5} color={C.sun} className="w-5 h-5" />
+                <span className="text-sm font-semibold" style={{ color: 'rgba(245,247,242,0.85)' }}>{BIZ.reviews} reseñas</span>
+              </div>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid md:grid-cols-3 gap-5">
+            {RESENAS.map((r, i) => (
+              <Reveal key={r.nombre} delay={i * 90}>
+                <figure className="h-full rounded-2xl p-6 flex flex-col" style={{ backgroundColor: 'rgba(8,48,28,0.55)', boxShadow: 'inset 0 0 0 1px rgba(245,247,242,0.12)' }}>
+                  <Stars value={5} color={C.sun} className="w-4 h-4" />
+                  <blockquote className="mt-3 leading-relaxed flex-1" style={{ color: 'rgba(245,247,242,0.9)' }}>
+                    “{r.texto}”
+                  </blockquote>
+                  <figcaption className={`${display.className} mt-4 text-lg uppercase tracking-wide`} style={{ color: C.sun }}>
+                    {r.nombre}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={120}>
+            <p className="mt-5 text-sm" style={{ color: 'rgba(245,247,242,0.65)' }}>
+              Reseñas reales copiadas de la ficha de Google Maps.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* RESERVAR */}
+      <section id="reservar" className="relative py-16 md:py-24">
         <div className="relative max-w-6xl mx-auto px-5 grid md:grid-cols-[1fr_1.2fr] gap-10 items-start">
           <Reveal>
-            <p className={`${display.className} text-sm uppercase tracking-widest`} style={{ color: C.sun }}>Reservar</p>
-            <h2 className={`${display.className} mt-2 text-4xl md:text-6xl uppercase leading-[0.95]`} style={{ color: C.chalk }}>
-              Tres toques y <span style={{ color: C.sun }}>listo</span>
+            <p className={`${display.className} text-sm uppercase tracking-widest`} style={{ color: C.sunDeep }}>Reservar</p>
+            <h2 className={`${display.className} mt-2 text-4xl md:text-6xl uppercase leading-[0.95]`} style={{ color: C.pitchDeep }}>
+              Tres toques y <span style={{ color: C.grass }}>listo</span>
             </h2>
-            <p className="mt-4 text-lg" style={{ color: 'rgba(245,247,242,0.8)' }}>
-              Sin formularios ni llamadas perdidas: un mensaje y coordinamos.
+            <p className="mt-4 text-lg" style={{ color: C.muted }}>
+              Sin formularios ni llamadas perdidas: un mensaje y coordinamos tu bloque de 90 minutos.
             </p>
+            <div className="mt-5 rounded-xl p-4 text-sm leading-relaxed font-medium" style={{ backgroundColor: 'rgba(255,198,61,0.28)', color: C.ink }}>
+              Horario del recinto: {BIZ.horario}.
+            </div>
             <div className="mt-6">
-              <Btn href={WA_LINK} tone="sun">Escribir ahora</Btn>
+              <Btn href={WA_LINK} tone="pitch">Escribir ahora</Btn>
             </div>
           </Reveal>
           <ol className="grid gap-4">
             {PASOS.map((p, i) => (
               <Reveal key={p.t} delay={i * 100}>
-                <li className="flex gap-4 rounded-2xl p-5" style={{ backgroundColor: 'rgba(8,48,28,0.55)', boxShadow: `inset 0 0 0 1px rgba(245,247,242,0.12)` }}>
+                <li className="flex gap-4 rounded-2xl p-5" style={{ backgroundColor: '#FFFFFF', boxShadow: '0 12px 30px rgba(16,35,26,0.10)' }}>
                   <span className={`${display.className} shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl`} style={{ backgroundColor: C.sun, color: C.ink }}>
                     {i + 1}
                   </span>
                   <div>
-                    <h3 className={`${display.className} text-2xl uppercase`} style={{ color: C.chalk }}>{p.t}</h3>
-                    <p className="mt-1 leading-relaxed" style={{ color: 'rgba(245,247,242,0.8)' }}>{p.d}</p>
+                    <h3 className={`${display.className} text-2xl uppercase`} style={{ color: C.pitchDeep }}>{p.t}</h3>
+                    <p className="mt-1 leading-relaxed" style={{ color: C.muted }}>{p.d}</p>
                   </div>
                 </li>
               </Reveal>
@@ -287,7 +333,7 @@ export default function BrillaElSolPage() {
       </section>
 
       {/* UBICACION */}
-      <section id="ubicacion" className="py-16 md:py-24">
+      <section id="ubicacion" className="py-16 md:py-24" style={{ backgroundColor: 'rgba(31,122,67,0.07)' }}>
         <div className="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-10 items-center">
           <Reveal>
             <p className={`${display.className} text-sm uppercase tracking-widest`} style={{ color: C.sunDeep }}>Dónde</p>
@@ -297,19 +343,16 @@ export default function BrillaElSolPage() {
             <p className="mt-4 text-lg" style={{ color: C.muted }}>
               {BIZ.address} · {BIZ.city}, Región del Maule
             </p>
-            <div className="mt-5 rounded-xl p-4 text-sm leading-relaxed" style={{ backgroundColor: 'rgba(255,198,61,0.25)', color: C.ink }}>
-              Los horarios de uso dependen de la reserva: confirma tu bloque por WhatsApp antes de ir.
-            </div>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Btn href={MAPS_URL} tone="pitch">Cómo llegar</Btn>
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-flex items-center justify-center px-6 py-3 rounded-xl text-lg tracking-wide uppercase tap-44`}
+                className={`${display.className} inline-flex items-center justify-center px-6 py-2.5 rounded-xl text-lg tracking-wide uppercase tap-44`}
                 style={{ color: C.pitch, boxShadow: `inset 0 0 0 2px ${C.pitch}` }}
               >
-                WhatsApp {PHONE_DISPLAY}
+                {BIZ.phoneDisplay}
               </a>
             </div>
           </Reveal>
@@ -328,7 +371,9 @@ export default function BrillaElSolPage() {
           <h2 className={`${display.className} mt-4 text-4xl md:text-6xl uppercase leading-[0.95]`} style={{ color: C.ink }}>
             ¿Armamos el partido?
           </h2>
-          <p className="mt-4 text-lg" style={{ color: '#4A3A08' }}>Escríbenos y reserva el recinto para tu equipo.</p>
+          <p className="mt-4 text-lg font-medium" style={{ color: '#3D3005' }}>
+            Escríbenos y reserva la cancha para tu equipo.
+          </p>
           <div className="mt-7">
             <Btn href={WA_LINK} tone="pitch">Reservar por WhatsApp</Btn>
           </div>
@@ -341,12 +386,13 @@ export default function BrillaElSolPage() {
             <p className={`${display.className} text-2xl uppercase tracking-wide inline-flex items-center gap-2`} style={{ color: C.chalk }}>
               <Sol className="w-6 h-6" /> {BIZ.name}
             </p>
-            <p className="text-sm mt-1">{BIZ.category} · {BIZ.address}, {BIZ.city}</p>
+            <p className="text-sm mt-1">{BIZ.category} · {BIZ.address}, {BIZ.city} · {BIZ.horario}</p>
           </div>
-          <nav className="flex gap-4 text-sm">
+          <nav className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
             {NAV_LINKS.map((l) => (
               <a key={l.href} href={l.href} className="hover:underline tap-44">{l.label}</a>
             ))}
+            <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:underline tap-44">Facebook</a>
           </nav>
         </div>
         <div className="px-5 mt-6 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
