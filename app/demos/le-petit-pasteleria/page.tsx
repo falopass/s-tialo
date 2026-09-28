@@ -49,23 +49,23 @@ const NAV_LINKS = [
 const VITRINA = [
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Tarteletas de fruta fresca con crema, recién armadas en la vitrina',
+    alt: 'Kuchen y pie de limón frambuesa en la vitrina, con el precio a la vista',
     num: 'a',
-    name: 'Tarteletas de fruta',
-    desc: 'Masa quebrada, crema y fruta fresca de temporada: berries, durazno y lo que dé la semana.',
+    name: 'Kuchen y pies',
+    desc: 'Pie de limón frambuesa, kuchen de nuez y lo que salga del horno. En la vitrina el precio va a la vista.',
     note: 'Las favoritas de la vitrina',
   },
   {
     src: `${IMG}/detalle2.webp`,
-    alt: 'Alfajores, milhojas y dulces clásicos de vitrina listos para llevar',
+    alt: 'Alfajores de manjar con coco apilados en un plato de vidrio',
     num: 'b',
-    name: 'Clásicos de vitrina',
-    desc: 'Alfajores, milhojas, trozos de torta y dulces para llevar, listos para la once.',
+    name: 'Alfajores y clásicos',
+    desc: 'Alfajores de manjar con coco, trozos de torta y dulces para llevar, listos para la once.',
     note: 'Para llevar o para quedarse',
   },
   {
     src: `${IMG}/detalle3.webp`,
-    alt: 'Torta de celebración por encargo con crema y fruta fresca',
+    alt: 'Torta de celebración en colores con decorado de crema, hecha por encargo',
     num: 'c',
     name: 'Tortas por encargo',
     desc: 'Milhojas, crema y manjar, o el sabor que tú pidas. Se encargan con anticipación por WhatsApp.',
@@ -73,10 +73,10 @@ const VITRINA = [
   },
   {
     src: `${IMG}/hero.webp`,
-    alt: 'Mostrador de Le Petit Pasteleria con merengues, pan de la casa y el dulce del día',
+    alt: 'La vitrina de Le Petit con dulces del día, bolsas de la casa y el letrero Soleil du matin',
     num: 'd',
     name: 'La vitrina completa',
-    desc: 'Merengues, pan de la casa y el dulce del día. El mostrador se renueva cada mañana.',
+    desc: 'El mostrador bajo el letrero Le Petit — Soleil du matin: dulces del día y bolsas de la casa para llevar.',
     note: 'Recién horneado',
   },
 ]
@@ -92,12 +92,12 @@ const PRECIOS = [
 
 const TESTIMONIALS = [
   {
-    text: 'Encargué la torta del cumpleaños de mi mamá y quedó preciosa, con la fruta fresquita encima.',
-    author: 'Clienta del centro',
+    text: 'Que pastelería más buena en el centro de Talca. Lo mejor de lo mejor.',
+    author: 'Javiera Russo · Google, hace un mes',
   },
   {
-    text: 'Las tarteletas se agotan rápido, hay que llegar temprano. Atención muy amable.',
-    author: 'Vecino de 2 Oriente',
+    text: 'Pastelería exquisita y atención muy cordial.',
+    author: 'Mauricio Apablaza · Google, hace 6 meses',
   },
 ]
 
@@ -106,7 +106,7 @@ function SectionNum({ n, label, light = false }: { n: string; label: string; lig
     <div className="flex items-baseline gap-4 mb-6">
       <span
         className={`${display.className} font-black leading-none text-[clamp(2.4rem,6vw,4rem)]`}
-        style={{ color: '#B08000' }}
+        style={{ color: light ? '#E5B93B' : '#B08000' }}
       >
         {n}
       </span>
@@ -128,6 +128,7 @@ export default function LePetitPage() {
     >
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
@@ -145,7 +146,7 @@ export default function LePetitPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col overflow-hidden" style={{ backgroundColor: C.slateDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Vitrina iluminada de Le Petit Pasteleria con tortas, merengues y dulces"
+          alt="La vitrina real de Le Petit en 2 Oriente: dulces del día, bolsas de la casa y el letrero Soleil du matin"
           fill
           sizes="100vw"
           priority
@@ -301,7 +302,7 @@ export default function LePetitPage() {
         <div className="relative h-[52vh] md:h-[72vh]">
           <Image
             src={`${IMG}/ambiente.webp`}
-            alt="Fachada de Le Petit Pasteleria en 2 Oriente, Talca, con la vitrina a la calle"
+            alt="Interior de Le Petit Pasteleria: la vitrina con dulces, bolsas de la casa y el letrero en la pared"
             fill
             sizes="100vw"
             className="object-cover"
@@ -313,7 +314,7 @@ export default function LePetitPage() {
         >
           <div className="max-w-6xl mx-auto px-5 md:px-8 pb-8 md:pb-10 pt-24">
             <p className={`${display.className} font-black text-2xl md:text-4xl leading-tight`} style={{ color: C.white }}>
-              La vitrina da a la calle,
+              Soleil du matin,
               <em className="font-bold" style={{ color: C.yellow }}> como toda la vida</em>
             </p>
             <p className="text-xs md:text-sm uppercase tracking-[0.2em] mt-3" style={{ color: 'rgba(255,255,255,0.75)' }}>
@@ -395,7 +396,7 @@ export default function LePetitPage() {
                       “{t.text}”
                     </blockquote>
                     <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.muted }}>
-                      {t.author} · Reseña de ejemplo
+                      {t.author}
                     </figcaption>
                   </figure>
                 </Reveal>
@@ -548,7 +549,7 @@ export default function LePetitPage() {
       {/* ── Cierre editorial ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.slateDeep }}>
         <div className="absolute inset-0 opacity-[0.16]" aria-hidden="true">
-          <Image src={`${IMG}/detalle3.webp`} alt="" fill sizes="100vw" className="object-cover" />
+          <Image src={`${IMG}/detalle4.webp`} alt="" fill sizes="100vw" className="object-cover" />
         </div>
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28">
           <Reveal>
@@ -599,7 +600,7 @@ export default function LePetitPage() {
           <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)' }}>
             Sitio de ejemplo preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44" style={{ color: C.yellowSoft }}>Sitiazo</a>{' '}
-            para {BIZ.name}. Textos, productos, precios, horarios y fotos son de muestra.{' '}
+            para {BIZ.name}. Fotos, dirección, reseñas y seguidores son reales; textos, productos, precios y horarios son de muestra.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705] tap-44" style={{ color: C.yellowSoft }}>¿Lo hacemos realidad?</a>
           </p>
         </div>

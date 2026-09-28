@@ -2,9 +2,11 @@
  * app/demos/le-petit-pasteleria/content.ts
  *
  * Datos del mockup. REALES (ficha pública de Google Maps e Instagram):
- * nombre, dirección, WhatsApp, las 6 reseñas y la cuenta @lepetitsdm.
- * Todo lo demás (productos, precios, horarios y textos de reseñas)
- * es contenido de muestra para mostrar cómo se vería el sitio.
+ * nombre, dirección, WhatsApp, el 5,0 de Google sobre 6 reseñas, las
+ * reseñas citadas, las fotos de la vitrina y del local, el letrero
+ * Le Petit — Soleil du matin y la cuenta @lepetitsdm. Todo lo demás
+ * (productos, precios y horarios) es contenido de muestra para
+ * mostrar cómo se vería el sitio.
  */
 
 export const BIZ = {
