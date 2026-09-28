@@ -4,8 +4,10 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, CallFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED } from './content'
-import { PehuenIcon, PehuenField, ObraScene } from './scenes'
+import { PehuenIcon } from './scenes'
 import LazyMap from '../lazy-map'
+
+const IMG = '/demos/constructora-pehuenche'
 
 const display = localFont({
   src: [
@@ -37,43 +39,45 @@ export const metadata: Metadata = demoMetadata({
   slug: 'constructora-pehuenche',
   title: 'Constructora Pehuenche — Empresa constructora en Talca',
   description:
-    'Constructora Pehuenche Limitada en el centro de Talca: construcción de viviendas, ampliaciones, remodelaciones y obras para empresas. Oficina en 3 Oriente 1424.',
+    'Constructora Pehuenche Limitada, infraestructura vial urbana desde 1993: pavimentación, obras civiles y espacios públicos. Oficina en 3 Oriente 1424, Talca.',
 })
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Obras', href: '#obras' },
   { label: 'La empresa', href: '#empresa' },
-  { label: 'Cómo trabajamos', href: '#proceso' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
+// Servicios según su propia historia: ejecución y conservación de
+// infraestructura vial urbana, obras civiles para públicos y privados.
 const SERVICIOS = [
   {
     n: '01',
-    name: 'Construcción de viviendas',
-    desc: 'Casas desde la primera palada hasta la entrega: fundaciones, estructura, techumbre y terminaciones.',
+    name: 'Infraestructura vial urbana',
+    desc: 'Ejecución y conservación de calles, aceras y vialidad urbana — el núcleo de la empresa desde 1993.',
   },
   {
     n: '02',
-    name: 'Ampliaciones y remodelaciones',
-    desc: 'Ganar metros útiles o renovar lo que ya está: piezas, baños, cocinas y fachadas.',
+    name: 'Pavimentación',
+    desc: 'Carpetas asfálticas, solados y pavimentos ejecutados con cuadrilla y equipos propios.',
   },
   {
     n: '03',
-    name: 'Obras para empresas',
-    desc: 'Locales, oficinas y recintos de trabajo ejecutados con planificación y palabra cumplida.',
+    name: 'Obras civiles',
+    desc: 'Proyectos de infraestructura por contrato, administración o concesión.',
   },
   {
     n: '04',
-    name: 'Obras gruesas y terminaciones',
-    desc: 'Del hormigón a la pintura final: estructura sólida y remates que se notan.',
+    name: 'Espacios públicos y privados',
+    desc: 'Obras para organismos públicos y privados: parques, paseos y recintos urbanos.',
   },
 ]
 
 const PORQUE = [
   {
-    title: 'Empresa constituida',
-    desc: 'Constructora Pehuenche Limitada: sociedad formal, con oficina y responsable detrás de cada obra.',
+    title: 'Desde 1993',
+    desc: 'Constituida en 1993: más de tres décadas ejecutando infraestructura vial urbana en Chile.',
   },
   {
     title: 'Oficina en pleno centro',
@@ -88,7 +92,7 @@ const PORQUE = [
 const PASOS = [
   {
     title: 'La llamada',
-    desc: 'Llama al fijo de la oficina y cuenta qué quieres construir: casa, ampliación u obra comercial.',
+    desc: 'Llama al fijo de la oficina y cuenta qué necesitas: vialidad, obra civil o proyecto urbano.',
   },
   {
     title: 'Visita y presupuesto',
@@ -154,9 +158,9 @@ export default function ConstructoraPehuenchePage() {
                   <em className="font-medium" style={{ color: C.ochreInk }}>palabra dada.</em>
                 </h1>
                 <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: C.muted }}>
-                  {BIZ.legal} construye viviendas, ampliaciones y obras
-                  para empresas en Talca. Se conversa el proyecto en
-                  persona o por teléfono — como siempre se hizo.
+                  {BIZ.legal} ejecuta infraestructura vial urbana
+                  desde 1993, con oficina en el centro de Talca.
+                  Se conversa el proyecto en persona o por teléfono.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <a
@@ -207,10 +211,22 @@ export default function ConstructoraPehuenchePage() {
           </Reveal>
           <Reveal delay={120}>
             <div
-              className="rounded-sm overflow-hidden border"
+              className="flex gap-1 overflow-x-auto snap-x snap-mandatory rounded-sm border sm:grid sm:grid-cols-3 sm:overflow-visible"
               style={{ borderColor: C.line, boxShadow: '0 4px 20px rgba(32,31,23,0.12)' }}
             >
-              <ObraScene className="w-full h-auto block aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] object-cover" />
+              {[
+                { src: 'obra-hero-1', alt: 'Obra de vialidad urbana ejecutada por Constructora Pehuenche' },
+                { src: 'obra-hero-2', alt: 'Excavación en vía pública de Constructora Pehuenche' },
+                { src: 'obra-hero-3', alt: 'Pavimentación de calle con rodillo compactador' },
+              ].map((f) => (
+                // eslint-disable-next-line @next/next/no-img-element -- fotos reales optimizadas en public/
+                <img
+                  key={f.src}
+                  src={`${IMG}/${f.src}.webp`}
+                  alt={f.alt}
+                  className="w-[82%] shrink-0 snap-center object-cover aspect-[4/3] sm:w-full sm:aspect-[16/9] lg:aspect-[7/3]"
+                />
+              ))}
             </div>
           </Reveal>
         </div>
@@ -287,10 +303,58 @@ export default function ConstructoraPehuenchePage() {
         </div>
       </section>
 
-      {/* ── Proceso sobre precordillera ── */}
+      {/* ── Obras ejecutadas (fotos reales de su archivo) ── */}
+      <section id="obras" className="scroll-mt-20" style={{ backgroundColor: C.card }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <Eyebrow>Obras ejecutadas</Eyebrow>
+            <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
+              <h2 className={`${display.className} font-black text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.ink }}>
+                Trabajo que
+                <br />
+                <em className="font-medium" style={{ color: C.ochreInk }}>se puede mirar</em>
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
+                Registro fotográfico de obras ejecutadas por la empresa,
+                de su archivo público.
+              </p>
+            </div>
+          </Reveal>
+          <ul className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 list-none">
+            {[
+              ['obra-1', 'Sendero pavimentado en parque urbano'],
+              ['obra-2', 'Paseo peatonal con bancas y alumbrado'],
+              ['obra-3', 'Obra vial en borde costero'],
+              ['obra-4', 'Construcción de muelle y borde costero'],
+              ['obra-5', 'Excavación con maquinaria en pendiente costera'],
+              ['obra-6', 'Sector de obra demarcado con malla de seguridad'],
+            ].map(([src, alt], i) => (
+              <Reveal key={src} delay={i * 60}>
+                <li className="rounded-sm overflow-hidden border" style={{ borderColor: C.line }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`${IMG}/${src}.webp`}
+                    alt={alt}
+                    loading={i < 3 ? 'eager' : 'lazy'}
+                    className="w-full h-full object-cover aspect-[4/3]"
+                  />
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── Proceso sobre foto de obra ── */}
       <section id="proceso" className="scroll-mt-20 relative overflow-hidden" style={{ backgroundColor: C.deep }}>
         <div className="absolute inset-0">
-          <PehuenField className="w-full h-full" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${IMG}/fondo-proceso.webp`}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover"
+          />
         </div>
         <div
           className="absolute inset-0"
@@ -311,7 +375,7 @@ export default function ConstructoraPehuenchePage() {
               </p>
             </div>
           </Reveal>
-          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 list-none">
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 list-none mb-12 md:mb-16">
             {PASOS.map((p, i) => (
               <Reveal key={p.title} delay={i * 100}>
                 <li
@@ -331,6 +395,20 @@ export default function ConstructoraPehuenchePage() {
               </Reveal>
             ))}
           </ol>
+          <Reveal delay={200}>
+            <figure className="rounded-sm overflow-hidden border max-w-2xl" style={{ borderColor: 'rgba(245,241,232,0.2)' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${IMG}/equipo.webp`}
+                alt="Equipo de Constructora Pehuenche: cuadrilla y administración"
+                loading="lazy"
+                className="w-full h-auto block"
+              />
+              <figcaption className="px-4 py-3 text-xs uppercase tracking-[0.16em] font-bold" style={{ color: C.goldLight, backgroundColor: 'rgba(30,58,43,0.92)' }}>
+                El equipo detrás de la obra
+              </figcaption>
+            </figure>
+          </Reveal>
         </div>
       </section>
 
@@ -392,7 +470,13 @@ export default function ConstructoraPehuenchePage() {
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.deep }}>
         <div className="absolute inset-0">
-          <PehuenField className="w-full h-full" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${IMG}/fondo-cta.webp`}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover"
+          />
         </div>
         <div
           className="absolute inset-0"
@@ -443,7 +527,7 @@ export default function ConstructoraPehuenchePage() {
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(245,241,232,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-2.5 text-xs leading-relaxed" style={{ color: 'rgba(245,241,232,0.75)' }}>
-            Datos de su ficha pública de Google; ilustraciones propias.
+            Datos de su ficha pública de Google; fotos de su archivo público.
           </p>
         </div>
         <div className="px-5 pb-4 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">

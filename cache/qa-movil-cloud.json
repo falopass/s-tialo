@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T07:25:11.397Z",
+  "fecha": "2026-09-28T07:36:09.944Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "homyvet": {
-      "url": "http://localhost:4800/demos/homyvet/",
+    "constructora-pehuenche": {
+      "url": "http://localhost:4800/demos/constructora-pehuenche/",
       "status": 200,
       "botones": [],
-      "footerPx": 266,
-      "footerPct": 31.5,
+      "footerPx": 292,
+      "footerPct": 34.6,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4110
+      "ms": 4111
     }
   }
 }
