@@ -1974,6 +1974,14 @@ const BLITZ = [
     tagline: 'Carta de salón: nude del monograma SC, espresso y la filosofía "menos es más".',
     gradient: 'linear-gradient(135deg, #32241E 0%, #C4AA98 55%, #8F5547 140%)',
   },
+  {
+    slug: 'lubricentro-arto',
+    name: 'Lubricentro Arto | Repuestos & Serviteca',
+    rubro: 'Lubricentro y repuestos',
+    city: 'San Clemente',
+    tagline: 'Pit lane en Huamachuco: azul racing del letrero Liqui Moly y naranjo de su logo.',
+    gradient: 'linear-gradient(135deg, #081F4A 0%, #0F2E66 55%, #F04E23 150%)',
+  },
 
   {
     slug: 'bodega-liquidadora-neumaticos',

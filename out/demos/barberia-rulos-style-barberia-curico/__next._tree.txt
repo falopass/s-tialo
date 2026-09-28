@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/2e67b1870547635b.css","style"]
-:HL["/_next/static/chunks/e707e4b2f438b6c6.css","style"]
+:HL["/_next/static/chunks/a1ff10a184922efa.css","style"]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.77c0d914.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.c757f81b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -15,4 +15,4 @@
 :HL["/demos/barberia-rulos-style-barberia-curico/detalle1.webp","image"]
 :HL["/demos/barberia-rulos-style-barberia-curico/detalle3.webp","image"]
 :HL["/demos/barberia-rulos-style-barberia-curico/detalle2.webp","image"]
-0:{"buildId":"Nz3ajlIHjTuLej69CvOZ1","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"barberia-rulos-style-barberia-curico","paramType":null,"paramKey":"barberia-rulos-style-barberia-curico","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"8KNgt1_C104mPp8AJKoPE","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"barberia-rulos-style-barberia-curico","paramType":null,"paramKey":"barberia-rulos-style-barberia-curico","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
