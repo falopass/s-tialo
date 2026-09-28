@@ -1,6 +1,6 @@
 # QA móvil (cloud) — http://localhost:4800/demos/
 
-Fecha: 2026-09-28T07:42:37.882Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
+Fecha: 2026-09-28T12:22:55.531Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
 
 ## Resumen
 
@@ -17,12 +17,12 @@ Fecha: 2026-09-28T07:42:37.882Z · Viewport 390×844 · espera 3500 ms tras netw
 
 ## Los 5 peores
 
-- **one-health** (gravedad 0): 0 botones, footer 35.3%, 0 contrastes, sin desborde, 0 invisibles
+- **hostal-josefa** (gravedad 0): 0 botones, footer 39.1%, 0 contrastes, sin desborde, 0 invisibles
 
 ## Tabla por gravedad
 
 | # | Demo | Grav. | Btn>52 | Footer % | Contraste | Desborde | Invisibles |
 |---|---|---|---|---|---|---|---|
-| 1 | [one-health](http://localhost:4800/demos/one-health/) | 0 | 0 | 35.3 | 0 | — | 0 |
+| 1 | [hostal-josefa](http://localhost:4800/demos/hostal-josefa/) | 0 | 0 | 39.1 | 0 | — | 0 |
 
 ## Detalle por demo (solo con hallazgos)

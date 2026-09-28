@@ -50,17 +50,17 @@ const PASOS = [
     num: '01',
     src: `${IMG}/detalle2.webp`,
     tag: 'reserva directa',
-    title: 'Llegas y te reciben en la puerta',
-    desc: 'Escríbenos por WhatsApp, te confirmamos la pieza y al llegar hay alguien esperándote: sin recepción de hotel ni formularios.',
-    alt: 'Recepción del hostal con llavero de madera, campana y libro de huéspedes',
+    title: 'Llegas y te reciben a cualquier hora',
+    desc: 'Abierto las 24 horas. Escríbenos por WhatsApp, te confirmamos la pieza y al llegar hay alguien esperándote: sin recepción de hotel ni formularios.',
+    alt: 'Recepción de madera del Residencial Josefa',
   },
   {
     num: '02',
     src: `${IMG}/detalle1.webp`,
     tag: 'tu pieza',
     title: 'Una pieza simple y prolija',
-    desc: 'Cama hecha, toallas limpias y la llave lista. Piezas single y matrimoniales, con lo justo para descansar bien.',
-    alt: 'Pieza del hostal con cama de sábanas blancas, toallas dobladas y llave de bronce',
+    desc: 'Cama hecha, baño privado, TV por cable, wifi y aire acondicionado. Piezas single y matrimoniales, con lo justo para descansar bien.',
+    alt: 'Habitación triple del Residencial Josefa con camas de sábanas blancas',
   },
   {
     num: '03',
@@ -68,14 +68,14 @@ const PASOS = [
     tag: 'la mañana',
     title: 'Desayuno de casa para partir el día',
     desc: 'Pan, mermelada casera, té o café y fruta, servido temprano para quienes salen a trabajar o siguen viaje.',
-    alt: 'Desayuno del hostal con cesta de pan, mermeladas, té y fruta junto a la ventana',
+    alt: 'Desayuno del hostal con té, jugo y fruta servido en bandeja',
   },
 ]
 
 const TARIFAS = [
   {
     name: 'Pieza single',
-    desc: 'Una cama, baño compartido y desayuno incluido.',
+    desc: 'Una cama, baño privado y desayuno incluido.',
     price: 'desde $18.000',
     unit: 'por noche',
   },
@@ -95,16 +95,12 @@ const TARIFAS = [
 
 const TESTIMONIALS = [
   {
-    text: 'Llegué tarde por trabajo y me esperaron con la pieza lista. Todo limpio y sin vueltas.',
-    author: 'Pasajero de Santiago',
+    text: 'Resaltamos mucho la limpieza y comodidad de la habitación, sencilla y muy bien equipada. Sin duda, volveríamos.',
+    author: 'Manuela Granada',
   },
   {
-    text: 'La atención es de casa de familia: te reciben ellos mismos y el desayuno es contundente.',
-    author: 'Huésped frecuente',
-  },
-  {
-    text: 'A dos cuadras del centro, precio justo y pieza impecable. Vuelvo cada vez que paso por Curicó.',
-    author: 'Viajero del sur',
+    text: 'Muy bien ornamentado, muy limpio y una atención personalizada. Buen aire acondicionado, buen baño y dormimos muy bien.',
+    author: 'Carlos Heriberto Jara',
   },
 ]
 
@@ -164,7 +160,7 @@ export default function HostalJosefaPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.concreteDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Pieza del Hostal Josefa con cama de sábanas blancas y ventana con vista a los techos de Curicó"
+          alt="Fachada del Residencial Josefa en Sgto. Aldea, centro de Curicó"
           fill
           priority
           sizes="100vw"
@@ -327,7 +323,7 @@ export default function HostalJosefaPage() {
               >
                 <Image
                   src={`${IMG}/ambiente.webp`}
-                  alt="Calle arbolada y fachada del hostal al atardecer en Curicó"
+                  alt="Pieza doble del hostal con cortinas naranjas y camas de sábanas blancas"
                   fill
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   className="object-cover"
@@ -342,9 +338,10 @@ export default function HostalJosefaPage() {
                 <span style={{ color: C.orangeSoft }}>en pleno Curicó</span>
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-6 max-w-md" style={{ color: 'rgba(237,230,218,0.78)' }}>
-                Hostal Josefa es un residencial en {BIZ.address}, a pasos
-                del centro de Curicó. Atienden sus propios dueños y la
-                reserva es directa: sin plataformas ni comisiones.
+                Residencial en {BIZ.address}, a pasos del centro de Curicó.
+                Atienden sus propios dueños, abierto las 24 horas, con
+                baños privados, wifi, aire acondicionado y convenio con
+                empresas e instituciones.
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 <a
@@ -373,21 +370,21 @@ export default function HostalJosefaPage() {
                 </a>
               </div>
               <p className="text-xs leading-relaxed max-w-sm" style={{ color: 'rgba(237,230,218,0.7)' }}>
-                Las {BIZ.reviews} reseñas y la ficha de Google son datos
-                reales. Los textos de esta página son de muestra hasta
-                publicar el sitio definitivo.
+                Fotos, reseñas y datos de esta página salen de su ficha
+                de Google y de su flyer publicado. Las tarifas son de
+                muestra hasta publicar el sitio definitivo.
               </p>
             </Reveal>
           </div>
 
-          {/* testimonios de muestra */}
+          {/* reseñas reales de Google */}
           <div className="border-t pt-12 md:pt-16" style={{ borderColor: C.lineLight }}>
             <Reveal>
               <h3 className={`${display.className} font-bold text-2xl md:text-3xl mb-8`} style={{ color: '#EDE6DA' }}>
                 Lo que valoran los huéspedes
               </h3>
             </Reveal>
-            <div className="grid md:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 gap-5 max-w-3xl">
               {TESTIMONIALS.map((t, i) => (
                 <Reveal key={i} delay={i * 100}>
                   <figure
@@ -398,7 +395,7 @@ export default function HostalJosefaPage() {
                       “{t.text}”
                     </blockquote>
                     <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.orangeSoft }}>
-                      {t.author} · Texto de muestra
+                      {t.author} · Reseña de Google
                     </figcaption>
                   </figure>
                 </Reveal>
@@ -502,7 +499,16 @@ export default function HostalJosefaPage() {
                   <path d="M12 7 v5 l3.5 2" />
                 </svg>
                 <span>
-                  <strong className="font-bold" style={{ color: C.concrete }}>Llegada:</strong> la hora se coordina al reservar
+                  <strong className="font-bold" style={{ color: C.concrete }}>Abierto las 24 horas</strong>, todos los días
+                </span>
+              </li>
+              <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.muted }}>
+                <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="none" stroke={C.orange} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="6" width="18" height="13" rx="2" />
+                  <path d="M3 10.5 h18" />
+                </svg>
+                <span>
+                  <strong className="font-bold" style={{ color: C.concrete }}>Pago:</strong> tarjetas y convenio con empresas
                 </span>
               </li>
             </ul>
@@ -581,12 +587,19 @@ export default function HostalJosefaPage() {
             <KeyIcon className="w-5 h-5" color={C.orange} />
             {BIZ.name}
           </p>
+          <Image
+            src={`${IMG}/logo.webp`}
+            alt="Logo Residencial Josefa"
+            width={604}
+            height={68}
+            className="h-auto w-44 mb-3"
+          />
           <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(237,230,218,0.8)' }}>
             {BIZ.address} · {BIZ.city}, {BIZ.region}
           </address>
           <p className="text-xs leading-relaxed mb-6" style={{ color: 'rgba(237,230,218,0.8)' }}>
-            Sitio de ejemplo de Sitiazo: dirección, teléfono y reseñas son
-            reales; textos, tarifas y fotos son de muestra.
+            Sitio de ejemplo de Sitiazo: dirección, teléfono, fotos y
+            reseñas son reales; textos y tarifas son de muestra.
           </p>
           <div className="[&>div]:static [&>div]:max-w-full [&>div]:w-fit">
             <DemoBand name={BIZ.name} />

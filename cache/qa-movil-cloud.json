@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-28T07:42:37.881Z",
+  "fecha": "2026-09-28T12:22:55.531Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "one-health": {
-      "url": "http://localhost:4800/demos/one-health/",
+    "hostal-josefa": {
+      "url": "http://localhost:4800/demos/hostal-josefa/",
       "status": 200,
       "botones": [],
-      "footerPx": 298,
-      "footerPct": 35.3,
+      "footerPx": 330,
+      "footerPct": 39.1,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4124
+      "ms": 4151
     }
   }
 }

@@ -2,9 +2,9 @@
  * app/demos/hostal-josefa/content.ts
  *
  * Datos del mockup. REALES (ficha pública): nombre, dirección,
- * WhatsApp, Facebook y las 106 reseñas de Google Maps. Todo lo demás
- * (piezas, tarifas, servicios, testimonios) es contenido de muestra
- * para mostrar cómo se vería el sitio.
+ * WhatsApp, Facebook, las 106 reseñas de Google Maps y las fotos
+ * (bajadas de su ficha de Maps y su flyer publicado). Las tarifas
+ * son contenido de muestra para mostrar cómo se vería el sitio.
  */
 
 export const BIZ = {
