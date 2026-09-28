@@ -63,6 +63,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #2A1B10 0%, #7C2E3E 55%, #E8C893 140%)',
   },
   {
+    slug: 'sabor-marino-talcahuano',
+    name: 'Restaurante Sabor Marino',
+    rubro: 'Marisquería',
+    city: 'Talcahuano',
+    tagline: 'La picada de mariscos de Manuel Rodríguez: paila marina y pescado a lo pobre.',
+    gradient: 'linear-gradient(135deg, #08202E 0%, #0E2F42 55%, #E4572E 140%)',
+  },
+  {
     slug: 'brilla-el-sol-talca',
     name: 'Complejo Deportivo Brilla El Sol',
     rubro: 'Recinto deportivo',
