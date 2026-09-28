@@ -1470,6 +1470,14 @@ const BLITZ = [
     tagline: 'El sendero del predio: crema, verde bosque y sol, cartel de acceso y postales con fotos reales.',
     gradient: 'linear-gradient(135deg, #122619 0%, #1E3D2A 60%, #E9A52B 150%)',
   },
+  {
+    slug: 'desarmaduria-auto-repuestos-talca',
+    name: 'Desarmaduría Auto Repuestos Talca',
+    rubro: 'Desarmaduría',
+    city: 'Talca',
+    tagline: 'El letrero de la Dos Sur: crema pegada, naranja de cartel y fichas de repuesto.',
+    gradient: 'linear-gradient(135deg, #F7F0E0 0%, #DE4A1F 60%, #2B4190 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
