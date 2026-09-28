@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, WA_LINK_FRUTAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import { BIZ, FOTOS, WA_LINK, WA_LINK_STOCK, MAPS_URL, MAPS_EMBED } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -32,47 +32,15 @@ const C = {
 
 export const metadata: Metadata = demoMetadata({
   slug: 'vivero-dona-ines',
-  title: 'Vivero Doña Inés — Plantas y frutales en Molina',
-  description: 'Vivero en Itahue, sector Los Aromos, Molina. Plantas de temporada, maceteros, árboles frutales y sustratos. Consultas por WhatsApp.',
-  image: '/demos/vivero-dona-ines/hero.webp',
+  title: 'Vivero Doña Inés — El vivero de Itahue, Molina',
+  description: 'Vivero en Itahue, sector Los Aromos, Molina. Plantas en bolsa, almácigos y arreglos, a un costado de la caletera oriente. Consultas por WhatsApp.',
+  image: FOTOS.plantas.src,
 })
 
 const NAV_LINKS = [
-  { label: 'Temporada', href: '#plantas' },
-  { label: 'Frutales y sustratos', href: '#frutales' },
+  { label: 'El vivero', href: '#vivero' },
+  { label: 'Antes de ir', href: '#antes' },
   { label: 'Cómo llegar', href: '#llegar' },
-]
-
-const TEMPORADA = [
-  {
-    src: `${IMG}/flores.webp`,
-    tag: 'flores',
-    name: 'Flores de temporada',
-    desc: 'Las que están dando color ahora mismo: especies de muestra, el stock real cambia cada semana según la época.',
-  },
-  {
-    src: `${IMG}/macetas.webp`,
-    tag: 'para el patio',
-    name: 'Maceteros de barro y terracota',
-    desc: 'Macetas en varios tamaños para trasplantar, colgar o armar el rincón de la terraza.',
-  },
-  {
-    src: `${IMG}/invernadero.webp`,
-    tag: 'recién salidas',
-    name: 'Del invernadero',
-    desc: 'Plantas jóvenes recién endurecidas, listas para pasar a maceta o directo a la tierra.',
-  },
-]
-
-const HORAS = [
-  { days: 'Lunes a sábado', time: 'Mañana y tarde' },
-  { days: 'Domingo', time: 'Solo mañana' },
-]
-
-const TESTIMONIALS = [
-  'Siempre encuentro lo que busco y me explican cómo cuidarla. El vivero de toda la vida, con plantas sanas.',
-  'Compré un limonero y me enseñaron dónde plantarlo y cómo regarlo. Ya dio sus primeras frutas.',
-  'Buen precio, atención de campo y todo el consejo del mundo. Vale la pena la ida a Itahue.',
 ]
 
 function Leaf({ className = 'w-4 h-4', color = 'currentColor' }: { className?: string; color?: string }) {
@@ -104,7 +72,6 @@ export default function ViveroDonaInesPage() {
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
-      {/* el nav fijo es transparente arriba: este wrapper declara el fondo oscuro real detrás (hero) */}
       <div style={{ backgroundColor: C.leafDeep }}>
         <BlitzNav
           name={BIZ.short}
@@ -122,11 +89,11 @@ export default function ViveroDonaInesPage() {
         />
       </div>
 
-      {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.leafDeep }}>
+      {/* ── Hero a sangre: plantas reales en bolsa ── */}
+      <section id="inicio" className="relative min-h-[92svh] flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.leafDeep }}>
         <img
-          src={`${IMG}/hero.webp`}
-          alt="Hileras de plantas en maceta en el vivero, con los cerros del Maule al atardecer"
+          src={FOTOS.plantas.src}
+          alt={FOTOS.plantas.alt}
           loading="eager"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
@@ -135,10 +102,9 @@ export default function ViveroDonaInesPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(36,56,31,0.55) 0%, rgba(36,56,31,0.4) 38%, rgba(36,56,31,0.88) 100%)',
+              'linear-gradient(180deg, rgba(36,56,31,0.5) 0%, rgba(36,56,31,0.3) 38%, rgba(36,56,31,0.9) 100%)',
           }}
         />
-        {/* sello de reseñas */}
         <div className="absolute top-24 md:top-28 right-5 md:right-8">
           <Reveal>
             <a
@@ -148,114 +114,111 @@ export default function ViveroDonaInesPage() {
               className="flex items-center gap-2.5 text-xs md:text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg tap-44"
               style={{ backgroundColor: 'rgba(251,247,239,0.95)', color: C.leafDeep }}
             >
-              <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.terra} stroke={C.terra} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
-              </svg>
-              {BIZ.reviews} reseñas en Google
+              <Stars value={BIZ.rating} color={C.terra} className="w-[14px] h-[14px]" />
+              {BIZ.ratingLabel} en Google
             </a>
           </Reveal>
         </div>
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
           <Reveal>
-            <Eyebrow light>Vivero · Itahue · Molina</Eyebrow>
+            <Eyebrow light>Vivero familiar · Itahue · Molina</Eyebrow>
             <h1
-              className={`${display.className} leading-[1.04] tracking-[-0.005em] text-[clamp(2.6rem,9vw,5.6rem)] mb-6`}
+              className={`${display.className} leading-[1.04] tracking-[-0.005em] text-[clamp(2.5rem,9vw,5.4rem)] mb-6`}
               style={{ color: '#FBF7EF' }}
             >
-              Lo que plantas hoy,
+              El vivero de
               <br />
-              <em style={{ color: C.terraSoft }}>crece contigo</em>
+              <em style={{ color: C.terraSoft }}>Itahue</em>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(251,247,239,0.88)' }}>
-              Vivero familiar en el sector de Itahue, a un costado de la
-              caletera oriente: plantas de temporada, frutales, maceteros
-              y el consejo de quienes las crían.
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(251,247,239,0.9)' }}>
+              Plantas en bolsa, almácigos bajo malla y arreglos hechos
+              a mano, a un costado de la caletera oriente, camino a
+              Los Aromos.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href={WA_LINK}
+                href={WA_LINK_STOCK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
+                className={`${display.className} text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.terra, color: '#FBF7EF' }}
               >
-                Consultar por WhatsApp
+                Preguntar qué hay esta semana
               </a>
               <a
-                href="#plantas"
-                className={`${display.className} text-sm md:text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
+                href="#llegar"
+                className={`${display.className} text-sm px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: '#FBF7EF' }}
               >
-                Ver lo de temporada
+                Cómo llegar
               </a>
             </div>
           </Reveal>
         </div>
-        {/* barra de datos al pie del hero */}
         <div className="relative border-t" style={{ borderColor: 'rgba(251,247,239,0.22)', backgroundColor: 'rgba(36,56,31,0.85)', backdropFilter: 'blur(6px)' }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,247,239,0.9)' }}>
             <span>{BIZ.address}</span>
             <span className="flex items-center gap-2">
               <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.terraSoft }} aria-hidden="true" />
-              plantas de temporada
+              stock según temporada
             </span>
-            <span>Frutales · sustratos · maceteros</span>
-            <span className="hidden md:inline" style={{ color: C.terraSoft }}>sitio de ejemplo</span>
+            <span>Confirma el horario por WhatsApp</span>
           </div>
         </div>
       </section>
 
-      {/* ── Plantas y temporada ── */}
-      <section id="plantas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      {/* ── El vivero por dentro: solo fotos reales ── */}
+      <section id="vivero" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <Eyebrow>Plantas y temporada</Eyebrow>
-          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-16">
+          <Eyebrow>Así se ve el vivero</Eyebrow>
+          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
             <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.06]`} style={{ color: C.leafDeep }}>
-              Lo que está brotando
+              Criado acá mismo,
               <br />
-              <em style={{ color: C.leaf }}>esta temporada</em>
+              <em style={{ color: C.leaf }}>entre Itahue y Los Aromos</em>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
-              Esto es una muestra: al publicar van las fotos y las
-              especies reales que el vivero tiene disponibles cada
-              semana.
+              Estas son las fotos reales que el vivero publica en su
+              ficha de Google: las plantas se crían al aire libre y
+              bajo malla, a la orilla del camino.
             </p>
           </div>
         </Reveal>
-        <div className="space-y-8 md:space-y-12">
-          {TEMPORADA.map((p, i) => (
-            <Reveal key={p.name} delay={i * 80}>
-              <article
-                className={`group grid md:grid-cols-2 gap-5 md:gap-10 items-center`}
-              >
-                <div className={`relative rounded-[2rem] overflow-hidden ${i % 2 === 1 ? 'md:order-2' : ''}`}>
-                  <img
-                    src={p.src}
-                    alt={p.name}
-                    className="w-full h-full object-cover aspect-[3/2] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                  />
-                  <span
-                    className={`${display.className} absolute top-4 left-4 text-xs italic px-3.5 py-1.5 rounded-full shadow-sm`}
-                    style={{ backgroundColor: 'rgba(251,247,239,0.95)', color: C.leaf }}
-                  >
-                    {p.tag}
-                  </span>
-                </div>
-                <div className={i % 2 === 1 ? 'md:order-1' : ''}>
-                  <h3 className={`${display.className} text-3xl md:text-4xl mb-3`} style={{ color: C.leafDeep }}>
-                    {p.name}
-                  </h3>
-                  <p className="text-sm md:text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
-                    {p.desc}
-                  </p>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+        <div className="grid md:grid-cols-2 gap-5 md:gap-7">
+          <Reveal>
+            <figure className="rounded-[2rem] overflow-hidden md:row-span-2 h-full">
+              <img
+                src={FOTOS.plantas.src}
+                alt={FOTOS.plantas.alt}
+                loading="lazy"
+                className="w-full h-full object-cover aspect-[4/5] md:aspect-auto"
+              />
+            </figure>
+          </Reveal>
+          <Reveal delay={90}>
+            <figure className="rounded-[2rem] overflow-hidden">
+              <img
+                src={FOTOS.almacigos.src}
+                alt={FOTOS.almacigos.alt}
+                loading="lazy"
+                className="w-full object-cover aspect-[4/3]"
+              />
+            </figure>
+          </Reveal>
+          <Reveal delay={140}>
+            <figure className="rounded-[2rem] overflow-hidden">
+              <img
+                src={FOTOS.arreglos.src}
+                alt={FOTOS.arreglos.alt}
+                loading="lazy"
+                className="w-full object-cover aspect-[4/3]"
+              />
+            </figure>
+          </Reveal>
         </div>
         <Reveal delay={160}>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 md:mt-16">
-            {['El stock cambia cada semana', 'Consulta disponibilidad por WhatsApp', 'Consejo incluido con cada planta'].map((chip) => (
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 md:mt-14">
+            {['Plantas en bolsa listas para plantar', 'Almácigos bajo malla sombra', 'Arreglos de suculentas hechos a mano'].map((chip) => (
               <span key={chip} className="flex items-center gap-2.5 text-sm font-semibold" style={{ color: C.leaf }}>
                 <Leaf className="w-4 h-4" color={C.terra} />
                 {chip}
@@ -265,130 +228,108 @@ export default function ViveroDonaInesPage() {
         </Reveal>
       </section>
 
-      {/* ── Frutales y sustratos ── */}
-      <section id="frutales" className="scroll-mt-20" style={{ backgroundColor: C.leafDeep }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
+      {/* ── Antes de ir ── */}
+      <section id="antes" className="scroll-mt-20" style={{ backgroundColor: C.leafDeep }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
-            <div className="rounded-[2rem] overflow-hidden rotate-[1.2deg]" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
-              <img
-                src={`${IMG}/jardin.webp`}
-                alt="Frutal joven recién plantado en un jardín con regadera y maceteros de terracota"
-                className="w-full h-full object-cover aspect-[4/3]"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={140}>
-            <Eyebrow light>Para el patio y la chacra</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.06] mb-6`} style={{ color: '#FBF7EF' }}>
-              Frutales, sustratos
+            <Eyebrow light>Antes de ir</Eyebrow>
+            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.06] mb-4`} style={{ color: '#FBF7EF' }}>
+              Escríbenos primero,
               <br />
-              <em style={{ color: C.terraSoft }}>y buena tierra</em>
+              <em style={{ color: C.terraSoft }}>sales con la planta segura</em>
             </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: 'rgba(251,247,239,0.85)' }}>
-              Texto de muestra: aquí va la oferta real del vivero —
-              frutales enraizados, plantas de interior y las bolsas de
-              sustrato y tierra preparada que se venden en el local.
+            <p className="text-sm md:text-base leading-relaxed max-w-lg mb-10 md:mb-14" style={{ color: 'rgba(251,247,239,0.85)' }}>
+              El vivero atiende según la temporada y el trabajo de campo.
+              Por WhatsApp confirmas horario, stock y precio antes de
+              manejar hasta Itahue.
             </p>
-            <ul className="space-y-3 mb-9">
-              {['Árboles frutales para patio y parcela', 'Sustratos y tierra de hoja por saco', 'Te enseñamos cómo plantarlo y cuidarlo'].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm md:text-base" style={{ color: 'rgba(251,247,239,0.88)' }}>
-                  <Leaf className="w-4 h-4 shrink-0" color={C.terraSoft} />
-                  {item}
+          </Reveal>
+          <ul className="grid sm:grid-cols-3 gap-5 md:gap-6">
+            {[
+              { t: 'Horario', d: 'Cambia con la temporada: confírmalo por WhatsApp el mismo día que piensas ir.' },
+              { t: 'Stock', d: 'Pregunta qué plantas hay esta semana; el vivero trabaja con lo que está en temporada.' },
+              { t: 'Retiro', d: 'El local queda a un costado de la caletera oriente de Itahue, sector Los Aromos.' },
+            ].map((s, i) => (
+              <Reveal key={s.t} delay={i * 90}>
+                <li className="rounded-3xl p-6 h-full border" style={{ backgroundColor: 'rgba(251,247,239,0.06)', borderColor: 'rgba(251,247,239,0.2)' }}>
+                  <Leaf className="w-5 h-5 mb-4" color={C.terraSoft} />
+                  <h3 className={`${display.className} text-xl mb-2`} style={{ color: '#FBF7EF' }}>{s.t}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.82)' }}>{s.d}</p>
                 </li>
-              ))}
-            </ul>
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal delay={200}>
             <a
-              href={WA_LINK_FRUTAL}
+              href={WA_LINK_STOCK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
+              className={`${display.className} inline-block mt-10 text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.terra, color: '#FBF7EF' }}
             >
-              Consultar por un frutal
+              Consultar por WhatsApp
             </a>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Opiniones ── */}
-      <section className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <div className="grid md:grid-cols-[1fr_1.6fr] gap-8 md:gap-14 items-start">
-          <Reveal>
-            <Eyebrow>Opiniones</Eyebrow>
-            <h2 className={`${display.className} text-3xl md:text-4xl leading-tight mb-4`} style={{ color: C.leafDeep }}>
-              Lo que dicen los vecinos
-            </h2>
-            <p className="text-sm leading-relaxed mb-5" style={{ color: C.muted }}>
-              Vivero Doña Inés acumula {BIZ.reviews} reseñas en su ficha
-              de Google. Estos textos son de muestra: al publicar van
-              las reseñas reales.
+      {/* ── Opiniones reales (solo nota + link, sin citas inventadas) ── */}
+      <section className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
+        <Reveal>
+          <div
+            className="rounded-[2rem] p-7 md:p-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-10 border"
+            style={{ backgroundColor: C.card, borderColor: C.line }}
+          >
+            <div className="flex items-center gap-4">
+              <Stars value={BIZ.rating} color={C.terra} className="w-5 h-5" />
+              <p className={`${display.className} text-4xl md:text-5xl`} style={{ color: C.leafDeep }}>
+                {BIZ.ratingLabel}
+              </p>
+            </div>
+            <p className="text-sm md:text-base leading-relaxed flex-1" style={{ color: C.muted }}>
+              Nota promedio en la ficha de Google, con {BIZ.reviewsLabel}
+              de vecinos y visitantes del sector.
             </p>
             <a
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
-              style={{ color: C.terra, textDecorationColor: 'rgba(193,102,63,0.35)' }}
+              className="shrink-0 text-sm font-semibold px-6 py-3 rounded-full border-2 transition-colors tap-44"
+              style={{ borderColor: 'rgba(62,107,58,0.4)', color: C.leafDeep }}
             >
               Ver la ficha en Google →
             </a>
-          </Reveal>
-          <div className="space-y-5">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={i} delay={120 + i * 110}>
-                <figure
-                  className="rounded-3xl p-6 md:p-7 border"
-                  style={{ backgroundColor: C.card, borderColor: C.line }}
-                >
-                  <blockquote className={`${display.className} text-base md:text-lg leading-relaxed mb-4`} style={{ color: C.ink }}>
-                    “{t}”
-                  </blockquote>
-                  <figcaption className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.terra }}>
-                    Reseña de ejemplo
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      {/* ── Cómo llegar + horarios ── */}
+      {/* ── Cómo llegar ── */}
       <section id="llegar" className="scroll-mt-20" style={{ backgroundColor: C.soft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
             <Eyebrow>Cómo llegar</Eyebrow>
             <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.06] mb-6`} style={{ color: C.leafDeep }}>
-              En Itahue, camino
+              Dobla en Itahue
               <br />
-              <em style={{ color: C.terra }}>a Los Aromos</em>
+              <em style={{ color: C.terra }}>y sigue la caletera</em>
             </h2>
+            <figure className="rounded-3xl overflow-hidden mb-6">
+              <img
+                src={FOTOS.llegada.src}
+                alt={FOTOS.llegada.alt}
+                loading="lazy"
+                className="w-full object-cover aspect-[16/10]"
+              />
+            </figure>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
               {BIZ.address}
               <br />
               {BIZ.city}, {BIZ.region}, Chile
             </address>
-            <p className="text-sm md:text-base leading-relaxed mb-6 max-w-sm" style={{ color: C.muted }}>
+            <p className="text-sm md:text-base leading-relaxed mb-7 max-w-sm" style={{ color: C.muted }}>
               El vivero queda a un costado de la caletera oriente de
               Itahue, en el sector Los Aromos. En Google Maps aparece
               como «{BIZ.name}».
-            </p>
-            <ul className="space-y-2.5 mb-6">
-              {HORAS.map((h) => (
-                <li key={h.days} className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.muted }}>
-                  <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="none" stroke={C.leaf} strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7 v5 l3.5 2" />
-                  </svg>
-                  <span>
-                    <strong className="font-semibold" style={{ color: C.ink }}>{h.days}:</strong> {h.time}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: C.muted }}>
-              Horario de muestra: al publicar van los horarios reales
-              del vivero.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -428,9 +369,9 @@ export default function ViveroDonaInesPage() {
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.terra }}>
         <div
-          className="absolute inset-0 opacity-[0.14]"
+          className="absolute inset-0 opacity-[0.16]"
           style={{
-            backgroundImage: `url(${IMG}/hero.webp)`,
+            backgroundImage: `url(${FOTOS.plantas.src})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -444,14 +385,14 @@ export default function ViveroDonaInesPage() {
               <em style={{ color: '#FBE4CF' }}>que le falta a tu casa</em>
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: '#FBF7EF' }}>
-              Escríbenos por WhatsApp y te contamos qué hay en stock,
-              cuánto vale y cómo llegar. Respondemos el mismo día.
+              Escríbenos por WhatsApp, te contamos qué hay en stock
+              esta semana y te confirmamos el horario del día.
             </p>
             <a
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95 tap-44`}
+              className={`${display.className} inline-block text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: '#FBF7EF', color: C.terra }}
             >
               Escribir por WhatsApp
@@ -469,7 +410,7 @@ export default function ViveroDonaInesPage() {
           </p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.85)' }}>
             {BIZ.address} · {BIZ.city} ·{' '}
-            <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">WhatsApp {BIZ.phoneDisplay}</a>
           </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
@@ -478,7 +419,7 @@ export default function ViveroDonaInesPage() {
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.terraSoft }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name}: productos, horarios y fotos son de muestra.{' '}
+            para {BIZ.name}, así se vería tu sitio.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.terraSoft }}>
               ¿Lo hacemos realidad?
             </a>
