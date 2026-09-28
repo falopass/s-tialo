@@ -4,7 +4,7 @@ import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, WA_LINK_PRESUPUESTO, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import { BIZ, WA_LINK, WA_LINK_PRESUPUESTO, INSTAGRAM_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -41,7 +41,7 @@ const C = {
 export const metadata: Metadata = demoMetadata({
   slug: 'taller-mecanico-servimac',
   title: 'Taller mecánico Servimac — Mecánica automotriz en Molina',
-  description: 'Taller de reparación de automóviles en Luis Cruz Martínez 3581, Molina. Mantención preventiva, frenos, suspensión y motor, con presupuesto claro.',
+  description: 'Taller de reparación de automóviles en Luis Cruz Martínez 3581, Molina. Frenos y rectificados, mantención, sala de ventas de repuestos y servicio de grúa.',
   image: '/demos/taller-mecanico-servimac/hero.webp',
 })
 
@@ -57,8 +57,8 @@ const OTS = [
     num: 'OT-01',
     status: 'Recepcionado',
     statusColor: C.fleet,
-    src: `${IMG}/hero.webp`,
-    alt: 'Interior del taller: un auto elevado sobre la rampa de trabajo',
+    src: `${IMG}/rampa.webp`,
+    alt: 'Camioneta elevada en la rampa del taller Servimac, de noche',
     name: 'Mantención preventiva',
     desc: 'Cambio de aceite y filtros, correas, frenos y puntos de seguridad. La revisión completa antes de que algo falle en carretera.',
     datum: 'Recomendada cada 10.000 km',
@@ -67,60 +67,61 @@ const OTS = [
     num: 'OT-02',
     status: 'En diagnóstico',
     statusColor: C.signalDeep,
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Auto sobre torres de apoyo con la rueda fuera: disco de freno y suspensión a la vista',
-    name: 'Frenos y suspensión',
-    desc: 'Pastillas, discos, amortiguadores, términos y bujes. Si el auto tiembla o suena al frenar, acá se revisa.',
-    datum: 'Revisión al momento',
+    src: `${IMG}/torno.webp`,
+    alt: 'Mecánico de Servimac rectificando un disco de freno en el torno del taller',
+    name: 'Frenos y rectificados',
+    desc: 'Rectificado de discos y tambores de freno, cambio de pastillas y patines, embrague. Si el auto tiembla o suena al frenar, acá se revisa.',
+    datum: 'Rectificado en el mismo taller',
   },
   {
     num: 'OT-03',
     status: 'En reparación',
     statusColor: C.red,
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Culata de motor sobre la mesa de trabajo con herramientas y un auto al fondo',
-    name: 'Motor y mecánica general',
-    desc: 'Distribución, culata, embrague y electrónica. Se abre solo lo necesario y con presupuesto aprobado por ti.',
-    datum: 'Presupuesto antes de abrir',
+    src: `${IMG}/repuesto.webp`,
+    alt: 'Radiador nuevo en su caja, repuesto de la sala de ventas de Servimac',
+    name: 'Repuestos y sala de ventas',
+    desc: 'La sala de ventas al costado del taller tiene repuestos nuevos y alternativos: radiadores, baterías, filtros y más.',
+    datum: 'Repuestos en tienda',
   },
   {
     num: 'OT-04',
     status: 'Listo para entrega',
     statusColor: C.signalDeep,
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Recepción del taller: mostrador con tablero de llaves y repuestos ordenados',
-    name: 'Recepción directa y repuestos',
-    desc: 'Te atiende el mismo mecánico que va a ver tu auto. Repuestos nuevos y alternativos según tu presupuesto.',
-    datum: 'Te avisamos por WhatsApp',
+    src: `${IMG}/mostrador.webp`,
+    alt: 'Mostrador de la sala de ventas de Servimac en Molina',
+    name: 'Recepción directa y grúa',
+    desc: 'Te atiende el mismo mecánico que va a ver tu auto. Y si quedas tirado en la ruta, la grúa propia te va a buscar.',
+    datum: 'Servicio de grúa propio',
   },
 ]
 
 const TESTIMONIALS = [
   {
-    text: 'Dejé el auto en la mañana y a las seis ya estaba listo: boleta, y las piezas viejas en una bolsa.',
-    author: 'Cliente de Molina',
+    text: 'El mejor taller mecánico en Molina a mi parecer: los trabajadores hablan con la verdad y son muy rápidos. Además cuentan con grúa que te puede ir a buscar si quedas tirado donde sea.',
+    author: 'Daniel Albornoz',
   },
   {
-    text: 'Me mandaron fotos por WhatsApp de lo que encontraron antes de cambiar nada. Cero susto con la cuenta.',
-    author: 'Cliente de Molina',
+    text: 'Excelente servicio, nos fueron a buscar en grúa y la reparación del vehículo fue súper rápida. Cabe destacar la expertis de los mecánicos en vehículos petroleros.',
+    author: 'Mauricio Marilaf',
   },
   {
-    text: 'Precio cerrado y hora de entrega cumplida. Volví con el auto de mi señora.',
-    author: 'Cliente de Molina',
+    text: 'Excelente taller, muy responsables, buena atención.',
+    author: 'Hector Carrasco',
   },
 ]
 
 const PRECIOS = [
-  { name: 'Escaneo computarizado y diagnóstico', price: 'desde $15.000' },
-  { name: 'Cambio de aceite + filtro', price: 'desde $32.000' },
-  { name: 'Pastillas de freno delanteras (mano de obra)', price: 'desde $20.000' },
-  { name: 'Mantención completa 10.000 km', price: 'desde $79.000' },
-  { name: 'Alineación y balanceo', price: 'desde $30.000' },
+  { name: 'Rectificado de discos de freno', price: 'A consultar' },
+  { name: 'Rectificado de tambores', price: 'A consultar' },
+  { name: 'Cambio de pastillas de freno', price: 'A consultar' },
+  { name: 'Mantención de motor (aceite y filtros)', price: 'A consultar' },
+  { name: 'Servicio de grúa', price: 'A consultar' },
 ]
 
 const HORAS = [
-  { days: 'Lunes a viernes', time: '9:00–18:30' },
-  { days: 'Sábado', time: '9:00–14:00' },
+  { days: 'Lunes a jueves', time: '8:00–13:00 · 14:00–18:00' },
+  { days: 'Viernes', time: '8:00–14:00' },
+  { days: 'Sábado y domingo', time: 'Cerrado' },
 ]
 
 function Wrench({ className = 'w-4 h-4', color = 'currentColor' }: { className?: string; color?: string }) {
@@ -168,6 +169,7 @@ export default function TallerServimacPage() {
       >
         <BlitzNav
           name={BIZ.short}
+          logoSrc={`${IMG}/logo.webp`}
           links={NAV_LINKS}
           waLink={WA_LINK}
           fontClass={display.className}
@@ -186,7 +188,7 @@ export default function TallerServimacPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.fleetDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Interior del Taller Servimac: auto elevado en la rampa del box de trabajo"
+          alt="Fachada nocturna del taller Servimac en Luis Cruz Martínez, Molina: letrero luminoso y camioneta en la rampa"
           fill
           priority
           sizes="100vw"
@@ -212,7 +214,7 @@ export default function TallerServimacPage() {
               <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.red} stroke={C.red} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
                 <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
               </svg>
-              {BIZ.reviews} reseñas en Google
+              {BIZ.rating} ★ · {BIZ.reviews} reseñas en Google
             </a>
           </Reveal>
         </div>
@@ -279,8 +281,8 @@ export default function TallerServimacPage() {
               </h2>
               <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
                 Desliza y cada orden se apila sobre la anterior, como en
-                la mesa del taller. Los servicios son de muestra: al
-                publicar va la oferta real de Servimac.
+                la mesa del taller. Frenos, mantenciones, repuestos y
+                grúa: lo que Servimac publica en sus redes.
               </p>
             </div>
           </Reveal>
@@ -355,8 +357,8 @@ export default function TallerServimacPage() {
           <Reveal>
             <div className="relative border-2 overflow-hidden aspect-[4/3]" style={{ borderColor: C.fleet, boxShadow: '8px 8px 0 ' + C.red }}>
               <Image
-                src={`${IMG}/ambiente.webp`}
-                alt="Fachada del taller a nivel de calle en Molina, con los cerros de fondo"
+                src={`${IMG}/sala.webp`}
+                alt="Sala de ventas de Servimac: pasillo con vitrinas, baterías y repuestos"
                 fill
                 sizes="(min-width: 1024px) 46vw, calc(100vw - 40px)"
                 className="object-cover"
@@ -365,11 +367,11 @@ export default function TallerServimacPage() {
             <dl className={`${mono.className} grid grid-cols-3 gap-4 mt-8`}>
               <div>
                 <dt className="text-[10px] uppercase tracking-[0.15em] mb-1" style={{ color: C.muted }}>Google</dt>
-                <dd className={`${display.className} text-2xl md:text-3xl`} style={{ color: C.red }}>{BIZ.reviews} reseñas</dd>
+                <dd className={`${display.className} text-2xl md:text-3xl`} style={{ color: C.red }}>{BIZ.rating} ★</dd>
               </div>
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.15em] mb-1" style={{ color: C.muted }}>Facebook</dt>
-                <dd className={`${display.className} text-2xl md:text-3xl`} style={{ color: C.red }}>{BIZ.fbFollowers}</dd>
+                <dt className="text-[10px] uppercase tracking-[0.15em] mb-1" style={{ color: C.muted }}>Instagram</dt>
+                <dd className={`${display.className} text-2xl md:text-3xl`} style={{ color: C.red }}>{BIZ.igFollowers}</dd>
               </div>
               <div>
                 <dt className="text-[10px] uppercase tracking-[0.15em] mb-1" style={{ color: C.muted }}>Atención</dt>
@@ -395,7 +397,8 @@ export default function TallerServimacPage() {
                 'Atención directa con el mecánico, no con un recepcionista',
                 'Presupuesto cerrado antes de empezar el trabajo',
                 'Aviso por WhatsApp de cómo va tu auto',
-                `${BIZ.reviews} reseñas en Google y ${BIZ.fbFollowers} seguidores en Facebook`,
+                `${BIZ.rating} de 5 en Google con ${BIZ.reviews} reseñas y grúa propia`,
+                `Sala de ventas con repuestos al costado del taller`,
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.ink }}>
                   <Check className="w-4 h-4 shrink-0" color={C.signal} />
@@ -426,9 +429,9 @@ export default function TallerServimacPage() {
                 los clientes
               </h3>
               <p className="text-sm leading-relaxed mb-5" style={{ color: C.muted }}>
-                {BIZ.name} acumula {BIZ.reviews} reseñas en su ficha de
-                Google. Estos textos son de muestra: al publicar van las
-                reseñas reales.
+                {BIZ.name} tiene {BIZ.rating} sobre 5 en Google, en
+                {BIZ.reviews} reseñas. Estas son citas textuales de la
+                ficha pública.
               </p>
               <a
                 href={MAPS_URL}
@@ -452,7 +455,7 @@ export default function TallerServimacPage() {
                     </blockquote>
                     <figcaption className="flex items-center justify-between gap-3">
                       <span className={`${mono.className} text-[11px] uppercase tracking-[0.16em] font-medium`} style={{ color: C.red }}>
-                        {t.author} · Reseña de ejemplo
+                        {t.author} · Reseña de Google
                       </span>
                       <Wrench className="w-4 h-4 shrink-0" color={C.fleet} />
                     </figcaption>
@@ -476,9 +479,9 @@ export default function TallerServimacPage() {
                 <span style={{ color: C.signalHi }}>antes de abrir el capó</span>
               </h2>
               <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: 'rgba(244,244,242,0.85)' }}>
-                Todos los valores son de muestra para mostrar el
-                formato. Las tarifas reales las confirma el taller por
-                WhatsApp.
+                Los servicios son los que publica el taller en sus
+                redes. Los valores se cotizan por WhatsApp según el
+                vehículo y el repuesto.
               </p>
             </div>
           </Reveal>
@@ -503,7 +506,7 @@ export default function TallerServimacPage() {
           <Reveal delay={200}>
             <div className="flex flex-wrap items-center justify-between gap-4 mt-10">
               <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.16em]`} style={{ color: 'rgba(244,244,242,0.8)' }}>
-                Valores de muestra · sin compromiso
+                Servicios reales · valores a cotizar por WhatsApp
               </p>
               <a
                 href={WA_LINK_PRESUPUESTO}
@@ -548,8 +551,8 @@ export default function TallerServimacPage() {
               ))}
             </ul>
             <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: C.muted }}>
-              Horario referencial: al publicar van los horarios reales
-              del taller.
+              Horario publicado por Servimac en su Instagram
+              @{BIZ.instagram}.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -641,6 +644,9 @@ export default function TallerServimacPage() {
             <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white focus-visible:text-white transition-colors tap-44">
               Facebook
             </a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white focus-visible:text-white transition-colors tap-44">
+              Instagram
+            </a>
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(244,244,242,0.14)' }}>
@@ -649,9 +655,9 @@ export default function TallerServimacPage() {
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.signalHi }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name}. Servicios, precios, horarios y reseñas son de
-            muestra; nombre, dirección, teléfono y redes son datos públicos
-            del taller.{' '}
+            para {BIZ.name}. Los precios son referenciales; nombre,
+            dirección, teléfono, horarios, fotos y reseñas son datos
+            públicos del taller.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.signalHi }}>
               ¿Lo hacemos realidad?
             </a>
