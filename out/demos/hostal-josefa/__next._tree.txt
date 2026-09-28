@@ -1,32 +1,5 @@
-<<<<<<< HEAD
-:HL["/_next/static/chunks/5d9b16684c1645a5.css","style"]
-:HL["/_next/static/chunks/7933cfc59ead43a1.css","style"]
-:HL["/_next/static/media/italic_200_1000-s.p.e6d1ab79.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/normal_100_900-s.p.c757f81b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/normal_200_1000-s.p.91f8cbf1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/normal_300_700-s.p.4059a8c8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/normal_300_700-s.p.43410083.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/normal_400-s.p.17abc3a0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/normal_400-s.p.5be3ad9c.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/chunks/d46206e8ba8a44a2.css","style"]
-||||||| parent of f9147d7b (feat(demos): mockups para Aluminios Alumrod (Talca) y Constructora Valdes (San Clemente))
-:HL["/_next/static/chunks/0rfj7q6j6~in7.css","style"]
-:HL["/_next/static/chunks/0yql~8~yzrgj_.css","style"]
-:HL["/_next/static/media/01e4147cff8141ee-s.p.10ked.7w885.g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/0c89a48fa5027cee-s.p.0rd3rjvnnhw7n.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/3e185f0c9c3d9cda-s.p.0w3s_lwrmz1l8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/4bb3c571e95f6f90-s.p.0eibskl.182vt.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/5e4d537aaa9e154b.p.0g9-.3zp53cup.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/75affa71d1e2f6a7-s.p.0e5c5_wyqqx75.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/f287e533ed04f2e6-s.p.0t20vcyusyjhl.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/chunks/0ucff-oepzsq8.css","style"]
-:HL["/_next/static/chunks/08oqsflz78_-t.css","style"]
-=======
 :HL["/_next/static/chunks/71ead0d37bf96467.css","style"]
-:HL["/_next/static/chunks/b791929055130295.css","style"]
+:HL["/_next/static/chunks/aa2af4752ddbba05.css","style"]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.5cdc884e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.c757f81b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -34,12 +7,5 @@
 :HL["/_next/static/media/normal_300_700-s.p.43410083.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_400-s.p.17abc3a0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/chunks/d46206e8ba8a44a2.css","style"]
->>>>>>> f9147d7b (feat(demos): mockups para Aluminios Alumrod (Talca) y Constructora Valdes (San Clemente))
 :HL["/images/logo/logo-white-letras.png","image"]
-<<<<<<< HEAD
-0:{"buildId":"wyyhV0jmfHVjX9rQ-3ZHl","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"hostal-josefa","paramType":null,"paramKey":"hostal-josefa","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
-||||||| parent of f9147d7b (feat(demos): mockups para Aluminios Alumrod (Talca) y Constructora Valdes (San Clemente))
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"demos","param":null,"prefetchHints":0,"slots":{"children":{"name":"hostal-josefa","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"vP01XJd0Qf9tznC7FfQYn"}
-=======
-0:{"buildId":"75gclUJRt41sxz2erGgHs","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"hostal-josefa","paramType":null,"paramKey":"hostal-josefa","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
->>>>>>> f9147d7b (feat(demos): mockups para Aluminios Alumrod (Talca) y Constructora Valdes (San Clemente))
+0:{"buildId":"LJGJjfUiL2csVvfmoBIE_","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"hostal-josefa","paramType":null,"paramKey":"hostal-josefa","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
