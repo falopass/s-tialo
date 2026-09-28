@@ -12,10 +12,11 @@
  *   Techumbres · Ampliaciones» — es la base de la lista de servicios.
  * - Reseñas: 5.0 estrellas con 1 reseña en Google (sin texto
  *   público) — se muestra el rating como dato, no se inventan citas.
- * - Fotos de public/demos/constructora-gilaco: obras reales de la
- *   empresa (grúa en montaje, estructuras metálicas, techumbre,
- *   steel frame, galpón, nivelación con láser), tomadas de su ficha
- *   de Google Maps / Instagram confirmado.
+ * - Fotos y logo de public/demos/constructora-gilaco: obras reales de
+ *   la empresa (grúa en montaje, estructuras metálicas, techumbre,
+ *   steel frame, galpón, quincho terminado, interior de tabiques,
+ *   nivelación con láser) y el logo «DG Constructora Gilaco», todos
+ *   tomados de su ficha de Google Maps / Instagram confirmado.
  */
 
 export const BIZ = {

@@ -4,7 +4,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, Stars, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_EMERGENCIA, MAPS_URL, MAPS_EMBED, IMG } from './content'
-import { TrussIcon, TrussField } from './scenes'
+import { TrussIcon } from './scenes'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -62,8 +62,8 @@ const SERVICIOS = [
   {
     name: 'Quinchos',
     desc: 'Quinchos y estructuras abiertas para patio, con montaje firme y buen remate.',
-    src: `${IMG}/estructura.webp`,
-    alt: 'Estructura metálica de quincho terminada por Constructora Gilaco',
+    src: `${IMG}/quincho.webp`,
+    alt: 'Quincho metálico terminado por Constructora Gilaco, con un auto estacionado',
   },
   {
     name: 'Ampliaciones',
@@ -81,11 +81,11 @@ const SERVICIOS = [
 
 const TRABAJOS = [
   { src: `${IMG}/hero.webp`, alt: 'Grúa montando paneles al atardecer en obra de Constructora Gilaco', label: 'Montaje de estructura' },
-  { src: `${IMG}/techumbre.webp`, alt: 'Cerchas metálicas de techumbre de Constructora Gilaco', label: 'Techumbre metálica' },
+  { src: `${IMG}/montaje.webp`, alt: 'Montaje de techumbre metálica en obra de Constructora Gilaco', label: 'Techumbre en montaje' },
   { src: `${IMG}/galpon.webp`, alt: 'Galpón terminado por Constructora Gilaco', label: 'Galpón' },
   { src: `${IMG}/steelframe.webp`, alt: 'Entramado steel frame de Constructora Gilaco', label: 'Steel frame' },
+  { src: `${IMG}/interior.webp`, alt: 'Tabiques de yeso-cartón en obra interior de Constructora Gilaco', label: 'Interior en obra' },
   { src: `${IMG}/estructura.webp`, alt: 'Estructura metálica cubierta de Constructora Gilaco', label: 'Estructura cubierta' },
-  { src: `${IMG}/nivelacion.webp`, alt: 'Nivelación con láser en obra de Constructora Gilaco', label: 'Nivelación' },
 ]
 
 const PORQUE = [
@@ -123,6 +123,7 @@ export default function ConstructoraGilacoPage() {
     >
       <BlitzNav
         name={BIZ.name}
+        logoSrc={`${IMG}/logo-icon.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
@@ -298,9 +299,13 @@ export default function ConstructoraGilacoPage() {
 
       {/* ── Galería de trabajos reales ── */}
       <section id="trabajos" className="scroll-mt-20 relative overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <div className="absolute inset-0 opacity-90">
-          <TrussField className="w-full h-full" />
-        </div>
+        <img
+          src={`${IMG}/montaje.webp`}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          loading="lazy"
+        />
         <div
           className="absolute inset-0"
           style={{ background: 'linear-gradient(180deg, rgba(20,20,22,0.72) 0%, rgba(20,20,22,0.88) 100%)' }}
@@ -449,9 +454,13 @@ export default function ConstructoraGilacoPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <div className="absolute inset-0 opacity-[0.85]">
-          <TrussField className="w-full h-full" />
-        </div>
+        <img
+          src={`${IMG}/quincho.webp`}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          loading="lazy"
+        />
         <div
           className="absolute inset-0"
           style={{ background: 'linear-gradient(180deg, rgba(20,20,22,0.55) 0%, rgba(20,20,22,0.85) 100%)' }}
@@ -485,7 +494,11 @@ export default function ConstructoraGilacoPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-5">
           <div>
             <p className={`${display.className} font-bold text-2xl mb-2 flex items-center gap-3`}>
-              <TrussIcon className="w-5 h-5" color={C.red} />
+              <img
+                src={`${IMG}/logo.webp`}
+                alt={`Logo de ${BIZ.name}`}
+                className="h-9 w-auto rounded-sm bg-white px-1.5 py-1"
+              />
               {BIZ.name}
             </p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(242,240,236,0.82)' }}>
