@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:3010",
-  "fecha": "2026-09-28T05:14:46.707Z",
+  "fecha": "2026-09-28T05:22:54.553Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,33 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "la-pica-de-los-tatas": {
-      "url": "http://localhost:3010/demos/la-pica-de-los-tatas/",
+    "ferreteria-la-esperanza": {
+      "url": "http://localhost:3010/demos/ferreteria-la-esperanza/",
       "status": 200,
       "botones": [],
-      "footerPx": 238,
-      "footerPct": 28.2,
+      "footerPx": 126,
+      "footerPct": 14.9,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4387
-    },
-    "ferreteria-avila": {
-      "url": "http://localhost:3010/demos/ferreteria-avila/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 39,
-      "footerPct": 4.6,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4327
+      "ms": 4445
     }
   }
 }

@@ -1086,6 +1086,14 @@ const BLITZ = [
     tagline: 'Letrero pintado a mano: muro blanco, tinta negra y rojo señal, sombra de rótulo y cinta de pasillos.',
     gradient: 'linear-gradient(135deg, #1B1712 0%, #C8102E 60%, #FAF6EC 140%)',
   },
+  {
+    slug: 'ferreteria-la-esperanza',
+    name: 'Ferretería La Esperanza',
+    rubro: 'Ferretería y almacén',
+    city: 'San Fernando',
+    tagline: 'Almacén que abre todos los días: crema, azul puerta y naranja CajaVecina, semana de 7 días y sello giratorio.',
+    gradient: 'linear-gradient(135deg, #16386F 0%, #20509E 55%, #E8710A 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
