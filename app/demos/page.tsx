@@ -1318,6 +1318,14 @@ const BLITZ = [
     tagline: 'El garage de los completos en Yerbas Buenas: bandera a cuadros, rojo racing y 4,7 en Google.',
     gradient: 'linear-gradient(135deg, #17130F 0%, #7A1418 60%, #F04B40 140%)',
   },
+  {
+    slug: 'clima-ltda',
+    name: 'Clima Ltda.',
+    rubro: 'Tienda de aire acondicionado',
+    city: 'Talca',
+    tagline: 'Ficha técnica de distribuidor Midea y Trane: navy, reglas de plano y tres sucursales.',
+    gradient: 'linear-gradient(135deg, #0B2D4E 0%, #14639C 60%, #EFF4F8 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
