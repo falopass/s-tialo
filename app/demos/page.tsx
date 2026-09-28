@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'kai-sushi-talca',
+    name: 'Kai Sushi',
+    rubro: 'Bar & delivery nikkei',
+    city: 'Talca',
+    tagline: 'Izakaya nocturno: negro tinta, teal de marca y tarjetas tipo promo.',
+    gradient: 'linear-gradient(135deg, #0B0D0C 0%, #123B35 55%, #2BB5A0 140%)',
+  },
+  {
     slug: 'sala-cuna-jardin-infantil-gotitas-de-amor',
     name: 'Jardín Infantil Gotitas de Amor',
     rubro: 'Sala cuna y jardín infantil',
