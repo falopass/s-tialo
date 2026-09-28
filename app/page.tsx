@@ -9,6 +9,7 @@ import {
   whatsappLink,
   SITE,
   STARTING_PRICE,
+  PAGO_MENSUAL_FORMATTED,
   PLANS,
   siteUrl,
 } from '@/lib/config'
@@ -55,7 +56,8 @@ export default function HomePage() {
 
               <p className="font-body text-lead text-ink-muted leading-body max-w-[var(--prose-max)] mb-8">
                 Diseñamos páginas web para pymes y negocios que necesitan
-                vender. Listas en 7 días, desde {STARTING_PRICE}.
+                vender. Listas en 7 días, desde {STARTING_PRICE} — o{' '}
+                {PAGO_MENSUAL_FORMATTED} al mes.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">

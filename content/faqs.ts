@@ -5,6 +5,8 @@
  * Cada FAQ tiene un ID único para evitar duplicación.
  */
 
+import { PAGO_MENSUAL_FORMATTED, STARTING_PRICE, PAGO_CUOTAS } from '@/lib/config'
+
 export interface FAQ {
   id: string
   question: string
@@ -12,6 +14,11 @@ export interface FAQ {
 }
 
 export const planFaqs: FAQ[] = [
+  {
+    id: 'plan-mensual',
+    question: '¿Puedo pagar mes a mes?',
+    answer: `Sí. El plan mensual son ${PAGO_MENSUAL_FORMATTED} al mes — el primer mes se paga al activar — e incluye hosting, dominio y los ajustes de contenido que necesites. Si prefieres pagar una sola vez, está el pago único desde ${STARTING_PRICE} (con tarjeta de crédito, en ${PAGO_CUOTAS} cuotas).`,
+  },
   {
     id: 'plan-barato',
     question: '¿Por qué tan barato?',

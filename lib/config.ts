@@ -283,6 +283,40 @@ export const EXTRAS = [
 ]
 
 // ─────────────────────────────────────────────
+// 💳 FORMAS DE PAGO
+// ─────────────────────────────────────────────
+
+const PRICE_MENSUAL = 12_990
+export const PAGO_MENSUAL = PRICE_MENSUAL
+export const PAGO_MENSUAL_FORMATTED = formatCLP(PRICE_MENSUAL)
+export const PAGO_CUOTAS = 3
+
+export interface FormaPago {
+  id: string
+  nombre: string
+  precio: string
+  detalle: string
+  destacado?: boolean
+}
+
+export const FORMAS_PAGO: FormaPago[] = [
+  {
+    id: 'mensual',
+    nombre: 'Mensual',
+    precio: `${formatCLP(PRICE_MENSUAL)} / mes`,
+    detalle:
+      'El primer mes se paga al activar. Mes a mes, sin contrato: incluye hosting, dominio y los ajustes de contenido que necesites.',
+    destacado: true,
+  },
+  {
+    id: 'unico',
+    nombre: 'Pago único',
+    precio: `desde ${formatCLP(PRICE_BASICO)}`,
+    detalle: `La página queda tuya. Con tarjeta de crédito puedes pagar en ${PAGO_CUOTAS} cuotas.`,
+  },
+]
+
+// ─────────────────────────────────────────────
 // 👥 TEAM
 // ─────────────────────────────────────────────
 

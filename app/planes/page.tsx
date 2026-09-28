@@ -10,6 +10,8 @@ import {
   PLANS,
   EXTRAS,
   STARTING_PRICE,
+  FORMAS_PAGO,
+  PAGO_MENSUAL_FORMATTED,
   SITE,
   siteUrl,
 } from '@/lib/config'
@@ -17,11 +19,11 @@ import { planFaqs, faqJsonLd } from '@/content/faqs'
 
 export const metadata: Metadata = {
   title: 'Planes y precios de páginas web para pymes',
-  description: `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, pago único, sin letras chicas ni sorpresas.`,
+  description: `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, mensual o pago único, sin letras chicas ni sorpresas.`,
   alternates: { canonical: siteUrl('/planes/') },
   openGraph: {
     title: 'Planes y precios de páginas web para pymes | Sitiazo.cl',
-    description: `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, pago único, sin letras chicas ni sorpresas.`,
+    description: `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, mensual o pago único, sin letras chicas ni sorpresas.`,
     url: siteUrl('/planes/'),
     images: [
       {
@@ -40,7 +42,7 @@ const planesServiceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Planes de diseño web — Sitiazo.cl',
-  description: `Planes de diseño web para pymes chilenas. Pago único desde ${STARTING_PRICE}.`,
+  description: `Planes de diseño web para pymes chilenas. Mensual desde ${PAGO_MENSUAL_FORMATTED} o pago único desde ${STARTING_PRICE}.`,
   url: siteUrl('/planes/'),
   itemListElement: PLANS_ARRAY.map((plan, i) => ({
     '@type': 'ListItem',
@@ -93,6 +95,44 @@ export default function PlanesPage() {
             </p>
           </div>
         </div>
+
+        {/* ── Formas de pago ── */}
+        <section className="mb-[var(--spacing-7)]">
+          <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-6">
+            Elige cómo pagar.
+            <Dot size="lg" variant="solid-yellow" />
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {FORMAS_PAGO.map((f) => (
+              <div
+                key={f.id}
+                className={cn(
+                  'p-[var(--spacing-5)] flex flex-col',
+                  f.destacado
+                    ? 'bg-yellow border-2 border-ink'
+                    : 'border border-border-subtle bg-cream-deep',
+                )}
+              >
+                <div className="flex items-center justify-between gap-4 mb-3">
+                  <span className="font-body text-micro uppercase tracking-ui text-ink-faded font-medium">
+                    {f.nombre}
+                  </span>
+                  {f.destacado && (
+                    <span className="font-body text-micro uppercase tracking-ui text-ink font-medium">
+                      Recomendado
+                    </span>
+                  )}
+                </div>
+                <p className="font-display font-bold text-display-md text-ink leading-display mb-2">
+                  {f.precio}
+                </p>
+                <p className="font-body text-body-sm text-ink-muted leading-body">
+                  {f.detalle}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-[var(--spacing-6)]">
           {PLANS_ARRAY.map((plan) => (
