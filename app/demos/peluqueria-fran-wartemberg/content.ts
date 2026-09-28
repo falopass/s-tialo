@@ -2,10 +2,13 @@
  * app/demos/peluqueria-fran-wartemberg/content.ts
  *
  * Datos del mockup. REALES: nombre, rubro, dirección (Matilde Pérez
- * 2268, Curicó), las 30 reseñas de la ficha de Google, la página de
- * Facebook (1.474 seguidores) y el WhatsApp. Todo lo demás — carta de
- * servicios, precios, horarios, respuestas de FAQ y textos de reseña —
- * es contenido de muestra para mostrar cómo se vería el sitio.
+ * 2268, Curicó) y WhatsApp +56 9 7332 8096 (ficha de Google Maps),
+ * 30 reseñas con nota 4.7 en Google, la página de Facebook
+ * (/peluqueriafranwartemberg) e Instagram (@pelu_franwartemberg,
+ * confirmado en la foto de perfil de Facebook). Las fotos y el logo
+ * son de la ficha de Google Maps del local; los precios vienen de su
+ * página de reservas en AgendaPro. Los textos de apoyo (titulares,
+ * FAQ) son de muestra.
  */
 
 export const BIZ = {
@@ -19,8 +22,11 @@ export const BIZ = {
   phoneTel: '+56973328096',
   whatsapp: '56973328096',
   reviews: 30,
+  rating: '4,7',
   followers: '1.474',
   facebook: 'https://www.facebook.com/peluqueriafranwartemberg/',
+  instagram: 'https://www.instagram.com/pelu_franwartemberg/',
+  agendapro: 'https://agendapro.com/mp/cl/pl/peluqueria-fran-wartemberg-curico/34837',
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(

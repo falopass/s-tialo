@@ -124,94 +124,94 @@ function Icon({ name, dark = false }: { name: keyof typeof ICON_PATHS; dark?: bo
 const SERVICIOS = [
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Carro de trabajo de la peluquería con tijeras, peinetas y secador',
+    alt: 'Corte liso y brillante terminado en la silla de trabajo de la peluquería',
     code: 'EST.01',
     name: 'Corte y terminación',
-    desc: 'Tijera y máquina, con el acabado prolijo que se nota al salir a la calle. Corte dama, varón y niños.',
-    items: ['Corte con tijera o máquina', 'Perfilado de contornos', 'Terminación con navaja'],
+    desc: 'Corte clásico o degradado con el acabado prolijo que se nota al salir a la calle; incluye perfilado de cejas opcional y café de cortesía.',
+    items: ['Corte clásico o degradado', 'Perfilado de cejas opcional', 'Café de cortesía'],
   },
   {
     src: `${IMG}/detalle3.webp`,
-    alt: 'Lavacabezas de la peluquería con silla de cuero negro y productos ordenados',
+    alt: 'Balayage caramelo ondulado terminado, fotografiado contra el jardín vertical de la peluquería',
     code: 'EST.02',
-    name: 'Color, lavado y brushing',
-    desc: 'Tinte, mechas y lavado en el lavacabezas, con brushing o peinado para salir lista la misma hora.',
-    items: ['Tinte y retoque de raíz', 'Mechas y balayage', 'Brushing y peinados'],
+    name: 'Color, mechas y balayage',
+    desc: 'La especialidad de la casa: coloración, balayage y babylights, con tratamientos capilares para que el color dure.',
+    items: ['Balayage y babylights', 'Botox capilar y tratamientos', 'Retoque de canas con hidratación'],
   },
   {
     src: `${IMG}/detalle2.webp`,
-    alt: 'Mesón de recepción de la peluquería con la agenda del día',
+    alt: 'Casa de Matilde Pérez 2268 donde funciona la peluquería, vista desde la calle',
     code: 'EST.03',
     name: 'Agenda y atención directa',
-    desc: 'Se trabaja con hora agendada por WhatsApp: llegas, te atienden y sales a tiempo. Sin sala de espera eterna.',
-    items: ['Hora agendada por WhatsApp', 'Atención directa, sin intermediarios', 'Confirmación del servicio y valor'],
+    desc: 'La peluquería funciona en su propia casa de Matilde Pérez: se agenda por WhatsApp o AgendaPro, llegas, te atienden y sales a tiempo.',
+    items: ['Hora agendada por WhatsApp', 'Reserva online en AgendaPro', 'Confirmación del servicio y valor'],
   },
 ]
 
-// Carta de muestra: los servicios y valores son referenciales para
-// mostrar el formato; al publicar van los precios reales del local.
+// Servicios y valores publicados en su página de reservas (AgendaPro).
+// Donde el servicio no tiene precio publicado se muestra «a consultar».
 const CARTA: { icon: keyof typeof ICON_PATHS; name: string; desc: string; price: string }[] = [
   {
     icon: 'scissors',
-    name: 'Corte dama',
-    desc: 'Tijera, capas o recto, con terminación.',
-    price: 'desde $12.000',
-  },
-  {
-    icon: 'clipper',
-    name: 'Corte varón',
-    desc: 'Máquina, tijera o combinado, con perfilado.',
-    price: 'desde $8.000',
-  },
-  {
-    icon: 'kid',
-    name: 'Corte niño y niña',
-    desc: 'Paciencia y buen ritmo para los más chicos.',
-    price: 'desde $6.000',
-  },
-  {
-    icon: 'razor',
-    name: 'Barba y perfilado',
-    desc: 'Arreglo de barba, contornos y navaja.',
-    price: 'desde $6.000',
+    name: 'Corte de cabello',
+    desc: 'Clásico o degradado, con perfilado de cejas opcional y café de cortesía.',
+    price: 'a consultar',
   },
   {
     icon: 'dye',
-    name: 'Tinte y coloración',
-    desc: 'Color completo o retoque de raíz.',
-    price: 'desde $25.000',
+    name: 'Coloración, mechas y balayage',
+    desc: 'La especialidad: balayage, babylights y color completo.',
+    price: 'a consultar',
   },
   {
     icon: 'spark',
-    name: 'Mechas y balayage',
-    desc: 'Iluminación por técnica, con matiz incluido.',
-    price: 'desde $45.000',
+    name: 'Botox capilar',
+    desc: 'NanoBotox de Richée Professional, incluye corte de puntas.',
+    price: '$40.000',
+  },
+  {
+    icon: 'clipper',
+    name: 'Retoque de canas',
+    desc: 'Con masaje capilar hidratante y shock de vitaminas.',
+    price: '$25.000',
+  },
+  {
+    icon: 'kid',
+    name: 'Laminado de cejas',
+    desc: 'Con coloración temporal e incluye perfilado.',
+    price: '$30.000',
   },
   {
     icon: 'dryer',
-    name: 'Brushing y peinado',
-    desc: 'Lavado, brushing y peinado para el evento.',
-    price: 'desde $10.000',
+    name: 'Brushing y peinados',
+    desc: 'Lavado, secado brushing o peinado para el evento.',
+    price: 'desde $15.000',
+  },
+  {
+    icon: 'razor',
+    name: 'Alisado de keratina',
+    desc: 'El valor depende del largo del cabello.',
+    price: 'según largo',
   },
 ]
 
 // Ficha rápida al estilo directorio: los datos que se buscan primero.
-// El horario es de muestra; al publicar va el horario real del local.
+// El horario sale de las fichas públicas del local.
 const FICHA: { t: string; d: string; href?: string }[] = [
   { t: 'Dirección', d: `${BIZ.address}, ${BIZ.city}`, href: MAPS_URL },
   { t: 'WhatsApp', d: BIZ.phoneDisplay, href: WA_LINK },
-  { t: 'Horario de muestra', d: 'Lun a Sáb · 10:00–19:30' },
-  { t: 'Agenda', d: 'Solo con hora por WhatsApp' },
+  { t: 'Horario', d: 'Lun a Sáb · 10:30–20:00' },
+  { t: 'Agenda', d: 'WhatsApp o AgendaPro' },
 ]
 
 const FAQS = [
   {
     q: '¿Tengo que pedir hora o puedo llegar directo?',
-    a: 'Texto de muestra: la idea es trabajar con hora agendada por WhatsApp para no hacer esperar. En el sitio final va la política real del local.',
+    a: 'Se trabaja con hora agendada: por WhatsApp o desde su página de reservas en AgendaPro, donde están los servicios y los valores publicados.',
   },
   {
     q: '¿Cuánto vale un corte?',
-    a: 'Los valores de esta página son de muestra. En la versión publicada va la carta de precios real, confirmada siempre al agendar por WhatsApp.',
+    a: 'Los valores publicados en su AgendaPro van en la carta de esta página. El precio exacto se confirma siempre al agendar por WhatsApp.',
   },
   {
     q: '¿Dónde queda la peluquería?',
@@ -287,6 +287,7 @@ export default function PeluqueriaFranWartembergPage() {
         name={BIZ.short}
         links={NAV_LINKS}
         waLink={WA_LINK}
+        logoSrc={`${IMG}/logo.webp`}
         fontClass={display.className}
         theme={{
           over: 'dark',
@@ -303,7 +304,7 @@ export default function PeluqueriaFranWartembergPage() {
       <section id="inicio" className="relative min-h-[88svh] flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.taller }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Interior de la peluquería: sillas negras frente a espejos con marco de madera y ventanales a la calle"
+          alt="Cliente en la silla de la peluquería con balayage ondulado caramelo recién terminado"
           fill
           priority
           sizes="100vw"
@@ -368,7 +369,7 @@ export default function PeluqueriaFranWartembergPage() {
         <div className="relative border-t" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(23,24,26,0.6)', backdropFilter: 'blur(6px)' }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(255,255,255,0.78)' }}>
             <span>{BIZ.address} · {BIZ.city}</span>
-            <span>{BIZ.reviews} reseñas en Google</span>
+            <span>{BIZ.rating}★ · {BIZ.reviews} reseñas en Google</span>
             <span>{BIZ.followers} seguidores en Facebook</span>
             <span className="hidden md:inline" style={{ color: C.signal }}>sitio de ejemplo</span>
           </div>
@@ -419,8 +420,8 @@ export default function PeluqueriaFranWartembergPage() {
               <span style={{ color: C.muted }}>un trabajo bien hecho</span>
             </h2>
             <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
-              Servicios de muestra: al publicar va la oferta real de la
-              peluquería, con sus fotos y sus tiempos.
+              Los servicios que publica en su página de reservas, con el
+              trabajo real de la peluquería en las fotos.
             </p>
           </div>
         </Reveal>
@@ -483,9 +484,9 @@ export default function PeluqueriaFranWartembergPage() {
                 referencia
               </h2>
               <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.steel }}>
-                <span className="font-bold" style={{ color: C.signal }}>Valores de muestra.</span>{' '}
-                En el sitio publicado va la carta real del local; el
-                valor exacto se confirma siempre al agendar por WhatsApp.
+                <span className="font-bold" style={{ color: C.signal }}>Valores publicados en AgendaPro.</span>{' '}
+                Los servicios sin precio publicado se confirman siempre
+                al agendar por WhatsApp.
               </p>
             </div>
           </Reveal>
@@ -519,8 +520,8 @@ export default function PeluqueriaFranWartembergPage() {
           <Reveal delay={160}>
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
               <p className="text-xs leading-relaxed max-w-md" style={{ color: C.steel }}>
-                La lista muestra el formato del directorio. Al publicar se
-                cargan los servicios, duraciones y precios reales.
+                Carta según su página de reservas en AgendaPro; también
+                atiende manicure, pedicure, maquillaje y peinados para eventos.
               </p>
               <WaButton href={WA_LINK_SERVICIO} label="Consultar valor por WhatsApp" />
             </div>
@@ -536,7 +537,7 @@ export default function PeluqueriaFranWartembergPage() {
               <div className="relative overflow-hidden border aspect-[4/3]" style={{ borderColor: C.line, boxShadow: '0 18px 44px rgba(23,24,26,0.16)' }}>
                 <Image
                   src={`${IMG}/ambiente.webp`}
-                  alt="Fachada de la peluquería en un barrio de Curicó: local a pie de vereda con vitrina y sillas visibles"
+                  alt="Interior de la peluquería: cliente en la silla blanca con su pelo terminado y el living del local detrás"
                   fill
                   loading="lazy"
                   sizes="(min-width: 768px) 50vw, 100vw"
@@ -558,14 +559,14 @@ export default function PeluqueriaFranWartembergPage() {
                 <span style={{ color: C.muted }}>como tiene que ser</span>
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
-                Peluquería Fran Wartemberg atiende en Matilde Pérez 2268,
-                en pleno barrio de Curicó. Acá hablas directamente con
-                quien te corta: se agenda por WhatsApp, se confirma el
-                servicio y se trabaja a la hora.
+                Peluquería Fran Wartemberg atiende en su propia casa de
+                Matilde Pérez 2268, en barrio de Curicó. Acá hablas
+                directamente con quien te atiende: se agenda por WhatsApp
+                o AgendaPro, se confirma el servicio y se trabaja a la hora.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
-                  `${BIZ.reviews} reseñas publicadas en Google Maps`,
+                  `${BIZ.rating}★ en ${BIZ.reviews} reseñas de Google Maps`,
                   `${BIZ.followers} seguidores en su página de Facebook`,
                   'Atención directa y con hora agendada',
                 ].map((item) => (
@@ -575,15 +576,35 @@ export default function PeluqueriaFranWartembergPage() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={BIZ.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current tap-44"
-                style={{ color: C.taller, textDecorationColor: C.signal }}
-              >
-                Ver la página en Facebook →
-              </a>
+              <div className="flex flex-wrap gap-x-6 gap-y-3">
+                <a
+                  href={BIZ.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current tap-44"
+                  style={{ color: C.taller, textDecorationColor: C.signal }}
+                >
+                  Facebook →
+                </a>
+                <a
+                  href={BIZ.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current tap-44"
+                  style={{ color: C.taller, textDecorationColor: C.signal }}
+                >
+                  Instagram →
+                </a>
+                <a
+                  href={BIZ.agendapro}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current tap-44"
+                  style={{ color: C.taller, textDecorationColor: C.signal }}
+                >
+                  Reservar en AgendaPro →
+                </a>
+              </div>
             </Reveal>
           </div>
 
@@ -595,9 +616,9 @@ export default function PeluqueriaFranWartembergPage() {
                   Lo que valoran los clientes
                 </h3>
                 <p className="text-sm leading-relaxed mb-5" style={{ color: C.muted }}>
-                  La peluquería acumula {BIZ.reviews} reseñas en su ficha
-                  de Google. Estos textos son de muestra: al publicar van
-                  las reseñas reales.
+                  La peluquería acumula {BIZ.reviews} reseñas con nota {BIZ.rating}
+                  en su ficha de Google. Estas son algunas, tal como las
+                  escribieron sus clientes.
                 </p>
                 <a
                   href={MAPS_URL}
@@ -611,9 +632,9 @@ export default function PeluqueriaFranWartembergPage() {
               </Reveal>
               <div className="space-y-4">
                 {[
-                  'Agendé por WhatsApp y a la hora me atendieron. Corte impecable y sin espera, tal como lo prometen.',
-                  'Peluquería de barrio de las de antes: buena conversación, trabajo prolijo y precio justo.',
-                  'Fui por tinte y brushing y salí perfecta. Se nota el cuidado en el detalle.',
+                  'Exelente atención y super buena peluquería. Recomendable al 100%',
+                  'La mejor peluquera, muy bueno su servicio se nota la experiencia',
+                  'Excelente atención, mi pelo quedó increíble 100% recomendable',
                 ].map((t, i) => (
                   <Reveal key={i} delay={120 + i * 100}>
                     <figure
@@ -624,7 +645,7 @@ export default function PeluqueriaFranWartembergPage() {
                         “{t}”
                       </blockquote>
                       <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.muted }}>
-                        Reseña de ejemplo
+                        Reseña en Google Maps
                       </figcaption>
                     </figure>
                   </Reveal>
@@ -753,7 +774,7 @@ export default function PeluqueriaFranWartembergPage() {
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2 tap-44" style={{ color: C.signal }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name}. Textos, servicios, precios y fotos son de muestra.{' '}
+            para {BIZ.name}. Datos, fotos, reseñas y precios son reales de sus fichas públicas; los textos de apoyo son de muestra.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2 tap-44" style={{ color: C.signal }}>
               ¿Lo hacemos realidad?
             </a>
