@@ -1662,6 +1662,14 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #FAF4E7 0%, #FFFDF7 150%)',
   },
+  {
+    slug: 'alma-restaurant',
+    name: 'Alma restaurant',
+    rubro: 'Restaurant y trattoria',
+    city: 'Talca',
+    tagline: 'Los listones tricolor del techo: mantel crema, espresso, tomate y albahaca en el camino a San Miguel.',
+    gradient: 'linear-gradient(135deg, #F7F0E3 0%, #BE3A24 70%, #33633C 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
