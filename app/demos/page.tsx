@@ -982,6 +982,14 @@ const BLITZ = [
     tagline: 'Editorial de barrio: terracota, crema y serif cálida, con la clientela real de 17 Sur.',
     gradient: 'linear-gradient(135deg, #8A3418 0%, #B64F28 60%, #D9A441 140%)',
   },
+  {
+    slug: 'el-uruguayo',
+    name: 'Taller Mecánico El Uruguayo',
+    rubro: 'Mecánica a domicilio',
+    city: 'San Clemente',
+    tagline: 'El taller que llega a donde estés: celeste de ruta, asfalto y señalética, con fotos reales del furgón.',
+    gradient: 'linear-gradient(135deg, #0C1824 0%, #1B4A68 55%, #3E9BD0 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
