@@ -7,13 +7,13 @@ import LazyMap from '../lazy-map'
 import { SiteNav, SiteFooter } from './chrome'
 import { BIZ, IMG, WORKS, REVIEWS, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 
-const display = localFont({
+const paDisplay = localFont({
   src: [{ path: '../../fonts/rubik/normal-300-900.woff2', weight: '300 900', style: 'normal' }],
 })
-const body = localFont({
+const paBody = localFont({
   src: [{ path: '../../fonts/work-sans/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
 })
-const mono = localFont({
+const paMono = localFont({
   src: [{ path: '../../fonts/ibm-plex-mono/normal-500.woff2', weight: '500', style: 'normal' }],
 })
 
@@ -88,7 +88,7 @@ function CmykBar({ className = '' }: { className?: string }) {
 function Spec({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
-      className={`${mono.className} text-[10px] md:text-[11px] uppercase tracking-[0.22em] font-semibold`}
+      className={`${paMono.className} text-[10px] md:text-[11px] uppercase tracking-[0.22em] font-semibold`}
       style={{ color: light ? 'rgba(255,255,255,0.72)' : C.brick }}
     >
       {children}
@@ -99,10 +99,10 @@ function Spec({ children, light = false }: { children: React.ReactNode; light?: 
 export default function PanntonPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`${paBody.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
-      <SiteNav fontClass={display.className} />
+      <SiteNav fontClass={paDisplay.className} />
 
       {/* ── Hero: pliego editorial con marcas de corte ── */}
       <section id="inicio" className="relative overflow-hidden">
@@ -111,7 +111,7 @@ export default function PanntonPage() {
             <Reveal>
               <Spec>Soluciones gráficas, arquitectura &amp; diseño · Talca</Spec>
               <h1
-                className={`${display.className} font-bold leading-[1.02] tracking-[-0.02em] text-[clamp(2.5rem,9vw,4.8rem)] mt-5 mb-6`}
+                className={`${paDisplay.className} font-bold leading-[1.02] tracking-[-0.02em] text-[clamp(2.5rem,9vw,4.8rem)] mt-5 mb-6`}
               >
                 Del archivo<br />
                 al papel,<br />
@@ -127,7 +127,7 @@ export default function PanntonPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
+                  className={`${paDisplay.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                   style={{ backgroundColor: C.brick, color: '#fff' }}
                 >
                   Cotizar por WhatsApp
@@ -181,7 +181,7 @@ export default function PanntonPage() {
             </a>
           </Reveal>
           <Reveal delay={100} className="md:ml-auto">
-            <p className={`${mono.className} text-xs font-medium tracking-wide`} style={{ color: C.muted }}>
+            <p className={`${paMono.className} text-xs font-medium tracking-wide`} style={{ color: C.muted }}>
               LUN–VIE 9:00–13:15 / 15:00–18:30
             </p>
           </Reveal>
@@ -193,7 +193,7 @@ export default function PanntonPage() {
         <Reveal>
           <Spec>Salido del taller</Spec>
           <div className="flex flex-wrap items-end justify-between gap-4 mt-4 mb-8 md:mb-12">
-            <h2 className={`${display.className} font-bold text-3xl md:text-5xl leading-[1.05]`}>
+            <h2 className={`${paDisplay.className} font-bold text-3xl md:text-5xl leading-[1.05]`}>
               Trabajos reales,<br />clientes reales
             </h2>
             <p className="text-sm max-w-xs leading-relaxed" style={{ color: C.muted }}>
@@ -210,14 +210,14 @@ export default function PanntonPage() {
                 style={{ borderColor: C.line }}
               >
                 <span
-                  className={`${mono.className} text-2xl md:text-3xl font-semibold leading-none`}
+                  className={`${paMono.className} text-2xl md:text-3xl font-semibold leading-none`}
                   style={{ color: C.brick }}
                   aria-hidden="true"
                 >
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div>
-                  <h3 className={`${display.className} font-semibold text-lg md:text-2xl leading-snug`}>
+                  <h3 className={`${paDisplay.className} font-semibold text-lg md:text-2xl leading-snug`}>
                     {w.name}
                   </h3>
                   <p className="text-sm leading-relaxed mt-1.5 max-w-md" style={{ color: C.muted }}>
@@ -247,7 +247,7 @@ export default function PanntonPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <Spec>Simple y por WhatsApp</Spec>
-            <h2 className={`${display.className} font-bold text-3xl md:text-5xl leading-[1.05] mt-4 mb-10 md:mb-14`}>
+            <h2 className={`${paDisplay.className} font-bold text-3xl md:text-5xl leading-[1.05] mt-4 mb-10 md:mb-14`}>
               Cómo trabajamos
             </h2>
           </Reveal>
@@ -256,13 +256,13 @@ export default function PanntonPage() {
               <Reveal key={s.name} delay={i * 90}>
                 <li className="border-t-2 pt-5 h-full" style={{ borderColor: C.ink }}>
                   <span
-                    className={`${mono.className} text-xs font-semibold tracking-[0.2em] mb-3 block`}
+                    className={`${paMono.className} text-xs font-semibold tracking-[0.2em] mb-3 block`}
                     style={{ color: C.brick }}
                     aria-hidden="true"
                   >
                     PASO {i + 1}
                   </span>
-                  <h3 className={`${display.className} font-semibold text-lg mb-1.5`}>{s.name}</h3>
+                  <h3 className={`${paDisplay.className} font-semibold text-lg mb-1.5`}>{s.name}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
                     {s.desc}
                   </p>
@@ -278,7 +278,7 @@ export default function PanntonPage() {
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
             <Spec>Horario y ubicación</Spec>
-            <h2 className={`${display.className} font-bold text-3xl md:text-4xl leading-[1.1] mt-4 mb-6`}>
+            <h2 className={`${paDisplay.className} font-bold text-3xl md:text-4xl leading-[1.1] mt-4 mb-6`}>
               El taller está en Lomas de Lircay
             </h2>
             <dl className="border overflow-hidden mb-6" style={{ borderColor: C.line }}>
@@ -289,7 +289,7 @@ export default function PanntonPage() {
                   style={{ borderColor: C.line, backgroundColor: '#fff' }}
                 >
                   <dt className="text-sm font-semibold">{h.days}</dt>
-                  <dd className={`${mono.className} text-xs text-right`} style={{ color: C.muted }}>{h.time}</dd>
+                  <dd className={`${paMono.className} text-xs text-right`} style={{ color: C.muted }}>{h.time}</dd>
                 </div>
               ))}
             </dl>
@@ -340,7 +340,7 @@ export default function PanntonPage() {
           <Reveal>
             <Spec>Reseñas de Google</Spec>
             <div className="flex flex-wrap items-end justify-between gap-6 mt-4 mb-10 md:mb-14">
-              <h2 className={`${display.className} font-bold text-3xl md:text-5xl leading-[1.05]`}>
+              <h2 className={`${paDisplay.className} font-bold text-3xl md:text-5xl leading-[1.05]`}>
                 {BIZ.ratingLabel} de 5 estrellas
               </h2>
               <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
@@ -357,7 +357,7 @@ export default function PanntonPage() {
                   <blockquote className="text-sm leading-relaxed mt-4 flex-1" style={{ color: C.ink }}>
                     “{r.text}”
                   </blockquote>
-                  <figcaption className={`${mono.className} text-[10px] uppercase tracking-[0.18em] font-semibold mt-4`} style={{ color: C.muted }}>
+                  <figcaption className={`${paMono.className} text-[10px] uppercase tracking-[0.18em] font-semibold mt-4`} style={{ color: C.muted }}>
                     Reseña en Google · {r.author}
                   </figcaption>
                 </figure>
@@ -382,7 +382,7 @@ export default function PanntonPage() {
       <section id="faq" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
           <Spec>Antes de imprimir</Spec>
-          <h2 className={`${display.className} font-bold text-3xl md:text-5xl leading-tight mt-4 mb-8`}>
+          <h2 className={`${paDisplay.className} font-bold text-3xl md:text-5xl leading-tight mt-4 mb-8`}>
             Preguntas frecuentes
           </h2>
         </Reveal>
@@ -399,7 +399,7 @@ export default function PanntonPage() {
           <Reveal>
             <Spec light>Pannton · Lomas de Lircay, Talca</Spec>
             <h2
-              className={`${display.className} font-bold text-[clamp(2rem,7vw,4rem)] leading-[1.04] mt-5 mb-6`}
+              className={`${paDisplay.className} font-bold text-[clamp(2rem,7vw,4rem)] leading-[1.04] mt-5 mb-6`}
               style={{ color: '#fff' }}
             >
               Cotiza tu impresión hoy
@@ -412,7 +412,7 @@ export default function PanntonPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
+              className={`${paDisplay.className} inline-block font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: '#fff', color: C.ink }}
             >
               Cotizar por WhatsApp
@@ -421,7 +421,7 @@ export default function PanntonPage() {
         </div>
       </section>
 
-      <SiteFooter fontClass={display.className} />
+      <SiteFooter fontClass={paDisplay.className} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )

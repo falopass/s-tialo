@@ -7,10 +7,10 @@ import { demoMetadata } from '../meta'
 import { BIZ, EQUIPO, AREAS, REVIEWS, WA_LINK, INSTAGRAM_URL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
 
-const display = localFont({
+const iusDisplay = localFont({
   src: [{ path: '../../fonts/marcellus/normal-400.woff2', weight: '400', style: 'normal' }],
 })
-const body = localFont({
+const iusBody = localFont({
   src: [{ path: '../../fonts/work-sans/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
 })
 
@@ -90,14 +90,14 @@ const PASOS = [
 
 export default function IusAbogadosLinaresPage() {
   return (
-    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.cream, color: C.ink }}>
+    <div className={`${iusBody.className} min-h-screen antialiased`} style={{ backgroundColor: C.cream, color: C.ink }}>
       <style>{`html { scroll-behavior: auto }`}</style>
       <div style={{ backgroundColor: C.ink }}>
         <BlitzNav
           name={BIZ.short}
           links={NAV_LINKS}
           waLink={WA_LINK}
-          fontClass={display.className}
+          fontClass={iusDisplay.className}
           logoSrc={`${IMG}/marca.webp`}
           theme={{
             over: 'dark',
@@ -122,7 +122,7 @@ export default function IusAbogadosLinaresPage() {
                 alt="IUS Abogados Linares: logotipo del estudio con la I como columna clásica y la regla dorada"
                 className="w-full max-w-[480px] h-auto -ml-1 mb-2"
               />
-              <h1 className={`${display.className} text-[clamp(1.9rem,5.5vw,3.4rem)] leading-[1.08] mb-5`}>
+              <h1 className={`${iusDisplay.className} text-[clamp(1.9rem,5.5vw,3.4rem)] leading-[1.08] mb-5`}>
                 Su caso lo lleva un abogado
                 <br />
                 con <span style={{ color: C.goldInk }}>nombre y apellido</span>
@@ -137,14 +137,14 @@ export default function IusAbogadosLinaresPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} text-sm px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 ${focusRing} tap-44`}
+                  className={`${iusDisplay.className} text-sm px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 ${focusRing} tap-44`}
                   style={{ backgroundColor: C.ink, color: C.cream, boxShadow: `0 0 0 1px ${C.ink}, 5px 5px 0 ${C.gold}` }}
                 >
                   Consultar por WhatsApp
                 </a>
                 <a
                   href="#estudio"
-                  className={`${display.className} text-sm px-7 py-3.5 border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
+                  className={`${iusDisplay.className} text-sm px-7 py-3.5 border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                   style={{ borderColor: C.ink, color: C.ink }}
                 >
                   Conocer el estudio
@@ -178,7 +178,7 @@ export default function IusAbogadosLinaresPage() {
                   />
                 </div>
                 <span
-                  className={`${display.className} absolute -bottom-4 left-5 text-xs tracking-[0.18em] uppercase px-4 py-2.5`}
+                  className={`${iusDisplay.className} absolute -bottom-4 left-5 text-xs tracking-[0.18em] uppercase px-4 py-2.5`}
                   style={{ backgroundColor: C.ink, color: C.cream }}
                 >
                   Oficina 405 · Centro de Linares
@@ -196,7 +196,7 @@ export default function IusAbogadosLinaresPage() {
           <Reveal>
             <Label light>El estudio</Label>
             <div className="grid lg:grid-cols-[1.2fr_1fr] gap-6 lg:gap-14 items-end mb-10 md:mb-14">
-              <h2 className={`${display.className} text-4xl md:text-6xl leading-[1.03]`}>
+              <h2 className={`${iusDisplay.className} text-4xl md:text-6xl leading-[1.03]`}>
                 Dos abogados.
                 <br />
                 <span style={{ color: C.gold }}>Cero intermediarios.</span>
@@ -217,7 +217,7 @@ export default function IusAbogadosLinaresPage() {
                   </div>
                   <div className="p-6 md:p-7 flex flex-col justify-center">
                     <p className="text-[10px] uppercase tracking-[0.22em] font-bold mb-2" style={{ color: C.gold }}>{p.role}</p>
-                    <h3 className={`${display.className} text-2xl md:text-[1.7rem] leading-tight mb-3`}>{p.name}</h3>
+                    <h3 className={`${iusDisplay.className} text-2xl md:text-[1.7rem] leading-tight mb-3`}>{p.name}</h3>
                     <a href={`tel:${p.phone.replace(/\s/g, '')}`} className={`text-sm font-semibold ${focusRing} tap-44`} style={{ color: 'rgba(255,244,220,0.85)' }}>
                       {p.phone}
                     </a>
@@ -237,7 +237,7 @@ export default function IusAbogadosLinaresPage() {
                   className="object-cover"
                 />
               </div>
-              <p className={`${display.className} text-xl md:text-2xl leading-relaxed`} style={{ color: 'rgba(255,244,220,0.9)' }}>
+              <p className={`${iusDisplay.className} text-xl md:text-2xl leading-relaxed`} style={{ color: 'rgba(255,244,220,0.9)' }}>
                 «Atención presencial en Linares y defensa en tribunales de
                 todo el país: la litigación moderna exige un pie en el
                 tribunal y otro en la vanguardia digital.»
@@ -255,7 +255,7 @@ export default function IusAbogadosLinaresPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <Label>Áreas de práctica</Label>
-            <h2 className={`${display.className} text-4xl md:text-6xl leading-[1.03] mb-10 md:mb-14`}>
+            <h2 className={`${iusDisplay.className} text-4xl md:text-6xl leading-[1.03] mb-10 md:mb-14`}>
               Cuatro materias,
               <br />
               <span style={{ color: C.goldInk }}>un solo interlocutor</span>
@@ -265,10 +265,10 @@ export default function IusAbogadosLinaresPage() {
             {AREAS.map((a, i) => (
               <Reveal key={a.code} delay={i * 80}>
                 <article className="h-full flex flex-col p-6 border-2" style={{ borderColor: C.ink, backgroundColor: '#fff' }}>
-                  <p className={`${display.className} text-sm tracking-[0.14em] uppercase mb-3`} style={{ color: C.goldInk }}>
+                  <p className={`${iusDisplay.className} text-sm tracking-[0.14em] uppercase mb-3`} style={{ color: C.goldInk }}>
                     {a.code}
                   </p>
-                  <h3 className={`${display.className} text-xl leading-tight mb-4`}>{a.name}</h3>
+                  <h3 className={`${iusDisplay.className} text-xl leading-tight mb-4`}>{a.name}</h3>
                   <ul className="space-y-2 text-sm flex-1" style={{ color: C.muted }}>
                     {a.items.map((it) => (
                       <li key={it} className="flex items-start gap-2.5">
@@ -281,7 +281,7 @@ export default function IusAbogadosLinaresPage() {
                     href={`https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(`Hola, quiero consultar por un tema de ${a.name.toLowerCase()}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} text-sm mt-5 underline underline-offset-4 decoration-2 ${focusRing} tap-44`}
+                    className={`${iusDisplay.className} text-sm mt-5 underline underline-offset-4 decoration-2 ${focusRing} tap-44`}
                     style={{ color: C.ink, textDecorationColor: C.gold }}
                   >
                     Consultar →
@@ -298,7 +298,7 @@ export default function IusAbogadosLinaresPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <Label>Así se trabaja un caso</Label>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-10 md:mb-14`}>
+            <h2 className={`${iusDisplay.className} text-4xl md:text-5xl leading-[1.05] mb-10 md:mb-14`}>
               Del primer mensaje
               <br />
               <span style={{ color: C.goldInk }}>a la última gestión</span>
@@ -308,10 +308,10 @@ export default function IusAbogadosLinaresPage() {
             {PASOS.map((p, i) => (
               <Reveal key={p.n} delay={i * 90}>
                 <li className="border-t-2 pt-5" style={{ borderColor: C.ink }}>
-                  <span className={`${display.className} text-4xl md:text-5xl block mb-3`} style={{ color: C.goldInk }} aria-hidden="true">
+                  <span className={`${iusDisplay.className} text-4xl md:text-5xl block mb-3`} style={{ color: C.goldInk }} aria-hidden="true">
                     {p.n}.
                   </span>
-                  <h3 className={`${display.className} text-xl leading-tight mb-2`}>{p.title}</h3>
+                  <h3 className={`${iusDisplay.className} text-xl leading-tight mb-2`}>{p.title}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: C.muted }}>{p.desc}</p>
                 </li>
               </Reveal>
@@ -327,7 +327,7 @@ export default function IusAbogadosLinaresPage() {
             <Label light>Opiniones</Label>
             <div className="grid lg:grid-cols-[1fr_1.4fr] gap-8 lg:gap-14 items-start">
               <div>
-                <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-5`}>
+                <h2 className={`${iusDisplay.className} text-4xl md:text-5xl leading-[1.05] mb-5`}>
                   {BIZ.ratingLabel} de 5,
                   <br />
                   <span style={{ color: C.gold }}>en Google</span>
@@ -341,7 +341,7 @@ export default function IusAbogadosLinaresPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} inline-block text-sm px-6 py-3 border-2 transition-colors hover:bg-white/10 ${focusRing} tap-44`}
+                  className={`${iusDisplay.className} inline-block text-sm px-6 py-3 border-2 transition-colors hover:bg-white/10 ${focusRing} tap-44`}
                   style={{ borderColor: C.gold, color: C.gold }}
                 >
                   Ver la ficha en Google →
@@ -352,7 +352,7 @@ export default function IusAbogadosLinaresPage() {
                   <Reveal key={r.author} delay={i * 110}>
                     <figure className="p-6 md:p-7 border-l-[3px]" style={{ backgroundColor: 'rgba(255,244,220,0.05)', borderColor: C.gold }}>
                       <Stars value={5} color={C.gold} className="w-[14px] h-[14px] mb-4" />
-                      <blockquote className={`${display.className} text-base md:text-lg leading-relaxed`}>
+                      <blockquote className={`${iusDisplay.className} text-base md:text-lg leading-relaxed`}>
                         “{r.text}”
                       </blockquote>
                       <figcaption className="text-[11px] uppercase tracking-[0.2em] font-bold mt-4" style={{ color: 'rgba(255,244,220,0.6)' }}>
@@ -374,7 +374,7 @@ export default function IusAbogadosLinaresPage() {
             <Label>Contacto</Label>
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
               <div>
-                <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-6`}>
+                <h2 className={`${iusDisplay.className} text-4xl md:text-5xl leading-[1.05] mb-6`}>
                   A dos cuadras
                   <br />
                   <span style={{ color: C.goldInk }}>de la catedral</span>
@@ -404,7 +404,7 @@ export default function IusAbogadosLinaresPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} text-sm px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 ${focusRing} tap-44`}
+                    className={`${iusDisplay.className} text-sm px-7 py-3.5 transition-transform hover:-translate-y-0.5 active:scale-95 ${focusRing} tap-44`}
                     style={{ backgroundColor: C.ink, color: C.cream, boxShadow: `4px 4px 0 ${C.gold}` }}
                   >
                     Escribir por WhatsApp
@@ -413,7 +413,7 @@ export default function IusAbogadosLinaresPage() {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} text-sm px-7 py-3.5 border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
+                    className={`${iusDisplay.className} text-sm px-7 py-3.5 border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                     style={{ borderColor: C.ink, color: C.ink }}
                   >
                     @{BIZ.instagram}
@@ -461,7 +461,7 @@ export default function IusAbogadosLinaresPage() {
           <div className="flex items-center gap-4">
             <img src={`${IMG}/marca.webp`} alt="" className="h-10 w-10 rounded-full object-cover" aria-hidden="true" />
             <div>
-              <p className={`${display.className} text-lg leading-tight`}>{BIZ.name}</p>
+              <p className={`${iusDisplay.className} text-lg leading-tight`}>{BIZ.name}</p>
               <address className="not-italic text-xs" style={{ color: 'rgba(255,244,220,0.7)' }}>
                 {BIZ.address} · {BIZ.city}, Maule · Lun–Vie 9:30–18:00
               </address>

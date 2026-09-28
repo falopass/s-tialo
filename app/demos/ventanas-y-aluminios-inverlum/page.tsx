@@ -7,14 +7,11 @@ import LazyMap from '../lazy-map'
 import { SiteNav, SiteFooter } from './chrome'
 import { BIZ, IMG, SISTEMAS, FOTOS, REVIEWS, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 
-const display = localFont({
+const ivDisplay = localFont({
   src: [{ path: '../../fonts/oswald/normal-200-700.woff2', weight: '200 700', style: 'normal' }],
 })
-const body = localFont({
+const ivBody = localFont({
   src: [{ path: '../../fonts/public-sans/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
-})
-const mono = localFont({
-  src: [{ path: '../../fonts/geist-mono/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
 })
 
 const C = {
@@ -60,7 +57,7 @@ const FAQS = [
 function Spec({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
-      className={`${mono.className} text-[10px] md:text-[11px] uppercase tracking-[0.24em] font-medium`}
+      className={`font-mono text-[10px] md:text-[11px] uppercase tracking-[0.24em] font-medium`}
       style={{ color: light ? C.blueBright : C.blue }}
     >
       {children}
@@ -83,8 +80,8 @@ function Mullions() {
 
 export default function InverlumPage() {
   return (
-    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.paper, color: C.ink }}>
-      <SiteNav fontClass={display.className} />
+    <div className={`${ivBody.className} min-h-screen antialiased`} style={{ backgroundColor: C.paper, color: C.ink }}>
+      <SiteNav fontClass={ivDisplay.className} />
 
       {/* ── Hero: fachada real con montantes de muro cortina ── */}
       <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.night }}>
@@ -108,7 +105,7 @@ export default function InverlumPage() {
           <Reveal>
             <Spec light>Ventanas de aluminio y PVC · {BIZ.city}</Spec>
             <h1
-              className={`${display.className} font-medium uppercase leading-[0.98] tracking-[0.01em] text-[clamp(2.6rem,10vw,5.6rem)] mt-5 mb-6`}
+              className={`${ivDisplay.className} font-medium uppercase leading-[0.98] tracking-[0.01em] text-[clamp(2.6rem,10vw,5.6rem)] mt-5 mb-6`}
               style={{ color: '#fff' }}
             >
               Ventanas que<br />
@@ -125,14 +122,14 @@ export default function InverlumPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-wider font-medium text-sm px-7 py-3 transition-transform active:scale-95 tap-44`}
+                className={`${ivDisplay.className} uppercase tracking-wider font-medium text-sm px-7 py-3 transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.blue, color: '#fff' }}
               >
                 Cotizar por WhatsApp
               </a>
               <a
                 href="#productos"
-                className={`${display.className} uppercase tracking-wider font-medium text-sm px-7 py-3 border tap-44`}
+                className={`${ivDisplay.className} uppercase tracking-wider font-medium text-sm px-7 py-3 border tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.45)', color: '#fff' }}
               >
                 Ver productos
@@ -145,24 +142,24 @@ export default function InverlumPage() {
               style={{ borderColor: C.lineDark, backgroundColor: 'rgba(10,14,20,0.35)', backdropFilter: 'blur(6px)' }}
             >
               <div className="px-4 py-4 md:px-6 md:py-5 border-r" style={{ borderColor: C.lineDark }}>
-                <p className={`${display.className} text-2xl md:text-3xl font-medium`} style={{ color: '#fff' }}>18+</p>
-                <p className={`${mono.className} text-[10px] uppercase tracking-[0.18em] mt-1`} style={{ color: C.steelLight }}>años fabricando</p>
+                <p className={`${ivDisplay.className} text-2xl md:text-3xl font-medium`} style={{ color: '#fff' }}>18+</p>
+                <p className={`font-mono text-[10px] uppercase tracking-[0.18em] mt-1`} style={{ color: C.steelLight }}>años fabricando</p>
               </div>
               <div className="px-3 py-4 md:px-6 md:py-5 border-r" style={{ borderColor: C.lineDark }}>
-                <p className={`${display.className} text-2xl md:text-3xl font-medium`} style={{ color: '#fff' }}>{BIZ.ratingLabel}</p>
+                <p className={`${ivDisplay.className} text-2xl md:text-3xl font-medium`} style={{ color: '#fff' }}>{BIZ.ratingLabel}</p>
                 <a
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${mono.className} text-[9px] md:text-[10px] uppercase tracking-[0.08em] md:tracking-[0.18em] mt-1 inline-flex flex-wrap items-center gap-x-1.5 gap-y-0.5 tap-44`}
+                  className={`font-mono text-[9px] md:text-[10px] uppercase tracking-[0.08em] md:tracking-[0.18em] mt-1 inline-flex flex-wrap items-center gap-x-1.5 gap-y-0.5 tap-44`}
                   style={{ color: C.steelLight }}
                 >
                   <Stars value={BIZ.rating} color={C.blueBright} className="w-[11px] h-[11px] shrink-0" /> {BIZ.reviews} opiniones
                 </a>
               </div>
               <div className="px-3 py-4 md:px-6 md:py-5">
-                <p className={`${display.className} text-2xl md:text-3xl font-medium`} style={{ color: '#fff' }}>L–V</p>
-                <p className={`${mono.className} text-[9px] md:text-[10px] uppercase tracking-[0.08em] md:tracking-[0.18em] mt-1`} style={{ color: C.steelLight }}>8–13 / 15–19</p>
+                <p className={`${ivDisplay.className} text-2xl md:text-3xl font-medium`} style={{ color: '#fff' }}>L–V</p>
+                <p className={`font-mono text-[9px] md:text-[10px] uppercase tracking-[0.08em] md:tracking-[0.18em] mt-1`} style={{ color: C.steelLight }}>8–13 / 15–19</p>
               </div>
             </div>
           </Reveal>
@@ -175,7 +172,7 @@ export default function InverlumPage() {
           <Reveal>
             <Spec>Catálogo de fabricación</Spec>
             <div className="flex flex-wrap items-end justify-between gap-4 mt-4 mb-8 md:mb-12">
-              <h2 className={`${display.className} font-medium uppercase text-3xl md:text-5xl leading-[1.02]`}>
+              <h2 className={`${ivDisplay.className} font-medium uppercase text-3xl md:text-5xl leading-[1.02]`}>
                 Todo lo que sale<br />de la planta
               </h2>
               <p className="text-sm max-w-xs leading-relaxed" style={{ color: C.steel }}>
@@ -188,10 +185,10 @@ export default function InverlumPage() {
             {SISTEMAS.map((s, i) => (
               <Reveal key={s.n} delay={30}>
                 <li className="grid grid-cols-[52px_1fr] md:grid-cols-[90px_1fr_1.2fr] items-baseline gap-3 md:gap-8 py-5 md:py-6 border-b" style={{ borderColor: C.line }}>
-                  <span className={`${mono.className} text-xs md:text-sm font-medium tracking-widest`} style={{ color: C.blue }} aria-hidden="true">
+                  <span className={`font-mono text-xs md:text-sm font-medium tracking-widest`} style={{ color: C.blue }} aria-hidden="true">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className={`${display.className} font-medium uppercase text-lg md:text-2xl tracking-wide leading-snug`}>{s.n}</h3>
+                  <h3 className={`${ivDisplay.className} font-medium uppercase text-lg md:text-2xl tracking-wide leading-snug`}>{s.n}</h3>
                   <p className="col-span-2 md:col-span-1 md:col-start-3 text-sm leading-relaxed" style={{ color: C.steel }}>{s.desc}</p>
                 </li>
               </Reveal>
@@ -206,7 +203,7 @@ export default function InverlumPage() {
           <Reveal>
             <Spec light>Fotos reales de la planta</Spec>
             <div className="flex flex-wrap items-end justify-between gap-4 mt-4 mb-8 md:mb-12">
-              <h2 className={`${display.className} font-medium uppercase text-3xl md:text-5xl leading-[1.02]`} style={{ color: '#fff' }}>
+              <h2 className={`${ivDisplay.className} font-medium uppercase text-3xl md:text-5xl leading-[1.02]`} style={{ color: '#fff' }}>
                 Así se fabrica<br />tu ventana
               </h2>
               <p className="text-sm max-w-xs leading-relaxed" style={{ color: C.steelLight }}>
@@ -225,7 +222,7 @@ export default function InverlumPage() {
                 <figure className={`relative h-full ${i === 0 || i === 5 ? 'aspect-[4/3] md:aspect-auto md:min-h-[320px]' : 'aspect-[4/3]'}`} style={{ backgroundColor: '#141B25' }}>
                   <Image src={f.src} alt={f.alt} fill sizes="(min-width: 768px) 25vw, 50vw" loading="lazy" className="object-cover" />
                   <figcaption
-                    className={`${mono.className} absolute bottom-0 left-0 text-[9px] md:text-[10px] uppercase tracking-[0.2em] px-2.5 py-1.5`}
+                    className={`font-mono absolute bottom-0 left-0 text-[9px] md:text-[10px] uppercase tracking-[0.2em] px-2.5 py-1.5`}
                     style={{ backgroundColor: 'rgba(10,14,20,0.72)', color: '#DCE6F0' }}
                   >
                     {f.tag}
@@ -243,14 +240,14 @@ export default function InverlumPage() {
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
             <Reveal>
               <Spec>Horario y dirección</Spec>
-              <h2 className={`${display.className} font-medium uppercase text-3xl md:text-4xl leading-[1.05] mt-4 mb-6`}>
+              <h2 className={`${ivDisplay.className} font-medium uppercase text-3xl md:text-4xl leading-[1.05] mt-4 mb-6`}>
                 El local está en 6 Oriente
               </h2>
               <dl className="border overflow-hidden mb-6" style={{ borderColor: C.line }}>
                 {BIZ.hours.map((h) => (
                   <div key={h.days} className="flex items-baseline justify-between gap-4 px-4 py-3 border-b last:border-b-0" style={{ borderColor: C.line, backgroundColor: '#fff' }}>
                     <dt className="text-sm font-semibold">{h.days}</dt>
-                    <dd className={`${mono.className} text-xs text-right`} style={{ color: C.steel }}>{h.time}</dd>
+                    <dd className={`font-mono text-xs text-right`} style={{ color: C.steel }}>{h.time}</dd>
                   </div>
                 ))}
               </dl>
@@ -264,7 +261,7 @@ export default function InverlumPage() {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} uppercase tracking-wider font-medium text-sm px-6 py-3 transition-transform active:scale-95 tap-44`}
+                  className={`${ivDisplay.className} uppercase tracking-wider font-medium text-sm px-6 py-3 transition-transform active:scale-95 tap-44`}
                   style={{ backgroundColor: C.ink, color: '#fff' }}
                 >
                   Cómo llegar →
@@ -273,7 +270,7 @@ export default function InverlumPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} uppercase tracking-wider font-medium text-sm px-6 py-3 border tap-44`}
+                  className={`${ivDisplay.className} uppercase tracking-wider font-medium text-sm px-6 py-3 border tap-44`}
                   style={{ borderColor: 'rgba(13,18,25,0.35)', color: C.ink }}
                 >
                   Cotizar por WhatsApp
@@ -295,7 +292,7 @@ export default function InverlumPage() {
           <Reveal>
             <Spec>Opiniones de Google</Spec>
             <div className="flex flex-wrap items-end justify-between gap-6 mt-4 mb-10 md:mb-14">
-              <h2 className={`${display.className} font-medium uppercase text-3xl md:text-5xl leading-[1.02]`}>
+              <h2 className={`${ivDisplay.className} font-medium uppercase text-3xl md:text-5xl leading-[1.02]`}>
                 {BIZ.ratingLabel} de 5 estrellas
               </h2>
               <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.steel }}>
@@ -310,7 +307,7 @@ export default function InverlumPage() {
                 <figure className="border p-5 md:p-6 h-full flex flex-col" style={{ backgroundColor: '#fff', borderColor: C.line }}>
                   <Stars value={5} color={C.blue} className="w-[14px] h-[14px]" />
                   <blockquote className="text-sm leading-relaxed mt-4 flex-1">“{r.text}”</blockquote>
-                  <figcaption className={`${mono.className} text-[10px] uppercase tracking-[0.18em] font-medium mt-4`} style={{ color: C.steel }}>
+                  <figcaption className={`font-mono text-[10px] uppercase tracking-[0.18em] font-medium mt-4`} style={{ color: C.steel }}>
                     Reseña en Google · {r.author}
                   </figcaption>
                 </figure>
@@ -336,7 +333,7 @@ export default function InverlumPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <Spec>Antes de cotizar</Spec>
-            <h2 className={`${display.className} font-medium uppercase text-3xl md:text-5xl leading-tight mt-4 mb-8`}>
+            <h2 className={`${ivDisplay.className} font-medium uppercase text-3xl md:text-5xl leading-tight mt-4 mb-8`}>
               Preguntas frecuentes
             </h2>
           </Reveal>
@@ -354,7 +351,7 @@ export default function InverlumPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
             <Spec light>INVERLUM · 6 Oriente, Talca</Spec>
-            <h2 className={`${display.className} font-medium uppercase text-[clamp(2rem,7vw,4.2rem)] leading-[1.02] mt-5 mb-6`} style={{ color: '#fff' }}>
+            <h2 className={`${ivDisplay.className} font-medium uppercase text-[clamp(2rem,7vw,4.2rem)] leading-[1.02] mt-5 mb-6`} style={{ color: '#fff' }}>
               Cotiza tus ventanas hoy
             </h2>
             <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: 'rgba(255,255,255,0.85)' }}>
@@ -365,7 +362,7 @@ export default function InverlumPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block uppercase tracking-wider font-medium text-sm px-8 py-3.5 transition-transform active:scale-95 tap-44`}
+              className={`${ivDisplay.className} inline-block uppercase tracking-wider font-medium text-sm px-8 py-3.5 transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: '#fff', color: C.blue }}
             >
               Cotizar por WhatsApp
@@ -374,7 +371,7 @@ export default function InverlumPage() {
         </div>
       </section>
 
-      <SiteFooter fontClass={display.className} />
+      <SiteFooter fontClass={ivDisplay.className} />
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
   )

@@ -6,12 +6,12 @@ import { demoMetadata } from '../meta'
 import { BIZ, FOTOS, WA_LINK, WA_LINK_STOCK, MAPS_URL, MAPS_EMBED } from './content'
 import LazyMap from '../lazy-map'
 
-const display = localFont({
+const viDisplay = localFont({
   src: [
     { path: '../../fonts/gloock/normal-400.woff2', weight: '400', style: 'normal' },
   ],
 })
-const body = localFont({
+const viBody = localFont({
   src: [
     { path: '../../fonts/work-sans/normal-100-900.woff2', weight: '100 900', style: 'normal' },
   ],
@@ -68,7 +68,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 export default function ViveroDonaInesPage() {
   return (
     <div
-      className={`${body.className} min-h-screen antialiased`}
+      className={`${viBody.className} min-h-screen antialiased`}
       style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
@@ -77,7 +77,7 @@ export default function ViveroDonaInesPage() {
           name={BIZ.short}
           links={NAV_LINKS}
           waLink={WA_LINK}
-          fontClass={display.className}
+          fontClass={viDisplay.className}
           theme={{
             over: 'dark',
             bar: 'rgba(251,247,239,0.94)',
@@ -123,7 +123,7 @@ export default function ViveroDonaInesPage() {
           <Reveal>
             <Eyebrow light>Vivero familiar · Itahue · Molina</Eyebrow>
             <h1
-              className={`${display.className} leading-[1.04] tracking-[-0.005em] text-[clamp(2.5rem,9vw,5.4rem)] mb-6`}
+              className={`${viDisplay.className} leading-[1.04] tracking-[-0.005em] text-[clamp(2.5rem,9vw,5.4rem)] mb-6`}
               style={{ color: '#FBF7EF' }}
             >
               El vivero de
@@ -140,14 +140,14 @@ export default function ViveroDonaInesPage() {
                 href={WA_LINK_STOCK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
+                className={`${viDisplay.className} text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.terra, color: '#FBF7EF' }}
               >
                 Preguntar qué hay esta semana
               </a>
               <a
                 href="#llegar"
-                className={`${display.className} text-sm px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
+                className={`${viDisplay.className} text-sm px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 tap-44`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: '#FBF7EF' }}
               >
                 Cómo llegar
@@ -172,7 +172,7 @@ export default function ViveroDonaInesPage() {
         <Reveal>
           <Eyebrow>Así se ve el vivero</Eyebrow>
           <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.06]`} style={{ color: C.leafDeep }}>
+            <h2 className={`${viDisplay.className} text-4xl md:text-5xl leading-[1.06]`} style={{ color: C.leafDeep }}>
               Criado acá mismo,
               <br />
               <em style={{ color: C.leaf }}>entre Itahue y Los Aromos</em>
@@ -233,7 +233,7 @@ export default function ViveroDonaInesPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <Eyebrow light>Antes de ir</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.06] mb-4`} style={{ color: '#FBF7EF' }}>
+            <h2 className={`${viDisplay.className} text-4xl md:text-5xl leading-[1.06] mb-4`} style={{ color: '#FBF7EF' }}>
               Escríbenos primero,
               <br />
               <em style={{ color: C.terraSoft }}>sales con la planta segura</em>
@@ -253,7 +253,7 @@ export default function ViveroDonaInesPage() {
               <Reveal key={s.t} delay={i * 90}>
                 <li className="rounded-3xl p-6 h-full border" style={{ backgroundColor: 'rgba(251,247,239,0.06)', borderColor: 'rgba(251,247,239,0.2)' }}>
                   <Leaf className="w-5 h-5 mb-4" color={C.terraSoft} />
-                  <h3 className={`${display.className} text-xl mb-2`} style={{ color: '#FBF7EF' }}>{s.t}</h3>
+                  <h3 className={`${viDisplay.className} text-xl mb-2`} style={{ color: '#FBF7EF' }}>{s.t}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: 'rgba(251,247,239,0.82)' }}>{s.d}</p>
                 </li>
               </Reveal>
@@ -264,7 +264,7 @@ export default function ViveroDonaInesPage() {
               href={WA_LINK_STOCK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block mt-10 text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
+              className={`${viDisplay.className} inline-block mt-10 text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: C.terra, color: '#FBF7EF' }}
             >
               Consultar por WhatsApp
@@ -282,7 +282,7 @@ export default function ViveroDonaInesPage() {
           >
             <div className="flex items-center gap-4">
               <Stars value={BIZ.rating} color={C.terra} className="w-5 h-5" />
-              <p className={`${display.className} text-4xl md:text-5xl`} style={{ color: C.leafDeep }}>
+              <p className={`${viDisplay.className} text-4xl md:text-5xl`} style={{ color: C.leafDeep }}>
                 {BIZ.ratingLabel}
               </p>
             </div>
@@ -308,7 +308,7 @@ export default function ViveroDonaInesPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
             <Eyebrow>Cómo llegar</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.06] mb-6`} style={{ color: C.leafDeep }}>
+            <h2 className={`${viDisplay.className} text-4xl md:text-5xl leading-[1.06] mb-6`} style={{ color: C.leafDeep }}>
               Dobla en Itahue
               <br />
               <em style={{ color: C.terra }}>y sigue la caletera</em>
@@ -336,7 +336,7 @@ export default function ViveroDonaInesPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
+                className={`${viDisplay.className} text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44`}
                 style={{ backgroundColor: C.leaf, color: '#FBF7EF' }}
               >
                 Abrir en Google Maps →
@@ -345,7 +345,7 @@ export default function ViveroDonaInesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm px-6 py-3 rounded-full border-2 transition-colors tap-44`}
+                className={`${viDisplay.className} text-sm px-6 py-3 rounded-full border-2 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(62,107,58,0.4)', color: C.leafDeep }}
               >
                 Escribir por WhatsApp
@@ -379,7 +379,7 @@ export default function ViveroDonaInesPage() {
         />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
-            <h2 className={`${display.className} text-[clamp(2.1rem,6.5vw,4rem)] leading-[1.06] mb-6`} style={{ color: '#FBF7EF' }}>
+            <h2 className={`${viDisplay.className} text-[clamp(2.1rem,6.5vw,4rem)] leading-[1.06] mb-6`} style={{ color: '#FBF7EF' }}>
               Pregunta por la planta
               <br />
               <em style={{ color: '#FBE4CF' }}>que le falta a tu casa</em>
@@ -392,7 +392,7 @@ export default function ViveroDonaInesPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
+              className={`${viDisplay.className} inline-block text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44`}
               style={{ backgroundColor: '#FBF7EF', color: C.terra }}
             >
               Escribir por WhatsApp
@@ -404,7 +404,7 @@ export default function ViveroDonaInesPage() {
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.leafDeep, color: '#FBF7EF' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-6">
-          <p className={`${display.className} text-xl mb-1.5 flex items-center gap-3`}>
+          <p className={`${viDisplay.className} text-xl mb-1.5 flex items-center gap-3`}>
             <Leaf className="w-5 h-5" color={C.terraSoft} />
             {BIZ.name}
           </p>
