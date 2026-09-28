@@ -1510,6 +1510,14 @@ const BLITZ = [
     tagline: 'El expediente: carátula con doble filete, cláusulas numeradas Primero-Segundo, timbre rojo carimbo.',
     gradient: 'linear-gradient(135deg, #23303C 0%, #51606E 60%, #9E3826 140%)',
   },
+  {
+    slug: 'construcciones-letelier',
+    name: 'Construcciones Letelier',
+    rubro: 'Constructor',
+    city: 'San Clemente',
+    tagline: 'Parte de obra: carbón, papel y madera, índices numerados, cotas y registro fotográfico real.',
+    gradient: 'linear-gradient(135deg, #1B1710 0%, #3A3122 55%, #C89548 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
