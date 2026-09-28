@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, Stars, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_FACIAL, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
@@ -47,7 +47,7 @@ const WRAP = 'max-w-6xl mx-auto px-5 md:px-8'
 export const metadata: Metadata = demoMetadata({
   slug: 'issa-bella-spa-centro-de-estetica',
   title: 'Issa-bella SpA, centro de estética facial en Curicó',
-  description: 'Centro de estética facial en Sarajevo 1576, Curicó. Limpieza facial, fototerapia LED y más, con atención directa por WhatsApp.',
+  description: 'Centro de estética integral en Sarajevo 1576, Curicó: Hydrafacial, masajes, presoterapia y depilación láser. Agenda por WhatsApp.',
   image: '/demos/issa-bella-spa-centro-de-estetica/hero.webp',
 })
 
@@ -59,18 +59,19 @@ const NAV_LINKS = [
 ]
 
 const COVERLINES = [
-  'Limpieza facial profunda',
-  'Fototerapia con máscara LED',
+  'Hydrafacial y limpieza facial',
+  'Masajes y auriculoterapia',
   'Agenda directa por WhatsApp',
 ]
 
+// Fotos y servicios reales: publicaciones del centro en Maps e Instagram.
 const TRATAMIENTOS = [
   {
     n: 'Nº 1',
     src: `${IMG}/detalle1.webp`,
-    alt: 'Carro de trabajo con lámpara de lupa, bowl de mascarilla y brochas junto a la ventana',
-    name: 'Limpieza facial profunda',
-    desc: 'Higiene, exfoliación e hidratación según tu tipo de piel. Antes de partir se evalúa qué necesita tu cutis: nada se hace por inercia.',
+    alt: 'Sesión de auriculoterapia en Issa-bella Spa: cristales y semillas sobre el oído',
+    name: 'Auriculoterapia',
+    desc: 'Semillas y cristales sobre puntos del pabellón auricular, como apoyo para la relajación y el bienestar general.',
     box: 'lg:col-span-7',
     aspect: 'aspect-[4/3]',
     sizes: '(min-width: 1024px) 640px, 100vw',
@@ -78,9 +79,9 @@ const TRATAMIENTOS = [
   {
     n: 'Nº 2',
     src: `${IMG}/detalle3.webp`,
-    alt: 'Máscara de fototerapia LED blanca sobre la camilla, con toallas y bowl de espátulas',
-    name: 'Fototerapia con máscara LED',
-    desc: 'Sesiones de luz LED orientadas a luminosidad y regeneración de la piel. Texto de muestra: al publicar va la descripción real del tratamiento.',
+    alt: 'Afiche de Hydrafacial de Issa-bella Spa: microdermoabrasión y ultrasonido facial',
+    name: 'Hydrafacial',
+    desc: 'Limpieza, microdermoabrasión y ultrasonido en una sesión: exfolia, limpia los poros e introduce nutrientes a la piel.',
     box: 'lg:col-span-5 lg:col-start-3 lg:-mt-6',
     aspect: 'aspect-[3/4]',
     sizes: '(min-width: 1024px) 420px, 100vw',
@@ -88,27 +89,38 @@ const TRATAMIENTOS = [
   {
     n: 'Nº 3',
     src: `${IMG}/detalle2.webp`,
-    alt: 'Recepción del centro con mostrador de madera, toallas, eucalipto y repisas con plantas',
-    name: 'Tu primera hora',
-    desc: 'Llegas, conversamos y miramos tu piel con calma. De ahí sale un plan a tu medida y el valor claro antes de empezar.',
+    alt: 'Masaje descontracturante de espalda en Issa-bella Spa, Curicó',
+    name: 'Masajes descontracturantes',
+    desc: 'Masaje de espalda, cuello y hombros para soltar la tensión. Con hora agendada y seguimiento por WhatsApp.',
     box: 'lg:col-span-4 lg:col-start-9 lg:-mt-24',
     aspect: 'aspect-[4/5]',
     sizes: '(min-width: 1024px) 360px, 100vw',
   },
 ]
 
+// Servicios reales: afiches y bio de Instagram del centro.
 const TAMBIEN = [
-  'Exfoliación y renovación',
-  'Máscaras hidratantes',
-  'Perfilado de cejas',
-  'Depilación facial',
-  'Masaje de relajación',
+  'Drenaje linfático',
+  'Botas de presoterapia',
+  'Depilación láser',
+  'Purificación capilar',
+  'Spa kids',
 ]
 
+// Reseñas reales citadas desde la ficha pública de Google Maps.
 const QUOTES = [
-  'Me atendieron con calma y me explicaron cada paso. Salí con la piel distinta.',
-  'El lugar es luminoso e impecable. Se nota el orden en cada detalle.',
-  'Agendé por WhatsApp y me respondieron al tiro. Atención de verdad personalizada.',
+  {
+    text: 'Maravillosa atención, cien por ciento recomendable: los tratamientos son buenísimos y es atendido por su propia dueña.',
+    author: 'Karina Muñoz',
+  },
+  {
+    text: 'Excelente profesional, muy buena atención, carismática, empática. La más seca en todos los servicios que realiza.',
+    author: 'Alejandra Poveda',
+  },
+  {
+    text: 'Excelente profesional, atenta y con un trato muy cálido. Una experiencia muy grata, recomendada al cien por ciento.',
+    author: 'Natalie',
+  },
 ]
 
 const QUOTE_BOX = [
@@ -126,9 +138,11 @@ const PRECIOS = [
   { name: 'Pack de 4 sesiones', price: 'a convenir' },
 ]
 
+// Horario real de la ficha de Google Maps.
 const HORAS = [
-  { days: 'Lunes a viernes', time: '10:00 a 19:00' },
-  { days: 'Sábado', time: '10:00 a 14:00' },
+  { days: 'Lunes a viernes', time: '9:00 a 21:30' },
+  { days: 'Sábado', time: '10:00 a 19:00' },
+  { days: 'Domingo', time: 'Cerrado' },
 ]
 
 function Folio({
@@ -176,6 +190,7 @@ export default function IssaBellaPage() {
         name={BIZ.short}
         links={NAV_LINKS}
         waLink={WA_LINK}
+        logoSrc={`${IMG}/logo.webp`}
         fontClass={display.className}
         theme={{
           over: 'dark',
@@ -196,7 +211,7 @@ export default function IssaBellaPage() {
       >
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Sala de tratamiento del centro con camilla, vaporizador facial y ventanal con vista a los cerros"
+          alt="Masaje con piedras calientes en la cabina de Issa-bella Spa, Curicó"
           fill
           priority
           sizes="100vw"
@@ -294,7 +309,7 @@ export default function IssaBellaPage() {
                 className={`${FOCUS} text-xs font-bold px-3.5 py-2 border hover:bg-white/10 transition-colors tap-44`}
                 style={{ borderColor: 'rgba(247,249,249,0.4)', color: C.paper }}
               >
-                {BIZ.reviews} reseñas en Google
+                {BIZ.ratingLabel} · {BIZ.reviews} reseñas en Google
               </a>
               <a
                 href={BIZ.instagram}
@@ -435,7 +450,7 @@ export default function IssaBellaPage() {
         <div className="relative w-full h-[68vw] max-h-[560px] min-h-[320px]" style={{ backgroundColor: C.petrolDeep }}>
           <Image
             src={`${IMG}/ambiente.webp`}
-            alt="Fachada del centro a nivel de calle, con vitrina, puerta de madera y los cerros de Curicó al fondo"
+            alt="Tratamiento facial en cabina de Issa-bella Spa, con luz cálida de velas"
             fill
             sizes="100vw"
             className="object-cover"
@@ -465,7 +480,7 @@ export default function IssaBellaPage() {
           className={`${WRAP} py-3 text-[11px] uppercase tracking-[0.18em] flex justify-between gap-4`}
           style={{ color: C.muted }}
         >
-          <span>La entrada, por calle Sarajevo · foto de muestra</span>
+          <span>Tratamiento facial en cabina · foto real del centro</span>
           <span aria-hidden="true">↳ pág. doble</span>
         </figcaption>
       </figure>
@@ -490,7 +505,7 @@ export default function IssaBellaPage() {
                 <dt className={`${KICKER} mb-1`} style={{ color: C.petrol }}>Google</dt>
                 <dd className="text-base">
                   <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'}>
-                    {BIZ.reviews} reseñas
+                    {BIZ.ratingLabel} · {BIZ.reviews} reseñas
                   </a>
                 </dd>
               </div>
@@ -547,33 +562,26 @@ export default function IssaBellaPage() {
           {QUOTES.map((q, i) => (
             <Reveal key={i} delay={i * 110} className={QUOTE_BOX[i]}>
               <figure className="border-t pt-6" style={{ borderColor: C.ink }}>
-                <span
-                  className={`${display.className} block text-5xl leading-[0.6] mb-4`}
-                  style={{ color: C.mint }}
-                  aria-hidden="true"
-                >
-                  “
-                </span>
+                <Stars value={5} color={C.petrol} className="w-3.5 h-3.5 mb-4" />
                 <blockquote
                   className={`${display.className} italic leading-snug mb-4 ${i === 0 ? 'text-xl md:text-2xl' : 'text-lg md:text-xl'}`}
                   style={{ color: C.ink }}
                 >
-                  {q}
+                  {q.text}
                 </blockquote>
                 <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.petrol }}>
-                  Reseña de ejemplo
+                  {q.author} · Google
                 </figcaption>
               </figure>
             </Reveal>
           ))}
         </div>
         <p className="mt-6 text-sm" style={{ color: C.muted }}>
-          Las reseñas citadas son de muestra. Al publicar van los textos
-          reales de{' '}
+          Citas reales de{' '}
           <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={LINK + ' tap-44'} style={{ color: C.petrol }}>
             la ficha de Google
           </a>
-          .
+          : {BIZ.ratingLabel} de 5 en {BIZ.reviews} reseñas.
         </p>
       </section>
 
@@ -662,7 +670,7 @@ export default function IssaBellaPage() {
                 ))}
               </ul>
               <p className="text-sm mb-8" style={{ color: 'rgba(247,249,249,0.82)' }}>
-                Horario de muestra: al publicar va el horario real.
+                Horario según la ficha del centro en Google Maps.
               </p>
               <div className="flex flex-wrap items-center gap-4 mb-9">
                 <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={BTN_MINT + ' tap-44'}>
@@ -712,7 +720,7 @@ export default function IssaBellaPage() {
             </a>
           </address>
           <p className="mt-3 text-xs" style={{ color: 'rgba(247,249,249,0.8)' }}>
-            Sitio de ejemplo de Sitiazo: servicios, precios y fotos son de muestra.
+            Sitio de ejemplo de Sitiazo: datos, fotos, logo, servicios y reseñas reales (Google Maps e Instagram); precios de muestra.
           </p>
         </div>
       </footer>

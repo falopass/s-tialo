@@ -1,11 +1,12 @@
 /**
  * app/demos/issa-bella-spa-centro-de-estetica/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps): nombre,
- * rubro, dirección en Sarajevo 1576, Curicó, WhatsApp, Instagram
- * (667 seguidores) y las 8 reseñas. Todo lo demás (servicios,
- * precios, horarios y reseñas citadas) es contenido de muestra
- * para mostrar cómo se vería el sitio.
+ * Datos del mockup. REALES (ficha pública de Google Maps e Instagram
+ * @issa_bella.spa): nombre, dirección en Sarajevo 1576, Curicó,
+ * WhatsApp, Instagram (667 seguidores), nota 4,5 en 8 reseñas con
+ * las citas reales, horario (Lu-Vi 9:00-21:30, Sá 10:00-19:00), logo
+ * y fotos (Maps + posts de IG). Servicios tomados de los afiches que
+ * el centro publica; los precios siguen siendo de muestra.
  */
 
 export const BIZ = {
@@ -23,6 +24,8 @@ export const BIZ = {
   instagramHandle: '@issa_bella.spa',
   followers: 667,
   reviews: 8,
+  rating: 4.5,
+  ratingLabel: '4,5',
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
