@@ -3,7 +3,8 @@ import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { demoMetadata } from '../meta'
 import { Chrome, Reveal } from './chrome'
-import { BIZ, C, EVENTOS, GALERIA_EVENTOS, GALERIA_RECINTO, HABITACIONES, IMG, MAPS_URL, PASOS, WA_LINK } from './content'
+import LazyMap from '../lazy-map'
+import { BIZ, C, EVENTOS, GALERIA_EVENTOS, GALERIA_RECINTO, HABITACIONES, IMG, MAPS_EMBED, MAPS_URL, PASOS, WA_LINK } from './content'
 
 const display = localFont({
   src: [
@@ -319,7 +320,12 @@ export default function VillaAntillancaPage() {
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <Photo src="fachada" alt={GALERIA_RECINTO[0].alt} ratio="aspect-[4/3]" className="shadow-xl" />
+              <div className="grid gap-4">
+                <Photo src="fachada" alt={GALERIA_RECINTO[0].alt} ratio="aspect-[4/3]" className="shadow-xl" />
+                <div className="overflow-hidden rounded-2xl border shadow-xl" style={{ borderColor: C.goldSoft }}>
+                  <LazyMap src={MAPS_EMBED} title="Mapa: Villa Antillanca, camino a San Clemente, Talca" className="h-64 w-full border-0 md:h-72" />
+                </div>
+              </div>
             </Reveal>
           </div>
         </div>

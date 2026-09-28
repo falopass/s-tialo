@@ -48,6 +48,10 @@ export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encod
   'Villa Antillanca, Hotel & Centro de Eventos, Camino a San Clemente km 2,3, Talca, Chile',
 )}`
 
+export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
+  'Villa Antillanca, Hotel & Centro de Eventos, Camino a San Clemente km 2,3, Talca, Chile',
+)}&output=embed`
+
 /** Paleta del demo: verde bosque, crema, dorado y terracota de atardecer. */
 export const C = {
   forest: '#1E3A2F',
