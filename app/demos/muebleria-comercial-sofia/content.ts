@@ -1,12 +1,14 @@
 /**
  * app/demos/muebleria-comercial-sofia/content.ts
  *
- * Datos del mockup. REALES (ficha pública y redes): nombre, rubro,
- * dirección en Talca, la reseña de Google Maps, el teléfono fijo
- * (71) 224 1140 (solo llamadas; no publican WhatsApp)
- * y la página de Facebook. Todo lo demás (servicios, precios, textos
- * y testimonios) es contenido de muestra para mostrar cómo se vería
- * el sitio.
+ * Datos del mockup. REALES (ficha pública de Google Maps y su Facebook,
+ * verificados 2026-09-28): nombre, rubro (Furniture manufacturer),
+ * dirección en Catorce Oriente 1060, Talca, la reseña de Google, el
+ * teléfono fijo (71) 224 1140 (solo llamadas; no publican WhatsApp) y la
+ * página facebook.com/muebles1060. Los servicios —cocinas, closets,
+ * baños, vanitorios y revestimientos— están pintados en el letrero de la
+ * fachada, que es la foto hero. Las demás fotos son trabajos reales de
+ * su ficha de Maps. Los precios de la lista son de muestra.
  */
 
 export const BIZ = {
@@ -16,7 +18,7 @@ export const BIZ = {
   address: 'Catorce Ote. 1060',
   city: 'Talca',
   region: 'Región del Maule',
-  phoneDisplay: '+56 71 224 1140',
+  phoneDisplay: '(71) 224 1140',
   phoneTel: '+56712241140',
   reviews: 1,
   fbUrl: 'https://www.facebook.com/muebles1060',
@@ -27,11 +29,11 @@ export const BIZ = {
 export const CALL_LINK = `tel:${BIZ.phoneTel}`
 
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  'Mueblería Comercial Sofia, Talca, Chile',
+  'Mueblería Comercial Sofia, Catorce Oriente 1060, Talca, Chile',
 )}`
 
-export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
-  'Mueblería Comercial Sofia, Catorce Ote. 1060, Talca, Chile',
-)}&output=embed`
+// Embed con las coordenadas exactas de la ficha: el pin marca el taller.
+export const MAPS_EMBED =
+  'https://www.google.com/maps?q=-35.4293576,-71.6452322&z=16&output=embed'
 
 export const IMG = '/demos/muebleria-comercial-sofia'

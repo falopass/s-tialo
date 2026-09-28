@@ -8,616 +8,312 @@ import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
-  src: [
-    { path: '../../fonts/instrument-serif/italic-400.woff2', weight: '400', style: 'italic' },
-    { path: '../../fonts/instrument-serif/normal-400.woff2', weight: '400', style: 'normal' },
-  ],
+  src: [{ path: '../../fonts/marcellus/normal-400.woff2', weight: '400', style: 'normal' }],
 })
 const body = localFont({
-  src: [
-    { path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
-  ],
+  src: [{ path: '../../fonts/karla/normal-200-800.woff2', weight: '200 800', style: 'normal' }],
 })
 
+// Paleta sacada del letrero de la fachada y de sus muebles: carbón del
+// letrero, miel de la madera, crema y el teal con que pintan el teléfono.
 const C = {
-  paper: '#FBF7EF',
-  card: '#FFFDF8',
-  leaf: '#DCE7CF',
-  leafSoft: '#EDF2E2',
-  green: '#4C6B3C',
-  greenDeep: '#2C3F22',
-  earth: '#8C6239',
-  earthSoft: '#E9DAC3',
-  ink: '#26301D',
-  muted: '#5D6252',
-  line: 'rgba(38,48,29,0.14)',
+  papel: '#F4EDE0',
+  papelSoft: '#FBF6EB',
+  carbon: '#23201A',
+  carbonSoft: '#332E25',
+  miel: '#A9712F',
+  mielSoft: '#E9D9BC',
+  teal: '#3E7C74',
+  ink: '#23201A',
+  muted: '#6A6254',
+  line: 'rgba(35,32,26,0.16)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'muebleria-comercial-sofia',
-  title: 'Mueblería Comercial Sofia — Muebles hechos a mano en Talca',
-  description: 'Fábrica de muebles en Catorce Ote. 1060, Talca. Muebles a medida, cocinas, closets y restauración, con atención directa del taller.',
+  title: 'Mueblería Comercial Sofia — Fábrica de muebles en Talca',
+  description:
+    'Fábrica de muebles en Catorce Ote. 1060, Talca. Cocinas, closets, vanitorios y revestimientos por encargo. Atención directa del taller.',
   image: '/demos/muebleria-comercial-sofia/hero.webp',
 })
 
 const NAV_LINKS = [
-  { label: 'El taller', href: '#trabajos' },
-  { label: 'Quiénes somos', href: '#taller' },
-  { label: 'Precios', href: '#precios' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Trabajos', href: '#trabajos' },
+  { label: 'Qué hacen', href: '#que-hacen' },
+  { label: 'Cómo llegar', href: '#contacto' },
 ]
 
-function IconRuler({ className = 'w-5 h-5', color = 'currentColor' }: { className?: string; color?: string }) {
+// Servicios tal como los pinta el letrero de la fachada.
+const SERVICIOS = ['Cocinas', 'Closets', 'Baños', 'Vanitorios', 'Revestimientos']
+
+const TRABAJOS: { src: string; alt: string; name: string; note: string }[] = [
+  { src: 'cocina-oscura', alt: 'Cocina de gabinetes oscuros instalada por la mueblería', name: 'Cocina', note: 'gabinetes a medida' },
+  { src: 'closet', alt: 'Closet de melamina clara con puertas y repisa abierta', name: 'Closet', note: 'melamina clara' },
+  { src: 'cocina-blanca', alt: 'Cocina blanca en L con horno y microondas empotrados', name: 'Cocina en L', note: 'con empotrados' },
+  { src: 'vanitorio', alt: 'Vanitorio de baño con lavamanos de superficie', name: 'Vanitorio', note: 'para el baño' },
+]
+
+const PASOS = [
+  { n: '01', t: 'Llamas al taller', d: 'El (71) 224 1140 lo contesta el taller mismo, no un call center.' },
+  { n: '02', t: 'Se mide y se presupuesta', d: 'Van a ver el espacio o les pasas las medidas, y te dan un precio cerrado.' },
+  { n: '03', t: 'Se fabrica en Talca', d: 'El mueble se corta y se arma en el taller de Catorce Oriente.' },
+  { n: '04', t: 'Lo retiras o te lo llevan', d: 'Pasas a buscarlo por el taller o se coordina la entrega.' },
+]
+
+function PhoneIcon({ className = 'w-5 h-5' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3" y="8" width="18" height="8" rx="1.5" transform="rotate(-45 12 12)" />
-      <path d="M9.5 7.5 L11 9 M12.5 10.5 L14 12 M15.5 6.5 L17 8" />
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
     </svg>
   )
 }
 
-function IconCabinet({ className = 'w-5 h-5', color = 'currentColor' }: { className?: string; color?: string }) {
+function CallButton({ children = 'Llamar al taller', tone = 'miel', className = '' }: { children?: React.ReactNode; tone?: 'miel' | 'crema' | 'carbon'; className?: string }) {
+  const s = {
+    miel: { backgroundColor: C.miel, color: '#FFF' },
+    crema: { backgroundColor: C.papel, color: C.carbon },
+    carbon: { backgroundColor: C.carbon, color: C.papel },
+  }[tone]
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="4" y="3.5" width="16" height="17" rx="1.5" />
-      <path d="M4 9.5 h16 M4 15.5 h16" />
-      <path d="M9 6.5 h6 M9 12.5 h6 M9 18 h6" />
-    </svg>
-  )
-}
-
-function IconBrush({ className = 'w-5 h-5', color = 'currentColor' }: { className?: string; color?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M14.5 4.5 L19.5 9.5 L11 18 C9 19.5 6.5 20 4 20 C4.5 17.5 5.5 15.5 7 14 Z" />
-      <path d="M12.5 6.5 L17.5 11.5" />
-    </svg>
-  )
-}
-
-function IconTruck({ className = 'w-5 h-5', color = 'currentColor' }: { className?: string; color?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M3 6.5 h11 v9 h-11 Z" />
-      <path d="M14 10 h4 l3 3 v2.5 h-7 Z" />
-      <circle cx="7" cy="17.5" r="1.8" />
-      <circle cx="17" cy="17.5" r="1.8" />
-    </svg>
-  )
-}
-
-function Leaf({ className = 'w-4 h-4', color = 'currentColor' }: { className?: string; color?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 19 C5 10 11 4 20 4 C20 13 14 19 5 19 Z" />
-      <path d="M7.5 16.5 C10.5 12.5 13.5 9.5 16.5 6.5" />
-    </svg>
-  )
-}
-
-function Eyebrow({ children, light = false, color }: { children: React.ReactNode; light?: boolean; color?: string }) {
-  return (
-    <p
-      className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: color ?? (light ? C.earthSoft : C.green) }}
+    <a
+      href={CALL_LINK}
+      className={`inline-flex items-center justify-center gap-2.5 min-h-[44px] px-5 py-2.5 rounded-full font-bold text-[15px] transition-transform hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 ${className} tap-44`}
+      style={s}
     >
-      <Leaf className="w-[18px] h-[18px]" />
+      <PhoneIcon />
+      {children}
+    </a>
+  )
+}
+
+function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+  return (
+    <p className="text-[11px] font-bold tracking-[0.24em] uppercase mb-4 flex items-center gap-3" style={{ color: light ? C.mielSoft : C.teal }}>
+      <span className="block w-6 h-[2px]" style={{ backgroundColor: light ? C.mielSoft : C.teal }} aria-hidden="true" />
       {children}
     </p>
   )
 }
 
-const SERVICIOS = [
-  {
-    icon: IconRuler,
-    name: 'Muebles a medida',
-    desc: 'Comedores, racks y repisas hechos a la medida de tu casa.',
-  },
-  {
-    icon: IconCabinet,
-    name: 'Cocinas y closets',
-    desc: 'Muebles de cocina y closets por encargo, aprovechando cada rincón.',
-  },
-  {
-    icon: IconBrush,
-    name: 'Restauración y lustre',
-    desc: 'Se recuperan muebles con historia: lijado, lustre y reparación.',
-  },
-  {
-    icon: IconTruck,
-    name: 'Retiro y despacho',
-    desc: 'Retiras en el taller de Catorce Oriente o se coordina despacho.',
-  },
-]
-
-const PRECIOS = [
-  { item: 'Silla de comedor en madera', price: 'desde $45.000' },
-  { item: 'Mesa de comedor para 6 personas', price: 'desde $320.000' },
-  { item: 'Rack de TV a medida', price: 'desde $180.000' },
-  { item: 'Closet de 2 puertas', price: 'desde $390.000' },
-]
-
 export default function MuebleriaSofiaPage() {
   return (
-    <div
-      className={`${body.className} min-h-screen antialiased`}
-      style={{ backgroundColor: C.paper, color: C.ink }}
-    >
-      {/* fondo oscuro del hero bajo el nav transparente (el wrapper no ocupa alto) */}
-      <div style={{ backgroundColor: C.greenDeep }}>
-        <BlitzNav
-          name={BIZ.short}
-          links={NAV_LINKS}
-          waLink={CALL_LINK}
-          ctaLabel="Llamar"
-          fontClass={display.className}
-          theme={{
-            over: 'dark',
-            bar: 'rgba(251,247,239,0.94)',
-            ink: C.greenDeep,
-            line: C.line,
-            btnBg: C.green,
-            btnInk: '#FBF7EF',
-          }}
-        />
-      </div>
+    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.papel, color: C.ink }}>
+      <BlitzNav
+        name={BIZ.short}
+        links={NAV_LINKS}
+        waLink={CALL_LINK}
+        ctaLabel="Llamar"
+        fontClass={display.className}
+        theme={{ over: 'light', bar: 'rgba(244,237,224,0.95)', ink: C.carbon, line: C.line, btnBg: C.carbon, btnInk: C.papel }}
+      />
 
-      {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.greenDeep }}>
-        <Image
-          src={`${IMG}/hero.webp`}
-          alt="Taller de mueblería: muebles de madera en proceso, sillas y gabinetes recién armados"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(44,63,34,0.7) 0%, rgba(44,63,34,0.55) 40%, rgba(44,63,34,0.92) 100%)',
-          }}
-        />
-        {/* sellos: reseña real + Facebook real */}
-        <div className="absolute top-24 md:top-28 right-5 md:right-8 flex flex-col items-end gap-2">
-          <Reveal>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44"
-              style={{ backgroundColor: 'rgba(251,247,239,0.95)', color: C.greenDeep }}
-            >
-              <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.earth} stroke={C.earth} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
-                <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
-              </svg>
-              {BIZ.reviews} reseña en Google
-            </a>
-          </Reveal>
-          <Reveal delay={90}>
-            <a
-              href={BIZ.fbUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2.5 text-xs md:text-sm font-bold px-4 py-2.5 rounded-full shadow-lg transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44"
-              style={{ backgroundColor: 'rgba(251,247,239,0.95)', color: C.greenDeep }}
-            >
-              <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill={C.green} aria-hidden="true">
-                <path d="M13.5 21 v-7.5 h2.6 l0.4 -3 h-3 V8.6 c0 -0.9 0.3 -1.5 1.6 -1.5 h1.5 V4.4 c-0.3 -0.04 -1.2 -0.15 -2.3 -0.15 c-2.3 0 -3.9 1.4 -3.9 4 v2.2 H8 v3 h2.4 V21 Z" />
-              </svg>
-              {BIZ.fbFollowers} seguidores
-            </a>
-          </Reveal>
-        </div>
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
-          <Reveal>
-            <Eyebrow light>Fábrica de muebles · Talca · Maule</Eyebrow>
-            <h1
-              className={`${display.className} leading-[1.02] tracking-[-0.01em] text-[clamp(3rem,11vw,6.5rem)] mb-6`}
-              style={{ color: '#FBF7EF' }}
-            >
-              Lo que se cuida,
-              <br />
-              <em style={{ color: C.earthSoft }}>crece</em>
+      {/* ── Hero partido: nombre + fachada real ───────── */}
+      <section id="inicio" className="pt-[60px] md:pt-[68px]">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 md:py-16 grid md:grid-cols-[1.05fr_1fr] gap-8 md:gap-12 items-center">
+          <div>
+            <Eyebrow>Fábrica de muebles · Talca</Eyebrow>
+            <h1 className={`${display.className} text-[2.6rem] leading-[1.05] md:text-6xl md:leading-[1.02]`}>
+              El taller de muebles de Catorce Oriente.
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(251,247,239,0.88)' }}>
-              Fábrica de muebles en Catorce Oriente, Talca: cada pieza
-              sale del taller a medida, con la madera trabajada a mano.
+            <p className="mt-5 text-base md:text-lg leading-relaxed max-w-md" style={{ color: C.muted }}>
+              {BIZ.name} fabrica cocinas, closets y vanitorios por encargo, a la medida de tu casa. Se llama directo al taller.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href={CALL_LINK}
-                className={`${display.className} italic text-base md:text-lg px-7 py-2.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44`}
-                style={{ backgroundColor: C.leaf, color: C.greenDeep }}
-              >
-                Encargar un mueble a medida
-              </a>
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <CallButton />
               <a
                 href="#trabajos"
-                className={`${display.className} italic text-base md:text-lg px-7 py-2.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44`}
-                style={{ borderColor: 'rgba(251,247,239,0.55)', color: '#FBF7EF' }}
+                className="self-start sm:self-auto inline-flex items-center justify-center min-h-[44px] px-6 py-2.5 rounded-full font-bold text-[15px] border-2 transition-colors hover:bg-[#23201A] hover:text-[#F4EDE0] tap-44"
+                style={{ borderColor: C.carbon, color: C.ink }}
               >
-                Ver el taller
+                Ver trabajos
               </a>
             </div>
-          </Reveal>
-        </div>
-        <div className="relative border-t" style={{ borderColor: 'rgba(251,247,239,0.22)', backgroundColor: 'rgba(44,63,34,0.5)', backdropFilter: 'blur(6px)' }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(251,247,239,0.9)' }}>
-            <span>{BIZ.address} · {BIZ.city}</span>
-            <span className="flex items-center gap-2">
-              <span className="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: C.leaf }} aria-hidden="true" />
-              atención directa del taller
-            </span>
-            <span>Muebles por encargo</span>
-            <span className="hidden md:inline" style={{ color: C.earthSoft }}>sitio de ejemplo</span>
+            <dl className="mt-9 grid grid-cols-2 gap-4 text-sm max-w-md">
+              <div>
+                <dt className="font-mono text-[11px] uppercase tracking-[0.16em]" style={{ color: C.teal }}>Taller</dt>
+                <dd className="mt-1 font-semibold leading-snug">{BIZ.address}, {BIZ.city}</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[11px] uppercase tracking-[0.16em]" style={{ color: C.teal }}>Teléfono</dt>
+                <dd className="mt-1 font-semibold"><a href={CALL_LINK} className="underline underline-offset-4 tap-44">{BIZ.phoneDisplay}</a></dd>
+              </div>
+            </dl>
           </div>
-        </div>
-      </section>
-
-      {/* ── Bento modular: el taller en tarjetas ── */}
-      <section id="trabajos" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <Reveal>
-          <Eyebrow>El taller</Eyebrow>
-          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.greenDeep }}>
-              Todo sale del mismo
-              <br />
-              <em style={{ color: C.earth }}>taller de Talca</em>
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
-              Una muestra de lo que se hace en Comercial Sofia: al
-              publicar van los trabajos y servicios reales del taller.
-            </p>
-          </div>
-        </Reveal>
-
-        <div className="grid grid-cols-2 md:grid-cols-6 auto-rows-[170px] gap-3 md:gap-4">
-          {/* tarjeta grande de foto */}
-          <Reveal className="col-span-2 md:col-span-3 row-span-2">
-            <figure className="relative rounded-[28px] overflow-hidden h-full border" style={{ borderColor: C.line }}>
-              <Image
-                src={`${IMG}/detalle3.webp`}
-                alt="Silla y gabinetes de madera terminados dentro del taller de la mueblería"
-                fill
-                sizes="(min-width:768px) 50vw, 100vw"
-                className="object-cover"
-              />
-              <span
-                className={`${display.className} italic absolute bottom-4 left-4 text-xs md:text-sm px-3.5 py-1.5 rounded-full shadow-sm`}
-                style={{ backgroundColor: 'rgba(251,247,239,0.95)', color: C.greenDeep }}
-              >
-                así sale del taller
-              </span>
+          <Reveal delay={100}>
+            <figure className="relative rounded-2xl overflow-hidden rotate-1 shadow-[0_18px_44px_rgba(35,32,26,0.22)]" style={{ border: `1px solid ${C.line}` }}>
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={`${IMG}/hero.webp`}
+                  alt={`Fachada del taller de ${BIZ.name} en Catorce Oriente 1060, Talca, con su letrero pintado`}
+                  fill
+                  priority
+                  sizes="(min-width:768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-xs font-semibold flex items-center justify-between" style={{ backgroundColor: C.carbon, color: C.papel }}>
+                <span>La fachada real del taller</span>
+                <span className="font-mono" style={{ color: C.mielSoft }}>N° 1060</span>
+              </figcaption>
             </figure>
           </Reveal>
-
-          {/* mini-cards de servicios */}
-          {SERVICIOS.slice(0, 2).map((s, i) => (
-            <Reveal key={s.name} delay={80 + i * 90} className="col-span-1 md:col-span-3">
-              <div
-                className="rounded-[28px] border p-4 md:p-5 h-full flex flex-col md:flex-row md:items-center gap-3 md:gap-4"
-                style={{ backgroundColor: i === 0 ? C.card : C.leafSoft, borderColor: C.line }}
-              >
-                <span
-                  className="shrink-0 w-[42px] h-[42px] md:w-[48px] md:h-[48px] rounded-2xl flex items-center justify-center"
-                  style={{ backgroundColor: i === 0 ? C.leaf : '#fff', color: C.green }}
-                >
-                  <s.icon className="w-5 h-5 md:w-6 md:h-6" />
-                </span>
-                <div>
-                  <h3 className={`${display.className} text-lg md:text-2xl leading-tight`} style={{ color: C.greenDeep }}>
-                    {s.name}
-                  </h3>
-                  <p className="text-xs md:text-sm leading-snug mt-1 hidden sm:block" style={{ color: C.muted }}>
-                    {s.desc}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-
-          {/* par de fotos chicas */}
-          {[
-            { src: 'detalle1', alt: 'Banco de trabajo del carpintero con uniones de madera, cepillo y herramientas' },
-            { src: 'detalle2', alt: 'Detalle de la veta de una tabla de madera lustrada a mano en el taller' },
-          ].map((f, i) => (
-            <Reveal key={f.src} delay={60 + i * 80} className="col-span-1 md:col-span-2">
-              <figure className="relative rounded-[28px] overflow-hidden h-full border" style={{ borderColor: C.line }}>
-                <Image
-                  src={`${IMG}/${f.src}.webp`}
-                  alt={f.alt}
-                  fill
-                  sizes="(min-width:768px) 33vw, 50vw"
-                  className="object-cover"
-                />
-              </figure>
-            </Reveal>
-          ))}
-
-          {SERVICIOS.slice(2).map((s, i) => (
-            <Reveal key={s.name} delay={80 + i * 90} className="col-span-1 md:col-span-2">
-              <div
-                className="rounded-[28px] border p-4 md:p-5 h-full"
-                style={{ backgroundColor: i === 0 ? C.card : C.leafSoft, borderColor: C.line }}
-              >
-                <span
-                  className="w-[42px] h-[42px] md:w-[48px] md:h-[48px] rounded-2xl flex items-center justify-center mb-3"
-                  style={{ backgroundColor: i === 0 ? C.leaf : '#fff', color: C.green }}
-                >
-                  <s.icon className="w-5 h-5 md:w-6 md:h-6" />
-                </span>
-                <h3 className={`${display.className} text-lg md:text-xl leading-tight`} style={{ color: C.greenDeep }}>
-                  {s.name}
-                </h3>
-                <p className="text-xs md:text-sm leading-snug mt-1 hidden sm:block" style={{ color: C.muted }}>
-                  {s.desc}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-
-          {/* tarjeta CTA dentro del bento */}
-          <Reveal delay={120} className="col-span-2 md:col-span-4">
-            <div
-              className="rounded-[28px] p-4 md:p-5 h-full flex flex-col justify-between items-start gap-3"
-              style={{ backgroundColor: C.earth }}
-            >
-              <p className={`${display.className} italic text-lg md:text-2xl leading-tight`} style={{ color: '#FBF7EF' }}>
-                ¿Tienes una idea? Cotízala al tiro por teléfono
-              </p>
-              <a
-                href={CALL_LINK}
-                className="group inline-flex items-center gap-2 min-h-[44px] px-5 rounded-full text-xs md:text-sm font-semibold transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44"
-                style={{ backgroundColor: '#FBF7EF', color: C.greenDeep }}
-              >
-                Llamar ahora <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
-              </a>
-            </div>
-          </Reveal>
-
-          {/* fila de métricas */}
-          <Reveal className="col-span-2 row-span-2 md:col-span-6 md:row-span-1">
-            <dl
-              className="rounded-[28px] h-full grid grid-cols-2 md:grid-cols-4 items-center px-6 md:px-8 gap-y-4 py-5 md:py-0"
-              style={{ backgroundColor: C.green, color: '#FBF7EF' }}
-            >
-              {[
-                { value: BIZ.city, label: 'taller y venta directa' },
-                { value: `${BIZ.reviews}`, label: 'reseña en Google' },
-                { value: `${BIZ.fbFollowers}`, label: 'seguidores en Facebook' },
-                { value: 'A medida', label: 'cada mueble, por encargo' },
-              ].map((m) => (
-                <div key={m.label} className="flex flex-col">
-                  <dt className={`${display.className} text-2xl md:text-4xl leading-none`}>{m.value}</dt>
-                  <dd className="text-[11px] md:text-xs uppercase tracking-[0.14em] mt-1.5" style={{ color: '#FBF7EF' }}>
-                    {m.label}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
         </div>
       </section>
 
-      {/* ── Sobre el negocio ── */}
-      <section id="taller" className="scroll-mt-20" style={{ backgroundColor: C.leafSoft }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-3 md:gap-4">
-            <Reveal className="lg:col-span-4">
-              <div className="rounded-[28px] border p-6 md:p-10 h-full" style={{ backgroundColor: C.card, borderColor: C.line }}>
-                <Eyebrow>Quiénes somos</Eyebrow>
-                <h2 className={`${display.className} text-3xl md:text-5xl leading-[1.08] mb-5`} style={{ color: C.greenDeep }}>
-                  En Catorce Oriente se habla
-                  <br />
-                  <em style={{ color: C.earth }}>con quien hace el mueble</em>
-                </h2>
-                <p className="text-sm md:text-base leading-relaxed mb-4 max-w-lg" style={{ color: C.muted }}>
-                  Mueblería Comercial Sofia es una fábrica de muebles de
-                  Talca: acá el trato es directo, sin intermediarios. Se
-                  conversa la idea, se elige la madera y el mismo taller
-                  corta, arma y lustra cada pieza.
-                </p>
-                <p className="text-sm md:text-base leading-relaxed max-w-lg" style={{ color: C.muted }}>
-                  Lo que más valoran quienes encargan: un mueble firme,
-                  hecho a la medida real de la casa, y el precio de
-                  comprarle directo a quien lo fabrica.
-                </p>
-              </div>
-            </Reveal>
-            <div className="lg:col-span-2 grid gap-3 md:gap-4">
-              <Reveal delay={120}>
-                <div
-                  className="rounded-[28px] border p-6 h-full"
-                  style={{ backgroundColor: C.card, borderColor: C.line }}
-                >
-                  <svg viewBox="0 0 24 24" className="w-[22px] h-[22px] mb-3" fill={C.earth} stroke={C.earth} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
-                  </svg>
-                  <p className={`${display.className} text-2xl md:text-3xl leading-tight mb-1`} style={{ color: C.greenDeep }}>
-                    {BIZ.reviews} reseña
-                  </p>
-                  <p className="text-xs md:text-sm leading-snug" style={{ color: C.muted }}>
-                    en la ficha de Google Maps.{' '}
-                    <a
-                      href={MAPS_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4C6B3C] rounded-sm tap-44"
-                      style={{ color: C.greenDeep }}
-                    >
-                      Ver la ficha →
-                    </a>
-                  </p>
-                </div>
-              </Reveal>
-              <Reveal delay={200}>
-                <div
-                  className="rounded-[28px] border p-6 h-full"
-                  style={{ backgroundColor: C.green, borderColor: C.green }}
-                >
-                  <svg viewBox="0 0 24 24" className="w-[22px] h-[22px] mb-3" fill={C.leaf} aria-hidden="true">
-                    <path d="M13.5 21 v-7.5 h2.6 l0.4 -3 h-3 V8.6 c0 -0.9 0.3 -1.5 1.6 -1.5 h1.5 V4.4 c-0.3 -0.04 -1.2 -0.15 -2.3 -0.15 c-2.3 0 -3.9 1.4 -3.9 4 v2.2 H8 v3 h2.4 V21 Z" />
-                  </svg>
-                  <p className={`${display.className} text-2xl md:text-3xl leading-tight mb-1`} style={{ color: '#FBF7EF' }}>
-                    {BIZ.fbFollowers} seguidores
-                  </p>
-                  <p className="text-xs md:text-sm leading-snug" style={{ color: '#FBF7EF' }}>
-                    siguen los trabajos del taller en{' '}
-                    <a
-                      href={BIZ.fbUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] rounded-sm tap-44"
-                    >
-                      Facebook →
-                    </a>
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-
-          {/* cita de muestra + foto */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-3 md:gap-4 mt-3 md:mt-4">
-            <Reveal className="lg:col-span-2">
-              <figure className="relative rounded-[28px] overflow-hidden h-full border min-h-[220px]" style={{ borderColor: C.line }}>
-                <Image
-                  src={`${IMG}/ambiente.webp`}
-                  alt="Frontis del taller de mueblería con tablas de madera apiladas y banco de trabajo"
-                  fill
-                  sizes="(min-width:1024px) 33vw, 100vw"
-                  className="object-cover"
-                />
-              </figure>
-            </Reveal>
-            <Reveal delay={120} className="lg:col-span-4">
-              <figure
-                className="rounded-[28px] border p-6 md:p-10 h-full flex flex-col justify-between"
-                style={{ backgroundColor: C.card, borderColor: C.line }}
-              >
-                <blockquote className={`${display.className} text-xl md:text-3xl leading-snug mb-5`} style={{ color: C.ink }}>
-                  “Encargué un mueble a medida y quedó justo como lo
-                  quería: firme, bien lustrado y a la medida exacta del
-                  espacio.”
-                </blockquote>
-                <figcaption className="flex items-center justify-between gap-3">
-                  <span className="text-[11px] uppercase tracking-[0.18em] font-semibold" style={{ color: C.earth }}>
-                    Cliente de Talca · texto de muestra
-                  </span>
-                  <Leaf className="w-4 h-4 shrink-0" color={C.green} />
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
-        </div>
+      {/* ── Cenefa de servicios (los del letrero) ─────── */}
+      <section aria-label="Servicios" style={{ backgroundColor: C.carbon }}>
+        <ul className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          {SERVICIOS.map((s) => (
+            <li key={s} className={`${display.className} text-sm md:text-base uppercase tracking-[0.14em] flex items-center gap-6`} style={{ color: C.papel }}>
+              {s}
+              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.miel }} aria-hidden="true" />
+            </li>
+          ))}
+        </ul>
       </section>
 
-      {/* ── Precios de referencia ── */}
-      <section id="precios" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <Reveal>
-          <Eyebrow>Precios de referencia</Eyebrow>
-          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.greenDeep }}>
-              Precio de fábrica,
-              <br />
-              <em style={{ color: C.earth }}>sin intermediarios</em>
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.muted }}>
-              Valores referenciales de muestra: cada mueble se cotiza
-              según madera, medida y terminación. Los precios reales se
-              confirman por teléfono.
+      {/* ── Trabajos reales ───────────────────────────── */}
+      <section id="trabajos" className="scroll-mt-20 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 pb-8">
+            <div>
+              <Eyebrow>Del taller a la casa</Eyebrow>
+              <h2 className={`${display.className} text-3xl md:text-5xl leading-[1.08]`}>Trabajos que ya entregaron</h2>
+            </div>
+            <p className="text-sm max-w-xs md:text-right leading-relaxed" style={{ color: C.muted }}>
+              Fotos reales de su ficha de Google Maps — muebles instalados, no escenas de catálogo.
             </p>
           </div>
-        </Reveal>
-        <Reveal delay={100}>
-          <ul className="rounded-[28px] border overflow-hidden" style={{ backgroundColor: C.card, borderColor: C.line }}>
-            {PRECIOS.map((p, i) => (
-              <li
-                key={p.item}
-                className={`flex flex-wrap items-baseline justify-between gap-2 px-5 md:px-8 py-5 md:py-6 ${i > 0 ? 'border-t' : ''}`}
-                style={{ borderColor: C.line }}
-              >
-                <span className={`${display.className} text-xl md:text-2xl`} style={{ color: C.greenDeep }}>
-                  {p.item}
-                </span>
-                <span className="flex items-baseline gap-3">
-                  <span className="text-sm md:text-base font-semibold" style={{ color: C.earth }}>
-                    {p.price}
-                  </span>
-                  <span className="text-[10px] uppercase tracking-[0.14em] font-semibold px-2.5 py-1 rounded-full" style={{ backgroundColor: C.leafSoft, color: C.green }}>
-                    muestra
-                  </span>
+          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+            {TRABAJOS.map((f, i) => (
+              <li key={f.src} className={i % 2 === 1 ? 'lg:translate-y-6' : ''}>
+                <Reveal delay={i * 60}>
+                  <figure className="rounded-xl overflow-hidden" style={{ backgroundColor: C.papelSoft, border: `1px solid ${C.line}` }}>
+                    <div className="relative aspect-[3/4]">
+                      <Image src={`${IMG}/${f.src}.webp`} alt={f.alt} fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover" />
+                    </div>
+                    <figcaption className="px-3.5 py-3">
+                      <span className={`${display.className} block text-base md:text-lg`}>{f.name}</span>
+                      <span className="font-mono text-[11px]" style={{ color: C.muted }}>{f.note}</span>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── Cómo se trabaja ───────────────────────────── */}
+      <section id="que-hacen" className="scroll-mt-20 py-16 md:py-24" style={{ backgroundColor: C.carbon }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Eyebrow light>Cómo se trabaja</Eyebrow>
+          <h2 className={`${display.className} text-3xl md:text-5xl leading-[1.08] max-w-2xl`} style={{ color: C.papel }}>
+            Mueble a medida, trato directo.
+          </h2>
+          <ol className="mt-10 md:mt-14 border-t" style={{ borderColor: 'rgba(244,237,224,0.18)' }}>
+            {PASOS.map((p, i) => (
+              <li key={p.n} className="border-b" style={{ borderColor: 'rgba(244,237,224,0.18)' }}>
+                <Reveal delay={i * 60}>
+                  <div className="grid grid-cols-[52px_1fr] md:grid-cols-[90px_1fr_1fr] gap-4 md:gap-8 py-6 md:py-7 items-start">
+                    <span className={`${display.className} text-2xl md:text-3xl`} style={{ color: C.miel }}>{p.n}</span>
+                    <h3 className={`${display.className} text-xl md:text-2xl leading-snug`} style={{ color: '#FFF' }}>{p.t}</h3>
+                    <p className="col-span-2 md:col-span-1 text-sm md:text-base leading-relaxed" style={{ color: 'rgba(244,237,224,0.72)' }}>{p.d}</p>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+            <CallButton tone="crema">Llamar y pedir presupuesto</CallButton>
+            <p className="text-sm" style={{ color: 'rgba(244,237,224,0.7)' }}>También pueden escribir por su página de Facebook.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Precios de muestra ────────────────────────── */}
+      <section className="py-14 md:py-20" style={{ backgroundColor: C.mielSoft }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-[1fr_1.3fr] gap-8 md:gap-14 items-start">
+          <div>
+            <Eyebrow>Para hacerse una idea</Eyebrow>
+            <h2 className={`${display.className} text-3xl md:text-4xl leading-tight`}>Precios de referencia</h2>
+            <p className="mt-4 text-sm leading-relaxed" style={{ color: C.muted }}>
+              Valores de muestra para este ejemplo: al publicar van las cotizaciones reales del taller.
+            </p>
+            <div className="mt-5"><CallButton tone="carbon">Cotizar por teléfono</CallButton></div>
+          </div>
+          <ul className="rounded-xl overflow-hidden border" style={{ borderColor: C.line, backgroundColor: C.papelSoft }}>
+            {[
+              { item: 'Vanitorio de baño', d: 'melamina, por medida' },
+              { item: 'Closet de 2 puertas', d: 'con repisas y cajones' },
+              { item: 'Cocina a medida', d: 'según largo y cubierta' },
+              { item: 'Revestimiento de muro', d: 'por metro cuadrado' },
+            ].map((p) => (
+              <li key={p.item} className="flex items-center gap-4 px-5 py-4 border-b last:border-b-0" style={{ borderColor: C.line }}>
+                <div className="min-w-0 flex-1">
+                  <p className="font-bold">{p.item}</p>
+                  <p className="text-sm" style={{ color: C.muted }}>{p.d}</p>
+                </div>
+                <span className="text-[10px] font-bold tracking-[0.14em] uppercase px-2 py-1 rounded shrink-0" style={{ backgroundColor: C.papel, color: C.teal }}>
+                  Muestra
                 </span>
               </li>
             ))}
           </ul>
-        </Reveal>
-        <Reveal delay={200}>
-          <p className="text-xs leading-relaxed mt-5 max-w-xl" style={{ color: C.muted }}>
-            Precios de muestra para mostrar cómo se vería la lista. Al
-            publicar van los valores reales de la mueblería.
-          </p>
-        </Reveal>
+        </div>
       </section>
 
-      {/* ── Contacto ── */}
-      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.earthSoft }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-stretch">
+      {/* ── Contacto y ubicación ──────────────────────── */}
+      <section id="contacto" className="scroll-mt-20 py-16 md:py-24" style={{ backgroundColor: C.papelSoft }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
-            <Eyebrow color={C.greenDeep}>Contacto y ubicación</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.greenDeep }}>
-              {BIZ.address},
-              <br />
-              <em style={{ color: C.greenDeep }}>{BIZ.city}</em>
+            <Eyebrow>Cómo llegar</Eyebrow>
+            <h2 className={`${display.className} text-3xl md:text-5xl leading-[1.08] mb-6`}>
+              El taller está en el 1060 de Catorce Oriente.
             </h2>
-            <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.ink }}>
-              {BIZ.address}
+            <a
+              href={CALL_LINK}
+              className="flex items-center gap-4 rounded-xl px-5 py-2 mb-6 transition-transform hover:-translate-y-0.5 tap-44"
+              style={{ backgroundColor: C.carbon, color: C.papel }}
+            >
+              <span className="w-8 h-8 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(244,237,224,0.16)' }}>
+                <PhoneIcon className="w-4 h-4" />
+              </span>
+              <span>
+                <span className={`${display.className} block text-base leading-tight`}>Llamar al taller</span>
+                <span className="block text-xs leading-tight" style={{ color: 'rgba(244,237,224,0.75)' }}>{BIZ.phoneDisplay} · solo llamadas</span>
+              </span>
+            </a>
+            <address className="not-italic text-sm md:text-base leading-relaxed mb-5" style={{ color: C.muted }}>
+              <strong style={{ color: C.ink }}>{BIZ.address}</strong>
               <br />
-              {BIZ.city}, {BIZ.region}, Chile
+              {BIZ.city}, {BIZ.region}
             </address>
-            <ul className="space-y-2.5 mb-8">
-              <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.ink }}>
-                <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill="none" stroke={C.green} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-                <span>
-                  Teléfono fijo: <strong className="font-semibold" style={{ color: C.ink }}>{BIZ.phoneDisplay}</strong>
-                </span>
-              </li>
-              <li className="flex items-center gap-3 text-sm md:text-base" style={{ color: C.ink }}>
-                <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0" fill={C.green} aria-hidden="true">
-                  <path d="M13.5 21 v-7.5 h2.6 l0.4 -3 h-3 V8.6 c0 -0.9 0.3 -1.5 1.6 -1.5 h1.5 V4.4 c-0.3 -0.04 -1.2 -0.15 -2.3 -0.15 c-2.3 0 -3.9 1.4 -3.9 4 v2.2 H8 v3 h2.4 V21 Z" />
-                </svg>
-                <span>
-                  Facebook: <strong className="font-semibold" style={{ color: C.ink }}>@muebles1060</strong>
-                </span>
-              </li>
-            </ul>
             <div className="flex flex-wrap gap-3">
-              <a
-                href={CALL_LINK}
-                className={`${display.className} italic text-base md:text-lg px-7 py-2.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2C3F22] tap-44`}
-                style={{ backgroundColor: C.green, color: '#FBF7EF' }}
-              >
-                Llamar a la mueblería
-              </a>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} italic text-base md:text-lg px-7 py-2.5 rounded-full border-2 transition-colors hover:bg-white/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2C3F22] tap-44`}
-                style={{ borderColor: 'rgba(38,48,29,0.3)', color: C.greenDeep }}
+                className="inline-flex items-center font-bold text-sm px-5 py-2.5 min-h-[44px] rounded-full border-2 transition-colors hover:bg-[#23201A] hover:text-[#F4EDE0] tap-44"
+                style={{ borderColor: C.carbon, color: C.ink }}
               >
-                Cómo llegar →
+                Abrir ruta en Google Maps
+              </a>
+              <a
+                href={BIZ.fbUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center font-bold text-sm px-5 py-2.5 min-h-[44px] rounded-full border-2 transition-colors tap-44"
+                style={{ borderColor: 'rgba(62,124,116,0.5)', color: C.teal }}
+              >
+                Facebook del taller
               </a>
             </div>
           </Reveal>
           <Reveal delay={140}>
-            <div className="rounded-[28px] overflow-hidden border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.paper }}>
+            <div className="overflow-hidden rounded-xl border min-h-[320px] h-full" style={{ borderColor: C.line, backgroundColor: C.mielSoft }}>
               <LazyMap
-                title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
+                title={`Mapa: ${BIZ.name}, ${BIZ.address}, ${BIZ.city}`}
                 src={MAPS_EMBED}
                 className="w-full h-full min-h-[320px]"
                 loading="lazy"
@@ -628,58 +324,23 @@ export default function MuebleriaSofiaPage() {
         </div>
       </section>
 
-      {/* ── CTA final ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: C.greenDeep }}>
-        <Image
-          src={`${IMG}/detalle3.webp`}
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-[0.14]"
-          aria-hidden="true"
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
-          <Reveal>
-            <h2 className={`${display.className} text-[clamp(2.2rem,6.5vw,4rem)] leading-[1.05] mb-6`} style={{ color: '#FBF7EF' }}>
-              Cuéntanos qué mueble
-              <br />
-              <em style={{ color: C.earthSoft }}>le falta a tu casa</em>
-            </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9 leading-relaxed" style={{ color: 'rgba(251,247,239,0.9)' }}>
-              Llámanos con la idea y las medidas: el
-              taller te responde con una cotización directa.
-            </p>
-            <a
-              href={CALL_LINK}
-              className={`${display.className} italic inline-block text-base md:text-lg px-8 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF] tap-44`}
-              style={{ backgroundColor: C.leaf, color: C.greenDeep }}
-            >
-              Cotizar por teléfono
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.greenDeep, color: '#FBF7EF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-24 border-t" style={{ borderColor: 'rgba(251,247,239,0.14)' }}>
-          <p className={`${display.className} text-xl mb-1 flex items-center gap-3`}>
-            <Leaf className="w-5 h-5" color={C.leaf} />
-            {BIZ.name}
-          </p>
-          <address className="not-italic text-sm leading-relaxed mb-2" style={{ color: 'rgba(251,247,239,0.85)' }}>
-            {BIZ.address} · {BIZ.city}, {BIZ.region}
-          </address>
-          <p className="text-xs leading-relaxed mb-3" style={{ color: 'rgba(251,247,239,0.85)' }}>
-            Sitio de ejemplo de Sitiazo: contacto real; textos, precios y fotos de muestra.
-          </p>
-          <div className="[&>div]:static! [&>div]:max-w-none! [&>div]:inline-flex!">
-            <DemoBand name={BIZ.name} />
+      {/* ── Pie ───────────────────────────────────────── */}
+      <footer style={{ backgroundColor: C.carbon, color: C.papel }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-7 pb-16 md:pb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <p className={`${display.className} text-2xl mb-1`}>{BIZ.name}</p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(244,237,224,0.62)' }}>
+              {BIZ.rubro} · {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
+            </address>
           </div>
+          <p className="text-xs leading-relaxed md:max-w-xs" style={{ color: 'rgba(244,237,224,0.62)' }}>
+            Página de muestra preparada por Sitiazo con fotos reales del taller.
+          </p>
         </div>
       </footer>
 
-      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.green} />
+      <DemoBand name={BIZ.name} />
+      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.miel} />
     </div>
   )
 }
