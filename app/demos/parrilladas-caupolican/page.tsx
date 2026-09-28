@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, Stars, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, WA_LINK_RESERVA, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
@@ -34,8 +34,8 @@ const C = {
 
 export const metadata: Metadata = demoMetadata({
   slug: 'parrilladas-caupolican',
-  title: 'Parrilladas Caupolican — Restaurante a la leña en Pencahue',
-  description: 'Parrilladas a la leña, marraqueta caliente y pebre recién molido a la orilla de la K-60 en Pencahue, Región del Maule. Reserva por WhatsApp.',
+  title: 'Parrilladas Caupolican — Restaurante de parrilla en Pencahue',
+  description: 'Parrilladas, marraqueta caliente y pebre recién molido a la orilla de la K-60 en Pencahue, Región del Maule. Reserva por WhatsApp.',
   image: '/demos/parrilladas-caupolican/hero.webp',
 })
 
@@ -48,39 +48,40 @@ const NAV_LINKS = [
 
 const SPECS = [
   { k: 'Ubicación', v: 'K-60 36, Pencahue' },
-  { k: 'Fuego', v: 'Leña y parrilla de ladrillo' },
-  { k: 'Reseñas', v: `${BIZ.reviews} en Google` },
+  { k: 'La casa', v: 'Salones y terraza' },
+  { k: 'Google', v: `${BIZ.ratingLabel} · ${BIZ.reviews} reseñas` },
   { k: 'Facebook', v: `${BIZ.fbFollowers} seguidores` },
 ]
 
+// Fotos reales de la ficha de Google Maps del restaurante.
 const STEPS = [
   {
     num: '01',
     src: `${IMG}/detalle1.webp`,
-    alt: 'Parrilla de ladrillo con costillar y longanizas sobre brasas de leña',
-    title: 'Primero, el fuego',
-    text: 'El día parte con leña apilada y la parrilla de ladrillo tomando temperatura. Cuando las brasas están blancas, la cocina ya está lista para el primer servicio.',
+    alt: 'Parrillada de Parrilladas Caupolican servida en parrilla de mesa con carnes, papas y pebre, en la terraza',
+    title: 'La parrillada de la casa',
+    text: 'La parrillada llega al centro en su parrilla de mesa: carnes, papas y pebre para compartir. En la terraza, a pie de camino.',
   },
   {
     num: '02',
     src: `${IMG}/detalle3.webp`,
-    alt: 'Parrillada servida en tabla de madera con longaniza, verduras asadas, papas y pebre',
-    title: 'La carne a su tiempo',
-    text: 'Costillar, longaniza, pollo y cerdo pasan por las brasas sin apuro. Cada pieza sale en su punto, con papas y verduras doradas al lado del fuego.',
+    alt: 'Corte de carne a la parrilla con ensalada y pocillo de pebre en Parrilladas Caupolican',
+    title: 'La carne a su punto',
+    text: 'Cada corte sale en su punto, acompañado de ensalada fresca y el pebre de la casa recién molido, en pocillo de greda.',
   },
   {
     num: '03',
     src: `${IMG}/detalle2.webp`,
-    alt: 'Mesón de madera con canasto de marraquetas, pocillos de pebre y la parrilla al fondo',
-    title: 'Marraqueta y pebre a la mesa',
-    text: 'El pan llega caliente y el pebre recién molido, en pocillo de greda. Mientras se hace la carne, la mesa ya está comiendo.',
+    alt: 'Lomo a lo pobre con papas fritas caseras y huevo frito en Parrilladas Caupolican',
+    title: 'El clásico: lomo a lo pobre',
+    text: 'Churrasco, papas fritas caseras y huevo frito encima. El plato completo que piden los que pasan por la K-60.',
   },
   {
     num: '04',
     src: `${IMG}/ambiente.webp`,
-    alt: 'Local de adobe blanco con teja y comedor de madera, a la orilla de la K-60 con cerros detrás',
+    alt: 'Comedor de madera de Parrilladas Caupolican con techo de vigas y mesas servidas',
     title: 'La casa, a pie de camino',
-    text: 'Un restaurante de adobe y teja al costado de la K-60, con mesas de madera y vista al cerro. Se entra con hambre y se sale quedando bien.',
+    text: 'Un restaurante amplio de estilo rústico al costado de la K-60: salones de madera y terraza, con estacionamiento a la entrada.',
   },
 ]
 
@@ -93,10 +94,26 @@ const CARTA = [
   { name: 'Marraqueta y pebre', desc: 'Lo primero que llega a la mesa', price: 'cortesía' },
 ]
 
+// Reseñas reales citadas desde la ficha pública de Google Maps.
 const TESTIMONIALS = [
-  'Parábamos de paso por la K-60 y terminamos volviendo cada domingo. El costillar a la leña es de otro nivel.',
-  'Porciones generosas, pebre fresco y la marraqueta recién salida. Lo clásico de carretera, bien hecho.',
-  'Atención rápida y buena onda, como debe ser en un restaurante de camino. El lugar es amplio y hay estacionamiento.',
+  {
+    text: 'Excelente lugar para disfrutar en pareja, familia o grupos de trabajo. Un lugar discreto con una muy buena atención, carnes de primer nivel con un exquisito sabor y porciones de 400 gr.',
+    stars: 5,
+    author: 'Williams Gonzalez Perkins',
+    when: 'reseña de Google',
+  },
+  {
+    text: 'El local es amplio, estilo rústico, con buen estacionamiento: son dos salones medianos y una terraza.',
+    stars: 4,
+    author: 'Jael Jaque Inostroza',
+    when: 'reseña de Google',
+  },
+  {
+    text: 'Lugar agradable. La comida está bien, con muy buenas papas fritas. La atención amable y bastante rápida.',
+    stars: 3,
+    author: 'Paty Joy',
+    when: 'reseña de Google',
+  },
 ]
 
 function Tag({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
@@ -140,7 +157,7 @@ export default function ParrilladasCaupolicanPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Comedor de Parrilladas Caupolican: mesas de madera, parrilla de ladrillo encendida y vista a los cerros de Pencahue"
+          alt="Terraza de Parrilladas Caupolican en Pencahue, con mesas de madera y toldo al aire libre"
           fill
           priority
           sizes="100vw"
@@ -167,7 +184,7 @@ export default function ParrilladasCaupolicanPage() {
                 <path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11Z" />
                 <circle cx="12" cy="10" r="2.4" />
               </svg>
-              {BIZ.reviews} reseñas en Google
+              {BIZ.ratingLabel} · {BIZ.reviews} reseñas en Google
             </a>
           </Reveal>
         </div>
@@ -183,9 +200,9 @@ export default function ParrilladasCaupolicanPage() {
               <span style={{ color: C.mustardSoft }}>de la K-60</span>
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(246,241,228,0.88)' }}>
-              Parrilladas a la leña, marraqueta caliente y pebre recién
-              molido, a la orilla del camino en Pencahue. El resto lo
-              pone el fuego.
+              Parrilladas, marraqueta caliente y pebre recién molido,
+              a la orilla del camino en Pencahue. El resto lo pone la
+              parrilla.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -212,7 +229,7 @@ export default function ParrilladasCaupolicanPage() {
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: 'rgba(246,241,228,0.9)' }}>
             <span>K-60 36</span>
             <span>Pencahue, Maule</span>
-            <span>Parrilla a leña</span>
+            <span>Parrilla de la casa</span>
             <span className="hidden md:inline" style={{ color: C.mustardSoft }}>sitio de ejemplo</span>
           </div>
         </div>
@@ -392,12 +409,12 @@ export default function ParrilladasCaupolicanPage() {
             <div className="space-y-4 text-sm md:text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
               <p>
                 Parrilladas Caupolican es el restaurante de siempre del
-                kilómetro 36 de la K-60: casa de adobe, parrilla de
-                ladrillo y mesas de madera. Aquí atiende la misma gente
-                de la casa, y eso se nota.
+                kilómetro 36 de la K-60: salones rústicos de madera,
+                terraza y estacionamiento amplio. Aquí atiende la misma
+                gente de la casa, y eso se nota.
               </p>
               <p>
-                Son <strong style={{ color: C.green }}>{BIZ.reviews} reseñas</strong> en
+                Son <strong style={{ color: C.green }}>{BIZ.ratingLabel} de 5 en {BIZ.reviews} reseñas</strong> en
                 su ficha de Google y{' '}
                 <a
                   href={BIZ.facebook}
@@ -423,7 +440,7 @@ export default function ParrilladasCaupolicanPage() {
           </Reveal>
           <div>
             <p className="text-[11px] uppercase tracking-[0.22em] font-semibold mb-5" style={{ color: C.wood }}>
-              Lo que valoran los clientes — textos de muestra
+              Reseñas de Google, citadas desde la ficha pública
             </p>
             <div className="space-y-5">
               {TESTIMONIALS.map((t, i) => (
@@ -432,16 +449,26 @@ export default function ParrilladasCaupolicanPage() {
                     className="border-2 p-5 md:p-6"
                     style={{ borderColor: C.line, backgroundColor: i === 1 ? C.soft : C.paper }}
                   >
+                    <Stars value={t.stars} color={C.mustard} className="w-3.5 h-3.5 mb-3" />
                     <blockquote className="text-sm md:text-base leading-relaxed mb-3" style={{ color: C.ink }}>
-                      “{t}”
+                      “{t.text}”
                     </blockquote>
                     <figcaption className="text-[10px] uppercase tracking-[0.2em] font-semibold" style={{ color: C.wood }}>
-                      Reseña de ejemplo
+                      {t.author} · {t.when}
                     </figcaption>
                   </figure>
                 </Reveal>
               ))}
             </div>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 text-xs font-semibold underline underline-offset-4 decoration-2 tap-44"
+              style={{ color: C.wood, textDecorationColor: 'rgba(138,90,51,0.35)' }}
+            >
+              Ver todas en Google →
+            </a>
           </div>
         </div>
       </section>
@@ -559,7 +586,7 @@ export default function ParrilladasCaupolicanPage() {
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,228,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-3 md:py-4 text-xs leading-relaxed" style={{ color: 'rgba(246,241,228,0.75)' }}>
-            Textos, carta, precios y fotos son de muestra.
+            Datos, fotos y reseñas citadas reales (ficha de Google); carta y precios de muestra.
           </p>
         </div>
         <div className="px-5 pt-1 pb-6 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">

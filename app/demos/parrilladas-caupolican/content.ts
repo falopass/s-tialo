@@ -1,11 +1,10 @@
 /**
  * app/demos/parrilladas-caupolican/content.ts
  *
- * Datos del mockup. REALES (ficha pública y redes del negocio):
- * nombre, rubro, dirección en la K-60, las 857 reseñas de Google,
- * el Facebook con sus seguidores y el WhatsApp. Todo lo demás
- * (pasos, carta, precios y reseñas citadas) es contenido de
- * muestra para mostrar cómo se vería el sitio.
+ * Datos del mockup. REALES (ficha pública de Google Maps y redes del
+ * negocio): nombre, rubro, dirección en la K-60, nota 4,4 en 857 reseñas
+ * de Google, las reseñas citadas, las fotos (Google Maps) y el Facebook
+ * con sus seguidores. La carta y los precios siguen siendo de muestra.
  */
 
 export const BIZ = {
@@ -19,6 +18,8 @@ export const BIZ = {
   phoneTel: '+56989198149',
   whatsapp: '56989198149',
   reviews: 857,
+  rating: 4.4,
+  ratingLabel: '4,4',
   facebook: 'https://www.facebook.com/restaurantparrilladascaupolican',
   fbFollowers: '5.297',
 } as const
