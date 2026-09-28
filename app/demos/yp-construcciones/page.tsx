@@ -4,7 +4,7 @@ import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, Stars, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
-import { PipeIcon, PipeField } from './scenes'
+import { PipeIcon } from './scenes'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -282,11 +282,15 @@ export default function YPConstruccionesPage() {
         </Reveal>
       </section>
 
-      {/* ── Proceso sobre tendido de cañería ── */}
+      {/* ── Proceso sobre foto real de cañerías de gas ── */}
       <section id="proceso" className="scroll-mt-20 relative overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <div className="absolute inset-0 opacity-90">
-          <PipeField className="w-full h-full" />
-        </div>
+        <img
+          src={`${IMG}/gasdetalle.webp`}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          loading="lazy"
+        />
         <div
           className="absolute inset-0"
           style={{ background: 'linear-gradient(180deg, rgba(27,22,16,0.6) 0%, rgba(27,22,16,0.82) 100%)' }}
@@ -428,9 +432,13 @@ export default function YPConstruccionesPage() {
 
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.deep }}>
-        <div className="absolute inset-0 opacity-[0.85]">
-          <PipeField className="w-full h-full" />
-        </div>
+        <img
+          src={`${IMG}/calefont2.webp`}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          loading="lazy"
+        />
         <div
           className="absolute inset-0"
           style={{ background: 'linear-gradient(180deg, rgba(27,22,16,0.55) 0%, rgba(27,22,16,0.85) 100%)' }}

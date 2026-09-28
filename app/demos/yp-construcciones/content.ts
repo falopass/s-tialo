@@ -13,6 +13,9 @@
  * - Post del dueño en la ficha: «Cotización de herramientas a pedido»
  *   (mayo 2026) — se refleja como servicio de cotización a pedido.
  * - La ficha no declara horario: no se muestra bloque de horarios.
+ * - Fotos de public/demos/yp-construcciones: todas reales, de la ficha
+ *   de Google Maps (balones de gas, calefonts, baño, lavaplatos,
+ *   tuberías). La ficha no tiene logo: identidad = nombre + fotos.
  */
 
 export const BIZ = {
