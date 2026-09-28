@@ -798,6 +798,22 @@ const BLITZ = [
     tagline: 'Premium oscuro: carbón y dorado champagne, foto a sangre y reseñas 5.0 con fotos reales.',
     gradient: 'linear-gradient(135deg, #0D0D10 0%, #26262C 55%, #C6A35C 140%)',
   },
+  {
+    slug: 'kid-mania',
+    name: 'Kid Mania',
+    rubro: 'Cumpleaños infantiles',
+    city: 'Talca',
+    tagline: 'Fiesta lista: inflables, animación y decoración temática, con fotos reales del local.',
+    gradient: 'linear-gradient(135deg, #2A0F4C 0%, #6D28D9 55%, #D61F7F 140%)',
+  },
+  {
+    slug: 'turismo-las-brujas',
+    name: 'Turismo Las Brujas',
+    rubro: 'Camping y piscina natural',
+    city: 'Colbún',
+    tagline: 'Laguna natural, quinchos y arboleda en Colbún, con fotos reales del recinto.',
+    gradient: 'linear-gradient(135deg, #0A2E29 0%, #0F766E 60%, #E4DCC6 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
