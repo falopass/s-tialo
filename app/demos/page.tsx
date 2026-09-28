@@ -1686,6 +1686,14 @@ const BLITZ = [
     tagline: 'Pizarra mayorista: precio por unidad, por 10 o por caja, directo de la fábrica.',
     gradient: 'linear-gradient(135deg, #0B3C74 0%, #1463B8 55%, #D2292F 140%)',
   },
+  {
+    slug: 'jard-n-do-a-ignacia-1',
+    name: 'Jardín Doña Ignacia',
+    rubro: 'Centro de jardinería',
+    city: 'Talca',
+    tagline: 'La celosía del pasillo de macetas: papel crema, verde hoja y coral de las gerberas.',
+    gradient: 'linear-gradient(135deg, #F6F1E4 0%, #1E4A2C 70%, #D9573F 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
