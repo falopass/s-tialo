@@ -196,14 +196,14 @@ export default function MatrokinPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} text-sm md:text-base px-8 py-3.5 rounded-full transition-transform active:scale-95`}
                 style={{ backgroundColor: C.sand, color: C.charcoal }}
               >
                 Reservar por WhatsApp
               </a>
               <a
                 href="#rituales"
-                className={`${display.className} text-sm md:text-base px-8 py-4 rounded-full border transition-colors hover:bg-white/10`}
+                className={`${display.className} text-sm md:text-base px-8 py-3.5 rounded-full border transition-colors hover:bg-white/10`}
                 style={{ borderColor: 'rgba(251,248,241,0.55)', color: '#FBF8F1' }}
               >
                 Ver los rituales
@@ -382,7 +382,7 @@ export default function MatrokinPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-base md:text-lg px-10 py-4 rounded-full shadow-lg transition-transform hover:scale-[1.03] active:scale-95`}
+              className={`${display.className} inline-block text-base md:text-lg px-10 py-3 rounded-full shadow-lg transition-transform hover:scale-[1.03] active:scale-95`}
               style={{ backgroundColor: C.sageDeep, color: '#FBF8F1' }}
             >
               Reservar mi hora por WhatsApp
@@ -527,7 +527,7 @@ export default function MatrokinPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block text-sm md:text-base px-8 py-4 rounded-full transition-transform active:scale-95`}
+              className={`${display.className} inline-block text-sm md:text-base px-8 py-3.5 rounded-full transition-transform active:scale-95`}
               style={{ backgroundColor: C.sand, color: C.charcoal }}
             >
               Reservar por WhatsApp

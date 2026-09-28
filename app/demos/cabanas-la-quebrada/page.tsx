@@ -584,14 +584,14 @@ export default function CabanasLaQuebrada() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-8 py-4 rounded-full transition-transform active:scale-95"
+                className="font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95"
                 style={{ backgroundColor: C.terracotaInk, color: C.crema }}
               >
                 Consultar disponibilidad
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-4 rounded-full border transition-colors"
+                className="font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors"
                 style={{ borderColor: 'rgba(250,247,240,0.5)', color: C.crema }}
               >
                 {BIZ.phoneDisplay}

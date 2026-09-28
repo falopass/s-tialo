@@ -219,7 +219,7 @@ export default function Page() {
             <p className="mt-5 text-[16px] leading-relaxed opacity-90 max-w-md">
               Mande una foto de la pieza o la lista de lo que necesita y le respondemos por WhatsApp.
             </p>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="mt-8 min-h-[56px] inline-flex items-center gap-3 px-8 rounded-full text-[17px] font-semibold shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: '#25D366', color: '#0B2A14' }}>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="mt-8 min-h-[48px] inline-flex items-center gap-3 px-8 rounded-full text-[17px] font-semibold shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2" style={{ background: '#25D366', color: '#0B2A14' }}>
               Escribir al {BIZ.phoneDisplay}
             </a>
             <dl className="mt-10 space-y-4 text-[15px]">

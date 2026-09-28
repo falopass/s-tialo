@@ -228,14 +228,14 @@ export default function MuebleriaSofiaPage() {
                 href={WA_LINK_MEDIDA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
+                className={`${display.className} italic text-base md:text-lg px-7 py-2.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
                 style={{ backgroundColor: C.leaf, color: C.greenDeep }}
               >
                 Encargar un mueble a medida
               </a>
               <a
                 href="#trabajos"
-                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
+                className={`${display.className} italic text-base md:text-lg px-7 py-2.5 rounded-full border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
                 style={{ borderColor: 'rgba(251,247,239,0.55)', color: '#FBF7EF' }}
               >
                 Ver el taller
@@ -605,7 +605,7 @@ export default function MuebleriaSofiaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2C3F22]`}
+                className={`${display.className} italic text-base md:text-lg px-7 py-2.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2C3F22]`}
                 style={{ backgroundColor: C.green, color: '#FBF7EF' }}
               >
                 Escribir por WhatsApp
@@ -614,7 +614,7 @@ export default function MuebleriaSofiaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} italic text-base md:text-lg px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-white/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2C3F22]`}
+                className={`${display.className} italic text-base md:text-lg px-7 py-2.5 rounded-full border-2 transition-colors hover:bg-white/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2C3F22]`}
                 style={{ borderColor: 'rgba(38,48,29,0.3)', color: C.greenDeep }}
               >
                 Cómo llegar →
@@ -661,7 +661,7 @@ export default function MuebleriaSofiaPage() {
               href={WA_LINK_MEDIDA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} italic inline-block text-base md:text-lg px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
+              className={`${display.className} italic inline-block text-base md:text-lg px-8 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBF7EF]`}
               style={{ backgroundColor: C.leaf, color: C.greenDeep }}
             >
               Cotizar por WhatsApp

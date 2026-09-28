@@ -483,14 +483,14 @@ export default function AltosDeLircayPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-8 py-4 rounded-full transition-transform active:scale-95`}
+                className={`${display.className} font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95`}
                 style={{ backgroundColor: C.forest, color: '#fff' }}
               >
                 Agendar por WhatsApp
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className={`${display.className} font-semibold text-sm px-8 py-4 rounded-full border transition-colors`}
+                className={`${display.className} font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors`}
                 style={{ borderColor: 'rgba(22,52,42,0.35)', color: C.forestDeep }}
               >
                 {BIZ.phoneDisplay}

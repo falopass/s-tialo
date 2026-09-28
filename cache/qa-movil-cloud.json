@@ -1,6 +1,6 @@
 {
-  "base": "https://sitiazo.cl",
-  "fecha": "2026-09-28T00:20:23.184Z",
+  "base": "http://localhost:8899",
+  "fecha": "2026-09-28T01:49:06.523Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,8 +12,75 @@
     "SETTLE_MS": 3500
   },
   "demos": {
+    "a-toda-maquina-ventas-y-servicios": {
+      "url": "http://localhost:8899/demos/a-toda-maquina-ventas-y-servicios/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 271,
+      "footerPct": 32.1,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4371
+    },
+    "agrocesped-del-maule": {
+      "url": "http://localhost:8899/demos/agrocesped-del-maule/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 175,
+      "footerPct": 20.7,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4357
+    },
+    "bravosgym": {
+      "url": "http://localhost:8899/demos/bravosgym/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 135,
+      "footerPct": 16,
+      "contraste": [
+        {
+          "ratio": 3.6,
+          "minimo": 4.5,
+          "texto": "01",
+          "color": "rgb(193, 102, 63)",
+          "fondo": "rgb(27,42,65)",
+          "sel": "span.display_8cda3b82-module__1i6ejW__className.text-lg.md:text-xl"
+        },
+        {
+          "ratio": 3.6,
+          "minimo": 4.5,
+          "texto": "02",
+          "color": "rgb(193, 102, 63)",
+          "fondo": "rgb(27,42,65)",
+          "sel": "span.display_8cda3b82-module__1i6ejW__className.text-lg.md:text-xl"
+        },
+        {
+          "ratio": 3.6,
+          "minimo": 4.5,
+          "texto": "03",
+          "color": "rgb(193, 102, 63)",
+          "fondo": "rgb(27,42,65)",
+          "sel": "span.display_8cda3b82-module__1i6ejW__className.text-lg.md:text-xl"
+        }
+      ],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4351
+    },
     "atlantix-clinica-odontologica-san-javier-de-lonc": {
-      "url": "https://sitiazo.cl/demos/atlantix-clinica-odontologica-san-javier-de-lonc/",
+      "url": "http://localhost:8899/demos/atlantix-clinica-odontologica-san-javier-de-lonc/",
       "status": 200,
       "botones": [],
       "footerPx": 262,
@@ -25,7 +92,7 @@
           "texto": "Agendar mi hora",
           "color": "rgb(252, 250, 244)",
           "fondo": "rgb(193,102,63)",
-          "sel": "a.prata_c05294ee-module__8pKfxa__className.inline-flex.items-center"
+          "sel": "a.display_8cda3b82-module__UTvkSq__className.inline-flex.items-center"
         },
         {
           "ratio": 3.84,
@@ -33,7 +100,7 @@
           "texto": "Agendar por WhatsApp",
           "color": "rgb(252, 250, 244)",
           "fondo": "rgb(193,102,63)",
-          "sel": "a.prata_c05294ee-module__8pKfxa__className.inline-flex.items-center"
+          "sel": "a.display_8cda3b82-module__UTvkSq__className.inline-flex.items-center"
         },
         {
           "ratio": 3.84,
@@ -41,7 +108,7 @@
           "texto": "Agendar mi hora",
           "color": "rgb(252, 250, 244)",
           "fondo": "rgb(193,102,63)",
-          "sel": "a.prata_c05294ee-module__8pKfxa__className.inline-flex.items-center"
+          "sel": "a.display_8cda3b82-module__UTvkSq__className.inline-flex.items-center"
         }
       ],
       "desborde": false,
@@ -49,97 +116,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4331
-    },
-    "agrocesped-del-maule": {
-      "url": "https://sitiazo.cl/demos/agrocesped-del-maule/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 175,
-      "footerPct": 20.7,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4368
-    },
-    "a-toda-maquina-ventas-y-servicios": {
-      "url": "https://sitiazo.cl/demos/a-toda-maquina-ventas-y-servicios/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 299,
-      "footerPct": 35.4,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4530
-    },
-    "altos-de-lircay": {
-      "url": "https://sitiazo.cl/demos/altos-de-lircay/",
-      "status": 200,
-      "botones": [
-        {
-          "alto": 54,
-          "texto": "+56 9 9166 5552",
-          "sel": "a.space_grotesk_551d1cb2-module__RjN95a__className.font-semibold.text-sm"
-        }
-      ],
-      "footerPx": 206,
-      "footerPct": 24.4,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4887
-    },
-    "bravosgym": {
-      "url": "https://sitiazo.cl/demos/bravosgym/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 155,
-      "footerPct": 18.4,
-      "contraste": [
-        {
-          "ratio": 3.6,
-          "minimo": 4.5,
-          "texto": "01",
-          "color": "rgb(193, 102, 63)",
-          "fondo": "rgb(27,42,65)",
-          "sel": "span.prata_c05294ee-module__8pKfxa__className.text-lg.md:text-xl"
-        },
-        {
-          "ratio": 3.6,
-          "minimo": 4.5,
-          "texto": "02",
-          "color": "rgb(193, 102, 63)",
-          "fondo": "rgb(27,42,65)",
-          "sel": "span.prata_c05294ee-module__8pKfxa__className.text-lg.md:text-xl"
-        },
-        {
-          "ratio": 3.6,
-          "minimo": 4.5,
-          "texto": "03",
-          "color": "rgb(193, 102, 63)",
-          "fondo": "rgb(27,42,65)",
-          "sel": "span.prata_c05294ee-module__8pKfxa__className.text-lg.md:text-xl"
-        }
-      ],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4087
+      "ms": 4366
     },
     "barberia-rulos-style-barberia-curico": {
-      "url": "https://sitiazo.cl/demos/barberia-rulos-style-barberia-curico/",
+      "url": "http://localhost:8899/demos/barberia-rulos-style-barberia-curico/",
       "status": 200,
       "botones": [],
       "footerPx": 216,
@@ -215,10 +195,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4328
+      "ms": 4372
     },
     "beauty-love": {
-      "url": "https://sitiazo.cl/demos/beauty-love/",
+      "url": "http://localhost:8899/demos/beauty-love/",
       "status": 200,
       "botones": [],
       "footerPx": 172,
@@ -254,10 +234,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4432
+      "ms": 4389
     },
     "brutal-curico": {
-      "url": "https://sitiazo.cl/demos/brutal-curico/",
+      "url": "http://localhost:8899/demos/brutal-curico/",
       "status": 200,
       "botones": [],
       "footerPx": 292,
@@ -277,18 +257,26 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4368
+      "ms": 4299
+    },
+    "altos-de-lircay": {
+      "url": "http://localhost:8899/demos/altos-de-lircay/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 206,
+      "footerPct": 24.4,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4853
     },
     "cabanas-la-quebrada": {
-      "url": "https://sitiazo.cl/demos/cabanas-la-quebrada/",
+      "url": "http://localhost:8899/demos/cabanas-la-quebrada/",
       "status": 200,
-      "botones": [
-        {
-          "alto": 54,
-          "texto": "+56 9 6832 1729",
-          "sel": "a.font-semibold.text-sm.px-8"
-        }
-      ],
+      "botones": [],
       "footerPx": 310,
       "footerPct": 36.7,
       "contraste": [],
@@ -297,10 +285,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4299
+      "ms": 4384
     },
     "cabanas-vista-hermosa": {
-      "url": "https://sitiazo.cl/demos/cabanas-vista-hermosa/",
+      "url": "http://localhost:8899/demos/cabanas-vista-hermosa/",
       "status": 200,
       "botones": [],
       "footerPx": 267,
@@ -311,18 +299,12 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4527
+      "ms": 4379
     },
     "cafe-la-francesa": {
-      "url": "https://sitiazo.cl/demos/cafe-la-francesa/",
+      "url": "http://localhost:8899/demos/cafe-la-francesa/",
       "status": 200,
-      "botones": [
-        {
-          "alto": 53,
-          "texto": "Ver la carta",
-          "sel": "a.focus-visible:outline-2.focus-visible:outline-offset-4.focus-visible:outline-[#4C6B3C]"
-        }
-      ],
+      "botones": [],
       "footerPx": 222,
       "footerPct": 26.3,
       "contraste": [
@@ -348,24 +330,24 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4072
+      "ms": 4405
     },
-    "bxtraining-1": {
-      "url": "https://sitiazo.cl/demos/bxtraining-1/",
+    "centro-spa-roxana": {
+      "url": "http://localhost:8899/demos/centro-spa-roxana/",
       "status": 200,
       "botones": [],
-      "footerPx": 230,
-      "footerPct": 27.3,
+      "footerPx": 242,
+      "footerPct": 28.7,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4767
+      "ms": 4371
     },
     "centro-san-ricardo": {
-      "url": "https://sitiazo.cl/demos/centro-san-ricardo/",
+      "url": "http://localhost:8899/demos/centro-san-ricardo/",
       "status": 200,
       "botones": [],
       "footerPx": 290,
@@ -376,14 +358,28 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4502
+      "ms": 4408
     },
-    "clinica-dental-san-jose": {
-      "url": "https://sitiazo.cl/demos/clinica-dental-san-jose/",
+    "clinica-dental-bilbao-urgencias-dentales-curico-": {
+      "url": "http://localhost:8899/demos/clinica-dental-bilbao-urgencias-dentales-curico-/",
       "status": 200,
       "botones": [],
-      "footerPx": 270,
-      "footerPct": 32,
+      "footerPx": 217,
+      "footerPct": 25.7,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4332
+    },
+    "clinica-dental-san-jose": {
+      "url": "http://localhost:8899/demos/clinica-dental-san-jose/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 286,
+      "footerPct": 33.9,
       "contraste": [
         {
           "ratio": 3.43,
@@ -511,42 +507,28 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4246
+      "ms": 4109
     },
-    "clinica-dental-bilbao-urgencias-dentales-curico-": {
-      "url": "https://sitiazo.cl/demos/clinica-dental-bilbao-urgencias-dentales-curico-/",
+    "bxtraining-1": {
+      "url": "http://localhost:8899/demos/bxtraining-1/",
       "status": 200,
       "botones": [],
-      "footerPx": 217,
-      "footerPct": 25.7,
+      "footerPx": 230,
+      "footerPct": 27.3,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4311
-    },
-    "centro-spa-roxana": {
-      "url": "https://sitiazo.cl/demos/centro-spa-roxana/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 242,
-      "footerPct": 28.7,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4498
+      "ms": 4797
     },
     "clinica-prosaluddental": {
-      "url": "https://sitiazo.cl/demos/clinica-prosaluddental/",
+      "url": "http://localhost:8899/demos/clinica-prosaluddental/",
       "status": 200,
       "botones": [],
-      "footerPx": 335,
-      "footerPct": 39.7,
+      "footerPx": 316,
+      "footerPct": 37.4,
       "contraste": [
         {
           "ratio": 1,
@@ -554,7 +536,7 @@
           "texto": "DENTAL",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(193,39,45)",
-          "sel": "span.syne_ddc6789c-module__c51YSW__className.absolute.-bottom-6"
+          "sel": "span.display_914d23ad-module__HwjLqa__className.absolute.-bottom-6"
         },
         {
           "ratio": 1,
@@ -570,7 +552,7 @@
           "texto": "puntual",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(142,27,32)",
-          "sel": "span.syne_ddc6789c-module__c51YSW__className.whitespace-nowrap.font-extrabold"
+          "sel": "span.display_914d23ad-module__HwjLqa__className.whitespace-nowrap.font-extrabold"
         }
       ],
       "desborde": false,
@@ -578,10 +560,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4307
+      "ms": 4138
     },
     "clinica-t-renova-spa": {
-      "url": "https://sitiazo.cl/demos/clinica-t-renova-spa/",
+      "url": "http://localhost:8899/demos/clinica-t-renova-spa/",
       "status": 200,
       "botones": [],
       "footerPx": 259,
@@ -592,28 +574,42 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4331
+      "ms": 4140
     },
     "clinica-veterinaria-docpino": {
-      "url": "https://sitiazo.cl/demos/clinica-veterinaria-docpino/",
+      "url": "http://localhost:8899/demos/clinica-veterinaria-docpino/",
       "status": 200,
       "botones": [],
-      "footerPx": 280,
-      "footerPct": 33.2,
+      "footerPx": 261,
+      "footerPct": 30.9,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4442
+      "ms": 4130
     },
-    "clinica-y-farmacia-veterinaria-angel-guardian": {
-      "url": "https://sitiazo.cl/demos/clinica-y-farmacia-veterinaria-angel-guardian/",
+    "comercial-rio-claro": {
+      "url": "http://localhost:8899/demos/comercial-rio-claro/",
       "status": 200,
       "botones": [],
-      "footerPx": 207,
-      "footerPct": 24.5,
+      "footerPx": 282,
+      "footerPct": 33.4,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4126
+    },
+    "clinica-y-farmacia-veterinaria-angel-guardian": {
+      "url": "http://localhost:8899/demos/clinica-y-farmacia-veterinaria-angel-guardian/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 183,
+      "footerPct": 21.7,
       "contraste": [
         {
           "ratio": 1,
@@ -621,7 +617,7 @@
           "texto": "Ángel Guardián",
           "color": "rgb(245, 239, 230)",
           "fondo": "rgb(245,239,230)",
-          "sel": "a.libre_franklin_28a08d41-module__pEZj9q__className.text-[15px].md:text-lg"
+          "sel": "a.display_6079b759-module__aateSa__className.text-[15px].md:text-lg"
         },
         {
           "ratio": 1,
@@ -629,93 +625,18 @@
           "texto": "WhatsApp",
           "color": "rgb(245, 239, 230)",
           "fondo": "rgb(245,239,230)",
-          "sel": "a.libre_franklin_28a08d41-module__pEZj9q__className.shrink-0.text-[13px]"
+          "sel": "a.display_6079b759-module__aateSa__className.shrink-0.text-[13px]"
         }
       ],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [
-        {
-          "sel": "div",
-          "texto": "Consulta y control sanoAtendemos perros y gatos con hora age",
-          "top": 1303,
-          "alto": 421
-        },
-        {
-          "sel": "div",
-          "texto": "Farmacia veterinariaLa farmacia está en el mismo local: sale",
-          "top": 2139,
-          "alto": 362
-        },
-        {
-          "sel": "div",
-          "texto": "Tienda y accesoriosLo de todos los días para tu mascota, con",
-          "top": 3007,
-          "alto": 338
-        },
-        {
-          "sel": "div",
-          "texto": "En plena calle Maipú, en LinaresClínica y farmacia en el mis",
-          "top": 3537,
-          "alto": 212
-        },
-        {
-          "sel": "div.mt-12.md:mt-16",
-          "texto": "“Llegué sin hora con mi perra decaída y la atendieron igual.",
-          "top": 3796,
-          "alto": 414
-        },
-        {
-          "sel": "div",
-          "texto": "Ver la ficha en GooglePágina de Facebook",
-          "top": 4211,
-          "alto": 60
-        },
-        {
-          "sel": "div",
-          "texto": "Precios de referenciaValores de muestra para que te hagas un",
-          "top": 4415,
-          "alto": 102
-        },
-        {
-          "sel": "div",
-          "texto": "Consultas y procedimientosConsulta generaldesde $12.000Vacun",
-          "top": 4565,
-          "alto": 282
-        },
-        {
-          "sel": "div",
-          "texto": "Farmacia y tiendaMedicamentossegún recetaAlimentos de prescr",
-          "top": 4895,
-          "alto": 234
-        },
-        {
-          "sel": "div",
-          "texto": "Agenda la hora de tu mascotaEscríbenos por WhatsApp y coordi",
-          "top": 5337,
-          "alto": 523
-        }
-      ],
-      "ms": 4557
-    },
-    "comercial-rio-claro": {
-      "url": "https://sitiazo.cl/demos/comercial-rio-claro/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 304,
-      "footerPct": 36,
-      "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4303
+      "ms": 4150
     },
     "csf-especialidades-veterinarias-san-francisco": {
-      "url": "https://sitiazo.cl/demos/csf-especialidades-veterinarias-san-francisco/",
+      "url": "http://localhost:8899/demos/csf-especialidades-veterinarias-san-francisco/",
       "status": 200,
       "botones": [],
       "footerPx": 331,
@@ -831,10 +752,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4369
+      "ms": 4146
     },
     "damianstyle": {
-      "url": "https://sitiazo.cl/demos/damianstyle/",
+      "url": "http://localhost:8899/demos/damianstyle/",
       "status": 200,
       "botones": [],
       "footerPx": 250,
@@ -854,10 +775,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4412
+      "ms": 4086
     },
     "danybloom": {
-      "url": "https://sitiazo.cl/demos/danybloom/",
+      "url": "http://localhost:8899/demos/danybloom/",
       "status": 200,
       "botones": [],
       "footerPx": 271,
@@ -868,10 +789,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4367
+      "ms": 4047
     },
     "defensa-molina-abogados": {
-      "url": "https://sitiazo.cl/demos/defensa-molina-abogados/",
+      "url": "http://localhost:8899/demos/defensa-molina-abogados/",
       "status": 200,
       "botones": [],
       "footerPx": 331,
@@ -882,10 +803,66 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4433
+      "ms": 4128
+    },
+    "distribuidora-renato-molina": {
+      "url": "http://localhost:8899/demos/distribuidora-renato-molina/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 220,
+      "footerPct": 26.1,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4163
+    },
+    "ferreteria-la-ruta": {
+      "url": "http://localhost:8899/demos/ferreteria-la-ruta/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 242,
+      "footerPct": 28.7,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4143
+    },
+    "ferreteria-don-jack": {
+      "url": "http://localhost:8899/demos/ferreteria-don-jack/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 180,
+      "footerPct": 21.3,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4157
+    },
+    "emporio-vintage-cafe": {
+      "url": "http://localhost:8899/demos/emporio-vintage-cafe/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 253,
+      "footerPct": 30,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4181
     },
     "distribuidora-mym-curico": {
-      "url": "https://sitiazo.cl/demos/distribuidora-mym-curico/",
+      "url": "http://localhost:8899/demos/distribuidora-mym-curico/",
       "status": 200,
       "botones": [],
       "footerPx": 254,
@@ -897,7 +874,7 @@
           "texto": "MYM",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(58,63,68)",
-          "sel": "div.space_grotesk_aa1013b8-module__aus0EG__className.absolute.right-0"
+          "sel": "div.display_405d28b1-module__ILOS9G__className.absolute.right-0"
         },
         {
           "ratio": 2.97,
@@ -905,7 +882,7 @@
           "texto": "01",
           "color": "rgb(228, 87, 46)",
           "fondo": "rgb(237,230,218)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.font-bold.text-3xl"
+          "sel": "span.display_405d28b1-module__ILOS9G__className.font-bold.text-3xl"
         },
         {
           "ratio": 2.97,
@@ -913,7 +890,7 @@
           "texto": "02",
           "color": "rgb(228, 87, 46)",
           "fondo": "rgb(237,230,218)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.font-bold.text-3xl"
+          "sel": "span.display_405d28b1-module__ILOS9G__className.font-bold.text-3xl"
         },
         {
           "ratio": 2.97,
@@ -921,7 +898,7 @@
           "texto": "03",
           "color": "rgb(228, 87, 46)",
           "fondo": "rgb(237,230,218)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.font-bold.text-3xl"
+          "sel": "span.display_405d28b1-module__ILOS9G__className.font-bold.text-3xl"
         },
         {
           "ratio": 2.97,
@@ -929,7 +906,7 @@
           "texto": "04",
           "color": "rgb(228, 87, 46)",
           "fondo": "rgb(237,230,218)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.font-bold.text-3xl"
+          "sel": "span.display_405d28b1-module__ILOS9G__className.font-bold.text-3xl"
         },
         {
           "ratio": 1,
@@ -937,7 +914,7 @@
           "texto": "Hogar",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(228,87,46)",
-          "sel": "div.space_grotesk_aa1013b8-module__aus0EG__className.absolute.inset-x-0"
+          "sel": "div.display_405d28b1-module__ILOS9G__className.absolute.inset-x-0"
         }
       ],
       "desborde": false,
@@ -945,72 +922,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4278
-    },
-    "distribuidora-renato-molina": {
-      "url": "https://sitiazo.cl/demos/distribuidora-renato-molina/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 236,
-      "footerPct": 28,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4340
-    },
-    "emporio-vintage-cafe": {
-      "url": "https://sitiazo.cl/demos/emporio-vintage-cafe/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 271,
-      "footerPct": 32.1,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4377
-    },
-    "ferreteria-la-ruta": {
-      "url": "https://sitiazo.cl/demos/ferreteria-la-ruta/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 242,
-      "footerPct": 28.7,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4065
-    },
-    "ferreteria-don-jack": {
-      "url": "https://sitiazo.cl/demos/ferreteria-don-jack/",
-      "status": 200,
-      "botones": [
-        {
-          "alto": 56,
-          "texto": "Escribir al +56 9 9283 4096",
-          "sel": "a.mt-8.min-h-[56px].inline-flex"
-        }
-      ],
-      "footerPx": 180,
-      "footerPct": 21.3,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4430
+      "ms": 4252
     },
     "ferreteria-valdebenito": {
-      "url": "https://sitiazo.cl/demos/ferreteria-valdebenito/",
+      "url": "http://localhost:8899/demos/ferreteria-valdebenito/",
       "status": 200,
       "botones": [],
       "footerPx": 224,
@@ -1038,10 +953,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4479
+      "ms": 4105
     },
     "ferreteria-williams-pencahue": {
-      "url": "https://sitiazo.cl/demos/ferreteria-williams-pencahue/",
+      "url": "http://localhost:8899/demos/ferreteria-williams-pencahue/",
       "status": 200,
       "botones": [],
       "footerPx": 293,
@@ -1052,10 +967,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4429
+      "ms": 4054
     },
     "forastero-sabor-en-cada-bocado": {
-      "url": "https://sitiazo.cl/demos/forastero-sabor-en-cada-bocado/",
+      "url": "http://localhost:8899/demos/forastero-sabor-en-cada-bocado/",
       "status": 200,
       "botones": [],
       "footerPx": 244,
@@ -1067,7 +982,7 @@
           "texto": "01",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(11,23,34)",
-          "sel": "span.unbounded_fdae00f1-module__WFizWa__className.shrink-0.font-extrabold"
+          "sel": "span.display_23113b7b-module__M0qb9q__className.shrink-0.font-extrabold"
         },
         {
           "ratio": 1,
@@ -1075,7 +990,7 @@
           "texto": "02",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(11,23,34)",
-          "sel": "span.unbounded_fdae00f1-module__WFizWa__className.shrink-0.font-extrabold"
+          "sel": "span.display_23113b7b-module__M0qb9q__className.shrink-0.font-extrabold"
         },
         {
           "ratio": 1,
@@ -1083,7 +998,7 @@
           "texto": "03",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(11,23,34)",
-          "sel": "span.unbounded_fdae00f1-module__WFizWa__className.shrink-0.font-extrabold"
+          "sel": "span.display_23113b7b-module__M0qb9q__className.shrink-0.font-extrabold"
         },
         {
           "ratio": 4.2,
@@ -1115,10 +1030,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4374
+      "ms": 4053
     },
     "girls-house-estetica": {
-      "url": "https://sitiazo.cl/demos/girls-house-estetica/",
+      "url": "http://localhost:8899/demos/girls-house-estetica/",
       "status": 200,
       "botones": [],
       "footerPx": 195,
@@ -1129,10 +1044,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4326
+      "ms": 4092
     },
     "hair-home-studio-claudia-beltran": {
-      "url": "https://sitiazo.cl/demos/hair-home-studio-claudia-beltran/",
+      "url": "http://localhost:8899/demos/hair-home-studio-claudia-beltran/",
       "status": 200,
       "botones": [],
       "footerPx": 321,
@@ -1143,24 +1058,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4292
-    },
-    "homyvet": {
-      "url": "https://sitiazo.cl/demos/homyvet/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 266,
-      "footerPct": 31.5,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4635
+      "ms": 4140
     },
     "hospital-clinico-veterinario-la-granja-linares": {
-      "url": "https://sitiazo.cl/demos/hospital-clinico-veterinario-la-granja-linares/",
+      "url": "http://localhost:8899/demos/hospital-clinico-veterinario-la-granja-linares/",
       "status": 200,
       "botones": [],
       "footerPx": 286,
@@ -1171,10 +1072,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4284
+      "ms": 4203
     },
     "hostal-josefa": {
-      "url": "https://sitiazo.cl/demos/hostal-josefa/",
+      "url": "http://localhost:8899/demos/hostal-josefa/",
       "status": 200,
       "botones": [],
       "footerPx": 298,
@@ -1185,24 +1086,24 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4340
+      "ms": 4171
     },
     "issa-bella-spa-centro-de-estetica": {
-      "url": "https://sitiazo.cl/demos/issa-bella-spa-centro-de-estetica/",
+      "url": "http://localhost:8899/demos/issa-bella-spa-centro-de-estetica/",
       "status": 200,
       "botones": [],
-      "footerPx": 219,
-      "footerPct": 25.9,
+      "footerPx": 203,
+      "footerPct": 24.1,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4286
+      "ms": 4169
     },
     "italo-vet-linares": {
-      "url": "https://sitiazo.cl/demos/italo-vet-linares/",
+      "url": "http://localhost:8899/demos/italo-vet-linares/",
       "status": 200,
       "botones": [],
       "footerPx": 144,
@@ -1222,24 +1123,38 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4458
+      "ms": 4117
     },
-    "ius-abogados-linares": {
-      "url": "https://sitiazo.cl/demos/ius-abogados-linares/",
+    "homyvet": {
+      "url": "http://localhost:8899/demos/homyvet/",
       "status": 200,
       "botones": [],
-      "footerPx": 301,
-      "footerPct": 35.7,
+      "footerPx": 266,
+      "footerPct": 31.5,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4317
+      "ms": 4640
+    },
+    "ius-abogados-linares": {
+      "url": "http://localhost:8899/demos/ius-abogados-linares/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 282,
+      "footerPct": 33.4,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4047
     },
     "jardin-vivero-carolina": {
-      "url": "https://sitiazo.cl/demos/jardin-vivero-carolina/",
+      "url": "http://localhost:8899/demos/jardin-vivero-carolina/",
       "status": 200,
       "botones": [],
       "footerPx": 304,
@@ -1250,24 +1165,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4332
-    },
-    "jd-abogados": {
-      "url": "https://sitiazo.cl/demos/jd-abogados/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 288,
-      "footerPct": 34.1,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4789
+      "ms": 4061
     },
     "johnbarber": {
-      "url": "https://sitiazo.cl/demos/johnbarber/",
+      "url": "http://localhost:8899/demos/johnbarber/",
       "status": 200,
       "botones": [],
       "footerPx": 336,
@@ -1279,7 +1180,7 @@
           "texto": "01",
           "color": "rgb(232, 163, 61)",
           "fondo": "rgb(253,246,236)",
-          "sel": "span.fraunces_423090ae-module__avGgTW__className.italic.text-lg"
+          "sel": "span.display_6e1f99d4-module__TjFrsq__className.italic.text-lg"
         },
         {
           "ratio": 2.01,
@@ -1287,7 +1188,7 @@
           "texto": "02",
           "color": "rgb(232, 163, 61)",
           "fondo": "rgb(253,246,236)",
-          "sel": "span.fraunces_423090ae-module__avGgTW__className.italic.text-lg"
+          "sel": "span.display_6e1f99d4-module__TjFrsq__className.italic.text-lg"
         },
         {
           "ratio": 2.01,
@@ -1295,7 +1196,7 @@
           "texto": "03",
           "color": "rgb(232, 163, 61)",
           "fondo": "rgb(253,246,236)",
-          "sel": "span.fraunces_423090ae-module__avGgTW__className.italic.text-lg"
+          "sel": "span.display_6e1f99d4-module__TjFrsq__className.italic.text-lg"
         },
         {
           "ratio": 2.01,
@@ -1303,7 +1204,7 @@
           "texto": "04",
           "color": "rgb(232, 163, 61)",
           "fondo": "rgb(253,246,236)",
-          "sel": "span.fraunces_423090ae-module__avGgTW__className.italic.text-lg"
+          "sel": "span.display_6e1f99d4-module__TjFrsq__className.italic.text-lg"
         }
       ],
       "desborde": false,
@@ -1311,10 +1212,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4302
+      "ms": 4106
     },
     "la-pica-de-los-tatas": {
-      "url": "https://sitiazo.cl/demos/la-pica-de-los-tatas/",
+      "url": "http://localhost:8899/demos/la-pica-de-los-tatas/",
       "status": 200,
       "botones": [],
       "footerPx": 238,
@@ -1325,10 +1226,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4515
+      "ms": 4120
     },
     "la-pica-del-mateo": {
-      "url": "https://sitiazo.cl/demos/la-pica-del-mateo/",
+      "url": "http://localhost:8899/demos/la-pica-del-mateo/",
       "status": 200,
       "botones": [],
       "footerPx": 265,
@@ -1339,10 +1240,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4316
+      "ms": 4133
     },
     "la-terraza": {
-      "url": "https://sitiazo.cl/demos/la-terraza/",
+      "url": "http://localhost:8899/demos/la-terraza/",
       "status": 200,
       "botones": [],
       "footerPx": 237,
@@ -1362,14 +1263,14 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4394
+      "ms": 4094
     },
     "las-viejas-cochinas": {
-      "url": "https://sitiazo.cl/demos/las-viejas-cochinas/",
+      "url": "http://localhost:8899/demos/las-viejas-cochinas/",
       "status": 200,
       "botones": [],
       "footerPx": 193,
-      "footerPct": 22.4,
+      "footerPct": 22.9,
       "contraste": [
         {
           "ratio": 3.87,
@@ -1404,60 +1305,33 @@
           "sel": "dt"
         }
       ],
-      "desborde": true,
-      "scrollWidth": 398,
+      "desborde": false,
+      "scrollWidth": 390,
       "clientWidth": 390,
-      "culpables": [
-        {
-          "sel": "header.fixed.top-0.inset-x-0",
-          "left": 0,
-          "right": 398
-        },
-        {
-          "sel": "div.max-w-6xl.mx-auto.px-5",
-          "left": 0,
-          "right": 398
-        },
-        {
-          "sel": "div",
-          "left": 20,
-          "right": 398
-        },
-        {
-          "sel": "div.h-full.rounded-lg.p-6",
-          "left": 20,
-          "right": 398
-        },
-        {
-          "sel": "div",
-          "left": 20,
-          "right": 398
-        },
-        {
-          "sel": "div.h-full.rounded-lg.border",
-          "left": 20,
-          "right": 398
-        },
-        {
-          "sel": "div.flex.items-center.justify-between",
-          "left": 21,
-          "right": 397
-        },
-        {
-          "sel": "iframe.w-full.flex-1.min-h-[340px]",
-          "left": 21,
-          "right": 397
-        }
-      ],
+      "culpables": [],
       "invisibles": [],
-      "ms": 4316
+      "ms": 4048
     },
-    "le-petit-pasteleria": {
-      "url": "https://sitiazo.cl/demos/le-petit-pasteleria/",
+    "jd-abogados": {
+      "url": "http://localhost:8899/demos/jd-abogados/",
       "status": 200,
       "botones": [],
-      "footerPx": 282,
-      "footerPct": 33.4,
+      "footerPx": 288,
+      "footerPct": 34.1,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4667
+    },
+    "le-petit-pasteleria": {
+      "url": "http://localhost:8899/demos/le-petit-pasteleria/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 258,
+      "footerPct": 30.6,
       "contraste": [
         {
           "ratio": 1.82,
@@ -1465,7 +1339,7 @@
           "texto": "01",
           "color": "rgb(242, 183, 5)",
           "fondo": "rgb(255,255,255)",
-          "sel": "span.bitter_7391883f-module__pc6UOq__className.font-black.leading-none"
+          "sel": "span.display_ef2b8e81-module__iLVq_G__className.font-black.leading-none"
         },
         {
           "ratio": 1.82,
@@ -1473,7 +1347,7 @@
           "texto": "02",
           "color": "rgb(242, 183, 5)",
           "fondo": "rgb(255,255,255)",
-          "sel": "span.bitter_7391883f-module__pc6UOq__className.font-black.leading-none"
+          "sel": "span.display_ef2b8e81-module__iLVq_G__className.font-black.leading-none"
         },
         {
           "ratio": 1.82,
@@ -1481,7 +1355,7 @@
           "texto": "04",
           "color": "rgb(242, 183, 5)",
           "fondo": "rgb(255,255,255)",
-          "sel": "span.bitter_7391883f-module__pc6UOq__className.font-black.leading-none"
+          "sel": "span.display_ef2b8e81-module__iLVq_G__className.font-black.leading-none"
         }
       ],
       "desborde": false,
@@ -1489,10 +1363,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4485
+      "ms": 4050
     },
     "lua-nails": {
-      "url": "https://sitiazo.cl/demos/lua-nails/",
+      "url": "http://localhost:8899/demos/lua-nails/",
       "status": 200,
       "botones": [],
       "footerPx": 279,
@@ -1503,23 +1377,12 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4428
+      "ms": 4134
     },
     "matrokin": {
-      "url": "https://sitiazo.cl/demos/matrokin/",
+      "url": "http://localhost:8899/demos/matrokin/",
       "status": 200,
-      "botones": [
-        {
-          "alto": 54,
-          "texto": "Ver los rituales",
-          "sel": "a.marcellus_c2b91648-module__jHNFNG__className.text-sm.md:text-base"
-        },
-        {
-          "alto": 56,
-          "texto": "Reservar mi hora por WhatsApp",
-          "sel": "a.marcellus_c2b91648-module__jHNFNG__className.inline-block.text-base"
-        }
-      ],
+      "botones": [],
       "footerPx": 325,
       "footerPct": 38.5,
       "contraste": [],
@@ -1528,10 +1391,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4329
+      "ms": 4077
     },
     "mia-centro-de-estetica": {
-      "url": "https://sitiazo.cl/demos/mia-centro-de-estetica/",
+      "url": "http://localhost:8899/demos/mia-centro-de-estetica/",
       "status": 200,
       "botones": [],
       "footerPx": 249,
@@ -1542,33 +1405,12 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4295
+      "ms": 4069
     },
     "muebleria-comercial-sofia": {
-      "url": "https://sitiazo.cl/demos/muebleria-comercial-sofia/",
+      "url": "http://localhost:8899/demos/muebleria-comercial-sofia/",
       "status": 200,
-      "botones": [
-        {
-          "alto": 56,
-          "texto": "Ver el taller",
-          "sel": "a.instrument_serif_7939d2f5-module__v0ku4a__className.italic.text-base"
-        },
-        {
-          "alto": 56,
-          "texto": "Escribir por WhatsApp",
-          "sel": "a.instrument_serif_7939d2f5-module__v0ku4a__className.italic.text-base"
-        },
-        {
-          "alto": 56,
-          "texto": "Cómo llegar →",
-          "sel": "a.instrument_serif_7939d2f5-module__v0ku4a__className.italic.text-base"
-        },
-        {
-          "alto": 56,
-          "texto": "Cotizar por WhatsApp",
-          "sel": "a.instrument_serif_7939d2f5-module__v0ku4a__className.italic.inline-block"
-        }
-      ],
+      "botones": [],
       "footerPx": 286,
       "footerPct": 33.9,
       "contraste": [],
@@ -1577,10 +1419,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4346
+      "ms": 4057
     },
     "muebleria-infinity-muebles-talca": {
-      "url": "https://sitiazo.cl/demos/muebleria-infinity-muebles-talca/",
+      "url": "http://localhost:8899/demos/muebleria-infinity-muebles-talca/",
       "status": 200,
       "botones": [],
       "footerPx": 314,
@@ -1592,7 +1434,7 @@
           "texto": "01",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(255,255,255)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.absolute.-top-8"
+          "sel": "span.display_405d28b1-module__8aOnwa__className.absolute.-top-8"
         },
         {
           "ratio": 1,
@@ -1600,7 +1442,7 @@
           "texto": "02",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(255,255,255)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.absolute.-top-8"
+          "sel": "span.display_405d28b1-module__8aOnwa__className.absolute.-top-8"
         },
         {
           "ratio": 1,
@@ -1608,7 +1450,7 @@
           "texto": "03",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(255,255,255)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.absolute.-top-8"
+          "sel": "span.display_405d28b1-module__8aOnwa__className.absolute.-top-8"
         },
         {
           "ratio": 1,
@@ -1616,7 +1458,7 @@
           "texto": "01",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(58,63,68)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.block.text-5xl"
+          "sel": "span.display_405d28b1-module__8aOnwa__className.block.text-5xl"
         },
         {
           "ratio": 1,
@@ -1624,7 +1466,7 @@
           "texto": "02",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(58,63,68)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.block.text-5xl"
+          "sel": "span.display_405d28b1-module__8aOnwa__className.block.text-5xl"
         },
         {
           "ratio": 1,
@@ -1632,7 +1474,7 @@
           "texto": "03",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(58,63,68)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.block.text-5xl"
+          "sel": "span.display_405d28b1-module__8aOnwa__className.block.text-5xl"
         },
         {
           "ratio": 1,
@@ -1640,7 +1482,7 @@
           "texto": "04",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(58,63,68)",
-          "sel": "span.space_grotesk_aa1013b8-module__aus0EG__className.block.text-5xl"
+          "sel": "span.display_405d28b1-module__8aOnwa__className.block.text-5xl"
         }
       ],
       "desborde": false,
@@ -1648,24 +1490,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4326
-    },
-    "my-fusion-gym": {
-      "url": "https://sitiazo.cl/demos/my-fusion-gym/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 298,
-      "footerPct": 35.3,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4283
+      "ms": 4079
     },
     "muebles-a-tu-estilo": {
-      "url": "https://sitiazo.cl/demos/muebles-a-tu-estilo/",
+      "url": "http://localhost:8899/demos/muebles-a-tu-estilo/",
       "status": 200,
       "botones": [],
       "footerPx": 309,
@@ -1725,14 +1553,67 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4551
+      "ms": 4053
     },
-    "nativa-curico": {
-      "url": "https://sitiazo.cl/demos/nativa-curico/",
+    "my-fusion-gym": {
+      "url": "http://localhost:8899/demos/my-fusion-gym/",
       "status": 200,
       "botones": [],
-      "footerPx": 308,
-      "footerPct": 36.5,
+      "footerPx": 298,
+      "footerPct": 35.3,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4089
+    },
+    "nailsyus": {
+      "url": "http://localhost:8899/demos/nailsyus/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 184,
+      "footerPct": 21.6,
+      "contraste": [
+        {
+          "ratio": 3.99,
+          "minimo": 4.5,
+          "texto": "Nail art, kapping o algo que viste en Instagram: pregúntanos",
+          "color": "rgba(255, 255, 255, 0.85)",
+          "fondo": "rgb(194,73,31)",
+          "sel": "p.text-sm.leading-relaxed.mb-4"
+        }
+      ],
+      "desborde": true,
+      "scrollWidth": 394,
+      "clientWidth": 390,
+      "culpables": [
+        {
+          "sel": "header.fixed.top-0.inset-x-0",
+          "left": 0,
+          "right": 394
+        },
+        {
+          "sel": "div.max-w-6xl.mx-auto.px-5",
+          "left": 0,
+          "right": 394
+        },
+        {
+          "sel": "p.shrink-0.text-[10px].md:text-[11px]",
+          "left": 211,
+          "right": 394
+        }
+      ],
+      "invisibles": [],
+      "ms": 4055
+    },
+    "nativa-curico": {
+      "url": "http://localhost:8899/demos/nativa-curico/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 332,
+      "footerPct": 39.3,
       "contraste": [
         {
           "ratio": 3.23,
@@ -1764,7 +1645,7 @@
           "texto": "01",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(21,10,15)",
-          "sel": "p.barlow_condensed_42766bc6-module__y7kgiW__className.font-extrabold.text-6xl"
+          "sel": "p.display_489f2861-module__BnSfxG__className.font-extrabold.text-6xl"
         },
         {
           "ratio": 1,
@@ -1772,7 +1653,7 @@
           "texto": "02",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(21,10,15)",
-          "sel": "p.barlow_condensed_42766bc6-module__y7kgiW__className.font-extrabold.text-6xl"
+          "sel": "p.display_489f2861-module__BnSfxG__className.font-extrabold.text-6xl"
         },
         {
           "ratio": 1,
@@ -1780,7 +1661,7 @@
           "texto": "03",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(21,10,15)",
-          "sel": "p.barlow_condensed_42766bc6-module__y7kgiW__className.font-extrabold.text-6xl"
+          "sel": "p.display_489f2861-module__BnSfxG__className.font-extrabold.text-6xl"
         },
         {
           "ratio": 1,
@@ -1788,7 +1669,7 @@
           "texto": "04",
           "color": "rgba(0, 0, 0, 0)",
           "fondo": "rgb(21,10,15)",
-          "sel": "p.barlow_condensed_42766bc6-module__y7kgiW__className.font-extrabold.text-6xl"
+          "sel": "p.display_489f2861-module__BnSfxG__className.font-extrabold.text-6xl"
         },
         {
           "ratio": 4.46,
@@ -1796,7 +1677,7 @@
           "texto": "Lo que valoran las clientas · textos de muestra",
           "color": "rgba(245, 239, 230, 0.5)",
           "fondo": "rgb(58,22,34)",
-          "sel": "p.barlow_condensed_42766bc6-module__y7kgiW__className.text-[11px].uppercase"
+          "sel": "p.display_489f2861-module__BnSfxG__className.text-[11px].uppercase"
         },
         {
           "ratio": 4.09,
@@ -1804,7 +1685,7 @@
           "texto": "Carta de muestra · valores por confirmar",
           "color": "rgba(245, 239, 230, 0.45)",
           "fondo": "rgb(29,14,21)",
-          "sel": "p.barlow_condensed_42766bc6-module__y7kgiW__className.text-center.uppercase"
+          "sel": "p.display_489f2861-module__BnSfxG__className.text-center.uppercase"
         },
         {
           "ratio": 3.18,
@@ -1868,49 +1749,49 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4283
+      "ms": 4078
     },
-    "nailsyus": {
-      "url": "https://sitiazo.cl/demos/nailsyus/",
+    "pasteleria-y-panaderia-eluney": {
+      "url": "http://localhost:8899/demos/pasteleria-y-panaderia-eluney/",
       "status": 200,
       "botones": [],
-      "footerPx": 198,
-      "footerPct": 22.9,
+      "footerPx": 273,
+      "footerPct": 32.3,
       "contraste": [
         {
-          "ratio": 3.99,
-          "minimo": 4.5,
-          "texto": "Nail art, kapping o algo que viste en Instagram: pregúntanos",
-          "color": "rgba(255, 255, 255, 0.85)",
-          "fondo": "rgb(194,73,31)",
-          "sel": "p.text-sm.leading-relaxed.mb-4"
+          "ratio": 1.23,
+          "minimo": 3,
+          "texto": "01",
+          "color": "rgba(34, 81, 255, 0.14)",
+          "fondo": "rgb(255,255,255)",
+          "sel": "span.display_6739b8ea-module__c_Hc5a__className.block.font-extrabold"
+        },
+        {
+          "ratio": 1.23,
+          "minimo": 3,
+          "texto": "02",
+          "color": "rgba(34, 81, 255, 0.14)",
+          "fondo": "rgb(255,255,255)",
+          "sel": "span.display_6739b8ea-module__c_Hc5a__className.block.font-extrabold"
+        },
+        {
+          "ratio": 1.23,
+          "minimo": 3,
+          "texto": "03",
+          "color": "rgba(34, 81, 255, 0.14)",
+          "fondo": "rgb(255,255,255)",
+          "sel": "span.display_6739b8ea-module__c_Hc5a__className.block.font-extrabold"
         }
       ],
-      "desborde": true,
-      "scrollWidth": 399,
+      "desborde": false,
+      "scrollWidth": 390,
       "clientWidth": 390,
-      "culpables": [
-        {
-          "sel": "header.fixed.top-0.inset-x-0",
-          "left": 0,
-          "right": 399
-        },
-        {
-          "sel": "div.max-w-6xl.mx-auto.px-5",
-          "left": 0,
-          "right": 399
-        },
-        {
-          "sel": "p.shrink-0.text-[10px].md:text-[11px]",
-          "left": 211,
-          "right": 399
-        }
-      ],
+      "culpables": [],
       "invisibles": [],
-      "ms": 4359
+      "ms": 4219
     },
     "nicolas-atelier": {
-      "url": "https://sitiazo.cl/demos/nicolas-atelier/",
+      "url": "http://localhost:8899/demos/nicolas-atelier/",
       "status": 200,
       "botones": [],
       "footerPx": 289,
@@ -1921,10 +1802,52 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4495
+      "ms": 4594
+    },
+    "parrilladas-caupolican": {
+      "url": "http://localhost:8899/demos/parrilladas-caupolican/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 302,
+      "footerPct": 35.8,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4563
+    },
+    "patagonia-dulce-pasteleria": {
+      "url": "http://localhost:8899/demos/patagonia-dulce-pasteleria/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 290,
+      "footerPct": 34.4,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4139
+    },
+    "panaderia-bravo": {
+      "url": "http://localhost:8899/demos/panaderia-bravo/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 298,
+      "footerPct": 35.3,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4612
     },
     "one-health": {
-      "url": "https://sitiazo.cl/demos/one-health/",
+      "url": "http://localhost:8899/demos/one-health/",
       "status": 200,
       "botones": [],
       "footerPx": 298,
@@ -1944,91 +1867,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4650
-    },
-    "panaderia-bravo": {
-      "url": "https://sitiazo.cl/demos/panaderia-bravo/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 298,
-      "footerPct": 35.3,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4276
-    },
-    "parrilladas-caupolican": {
-      "url": "https://sitiazo.cl/demos/parrilladas-caupolican/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 315,
-      "footerPct": 37.3,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4340
-    },
-    "pasteleria-y-panaderia-eluney": {
-      "url": "https://sitiazo.cl/demos/pasteleria-y-panaderia-eluney/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 273,
-      "footerPct": 32.3,
-      "contraste": [
-        {
-          "ratio": 1.23,
-          "minimo": 3,
-          "texto": "01",
-          "color": "rgba(34, 81, 255, 0.14)",
-          "fondo": "rgb(255,255,255)",
-          "sel": "span.outfit_b67c6407-module__QOV12a__className.block.font-extrabold"
-        },
-        {
-          "ratio": 1.23,
-          "minimo": 3,
-          "texto": "02",
-          "color": "rgba(34, 81, 255, 0.14)",
-          "fondo": "rgb(255,255,255)",
-          "sel": "span.outfit_b67c6407-module__QOV12a__className.block.font-extrabold"
-        },
-        {
-          "ratio": 1.23,
-          "minimo": 3,
-          "texto": "03",
-          "color": "rgba(34, 81, 255, 0.14)",
-          "fondo": "rgb(255,255,255)",
-          "sel": "span.outfit_b67c6407-module__QOV12a__className.block.font-extrabold"
-        }
-      ],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4358
-    },
-    "patagonia-dulce-pasteleria": {
-      "url": "https://sitiazo.cl/demos/patagonia-dulce-pasteleria/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 290,
-      "footerPct": 34.4,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4621
+      "ms": 4894
     },
     "peluqueria-fran-wartemberg": {
-      "url": "https://sitiazo.cl/demos/peluqueria-fran-wartemberg/",
+      "url": "http://localhost:8899/demos/peluqueria-fran-wartemberg/",
       "status": 200,
       "botones": [],
       "footerPx": 245,
@@ -2039,24 +1881,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4379
-    },
-    "peluqueria-gloria": {
-      "url": "https://sitiazo.cl/demos/peluqueria-gloria/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 242,
-      "footerPct": 28.7,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4275
+      "ms": 4122
     },
     "plantitas-ya-vivero-romeral-ventas-de-plantas-y-": {
-      "url": "https://sitiazo.cl/demos/plantitas-ya-vivero-romeral-ventas-de-plantas-y-/",
+      "url": "http://localhost:8899/demos/plantitas-ya-vivero-romeral-ventas-de-plantas-y-/",
       "status": 200,
       "botones": [],
       "footerPx": 242,
@@ -2067,10 +1895,24 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4364
+      "ms": 4145
+    },
+    "peluqueria-gloria": {
+      "url": "http://localhost:8899/demos/peluqueria-gloria/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 242,
+      "footerPct": 28.7,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4755
     },
     "que-barato-lf": {
-      "url": "https://sitiazo.cl/demos/que-barato-lf/",
+      "url": "http://localhost:8899/demos/que-barato-lf/",
       "status": 200,
       "botones": [
         {
@@ -2079,7 +1921,7 @@
           "sel": "div.group.text-left.rounded-xl"
         },
         {
-          "alto": 113,
+          "alto": 89,
           "texto": "Escolares y manualidadesÚtiles, cartulinas, pegamento y mate",
           "sel": "div.group.text-left.rounded-xl"
         },
@@ -2097,10 +1939,75 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4273
+      "ms": 4115
+    },
+    "restobar-los-leones": {
+      "url": "http://localhost:8899/demos/restobar-los-leones/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 301,
+      "footerPct": 30.2,
+      "contraste": [],
+      "desborde": true,
+      "scrollWidth": 461,
+      "clientWidth": 390,
+      "culpables": [
+        {
+          "sel": "header.fixed.top-0.inset-x-0",
+          "left": 0,
+          "right": 461
+        },
+        {
+          "sel": "div.max-w-6xl.mx-auto.px-5",
+          "left": 0,
+          "right": 461
+        },
+        {
+          "sel": "a.shrink-0.text-sm.font-semibold",
+          "left": 334,
+          "right": 441
+        },
+        {
+          "sel": "div.col-span-12.lg:col-span-6",
+          "left": 20,
+          "right": 460
+        },
+        {
+          "sel": "div",
+          "left": 20,
+          "right": 460
+        },
+        {
+          "sel": "h3.display_b451066f-module__X1U-OW__className.font-black.uppercase",
+          "left": 20,
+          "right": 460
+        },
+        {
+          "sel": "p.text-sm.md:text-base.leading-relaxed",
+          "left": 20,
+          "right": 460
+        },
+        {
+          "sel": "address.not-italic.text-sm.md:text-base",
+          "left": 20,
+          "right": 460
+        },
+        {
+          "sel": "div.flex.flex-wrap.gap-3",
+          "left": 20,
+          "right": 460
+        },
+        {
+          "sel": "div.col-span-12.lg:col-span-6",
+          "left": 20,
+          "right": 460
+        }
+      ],
+      "invisibles": [],
+      "ms": 4101
     },
     "restaurant-el-encuentro": {
-      "url": "https://sitiazo.cl/demos/restaurant-el-encuentro/",
+      "url": "http://localhost:8899/demos/restaurant-el-encuentro/",
       "status": 200,
       "botones": [],
       "footerPx": 280,
@@ -2136,89 +2043,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4317
-    },
-    "rancho-itahue": {
-      "url": "https://sitiazo.cl/demos/rancho-itahue/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 287,
-      "footerPct": 34,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 5182
-    },
-    "restobar-los-leones": {
-      "url": "https://sitiazo.cl/demos/restobar-los-leones/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 301,
-      "footerPct": 30.2,
-      "contraste": [],
-      "desborde": true,
-      "scrollWidth": 461,
-      "clientWidth": 390,
-      "culpables": [
-        {
-          "sel": "header.fixed.top-0.inset-x-0",
-          "left": 0,
-          "right": 461
-        },
-        {
-          "sel": "div.max-w-6xl.mx-auto.px-5",
-          "left": 0,
-          "right": 461
-        },
-        {
-          "sel": "a.shrink-0.text-sm.font-semibold",
-          "left": 338,
-          "right": 441
-        },
-        {
-          "sel": "div.col-span-12.lg:col-span-6",
-          "left": 20,
-          "right": 460
-        },
-        {
-          "sel": "div",
-          "left": 20,
-          "right": 460
-        },
-        {
-          "sel": "h3.fraunces_ffad5bf9-module__qU-UVG__className.font-black.uppercase",
-          "left": 20,
-          "right": 460
-        },
-        {
-          "sel": "p.text-sm.md:text-base.leading-relaxed",
-          "left": 20,
-          "right": 460
-        },
-        {
-          "sel": "address.not-italic.text-sm.md:text-base",
-          "left": 20,
-          "right": 460
-        },
-        {
-          "sel": "div.flex.flex-wrap.gap-3",
-          "left": 20,
-          "right": 460
-        },
-        {
-          "sel": "div.col-span-12.lg:col-span-6",
-          "left": 20,
-          "right": 460
-        }
-      ],
-      "invisibles": [],
-      "ms": 4332
+      "ms": 4115
     },
     "salon-de-belleza-gabriela-saavedra-talca": {
-      "url": "https://sitiazo.cl/demos/salon-de-belleza-gabriela-saavedra-talca/",
+      "url": "http://localhost:8899/demos/salon-de-belleza-gabriela-saavedra-talca/",
       "status": 200,
       "botones": [],
       "footerPx": 303,
@@ -2229,10 +2057,24 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4482
+      "ms": 4074
+    },
+    "rancho-itahue": {
+      "url": "http://localhost:8899/demos/rancho-itahue/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 287,
+      "footerPct": 34,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4471
     },
     "san-clemente-heladeria": {
-      "url": "https://sitiazo.cl/demos/san-clemente-heladeria/",
+      "url": "http://localhost:8899/demos/san-clemente-heladeria/",
       "status": 200,
       "botones": [],
       "footerPx": 264,
@@ -2243,14 +2085,14 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4466
+      "ms": 4045
     },
     "servicio-tecnico-automotriz-millycar": {
-      "url": "https://sitiazo.cl/demos/servicio-tecnico-automotriz-millycar/",
+      "url": "http://localhost:8899/demos/servicio-tecnico-automotriz-millycar/",
       "status": 200,
       "botones": [],
-      "footerPx": 307,
-      "footerPct": 36.4,
+      "footerPx": 279,
+      "footerPct": 33.1,
       "contraste": [
         {
           "ratio": 1.45,
@@ -2258,7 +2100,7 @@
           "texto": "01",
           "color": "rgba(47, 72, 88, 0.22)",
           "fondo": "rgb(251,251,248)",
-          "sel": "p.bitter_52d5f1f7-module__ocqDqG__className.font-bold.text-4xl"
+          "sel": "p.display_115f0937-module__vVLllq__className.font-bold.text-4xl"
         },
         {
           "ratio": 1.45,
@@ -2266,7 +2108,7 @@
           "texto": "02",
           "color": "rgba(47, 72, 88, 0.22)",
           "fondo": "rgb(251,251,248)",
-          "sel": "p.bitter_52d5f1f7-module__ocqDqG__className.font-bold.text-4xl"
+          "sel": "p.display_115f0937-module__vVLllq__className.font-bold.text-4xl"
         },
         {
           "ratio": 1.45,
@@ -2274,7 +2116,7 @@
           "texto": "03",
           "color": "rgba(47, 72, 88, 0.22)",
           "fondo": "rgb(251,251,248)",
-          "sel": "p.bitter_52d5f1f7-module__ocqDqG__className.font-bold.text-4xl"
+          "sel": "p.display_115f0937-module__vVLllq__className.font-bold.text-4xl"
         }
       ],
       "desborde": false,
@@ -2282,61 +2124,42 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4489
+      "ms": 4094
     },
-    "santa-fe": {
-      "url": "https://sitiazo.cl/demos/santa-fe/",
+    "taller-mecanico-servimac": {
+      "url": "http://localhost:8899/demos/taller-mecanico-servimac/",
       "status": 200,
       "botones": [],
-      "footerPx": 275,
-      "footerPct": 32.6,
-      "contraste": [
-        {
-          "ratio": 1.16,
-          "minimo": 3,
-          "texto": "01",
-          "color": "rgba(38, 43, 49, 0.08)",
-          "fondo": "rgb(247,248,249)",
-          "sel": "span.oswald_259c4cac-module__GFTxOq__className.absolute.-top-1"
-        },
-        {
-          "ratio": 1.16,
-          "minimo": 3,
-          "texto": "02",
-          "color": "rgba(38, 43, 49, 0.08)",
-          "fondo": "rgb(247,248,249)",
-          "sel": "span.oswald_259c4cac-module__GFTxOq__className.absolute.-top-1"
-        },
-        {
-          "ratio": 1.16,
-          "minimo": 3,
-          "texto": "03",
-          "color": "rgba(38, 43, 49, 0.08)",
-          "fondo": "rgb(247,248,249)",
-          "sel": "span.oswald_259c4cac-module__GFTxOq__className.absolute.-top-1"
-        },
-        {
-          "ratio": 1.16,
-          "minimo": 3,
-          "texto": "04",
-          "color": "rgba(38, 43, 49, 0.08)",
-          "fondo": "rgb(247,248,249)",
-          "sel": "span.oswald_259c4cac-module__GFTxOq__className.absolute.-top-1"
-        }
-      ],
+      "footerPx": 233,
+      "footerPct": 27.6,
+      "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4861
+      "ms": 4108
+    },
+    "tienda-by-joseline-spa": {
+      "url": "http://localhost:8899/demos/tienda-by-joseline-spa/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 301,
+      "footerPct": 35.7,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4115
     },
     "sigel": {
-      "url": "https://sitiazo.cl/demos/sigel/",
+      "url": "http://localhost:8899/demos/sigel/",
       "status": 200,
       "botones": [],
-      "footerPx": 344,
-      "footerPct": 40.8,
+      "footerPx": 311,
+      "footerPct": 36.8,
       "contraste": [
         {
           "ratio": 2.76,
@@ -2344,7 +2167,7 @@
           "texto": "02",
           "color": "rgb(27, 77, 255)",
           "fondo": "rgb(30,32,37)",
-          "sel": "span.archivo_8e52b46a-module__tl1a8W__className.block.font-black"
+          "sel": "span.display_af82fa29-module__8P9U0a__className.block.font-black"
         },
         {
           "ratio": 2.76,
@@ -2352,7 +2175,7 @@
           "texto": "03",
           "color": "rgb(27, 77, 255)",
           "fondo": "rgb(30,32,37)",
-          "sel": "span.archivo_8e52b46a-module__tl1a8W__className.block.font-black"
+          "sel": "span.display_af82fa29-module__8P9U0a__className.block.font-black"
         },
         {
           "ratio": 2.76,
@@ -2360,7 +2183,7 @@
           "texto": "04",
           "color": "rgb(27, 77, 255)",
           "fondo": "rgb(30,32,37)",
-          "sel": "span.archivo_8e52b46a-module__tl1a8W__className.block.font-black"
+          "sel": "span.display_af82fa29-module__8P9U0a__className.block.font-black"
         },
         {
           "ratio": 4.13,
@@ -2376,38 +2199,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4375
-    },
-    "taller-mecanico-servimac": {
-      "url": "https://sitiazo.cl/demos/taller-mecanico-servimac/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 233,
-      "footerPct": 27.6,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4453
-    },
-    "tienda-by-joseline-spa": {
-      "url": "https://sitiazo.cl/demos/tienda-by-joseline-spa/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 301,
-      "footerPct": 35.7,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4417
+      "ms": 4372
     },
     "ultrasport19": {
-      "url": "https://sitiazo.cl/demos/ultrasport19/",
+      "url": "http://localhost:8899/demos/ultrasport19/",
       "status": 200,
       "botones": [],
       "footerPx": 187,
@@ -2555,14 +2350,61 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4290
+      "ms": 4063
     },
-    "triadent": {
-      "url": "https://sitiazo.cl/demos/triadent/",
+    "santa-fe": {
+      "url": "http://localhost:8899/demos/santa-fe/",
       "status": 200,
       "botones": [],
-      "footerPx": 266,
-      "footerPct": 31.5,
+      "footerPx": 275,
+      "footerPct": 32.6,
+      "contraste": [
+        {
+          "ratio": 1.16,
+          "minimo": 3,
+          "texto": "01",
+          "color": "rgba(38, 43, 49, 0.08)",
+          "fondo": "rgb(247,248,249)",
+          "sel": "span.display_42abb20-module__dolidG__className.absolute.-top-1"
+        },
+        {
+          "ratio": 1.16,
+          "minimo": 3,
+          "texto": "02",
+          "color": "rgba(38, 43, 49, 0.08)",
+          "fondo": "rgb(247,248,249)",
+          "sel": "span.display_42abb20-module__dolidG__className.absolute.-top-1"
+        },
+        {
+          "ratio": 1.16,
+          "minimo": 3,
+          "texto": "03",
+          "color": "rgba(38, 43, 49, 0.08)",
+          "fondo": "rgb(247,248,249)",
+          "sel": "span.display_42abb20-module__dolidG__className.absolute.-top-1"
+        },
+        {
+          "ratio": 1.16,
+          "minimo": 3,
+          "texto": "04",
+          "color": "rgba(38, 43, 49, 0.08)",
+          "fondo": "rgb(247,248,249)",
+          "sel": "span.display_42abb20-module__dolidG__className.absolute.-top-1"
+        }
+      ],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4498
+    },
+    "triadent": {
+      "url": "http://localhost:8899/demos/triadent/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 288,
+      "footerPct": 34.1,
       "contraste": [
         {
           "ratio": 4.43,
@@ -2578,18 +2420,12 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4665
+      "ms": 5798
     },
     "vasquez-muebles-linares-spa": {
-      "url": "https://sitiazo.cl/demos/vasquez-muebles-linares-spa/",
+      "url": "http://localhost:8899/demos/vasquez-muebles-linares-spa/",
       "status": 200,
-      "botones": [
-        {
-          "alto": 54,
-          "texto": "Ver el trabajo",
-          "sel": "a.prata_c05294ee-module__8pKfxa__className.text-sm.md:text-base"
-        }
-      ],
+      "botones": [],
       "footerPx": 316,
       "footerPct": 37.4,
       "contraste": [
@@ -2615,14 +2451,14 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4360
+      "ms": 4075
     },
     "victoria-nail-school": {
-      "url": "https://sitiazo.cl/demos/victoria-nail-school/",
+      "url": "http://localhost:8899/demos/victoria-nail-school/",
       "status": 200,
       "botones": [],
-      "footerPx": 511,
-      "footerPct": 60.5,
+      "footerPx": 492,
+      "footerPct": 58.3,
       "contraste": [
         {
           "ratio": 4.42,
@@ -2638,10 +2474,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4397
+      "ms": 4047
     },
     "vivero-dona-ines": {
-      "url": "https://sitiazo.cl/demos/vivero-dona-ines/",
+      "url": "http://localhost:8899/demos/vivero-dona-ines/",
       "status": 200,
       "botones": [],
       "footerPx": 219,
@@ -2652,10 +2488,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4273
+      "ms": 4059
     },
     "vivero-entre-raices": {
-      "url": "https://sitiazo.cl/demos/vivero-entre-raices/",
+      "url": "http://localhost:8899/demos/vivero-entre-raices/",
       "status": 200,
       "botones": [],
       "footerPx": 242,
@@ -2675,10 +2511,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4396
+      "ms": 4064
     },
     "vulcanizacion-nikimoto": {
-      "url": "https://sitiazo.cl/demos/vulcanizacion-nikimoto/",
+      "url": "http://localhost:8899/demos/vulcanizacion-nikimoto/",
       "status": 200,
       "botones": [],
       "footerPx": 248,
@@ -2689,10 +2525,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4332
+      "ms": 4040
     },
     "wake-up": {
-      "url": "https://sitiazo.cl/demos/wake-up/",
+      "url": "http://localhost:8899/demos/wake-up/",
       "status": 200,
       "botones": [],
       "footerPx": 294,
@@ -2703,24 +2539,10 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4348
-    },
-    "zamono": {
-      "url": "https://sitiazo.cl/demos/zamono/",
-      "status": 200,
-      "botones": [],
-      "footerPx": 286,
-      "footerPct": 33.9,
-      "contraste": [],
-      "desborde": false,
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "culpables": [],
-      "invisibles": [],
-      "ms": 4303
+      "ms": 4038
     },
     "wow-park": {
-      "url": "https://sitiazo.cl/demos/wow-park/",
+      "url": "http://localhost:8899/demos/wow-park/",
       "status": 200,
       "botones": [],
       "footerPx": 257,
@@ -2772,7 +2594,21 @@
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4456
+      "ms": 4040
+    },
+    "zamono": {
+      "url": "http://localhost:8899/demos/zamono/",
+      "status": 200,
+      "botones": [],
+      "footerPx": 286,
+      "footerPct": 33.9,
+      "contraste": [],
+      "desborde": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "culpables": [],
+      "invisibles": [],
+      "ms": 4045
     }
   }
 }

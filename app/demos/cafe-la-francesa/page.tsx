@@ -323,7 +323,7 @@ export default function CafeLaFrancesaPage() {
               </a>
               <a
                 href="#carta"
-                className={`${FOCUS} px-6 py-3 rounded-full text-sm md:text-base font-semibold border-2 transition-colors hover:bg-[#DDE7C7]`}
+                className={`${FOCUS} px-6 py-2.5 rounded-full text-sm md:text-base font-semibold border-2 transition-colors hover:bg-[#DDE7C7]`}
                 style={{ borderColor: C.campo, color: C.campoInk }}
               >
                 Ver la carta

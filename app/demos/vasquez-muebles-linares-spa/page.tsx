@@ -250,14 +250,14 @@ export default function VasquezMueblesPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} text-sm md:text-base px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] active:scale-95`}
+                className={`${display.className} text-sm md:text-base px-8 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8] active:scale-95`}
                 style={{ backgroundColor: C.terracotaInk, color: '#FFFFFF' }}
               >
                 Cotizar mi mueble
               </a>
               <a
                 href="#muebles"
-                className={`${display.className} text-sm md:text-base px-8 py-4 rounded-full border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8]`}
+                className={`${display.className} text-sm md:text-base px-8 py-3.5 rounded-full border transition-colors duration-300 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E8DCC8]`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#FFFFFF' }}
               >
                 Ver el trabajo
