@@ -71,6 +71,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #08202E 0%, #0E2F42 55%, #E4572E 140%)',
   },
   {
+    slug: 'puntanorte-puerto',
+    name: 'PuntaNorte Puerto',
+    rubro: 'Restaurant de mariscos',
+    city: 'Talcahuano',
+    tagline: 'Mariscos frente al puerto y noches de karaoke hasta las 3 AM.',
+    gradient: 'linear-gradient(135deg, #0F2422 0%, #16302E 55%, #C9A05C 140%)',
+  },
+  {
     slug: 'brilla-el-sol-talca',
     name: 'Complejo Deportivo Brilla El Sol',
     rubro: 'Recinto deportivo',
