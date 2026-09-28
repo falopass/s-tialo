@@ -2487,6 +2487,14 @@ const BLITZ = [
     tagline: 'Tablero del box: carbón, letrero "A" en verde neón y bloques A-B-C tipo WOD.',
     gradient: 'linear-gradient(135deg, #0A0D12 0%, #12171F 55%, #3DF096 150%)',
   },
+  {
+    slug: 'automotora-gonzalez',
+    name: 'Automotora González',
+    rubro: 'Concesionario de usados',
+    city: 'Curicó',
+    tagline: 'Vitrina del patio con autos reales: letrero EN VENTA, verde del banner y placa de datos en mono.',
+    gradient: 'linear-gradient(135deg, #10150F 0%, #0D2115 55%, #21A349 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
