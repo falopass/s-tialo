@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
@@ -6,6 +7,7 @@ import { demoMetadata } from '../meta'
 import {
   BIZ,
   WA_LINK,
+  WA_LINK_DISENO,
   WA_LINK_PRECIOS,
   INSTAGRAM_URL,
   MAPS_URL,
@@ -16,33 +18,28 @@ import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
-    { path: '../../fonts/playfair-display/italic-400-900.woff2', weight: '400 900', style: 'italic' },
-    { path: '../../fonts/playfair-display/normal-400-900.woff2', weight: '400 900', style: 'normal' },
+    { path: '../../fonts/fraunces/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+    { path: '../../fonts/fraunces/italic-100-900.woff2', weight: '100 900', style: 'italic' },
   ],
 })
 const body = localFont({
   src: [
-    { path: '../../fonts/lato/normal-300.woff2', weight: '300', style: 'normal' },
-    { path: '../../fonts/lato/normal-400.woff2', weight: '400', style: 'normal' },
-    { path: '../../fonts/lato/normal-700.woff2', weight: '700', style: 'normal' },
-    { path: '../../fonts/lato/normal-900.woff2', weight: '900', style: 'normal' },
+    { path: '../../fonts/jost/normal-100-900.woff2', weight: '100 900', style: 'normal' },
   ],
 })
 
 const C = {
-  night: '#04161B',
-  night2: '#072630',
-  petrol: '#0E4C5C',
-  mint: '#9FD8CB',
-  paper: '#F7F9F9',
-  graphite: '#2B3236',
-  muted: 'rgba(247,249,249,0.68)',
-  line: 'rgba(159,216,203,0.22)',
+  night: '#1B0710',
+  panel: '#260C18',
+  pink: '#F23D8C',
+  pinkSoft: '#FFB8D4',
+  blush: '#FFEDF4',
+  paper: '#FFF9FB',
+  muted: 'rgba(255,237,244,0.74)',
+  mutedDark: 'rgba(38,12,24,0.7)',
+  line: 'rgba(242,61,140,0.32)',
+  lineLight: 'rgba(38,12,24,0.14)',
 }
-
-const GLOW = '0 0 6px rgba(159,216,203,0.9), 0 0 22px rgba(159,216,203,0.55), 0 0 48px rgba(14,76,92,0.9)'
-const TUBE = '0 0 0 1px rgba(159,216,203,0.7), 0 0 18px rgba(159,216,203,0.35), inset 0 0 18px rgba(159,216,203,0.15)'
-const PHOTO = 'contrast(1.28) saturate(0.8) brightness(0.78)'
 
 export const metadata: Metadata = demoMetadata({
   slug: 'beauty-love',
@@ -52,429 +49,477 @@ export const metadata: Metadata = demoMetadata({
 })
 
 const NAV_LINKS = [
-  { label: 'Servicios', href: '#servicios' },
+  { label: 'Trabajos', href: '#trabajos' },
+  { label: 'La carta', href: '#carta' },
   { label: 'El salón', href: '#salon' },
-  { label: 'Precios', href: '#precios' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
-const SERVICIOS = [
-  {
-    n: '01',
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Manos con manicura nude recién terminada sobre una toalla blanca',
-    name: 'Manicura',
-    desc: 'Limado, cutícula trabajada con calma y un acabado parejo. Manos que se ven cuidadas de cerca.',
-  },
-  {
-    n: '02',
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Detalle de un trabajo de uñas en el salón',
-    name: 'Esmaltado y color',
-    desc: 'Tradicional o de larga duración, en el tono que traigas en mente o uno que elijamos juntas.',
-  },
-  {
-    n: '03',
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Detalle de manos y uñas recién trabajadas',
-    name: 'Pedicura',
-    desc: 'Pies limpios, uñas en forma y piel suave. Un rato para sentarte y no pensar en nada más.',
-  },
+/** Las fotos son trabajos reales publicados por el salón — el rótulo
+ *  describe lo que se ve, sin inventar nombres de catálogo. */
+const TRABAJOS = [
+  { src: `${IMG}/diseno-francesa.webp`, alt: 'Uñas francesas en tono rosa con moños y estrellas doradas', name: 'Francesa rosa con moños' },
+  { src: `${IMG}/diseno-corazones.webp`, alt: 'Uñas stiletto rosadas con corazones blancos, moños y brillos', name: 'Corazones y moños' },
+  { src: `${IMG}/diseno-negro.webp`, alt: 'Uñas negras con efecto ojo de gato y destellos holográficos', name: 'Negro ojo de gato' },
+  { src: `${IMG}/diseno-rosa.webp`, alt: 'Uñas almendra en rosa con puntos blancos dibujados a mano', name: 'Rosa con puntos' },
+  { src: `${IMG}/diseno-uvas.webp`, alt: 'Uñas en tono malva con racimos de uva pintados a mano alzada', name: 'Uvas en malva' },
 ]
 
-const VALORES = [
-  { k: 'Orden', v: 'Cada estación limpia y el instrumental preparado antes de que llegues.' },
-  { k: 'Hora tuya', v: 'Agendas por WhatsApp y el tiempo reservado es para ti, sin apuro.' },
-  { k: 'Trato directo', v: 'Hablas con quien te atiende: consultas, cambios y dudas, sin intermediarios.' },
+const CARTA = [
+  { name: 'Manicura', desc: 'Limado, cutícula trabajada con calma y acabado parejo. La base de unas manos cuidadas.' },
+  { name: 'Esmaltado permanente', desc: 'Color que aguanta semanas intacto, con el brillo del primer día.' },
+  { name: 'Pedicura', desc: 'Pies cuidados de punta a punta: limpieza, limado y esmalte, sin apuro.' },
+  { name: 'Nail art', desc: 'Corazones, moños, frutas o lo que traigas guardado en el teléfono: se dibuja a mano.' },
 ]
 
-const PRECIOS = [
-  'Manicura tradicional',
-  'Esmaltado de larga duración',
-  'Retiro de esmaltado',
-  'Pedicura',
-  'Manicura + pedicura',
+const FICHA = [
+  { k: 'Dirección', v: `${BIZ.address}, ${BIZ.city}` },
+  { k: 'Agenda', v: 'Con hora reservada por WhatsApp' },
+  { k: 'Instagram', v: `@${BIZ.instagram}`, href: INSTAGRAM_URL },
 ]
 
-const TICKER = ['Manicura', 'Pedicura', 'Esmaltado', 'Higiene', 'Molina', 'Notre Damme 913']
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-3'
 
 export default function BeautyLovePage() {
   return (
     <main
-      className={`${body.className} min-h-screen overflow-x-hidden`}
-      style={{ backgroundColor: C.night, color: C.paper }}
+      className={`${body.className} min-h-screen overflow-x-hidden antialiased`}
+      style={{ backgroundColor: C.night, color: C.blush }}
     >
       <style>{`
         html { scroll-behavior: auto }
-        @keyframes bl-flicker { 0%,19%,21%,62%,64%,100% { opacity: 1 } 20%,63% { opacity: .45 } }
-        .bl-flicker { animation: bl-flicker 6s linear infinite }
-        .bl-card:hover .bl-img { transform: scale(1.05); filter: contrast(1.35) saturate(0.95) brightness(0.9) }
-        .bl-card:hover { box-shadow: ${TUBE} }
-        .bl-cta:hover { box-shadow: 0 0 0 1px ${C.mint}, 0 0 28px rgba(159,216,203,.7), 0 0 70px rgba(159,216,203,.35) }
-        a:focus-visible { outline: 2px solid ${C.mint}; outline-offset: 3px }
-        header a { transition-property: transform }
-        @media (prefers-reduced-motion: reduce) { .bl-flicker { animation: none } }
+        .bl-tira { scrollbar-width: thin; scrollbar-color: ${C.pink} transparent }
+        .bl-tira::-webkit-scrollbar { height: 6px }
+        .bl-tira::-webkit-scrollbar-thumb { background: ${C.pink}; border-radius: 999px }
+        .bl-card { transition: transform .5s cubic-bezier(.25,.1,.25,1), box-shadow .5s }
+        .bl-card:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px ${C.pink}, 0 18px 40px -18px rgba(242,61,140,.55) }
+        .bl-band { display: flex; justify-content: center; padding: 0 5rem 1.25rem 1.25rem; background-color: ${C.panel} }
+        .bl-band > div { position: static; max-width: 100% }
       `}</style>
 
       <BlitzNav
-        name={BIZ.name}
+        name={<span className={`${display.className} italic font-bold`}>{BIZ.name}</span>}
         links={NAV_LINKS}
         waLink={WA_LINK}
-        fontClass={`${display.className} italic font-bold`}
+        fontClass={`${body.className} font-semibold tracking-tight`}
         theme={{
           over: 'dark',
-          bar: 'rgba(4,22,27,0.86)',
-          ink: C.paper,
+          bar: 'rgba(27,7,16,0.88)',
+          ink: C.blush,
           line: C.line,
-          btnBg: C.mint,
-          btnInk: C.night,
+          btnBg: C.pink,
+          btnInk: '#FFFFFF',
         }}
       />
 
-      {/* Hero a sangre */}
-      <section id="inicio" className="relative min-h-[100svh] flex items-end">
-        <img
+      {/* ── Hero a sangre ── */}
+      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden">
+        <Image
           src={`${IMG}/hero.webp`}
-          alt="Estación de manicura con lámpara encendida, toalla blanca y repisas de esmaltes"
-          fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: PHOTO }}
+          alt="Manicura francesa con corazón rosado pintado a mano, trabajo de Beauty Love"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(180deg, rgba(4,22,27,0.55) 0%, rgba(4,22,27,0.35) 35%, rgba(4,22,27,0.92) 78%, ${C.night} 100%), radial-gradient(ellipse at 20% 80%, rgba(14,76,92,0.75), transparent 60%)`,
+            background:
+              'linear-gradient(180deg, rgba(27,7,16,0.55) 0%, rgba(27,7,16,0.2) 40%, rgba(27,7,16,0.94) 100%)',
           }}
           aria-hidden="true"
         />
-        <div
-          className="absolute inset-4 md:inset-8 rounded-[28px] pointer-events-none"
-          style={{ boxShadow: TUBE }}
-          aria-hidden="true"
-        />
-
-        <div className="relative w-full max-w-6xl mx-auto px-7 md:px-14 pb-16 md:pb-24 pt-32">
-          <p
-            className="bl-flicker inline-flex items-center gap-2 text-[11px] md:text-xs font-black uppercase tracking-[0.32em] px-4 py-2 rounded-full"
-            style={{ color: C.mint, boxShadow: TUBE, textShadow: GLOW }}
-          >
-            <span className="w-[7px] h-[7px] rounded-full" style={{ backgroundColor: C.mint, boxShadow: GLOW }} aria-hidden="true" />
-            Manicura y pedicura · {BIZ.city}
-          </p>
-          <h1
-            className={`${display.className} mt-6 text-[2.9rem] leading-[0.98] sm:text-6xl md:text-[5.6rem] font-extrabold tracking-[-0.02em] max-w-4xl`}
-          >
-            Manos impecables,
-            <br />
-            <span className="italic font-medium" style={{ color: C.mint, textShadow: GLOW }}>
-              con orden de clínica.
-            </span>
-          </h1>
-          <p className="mt-6 max-w-xl text-base md:text-lg font-light leading-relaxed" style={{ color: C.muted }}>
-            Salón de uñas en {BIZ.address}, {BIZ.city}. Instrumental limpio, hora agendada y
-            atención directa por WhatsApp.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bl-cta inline-flex items-center gap-2 min-h-[48px] px-7 rounded-full text-sm font-black uppercase tracking-[0.14em] transition-shadow tap-44"
-              style={{ backgroundColor: C.mint, color: C.night, boxShadow: GLOW }}
-            >
-              Agendar por WhatsApp
-            </a>
-            <a
-              href="#servicios"
-              className="inline-flex items-center min-h-[48px] px-7 rounded-full text-sm font-bold uppercase tracking-[0.14em] tap-44"
-              style={{ color: C.paper, border: `1px solid ${C.line}` }}
-            >
-              Ver servicios
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Letrero corrido */}
-      <div className="py-5 px-5 border-y" style={{ borderColor: C.line, backgroundColor: C.night2 }} aria-hidden="true">
-        <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-x-6 gap-y-2">
-          {TICKER.map((t, i) => (
-            <span
-              key={t}
-              className="text-xl md:text-3xl font-black uppercase tracking-[-0.01em]"
-              style={i % 2 ? { color: 'transparent', WebkitTextStroke: `1px ${C.mint}` } : { color: C.mint, textShadow: GLOW }}
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Servicios */}
-      <section id="servicios" className="py-24 md:py-32">
-        <div className="max-w-6xl mx-auto px-5 md:px-8">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-14 md:pb-20">
           <Reveal>
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
-              <h2 className={`${display.className} text-4xl md:text-6xl font-extrabold leading-[1.02] tracking-[-0.02em]`}>
-                Lo que hacemos
-                <br />
-                <span className="italic font-medium" style={{ color: C.mint, textShadow: GLOW }}>
-                  en la mesa.
-                </span>
-              </h2>
-              <p className="max-w-sm text-sm md:text-base font-light leading-relaxed" style={{ color: C.muted }}>
-                Tres servicios base, hechos con el mismo cuidado. Si buscas algo distinto, escríbenos y lo
-                conversamos.
+            <p
+              className="inline-flex items-center gap-2.5 text-[11px] md:text-xs font-semibold uppercase tracking-[0.26em] px-4 py-2 border rounded-full mb-7"
+              style={{ borderColor: C.line, color: C.pinkSoft, backgroundColor: 'rgba(27,7,16,0.55)' }}
+            >
+              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill={C.pink} aria-hidden="true">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              {BIZ.rubro} · {BIZ.city}
+            </p>
+            <h1
+              className={`${display.className} italic font-semibold leading-[0.92] tracking-[-0.02em] text-[clamp(3.4rem,16vw,9rem)] mb-6`}
+              style={{ color: C.paper }}
+            >
+              Beauty <span style={{ color: C.pink }}>Love</span>
+            </h1>
+            <div className="grid md:grid-cols-[1.2fr_1fr] gap-7 md:gap-12 items-end">
+              <p className="text-base md:text-lg leading-relaxed max-w-xl" style={{ color: C.muted }}>
+                Manicura y pedicura en Notre Damme, {BIZ.city}. Cada diseño se
+                dibuja a mano en tu hora reservada — la misma persona te
+                responde y te atiende.
               </p>
-            </div>
-          </Reveal>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {SERVICIOS.map((s, i) => (
-              <Reveal key={s.n} delay={i * 110}>
-                <article
-                  className="bl-card group h-full rounded-[22px] overflow-hidden transition-shadow duration-500"
-                  style={{ backgroundColor: C.night2, boxShadow: `0 0 0 1px ${C.line}` }}
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={s.src}
-                      alt={s.alt}
-                      loading="lazy"
-                      className="bl-img w-full h-full object-cover transition-all duration-700"
-                      style={{ filter: PHOTO }}
-                    />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 45%, rgba(7,38,48,0.95))' }} aria-hidden="true" />
-                    <span
-                      className={`${display.className} absolute left-5 bottom-3 text-5xl font-extrabold italic`}
-                      style={{ color: C.mint, textShadow: GLOW }}
-                    >
-                      {s.n}
-                    </span>
-                  </div>
-                  <div className="p-6 pt-4">
-                    <h3 className="text-lg font-black uppercase tracking-[0.08em]">{s.name}</h3>
-                    <p className="mt-2 text-sm font-light leading-relaxed" style={{ color: C.muted }}>
-                      {s.desc}
-                    </p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Sobre el salón */}
-      <section id="salon" className="relative py-24 md:py-32" style={{ backgroundColor: C.night2 }}>
-        <div
-          className="absolute inset-0 opacity-60"
-          style={{ background: `radial-gradient(ellipse at 85% 20%, rgba(14,76,92,0.9), transparent 55%)` }}
-          aria-hidden="true"
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 grid gap-14 md:grid-cols-[1.05fr_1fr] items-center">
-          <Reveal>
-            <div className="relative">
-              <div
-                className="absolute -inset-2 md:-inset-4 rounded-[30px] translate-x-1 translate-y-2 md:translate-x-3 md:translate-y-3"
-                style={{ boxShadow: TUBE }}
-                aria-hidden="true"
-              />
-              <img
-                src={`${IMG}/ambiente.webp`}
-                alt="Sillón de espera junto a la ventana, con la estación de manicura al fondo"
-                loading="lazy"
-                className="relative w-full aspect-[4/3] object-cover rounded-[24px]"
-                style={{ filter: PHOTO }}
-              />
-            </div>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <p className="text-xs font-black uppercase tracking-[0.3em]" style={{ color: C.mint }}>
-              Desde {BIZ.city}
-            </p>
-            <h2 className={`${display.className} mt-4 text-4xl md:text-5xl font-extrabold leading-[1.05] tracking-[-0.02em]`}>
-              Un salón de barrio,{' '}
-              <span className="italic font-medium" style={{ color: C.mint, textShadow: GLOW }}>
-                atendido de cerca.
-              </span>
-            </h2>
-            <p className="mt-5 font-light leading-relaxed" style={{ color: C.muted }}>
-              Beauty Love atiende en {BIZ.address}, en {BIZ.city}. Sin recepción ni call center: escribes,
-              coordinamos la hora y te recibe la misma persona que trabaja tus manos.
-            </p>
-
-            <ul className="mt-9 space-y-5">
-              {VALORES.map((v) => (
-                <li key={v.k} className="flex gap-4">
-                  <span className="mt-2 w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: C.mint, boxShadow: GLOW }} aria-hidden="true" />
-                  <div>
-                    <p className="font-black uppercase tracking-[0.1em] text-sm">{v.k}</p>
-                    <p className="text-sm font-light leading-relaxed" style={{ color: C.muted }}>
-                      {v.v}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-10 grid grid-cols-2 gap-4">
-              <div className="rounded-2xl p-5" style={{ boxShadow: `0 0 0 1px ${C.line}` }}>
+              <div className="flex flex-wrap md:justify-end gap-3">
                 <a
-                  href={INSTAGRAM_URL}
+                  href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} inline-block text-4xl font-extrabold tap-44`}
-                  style={{ color: C.mint, textShadow: GLOW }}
+                  className={`inline-flex items-center justify-center min-h-[48px] px-7 rounded-full text-sm font-bold uppercase tracking-[0.1em] transition hover:brightness-110 active:scale-95 tap-44 ${FOCUS} focus-visible:outline-[#FFB8D4]`}
+                  style={{ backgroundColor: C.pink, color: '#FFFFFF' }}
                 >
-                  {BIZ.instagramFollowers}
+                  Agendar hora
                 </a>
-                <p className="mt-1 text-xs uppercase tracking-[0.18em] font-bold" style={{ color: C.muted }}>
-                  seguidores en Instagram
-                </p>
+                <a
+                  href="#trabajos"
+                  className={`inline-flex items-center min-h-[48px] px-7 rounded-full text-sm font-semibold uppercase tracking-[0.1em] border tap-44 ${FOCUS} focus-visible:outline-[#FFB8D4]`}
+                  style={{ borderColor: 'rgba(255,237,244,0.5)', color: C.blush }}
+                >
+                  Ver trabajos
+                </a>
               </div>
-              <div className="rounded-2xl p-5" style={{ boxShadow: `0 0 0 1px ${C.line}` }}>
-                <p className={`${display.className} text-2xl font-extrabold leading-tight`}>Recién partiendo en Google</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.18em] font-bold" style={{ color: C.muted }}>
-                  tu reseña puede ser la primera
-                </p>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <dl
+              className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-y-5 border-t pt-5 text-sm"
+              style={{ borderColor: 'rgba(255,237,244,0.28)' }}
+            >
+              {[
+                { k: 'Dirección', v: `${BIZ.address}, ${BIZ.city}` },
+                { k: 'WhatsApp', v: BIZ.phoneDisplay },
+                { k: 'Instagram', v: `@${BIZ.instagram}` },
+                { k: 'Modalidad', v: 'Hora agendada' },
+              ].map((f) => (
+                <div key={f.k}>
+                  <dt className="text-[10px] uppercase tracking-[0.26em] mb-1" style={{ color: C.pinkSoft }}>
+                    {f.k}
+                  </dt>
+                  <dd className="font-medium" style={{ color: C.paper }}>{f.v}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Prueba social ── */}
+      <section aria-label="Presencia en redes" style={{ backgroundColor: C.blush, color: C.panel }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 grid sm:grid-cols-2 gap-x-10 gap-y-4">
+          <p className="text-sm md:text-[15px] leading-relaxed" style={{ color: 'rgba(38,12,24,0.85)' }}>
+            Los trabajos nuevos salen primero en{' '}
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`font-semibold underline underline-offset-4 decoration-1 hover:opacity-80 tap-44 ${FOCUS} focus-visible:outline-[#F23D8C]`}
+              style={{ color: C.pink }}
+            >
+              Instagram @{BIZ.instagram}
+            </a>
+            {' '}— el muestrario de diseños más reciente del salón.
+          </p>
+          <p className="text-sm md:text-[15px] leading-relaxed" style={{ color: 'rgba(38,12,24,0.85)' }}>
+            Recién llegando a Google Maps: la ficha está activa y{' '}
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`font-semibold underline underline-offset-4 decoration-1 hover:opacity-80 tap-44 ${FOCUS} focus-visible:outline-[#F23D8C]`}
+              style={{ color: C.pink }}
+            >
+              la primera reseña puede ser la tuya
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* ── Últimos trabajos: tira de contactos ── */}
+      <section id="trabajos" className="scroll-mt-20 py-16 md:py-24" style={{ backgroundColor: C.panel }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-12">
+              <h2
+                className={`${display.className} italic font-semibold leading-[0.95] tracking-[-0.02em] text-5xl md:text-7xl`}
+                style={{ color: C.paper }}
+              >
+                Lo que sale<br />
+                <span style={{ color: C.pink }}>de esta mesa</span>
+              </h2>
+              <p className="max-w-sm text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
+                Diseños reales del salón, tal como quedaron en las manos que
+                los llevaron. Traes la idea, la mesa la hace.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* tira: perforaciones arriba y abajo, placas al centro */}
+        <Reveal delay={100}>
+          <div className="max-w-6xl mx-auto">
+            <div
+              className="h-4 mx-5 md:mx-8"
+              style={{
+                backgroundImage: `repeating-linear-gradient(90deg, rgba(255,237,244,0.5) 0 14px, transparent 14px 36px)`,
+                backgroundSize: '36px 8px',
+                backgroundRepeat: 'repeat-x',
+                backgroundPosition: 'center',
+              }}
+              aria-hidden="true"
+            />
+            <div
+              className="bl-tira overflow-x-auto snap-x px-5 md:px-8 py-5"
+              role="list"
+              aria-label="Últimos trabajos del salón"
+            >
+              <div className="flex gap-5 md:gap-7 w-max">
+                {TRABAJOS.map((t, i) => (
+                  <figure key={t.src} className="bl-card snap-start w-[232px] md:w-[272px] shrink-0" role="listitem">
+                    <div className="relative aspect-[3/4] overflow-hidden rounded-md" style={{ boxShadow: `0 0 0 1px ${C.line}` }}>
+                      <Image
+                        src={t.src}
+                        alt={t.alt}
+                        fill
+                        sizes="(min-width: 768px) 272px, 232px"
+                        className="object-cover"
+                        loading={i < 2 ? 'eager' : 'lazy'}
+                      />
+                    </div>
+                    <figcaption className="mt-3 flex items-baseline gap-3">
+                      <span className={`${display.className} italic font-bold text-sm`} style={{ color: C.pink }}>
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="text-[13px] font-medium tracking-wide" style={{ color: C.blush }}>
+                        {t.name}
+                      </span>
+                    </figcaption>
+                  </figure>
+                ))}
+                {/* placa CTA al final de la tira */}
+                <figure className="snap-start w-[232px] md:w-[272px] shrink-0" role="listitem">
+                  <a
+                    href={WA_LINK_DISENO}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex flex-col justify-between aspect-[3/4] rounded-md p-5 tap-44 ${FOCUS} focus-visible:outline-[#F23D8C]`}
+                    style={{ backgroundColor: C.pink, color: '#FFFFFF' }}
+                  >
+                    <span className="text-[10px] font-bold uppercase tracking-[0.26em] text-white/85">
+                      Tu diseño
+                    </span>
+                    <span>
+                      <span className={`${display.className} italic font-semibold block text-2xl md:text-[26px] leading-tight mb-3`}>
+                        La siguiente placa puede ser tuya
+                      </span>
+                      <span className="text-sm font-semibold underline underline-offset-4 decoration-1">
+                        Consultar por WhatsApp →
+                      </span>
+                    </span>
+                  </a>
+                </figure>
               </div>
+            </div>
+            <div
+              className="h-4 mx-5 md:mx-8"
+              style={{
+                backgroundImage: `repeating-linear-gradient(90deg, rgba(255,237,244,0.5) 0 14px, transparent 14px 36px)`,
+                backgroundSize: '36px 8px',
+                backgroundRepeat: 'repeat-x',
+                backgroundPosition: 'center',
+              }}
+              aria-hidden="true"
+            />
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ── La carta ── */}
+      <section id="carta" className="scroll-mt-20 py-16 md:py-24" style={{ backgroundColor: C.paper, color: C.panel }}>
+        <div className="max-w-3xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <div className="flex items-center justify-between gap-4 mb-3">
+              <h2 className={`${display.className} italic font-semibold text-4xl md:text-6xl leading-[1] tracking-[-0.02em]`}>
+                La carta
+              </h2>
+              <span
+                className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.22em] px-3.5 py-1.5 rounded-full border"
+                style={{ borderColor: C.pink, color: C.pink }}
+              >
+                Valores a confirmar
+              </span>
+            </div>
+            <p className="text-sm md:text-base leading-relaxed mb-10" style={{ color: C.mutedDark }}>
+              Esto es lo que se hace en la mesa. Los valores de cada servicio
+              se consultan directo por WhatsApp — la lista real la publica el salón.
+            </p>
+          </Reveal>
+          <ul>
+            {CARTA.map((s, i) => (
+              <Reveal key={s.name} delay={i * 70}>
+                <li className="py-5 border-t" style={{ borderColor: C.lineLight }}>
+                  <div className="flex items-baseline justify-between gap-4 mb-1.5">
+                    <h3 className={`${display.className} font-semibold text-xl md:text-2xl`}>
+                      <span className={`${display.className} italic mr-3 text-base md:text-lg`} style={{ color: C.pink }}>
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      {s.name}
+                    </h3>
+                    <span className="flex-1 border-b border-dotted mx-2 translate-y-[-3px]" style={{ borderColor: 'rgba(242,61,140,0.45)' }} aria-hidden="true" />
+                    <span className="text-[11px] font-bold uppercase tracking-[0.14em] whitespace-nowrap" style={{ color: C.pink }}>
+                      Consultar
+                    </span>
+                  </div>
+                  <p className="text-sm md:text-[15px] leading-relaxed pl-9 md:pl-10" style={{ color: C.mutedDark }}>
+                    {s.desc}
+                  </p>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal delay={160}>
+            <div className="mt-9 text-center">
+              <a
+                href={WA_LINK_PRECIOS}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center min-h-[48px] px-7 rounded-full text-sm font-bold uppercase tracking-[0.1em] tap-44 ${FOCUS} focus-visible:outline-[#F23D8C]`}
+                style={{ backgroundColor: C.panel, color: C.blush }}
+              >
+                Consultar valores
+              </a>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Precios de referencia */}
-      <section id="precios" className="py-24 md:py-32">
-        <div className="max-w-3xl mx-auto px-5 md:px-8">
-          <Reveal>
-            <div className="text-center">
-              <span
-                className="inline-block text-[11px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full"
-                style={{ color: C.night, backgroundColor: C.mint }}
-              >
-                Tabla de muestra
-              </span>
-              <h2 className={`${display.className} mt-6 text-4xl md:text-6xl font-extrabold tracking-[-0.02em]`}>
-                Precios de{' '}
-                <span className="italic font-medium" style={{ color: C.mint, textShadow: GLOW }}>
-                  referencia
-                </span>
-              </h2>
-              <p className="mt-4 text-sm font-light" style={{ color: C.muted }}>
-                Así se vería la carta de valores. Los precios reales los publica el salón; mientras, se
-                consultan por WhatsApp.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <ul className="mt-12 rounded-[24px] p-6 md:p-10" style={{ backgroundColor: C.night2, boxShadow: TUBE }}>
-              {PRECIOS.map((p, i) => (
-                <li
-                  key={p}
-                  className="flex items-baseline gap-4 py-4"
-                  style={i ? { borderTop: `1px solid ${C.line}` } : undefined}
+      {/* ── El salón ── */}
+      <section id="salon" className="scroll-mt-20 py-16 md:py-24" style={{ backgroundColor: C.night }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
+            {/* collage de dos fotos reales del salón */}
+            <Reveal>
+              <div className="relative pb-10">
+                <div className="relative aspect-[4/5] w-[72%] overflow-hidden rounded-md" style={{ boxShadow: `0 0 0 1px ${C.line}, 0 30px 60px -20px rgba(0,0,0,0.6)` }}>
+                  <Image
+                    src={`${IMG}/estacion.webp`}
+                    alt="Estación de manicura de Beauty Love: lámpara de trabajo, repisa de esmaltes y cojín fucsia"
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 72vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div
+                  className="absolute right-0 bottom-0 w-[46%] aspect-[4/5] overflow-hidden rounded-md rotate-2"
+                  style={{ boxShadow: `0 0 0 1px ${C.pink}, 0 24px 48px -16px rgba(0,0,0,0.65)` }}
                 >
-                  <span className="font-bold uppercase tracking-[0.06em] text-sm md:text-base">{p}</span>
-                  <span className="flex-1 border-b border-dotted translate-y-[-4px]" style={{ borderColor: C.line }} aria-hidden="true" />
-                  <span className="text-sm font-black uppercase tracking-[0.12em]" style={{ color: C.mint }}>
-                    A confirmar
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-
-          <div className="mt-8 text-center">
-            <a
-              href={WA_LINK_PRECIOS}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center min-h-[48px] px-7 rounded-full text-sm font-bold uppercase tracking-[0.14em] tap-44"
-              style={{ color: C.mint, boxShadow: `0 0 0 1px ${C.mint}` }}
-            >
-              Consultar valores
-            </a>
+                  <Image
+                    src={`${IMG}/texia.webp`}
+                    alt="Quien atiende el salón, en su uniforme de trabajo negro y fucsia"
+                    fill
+                    sizes="(min-width: 1024px) 24vw, 46vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] mb-4" style={{ color: C.pinkSoft }}>
+                {BIZ.address} · {BIZ.city}
+              </p>
+              <h2 className={`${display.className} italic font-semibold text-4xl md:text-6xl leading-[0.98] tracking-[-0.02em] mb-6`} style={{ color: C.paper }}>
+                Un salón chico,
+                <br />
+                atendido <span style={{ color: C.pink }}>por su dueña</span>
+              </h2>
+              <p className="text-base md:text-lg leading-relaxed mb-8 max-w-md" style={{ color: C.muted }}>
+                Sin recepción ni filas: escribes por WhatsApp, se confirma tu
+                hora y la estación queda lista cuando llegas. El trato es
+                directo, de vecina a vecina.
+              </p>
+              <dl className="border-t" style={{ borderColor: C.line }}>
+                {FICHA.map((f) => (
+                  <div key={f.k} className="grid grid-cols-[110px_1fr] gap-4 py-4 border-b" style={{ borderColor: C.line }}>
+                    <dt className="text-[10px] uppercase tracking-[0.26em] font-semibold pt-1" style={{ color: C.pinkSoft }}>
+                      {f.k}
+                    </dt>
+                    <dd className="text-sm font-medium" style={{ color: C.paper }}>
+                      {f.href ? (
+                        <a href={f.href} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 hover:opacity-80 tap-44 ${FOCUS} focus-visible:outline-[#F23D8C]`}>
+                          {f.v}
+                        </a>
+                      ) : (
+                        f.v
+                      )}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Contacto */}
-      <section id="contacto" className="relative py-24 md:py-32 overflow-hidden" style={{ backgroundColor: C.petrol }}>
-        <div
-          className="absolute inset-0"
-          style={{ background: `radial-gradient(ellipse at 15% 110%, rgba(159,216,203,0.35), transparent 55%), linear-gradient(180deg, ${C.night} 0%, transparent 30%)` }}
-          aria-hidden="true"
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 grid gap-12 md:grid-cols-2 items-center">
+      {/* ── Contacto ── */}
+      <section id="contacto" className="scroll-mt-20 py-16 md:py-24" style={{ backgroundColor: C.pink }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-12 items-center">
           <Reveal>
-            <h2 className={`${display.className} text-5xl md:text-7xl font-extrabold leading-[0.98] tracking-[-0.02em]`}>
-              Tu hora,
+            <p className="text-[11px] font-bold uppercase tracking-[0.3em] mb-4 text-white/85">
+              Agenda tu hora
+            </p>
+            <h2 className={`${display.className} italic font-semibold leading-[0.95] tracking-[-0.02em] text-5xl md:text-7xl text-white mb-6`}>
+              Tus manos,
               <br />
-              <span className="italic font-medium bl-flicker" style={{ color: C.mint, textShadow: GLOW }}>
-                a un mensaje.
-              </span>
+              en la lista
             </h2>
-            <p className="mt-6 max-w-md font-light leading-relaxed" style={{ color: C.muted }}>
-              Escribe tu día y el servicio que buscas. Te respondemos con las horas disponibles.
+            <p className="text-base md:text-lg leading-relaxed mb-9 max-w-md text-white/90">
+              Escribe el día que te acomoda y el servicio que buscas — te
+              responden con las horas disponibles en Notre Damme.
             </p>
             <a
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bl-cta mt-9 inline-flex items-center gap-3 min-h-[52px] px-6 md:px-9 rounded-full text-sm md:text-base font-black uppercase tracking-[0.08em] md:tracking-[0.14em] transition-shadow tap-44"
-              style={{ backgroundColor: C.mint, color: C.night, boxShadow: GLOW }}
+              className={`inline-flex items-center gap-3 min-h-[48px] px-7 rounded-full text-sm font-bold uppercase tracking-[0.1em] transition hover:brightness-95 active:scale-95 tap-44 ${FOCUS} focus-visible:outline-white`}
+              style={{ backgroundColor: C.night, color: C.blush }}
             >
-              <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
               </svg>
               WhatsApp {BIZ.phoneDisplay}
             </a>
-
             <dl className="mt-10 space-y-4 text-sm">
               <div>
-                <dt className="text-xs font-black uppercase tracking-[0.25em]" style={{ color: C.mint }}>Dirección</dt>
+                <dt className="text-[10px] font-bold uppercase tracking-[0.26em] text-white/80">Dirección</dt>
                 <dd className="mt-1">
-                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 tap-44">
-                    {BIZ.address}, {BIZ.postal} {BIZ.city}, Maule
+                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 text-white tap-44 ${FOCUS} focus-visible:outline-white`}>
+                    {BIZ.address}, {BIZ.city}, Maule
                   </a>
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-black uppercase tracking-[0.25em]" style={{ color: C.mint }}>Instagram</dt>
+                <dt className="text-[10px] font-bold uppercase tracking-[0.26em] text-white/80">Instagram</dt>
                 <dd className="mt-1">
-                  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 tap-44">
+                  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-4 decoration-1 text-white tap-44 ${FOCUS} focus-visible:outline-white`}>
                     @{BIZ.instagram}
                   </a>
                 </dd>
               </div>
             </dl>
           </Reveal>
-
           <Reveal delay={120}>
-            <div className="rounded-[24px] overflow-hidden" style={{ boxShadow: TUBE }}>
+            <div className="rounded-md overflow-hidden" style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.4), 0 30px 60px -20px rgba(0,0,0,0.4)` }}>
               <LazyMap
                 title={`Mapa de ${BIZ.name} en ${BIZ.city}`}
                 src={MAPS_EMBED}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-[340px] md:h-[440px] border-0"
-                style={{ filter: 'invert(0.9) hue-rotate(160deg) saturate(0.7) contrast(0.95)' }}
               />
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Franja Sitiazo */}
-      <div className="py-4 text-center text-xs font-black uppercase tracking-[0.3em]" style={{ backgroundColor: C.mint, color: C.night }}>
-        Sitio de ejemplo de Sitiazo
+      {/* ── Franja Sitiazo + footer ── */}
+      <div className="bl-band">
+        <DemoBand name={BIZ.name} />
       </div>
-
-      <footer className="pt-6 pb-20 px-5 text-center text-xs" style={{ backgroundColor: C.graphite, color: C.muted }}>
-        <p className={`${display.className} italic text-xl font-bold`} style={{ color: C.paper }}>
+      <footer className="pt-6 pb-20 px-5 text-center text-xs" style={{ backgroundColor: C.panel, color: C.muted }}>
+        <p className={`${display.className} italic text-xl font-semibold`} style={{ color: C.paper }}>
           {BIZ.name}
         </p>
         <p className="mt-2">
@@ -483,7 +528,6 @@ export default function BeautyLovePage() {
       </footer>
 
       <WaFab href={WA_LINK} label={`Escribir a ${BIZ.name} por WhatsApp`} />
-      <DemoBand name={BIZ.name} />
     </main>
   )
 }
