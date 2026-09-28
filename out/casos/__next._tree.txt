@@ -1,11 +1,5 @@
 :HL["/_next/static/chunks/2e67b1870547635b.css","style"]
-<<<<<<< HEAD
-:HL["/_next/static/chunks/cd6484890c5b8cbf.css","style"]
-||||||| parent of a4ee8998a (demo(nutricionista-francisca-pinto): pauta de cuaderno — Fraunces + Nunito Sans, lila de su uniforme, retrato en arco, notas de pacientes)
-:HL["/_next/static/chunks/c38f8f0874887d25.css","style"]
-=======
-:HL["/_next/static/chunks/ed318bfd633b97ab.css","style"]
->>>>>>> a4ee8998a (demo(nutricionista-francisca-pinto): pauta de cuaderno — Fraunces + Nunito Sans, lila de su uniforme, retrato en arco, notas de pacientes)
+:HL["/_next/static/chunks/546e967eea308d38.css","style"]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.77c0d914.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.c757f81b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -13,10 +7,4 @@
 :HL["/_next/static/media/normal_300_700-s.p.4059a8c8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_400-s.p.17abc3a0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/images/logo/logo-white-letras.png","image"]
-<<<<<<< HEAD
-0:{"buildId":"lk5kMLvTW5EjRUrAlcr67","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"casos","paramType":null,"paramKey":"casos","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
-||||||| parent of a4ee8998a (demo(nutricionista-francisca-pinto): pauta de cuaderno — Fraunces + Nunito Sans, lila de su uniforme, retrato en arco, notas de pacientes)
-0:{"buildId":"khUwyX1LiUU1hpNm1etEr","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"casos","paramType":null,"paramKey":"casos","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
-=======
-0:{"buildId":"9mMVrnR6F6NhUj5-TVmLc","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"casos","paramType":null,"paramKey":"casos","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
->>>>>>> a4ee8998a (demo(nutricionista-francisca-pinto): pauta de cuaderno — Fraunces + Nunito Sans, lila de su uniforme, retrato en arco, notas de pacientes)
+0:{"buildId":"t5o4vbfV6_MPopw3e9vEq","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"casos","paramType":null,"paramKey":"casos","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
