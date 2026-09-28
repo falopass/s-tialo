@@ -1110,6 +1110,14 @@ const BLITZ = [
     tagline: 'Posta nocturna: tinta + lima del mural, boleta de farmacia, urgencias hasta las 2 AM.',
     gradient: 'linear-gradient(135deg, #0C1120 0%, #121B30 55%, #46DC2E 160%)',
   },
+  {
+    slug: 'patitas-pets-iquique',
+    name: 'Patitas Pets Iquique',
+    rubro: 'Tienda de mascotas',
+    city: 'Iquique',
+    tagline: 'Tienda de barrio: crema y verde del logo, mural polaroid y etiquetas colgando del cordel.',
+    gradient: 'linear-gradient(135deg, #1D3B0E 0%, #4C8C1E 55%, #FBF5E8 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
