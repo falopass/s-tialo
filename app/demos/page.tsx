@@ -862,8 +862,7 @@ const BLITZ = [
     tagline: 'Lodge de cordillera: verde bosque, hueso y ámbar de leña, línea de cerros y fotos reales.',
     gradient: 'linear-gradient(135deg, #122317 0%, #23402B 55%, #D19A3E 140%)',
   },
-
-||||||| parent of e762aa9d (feat(demos): dos demos con datos reales — Family Gym (San Clemente) y Fonoaudióloga Karen Oyarce (Talca))  {
+  {
     slug: 'family-gym-san-clemente',
     name: 'Family Gym',
     rubro: 'Gimnasio · club familiar',
