@@ -234,13 +234,13 @@ export default function JaimeAcunaPage() {
                 <a href={`mailto:${BIZ.email}`} className="font-semibold underline break-all tap-44" style={{ color: C.accent }}>{BIZ.email}</a>
               </li>
               <li className="flex items-center gap-3">
-                <span className={`${mono.className} text-xs uppercase tracking-widest w-20 shrink-0`} style={{ color: C.steel }}>Zona</span>
-                <span style={{ color: C.muted }}>{BIZ.city}, Región del Maule</span>
+                <span className={`${mono.className} text-xs uppercase tracking-widest w-20 shrink-0`} style={{ color: C.steel }}>Oficina</span>
+                <span style={{ color: C.muted }}>{BIZ.address}, {BIZ.city}, Región del Maule</span>
               </li>
             </ul>
             <div className="mt-7 flex flex-col sm:flex-row gap-3">
               <Btn href={WA_LINK} tone="accent">Abrir WhatsApp</Btn>
-              <Btn href={MAPS_URL} tone="paper">Ver zona en Maps</Btn>
+              <Btn href={MAPS_URL} tone="paper">Cómo llegar</Btn>
             </div>
           </Reveal>
           <Reveal delay={120}>
@@ -248,7 +248,7 @@ export default function JaimeAcunaPage() {
               <LazyMap src={MAPS_EMBED} title={`Mapa de la zona de ${BIZ.city}`} className="w-full h-[300px] md:h-[380px] border-0" />
             </div>
             <p className="mt-3 text-xs" style={{ color: C.muted }}>
-              Mapa de la zona de {BIZ.city}: la dirección exacta del estudio se confirma al contactar.
+              El estudio atiende en {BIZ.address}, {BIZ.city} — coordina tu visita por WhatsApp.
             </p>
           </Reveal>
         </div>
@@ -275,7 +275,7 @@ export default function JaimeAcunaPage() {
             <p className={`${display.className} text-2xl font-bold`} style={{ color: '#FFFFFF' }}>
               {BIZ.legalName}
             </p>
-            <p className="text-sm mt-1">{BIZ.category} · {BIZ.city} · {BIZ.phoneDisplay}</p>
+            <p className="text-sm mt-1">{BIZ.category} · {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}</p>
           </div>
           <nav className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
             {NAV_LINKS.map((l) => (

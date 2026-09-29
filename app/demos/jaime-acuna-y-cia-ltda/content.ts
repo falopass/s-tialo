@@ -1,17 +1,20 @@
 /**
- * Datos verificados en la planilla de prospección de Diego
- * (seguimiento-sitiazo-talca.csv, 28-09-2026): "Jaime Acuña Y Cia.
- * Ltda.", estudio de contabilidad y auditoría en Talca, contacto
- * WhatsApp +56 9 9818 5244, correo jaimeacuna77@hotmail.com.
- * No se encontró ficha pública de Google Maps ni redes activas con
- * dirección confirmada, por eso el demo no muestra dirección ni
- * rating y sus bloques visuales son bosquejos CSS marcados como tal.
+ * Datos verificados (29-09-2026): "Jaime Acuña Y Cia. Ltda.", estudio de
+ * contabilidad y auditoría en Talca. WhatsApp +56 9 9818 5244 y correo
+ * jaimeacuna77@hotmail.com según planilla de prospección de Diego
+ * (seguimiento-sitiazo-talca.csv). Dirección "Calle 2 Poniente 975, Talca"
+ * confirmada en tres directorios (guianegocios.cl, imigra.net,
+ * laguiachile.cl) que listan el mismo teléfono. Ojo: en Maps existe
+ * "Vicente Acuña y Cía. Ltda." (1 Sur 1620) que es otra empresa.
+ * No hay fotos públicas del estudio: los bloques visuales son bosquejos
+ * CSS marcados como tal.
  */
 export const BIZ = {
   name: 'Jaime Acuña y Cía.',
   legalName: 'Jaime Acuña Y Cia. Ltda.',
   category: 'Contabilidad y auditoría',
   city: 'Talca',
+  address: '2 Poniente 975',
   phone: '56998185244',
   phoneDisplay: '+56 9 9818 5244',
   email: 'jaimeacuna77@hotmail.com',
@@ -22,9 +25,9 @@ export const WA_LINK = `https://wa.me/${BIZ.phone}?text=${encodeURIComponent(
 )}`
 
 export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
-  'Talca, Región del Maule, Chile',
+  '2 Poniente 975, Talca, Región del Maule, Chile',
 )}&output=embed`
 
 export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  'Talca, Región del Maule, Chile',
+  '2 Poniente 975, Talca, Región del Maule, Chile',
 )}`
