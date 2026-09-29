@@ -93,7 +93,7 @@ function WaButton({ children }: { children: React.ReactNode }) {
       href={WA_LINK}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center justify-center gap-2.5 min-h-[44px] px-7 py-2.5 rounded-full font-semibold text-[15px] transition-transform hover:-translate-y-0.5 active:translate-y-0 tap-44"
+      className="inline-flex items-center justify-center gap-2.5 min-h-[44px] px-5 py-2.5 rounded-full font-semibold text-[14px] whitespace-nowrap transition-transform hover:-translate-y-0.5 active:translate-y-0 tap-44"
       style={{ backgroundColor: C.leaf, color: '#fff' }}
     >
       <WaIcon className="w-[18px] h-[18px]" />
