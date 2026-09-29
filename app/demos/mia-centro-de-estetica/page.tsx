@@ -17,6 +17,9 @@ const display = localFont({
 const body = localFont({
   src: [{ path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
 })
+const mono = localFont({
+  src: [{ path: '../../fonts/ibm-plex-mono/normal-500.woff2', weight: '500', style: 'normal' }],
+})
 
 // Identidad tomada del letrero real de la fachada: banda violeta + franja
 // dorada, con la flor del logo como acento.
@@ -29,9 +32,9 @@ const C = {
   violetSoft: '#DCC7EE',
   gold: '#F2C14E',
   ink: '#2A1235',
-  muted: 'rgba(42,18,53,0.64)',
+  muted: '#574368',
   bone: '#FDF9FF',
-  mutedL: 'rgba(253,249,255,0.72)',
+  mutedL: 'rgba(253,249,255,0.74)',
   line: 'rgba(42,15,69,0.14)',
   lineL: 'rgba(220,199,238,0.25)',
 }
@@ -50,17 +53,35 @@ export const metadata: Metadata = demoMetadata({
 })
 
 const NAV_LINKS = [
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Manicure', href: '#manicure' },
+  { label: 'La carta', href: '#carta' },
+  { label: 'La vitrina', href: '#vitrina' },
   { label: 'Opiniones', href: '#opiniones' },
   { label: 'Cómo llegar', href: '#ubicacion' },
 ]
 
+/** Zona de la carta donde va cada servicio del tótem. */
+const ZONA: Record<string, string> = {
+  Peluquería: 'Cabello',
+  Depilación: 'Cuerpo',
+  Manicure: 'Manos',
+  Pedicure: 'Pies',
+  Bronceado: 'Piel',
+}
+
+const VITRINA = [
+  { src: 'unas1', alt: 'Uñas en tonos menta con glitter dorado hechas en Mía' },
+  { src: 'unas5', alt: 'Manicure rosada con glitter dorado hecha en Mía' },
+  { src: 'unas2', alt: 'Manicure rosada con detalle en glitter hecha en Mía' },
+  { src: 'unas6', alt: 'Manicure degradado menta con glitter hecha en Mía' },
+  { src: 'unas3', alt: 'Esmaltado rosado con acento dorado, trabajo de Mía' },
+  { src: 'unas4', alt: 'Uñas celestes con glitter plateado hechas en Mía' },
+] as const
+
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
-      className={`${display.className} text-[11px] uppercase tracking-[0.3em] font-bold mb-4 flex items-center gap-3`}
-      style={{ color: light ? C.violetSoft : C.violetDeep }}
+      className={`${mono.className} text-[11px] uppercase tracking-[0.3em] mb-4 flex items-center gap-3`}
+      style={{ color: light ? '#E9DBF8' : C.violetDeep }}
     >
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
@@ -68,12 +89,29 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   )
 }
 
-/** Franja dorada + violeta, el guiño gráfico del letrero de la fachada. */
-function GoldBar({ className = '' }: { className?: string }) {
+/** Cinta infinita con los servicios del tótem. */
+function Marquee() {
+  const items = [...SERVICIOS.map((s) => s.name), SERVICIO_EXTRA]
+  const Row = ({ ariaHidden = false }: { ariaHidden?: boolean }) => (
+    <div className="flex items-center shrink-0" aria-hidden={ariaHidden}>
+      {items.map((s) => (
+        <span
+          key={s}
+          className={`${display.className} uppercase font-bold text-xs md:text-sm tracking-[0.24em] flex items-center gap-6 md:gap-8 pr-6 md:pr-8`}
+          style={{ color: C.bone }}
+        >
+          {s}
+          <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.gold }} aria-hidden="true" />
+        </span>
+      ))}
+    </div>
+  )
   return (
-    <div className={`flex items-center gap-2 ${className}`} aria-hidden="true">
-      <span className="h-[3px] w-10 rounded-full" style={{ backgroundColor: C.gold }} />
-      <span className="h-[3px] w-3 rounded-full" style={{ backgroundColor: C.violet }} />
+    <div className="overflow-hidden py-4" style={{ backgroundColor: C.violetDeep }}>
+      <div className="mia-marquee flex w-max">
+        <Row />
+        <Row ariaHidden />
+      </div>
     </div>
   )
 }
@@ -86,6 +124,11 @@ export default function MiaCentroDeEsteticaPage() {
     >
       <style>{`
         .mia-page a:focus-visible { outline: 2px solid #6E22A8; outline-offset: 3px; }
+        @keyframes mia-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+        .mia-marquee { animation: mia-marquee 30s linear infinite; }
+        .mia-vitrina::-webkit-scrollbar { display: none; }
+        .mia-vitrina { scrollbar-width: none; }
+        @media (prefers-reduced-motion: reduce) { .mia-marquee { animation: none; } }
       `}</style>
 
       <BlitzNav
@@ -95,7 +138,7 @@ export default function MiaCentroDeEsteticaPage() {
         fontClass={display.className}
         logoSrc={`${IMG}/logo.webp`}
         theme={{
-          over: 'light',
+          over: 'dark',
           bar: 'rgba(250,246,252,0.94)',
           ink: C.plum,
           line: C.line,
@@ -104,221 +147,243 @@ export default function MiaCentroDeEsteticaPage() {
         }}
       />
 
-      {/* ── Hero: la casa morada, foto real de la fachada ── */}
+      {/* ── Hero: el letrero que cuelga de la reja + la casa ── */}
       <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.plum }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-0 grid md:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
-          <Reveal>
-            <Eyebrow light>Centro de estética · Curicó</Eyebrow>
-            <h1
-              className={`${display.className} font-bold leading-[1.02] tracking-[-0.01em] text-[clamp(2.4rem,8.6vw,4.8rem)] mb-6`}
-              style={{ color: C.bone }}
-            >
-              La casa morada
-              <br />
-              de <em style={{ color: C.gold }}>Pje. R 8</em>
-            </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-md mb-8" style={{ color: C.mutedL }}>
-              Peluquería, depilación, manicure, pedicure y bronceado: los
-              cinco servicios del tótem que lleva años en la reja, en pleno
-              centro de Curicó.
-            </p>
-            <div className="flex flex-wrap gap-3 mb-7">
-              <a
-                href={WA_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${display.className} inline-block uppercase font-bold text-sm tracking-[0.08em] px-8 py-3.5 rounded-full tap-44 active:scale-95 transition-all hover:brightness-110`}
-                style={{ backgroundColor: C.gold, color: C.plum, boxShadow: '0 10px 30px rgba(242,193,78,0.35)' }}
-              >
-                Agendar por WhatsApp
-              </a>
-              <a
-                href="#servicios"
-                className={`${display.className} inline-block uppercase font-bold text-sm tracking-[0.08em] px-8 py-3.5 rounded-full border tap-44 transition-colors hover:bg-white/10`}
-                style={{ borderColor: C.lineL, color: C.bone }}
-              >
-                Ver servicios
-              </a>
-            </div>
-            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 tap-44" style={{ color: C.bone }}>
-              <Stars value={BIZ.rating} color={C.gold} className="w-4 h-4" />
-              <span className={`${display.className} font-bold text-sm`} style={{ color: C.bone }}>{BIZ.ratingLabel}</span>
-              <span className="text-sm underline underline-offset-4 decoration-1" style={{ color: C.mutedL }}>
-                {BIZ.reviews} reseñas en Google
-              </span>
-            </a>
-          </Reveal>
-          <Reveal delay={140}>
-            <div className="relative pb-14 md:pb-16">
-              <figure
-                className="relative aspect-[4/3] overflow-hidden"
-                style={{ borderRadius: '24px', boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}
-              >
-                <Image
-                  src={`${IMG}/fachada.webp`}
-                  alt="Fachada de Mía Centro De Estética en Pje. R 8, Curicó: casa blanca con letrero violeta y el tótem de servicios"
-                  fill
-                  priority
-                  sizes="(min-width:768px) 45vw, 90vw"
-                  className="object-cover"
-                />
-              </figure>
-              {/* Tarjeta del logo, como el panel que cuelga de la reja */}
-              <div
-                className="absolute -bottom-4 left-4 md:-left-6 rounded-2xl p-4 pr-6 flex items-center gap-3 shadow-xl"
-                style={{ backgroundColor: C.bone }}
-              >
-                <Image src={`${IMG}/logo.webp`} alt="" width={52} height={52} className="rounded-full" aria-hidden="true" />
-                <div>
-                  <p className={`${display.className} font-bold text-lg leading-none`} style={{ color: C.plum }}>Mía</p>
-                  <p className="text-[11px] uppercase tracking-[0.18em] mt-1" style={{ color: C.violetDeep }}>Centro de estética</p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-        {/* La banda violeta del letrero, con la lista del tótem */}
-        <div style={{ backgroundColor: C.violetDeep }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap justify-center gap-x-7 gap-y-1.5">
-            {SERVICIOS.map((s) => (
-              <span
-                key={s.name}
-                className={`${display.className} uppercase font-bold text-[11px] md:text-xs tracking-[0.22em] flex items-center gap-2`}
-                style={{ color: C.bone }}
-              >
-                <span className="inline-block w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.gold }} aria-hidden="true" />
-                {s.name}
-              </span>
-            ))}
-            <span className={`${display.className} font-bold text-[11px] md:text-xs tracking-[0.22em]`} style={{ color: C.gold }}>
-              + {SERVICIO_EXTRA}
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Servicios: el tótem de la entrada ── */}
-      <section id="servicios" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-start">
+        {/* los lunares del letrero, en versión fondo */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.5]"
+          style={{ backgroundImage: 'radial-gradient(rgba(220,199,238,0.10) 1.5px, transparent 1.5px)', backgroundSize: '26px 26px' }}
+          aria-hidden="true"
+        />
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-12 md:pb-16">
+          {/* rótulo de registro */}
           <Reveal>
             <div
-              className="rounded-3xl overflow-hidden"
-              style={{ backgroundColor: C.violetDeep, boxShadow: '0 20px 50px rgba(52,22,82,0.28)' }}
+              className={`${mono.className} flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1.5 border-y py-2.5 mb-10 md:mb-14 text-[10px] md:text-[11px] uppercase tracking-[0.26em]`}
+              style={{ borderColor: C.lineL, color: 'rgba(253,249,255,0.82)' }}
             >
-              <div className="px-7 md:px-8 pt-7 pb-2">
-                <p className={`${display.className} text-[10px] uppercase tracking-[0.3em] font-bold`} style={{ color: C.violetSoft }}>
-                  El tótem de la reja
-                </p>
-                <p className={`${display.className} text-2xl md:text-3xl font-bold mt-2`} style={{ color: C.bone }}>
-                  Lo que se hace aquí
-                </p>
+              <span>{BIZ.rubro} · {BIZ.city}</span>
+              <span className="hidden md:inline">Pje. R 8, centro</span>
+              <span style={{ color: '#FFD97A' }}>Sitio de ejemplo</span>
+            </div>
+          </Reveal>
+
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
+            {/* El letrero colgante */}
+            <Reveal>
+              <div className="relative">
+                {/* cordones del letrero */}
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-16" aria-hidden="true">
+                  <span className="block w-px h-6" style={{ backgroundColor: C.gold }} />
+                  <span className="block w-px h-6" style={{ backgroundColor: C.gold }} />
+                </div>
+                <div
+                  className="relative rounded-[28px] px-7 md:px-10 pt-9 pb-8 text-center"
+                  style={{ backgroundColor: C.bone, border: `2px solid ${C.gold}`, boxShadow: '0 26px 70px rgba(0,0,0,0.4)' }}
+                >
+                  <div className="absolute inset-2 rounded-[20px] pointer-events-none" style={{ border: `1px solid ${C.violetSoft}` }} aria-hidden="true" />
+                  <div className="relative">
+                    <Image
+                      src={`${IMG}/logo.webp`}
+                      alt="Logo de Mía Centro De Estética"
+                      width={64}
+                      height={64}
+                      className="mx-auto rounded-full mb-4"
+                    />
+                    <h1
+                      className={`${display.className} font-bold leading-[0.95] tracking-[-0.01em] text-[clamp(3.2rem,11vw,5.6rem)]`}
+                      style={{ color: C.plum }}
+                    >
+                      Mía
+                    </h1>
+                    <p className={`${mono.className} text-[10px] md:text-[11px] uppercase tracking-[0.34em] mt-2`} style={{ color: C.violetDeep }}>
+                      Centro de estética
+                    </p>
+                    <div className="flex items-center justify-center gap-3 mt-5" aria-hidden="true">
+                      <span className="h-px w-10" style={{ backgroundColor: C.gold }} />
+                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: C.violet }} />
+                      <span className="h-px w-10" style={{ backgroundColor: C.gold }} />
+                    </div>
+                    <p className="text-sm md:text-base leading-relaxed max-w-sm mx-auto mt-5" style={{ color: C.muted }}>
+                      La casa morada de Pje. R 8: cinco servicios en un mismo
+                      tótem, atendidos con hora en pleno centro de Curicó.
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-3 mt-7">
+                      <a
+                        href={WA_LINK}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${display.className} inline-block uppercase font-bold text-sm tracking-[0.08em] px-7 py-3 rounded-full tap-44 active:scale-95 transition-all hover:brightness-105`}
+                        style={{ backgroundColor: C.violetDeep, color: '#fff', boxShadow: '0 10px 26px rgba(110,34,168,0.35)' }}
+                      >
+                        Agendar por WhatsApp
+                      </a>
+                      <a
+                        href="#carta"
+                        className={`${display.className} inline-block uppercase font-bold text-sm tracking-[0.08em] px-7 py-3 rounded-full tap-44 transition-colors`}
+                        style={{ border: `1.5px solid ${C.violetDeep}`, color: C.violetDeep }}
+                      >
+                        Ver la carta
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </Reveal>
+
+            {/* La casa, como postal */}
+            <Reveal delay={140}>
+              <figure className="relative rotate-[1.6deg]">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl" style={{ border: `6px solid ${C.bone}`, boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
+                  <Image
+                    src={`${IMG}/fachada.webp`}
+                    alt="Fachada de Mía Centro De Estética en Pje. R 8, Curicó: casa blanca con letrero violeta y el tótem de servicios"
+                    fill
+                    priority
+                    sizes="(min-width:768px) 44vw, 90vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption
+                  className={`${mono.className} absolute -bottom-3 left-5 px-3 py-1.5 rounded-full text-[10px] uppercase tracking-[0.2em]`}
+                  style={{ backgroundColor: C.gold, color: C.ink }}
+                >
+                  Así se ve desde la calle
+                </figcaption>
+              </figure>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center gap-2.5 tap-44"
+                style={{ color: C.bone }}
+              >
+                <Stars value={BIZ.rating} color={C.gold} className="w-4 h-4" />
+                <span className={`${display.className} font-bold text-sm`}>{BIZ.ratingLabel}</span>
+                <span className="text-sm underline underline-offset-4 decoration-1" style={{ color: C.mutedL }}>
+                  {BIZ.reviews} reseñas en Google
+                </span>
+              </a>
+            </Reveal>
+          </div>
+        </div>
+
+        {/* cinta de servicios del tótem */}
+        <Marquee />
+      </section>
+
+      {/* ── La carta de la casa: el tótem como menú de salón ── */}
+      <section id="carta" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-start">
+          <Reveal>
+            <Eyebrow>La carta de la casa</Eyebrow>
+            <h2 className={`${display.className} font-bold text-4xl md:text-6xl leading-[1.0] tracking-[-0.01em] mb-8`} style={{ color: C.plum }}>
+              Cinco líneas,
+              <br />
+              <em>una misma reja</em>
+            </h2>
+            <div className="rounded-3xl overflow-hidden" style={{ backgroundColor: '#fff', border: `1.5px solid ${C.plum}` }}>
+              <p className={`${mono.className} px-6 md:px-8 pt-5 pb-3 text-[10px] uppercase tracking-[0.28em] border-b border-dashed`} style={{ color: C.violetDeep, borderColor: C.line }}>
+                El tótem de la entrada · letrero real
+              </p>
               <ul>
                 {SERVICIOS.map((s, i) => (
-                  <li key={s.name} className="flex items-baseline gap-4 px-7 md:px-8 py-4 border-t" style={{ borderColor: 'rgba(253,249,255,0.16)', color: C.bone }}>
-                    <span className={`${display.className} text-sm font-bold`} style={{ color: C.gold }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span className={`${display.className} uppercase font-bold text-base md:text-lg tracking-[0.08em]`} style={{ color: C.bone }}>
-                      {s.name}
-                    </span>
+                  <li key={s.name} className="flex items-baseline gap-3 px-6 md:px-8 py-4 border-b border-dashed last:border-b-0" style={{ borderColor: C.line }}>
+                    <span className={`${mono.className} text-xs`} style={{ color: C.violet }}>{String(i + 1).padStart(2, '0')}</span>
+                    <span className={`${display.className} font-bold text-lg md:text-xl tracking-[0.02em]`} style={{ color: C.plum }}>{s.name}</span>
+                    <span className="flex-1 border-b border-dotted mx-1 -translate-y-1" style={{ borderColor: 'rgba(42,15,69,0.3)' }} aria-hidden="true" />
+                    <span className={`${mono.className} text-[10px] uppercase tracking-[0.2em]`} style={{ color: C.muted }}>{ZONA[s.name] ?? 'Casa'}</span>
                   </li>
                 ))}
-                <li className="flex items-baseline gap-4 px-7 md:px-8 py-4 border-t" style={{ borderColor: 'rgba(253,249,255,0.16)', color: C.bone }}>
-                  <span className={`${display.className} text-sm font-bold`} style={{ color: C.gold }}>+</span>
-                  <span className={`${display.className} font-bold text-base md:text-lg tracking-[0.08em]`} style={{ color: C.violetSoft }}>
-                    {SERVICIO_EXTRA} <span className="font-normal text-sm normal-case tracking-normal" style={{ color: 'rgba(253,249,255,0.66)' }}>— lo avisan por Facebook</span>
-                  </span>
+                <li className="flex items-baseline gap-3 px-6 md:px-8 py-4" style={{ backgroundColor: 'rgba(220,199,238,0.25)' }}>
+                  <span className={`${mono.className} text-xs`} style={{ color: C.violetDeep }}>+</span>
+                  <span className={`${display.className} font-bold text-lg md:text-xl italic`} style={{ color: C.violetDeep }}>{SERVICIO_EXTRA}</span>
+                  <span className="flex-1 border-b border-dotted mx-1 -translate-y-1" style={{ borderColor: 'rgba(42,15,69,0.3)' }} aria-hidden="true" />
+                  <span className={`${mono.className} text-[10px] uppercase tracking-[0.2em]`} style={{ color: C.violetDeep }}>Por Facebook</span>
                 </li>
               </ul>
-              <div className="px-7 md:px-8 py-6" style={{ backgroundColor: 'rgba(0,0,0,0.18)' }}>
+              <div className="px-6 md:px-8 py-5 flex flex-wrap items-center justify-between gap-4 border-t" style={{ borderColor: C.line, backgroundColor: 'rgba(220,199,238,0.18)' }}>
+                <p className="text-xs leading-relaxed max-w-[240px]" style={{ color: C.muted }}>
+                  Todo se consulta y se agenda por WhatsApp, con hora.
+                </p>
                 <a
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} inline-block uppercase font-bold text-xs tracking-[0.14em] px-7 py-3 rounded-full tap-44 transition-all hover:brightness-110`}
-                  style={{ backgroundColor: C.gold, color: C.plum }}
+                  className={`${display.className} inline-block uppercase font-bold text-xs tracking-[0.14em] px-6 py-2.5 rounded-full tap-44 transition-all hover:brightness-110`}
+                  style={{ backgroundColor: C.violetDeep, color: '#fff' }}
                 >
                   Consultar hora
                 </a>
               </div>
             </div>
           </Reveal>
-          <div className="space-y-8">
-            <Reveal>
-              <Eyebrow>Servicios</Eyebrow>
-              <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.02] tracking-[-0.01em]`} style={{ color: C.plum }}>
-                Cinco líneas
-                <br />
-                <em>en el mismo tótem</em>
-              </h2>
-              <GoldBar className="mt-5" />
-            </Reveal>
-            <ul className="space-y-5">
-              {SERVICIOS.map((s) => (
-                <li key={s.name} className="flex gap-4 items-start">
-                  <span className="mt-2 inline-block w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: C.violet }} aria-hidden="true" />
-                  <div>
-                    <h3 className={`${display.className} font-bold text-lg`} style={{ color: C.plum }}>{s.name}</h3>
-                    <p className="text-sm leading-relaxed mt-0.5" style={{ color: C.muted }}>{s.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <Reveal delay={80}>
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <figure className="relative aspect-[4/5] rounded-2xl overflow-hidden" style={{ border: `1px solid ${C.line}` }}>
-                  <Image src={`${IMG}/peluqueria.webp`} alt="Balayage rubio hecho en Mía, publicado en su Facebook con productos Schwarzkopf Professional" fill sizes="(min-width:768px) 25vw, 45vw" className="object-cover" />
-                  <figcaption className="absolute bottom-0 inset-x-0 text-[10px] uppercase tracking-[0.16em] font-bold px-3 py-2" style={{ backgroundColor: 'rgba(42,15,69,0.82)', color: C.bone }}>
-                    Peluquería
-                  </figcaption>
-                </figure>
-                <figure className="relative aspect-[4/5] rounded-2xl overflow-hidden" style={{ border: `1px solid ${C.line}` }}>
-                  <Image src={`${IMG}/alisado.webp`} alt="Alisado con Brasil Coffee Liss, trabajo publicado por Mía en Facebook" fill sizes="(min-width:768px) 25vw, 45vw" className="object-cover" />
-                  <figcaption className="absolute bottom-0 inset-x-0 text-[10px] uppercase tracking-[0.16em] font-bold px-3 py-2" style={{ backgroundColor: 'rgba(42,15,69,0.82)', color: C.bone }}>
-                    Alisados
-                  </figcaption>
-                </figure>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
 
-      {/* ── Manicure: las fotos que suben ellas mismas ── */}
-      <section id="manicure" className="scroll-mt-20" style={{ backgroundColor: C.plum }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <Reveal>
-            <Eyebrow light>Manicure y pedicure</Eyebrow>
-            <div className="flex flex-wrap items-end justify-between gap-5 mb-10 md:mb-12">
-              <h2 className={`${display.className} font-bold text-4xl md:text-6xl leading-[1.0] tracking-[-0.01em]`} style={{ color: C.bone }}>
-                Las manos
-                <br />
-                lo dicen
-              </h2>
-              <p className="text-sm md:text-base max-w-sm leading-relaxed" style={{ color: C.mutedL }}>
-                Fotos publicadas por el propio centro en su ficha de Google:
-                esmalte permanente, glitter y nail art hechos en la casa.
+          {/* Polaroide de trabajos reales */}
+          <Reveal delay={120}>
+            <div className="space-y-6 lg:pt-24">
+              {[
+                { src: 'peluqueria', alt: 'Balayage rubio hecho en Mía, publicado en su Facebook con productos Schwarzkopf Professional', cap: 'Color y balayage' },
+                { src: 'alisado', alt: 'Alisado con Brasil Coffee Liss, trabajo publicado por Mía en Facebook', cap: 'Alisados · Brasil Coffee Liss' },
+              ].map((f, i) => (
+                <figure
+                  key={f.src}
+                  className={`relative bg-white p-3 pb-4 shadow-xl ${i % 2 ? 'rotate-[1.4deg] ml-6' : '-rotate-[1.8deg] mr-6'}`}
+                  style={{ border: `1px solid ${C.line}` }}
+                >
+                  {/* cinta adhesiva */}
+                  <span
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-6 rotate-[-3deg] opacity-80"
+                    style={{ backgroundColor: 'rgba(242,193,78,0.55)' }}
+                    aria-hidden="true"
+                  />
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <Image src={`${IMG}/${f.src}.webp`} alt={f.alt} fill sizes="(min-width:768px) 30vw, 70vw" className="object-cover" />
+                  </div>
+                  <figcaption className={`${display.className} italic text-center text-sm pt-3`} style={{ color: C.violetDeep }}>
+                    {f.cap}
+                  </figcaption>
+                </figure>
+              ))}
+              <p className={`${mono.className} text-[10px] uppercase tracking-[0.22em] text-center pt-2`} style={{ color: C.muted }}>
+                Trabajos publicados por el propio centro
               </p>
             </div>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
-            {[
-              { src: 'unas1', alt: 'Uñas en tonos menta con glitter dorado hechas en Mía' },
-              { src: 'unas5', alt: 'Manicure rosada con glitter dorado hecha en Mía' },
-              { src: 'unas2', alt: 'Manicure rosada con detalle en glitter hecha en Mía' },
-              { src: 'unas6', alt: 'Manicure degradado menta con glitter hecha en Mía' },
-              { src: 'unas3', alt: 'Esmaltado rosado con acento dorado, trabajo de Mía' },
-              { src: 'unas4', alt: 'Uñas celestes con glitter plateado hechas en Mía' },
-            ].map((f, i) => (
-              <Reveal key={f.src} delay={i * 80}>
-                <figure
-                  className="relative aspect-[3/4] overflow-hidden rounded-2xl"
-                  style={{ border: `3px solid ${i % 2 ? C.gold : C.violetSoft}` }}
-                >
-                  <Image src={`${IMG}/${f.src}.webp`} alt={f.alt} fill sizes="(min-width:768px) 22vw, 44vw" className="object-cover" />
-                </figure>
-              </Reveal>
+        </div>
+      </section>
+
+      {/* ── La vitrina: el nail art en fila, como en la ventana ── */}
+      <section id="vitrina" className="scroll-mt-20" style={{ backgroundColor: C.plum }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-14 md:pb-20">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-5 mb-10 md:mb-12">
+              <div>
+                <Eyebrow light>La vitrina</Eyebrow>
+                <h2 className={`${display.className} font-bold text-4xl md:text-6xl leading-[1.0] tracking-[-0.01em]`} style={{ color: C.bone }}>
+                  Las manos
+                  <br />
+                  <em style={{ color: C.violetSoft }}>lo dicen</em>
+                </h2>
+              </div>
+              <p className="text-sm md:text-base max-w-sm leading-relaxed" style={{ color: C.mutedL }}>
+                Fotos que el propio centro sube a su ficha de Google:
+                permanente, glitter y nail art hechos en la casa.{' '}
+                <span className={`${mono.className} text-[10px] uppercase tracking-[0.2em]`} style={{ color: C.bone }}>Desliza →</span>
+              </p>
+            </div>
+          </Reveal>
+        </div>
+        <div className="mia-vitrina overflow-x-auto pb-12 md:pb-16">
+          <div className="flex gap-4 md:gap-5 w-max px-5 md:px-8 snap-x snap-mandatory">
+            {VITRINA.map((f, i) => (
+              <figure
+                key={f.src}
+                className={`relative w-52 md:w-64 shrink-0 snap-center aspect-[3/4] overflow-hidden rounded-2xl ${i % 2 ? 'rotate-[1.2deg]' : '-rotate-[1.2deg]'}`}
+                style={{ border: `3px solid ${i % 2 ? C.gold : C.violetSoft}`, boxShadow: '0 16px 44px rgba(0,0,0,0.35)' }}
+              >
+                <Image src={`${IMG}/${f.src}.webp`} alt={f.alt} fill sizes="(min-width:768px) 256px, 208px" className="object-cover" />
+              </figure>
             ))}
           </div>
         </div>
@@ -332,7 +397,7 @@ export default function MiaCentroDeEsteticaPage() {
             <h2 className={`${display.className} font-bold text-4xl md:text-5xl leading-[1.02] tracking-[-0.01em] mb-5`} style={{ color: C.plum }}>
               {BIZ.ratingLabel} estrellas
               <br />
-              <em>en Google</em>
+              <em>y vecinas que vuelven</em>
             </h2>
             <p className="text-base leading-relaxed mb-5" style={{ color: C.muted }}>
               {BIZ.reviews} reseñas en la ficha de Maps y{' '}
@@ -353,15 +418,16 @@ export default function MiaCentroDeEsteticaPage() {
             {REVIEWS.map((r, i) => (
               <Reveal key={r.author} delay={i * 80}>
                 <figure
-                  className="rounded-2xl p-6 md:p-7"
-                  style={{ backgroundColor: '#fff', border: `1px solid ${C.line}` }}
+                  className={`relative rounded-2xl p-6 md:p-7 ${i % 2 ? 'rotate-[0.8deg]' : '-rotate-[0.8deg]'}`}
+                  style={{ backgroundColor: '#fff', border: `1px solid ${C.line}`, boxShadow: '0 10px 30px rgba(52,22,82,0.08)' }}
                 >
+                  <span className={`${display.className} absolute -top-3 left-6 text-5xl leading-none`} style={{ color: C.gold }} aria-hidden="true">“</span>
                   <Stars value={5} color={C.gold} className="w-3.5 h-3.5" />
                   <blockquote className={`${display.className} text-base md:text-lg leading-relaxed mt-3 mb-4`} style={{ color: C.ink }}>
                     “{r.text}”
                   </blockquote>
-                  <figcaption className="text-[10px] uppercase tracking-[0.18em] font-bold" style={{ color: C.violetDeep }}>
-                    {r.author} <span className="font-normal" style={{ color: C.muted }}>· {r.when} · Google</span>
+                  <figcaption className={`${mono.className} text-[10px] uppercase tracking-[0.18em]`} style={{ color: C.violetDeep }}>
+                    {r.author} <span style={{ color: C.muted }}>· {r.when} · Google</span>
                   </figcaption>
                 </figure>
               </Reveal>
@@ -370,15 +436,15 @@ export default function MiaCentroDeEsteticaPage() {
         </div>
       </section>
 
-      {/* ── Ubicación ── */}
+      {/* ── Ubicación: la casa con la banda morada ── */}
       <section id="ubicacion" className="scroll-mt-20" style={{ backgroundColor: C.plum }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
-            <Eyebrow light>La casa</Eyebrow>
+            <Eyebrow light>Cómo llegar</Eyebrow>
             <h2 className={`${display.className} font-bold text-4xl md:text-6xl leading-[1.0] tracking-[-0.01em] mb-6`} style={{ color: C.bone }}>
               Pasaje R 8,
               <br />
-              <span style={{ color: C.violetSoft }}>Curicó centro</span>
+              <em style={{ color: C.violetSoft }}>Curicó centro</em>
             </h2>
             <p className="text-base md:text-lg leading-relaxed max-w-md mb-8" style={{ color: C.mutedL }}>
               Se reconoce de lejos: la casa blanca con la banda morada y el
@@ -388,10 +454,11 @@ export default function MiaCentroDeEsteticaPage() {
               {[
                 { k: 'Dirección', v: `${BIZ.address}, ${BIZ.city}` },
                 { k: 'WhatsApp', v: BIZ.phoneDisplay, href: WA_LINK },
+                { k: 'Atención', v: 'Con hora agendada' },
                 { k: 'Facebook', v: `${BIZ.facebookFollowers} seguidores`, href: BIZ.facebook },
               ].map((d) => (
                 <div key={d.k} className="flex items-baseline justify-between gap-4 border-b py-4" style={{ borderColor: C.lineL }}>
-                  <dt className={`${display.className} text-[10px] uppercase tracking-[0.24em] font-bold`} style={{ color: C.violetSoft }}>{d.k}</dt>
+                  <dt className={`${mono.className} text-[10px] uppercase tracking-[0.24em]`} style={{ color: C.violetSoft }}>{d.k}</dt>
                   <dd className="text-sm md:text-base text-right" style={{ color: C.bone }}>
                     {d.href ? (
                       <a href={d.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1 tap-44">{d.v}</a>
@@ -406,8 +473,8 @@ export default function MiaCentroDeEsteticaPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} inline-block uppercase font-bold text-sm tracking-[0.08em] px-8 py-4 rounded-full tap-44 active:scale-95 transition-all hover:brightness-110`}
-              style={{ backgroundColor: C.gold, color: C.plum }}
+              className={`${display.className} inline-block uppercase font-bold text-sm tracking-[0.08em] px-8 py-3.5 rounded-full tap-44 active:scale-95 transition-all hover:brightness-110`}
+              style={{ backgroundColor: C.gold, color: C.ink }}
             >
               Agendar por WhatsApp
             </a>
@@ -425,40 +492,59 @@ export default function MiaCentroDeEsteticaPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute top-3 left-3 text-xs font-bold px-4 py-2 rounded-full shadow-lg tap-44"
+                className={`${mono.className} absolute top-3 left-3 text-[11px] uppercase tracking-[0.14em] px-4 py-2 rounded-full shadow-lg tap-44`}
                 style={{ backgroundColor: C.bone, color: C.plum }}
               >
-                Open in Maps ↗
+                Abrir en Maps ↗
               </a>
             </div>
           </Reveal>
         </div>
       </section>
 
+      {/* ── Cierre ── */}
+      <section style={{ backgroundColor: C.violetDeep }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-16 text-center">
+          <Reveal>
+            <p className={`${mono.className} text-[10px] uppercase tracking-[0.3em] mb-4`} style={{ color: 'rgba(253,249,255,0.7)' }}>
+              Sitio de ejemplo · fotos y reseñas reales
+            </p>
+            <h2 className={`${display.className} font-bold text-3xl md:text-5xl leading-[1.05] max-w-2xl mx-auto`} style={{ color: C.bone }}>
+              ¿La casa morada con página <em style={{ color: C.gold }}>propia</em>?
+            </h2>
+            <a
+              href={whatsappLink('demo')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${display.className} inline-block mt-7 uppercase font-bold text-sm tracking-[0.08em] px-8 py-3.5 rounded-full tap-44 active:scale-95 transition-all hover:brightness-110`}
+              style={{ backgroundColor: C.bone, color: C.plum }}
+            >
+              Hablemos por WhatsApp
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.plumDeep, color: C.bone }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-wrap items-center justify-between gap-5">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-7 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Image src={`${IMG}/logo.webp`} alt="" width={44} height={44} className="rounded-full" aria-hidden="true" />
+            {/* eslint-disable-next-line @next/next/no-img-element -- logo ya optimizado en public/ */}
+            <img src={`${IMG}/logo.webp`} alt="" width={40} height={40} className="rounded-full" aria-hidden="true" />
             <div>
               <p className={`${display.className} font-bold text-lg leading-none`} style={{ color: C.bone }}>{BIZ.name}</p>
               <p className="text-xs mt-1" style={{ color: C.mutedL }}>{BIZ.rubro} · {BIZ.city}</p>
             </div>
           </div>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <div className="flex flex-wrap gap-x-6 gap-y-1.5 text-sm">
             <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="tap-44 underline underline-offset-4" style={{ color: C.violetSoft }}>{BIZ.phoneDisplay}</a>
             <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="tap-44 underline underline-offset-4" style={{ color: C.violetSoft }}>Facebook</a>
             <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="tap-44 underline underline-offset-4" style={{ color: C.violetSoft }}>Google Maps</a>
           </div>
         </div>
         <div className="border-t" style={{ borderColor: C.lineL }}>
-          <p className={`${display.className} max-w-6xl mx-auto px-5 md:px-8 py-5 text-[10px] uppercase tracking-[0.22em]`} style={{ color: 'rgba(220,199,238,0.5)' }}>
-            Sitio de ejemplo creado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">Sitiazo</a>
-            {' '}— fotos y reseñas reales del negocio ·{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44" style={{ color: C.gold }}>
-              Página de muestra — ¿lo hacemos realidad?
-            </a>
+          <p className={`${mono.className} max-w-6xl mx-auto px-5 md:px-8 py-4 text-[10px] uppercase tracking-[0.2em]`} style={{ color: 'rgba(220,199,238,0.5)' }}>
+            Creado por <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">Sitiazo</a> — sitio de muestra para el negocio
           </p>
         </div>
       </footer>
