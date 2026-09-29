@@ -3469,7 +3469,6 @@ const BLITZ = [
     tagline: 'Parte de terreno solar: Pacífico, arena y amarillo panel, escenas bosquejo marcadas y datos SERNATUR.',
     gradient: 'linear-gradient(135deg, #0B2836 0%, #14506B 55%, #F2A93B 150%)',
   },
->>>>>>> 18fe7a9029 (demo: Cabañas Lomas de Sol (Pelluhue) — parte de terreno solar con escenas bosquejo y datos SERNATUR)
   {
     slug: 'muerto-de-hambre',
     name: 'Muerto de Hambre',
@@ -3477,6 +3476,14 @@ const BLITZ = [
     city: 'San Clemente',
     tagline: 'Cantina de campo: letrero de madera tallada, pizarra con su carta real y 4,3 estrellas en Google.',
     gradient: 'linear-gradient(135deg, #171009 0%, #2E2114 60%, #E0A03A 170%)',
+  },
+  {
+    slug: 'cabanasrocasdepellines',
+    name: 'Cabañas Rocas de Pellines',
+    rubro: 'Cabañas · turismo',
+    city: 'Pellines, Constitución',
+    tagline: 'Km 20 de la M-50: cabañas de madera con piscina a pasos de la playa y sus rocas.',
+    gradient: 'linear-gradient(135deg, #0E2230 0%, #16303F 55%, #E2903B 180%)',
   },
 ]
 
