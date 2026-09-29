@@ -26,12 +26,12 @@ const body = localFont({
 const C = {
   papel: '#F6F1E3',
   papelSoft: '#EDE5CF',
-  tinta: '#22303E',
-  tintaSoft: '#4A5568',
+  tinta: '#192631',
+  tintaSoft: '#43596B',
   muted: '#6B6353',
-  verde: '#1D5B42',
-  verdeDeep: '#14402F',
-  line: 'rgba(34,48,62,0.18)',
+  acento: '#0B7A9E',
+  mar: '#12202E',
+  line: 'rgba(25,38,49,0.18)',
   lineDark: 'rgba(246,241,227,0.2)',
 }
 
@@ -85,19 +85,25 @@ export default function Page() {
     <div className={`${body.className} antialiased`} style={{ backgroundColor: C.papel, color: C.tinta }}>
       <style>{'html { scroll-behavior: auto }'}</style>
       <BlitzNav
-        name={<span className={`${display.className} font-semibold`}>{BIZ.name}</span>}
+        name={
+          <span className="flex items-center gap-2.5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`${IMG}/logo.webp`} alt={`Logo de ${BIZ.name}`} className="h-7 w-auto" />
+            <span className={`${display.className} font-semibold hidden sm:inline`}>{BIZ.name}</span>
+          </span>
+        }
         links={NAV_LINKS}
         waLink={CALL_LINK}
         ctaLabel="Llamar"
         fontClass={display.className}
-        theme={{ over: 'light', bar: 'rgba(246,241,227,0.94)', ink: C.tinta, line: C.line, btnBg: C.verde, btnInk: C.papel }}
+        theme={{ over: 'light', bar: 'rgba(246,241,227,0.94)', ink: C.tinta, line: C.line, btnBg: C.acento, btnInk: C.papel }}
       />
 
       {/* ── Hero: carátula de ficha tributaria ── */}
       <section id="inicio" className="relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.045] pointer-events-none"
-          style={{ backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 31px, ${C.verdeDeep} 32px)` }}
+          style={{ backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 31px, ${C.mar} 32px)` }}
           aria-hidden="true"
         />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-[104px] md:pt-[132px] pb-14 md:pb-20">
@@ -108,7 +114,7 @@ export default function Page() {
               <span>RUT {BIZ.rut}</span>
               <span aria-hidden="true">·</span>
               <span>{BIZ.city} — Maule</span>
-              <span className="ml-auto hidden sm:inline" style={{ color: C.verde }}>Contador auditor</span>
+              <span className="ml-auto hidden sm:inline" style={{ color: C.acento }}>Contador auditor</span>
             </div>
           </Reveal>
           <div className="grid md:grid-cols-12 gap-10 items-start">
@@ -117,7 +123,7 @@ export default function Page() {
                 <h1 className={`${display.className} text-[clamp(2.7rem,7.6vw,5rem)] leading-[1.04]`}>
                   Cuentas en regla,
                   <br />
-                  <span className={displayItalic.className} style={{ color: C.verde }}>
+                  <span className={displayItalic.className} style={{ color: C.acento }}>
                     en pleno centro de Talca
                   </span>
                 </h1>
@@ -129,8 +135,8 @@ export default function Page() {
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <a
                     href={CALL_LINK}
-                    className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22303E] tap-44`}
-                    style={{ backgroundColor: C.verde, color: C.papel }}
+                    className={`${display.className} inline-flex items-center gap-2.5 text-sm md:text-base px-7 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#192631] tap-44`}
+                    style={{ backgroundColor: C.acento, color: C.papel }}
                   >
                     <PhoneIcon />
                     Llamar al {BIZ.phoneDisplay}
@@ -139,8 +145,8 @@ export default function Page() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold px-6 py-3 border-2 transition-colors hover:bg-[rgba(34,48,62,0.06)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22303E] tap-44"
-                    style={{ borderColor: 'rgba(34,48,62,0.4)', color: C.tinta }}
+                    className="text-sm font-semibold px-6 py-3 border-2 transition-colors hover:bg-[rgba(25,38,49,0.06)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#192631] tap-44"
+                    style={{ borderColor: 'rgba(25,38,49,0.4)', color: C.tinta }}
                   >
                     Cómo llegar →
                   </a>
@@ -154,8 +160,8 @@ export default function Page() {
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
-                    src={`${IMG}/condominio-841.webp`}
-                    alt={`Condominio de oficinas de Calle 1 Norte 841 donde funciona ${BIZ.name}, Talca`}
+                    src={`${IMG}/condominio-jardin.webp`}
+                    alt={`Jardín interior del condominio de Calle 1 Norte 841 donde funciona ${BIZ.name}, Talca`}
                     fill
                     sizes="(max-width: 768px) 100vw, 40vw"
                     className="object-cover"
@@ -163,7 +169,7 @@ export default function Page() {
                   />
                 </div>
                 <figcaption className={`${mono.className} absolute bottom-2 left-3 text-[10px] uppercase tracking-[0.16em]`} style={{ color: C.muted }}>
-                  El edificio del 841 · foto real
+                  El jardín del 841 · foto real
                 </figcaption>
               </figure>
             </Reveal>
@@ -198,7 +204,7 @@ export default function Page() {
                 className="grid grid-cols-[64px_1fr] md:grid-cols-[90px_1fr_auto] gap-x-5 py-6 items-start"
                 style={{ borderBottom: `1px dashed ${C.line}` }}
               >
-                <p className={`${mono.className} text-[11px] md:text-xs font-bold tracking-[0.16em] pt-1.5`} style={{ color: C.verde }}>
+                <p className={`${mono.className} text-[11px] md:text-xs font-bold tracking-[0.16em] pt-1.5`} style={{ color: C.acento }}>
                   {s.cuenta}
                 </p>
                 <div>
@@ -219,7 +225,7 @@ export default function Page() {
       </section>
 
       {/* ── La oficina: el centro en fotos ── */}
-      <section id="oficina" className="border-y-2" style={{ borderColor: C.tinta, backgroundColor: C.verdeDeep, color: C.papel }}>
+      <section id="oficina" className="border-y-2" style={{ borderColor: C.tinta, backgroundColor: C.mar, color: C.papel }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <p className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.26em] mb-4`} style={{ color: 'rgba(246,241,227,0.55)' }}>
@@ -228,7 +234,7 @@ export default function Page() {
             <h2 className={`${display.className} text-[clamp(1.9rem,4.6vw,3.1rem)] leading-[1.08] max-w-2xl mb-5`}>
               Un condominio de oficinas
               <br />
-              <span className={displayItalic.className} style={{ color: '#A8C9A0' }}>a dos cuadras de la Plaza</span>
+              <span className={displayItalic.className} style={{ color: '#8FD8EE' }}>a dos cuadras de la Plaza</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-xl mb-12" style={{ color: 'rgba(246,241,227,0.75)' }}>
               La oficina funciona en el interior del condominio del 841 de 1 Norte,
@@ -238,13 +244,15 @@ export default function Page() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
             {[
               { src: 'entrada-841.webp', alt: `Entrada del condominio de Calle 1 Norte donde está la oficina de ${BIZ.name}`, cap: 'Entrada del 841' },
+              { src: 'condominio-841.webp', alt: `Edificio del condominio de oficinas del 841 en Calle 1 Norte, Talca`, cap: 'El condominio' },
+              { src: 'calle-1norte.webp', alt: 'Calle 1 Norte de Talca hacia el centro, con la catedral al fondo', cap: '1 Norte al centro' },
               { src: 'calle-1oriente.webp', alt: 'Calle arbolada del centro de Talca cerca de la oficina', cap: 'El barrio cívico' },
               { src: 'plaza-talca.webp', alt: 'Plaza de Armas de Talca vista aérea, a dos cuadras de la oficina', cap: 'La Plaza, a dos cuadras' },
             ].map((p, i) => (
               <Reveal key={p.src} delay={i * 100}>
                 <figure className="relative aspect-[4/3] overflow-hidden border" style={{ borderColor: C.lineDark }}>
                   <Image src={`${IMG}/${p.src}`} alt={p.alt} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
-                  <figcaption className={`${mono.className} absolute bottom-0 inset-x-0 px-3 py-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em]`} style={{ backgroundColor: 'rgba(20,64,47,0.85)', color: C.papel }}>
+                  <figcaption className={`${mono.className} absolute bottom-0 inset-x-0 px-3 py-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em]`} style={{ backgroundColor: 'rgba(18,32,46,0.85)', color: C.papel }}>
                     {p.cap} · foto real
                   </figcaption>
                 </figure>
@@ -263,19 +271,19 @@ export default function Page() {
       <section className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <Reveal>
           <div className="border-2 p-7 md:p-10" style={{ borderColor: C.tinta, backgroundColor: C.papelSoft }}>
-            <p className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.24em] mb-4`} style={{ color: C.verde }}>
+            <p className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.24em] mb-4`} style={{ color: C.acento }}>
               El punto de partida
             </p>
             <h2 className={`${display.className} text-[clamp(1.6rem,3.8vw,2.5rem)] leading-[1.1] mb-4`}>
               La firma ordena números;
               <br />
-              <span className={displayItalic.className} style={{ color: C.verde }}>su presencia, todavía no</span>
+              <span className={displayItalic.className} style={{ color: C.acento }}>su presencia, todavía no</span>
             </h2>
             <div className={`${mono.className} grid sm:grid-cols-2 gap-4 max-w-2xl text-xs md:text-sm`}>
-              <p className="border-l-2 pl-4 leading-relaxed" style={{ borderColor: C.verde, color: C.tintaSoft }}>
+              <p className="border-l-2 pl-4 leading-relaxed" style={{ borderColor: C.acento, color: C.tintaSoft }}>
                 Ficha de Google: sin reseñas publicadas todavía.
               </p>
-              <p className="border-l-2 pl-4 leading-relaxed" style={{ borderColor: C.verde, color: C.tintaSoft }}>
+              <p className="border-l-2 pl-4 leading-relaxed" style={{ borderColor: C.acento, color: C.tintaSoft }}>
                 Su sitio anterior ya no está en línea: esta página muestra cómo podría verse el nuevo.
               </p>
             </div>
@@ -287,7 +295,7 @@ export default function Page() {
       <section id="contacto" className="max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24">
         <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
-            <p className={`${mono.className} text-[11px] uppercase tracking-[0.26em] mb-4`} style={{ color: C.verde }}>
+            <p className={`${mono.className} text-[11px] uppercase tracking-[0.26em] mb-4`} style={{ color: C.acento }}>
               Contacto
             </p>
             <h2 className={`${display.className} text-[clamp(1.9rem,4.6vw,3.1rem)] leading-[1.08] mb-6`}>
@@ -297,21 +305,21 @@ export default function Page() {
             </h2>
             <ul className="space-y-4 mb-8">
               <li className="flex items-start gap-3 text-sm md:text-base" style={{ color: C.muted }}>
-                <svg viewBox="0 0 24 24" className="w-4 h-4 mt-0.5 shrink-0" fill="none" stroke={C.verde} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" className="w-4 h-4 mt-0.5 shrink-0" fill="none" stroke={C.acento} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z" /><circle cx="12" cy="10" r="3" />
                 </svg>
                 <span><strong className="font-bold" style={{ color: C.tinta }}>{BIZ.address}</strong> — {BIZ.unidad}, {BIZ.city}</span>
               </li>
               <li className="flex items-start gap-3 text-sm md:text-base" style={{ color: C.muted }}>
-                <span className="mt-0.5 shrink-0" style={{ color: C.verde }}><PhoneIcon /></span>
+                <span className="mt-0.5 shrink-0" style={{ color: C.acento }}><PhoneIcon /></span>
                 <span><strong className="font-bold" style={{ color: C.tinta }}>{BIZ.phoneDisplay}</strong> — agendando por llamada</span>
               </li>
             </ul>
             <div className="flex flex-wrap gap-3">
               <a
                 href={CALL_LINK}
-                className={`${display.className} inline-flex items-center gap-2.5 text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22303E] tap-44`}
-                style={{ backgroundColor: C.verde, color: C.papel }}
+                className={`${display.className} inline-flex items-center gap-2.5 text-sm px-6 py-3 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#192631] tap-44`}
+                style={{ backgroundColor: C.acento, color: C.papel }}
               >
                 <PhoneIcon />
                 Agendar una conversación
@@ -320,8 +328,8 @@ export default function Page() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold px-6 py-3 border-2 transition-colors hover:bg-[rgba(34,48,62,0.06)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22303E] tap-44"
-                style={{ borderColor: 'rgba(34,48,62,0.4)', color: C.tinta }}
+                className="text-sm font-semibold px-6 py-3 border-2 transition-colors hover:bg-[rgba(25,38,49,0.06)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#192631] tap-44"
+                style={{ borderColor: 'rgba(25,38,49,0.4)', color: C.tinta }}
               >
                 Abrir en Google Maps →
               </a>
@@ -374,7 +382,7 @@ export default function Page() {
         </div>
       </footer>
 
-      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.verde} fg={C.papel} />
+      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.acento} fg={C.papel} />
     </div>
   )
 }

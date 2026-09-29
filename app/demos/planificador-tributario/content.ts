@@ -14,8 +14,10 @@
  * Servicios declarados: planificación tributaria, auditorías
  * externas, evaluación de proyectos y asesoría tributaria.
  * Fotos de public/demos/planificador-tributario/: el condominio del
- * 841, su entrada y la calle son Google Street View; la vista de la
- * Plaza es una foto publicada en su ficha de Google.
+ * 841, su jardín interior, su entrada y las calles son Google Street
+ * View; la vista de la Plaza es una foto publicada en su ficha de
+ * Google. El logo (monograma PT azul marino + celeste) es el real,
+ * publicado en su ficha de Google — de ahí salen los colores de marca.
  */
 
 export const BIZ = {
