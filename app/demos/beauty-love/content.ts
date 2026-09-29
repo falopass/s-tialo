@@ -6,7 +6,8 @@
  * @beautylove_texia y el dato de que la ficha aún no tiene reseñas.
  * El pin del mapa usa las coordenadas de la ficha (la búsqueda por
  * nombre resuelve a un homónimo fuera de Chile). Servicios, textos y
- * la tabla de precios son contenido de muestra.
+ * la tabla de precios son contenido de muestra. Fotos y avatar
+ * (logo.webp) descargados del perfil de Instagram confirmado.
  */
 
 export const BIZ = {

@@ -63,6 +63,9 @@ const TRABAJOS = [
   { src: `${IMG}/diseno-negro.webp`, alt: 'Uñas negras con efecto ojo de gato y destellos holográficos', name: 'Negro ojo de gato' },
   { src: `${IMG}/diseno-rosa.webp`, alt: 'Uñas almendra en rosa con puntos blancos dibujados a mano', name: 'Rosa con puntos' },
   { src: `${IMG}/diseno-uvas.webp`, alt: 'Uñas en tono malva con racimos de uva pintados a mano alzada', name: 'Uvas en malva' },
+  { src: `${IMG}/diseno-nude.webp`, alt: 'Uñas soft gel cuadradas en tono nude sobre la mesa de mármol del salón', name: 'Soft gel nude' },
+  { src: `${IMG}/diseno-plata.webp`, alt: 'Manicura en tono natural con detalles plateados dibujados a mano', name: 'Minimal en plata' },
+  { src: `${IMG}/cabina.webp`, alt: 'Lámpara de curado UV con el logo de Beauty Love y una mano en curado', name: 'La cabina de curado' },
 ]
 
 const CARTA = [
@@ -101,6 +104,7 @@ export default function BeautyLovePage() {
         name={<span className={`${display.className} italic font-bold`}>{BIZ.name}</span>}
         links={NAV_LINKS}
         waLink={WA_LINK}
+        logoSrc={`${IMG}/logo.webp`}
         fontClass={`${body.className} font-semibold tracking-tight`}
         theme={{
           over: 'dark',
@@ -519,6 +523,13 @@ export default function BeautyLovePage() {
         <DemoBand name={BIZ.name} />
       </div>
       <footer className="pt-6 pb-20 px-5 text-center text-xs" style={{ backgroundColor: C.panel, color: C.muted }}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- avatar real del perfil, ya optimizado */}
+        <img
+          src={`${IMG}/logo.webp`}
+          alt=""
+          className="mx-auto mb-3 h-12 w-12 rounded-full object-cover"
+          style={{ boxShadow: `0 0 0 1px ${C.line}` }}
+        />
         <p className={`${display.className} italic text-xl font-semibold`} style={{ color: C.paper }}>
           {BIZ.name}
         </p>

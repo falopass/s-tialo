@@ -1243,7 +1243,7 @@ const BLITZ = [
     name: 'Comercial Río Claro',
     rubro: 'Mayorista de artículos para la higiene',
     city: 'Talca',
-    tagline: 'Vitrina de almacén patrimonial: verde bosque, crema y latón, catálogo con filtros y precios.',
+    tagline: 'La cotización como nota de pedido: verde bosque, crema y latón, con reseñas reales y fotos del local.',
     gradient: 'linear-gradient(135deg, #132318 0%, #1E3D2F 55%, #C8A24B 140%)',
   },
   {
@@ -1499,8 +1499,8 @@ const BLITZ = [
     name: 'Beauty Love',
     rubro: 'Salón de manicura y pedicura',
     city: 'Molina',
-    tagline: 'Neón nocturno clínico: azul petróleo, menta con glow y blanco roto, fotos de alto contraste.',
-    gradient: 'linear-gradient(135deg, #061E25 0%, #0E4C5C 55%, #9FD8CB 140%)',
+    tagline: 'Tira de trabajos como placas de contacto: noche burdeo, fucsia y serif en itálica, con fotos reales del salón.',
+    gradient: 'linear-gradient(135deg, #1B0710 0%, #260C18 55%, #F23D8C 140%)',
   },
   {
     slug: 'distribuidora-renato-molina',
