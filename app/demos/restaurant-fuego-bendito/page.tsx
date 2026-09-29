@@ -80,7 +80,7 @@ export default function Page() {
               <div className="flex items-center gap-3">
                 <Marco className="w-9 h-9" />
                 <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.24em]`} style={{ color: C.huesoDim }}>
-                  Carnes · mariscos · parrilla a la vista
+                  Carnes · mariscos · parrilla a la vista
                 </p>
               </div>
             </Reveal>
@@ -304,7 +304,7 @@ export default function Page() {
                   <dt className={`${mono.className} w-24 shrink-0 text-[11px] uppercase tracking-[0.14em] pt-1`} style={{ color: C.huesoDim }}>
                     Sitio web
                   </dt>
-                  <dd className={mono.className}>{BIZ.website}</dd>
+                  <dd className={`${mono.className} break-all`}>{BIZ.website}</dd>
                 </div>
               </dl>
               <a
