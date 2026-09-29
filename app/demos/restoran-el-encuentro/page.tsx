@@ -196,7 +196,7 @@ export default function Page() {
                 <span key={pos} aria-hidden="true" className={`absolute ${pos} w-2.5 h-2.5 rounded-full`} style={{ backgroundColor: C.tinta }} />
               ))}
               <p className={`${mono.className} text-[11px] uppercase tracking-[0.3em]`} style={{ color: C.teja }}>
-                Restorán · Armerillo · San Clemente
+                Restorán · Armerillo · San&nbsp;Clemente
               </p>
               <h1
                 className="mt-3 text-[13vw] sm:text-6xl md:text-7xl leading-[0.95] uppercase"
