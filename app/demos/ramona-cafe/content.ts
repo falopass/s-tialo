@@ -24,4 +24,7 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
 export const MAPS_URL =
   'https://www.google.com/maps/place/Ramona+Caf%C3%A9/@-35.4289321,-71.6051353,17z/data=!3m1!4b1!4m6!3m5!1s0x9665c7005c592cd7:0x3ce012ce396150cd!8m2!3d-35.4289321!4d-71.6051353!16s%2Fg%2F11msd7q2yn'
 
+// Carta oficial del local de Alto Las Rastras, enlazada desde ramonacafe.cl
+export const CARTA_URL = 'https://menu.fu.do/ramonacaf%C3%A9lasrastras/qr-menu'
+
 export const IMG = '/demos/ramona-cafe'
