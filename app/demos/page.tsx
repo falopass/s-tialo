@@ -2861,7 +2861,14 @@ const BLITZ = [
     tagline: 'La página como libro impreso: capítulos con capitular en rúbrica, papel antiguo y el galpón celeste de la 6 Sur.',
     gradient: 'linear-gradient(135deg, #1B1712 0%, #9E2B1B 85%, #F3EDDE 180%)',
   },
->>>>>>> 89fc2c2e74 (demo(imprenta-onix): página como libro impreso — capítulos con capitular en rúbrica, papel antiguo, fachada real de la 6 Sur vía Street View, taller marcado como bosquejo)
+  {
+    slug: 'jardin-infantil-y-sala-cuna-los-ruiles',
+    name: 'Jardín Los Ruiles',
+    rubro: 'Jardín infantil y sala cuna',
+    city: 'Talca',
+    tagline: 'Sendero de un día en el jardín: crema y verde hoja de su logo, con fotos reales de su patio y sala cuna.',
+    gradient: 'linear-gradient(135deg, #FAF5E8 0%, #7FB54A 55%, #2E5B34 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
