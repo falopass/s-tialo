@@ -3494,6 +3494,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #FBF3E4 0%, #DE7A2C 110%, #35633F 190%)',
   },
   {
+    slug: 'restaurante-casa-de-campo',
+    name: 'Casa de Campo Talca',
+    rubro: 'Restaurante chileno',
+    city: 'Talca',
+    tagline: 'La casona de La Florida: papel kraft, pizarra a tiza y empanadas playeras XXL.',
+    gradient: 'linear-gradient(135deg, #F6EFE0 0%, #4A2E1A 120%, #A4471F 190%)',
+  },
+  {
     slug: 'pollo-krac-san-clemente',
     name: 'Pollo Krac',
     rubro: 'Sándwiches y pollo',
