@@ -29,8 +29,11 @@ const C = {
   cactus: '#2E5A43',
   cactusOsc: '#1E3B2C',
   menta: '#8FBFA9',
+  mentaClara: '#BFE0D0',
   mentaSuave: '#D9E8DC',
   arcilla: '#C16F4A',
+  arcillaOsc: '#9A5433',
+  cactusProf: '#122019',
   muted: 'rgba(30,59,44,0.72)',
   line: 'rgba(30,59,44,0.18)',
 }
@@ -164,11 +167,11 @@ function Arco({ src, alt, className = '' }: { src: string; alt: string; classNam
   )
 }
 
-function Kicker({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+function Kicker({ children, light = false, color }: { children: React.ReactNode; light?: boolean; color?: string }) {
   return (
     <p
       className={`${mono.className} text-[11px] font-bold tracking-[0.26em] uppercase`}
-      style={{ color: light ? C.menta : C.arcilla }}
+      style={{ color: color ?? (light ? C.mentaClara : C.arcillaOsc) }}
     >
       {children}
     </p>
@@ -368,7 +371,7 @@ export default function Page() {
               {CASAS.map((c, i) => (
                 <Reveal key={c.t} delay={i * 90}>
                   <article className="h-full p-6 md:p-7 rounded-[28px_28px_16px_16px]" style={{ backgroundColor: c.hi ? C.cactus : C.papelHi, border: `1.5px solid ${c.hi ? C.cactus : C.line}` }}>
-                    <p className={`${mono.className} text-[10px] tracking-[0.22em] uppercase`} style={{ color: c.hi ? C.menta : C.arcilla }}>{c.tag}</p>
+                    <p className={`${mono.className} text-[10px] tracking-[0.22em] uppercase`} style={{ color: c.hi ? C.mentaClara : C.arcillaOsc }}>{c.tag}</p>
                     <h3 className={`${display.className} text-2xl font-bold mt-2`} style={{ color: c.hi ? C.papelHi : C.cactusOsc }}>{c.t}</h3>
                     <p className="mt-3 text-[15px] leading-relaxed" style={{ color: c.hi ? 'rgba(242,240,228,0.82)' : C.muted }}>{c.d}</p>
                   </article>
@@ -441,7 +444,7 @@ export default function Page() {
                 </address>
                 <dl className="mt-7">
                   {HORAS.map((h) => (
-                    <div key={h.d} className="flex justify-between gap-4 py-3 border-b" style={{ borderColor: 'rgba(242,240,228,0.18)' }}>
+                    <div key={h.d} className="flex flex-wrap justify-between gap-x-4 gap-y-0.5 py-3 border-b" style={{ borderColor: 'rgba(242,240,228,0.18)' }}>
                       <dt className="text-[15px]" style={{ color: 'rgba(242,240,228,0.75)' }}>{h.d}</dt>
                       <dd className={`${mono.className} text-sm text-right`} style={{ color: C.papelHi }}>{h.h}</dd>
                     </div>
@@ -472,11 +475,11 @@ export default function Page() {
         <section style={{ backgroundColor: C.menta }}>
           <div className="max-w-4xl mx-auto px-5 md:px-8 py-14 md:py-16 text-center">
             <Reveal>
-              <Kicker>café · waffles · helados · vegano</Kicker>
-              <h2 className={`${display.className} text-4xl sm:text-5xl font-bold leading-[1.0] tracking-tight mt-4`} style={{ color: C.cactusOsc }}>
-                El primer Cactú del día se pide por <span style={{ color: C.cactus }}>WhatsApp</span>
+              <Kicker color={C.cactusProf}>café · waffles · helados{'\u00A0'}·{'\u00A0'}vegano</Kicker>
+              <h2 className={`${display.className} text-4xl sm:text-5xl font-bold leading-[1.0] tracking-tight mt-4`} style={{ color: C.cactusProf }}>
+                El primer Cactú del día se pide por&nbsp;<span style={{ color: C.cactus }}>WhatsApp</span>
               </h2>
-              <p className="mt-4 text-lg max-w-lg mx-auto" style={{ color: 'rgba(30,59,44,0.8)' }}>
+              <p className="mt-4 text-lg max-w-lg mx-auto" style={{ color: 'rgba(18,32,25,0.9)' }}>
                 Consulta la carta del día, reserva la terraza o encarga la tarta
                 vegana para el fin de semana.
               </p>
@@ -492,7 +495,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center">
           <p className={`${display.className} text-lg font-bold`} style={{ color: C.papelHi }}>{BIZ.name} · {BIZ.category}</p>
           <p className={`${mono.className} text-[10px] tracking-[0.2em] uppercase`} style={{ color: 'rgba(242,240,228,0.55)' }}>
-            {BIZ.address} · {BIZ.city}
+            {BIZ.address}{'\u00A0'}·{'\u00A0'}{BIZ.city}
           </p>
           <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="text-sm font-bold tap-44 inline-flex items-center" style={{ color: C.menta }}>
             {BIZ.igHandle}
