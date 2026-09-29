@@ -16,9 +16,14 @@
 //   textos citados desde el original en español).
 // - Fotos: descargadas del perfil FB confirmado (fachada, salas, patios y
 //   actividades reales) + fachada en Street View (mayo 2024).
-// - El número del encargo (44 292 2587) no aparece en sus redes: se usa el
-//   teléfono que ellos publican (+56 44 305 7519). No publican WhatsApp,
-//   por eso el CTA es llamada al fijo.
+// - Segunda ficha de Maps, «ESCUELA DE LENGUAJE GRANJERITOS SEDE
+//   ORLANDO FRANZ» (centro de educación preescolar, mismo terreno
+//   ~10 m): publica el teléfono del encargo (44 292 2587) y horario
+//   con cierre 17:30. Es la misma escuela (legal: Escuela Especial
+//   de Lenguaje Granjeritos), doble ficha de Google.
+// - El CTA usa el número que ellos mismos publican en Facebook
+//   (+56 44 305 7519); el 44 292 2587 queda como referencia de la
+//   segunda ficha. No publican WhatsApp, por eso el CTA es llamada.
 
 export const BIZ = {
   name: 'Granjeritos San Clemente',
