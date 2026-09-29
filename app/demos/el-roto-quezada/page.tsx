@@ -125,6 +125,7 @@ export default function ElRotoQuezadaPage() {
         logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={MAPS_URL}
+        ctaLabel="Ver en Maps"
         theme={{
           over: 'light',
           bar: 'rgba(242,236,220,0.96)',
