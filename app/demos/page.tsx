@@ -2543,6 +2543,14 @@ const BLITZ = [
     tagline: 'Tinta y oro del Partenón: su eslogan DISCIPLINA en Marcellus, columnas estriadas, estela de horarios y reseñas 5.0.',
     gradient: 'linear-gradient(135deg, #0C0C0E 0%, #141417 55%, #E0B034 160%)',
   },
+  {
+    slug: 'pasteleria-florencia',
+    name: 'Pastelería Florencia',
+    rubro: 'Pastelería',
+    city: 'Molina',
+    tagline: 'La pizarra verde de Quechereguas: crema de papel, Gloock de época, vitrina con tortas, kuchen y el gramófono del local.',
+    gradient: 'linear-gradient(135deg, #F6F0E0 0%, #FBF7EA 45%, #2E5B34 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
