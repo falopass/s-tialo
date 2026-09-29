@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'el-fogon-de-rio-claro',
+    name: 'El Fogón de Río Claro',
+    rubro: 'Hospedaje, restaurant y cafetería',
+    city: 'Río Claro',
+    tagline: 'El recorrido del predio: hitos de camino por las cabañas, la piscina, la tinaja a leña y el río Claro.',
+    gradient: 'linear-gradient(135deg, #F6EFE0 0%, #C45F1E 130%, #17301F 190%)',
+  },
+  {
     slug: 'el-carrito',
     name: 'El Carrito',
     rubro: 'Comida rápida',
