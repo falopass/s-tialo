@@ -3461,6 +3461,15 @@ const BLITZ = [
     tagline: 'Noche de selva urbana: verde neón, hojas marcadas como bosquejo y la ficha municipal verificada.',
     gradient: 'linear-gradient(135deg, #0B1A11 0%, #122A1C 60%, #B8E04B 170%)',
   },
+  {
+    slug: 'cabanaslomasdesol',
+    name: 'Cabañas Lomas de Sol',
+    rubro: 'Cabañas solares',
+    city: 'Pelluhue',
+    tagline: 'Parte de terreno solar: Pacífico, arena y amarillo panel, escenas bosquejo marcadas y datos SERNATUR.',
+    gradient: 'linear-gradient(135deg, #0B2836 0%, #14506B 55%, #F2A93B 150%)',
+  },
+>>>>>>> 18fe7a9029 (demo: Cabañas Lomas de Sol (Pelluhue) — parte de terreno solar con escenas bosquejo y datos SERNATUR)
 ]
 
 export const metadata: Metadata = {
