@@ -2837,6 +2837,14 @@ const BLITZ = [
     tagline: 'La ficha clínica de la casa esquina: papel crema, teal de su fachada menta y arcos de su ventanal en 2 Norte.',
     gradient: 'linear-gradient(135deg, #F5F1E8 0%, #BFE0D6 55%, #0E5B55 160%)',
   },
+  {
+    slug: 'colegio-diferencial-san-clemente',
+    name: 'Escuela Diferencial San Clemente',
+    rubro: 'Escuela de educación especial',
+    city: 'San Clemente',
+    tagline: 'La escuela donde se aprende con las manos en la tierra: mural del picaflor, huerto medicinal y una bitácora de veinte años.',
+    gradient: 'linear-gradient(135deg, #16283D 0%, #1D5FC4 70%, #7FB2F0 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
