@@ -22,7 +22,7 @@ export const BIZ = {
   rating: '4.7',
   googleReviews: '83',
   plusCode: 'H988+QX Talca',
-  instagram: 'https://instagram.com/freeride_cl',
+  instagram: 'https://instagram.com/freeridesportshop_talca_oficial',
   facebook: 'https://www.facebook.com/freeridechilestore',
 } as const
 
