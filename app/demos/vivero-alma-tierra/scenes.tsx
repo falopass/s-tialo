@@ -10,7 +10,7 @@
 const C = {
   verde: '#2F4A2E',
   verdeClaro: '#6E8F5F',
-  terracota: '#B4552E',
+  terracota: '#AE4E26',
   papel: '#F6F1E3',
   crema: '#EDE5D2',
   tierra: '#4A3627',

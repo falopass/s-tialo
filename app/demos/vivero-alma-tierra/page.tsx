@@ -34,7 +34,7 @@ const C = {
   crema: '#EDE5D2',
   verde: '#2F4A2E',
   verdeProfundo: '#1F351E',
-  terracota: '#B4552E',
+  terracota: '#AE4E26',
   tierra: '#4A3627',
   ink: '#2A251C',
   muted: '#6B6152',
