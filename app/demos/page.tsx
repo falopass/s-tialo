@@ -3517,6 +3517,14 @@ const BLITZ = [
     tagline: 'Casas sobre pilotes: paneles blancos suspendidos en postes, verde pino del logo de tres árboles.',
     gradient: 'linear-gradient(135deg, #F5F3EA 0%, #1E3B2A 120%, #A87E4F 190%)',
   },
+  {
+    slug: 'cabanasmaryluz',
+    name: 'Cabañas Mar y Luz',
+    rubro: 'Cabañas y hospedaje',
+    city: 'Pelluhue',
+    tagline: 'Un día en Mariscadero: la línea de horas baja del sol a la noche, Prata y Space Mono.',
+    gradient: 'linear-gradient(135deg, #F3EEE1 0%, #0C2A44 110%, #E8B33A 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
