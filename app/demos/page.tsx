@@ -3501,6 +3501,14 @@ const BLITZ = [
     tagline: 'Libro de huéspedes: papel hueso, rosa camelia y la calle O’Higgins real; reservas solo por teléfono.',
     gradient: 'linear-gradient(135deg, #23251F 0%, #3D5A45 60%, #B0526B 160%)',
   },
+  {
+    slug: 'elrincondefaby',
+    name: 'El Rincón de Faby',
+    rubro: 'Cabañas · camping · almuerzos · tinajas',
+    city: 'Empedrado',
+    tagline: 'El cartel del campo: papel, teja y oliva, escenas bosquejo marcadas y fotos reales del sector.',
+    gradient: 'linear-gradient(135deg, #F3E9D5 0%, #B4542E 120%, #333B1F 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
