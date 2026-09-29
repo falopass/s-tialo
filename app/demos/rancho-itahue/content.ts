@@ -111,8 +111,8 @@ export const ESPACIOS = [
     id: 'canchas',
     num: '05',
     name: 'Canchas y juegos',
-    desc: 'Dos canchas de tenis, una multicancha y dos canchas de pádel techadas — estas últimas funcionan como PlayPádel, para invierno y verano. En el jardín además hay tenis de mesa, taca-taca y juegos infantiles.',
-    chips: ['2 canchas de tenis', 'Multicancha', '2 pádel techadas · PlayPádel', 'Tenis de mesa', 'Taca-taca', 'Juegos infantiles'],
+    desc: 'Dos canchas de tenis y una multicancha entre los árboles, más tenis de mesa sobre el césped, taca-taca y juegos infantiles en el jardín.',
+    chips: ['2 canchas de tenis', 'Multicancha', 'Tenis de mesa', 'Taca-taca', 'Juegos infantiles'],
     photos: [
       { src: `${F}/exteriores/IMG-20260928-WA0213.webp`, alt: 'Canchas de tenis del rancho vistas desde altura' },
       { src: `${F}/exteriores/IMG-20260928-WA0168.webp`, alt: 'Personas jugando en la cancha de tenis al aire libre' },
@@ -121,6 +121,18 @@ export const ESPACIOS = [
     ],
   },
 ] as const
+
+/** PlayPádel: las canchas de pádel funcionan con marca y teléfono propios. */
+export const PADEL = {
+  title: 'PlayPádel',
+  lead: 'Dos canchas de pádel techadas dentro del rancho, para jugar en invierno y verano. Funcionan como PlayPádel: con identidad, coordinación y reservas propias.',
+  chips: ['2 canchas techadas', 'Invierno y verano', 'Reservas: ' + BIZ.padelDisplay],
+  photos: [
+    { src: `${F}/exteriores/IMG-20260928-WA0295.webp`, alt: 'Cancha deportiva del rancho iluminada de noche' },
+    { src: `${F}/exteriores/IMG-20260928-WA0087.webp`, alt: 'Cancha deportiva de piso rojo rodeada de árboles' },
+    { src: `${F}/exteriores/IMG-20260928-WA0176.webp`, alt: 'Cancha deportiva con jugadores y espectadores bajo los árboles' },
+  ],
+} as const
 
 /** Tipos de evento que se ven en las fotos y que el dueño declara. */
 export const EVENTOS = {

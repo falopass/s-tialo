@@ -17,6 +17,7 @@ import {
   EVENTOS,
   COMIDAS,
   ENTORNO,
+  PADEL,
   HORARIO,
 } from './content'
 
@@ -45,12 +46,13 @@ export const metadata: Metadata = demoMetadata({
   slug: 'rancho-itahue',
   title: 'Rancho Itahue — Multiespacio para eventos en Molina',
   description:
-    'Salón de eventos con techo de madera, terraza techada, quincho con barra, piscina, canchas y un gran jardín arbolado en el sector Itahue, Molina. Cotiza tu evento por WhatsApp.',
+    'Salón de eventos con techo de madera, terraza encarpada, quinchos, dos piscinas, canchas de tenis y PlayPádel en el sector Itahue, Molina. Cotiza tu evento por WhatsApp.',
   image: '/demos/rancho-itahue/fotos/portada-IMG-20260928-WA0053.webp',
 })
 
 const NAV_LINKS = [
   { label: 'Espacios', href: '#espacios' },
+  { label: 'Pádel', href: '#padel' },
   { label: 'Eventos', href: '#eventos' },
   { label: 'Comidas', href: '#comidas' },
   { label: 'Entorno', href: '#entorno' },
@@ -259,6 +261,70 @@ export default function RanchoItahuePage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── PlayPádel ────────────────────────────────────── */}
+      <section id="padel" className="scroll-mt-20 pb-4 md:pb-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <div className="rounded-3xl overflow-hidden" style={{ backgroundColor: C.deep }}>
+              <div className="grid md:grid-cols-2 items-stretch">
+                <div className="p-7 md:p-12 flex flex-col justify-between gap-8">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <Mark light />
+                      <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/75">
+                        Dentro del rancho
+                      </p>
+                    </div>
+                    <h2
+                      className={`${display.className} mt-4 text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight text-white`}
+                    >
+                      {PADEL.title}
+                    </h2>
+                    <p className="mt-4 text-base md:text-lg leading-relaxed text-white/78">{PADEL.lead}</p>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {PADEL.chips.slice(0, 2).map((c) => (
+                        <Chip key={c} dark>
+                          {c}
+                        </Chip>
+                      ))}
+                    </div>
+                  </div>
+                  <a
+                    href={`tel:${BIZ.padelTel}`}
+                    className="inline-flex items-center justify-center self-start h-12 px-6 rounded-full text-sm font-bold transition-transform active:scale-95"
+                    style={{ backgroundColor: C.red, color: '#fff' }}
+                  >
+                    Reservar cancha · {BIZ.padelDisplay}
+                  </a>
+                </div>
+                <div className="grid grid-cols-2 gap-px min-h-[280px]" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
+                  <div className="relative col-span-2 aspect-[16/9]">
+                    <Image
+                      src={PADEL.photos[0].src}
+                      alt={PADEL.photos[0].alt}
+                      fill
+                      sizes="(min-width: 768px) 46vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  {PADEL.photos.slice(1).map((p) => (
+                    <div key={p.src} className="relative aspect-[4/3]">
+                      <Image
+                        src={p.src}
+                        alt={p.alt}
+                        fill
+                        sizes="(min-width: 768px) 23vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
