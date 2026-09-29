@@ -162,7 +162,7 @@ export default function MarYTierraPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} myt-btn myt-btn-dark tracking-[0.04em] text-sm md:text-base px-7 py-3 rounded-full tap-44`}
-                style={{ backgroundColor: C.tierra, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.tierraOsc, color: '#FFFFFF' }}
               >
                 Reservar mesa
               </a>
@@ -235,10 +235,10 @@ export default function MarYTierraPage() {
             </div>
           </div>
           {/* De la tierra */}
-          <div id="tierra" className="scroll-mt-20" style={{ backgroundColor: C.tierra }}>
+          <div id="tierra" className="scroll-mt-20" style={{ backgroundColor: C.tierraOsc }}>
             <div className="px-5 md:px-10 py-12 md:py-16">
               <Reveal>
-                <p className={`${mono.className} text-[11px] tracking-[0.3em] uppercase mb-3`} style={{ color: 'rgba(244,237,224,0.75)' }}>
+                <p className={`${mono.className} text-[11px] tracking-[0.3em] uppercase mb-3`} style={{ color: '#F4EDE0' }}>
                   Segunda mitad del nombre
                 </p>
                 <h2 className={`${display.className} leading-[1] text-[clamp(2rem,5vw,3.8rem)] mb-6`} style={{ color: '#FDF4E4' }}>
@@ -315,7 +315,7 @@ export default function MarYTierraPage() {
                 A lo pobre
               </div>
               <div className="px-6 py-2">
-                <FichaLinea items={CARTA.pobres} accent={C.tierra} />
+                <FichaLinea items={CARTA.pobres} accent={C.tierraOsc} />
               </div>
             </div>
             <div className="relative overflow-hidden rounded-xl aspect-[4/3] mt-6 shadow-md" style={{ border: `1px solid ${C.line}` }}>
@@ -343,7 +343,7 @@ export default function MarYTierraPage() {
                 <h2 className={`${display.className} leading-[1] text-[clamp(2rem,5.5vw,4rem)] mb-5`}>
                   Comedor amplio,
                   <br />
-                  <span style={{ color: C.tierra }}>terraza de madera</span>
+                  <span style={{ color: C.tierraOsc }}>terraza de madera</span>
                 </h2>
               </Reveal>
               <Reveal delay={100}>
@@ -441,7 +441,7 @@ export default function MarYTierraPage() {
                 <br />
                 <span style={{ color: '#E9B96E' }}>en Google</span>
               </h2>
-              <div className="md:ml-auto flex items-center gap-3 rounded-full px-5 py-3" style={{ backgroundColor: C.tierra }}>
+              <div className="md:ml-auto flex items-center gap-3 rounded-full px-5 py-3" style={{ backgroundColor: C.tierraOsc }}>
                 <Stars value={BIZ.rating} color="#FFE3B0" className="w-4 h-4" />
                 <span className={`${display.className} text-lg`} style={{ color: '#FFF6E8' }}>
                   {BIZ.rating} · {BIZ.reviews} reseñas
