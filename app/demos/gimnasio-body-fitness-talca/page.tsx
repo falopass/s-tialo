@@ -14,22 +14,30 @@ const body = localFont({
   src: [{ path: '../../fonts/inter/normal-100-900.woff2', weight: '100 900' }],
 })
 
+/**
+ * Dirección de arte: «la nave de los arcos» — la sala de Body Fitness es
+ * una nave industrial cruzada por arcos naranjos, y ese arco se vuelve el
+ * motivo del demo: el nombre va enmarcado en un arco y las fotos de la
+ * sala se cuelgan en marcos con arco, como ventanales del galpón. Fierro
+ * negro, naranjo del local y humo.
+ */
 const C = {
   ink: '#0C0C0E',
-  lime: '#C7F235',
-  card: '#1A1B1F',
-  humo: '#F5F5F2',
-  dim: 'rgba(245,245,242,0.72)',
-  faint: 'rgba(245,245,242,0.55)',
-  lineLight: 'rgba(245,245,242,0.18)',
+  arco: '#F2621C',
+  arcoTxt: '#FF8A4C',
+  card: '#17181C',
+  humo: '#F5F2EC',
+  dim: 'rgba(245,242,236,0.72)',
+  faint: 'rgba(245,242,236,0.55)',
+  lineLight: 'rgba(245,242,236,0.18)',
 }
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-4'
 
 export const metadata: Metadata = demoMetadata({
   slug: 'gimnasio-body-fitness-talca',
-  title: 'Gimnasio Body Fitness Talca — Máquinas y pesas',
-  description: 'Gimnasio en Talca con máquinas de entrenamiento y pesas. Lun–Vie 07:00–23:00. Consulta por WhatsApp.',
+  title: 'Gimnasio Body Fitness Talca — El clásico de Talca',
+  description: 'Gimnasio en Talca con máquinas de entrenamiento y pesas. 4,7★ en 269 reseñas. Lun–Vie 07:00–23:00. Consulta por WhatsApp.',
   image: PHOTO,
 })
 
@@ -37,12 +45,12 @@ const ENCUENTRAS = [
   {
     num: '01',
     name: 'Máquinas de entrenamiento',
-    desc: 'Sala equipada con máquinas para trabajar cada grupo muscular, como indica la ficha del gimnasio.',
+    desc: 'Sala equipada con máquinas para cada grupo muscular, bien mantenidas: lo que más repiten quienes entrenan acá.',
   },
   {
     num: '02',
     name: 'Pesas',
-    desc: 'Zona de pesas para entrenar fuerza a tu ritmo: el segundo pilar del gimnasio según su ficha y reseñas.',
+    desc: 'Zona de pesas para entrenar fuerza a la vieja escuela: el segundo pilar del gimnasio según su ficha y sus reseñas.',
   },
   {
     num: '03',
@@ -53,9 +61,30 @@ const ENCUENTRAS = [
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <p className={`${body.className} text-[11px] uppercase tracking-[0.22em] font-bold`} style={{ color: C.lime }}>
+    <p className={`${body.className} text-[11px] uppercase tracking-[0.22em] font-bold`} style={{ color: C.arcoTxt }}>
       {children}
     </p>
+  )
+}
+
+/** Marco con arco: la firma visual del local, trasladada a cada foto. */
+function Arco({ src, alt, sizes, caption }: { src: string; alt: string; sizes: string; caption: string }) {
+  return (
+    <figure className="border h-full flex flex-col" style={{ borderColor: C.lineLight, backgroundColor: C.card }}>
+      <div
+        className="relative aspect-[3/4] overflow-hidden"
+        style={{ borderRadius: '999px 999px 0 0' }}
+      >
+        <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
+      </div>
+      <figcaption
+        className="px-4 py-2.5 border-t text-[10px] uppercase tracking-[0.18em] font-bold flex items-center justify-between gap-2"
+        style={{ borderColor: C.lineLight, color: C.faint }}
+      >
+        <span>{caption}</span>
+        <span style={{ color: C.arcoTxt }}>Maps</span>
+      </figcaption>
+    </figure>
   )
 }
 
@@ -63,7 +92,7 @@ export default function BodyFitnessPage() {
   return (
     <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.ink, color: C.humo }}>
       <Chrome fontClass={display.className}>
-        {/* ── Hero con foto a sangre ── */}
+        {/* ── Hero con foto a sangre + nombre dentro del arco ── */}
         <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.ink }}>
           <Image
             src={PHOTO}
@@ -77,33 +106,43 @@ export default function BodyFitnessPage() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(180deg, rgba(12,12,14,0.8) 0%, rgba(12,12,14,0.5) 40%, rgba(12,12,14,0.94) 100%)',
+                'linear-gradient(180deg, rgba(12,12,14,0.78) 0%, rgba(12,12,14,0.55) 42%, rgba(12,12,14,0.95) 100%)',
             }}
             aria-hidden="true"
           />
           <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pt-24 pb-12 md:pb-14">
             <Reveal>
-              <Label>Gimnasio en Talca · Máquinas y pesas</Label>
-              <h1
-                className={`${display.className} uppercase leading-[0.92] text-[clamp(3.6rem,15vw,9rem)] mt-4 mb-6`}
-                style={{ color: C.humo }}
+              {/* el nombre dentro del arco del galpón */}
+              <div
+                className="max-w-xl border-2 px-7 md:px-10 pt-12 md:pt-16 pb-8 md:pb-10 text-center"
+                style={{ borderColor: 'rgba(242,98,28,0.85)', borderRadius: '999px 999px 0 0', backgroundColor: 'rgba(12,12,14,0.55)' }}
               >
-                Body<br />
-                <span style={{ color: C.lime }}>Fitness</span>
-              </h1>
-              <div className="inline-flex items-center gap-2 px-4 py-2 border mb-8" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(12,12,14,0.55)' }}>
-                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.lime }} aria-hidden="true" />
-                <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.1em]" style={{ color: C.humo }}>
-                  Lun–Vie 07:00–23:00
-                </span>
+                <Label>Gimnasio en Talca · a la vieja escuela</Label>
+                <h1
+                  className={`${display.className} uppercase leading-[0.92] text-[clamp(3.2rem,13vw,7.5rem)] mt-4 mb-5`}
+                  style={{ color: C.humo }}
+                >
+                  Body<br />
+                  <span style={{ color: C.arco }}>Fitness</span>
+                </h1>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 text-sm font-bold tap-44 ${focusRing}`}
+                  style={{ color: C.humo }}
+                >
+                  <Stars value={BIZ.rating} color={C.arco} />
+                  {BIZ.ratingLabel} · {BIZ.reviews} reseñas en Google →
+                </a>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${body.className} font-bold uppercase tracking-[0.06em] text-sm px-7 py-3.5 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
-                  style={{ backgroundColor: C.lime, color: C.ink }}
+                  style={{ backgroundColor: C.arco, color: C.ink }}
                 >
                   Consultar por WhatsApp
                 </a>
@@ -112,19 +151,23 @@ export default function BodyFitnessPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${body.className} font-bold uppercase tracking-[0.06em] text-sm px-7 py-3.5 border transition-colors hover:bg-white/10 ${focusRing} tap-44`}
-                  style={{ borderColor: 'rgba(245,245,242,0.5)', color: C.humo }}
+                  style={{ borderColor: 'rgba(245,242,236,0.5)', color: C.humo }}
                 >
                   Cómo llegar
                 </a>
+                <span className="inline-flex items-center gap-2 px-4 py-2 border text-xs md:text-sm font-semibold uppercase tracking-[0.1em]" style={{ borderColor: C.lineLight, backgroundColor: 'rgba(12,12,14,0.55)', color: C.humo }}>
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: C.arco }} aria-hidden="true" />
+                  Lun–Vie 07:00–23:00
+                </span>
               </div>
             </Reveal>
           </div>
         </section>
 
-        {/* ── Banda marquee estática ── */}
-        <div className="overflow-hidden border-y" style={{ borderColor: 'rgba(199,242,53,0.4)', backgroundColor: C.ink }} aria-hidden="true">
-          <p className={`${display.className} uppercase whitespace-nowrap text-2xl md:text-4xl py-3 px-4`} style={{ color: C.lime }}>
-            Fuerza · Máquinas · Pesas · Talca · Fuerza · Máquinas · Pesas · Talca · Fuerza · Máquinas · Pesas · Talca
+        {/* ── Banda ── */}
+        <div className="overflow-hidden border-y" style={{ borderColor: 'rgba(242,98,28,0.45)', backgroundColor: C.ink }} aria-hidden="true">
+          <p className={`${display.className} uppercase whitespace-nowrap text-2xl md:text-4xl py-3 px-4`} style={{ color: C.arco }}>
+            Fierro · Máquinas · Pesas · Talca · Fierro · Máquinas · Pesas · Talca · Fierro · Máquinas · Pesas · Talca
           </p>
         </div>
 
@@ -205,6 +248,8 @@ export default function BodyFitnessPage() {
                 Máquinas y pesas,
                 <br />
                 <span style={{ color: C.lime }}>a la antigua</span>
+                Uno va a entrenar
+                <span style={{ color: C.arco }}>y ya</span>
               </h2>
             </Reveal>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -212,20 +257,16 @@ export default function BodyFitnessPage() {
                 <Reveal key={e.name} delay={i * 80} className="h-full">
                   <article
                     className="h-full border p-6 md:p-7 flex flex-col"
-                    style={{
-                      borderColor: C.lineLight,
-                      backgroundColor: C.card,
-                      clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%)',
-                    }}
+                    style={{ borderColor: C.lineLight, backgroundColor: C.card }}
                   >
-                    <span className={`${display.className} text-lg mb-8`} style={{ color: 'rgba(245,245,242,0.62)' }}>{e.num}</span>
+                    <span className={`${display.className} text-lg mb-8`} style={{ color: 'rgba(245,242,236,0.62)' }}>{e.num}</span>
                     <h3 className={`${display.className} uppercase text-2xl md:text-[28px] leading-tight mb-3`} style={{ color: C.humo }}>
                       {e.name}
                     </h3>
                     <p className="text-sm md:text-base leading-relaxed" style={{ color: C.dim }}>
                       {e.desc}
                     </p>
-                    <span className="mt-auto pt-6 block w-10 h-1" style={{ backgroundColor: C.lime }} aria-hidden="true" />
+                    <span className="mt-auto pt-6 block w-10 h-1" style={{ backgroundColor: C.arco }} aria-hidden="true" />
                   </article>
                 </Reveal>
               ))}
@@ -239,29 +280,30 @@ export default function BodyFitnessPage() {
             <Reveal>
               <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.humo }}>
                 <Label><span style={{ color: C.humo }}>N°03</span> — La sala</Label>
+        {/* ── 02 La nave: la sala en marcos con arco ── */}
+        <section id="nave" className="scroll-mt-20 border-t" style={{ borderColor: C.lineLight }}>
+                <Label><span style={{ color: C.humo }}>N°02</span> — La nave</Label>
                 <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.faint }}>
                   fotos reales de su ficha
                 </p>
               </div>
             </Reveal>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-              {PHOTOS.slice(1).map((p, i) => (
+            <Reveal>
+              <h2 className={`${display.className} uppercase text-4xl md:text-6xl leading-[0.95] mb-10 md:mb-14`} style={{ color: C.humo }}>
+                La nave
+                <br />
+                <span style={{ color: C.arco }}>de los arcos</span>
+              </h2>
+            </Reveal>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+              {PHOTOS.map((p, i) => (
                 <Reveal key={p.src} delay={i * 90} className="h-full">
-                  <figure className="border h-full flex flex-col" style={{ borderColor: C.lineLight, backgroundColor: C.card }}>
-                    <div className="relative aspect-[3/4] overflow-hidden">
-                      <Image
-                        src={p.src}
-                        alt={p.alt}
-                        fill
-                        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover"
-                      />
-                    </div>
-                    <figcaption className="px-4 py-2.5 border-t text-[10px] uppercase tracking-[0.18em] font-bold flex items-center justify-between gap-2" style={{ borderColor: C.lineLight, color: C.faint }}>
-                      <span>Fig. {String(i + 2).padStart(2, '0')} — {p.caption}</span>
-                      <span style={{ color: C.lime }}>Maps</span>
-                    </figcaption>
-                  </figure>
+                  <Arco
+                    src={p.src}
+                    alt={p.alt}
+                    caption={`${String(i + 1).padStart(2, '0')} — ${p.caption}`}
+                    sizes="(min-width: 1024px) 33vw, 50vw"
+                  />
                 </Reveal>
               ))}
             </div>
@@ -270,6 +312,57 @@ export default function BodyFitnessPage() {
                 Fotos publicadas por el gimnasio en su ficha de Google Maps · Body Fitness · Talca
               </p>
             </Reveal>
+          </div>
+        </section>
+
+        {/* ── 03 Reseñas ── */}
+        <section id="resenas" className="scroll-mt-20 border-t" style={{ borderColor: C.lineLight }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+            <div className="grid lg:grid-cols-[1fr_1.7fr] gap-10 md:gap-14 items-start">
+              <Reveal>
+                <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-8" style={{ borderColor: C.humo }}>
+                  <Label><span style={{ color: C.humo }}>N°03</span> — Reseñas</Label>
+                </div>
+                <div className="flex items-baseline gap-4 mb-3">
+                  <span className={`${display.className} text-7xl md:text-8xl leading-none`} style={{ color: C.arco }}>
+                    {BIZ.ratingLabel}
+                  </span>
+                  <Stars value={BIZ.rating} color={C.arco} className="w-5 h-5" />
+                <h2 className={`${display.className} uppercase text-3xl md:text-4xl leading-[0.95] mb-4`} style={{ color: C.humo }}>
+                  Lo que dicen
+                  <br />
+                  los que entrenan
+                </h2>
+                <p className="text-sm leading-relaxed mb-6 max-w-sm" style={{ color: C.dim }}>
+                  {BIZ.reviews} reseñas en Google. Lo que más se repite: las
+                  máquinas, el ambiente vieja escuela y que está en el centro.
+                </p>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${body.className} inline-block font-bold uppercase tracking-[0.06em] text-sm px-7 py-3.5 transition-all hover:-translate-y-0.5 active:scale-95 ${focusRing} tap-44`}
+                  style={{ backgroundColor: C.arco, color: C.ink }}
+                >
+                  Leerlas en Google →
+                </a>
+              </Reveal>
+              <div className="grid sm:grid-cols-2 gap-5">
+                {RESENAS.map((r, i) => (
+                  <Reveal key={r.autor} delay={i * 90} className="h-full">
+                    <figure className="h-full border p-5 md:p-6 flex flex-col" style={{ borderColor: C.lineLight, backgroundColor: C.card }}>
+                      <Stars value={r.estrellas} color={C.arco} className="w-3.5 h-3.5" />
+                      <blockquote className="text-sm leading-relaxed mt-3 mb-4 flex-1" style={{ color: C.humo }}>
+                        “{r.texto}”
+                      </blockquote>
+                      <figcaption className="text-[10px] uppercase tracking-[0.16em] font-bold border-t border-dashed pt-3" style={{ borderColor: C.lineLight, color: C.faint }}>
+                        {r.autor} · reseña de Google · {r.fecha}
+                      </figcaption>
+                    </figure>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -288,7 +381,7 @@ export default function BodyFitnessPage() {
               <Reveal>
                 <div className="border h-full flex flex-col" style={{ borderColor: C.lineLight, backgroundColor: C.card }}>
                   <div className="px-6 md:px-8 py-6 border-b" style={{ borderColor: C.lineLight }}>
-                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-2" style={{ color: C.lime }}>Dirección</p>
+                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-2" style={{ color: C.arcoTxt }}>Dirección</p>
                     <address className="not-italic text-sm md:text-base leading-relaxed mb-3" style={{ color: C.humo }}>
                       <strong className="font-bold">{BIZ.address}</strong>
                       <span className="block mt-1" style={{ color: C.dim }}>entre 8 y 9 Oriente</span>
@@ -298,13 +391,13 @@ export default function BodyFitnessPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
-                      style={{ color: C.lime, textDecorationColor: 'rgba(199,242,53,0.35)' }}
+                      style={{ color: C.arcoTxt, textDecorationColor: 'rgba(242,98,28,0.4)' }}
                     >
                       Cómo llegar →
                     </a>
                   </div>
                   <div className="px-6 md:px-8 py-6 flex-1">
-                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-3" style={{ color: C.lime }}>Horario</p>
+                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-3" style={{ color: C.arcoTxt }}>Horario</p>
                     <ul className="space-y-2.5">
                       {BIZ.hours.map((h) => (
                         <li key={h.days} className="flex items-baseline justify-between gap-4 text-sm md:text-base">
@@ -335,8 +428,8 @@ export default function BodyFitnessPage() {
           </div>
         </section>
 
-        {/* ── Cierre CTA lima ── */}
-        <section style={{ backgroundColor: C.lime }}>
+        {/* ── Cierre CTA naranjo arco ── */}
+        <section style={{ backgroundColor: C.arco }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <Reveal>
               <h2 className={`${display.className} uppercase text-4xl md:text-5xl leading-[0.95]`} style={{ color: C.ink }}>
