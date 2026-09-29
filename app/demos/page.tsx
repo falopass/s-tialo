@@ -2716,8 +2716,8 @@ const BLITZ = [
     name: 'Cabañas y Camping Santa Camila',
     rubro: 'Cabañas y camping · El Radal',
     city: 'El Radal, Molina',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #F4EFE2 0%, #24503A 150%)',
+    tagline: 'Cabañas al borde del río en el Radal: papel craft, verde bosque y el quincho — 4,3 en Google.',
+    gradient: 'linear-gradient(135deg, #F4EFE2 0%, #24503A 110%, #C0641F 190%)',
   },
   {
     slug: 'cafe-paris-talca',
