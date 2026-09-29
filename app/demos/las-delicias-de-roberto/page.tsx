@@ -338,6 +338,10 @@ export default function DeliciasDeRobertoPage() {
                 <a href={`tel:${BIZ.phoneTel}`} className={`${mono.className} inline-block mt-4 text-sm font-semibold underline underline-offset-4 tap-44`} style={{ color: C.sello }}>
                   {BIZ.phoneDisplay}
                 </a>
+                <br />
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`${mono.className} inline-block mt-2 text-[11px] font-semibold uppercase tracking-[0.14em] underline underline-offset-4 tap-44`} style={{ color: C.petroleo }}>
+                  Ver ficha en Google Maps →
+                </a>
               </address>
             </div>
             <figure className="mt-6">
