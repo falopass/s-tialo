@@ -3542,6 +3542,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0E2233 0%, #12304A 60%, #4E9A3C 170%)',
   },
   {
+    slug: 'servicios-y-construcciones-fernando-lazcano',
+    name: 'Servicios y Construcciones Fernando Lazcano',
+    rubro: 'Empresa constructora',
+    city: 'Talca',
+    tagline: 'El portón catálogo: ladrillo de su fachada real, pictogramas de maquinaria y tres carteles de una sola casa.',
+    gradient: 'linear-gradient(135deg, #F2EBDF 0%, #B0452B 80%, #231D1A 180%)',
+  },
+  {
     slug: 'supermercado-san-sebastian',
     name: 'Supermercado San Sebastián',
     rubro: 'Supermercado',
