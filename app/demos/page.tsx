@@ -3558,6 +3558,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F6B51E 0%, #C93A2E 90%, #12366E 170%)',
   },
   {
+    slug: 'san-sebastian',
+    name: 'San Sebastián',
+    rubro: 'Supermercado',
+    city: 'San Clemente',
+    tagline: 'La lista de la compra: papel kraft, lápiz rojo y las reseñas impresas como boleta de caja.',
+    gradient: 'linear-gradient(135deg, #EFE6D0 0%, #2F5D3A 90%, #26201A 170%)',
+  },
+  {
     slug: 'ramona-cafe',
     name: 'Ramona Café',
     rubro: 'Cafetería de especialidad',
