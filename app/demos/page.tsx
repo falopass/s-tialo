@@ -2559,6 +2559,14 @@ const BLITZ = [
     tagline: 'Letrero de neón en el patio: verde noche, rosa y menta de su logo, banderines y su terraza bajo los sauces.',
     gradient: 'linear-gradient(135deg, #0B1710 0%, #12271B 55%, #FF6BAE 150%)',
   },
+  {
+    slug: 'abastible-la-cruz',
+    name: 'Abastible La Cruz',
+    rubro: 'Distribuidora de gas',
+    city: 'La Cruz',
+    tagline: 'Letrero de reparto: navy del camión Abastible, naranjo de sus afiches y precio de cartel.',
+    gradient: 'linear-gradient(135deg, #0D1B33 0%, #14264A 55%, #F58220 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
