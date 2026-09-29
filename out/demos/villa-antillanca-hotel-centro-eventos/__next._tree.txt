@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/dd461230c2f4516d.css","style"]
-:HL["/_next/static/chunks/3885e8103b944f8c.css","style"]
+:HL["/_next/static/chunks/7e53fdc43e62084c.css","style"]
 :HL["/_next/static/media/italic_300_700-s.p.905ea8c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.bd54c7c8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -16,4 +16,4 @@
 :HL["/demos/villa-antillanca-hotel-centro-eventos/hero.webp","image"]
 :HL["/demos/villa-antillanca-hotel-centro-eventos/logo.webp","image"]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"buildId":"96SPN75Ww0WxGruNmoisW","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"villa-antillanca-hotel-centro-eventos","paramType":null,"paramKey":"villa-antillanca-hotel-centro-eventos","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"6QAwejz6CqUuBx7TEOavH","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"villa-antillanca-hotel-centro-eventos","paramType":null,"paramKey":"villa-antillanca-hotel-centro-eventos","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
