@@ -4702,6 +4702,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0E1F33 0%, #B3271E 120%, #D9A441 200%)',
   },
   {
+    slug: 'bruno-s-bar',
+    name: 'Bruno's Bar',
+    rubro: 'Bar restaurante',
+    city: 'Licantén',
+    tagline: 'Parada de ruta a la costa: madera de su salón de troncos, verde señal y ámbar de la cerveza.',
+    gradient: 'linear-gradient(135deg, #241A12 0%, #2E4A2A 90%, #D98E2B 190%)',
+  },
+  {
     slug: 'gasfiter-en-talca',
     name: 'Gasfiter en Talca',
     rubro: 'Fontanero · guardia 24 horas',
