@@ -35,9 +35,10 @@ const C = {
   cream: '#F5F1E8',
   orange: '#F26D1F',
   orangeDark: '#C8500E',
+  orangeDeep: '#A53F00',
   yellow: '#F5B51B',
   ink: '#1B1E22',
-  muted: '#66707B',
+  muted: '#5A6470',
   line: 'rgba(27,30,34,0.16)',
   lineDark: 'rgba(255,255,255,0.16)',
 }
@@ -169,7 +170,7 @@ export default function SocConstructoraNaba() {
           bar: 'rgba(15,18,21,0.92)',
           ink: '#F5F1E8',
           line: 'rgba(255,255,255,0.12)',
-          btnBg: C.orange,
+          btnBg: C.orangeDark,
           btnInk: '#FFFFFF',
         }}
       />
@@ -202,7 +203,7 @@ export default function SocConstructoraNaba() {
           </span>
         </div>
 
-        <div className="relative max-w-6xl mx-auto w-full px-5 md:px-8 pb-10 md:pb-14">
+        <div className="relative max-w-6xl mx-auto w-full px-5 md:px-8 pt-24 pb-10 md:pb-14">
           <Reveal>
             <p className={`${mono.className} text-[11px] md:text-xs tracking-[0.18em] mb-4`} style={{ color: C.yellow }}>
               {BIZ.legalName.toUpperCase()} · {BIZ.city.toUpperCase()}, BÍO BÍO
@@ -232,7 +233,7 @@ export default function SocConstructoraNaba() {
               <a
                 href="#obras"
                 className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-sm font-semibold transition-transform active:scale-95"
-                style={{ backgroundColor: C.orange, color: '#fff' }}
+                style={{ backgroundColor: C.orangeDark, color: '#fff' }}
               >
                 Ver el expediente
               </a>
@@ -276,7 +277,7 @@ export default function SocConstructoraNaba() {
       <section id="que-hace" className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
-            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.orangeDark }}>
+            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.orangeDeep }}>
               Qué hace Naba
             </p>
             <h2 className={`${display.className} text-3xl md:text-5xl leading-[1.05] max-w-2xl`}>
@@ -362,7 +363,7 @@ export default function SocConstructoraNaba() {
                   </div>
                   <span
                     className={`${mono.className} col-start-2 md:col-start-auto justify-self-start text-[10px] tracking-[0.14em] px-2.5 py-1 rounded`}
-                    style={{ backgroundColor: 'rgba(242,109,31,0.18)', color: C.orange, border: '1px solid rgba(242,109,31,0.45)' }}
+                    style={{ backgroundColor: 'rgba(242,109,31,0.18)', color: C.yellow, border: '1px solid rgba(242,109,31,0.45)' }}
                   >
                     {o.estado}
                   </span>
@@ -426,7 +427,7 @@ export default function SocConstructoraNaba() {
             <Fuente>Municipalidad de Tucapel · APR Las Lomas</Fuente>
           </Reveal>
           <Reveal delay={80}>
-            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.orangeDark }}>
+            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.orangeDeep }}>
               Antes de la primera zanja
             </p>
             <h2 className={`${display.className} text-3xl md:text-4xl leading-tight`}>
@@ -447,7 +448,7 @@ export default function SocConstructoraNaba() {
       <section id="cobertura" className="py-16 md:py-24" style={{ backgroundColor: C.cream }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
-            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.orangeDark }}>
+            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.orangeDeep }}>
               Cobertura
             </p>
             <h2 className={`${display.className} text-3xl md:text-5xl leading-[1.05] max-w-2xl`}>
@@ -464,7 +465,7 @@ export default function SocConstructoraNaba() {
                   className={`${label.className} text-[13px] uppercase tracking-[0.1em] px-3.5 py-2 rounded-full`}
                   style={
                     i === 0
-                      ? { backgroundColor: C.orange, color: '#fff' }
+                      ? { backgroundColor: C.orangeDark, color: '#fff' }
                       : { backgroundColor: '#fff', color: C.ink, border: `1px solid ${C.line}` }
                   }
                 >
@@ -509,7 +510,7 @@ export default function SocConstructoraNaba() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-sm font-semibold transition-transform active:scale-95"
-                    style={{ backgroundColor: C.orange, color: '#fff' }}
+                    style={{ backgroundColor: C.orangeDark, color: '#fff' }}
                   >
                     Cómo llegar
                   </a>
@@ -530,9 +531,9 @@ export default function SocConstructoraNaba() {
       </section>
 
       {/* ── FOOTER ────────────────────────────────────────────── */}
-      <footer id="contacto" className="py-10 md:py-12" style={{ backgroundColor: C.deep }}>
+      <footer id="contacto" className="py-7 md:py-10" style={{ backgroundColor: C.deep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
-          <div className="flex flex-wrap items-start justify-between gap-6">
+          <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <p className={`${display.className} text-lg text-white`}>{BIZ.legalName}</p>
               <p className={`${mono.className} text-[11px] mt-1`} style={{ color: 'rgba(255,255,255,0.55)' }}>
@@ -548,10 +549,9 @@ export default function SocConstructoraNaba() {
               </a>
             </div>
           </div>
-          <p className={`${mono.className} text-[10px] leading-relaxed mt-8 pt-5 border-t`} style={{ color: 'rgba(255,255,255,0.4)', borderColor: 'rgba(255,255,255,0.12)' }}>
+          <p className={`${mono.className} text-[10px] leading-normal mt-5 pt-4 border-t`} style={{ color: 'rgba(255,255,255,0.55)', borderColor: 'rgba(255,255,255,0.12)' }}>
             Mockup de muestra para Sitiazo. Datos: Diario Oficial, ChileCompra y Google Maps.
-            Fotos: Municipalidad de Tucapel y Diario La Tribuna (obras ejecutadas por Naba).
-            *21 adjudicaciones según todolicitaciones.cl, consultado sep. 2026.
+            Fotos: Muni. de Tucapel y Diario La Tribuna. *21 adjudicaciones en todolicitaciones.cl (sep. 2026).
           </p>
         </div>
       </footer>
