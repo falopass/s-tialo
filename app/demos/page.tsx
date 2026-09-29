@@ -4629,6 +4629,14 @@ const BLITZ = [
     tagline: 'Ticket de sanguchería: papel crema, ketchup y mostaza — el completo real que salva el bajón.',
     gradient: 'linear-gradient(135deg, #FFF4DE 0%, #2A1408 90%, #C1272D 170%)',
   },
+  {
+    slug: 'fuente-de-soda-el-valdiviano',
+    name: 'Fuente de Soda El Valdiviano',
+    rubro: 'Fuente de soda',
+    city: 'Cauquenes',
+    tagline: 'El letrero tal cual: navy de su marquesina, rojo del nombre y la carta leída de los vinilos del ventanal.',
+    gradient: 'linear-gradient(135deg, #F8EFD9 0%, #14255E 80%, #C1272D 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
