@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'casa-de-campo-san-clemente',
+    name: 'Casa de Campo',
+    rubro: 'Restaurant campestre',
+    city: 'San Clemente',
+    tagline: 'La casona del Álamo: Fraunces + Karla, rojo granero y pradera, carta criolla real y amenities del predio.',
+    gradient: 'linear-gradient(135deg, #F4EDDC 0%, #A03123 120%, #2E5726 190%)',
+  },
+  {
     slug: 'restaurant-germania',
     name: 'Restaurant Germania',
     rubro: 'Restaurant y bar',
