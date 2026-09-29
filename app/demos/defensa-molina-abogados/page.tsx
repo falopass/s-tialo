@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
-import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, WaFab, FaqList } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import {
   BIZ,
@@ -52,6 +52,7 @@ export const metadata: Metadata = demoMetadata({
 
 const NAV_LINKS = [
   { label: 'Causas', href: '#causas' },
+  { label: 'Proceso', href: '#proceso' },
   { label: 'Terreno', href: '#terreno' },
   { label: 'Horario', href: '#horario' },
   { label: 'Contacto', href: '#contacto' },
@@ -81,6 +82,45 @@ const CAUSAS = [
     titulo: 'Trámites y gestiones',
     bajada: 'Escritos y gestiones ante el Juzgado de Letras de Licantén, el Conservador de Bienes Raíces y notarías.',
     wa: 'un trámite',
+  },
+]
+
+const PASOS = [
+  {
+    t: 'Cuéntanos tu caso',
+    d: 'Escríbenos por WhatsApp en pocas líneas: qué pasó, desde cuándo y qué necesitas resolver.',
+  },
+  {
+    t: 'Primera orientación',
+    d: 'El estudio revisa los antecedentes y te dice qué camino legal existe y qué conviene hacer primero.',
+  },
+  {
+    t: 'Estrategia y gestión',
+    d: 'Se preparan los escritos y se tramita presencial en el juzgado, conservador o notaría que corresponda.',
+  },
+  {
+    t: 'Seguimiento directo',
+    d: 'Te mantenemos al tanto de cada movimiento de la causa: hablas con quien la lleva.',
+  },
+]
+
+// Preguntas que el estudio responde en sus propias publicaciones.
+const PREGUNTAS = [
+  {
+    q: 'Me deben meses de arriendo, ¿qué puedo hacer?',
+    a: 'Se puede demandar el cobro de las rentas adeudadas y, si corresponde, pedir el término del contrato con lanzamiento. Escríbenos con los antecedentes y te orientamos.',
+  },
+  {
+    q: 'Me hicieron cargos que no reconozco en el banco',
+    a: 'Guarda los comprobantes y el detalle de los cargos. Primero se reclama formalmente al banco; si no hay solución, se puede exigir la devolución por la vía judicial.',
+  },
+  {
+    q: '¿Dónde se tramita mi caso si vivo en Molina?',
+    a: 'El estudio gestiona presencial ante el Juzgado de Letras de Licantén, el Conservador de Bienes Raíces de Molina, notarías de la zona y la Corte de Apelaciones de Talca.',
+  },
+  {
+    q: '¿Cómo agendo una consulta?',
+    a: `Por WhatsApp al ${BIZ.phoneDisplay}, de lunes a viernes de 9:00 a 14:00 y de 15:00 a 18:00. Fuera de horario, deja tu mensaje y te responden al día hábil siguiente.`,
   },
 ]
 
@@ -307,6 +347,44 @@ export default function DefensaMolinaPage() {
         </div>
       </section>
 
+      {/* ── Proceso: cómo avanza una causa ── */}
+      <section id="proceso" className="scroll-mt-24" style={{ backgroundColor: C.goldSoft }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <Eyebrow>Cómo se trabaja</Eyebrow>
+            <h2 className={`${display.className} mt-3 max-w-2xl text-[30px] md:text-[44px] leading-[1.1] font-bold`} style={{ color: C.navyDeep }}>
+              De tu primer mensaje a la{' '}
+              <span className="italic pb-1 inline-block leading-[1.1]" style={{ color: C.navy }}>resolución del caso</span>
+            </h2>
+          </Reveal>
+          <ol className="mt-10 md:mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {PASOS.map((p, i) => (
+              <Reveal key={p.t} delay={i * 90}>
+                <li
+                  className="h-full rounded-md p-6 relative"
+                  style={{ backgroundColor: C.white, border: `1px solid ${C.line}`, boxShadow: '0 14px 32px -26px rgba(18,41,77,0.45)' }}
+                >
+                  <span
+                    className="absolute top-0 left-6 w-10 h-[3px]"
+                    style={{ backgroundColor: C.gold }}
+                    aria-hidden="true"
+                  />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: C.navy }}>
+                    Paso {i + 1}
+                  </span>
+                  <h3 className={`${display.className} mt-3 text-[20px] font-bold leading-tight`} style={{ color: C.navyDeep }}>
+                    {p.t}
+                  </h3>
+                  <p className="mt-2 text-[14px] leading-relaxed" style={{ color: C.gris }}>
+                    {p.d}
+                  </p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       {/* ── Terreno: dónde trabaja el estudio ── */}
       <section id="terreno" className="scroll-mt-24" style={{ backgroundColor: C.navyDeep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
@@ -395,6 +473,26 @@ export default function DefensaMolinaPage() {
               </figcaption>
             </figure>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ── Preguntas que responde el estudio ── */}
+      <section id="preguntas" className="scroll-mt-24 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <Reveal>
+          <Eyebrow>Preguntas frecuentes</Eyebrow>
+          <h2 className={`${display.className} mt-3 max-w-2xl text-[30px] md:text-[44px] leading-[1.1] font-bold`} style={{ color: C.navyDeep }}>
+            Lo que la gente de Molina pregunta más
+          </h2>
+          <p className="mt-4 max-w-xl text-[15px] md:text-[16px] leading-relaxed" style={{ color: C.gris }}>
+            Orientación general sobre los temas que el estudio publica en sus
+            redes. Tu caso concreto se revisa en la consulta.
+          </p>
+        </Reveal>
+        <div className="mt-8">
+          <FaqList
+            items={PREGUNTAS}
+            colors={{ q: C.navyDeep, a: C.gris, line: C.line, plusBg: C.navy, plusInk: C.white }}
+          />
         </div>
       </section>
 
