@@ -151,7 +151,7 @@ export default function LeanElColoradoPage() {
               style={{ borderColor: C.amarillo, color: C.amarillo, backgroundColor: 'rgba(30,44,28,0.6)' }}
             >
               <Cerro className="w-4 h-4" />
-              Ruta 115 · {BIZ.km} · {BIZ.city}
+              Ruta 115 · {BIZ.km} · <span className="whitespace-nowrap">{BIZ.city}</span>
             </div>
           </Reveal>
           <Reveal delay={100}>
@@ -396,7 +396,7 @@ export default function LeanElColoradoPage() {
           <Reveal>
             <Kicker>Los que ya pararon</Kicker>
             <h2 className={`${display.className} font-extrabold uppercase leading-[0.98] text-[clamp(2rem,5.5vw,4rem)] mb-4 max-w-3xl`}>
-              4,9 de 5 dicen que vale la pausa
+              4,9 de 5 dicen que vale la&nbsp;pausa
             </h2>
             <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 mb-10 md:mb-14 tap-44">
               <Stars value={4.9} color={C.bosque} className="w-4 h-4" />
