@@ -4693,6 +4693,14 @@ const BLITZ = [
     tagline: 'Credencial de casa club: verde parrón y adobe del patio real con la bandera, bosquejos marcados de la mesa.',
     gradient: 'linear-gradient(135deg, #F7F1E3 0%, #1E4630 90%, #B4552E 190%)',
   },
+  {
+    slug: 'gasfiter-en-talca',
+    name: 'Gasfiter en Talca',
+    rubro: 'Fontanero · guardia 24 horas',
+    city: 'Talca',
+    tagline: 'Central de emergencias: azul de piloto encendido sobre medianoche, cobre del calefont y urgencias a domicilio.',
+    gradient: 'linear-gradient(135deg, #04090F 0%, #0A141F 55%, #4C9BFF 160%, #CD8148 210%)',
+  },
 ]
 
 export const metadata: Metadata = {
