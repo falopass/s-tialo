@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'restaurant-toro-bayo',
+    name: 'Toro Bayo',
+    rubro: 'Restaurant · parrilla y mariscos',
+    city: 'Talca',
+    tagline: 'La casa de la brasa: carbón cálido, coral del toro facetado y su carta real desde 1997.',
+    gradient: 'linear-gradient(135deg, #171010 0%, #E0632F 90%, #F0987B 170%)',
+  },
+  {
     slug: 'el-fogon-de-rio-claro',
     name: 'El Fogón de Río Claro',
     rubro: 'Hospedaje, restaurant y cafetería',
