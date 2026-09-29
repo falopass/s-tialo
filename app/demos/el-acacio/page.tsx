@@ -140,7 +140,7 @@ export default function ElAcacio() {
             className={`${mono.className} text-[11px] uppercase tracking-[0.24em]`}
             style={{ color: C.teja }}
           >
-            Restaurante · Av. Libertad 360 · Maule
+            Restaurante · Av. Libertad 360&nbsp;·&nbsp;Maule
           </p>
           <h1
             className={`${display.className} mt-4 uppercase leading-[0.95] text-[13.5vw] md:text-8xl`}
