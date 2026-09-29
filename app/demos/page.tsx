@@ -2740,8 +2740,8 @@ const BLITZ = [
     name: 'La Guatatrucha',
     rubro: 'Centro de eventos · Molina',
     city: 'Molina',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #F5F0E3 0%, #0B3D38 150%)',
+    tagline: 'Centro de eventos con piscina y jardines: crema, verde botella y el naranjo del banquete — 4,4 en Google.',
+    gradient: 'linear-gradient(135deg, #F5F0E3 0%, #0B3D38 90%, #D97A2B 190%)',
   },
   {
     slug: 'la-rosa-chilena',
