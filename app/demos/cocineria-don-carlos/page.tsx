@@ -94,7 +94,7 @@ const PASOS = [
   {
     n: '01',
     titulo: 'Escribes por WhatsApp',
-    texto: 'Mandas tu pedido al número de la cocina y te confirman al tiro.',
+    texto: 'Mandas tu pedido al número de la cocina y te confirman enseguida.',
   },
   {
     n: '02',
