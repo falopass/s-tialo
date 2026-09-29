@@ -56,7 +56,7 @@ const NAV_LINKS = [
 const SERVICIOS = [
   {
     src: `${IMG}/detalle2.webp`,
-    alt: 'Estación de manicura de NAILSYUS: lámpara de trabajo, silla y toalla lista',
+    alt: 'Manicura francesa clásica hecha en NAILSYUS',
     num: '01',
     name: 'Manicura clásica',
     desc: 'Limado, cutícula prolija y esmalte tradicional. La base de unas manos cuidadas.',
@@ -64,7 +64,7 @@ const SERVICIOS = [
   },
   {
     src: `${IMG}/detalle1.webp`,
-    alt: 'Instrumental de manicura ordenado junto a la repisa de esmaltes del salón',
+    alt: 'Uñas rosadas con esmaltado permanente brillante, trabajo de NAILSYUS',
     num: '02',
     name: 'Esmaltado permanente',
     desc: 'Color que dura semanas intacto, con el brillo del primer día.',
@@ -72,7 +72,7 @@ const SERVICIOS = [
   },
   {
     src: `${IMG}/detalle3.webp`,
-    alt: 'Sillón de pedicura del salón con toallas blancas y luz de ventana',
+    alt: 'Diseño de uñas blanco con puntos y encaje, trabajo de NAILSYUS',
     num: '03',
     name: 'Pedicura',
     desc: 'Cuidado completo para los pies: limpieza, limado y esmalte, con calma.',
@@ -177,6 +177,7 @@ export default function NailsyusPage() {
       `}</style>
       <div className="ny-nav">
         <BlitzNav
+          logoSrc={`${IMG}/logo.webp`}
           name={BIZ.name}
           links={NAV_LINKS}
           waLink={WA_LINK}
@@ -196,7 +197,7 @@ export default function NailsyusPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.concreteDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Interior de NAILSYUS: estaciones de manicura con lámparas, repisas de esmaltes y vitrina a la calle"
+          alt="Uñas con esmaltado menta y detalles finos, trabajo real de NAILSYUS publicado en su Instagram"
           fill
           priority
           sizes="100vw"
@@ -416,7 +417,7 @@ export default function NailsyusPage() {
                 <div className="relative aspect-[4/3]">
                   <Image
                     src={`${IMG}/ambiente.webp`}
-                    alt="Fachada de NAILSYUS al atardecer: vitrina del salón a pie de calle en Talca"
+                    alt="Diseño animal print con flores sobre uñas, trabajo real de NAILSYUS"
                     fill
                     sizes="(min-width: 1024px) 55vw, 100vw"
                     className="object-cover"
@@ -426,8 +427,8 @@ export default function NailsyusPage() {
                   className="flex items-center justify-between px-4 py-2.5 border-t text-[10px] uppercase tracking-[0.22em] font-medium"
                   style={{ borderColor: C.line, color: C.muted }}
                 >
-                  <span>Fig. 01 · El local</span>
-                  <span>{BIZ.address}</span>
+                  <span>Fig. 01 · Trabajo de la casa</span>
+                  <span>@nailsyus.cl</span>
                 </figcaption>
               </figure>
             </Reveal>
