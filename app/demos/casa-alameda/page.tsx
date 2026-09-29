@@ -258,7 +258,7 @@ export default function CasaAlamedaPage() {
               <Stars value={BIZ.rating} color={C.amber} /> {BIZ.rating} · {BIZ.reviews.toLocaleString('es-CL')}
             </p>
           </Reveal>
-          <Reveal delay={60}>
+          <Reveal delay={60} className="pr-14 md:pr-0">
             <p className={`${mono.className} text-[10px] uppercase tracking-[0.2em] mb-1.5`} style={{ color: C.muted }}>Abre</p>
             <p className="text-sm font-semibold" style={{ color: C.ink }}>{BIZ.hours}</p>
           </Reveal>
