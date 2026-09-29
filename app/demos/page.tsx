@@ -4405,6 +4405,14 @@ const BLITZ = [
     tagline: 'Refugio de madera entre robles, a la entrada de Altos de Lircay — le da nombre el ave rayada del bosque.',
     gradient: 'linear-gradient(135deg, #152319 0%, #1D3123 55%, #9A5B33 170%)',
   },
+  {
+    slug: 'el-acacio',
+    name: 'El Acacio',
+    rubro: 'Restaurante',
+    city: 'Maule',
+    tagline: 'Cocina de pueblo en la Avenida Libertad: mantel cuadrillé, teja y solo datos verificados.',
+    gradient: 'linear-gradient(135deg, #F7F1E3 0%, #A83A2A 120%, #4C6B3C 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
