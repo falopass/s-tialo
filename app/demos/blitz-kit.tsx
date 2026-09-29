@@ -181,11 +181,13 @@ export function BlitzNav({
 
 export function Stars({
   value,
-  color,
+  color = 'currentColor',
+  size,
   className = 'w-4 h-4',
 }: {
   value: number
-  color: string
+  color?: string
+  size?: number
   className?: string
 }) {
   const gid = useId().replace(/[^a-zA-Z0-9]/g, '')
@@ -204,6 +206,7 @@ export function Stars({
           key={i}
           viewBox="0 0 20 20"
           className={className}
+          style={size ? { width: size, height: size } : undefined}
           aria-hidden="true"
         >
           {i === full && half && (
