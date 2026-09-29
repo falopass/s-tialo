@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/dd461230c2f4516d.css","style"]
-:HL["/_next/static/chunks/aeae79bf158be90f.css","style"]
+:HL["/_next/static/chunks/caca89c8096c5da3.css","style"]
 :HL["/_next/static/media/italic_100_900-s.p.72b334cd.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.7d3a8a37.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -16,4 +16,4 @@
 :HL["/_next/static/chunks/9f1d835ba88effb7.css","style"]
 :HL["/images/logo/logo-white-letras.png","image"]
 :HL["/demos/salon-de-belleza-y-peluqueria-nip-tuck/logo.webp","image"]
-0:{"buildId":"ztZswSvPdJVPklWW4VxfB","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"salon-de-belleza-y-peluqueria-nip-tuck","paramType":null,"paramKey":"salon-de-belleza-y-peluqueria-nip-tuck","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"PaxmTIZjChuEqIZX5MSY9","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"salon-de-belleza-y-peluqueria-nip-tuck","paramType":null,"paramKey":"salon-de-belleza-y-peluqueria-nip-tuck","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
