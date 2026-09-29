@@ -295,6 +295,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #55291F 0%, #A34127 55%, #E5BC84 140%)',
   },
   {
+    slug: 'cocineria-de-leticia',
+    name: 'La Cocina de Leticia',
+    rubro: 'Restaurante familiar',
+    city: 'San Clemente',
+    tagline: 'Casa de madera en el camino a Vilches: chancho en piedra, filete jugoso y el mejor pebre.',
+    gradient: 'linear-gradient(135deg, #4A1512 0%, #9C2B26 55%, #D99A3D 140%)',
+  },
+  {
     slug: 'marbella-talcahuano',
     name: 'Café Marbella',
     rubro: 'Café y pastelería',

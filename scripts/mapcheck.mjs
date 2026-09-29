@@ -1,0 +1,11 @@
+import { chromium } from 'playwright'
+const browser = await chromium.launch()
+const page = await browser.newPage({ viewport: { width: 390, height: 844 } })
+await page.goto('http://localhost:4800/demos/cocineria-de-leticia/', { waitUntil: 'networkidle' })
+await page.waitForTimeout(1500)
+await page.evaluate(() => { document.querySelector('#ubicacion')?.scrollIntoView() })
+await page.waitForTimeout(6000)
+const src = await page.evaluate(() => document.querySelector('#ubicacion iframe')?.src)
+console.log('iframe src:', src)
+await page.screenshot({ path: '/tmp/mapa-le.png' })
+await browser.close()
