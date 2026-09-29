@@ -7,6 +7,8 @@
  * @nativa.curico, el WhatsApp y las fotos (tratamientos, equipo HIFU,
  * productos y logo). Los nombres Natalia y Valentina salen de las reseñas.
  * Precios y horarios no están publicados: se omiten.
+ * El logo (logo.webp / logo-full.webp) está recortado de sus propias
+ * publicaciones de IG: wordmark serif NATIVA + ícono de perfil con flor.
  */
 
 export const BIZ = {
