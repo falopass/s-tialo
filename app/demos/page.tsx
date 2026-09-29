@@ -3653,6 +3653,14 @@ const BLITZ = [
     tagline: 'La tarjeta del bar: azul marino de su logo del bote, banderines de señal y la empanada dibujada a mano.',
     gradient: 'linear-gradient(135deg, #081F37 0%, #123A61 60%, #D6452B 190%)',
   },
+  {
+    slug: 'restaurant-la-playa',
+    name: 'Restaurant La Playa',
+    rubro: 'Restaurant y hostería',
+    city: 'Llico, Vichuquén',
+    tagline: 'La carta del mar: arena, teal de su logo de ola y sus precios reales en pauta de carta de pared.',
+    gradient: 'linear-gradient(135deg, #F4EAD6 0%, #0E5258 110%, #C05A28 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
