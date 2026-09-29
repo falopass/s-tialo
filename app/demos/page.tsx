@@ -3397,6 +3397,30 @@ const BLITZ = [
     tagline: 'La casita naranja con nombre pintado a mano: menú del día en tres tiempos y vitrina de helados.',
     gradient: 'linear-gradient(135deg, #FBF3E4 0%, #DE7A2C 110%, #35633F 190%)',
   },
+  {
+    slug: 'pollo-krac-san-clemente',
+    name: 'Pollo Krac',
+    rubro: 'Sándwiches y pollo',
+    city: 'San Clemente',
+    tagline: 'Mesón de cuadrillé: rojo y mostaza de su logo, el ticket de su carta real y la freidora al frente.',
+    gradient: 'linear-gradient(135deg, #3A110E 0%, #D6281C 130%, #F2AE30 220%)',
+  },
+  {
+    slug: 'club-union-social',
+    name: 'Club Unión Social',
+    rubro: 'Club y restaurante',
+    city: 'Talca',
+    tagline: 'La casa del club: petróleo de sus salones, mantel rojo, piso de ajedrez y cocina de colación.',
+    gradient: 'linear-gradient(135deg, #0E2024 0%, #16333A 60%, #A63322 170%)',
+  },
+  {
+    slug: 'entre-rios-la-plaza',
+    name: 'Entre Ríos La Plaza',
+    rubro: 'Marisquería y cocina chilena',
+    city: 'San Clemente',
+    tagline: 'El letrero de la plaza: madera, azul agua y dorado de su fachada, con la cocina de mar de su ficha.',
+    gradient: 'linear-gradient(135deg, #0B2B31 0%, #1E6E7E 100%, #C8A24B 210%)',
+  },
 ]
 
 export const metadata: Metadata = {
