@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'peppo-las-rastras',
+    name: 'Peppo Las Rastras',
+    rubro: 'Restaurante chileno',
+    city: 'Talca',
+    tagline: 'Carta de parrilla sobre mantel crema: vino de su sello “desde 1999” y fotos en arco.',
+    gradient: 'linear-gradient(135deg, #F5F2EF 0%, #691B2D 90%, #47001A 150%)',
+  },
+  {
     slug: 'salon-de-belleza-y-peluqueria-nip-tuck',
     name: 'Nip Tuck',
     rubro: 'Salón de belleza y peluquería',
