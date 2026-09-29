@@ -28,7 +28,7 @@ const C = {
   papelHi: '#FAF6EA',
   hiedra: '#22341F',
   hiedraOsc: '#17240F',
-  teja: '#B4552D',
+  teja: '#9C4A26',
   arcilla: '#C89B6A',
   muted: 'rgba(34,52,31,0.72)',
   line: 'rgba(34,52,31,0.2)',
@@ -75,11 +75,11 @@ const RESENAS = [
   },
 ]
 
-function Kicker({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+function Kicker({ children, light = false, color }: { children: React.ReactNode; light?: boolean; color?: string }) {
   return (
     <p
       className={`${mono.className} text-[11px] font-semibold tracking-[0.28em] uppercase`}
-      style={{ color: light ? C.arcilla : C.teja }}
+      style={{ color: color ?? (light ? C.arcilla : C.teja) }}
     >
       {children}
     </p>
@@ -348,7 +348,7 @@ export default function Page() {
                 </div>
                 <div className="absolute -top-6 -right-2 md:-right-5 rotate-3 rounded-full overflow-hidden" style={{ border: `2px solid ${C.hiedra}`, width: 96, height: 96, boxShadow: '0 10px 26px rgba(23,36,15,0.25)' }} aria-hidden="true">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`${IMG}/logo.webp`} alt="" width={96} height={96} style={{ objectFit: 'cover' }} />
+                  <img src={`${IMG}/logo.webp`} alt="Logo de Casa Café Teno" width={96} height={96} style={{ objectFit: 'cover' }} />
                 </div>
               </div>
             </Reveal>
@@ -359,7 +359,7 @@ export default function Page() {
         <section style={{ backgroundColor: C.teja }}>
           <div className="max-w-4xl mx-auto px-5 md:px-8 py-14 md:py-16 text-center">
             <Reveal>
-              <Kicker light>reservas · terraza · shows</Kicker>
+              <Kicker light color={C.papelHi}>reservas · terraza · shows</Kicker>
               <h2 className={`${display.className} text-4xl sm:text-5xl leading-[1.0] tracking-tight mt-4`} style={{ color: C.papelHi }}>
                 La mesa en el prado se reserva por <span style={{ color: C.papelHi, textDecoration: "underline", textDecorationColor: C.arcilla, textUnderlineOffset: "4px" }}>WhatsApp</span>
               </h2>
