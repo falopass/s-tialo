@@ -112,10 +112,10 @@ const RESENAS = [
   },
 ]
 
-function Marco({ children }: { children: React.ReactNode }) {
+function Marco({ children, color = C.vino }: { children: React.ReactNode; color?: string }) {
   return (
-    <p className={`${mono.className} text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3`} style={{ color: C.vino }}>
-      <span className="inline-block w-6 h-px" style={{ backgroundColor: C.vino }} aria-hidden="true" />
+    <p className={`${mono.className} text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3`} style={{ color }}>
+      <span className="inline-block w-6 h-px" style={{ backgroundColor: color }} aria-hidden="true" />
       {children}
     </p>
   )
@@ -167,18 +167,21 @@ export default function FotografoKandalaftPage() {
             fotograma KDL·00 — trabajo real
           </p>
         </div>
-        <div className="flex flex-col justify-center px-5 md:px-10 py-12 md:py-24 border-t md:border-t-0 md:border-l" style={{ borderColor: C.line }}>
+        <div
+          className="flex flex-col justify-center px-5 md:px-10 py-12 md:py-24 border-t md:border-t-0 md:border-l"
+          style={{ borderColor: C.lineDark, backgroundColor: C.ink }}
+        >
           <Reveal>
-            <Marco>Foto y video de matrimonios · Talca</Marco>
+            <Marco color={C.vinoSoft}>Foto y video de matrimonios · Talca</Marco>
             <h1
               className={`${display.className} leading-[1.04] text-[clamp(2.6rem,7vw,4.6rem)] mb-5`}
-              style={{ color: C.ink }}
+              style={{ color: C.onDark }}
             >
               Los días que no
               <br />
-              <em style={{ color: C.vino }}>se repiten</em>
+              <em style={{ color: C.vinoSoft }}>se repiten</em>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-md mb-7" style={{ color: C.muted }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-md mb-7" style={{ color: C.onDarkMute }}>
               Cobertura de matrimonios, prebodas y eventos — espontánea,
               cercana y sin poses forzadas.
             </p>
@@ -187,21 +190,21 @@ export default function FotografoKandalaftPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm md:text-base font-semibold px-6 py-3 transition-all hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7E2A33] tap-44"
+                className="text-sm md:text-base font-semibold px-6 py-3 transition-all hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D8A7AB] tap-44"
                 style={{ backgroundColor: C.vino, color: '#F7F4EE' }}
               >
                 Consultar fecha
               </a>
               <a
                 href="#trabajo"
-                className="text-sm md:text-base font-semibold px-6 py-3 border transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7E2A33] tap-44"
-                style={{ borderColor: C.ink, color: C.ink }}
+                className="text-sm md:text-base font-semibold px-6 py-3 border transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D8A7AB] tap-44"
+                style={{ borderColor: C.lineDark, color: C.onDark }}
               >
                 Ver el trabajo
               </a>
             </div>
-            <p className={`${mono.className} text-[11px] md:text-xs flex items-center gap-2`} style={{ color: C.muted }}>
-              <Stars value={5} color={C.vino} className="w-3.5 h-3.5" />
+            <p className={`${mono.className} text-[11px] md:text-xs flex items-center gap-2`} style={{ color: C.onDarkMute }}>
+              <Stars value={5} color={C.vinoSoft} className="w-3.5 h-3.5" />
               5.0 · {BIZ.resenasMatri} opiniones en matrimonios.cl
             </p>
           </Reveal>
