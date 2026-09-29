@@ -36,6 +36,7 @@ const C = {
   tinta: '#3B241B',
   durazno: '#E2906B',
   duraznoOsc: '#C4683F',
+  duraznoTxt: '#9E4E2B',
   rosa: '#E8BBA4',
   cacao: '#5A3524',
   muda: 'rgba(59,36,27,0.72)',
@@ -137,7 +138,7 @@ export default function PastelesMaca() {
               />
               <p
                 className={`${mono.className} mt-6 text-[11px] uppercase tracking-[0.22em]`}
-                style={{ color: C.duraznoOsc }}
+                style={{ color: C.duraznoTxt }}
               >
                 Repostería y eventos por pedido · Talca — Maule — Colín
               </p>
@@ -203,7 +204,7 @@ export default function PastelesMaca() {
       {/* LA CARTA */}
       <section id="carta" className="max-w-5xl mx-auto px-5 py-16 md:py-20">
         <Reveal>
-          <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.duraznoOsc }}>
+          <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.duraznoTxt }}>
             La carta — publicada en su sitio
           </p>
           <h2 className={`${display.className} mt-3 text-3xl md:text-5xl font-medium`}>
@@ -224,7 +225,7 @@ export default function PastelesMaca() {
                 <ul className="mt-4 space-y-2.5">
                   {cat.items.map((it) => (
                     <li key={it} className="flex gap-2.5 text-[15px] leading-snug" style={{ color: C.muda }}>
-                      <span aria-hidden="true" style={{ color: C.duraznoOsc }}>✳</span>
+                      <span aria-hidden="true" style={{ color: C.duraznoTxt }}>✳</span>
                       {it}
                     </li>
                   ))}
@@ -289,7 +290,7 @@ export default function PastelesMaca() {
             </div>
           </Reveal>
           <Reveal>
-            <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.duraznoOsc }}>
+            <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.duraznoTxt }}>
               Servicio de eventos
             </p>
             <h2 className={`${display.className} mt-3 text-3xl md:text-4xl font-medium`}>
@@ -313,7 +314,7 @@ export default function PastelesMaca() {
             <a
               href={WA_LINK_EVENTO}
               className={`${mono.className} mt-7 inline-flex items-center gap-2 px-6 text-sm uppercase tracking-[0.14em]`}
-              style={{ backgroundColor: C.duraznoOsc, color: '#FFFDF9', borderRadius: 999, minHeight: 48 }}
+              style={{ backgroundColor: C.duraznoTxt, color: '#FFFDF9', borderRadius: 999, minHeight: 48 }}
             >
               Cotizar mi evento →
             </a>
@@ -337,7 +338,7 @@ export default function PastelesMaca() {
       <section id="pedidos" className="py-16 md:py-20" style={{ backgroundColor: C.papel2, borderTop: `1px solid ${C.linea}` }}>
         <div className="max-w-5xl mx-auto px-5 grid md:grid-cols-2 gap-10">
           <Reveal>
-            <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.duraznoOsc }}>
+            <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.duraznoTxt }}>
               Cómo pedir
             </p>
             <h2 className={`${display.className} mt-3 text-3xl md:text-4xl font-medium`}>
