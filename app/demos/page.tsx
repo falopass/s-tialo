@@ -4541,6 +4541,14 @@ const BLITZ = [
     tagline: 'El taller de la cuadra: carbón y rojo del badge, puntos de inspección numerados y pizarrón de horario.',
     gradient: 'linear-gradient(135deg, #141518 0%, #1F2227 60%, #C8102E 160%)',
   },
+  {
+    slug: 'rukapen-turismo-talca',
+    name: 'Rukapen Turismo Talca',
+    rubro: 'Quinta de recreo y turismo',
+    city: 'Talca',
+    tagline: 'El domingo en la quinta: bosque y azul piscina, línea de tiempo del día y fotos reales del lugar.',
+    gradient: 'linear-gradient(135deg, #F7F2E4 0%, #0E8FA8 110%, #173C2A 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
