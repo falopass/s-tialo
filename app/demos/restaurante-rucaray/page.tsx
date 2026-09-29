@@ -61,7 +61,7 @@ const PIZARRON = [
   { grupo: 'Para tomar', items: ['Jugos naturales'] },
 ]
 
-const MENCIONAN = ['Empanadas', 'Ambiente familiar', 'Porciones contundentes', 'Al paso del camino']
+const MENCIONAN = ['Empanadas', 'Ambiente familiar', 'Porciones contundentes']
 
 export default function RucarayPage() {
   return (
