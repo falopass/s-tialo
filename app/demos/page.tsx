@@ -167,6 +167,30 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #FAF3E3 0%, #B4231E 95%, #C07A2A 190%)',
   },
   {
+    slug: 'pisco-lima-restaurant',
+    name: 'Pisco & Lima',
+    rubro: 'Restaurante peruano',
+    city: 'Constitución',
+    tagline: 'Carta clásica sobre mantel crema: magenta de su logo, vino oscuro y doble regla, con fotos reales.',
+    gradient: 'linear-gradient(135deg, #FAF5EC 0%, #B01E4F 90%, #4A1226 150%)',
+  },
+  {
+    slug: 'passport',
+    name: 'Passport',
+    rubro: 'Restaurant · bar',
+    city: 'Constitución',
+    tagline: 'Pasaporte de sabores: azul portada, mostaza y burdeos de su sello, carta por destinos.',
+    gradient: 'linear-gradient(135deg, #1B2430 0%, #8B222F 70%, #E39E45 150%)',
+  },
+  {
+    slug: 'el-gran-chimu',
+    name: 'El Gran Chimú',
+    rubro: 'Restaurante peruano',
+    city: 'Constitución',
+    tagline: 'Perú frente al mar: azul Pacífico, rojo de su letrero y greca chimú, con fotos reales.',
+    gradient: 'linear-gradient(135deg, #0E3A4C 0%, #14455A 55%, #9E2C2B 140%)',
+  },
+  {
     slug: 'come-rico',
     name: 'Come Rico',
     rubro: 'Cocinería — comida rápida y casera',
@@ -4089,6 +4113,14 @@ const BLITZ = [
     city: 'San Rafael',
     tagline: 'El sello de la heladería: crema de cucurucho, naranjo del logo y almuerzo peruano en la Galería Gian Fu.',
     gradient: 'linear-gradient(135deg, #F7EDD4 0%, #D9480F 110%, #38220F 200%)',
+  },
+  {
+    slug: 'cabanas-lomas-de-sol',
+    name: 'Cabañas Lomas de Sol',
+    rubro: 'Cabañas y hospedaje',
+    city: 'Pelluhue',
+    tagline: 'Carta náutica de la costa: arena, azul profundo y el sol naranjo de su logo, con tarifas reales.',
+    gradient: 'linear-gradient(135deg, #0A1F2B 0%, #10303F 55%, #D96E1E 160%)',
   },
 ]
 
