@@ -201,7 +201,7 @@ export default function ThonyglassPage() {
                 {BIZ.marca} — vidriería en Talca
               </p>
               <h1
-                className={`${display.className} leading-[1.02] text-[clamp(2.3rem,8vw,4.4rem)] mb-6`}
+                className={`${display.className} leading-[1.02] text-[clamp(2rem,8vw,4.4rem)] mb-6`}
                 style={{ color: C.ink }}
               >
                 La ventana que entra
