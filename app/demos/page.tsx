@@ -4710,6 +4710,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #241A12 0%, #2E4A2A 90%, #D98E2B 190%)',
   },
   {
+    slug: 'spanish-stadium-linares',
+    name: 'Estadio Español de Linares',
+    rubro: 'Club social y restaurante',
+    city: 'Linares',
+    tagline: 'La casa del club desde 1953: estuco andaluz, león rojo de su escudo y la cancha de pasto.',
+    gradient: 'linear-gradient(135deg, #F6F1E5 0%, #B81F2C 110%, #1E5A33 200%)',
+  },
+  {
     slug: 'gasfiter-en-talca',
     name: 'Gasfiter en Talca',
     rubro: 'Fontanero · guardia 24 horas',
