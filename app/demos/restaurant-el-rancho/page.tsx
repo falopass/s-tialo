@@ -212,7 +212,7 @@ export default function RestaurantElRanchoPage() {
                 Restomarket
               </p>
               <p className="text-sm leading-relaxed" style={{ color: 'rgba(244,237,220,0.92)' }}>
-                El letrero lo dice: restorant y minimarket en el mismo techo. Se para por bencina de camino, se
+                El letrero lo dice: restorant y minimarket en el mismo techo. El minimarket abastece el viaje, se
                 desayuna desde la mañana y se almuerza plato casero.
               </p>
             </div>

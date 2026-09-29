@@ -232,8 +232,8 @@ export default function HosteriaItahuePage() {
                 El jardín
               </p>
               <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
-                En verano el almuerzo se estira al jardín y la piscina. Los que vienen con niños — y con perros — lo
-                agradecen en las reseñas.
+                El jardín tiene piscina, sombra y espacio para la familia — y para las mascotas, como cuentan en
+                las reseñas.
               </p>
             </div>
           </Reveal>

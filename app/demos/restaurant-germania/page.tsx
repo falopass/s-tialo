@@ -285,8 +285,8 @@ export default function RestaurantGermaniaPage() {
             La misma esquina, otro restaurante
           </h2>
           <p className="max-w-xl text-base leading-relaxed mb-10" style={{ color: C.muted }}>
-            De noche la terraza se prende con las guirnaldas y el bar saca los moscow mules en su taza de cobre, los
-            pisco sour y los tragos de autor.
+            De noche la terraza se prende con las guirnaldas y el bar prepara moscow mules en taza de cobre, pisco
+            sour y cócteles.
           </p>
         </Reveal>
         <div className="grid grid-cols-2 gap-3">
@@ -318,11 +318,11 @@ export default function RestaurantGermaniaPage() {
                 El bar
               </p>
               <p className={`${display.className} text-xl md:text-2xl leading-snug mb-4`}>
-                “Se recomienda reservar los fines de semana”
+                De la terraza al bar
               </p>
               <p className="text-sm leading-relaxed" style={{ color: C.muted }}>
-                La terraza se llena de noche: cócteles, picoteo y la cocina abierta hasta tarde. Reserva por
-                WhatsApp al {BIZ.phoneDisplay}.
+                La misma terraza del almuerzo se ilumina para la noche: cócteles y picoteo bajo las guirnaldas. Para
+                reservar, WhatsApp al {BIZ.phoneDisplay}.
               </p>
             </div>
           </Reveal>
