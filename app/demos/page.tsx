@@ -2973,6 +2973,14 @@ const BLITZ = [
     tagline: 'La página como póliza: carátula con sello "+", cuatro artículos y la firma de una corredora CMF desde 2011.',
     gradient: 'linear-gradient(135deg, #F7F4EC 0%, #A02828 90%, #1A2436 190%)',
   },
+  {
+    slug: 'funerales-san-agustin',
+    name: 'Funerales San Agustín',
+    rubro: 'Servicios funerarios',
+    city: 'Talca',
+    tagline: 'La casa de 7 Norte: lino tibio, verde oliva, filetes de programa y el letrero de la fachada.',
+    gradient: 'linear-gradient(135deg, #F4EFE4 0%, #4C573D 85%, #343C2A 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
