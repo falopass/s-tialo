@@ -166,7 +166,7 @@ function Marca({ children }: { children: React.ReactNode }) {
 
 export default function Page() {
   return (
-    <div className={`${body.className} min-h-[100dvh]`} style={{ backgroundColor: C.papel, color: C.tinta }}>
+    <div className={`${body.className} min-h-[100dvh] overflow-x-hidden`} style={{ backgroundColor: C.papel, color: C.tinta }}>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}

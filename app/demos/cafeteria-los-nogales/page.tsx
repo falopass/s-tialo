@@ -147,7 +147,7 @@ function Btn({ href, children, tone, external = true }: { href: string; children
 
 export default function Page() {
   return (
-    <div className={`${body.className} min-h-[100dvh]`} style={{ backgroundColor: C.crema, color: C.nogal }}>
+    <div className={`${body.className} min-h-[100dvh] overflow-x-hidden`} style={{ backgroundColor: C.crema, color: C.nogal }}>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}

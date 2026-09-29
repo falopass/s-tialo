@@ -30,6 +30,7 @@ const C = {
   carbon: '#1D1715',
   panel: '#251C18',
   rojo: '#D2232E',
+  rojoClaro: '#F0655C',
   rojoOsc: '#8E141C',
   oro: '#E4B33C',
   crema: '#F4E9D4',
@@ -163,7 +164,7 @@ const CINTA_ITEMS = ['café', 'terraza', 'bar', 'burgers', 'pizzas', 'happy hour
 
 export default function Page() {
   return (
-    <div className={`${body.className} min-h-[100dvh]`} style={{ backgroundColor: C.noche, color: C.crema }}>
+    <div className={`${body.className} min-h-[100dvh] overflow-x-hidden`} style={{ backgroundColor: C.noche, color: C.crema }}>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
@@ -281,7 +282,7 @@ export default function Page() {
                       style={{ backgroundColor: i === NOCHE.length - 1 ? C.rojo : C.oro, boxShadow: `0 0 14px ${i === NOCHE.length - 1 ? C.rojo : C.oro}` }}
                       aria-hidden="true"
                     />
-                    <p className={`${mono.className} text-[11px] font-bold tracking-[0.26em]`} style={{ color: i === NOCHE.length - 1 ? C.rojo : C.oro }}>
+                    <p className={`${mono.className} text-[11px] font-bold tracking-[0.26em]`} style={{ color: i === NOCHE.length - 1 ? C.rojoClaro : C.oro }}>
                       {n.hora}
                     </p>
                     <h3 className={`${display.className} uppercase text-2xl md:text-3xl tracking-[0.01em] mt-2`} style={{ color: C.crema }}>
