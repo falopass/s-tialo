@@ -2725,6 +2725,30 @@ const BLITZ = [
     tagline: 'Señalética vial: asfalto, línea amarilla y la ruta a la licencia en 2 Sur.',
     gradient: 'linear-gradient(135deg, #16181B 0%, #1E2126 55%, #F2C400 160%)',
   },
+  {
+    slug: 'terminal-tur-bus-talca',
+    name: 'Terminal Tur Bus Talca',
+    rubro: 'Terminal de buses',
+    city: 'Talca',
+    tagline: 'Panel de salidas de andén: azul noche, lima Turbus y los destinos reales de Turbus y Línea Azul.',
+    gradient: 'linear-gradient(135deg, #121A2C 0%, #1B2740 55%, #499C24 160%)',
+  },
+  {
+    slug: 'agricola-alfredo-perez',
+    name: 'Agrícola y Comercial Alfredo Pérez',
+    rubro: 'Insumos agrícolas',
+    city: 'Talca',
+    tagline: 'Saco y bodega: papel kraft, verde semilla y la pizarra de productos que se lee en su local de 17 Oriente.',
+    gradient: 'linear-gradient(135deg, #F4EEDC 0%, #3E7A46 75%, #F0C53F 170%)',
+  },
+  {
+    slug: 'valle-san-agustin-propiedades',
+    name: 'Valle San Agustín Propiedades',
+    rubro: 'Corredora de propiedades',
+    city: 'Talca',
+    tagline: 'Vitrina inmobiliaria en azul corporativo: cartera real con precios, su equipo y “Don Ricardo” según sus reseñas.',
+    gradient: 'linear-gradient(135deg, #042C4E 0%, #063A66 60%, #00A0E3 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
