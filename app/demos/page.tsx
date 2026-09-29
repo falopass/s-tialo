@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'el-carrito',
+    name: 'El Carrito',
+    rubro: 'Comida rápida',
+    city: 'Parral',
+    tagline: 'El container amarillo: carbón de su mural, ticket de pedido perforado y fotos pegadas como stickers.',
+    gradient: 'linear-gradient(135deg, #141110 0%, #FFC629 80%, #E63B2E 160%)',
+  },
+  {
     slug: 'el-gustoso-maule',
     name: 'El Gustoso Maule',
     rubro: 'Comida casera',
