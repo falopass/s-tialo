@@ -2701,6 +2701,30 @@ const BLITZ = [
     tagline: 'Pizarra de andenes: asfalto y hormigón, rojo y verde del letrero tbt, y 10.900 reseñas.',
     gradient: 'linear-gradient(135deg, #0C0E10 0%, #141619 55%, #E32026 170%)',
   },
+  {
+    slug: 'koke-graf-publicidad',
+    name: 'Koke Graf Publicidad',
+    rubro: 'Agencia de publicidad e impresión',
+    city: 'Talca',
+    tagline: 'La valla de Cancha Rayada: vinilo verde lima, trabajos instalados en terreno y reseñas reales.',
+    gradient: 'linear-gradient(135deg, #0C0E09 0%, #151A10 55%, #9DCB3B 160%)',
+  },
+  {
+    slug: 'imprenta-pantone',
+    name: 'Imprenta Pantone',
+    rubro: 'Imprenta gráfica',
+    city: 'Talca',
+    tagline: 'Orden de impresión en 6 Oriente: papel crema, magenta de su molinillo y marcas de corte.',
+    gradient: 'linear-gradient(135deg, #F5F1E8 0%, #FDFBF4 50%, #D81B60 150%)',
+  },
+  {
+    slug: 'escuela-de-conductores-a-s',
+    name: 'Escuela de Conductores A & S',
+    rubro: 'Escuela de conductores',
+    city: 'Talca',
+    tagline: 'Señalética vial: asfalto, línea amarilla y la ruta a la licencia en 2 Sur.',
+    gradient: 'linear-gradient(135deg, #16181B 0%, #1E2126 55%, #F2C400 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
