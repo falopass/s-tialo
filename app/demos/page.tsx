@@ -4557,6 +4557,14 @@ const BLITZ = [
     tagline: 'Un ataque de sabor: neón ovni sobre negro espacial, carta real con precios y delivery en Rauco.',
     gradient: 'linear-gradient(135deg, #0B0B10 0%, #12121A 55%, #8CFF3C 170%)',
   },
+  {
+    slug: 'sushiman',
+    name: 'Sushiman',
+    rubro: 'Sushi para llevar',
+    city: 'Sagrada Familia',
+    tagline: 'El sabor convertido en adicción: sello rojo sobre carbón y pedidos para llevar en Villa Esperanza.',
+    gradient: 'linear-gradient(135deg, #141214 0%, #1C191B 55%, #C8102E 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
