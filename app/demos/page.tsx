@@ -4853,6 +4853,14 @@ const BLITZ = [
     tagline: 'La pizarra nikkei de Av. España: noche, papel arroz y rojo del isotipo, con su carta QR y afiches reales.',
     gradient: 'linear-gradient(135deg, #161210 0%, #C62828 120%, #F4EDE0 200%)',
   },
+  {
+    slug: 'centro-medico-curimed',
+    name: 'Centro Médico CuriMed',
+    rubro: 'Centro médico de especialidades',
+    city: 'Curicó',
+    tagline: 'El letrero de Arturo Prat 163: teal clínico, banda ocre de convenios y seis pabellones reales.',
+    gradient: 'linear-gradient(135deg, #F2F6F4 0%, #14677D 110%, #C98A12 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
