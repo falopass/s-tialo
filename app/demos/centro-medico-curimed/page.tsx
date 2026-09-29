@@ -142,7 +142,7 @@ export default function CentroMedicoCurimed() {
             ].map(([big, small]) => (
               <div key={big}>
                 <p className={`${display.className} text-xl md:text-2xl font-bold`} style={{ color: '#33230A' }}>{big}</p>
-                <p className={`${mono.className} text-[11px] uppercase tracking-wider`} style={{ color: '#4A3308' }}>{small}</p>
+                <p className={`${mono.className} text-[11px] uppercase tracking-wider`} style={{ color: '#3D2906' }}>{small}</p>
               </div>
             ))}
           </div>

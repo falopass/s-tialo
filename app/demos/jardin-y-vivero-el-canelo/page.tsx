@@ -105,7 +105,7 @@ export default function JardinViveroElCaneloPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(20,42,32,0.62) 0%, rgba(20,42,32,0.52) 45%, rgba(20,42,32,0.96) 100%)',
+              'linear-gradient(180deg, rgba(20,42,32,0.6) 0%, rgba(20,42,32,0.42) 40%, rgba(20,42,32,0.9) 72%, rgba(20,42,32,0.96) 100%)',
           }}
         />
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-44">
