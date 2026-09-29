@@ -83,7 +83,7 @@ export default function Page() {
               <div className="flex items-center gap-2.5">
                 <Espiral className="w-7 h-7" />
                 <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.22em]`} style={{ color: C.rojo }}>
-                  Cocina peruana · Yungay 660 · Curicó
+                  Cocina peruana · Yungay 660 · Curicó
                 </p>
               </div>
             </Reveal>
