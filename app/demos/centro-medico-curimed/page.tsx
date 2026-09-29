@@ -131,7 +131,7 @@ export default function CentroMedicoCurimed() {
       </section>
 
       {/* ── Cinta de convenios (banda ocre del letrero) ── */}
-      <section className="mt-10" style={{ backgroundColor: C.ochre }}>
+      <section className="mt-10" style={{ backgroundColor: '#7E570A' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[

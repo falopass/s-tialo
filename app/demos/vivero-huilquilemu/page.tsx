@@ -247,7 +247,7 @@ export default function ViveroHuilquilemuPage() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 border-t" style={{ borderColor: 'rgba(234,228,211,0.25)' }}>
             {NATIVAS.map((n, i) => (
               <li key={n.latin} className="flex items-baseline gap-4 py-3.5 border-b" style={{ borderColor: 'rgba(234,228,211,0.18)' }}>
-                <span className={`${mono.className} w-9 shrink-0 text-[11px]`} style={{ color: 'rgba(234,228,211,0.5)' }}>
+                <span className={`${mono.className} w-9 shrink-0 text-[11px]`} style={{ color: 'rgba(234,228,211,0.65)' }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span className={`${displayIt.className} italic text-xl md:text-2xl`}>{n.latin}</span>

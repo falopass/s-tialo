@@ -377,7 +377,7 @@ export default function LaClinicaDelAutomovil() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#12140F' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="w-10 h-10 rounded-full overflow-hidden border-2" style={{ borderColor: 'rgba(247,243,232,0.4)' }}>
               <Image src={`${IMG}/logo.webp`} alt="" width={40} height={40} className="w-full h-full object-cover" />

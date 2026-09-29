@@ -232,7 +232,7 @@ export default function FuenteDeSodaElValdiviano() {
           </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(248,239,217,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-12 text-xs leading-relaxed" style={{ color: 'rgba(248,239,217,0.7)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 text-xs leading-relaxed" style={{ color: 'rgba(248,239,217,0.7)' }}>
             Sitio de ejemplo preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.paper }}>
               Sitiazo

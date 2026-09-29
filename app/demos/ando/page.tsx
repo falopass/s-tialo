@@ -30,9 +30,9 @@ const C = {
   ink: '#241E19',
   paper: '#F4EDE0',
   card: '#FBF6EA',
-  muted: '#7A6E5F',
-  red: '#C62828',
-  wasabi: '#5E7A4E',
+  muted: '#6F6356',
+  red: '#BB2323',
+  wasabi: '#4E6B40',
   chalk: '#EDE6D6',
   line: 'rgba(36,30,25,0.16)',
 }

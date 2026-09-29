@@ -199,7 +199,7 @@ export default function IngenieriaSanClementePage() {
                   y lo que falta por confirmar.
                 </p>
                 <details className={`${mono.className} text-[11px] leading-relaxed`} style={{ color: C.mutedLight }}>
-                  <summary className="uppercase tracking-[0.16em] cursor-pointer font-semibold tap-44" style={{ color: '#8A5A00' }}>
+                  <summary className="uppercase tracking-[0.16em] cursor-pointer font-semibold tap-44v" style={{ color: '#8A5A00' }}>
                     Fuentes revisadas
                   </summary>
                   <ul className="mt-3 space-y-1.5 list-none">
