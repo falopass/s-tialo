@@ -31,6 +31,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F6F1E4 0%, #1F3A2C 100%, #8F5A1A 200%)',
   },
   {
+    slug: 'como-en-peru',
+    name: 'Como en Perú',
+    rubro: 'Restaurante peruano',
+    city: 'San Javier',
+    tagline: 'Picantería con cenefa de aguayo: papel crema, magenta y su alpaca en la entrada.',
+    gradient: 'linear-gradient(135deg, #FAF1DE 0%, #A8194B 90%, #1A0D0B 150%)',
+  },
+  {
     slug: 'el-mexicano',
     name: 'El Mexicano',
     rubro: 'Restaurante mexicano',
