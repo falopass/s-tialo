@@ -1067,8 +1067,8 @@ const BLITZ = [
     name: 'Nativa Curicó',
     rubro: 'Centro de estética',
     city: 'Curicó',
-    tagline: 'Neón nocturno: tinta vino, hueso y oro viejo con glow, marquesina y carta de precios.',
-    gradient: 'linear-gradient(135deg, #150A0F 0%, #6B2737 55%, #B98B4E 140%)',
+    tagline: 'Arcos de cabina: verde profundo y menta con acento rosa, tratamientos numerados y el antes/después real de su ficha.',
+    gradient: 'linear-gradient(135deg, #0B2E28 0%, #14A08C 55%, #D96A8E 140%)',
   },
   {
     slug: 'restobar-los-leones',
