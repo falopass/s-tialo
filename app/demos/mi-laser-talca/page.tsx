@@ -240,20 +240,36 @@ export default function MiLaserTalcaPage() {
           {/* láminas reales del estudio */}
           <div className="mt-12 grid md:grid-cols-[1fr_0.8fr] gap-5 items-stretch">
             <Reveal>
-              <figure className="rounded-3xl overflow-hidden h-full relative" style={{ border: `1px solid ${C.line}` }}>
-                <div className="relative aspect-[4/3] md:aspect-auto md:h-full md:min-h-[340px]">
-                  <Image
-                    src={`${IMG}/promo.webp`}
-                    alt={`Pieza gráfica real de ${BIZ.name}: "cuida tu piel y siéntete cómoda"`}
-                    fill
-                    sizes="(min-width: 768px) 55vw, 90vw"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <figcaption className={`${mono.className} absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.18em] px-2.5 py-1.5 rounded-full`} style={{ backgroundColor: 'rgba(49,16,31,0.85)', color: '#FDF4F7' }}>
-                  Material real de su Instagram
-                </figcaption>
-              </figure>
+              <div className="grid grid-cols-2 gap-3 h-full">
+                <figure className="rounded-3xl overflow-hidden relative" style={{ border: `1px solid ${C.line}` }}>
+                  <div className="relative aspect-[3/4] md:h-full md:aspect-auto">
+                    <Image
+                      src={`${IMG}/promo.webp`}
+                      alt={`Pieza gráfica real de ${BIZ.name}: "cuida tu piel y siéntete cómoda"`}
+                      fill
+                      sizes="(min-width: 768px) 28vw, 45vw"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <figcaption className={`${mono.className} absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.18em] px-2.5 py-1.5 rounded-full`} style={{ backgroundColor: 'rgba(49,16,31,0.85)', color: '#FDF4F7' }}>
+                    Material real de su Instagram
+                  </figcaption>
+                </figure>
+                <figure className="rounded-3xl overflow-hidden relative" style={{ border: `1px solid ${C.line}` }}>
+                  <div className="relative aspect-[3/4] md:h-full md:aspect-auto">
+                    <Image
+                      src={`${IMG}/flyer.webp`}
+                      alt={`Flyer real de ${BIZ.name}: beneficios del láser Alexandrita y 10% de descuento presentándolo`}
+                      fill
+                      sizes="(min-width: 768px) 28vw, 45vw"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <figcaption className={`${mono.className} absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.18em] px-2.5 py-1.5 rounded-full`} style={{ backgroundColor: 'rgba(49,16,31,0.85)', color: '#FDF4F7' }}>
+                    Su flyer · 10% dcto. presentándolo
+                  </figcaption>
+                </figure>
+              </div>
             </Reveal>
             <Reveal delay={120}>
               <div className="h-full rounded-3xl p-6 md:p-8 flex flex-col justify-between" style={{ backgroundColor: C.fucsiaSuave, border: `1px solid ${C.line}` }}>

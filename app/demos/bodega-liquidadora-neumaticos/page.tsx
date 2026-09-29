@@ -259,7 +259,7 @@ export default function BodegaNeumaticosPage() {
               </div>
               <p className="text-sm md:text-base max-w-xs" style={{ color: C.muted }}>
                 Fotos reales del local: el pasillo de neumáticos, el
-                levantador y la alineadora.
+                levantador, la alineadora y el letrero de la entrada.
               </p>
             </div>
           </Reveal>
@@ -317,6 +317,34 @@ export default function BodegaNeumaticosPage() {
                 />
                 <figcaption className={`${mono.className} absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.18em] px-2.5 py-1.5`} style={{ backgroundColor: 'rgba(23,24,27,0.85)', color: C.concreto }}>
                   El frontis · {BIZ.address}
+                </figcaption>
+              </figure>
+            </Reveal>
+            <Reveal delay={120}>
+              <figure className="relative aspect-[4/3] overflow-hidden" style={{ border: `1px solid ${C.line}` }}>
+                <Image
+                  src={`${IMG}/neumaticos.webp`}
+                  alt={`Torres de stock de neumáticos nuevos dentro de la bodega de ${BIZ.name}`}
+                  fill
+                  sizes="(min-width: 768px) 28vw, 45vw"
+                  className="object-cover"
+                />
+                <figcaption className={`${mono.className} absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.18em] px-2.5 py-1.5`} style={{ backgroundColor: 'rgba(23,24,27,0.85)', color: C.concreto }}>
+                  Stock de bodega
+                </figcaption>
+              </figure>
+            </Reveal>
+            <Reveal delay={160} className="md:col-span-2">
+              <figure className="relative aspect-[4/3] md:aspect-[8/3] overflow-hidden" style={{ border: `1px solid ${C.line}` }}>
+                <Image
+                  src={`${IMG}/letrero.webp`}
+                  alt={`Letrero real de la entrada de ${BIZ.name} con su lista de servicios y teléfonos`}
+                  fill
+                  sizes="(min-width: 768px) 60vw, 45vw"
+                  className="object-cover"
+                />
+                <figcaption className={`${mono.className} absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.18em] px-2.5 py-1.5`} style={{ backgroundColor: 'rgba(23,24,27,0.85)', color: C.concreto }}>
+                  El letrero de la entrada
                 </figcaption>
               </figure>
             </Reveal>

@@ -78,6 +78,11 @@ const LA_CASA = [
     name: 'El jardín interior',
     desc: 'Patio empedrado con árbol, tiestos y rincones de sombra para leer o trabajar.',
   },
+  {
+    src: `${IMG}/interior.webp`,
+    name: 'El corredor de entrada',
+    desc: 'Piso a cuadros, muro de franjas de colores y plantas camino al patio.',
+  },
 ]
 
 const INCLUIDO = [

@@ -763,8 +763,8 @@ const BLITZ = [
     name: 'Automotriz Tudela',
     rubro: 'Mecánica y electricidad',
     city: 'Talca',
-    tagline: 'Taller automotriz de barrio: mecánica, electricidad y diagnóstico.',
-    gradient: 'linear-gradient(135deg, #111517 0%, #39434A 55%, #F0782B 140%)',
+    tagline: 'Taller de pizarra y voltaje: azul noche, tester amarillo y síntomas numerados.',
+    gradient: 'linear-gradient(135deg, #0E1B2E 0%, #152841 55%, #F5C400 140%)',
   },
   {
     slug: 'hope-bakery-chile',
@@ -4572,6 +4572,14 @@ const BLITZ = [
     city: 'Talca',
     tagline: 'El letrero verde de la 3 y media: carbón, lima de su marca y etiquetas de precio colgando del piso.',
     gradient: 'linear-gradient(135deg, #F3F2EC 0%, #B7E335 100%, #15171B 190%)',
+  },
+  {
+    slug: 'abastible-de-la-fuente',
+    name: 'Abastible De La Fuente',
+    rubro: 'Distribuidora de gas',
+    city: 'Molina',
+    tagline: 'Guía de despacho en papel y naranjo tapita: el cilindro como bosquejo marcado y el pedido en 3 pasos.',
+    gradient: 'linear-gradient(135deg, #FBF4E8 0%, #F15A24 120%, #1C140C 200%)',
   },
 ]
 

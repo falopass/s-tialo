@@ -115,6 +115,7 @@ export default function AlmaRestaurantPage() {
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
+        logoSrc={`${IMG}/logo.webp`}
         ctaLabel="Reservar"
         theme={{
           over: 'light',
