@@ -3445,6 +3445,14 @@ const BLITZ = [
     tagline: 'Tablero de parcela: pergamino, madera oscura y dorado marca, cerco de estacas, tarifas y reseñas reales.',
     gradient: 'linear-gradient(135deg, #241910 0%, #5C3D24 60%, #C9A24B 160%)',
   },
+  {
+    slug: 'centroturisticorayen',
+    name: 'Centro Turístico Rayen',
+    rubro: 'Cabañas · camping · tinajas',
+    city: 'Vilches, San Clemente',
+    tagline: 'La piscina mirando los cerros de Vilches: cabañas, camping y tinajas en bosque nativo.',
+    gradient: 'linear-gradient(135deg, #F2EBDB 0%, #C33A4E 115%, #152A1E 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
