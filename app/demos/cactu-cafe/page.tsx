@@ -32,7 +32,7 @@ const C = {
   mentaClara: '#BFE0D0',
   mentaSuave: '#D9E8DC',
   arcilla: '#C16F4A',
-  arcillaOsc: '#9A5433',
+  arcillaOsc: '#8F4E2B',
   cactusProf: '#122019',
   muted: 'rgba(30,59,44,0.72)',
   line: 'rgba(30,59,44,0.18)',
@@ -460,7 +460,7 @@ export default function Page() {
               <div className="relative">
                 <div className="overflow-hidden" style={{ borderRadius: '999px 999px 22px 22px', border: `2.5px solid ${C.menta}` }}>
                   <div className="aspect-[4/3]">
-                    <LazyMap src={MAPS_EMBED} title="Mapa de Cactú Café en Av. Aníbal Pinto, Parral" />
+                    <LazyMap src={MAPS_EMBED} title="Mapa de Cactú Café en Av. Aníbal Pinto, Parral" className="w-full h-full border-0" />
                   </div>
                 </div>
                 <div className="absolute -bottom-6 -left-2 md:-left-5">
@@ -475,7 +475,7 @@ export default function Page() {
         <section style={{ backgroundColor: C.menta }}>
           <div className="max-w-4xl mx-auto px-5 md:px-8 py-14 md:py-16 text-center">
             <Reveal>
-              <Kicker color={C.cactusProf}>café · waffles · helados{'\u00A0'}·{'\u00A0'}vegano</Kicker>
+              <Kicker color={C.cactusProf}>café ·{'\u00A0'}waffles{'\u00A0'}·{'\u00A0'}helados{'\u00A0'}·{'\u00A0'}vegano</Kicker>
               <h2 className={`${display.className} text-4xl sm:text-5xl font-bold leading-[1.0] tracking-tight mt-4`} style={{ color: C.cactusProf }}>
                 El primer Cactú del día se pide por&nbsp;<span style={{ color: C.cactus }}>WhatsApp</span>
               </h2>
