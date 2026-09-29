@@ -3669,6 +3669,14 @@ const BLITZ = [
     tagline: 'La parada del km 328: señalética de ruta, rojo del letrero real y la cazuela que recomiendan los camioneros.',
     gradient: 'linear-gradient(135deg, #191714 0%, #A61E1E 90%, #F4EDDC 160%)',
   },
+  {
+    slug: 'meson-de-romeral',
+    name: 'Mesón de Romeral',
+    rubro: 'Restaurante — cocina chilena',
+    city: 'Romeral',
+    tagline: 'El mesón nuevo de la Avenida Libertad: puertas en arco, lámparas de cobre y horario de almuerzo y de noche.',
+    gradient: 'linear-gradient(135deg, #F3E9D7 0%, #5E1F27 110%, #B4743A 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
