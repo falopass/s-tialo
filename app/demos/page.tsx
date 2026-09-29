@@ -2981,6 +2981,14 @@ const BLITZ = [
     tagline: 'La casa de 7 Norte: lino tibio, verde oliva, filetes de programa y el letrero de la fachada.',
     gradient: 'linear-gradient(135deg, #F4EFE4 0%, #4C573D 85%, #343C2A 150%)',
   },
+  {
+    slug: 'hotel-boutique-normandi',
+    name: 'Hotel Boutique Normandí',
+    rubro: 'Hotel boutique',
+    city: 'Talca',
+    tagline: 'La recepción: marfil, vino, relojes de mostrador y las láminas del hall.',
+    gradient: 'linear-gradient(135deg, #F6F1E6 0%, #5E2530 80%, #3B151E 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
