@@ -15,6 +15,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #33101F 0%, #A8416B 80%, #FBF2EC 160%)',
   },
   {
+    slug: 'ferreteria-tres-esquinas',
+    name: 'Ferretería Tres Esquinas',
+    rubro: 'Ferretería y materiales',
+    city: 'Molina',
+    tagline: 'Ticket de mostrador: kraft, azul del letrero Ferri-Frut y los rubros de la fachada como filas.',
+    gradient: 'linear-gradient(135deg, #F2EBDD 0%, #0B5CB8 90%, #10233B 150%)',
+  },
+  {
     slug: 'mercado-macro-feria-de-talca',
     name: 'Mercado Macro Feria de Talca',
     rubro: 'Feria y mercado',
