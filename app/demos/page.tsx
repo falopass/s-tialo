@@ -2638,7 +2638,8 @@ const BLITZ = [
     city: 'Talca',
     tagline: 'La cartelera del colegio: papel, cinta adhesiva, poleras amarillas y la insignia café de su portón.',
     gradient: 'linear-gradient(135deg, #F7F1E3 0%, #EFE5CD 45%, #4A1208 150%)',
-{
+  },
+  {
     slug: 'instituto-ireland',
     name: 'CFT Ireland',
     rubro: 'Centro de Formación Técnica',
@@ -2691,6 +2692,14 @@ const BLITZ = [
     city: 'San Clemente',
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #0B1710 0%, #F4EFE3 150%)',
+  },
+  {
+    slug: 'terminal-de-buses-de-talca',
+    name: 'Terminal de Buses de Talca',
+    rubro: 'Terminal de buses interurbanos',
+    city: 'Talca',
+    tagline: 'Pizarra de andenes: asfalto y hormigón, rojo y verde del letrero tbt, y 10.900 reseñas.',
+    gradient: 'linear-gradient(135deg, #0C0E10 0%, #141619 55%, #E32026 170%)',
   },
 ]
 
