@@ -4853,6 +4853,14 @@ const BLITZ = [
     tagline: 'Los llaveros de la quinta: casa blanca en la pradera con sauces, piscina y croquis marcados.',
     gradient: 'linear-gradient(135deg, #FAF7EE 0%, #3D5A35 110%, #5E9BA8 200%)',
   },
+  {
+    slug: 'vivero-alma-tierra',
+    name: 'Vivero Alma Tierra',
+    rubro: 'Vivero',
+    city: 'San Clemente',
+    tagline: 'Las etiquetas clavadas de la parcela 7: terracota de maceteros y el invernadero real.',
+    gradient: 'linear-gradient(135deg, #F6F1E3 0%, #2F4A2E 110%, #B4552E 200%)',
+  },
 ]
 
 export const metadata: Metadata = {
