@@ -4694,6 +4694,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F7F1E3 0%, #1E4630 90%, #B4552E 190%)',
   },
   {
+    slug: 'el-tumbaito',
+    name: 'El Tumbaito',
+    rubro: 'Bar restaurante',
+    city: 'Linares',
+    tagline: 'La picada desde 1965: navy de su letrero ovalado, pizarra mostaza y la pared de afiches de su Facebook.',
+    gradient: 'linear-gradient(135deg, #0E1F33 0%, #B3271E 120%, #D9A441 200%)',
+  },
+  {
     slug: 'gasfiter-en-talca',
     name: 'Gasfiter en Talca',
     rubro: 'Fontanero · guardia 24 horas',
