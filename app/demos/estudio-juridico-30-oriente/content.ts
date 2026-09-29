@@ -1,15 +1,17 @@
 // Datos verificados en la ficha de Google Maps "Estudio Jurídico Talca"
-// (Calle 30 Oriente 1420). La ficha es nueva: no publica reseñas, horario ni
-// fotos todavía, por eso esta página es todo-tipográfica y solo afirma lo
-// confirmado. Revisado: 2025.
+// (Calle 30 Oriente 1420, dentro de Edificio Plaza Oriente — tel. +56 9 7000 5157).
+// La ficha sigue sin reseñas, horario ni sitio web publicados: solo se afirma lo
+// confirmado. Las fotos son tomas reales del edificio donde funciona el estudio.
+// Revisado: 2026-09-29.
 
 export const BIZ = {
   slug: 'estudio-juridico-30-oriente',
   name: 'Estudio Jurídico Talca',
   short: 'Estudio Jurídico',
   rubro: 'Abogados y asesoría legal',
-  tagline: 'Atención presencial en calle 30 Oriente, Talca.',
+  tagline: 'Atención presencial en Edificio Plaza Oriente, calle 30 Oriente 1420.',
   address: 'Calle 30 Oriente 1420',
+  building: 'Edificio Plaza Oriente',
   city: 'Talca',
   region: 'Maule',
   phone: '+56 9 7000 5157',
@@ -21,6 +23,25 @@ export const BIZ = {
 export const WA_TEXT = encodeURIComponent(
   'Hola, los encontré en su nueva página web. Quiero agendar una consulta con el estudio.',
 )
+
+// Fotos reales del edificio donde atiende el estudio (Edificio Plaza Oriente).
+export const EDIFICIO = [
+  {
+    src: '/demos/estudio-juridico-30-oriente/edificio-fachada.webp',
+    alt: 'Fachada de Edificio Plaza Oriente en calle 30 Oriente 1420, Talca',
+    placa: 'Fachada — 30 Oriente 1420',
+  },
+  {
+    src: '/demos/estudio-juridico-30-oriente/edificio-entrada.webp',
+    alt: 'Entrada de Edificio Plaza Oriente con el número 1420 sobre el acceso',
+    placa: 'Acceso principal',
+  },
+  {
+    src: '/demos/estudio-juridico-30-oriente/calle-30-oriente.webp',
+    alt: 'Calle 30 Oriente a la altura del 1420, frente a Edificio Plaza Oriente',
+    placa: 'Calle 30 Oriente',
+  },
+]
 
 // La primera consulta paso a paso: proceso, no afirmaciones no verificadas.
 export const PASOS = [
