@@ -5,8 +5,10 @@
  * /centrodeesteticamia): nombre, dirección, nota 4,8 en 31 reseñas con
  * citas reales, la página de Facebook y el WhatsApp. Los servicios son
  * los del tótem de la fachada: Peluquería · Depilación · Manicure ·
- * Pedicure · Bronceado. Las fotos son reales (fachada, manicure,
- * masajes y alisados, publicadas por el propio centro).
+ * Pedicure · Bronceado. Además promocionan lifting de pestañas en su
+ * Facebook. Las fotos son reales: fachada, manicure y balayage
+ * publicados por el propio centro; el sello Brasil Coffee Liss lo
+ * compartieron como certificación del salón.
  */
 
 export const BIZ = {
@@ -42,12 +44,15 @@ export const IMG = '/demos/mia-centro-de-estetica'
 
 /** Los 5 servicios del tótem violeta de la fachada (letrero real). */
 export const SERVICIOS = [
-  { name: 'Peluquería', desc: 'Corte, color y alisados. En su Facebook muestran el trabajo con Brasil Coffee Liss.' },
+  { name: 'Peluquería', desc: 'Corte, color y alisados. Trabajan con línea profesional — el sello Brasil Coffee Liss lo comparten en su Facebook.' },
   { name: 'Depilación', desc: 'Depilación de cejas, rostro y cuerpo, en cabina con hora agendada.' },
   { name: 'Manicure', desc: 'Esmaltado tradicional y permanente, con glitter y nail art a elección.' },
   { name: 'Pedicure', desc: 'Pedicure completa con cuidado de cutícula y esmaltado.' },
   { name: 'Bronceado', desc: 'El quinto servicio del tótem de la reja, tal como aparece en la fachada.' },
 ] as const
+
+/** Servicio que promocionan en su Facebook fuera del tótem físico. */
+export const SERVICIO_EXTRA = 'Lifting de pestañas'
 
 /** Reseñas reales citadas desde la ficha pública de Google Maps. */
 export const REVIEWS = [
