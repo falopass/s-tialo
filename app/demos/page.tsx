@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'sabor-ok',
+    name: 'Sabor Ok',
+    rubro: 'Sushi y cocina de noche',
+    city: 'Hualañé',
+    tagline: 'La casa del cerro de noche: Instrument Serif sobre noche profunda y ámbar de barra.',
+    gradient: 'linear-gradient(135deg, #0E1318 0%, #16202A 55%, #E9A03B 150%)',
+  },
+  {
     slug: 'hosteria-la-huerta',
     name: 'Hostería La Huerta',
     rubro: 'Hostería y restaurante',
