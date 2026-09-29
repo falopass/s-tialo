@@ -488,8 +488,8 @@ export default function LasPuertasDelParaisoPage() {
       {/* ── Ubicación ── */}
       <section id="ubicacion" className="scroll-mt-20" style={{ backgroundColor: C.night }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div className="min-w-0">
               <Reveal>
                 <Eyebrow dark>Cómo llegar · km 218</Eyebrow>
                 <address className="not-italic mb-6">
@@ -552,7 +552,7 @@ export default function LasPuertasDelParaisoPage() {
               </Reveal>
             </div>
             <Reveal delay={120}>
-              <div className="relative overflow-hidden border-2 aspect-[4/3] min-h-[300px]" style={{ borderColor: 'rgba(242,231,207,0.3)' }}>
+              <div className="relative overflow-hidden border-2 min-h-[300px] md:aspect-[4/3]" style={{ borderColor: 'rgba(242,231,207,0.3)' }}>
                 <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
