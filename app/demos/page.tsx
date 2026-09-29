@@ -663,6 +663,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #4A1512 0%, #9C2B26 55%, #D99A3D 140%)',
   },
   {
+    slug: 'cocineria-don-carlos',
+    name: 'Cocinería Don Carlos',
+    rubro: 'Cocinería · comida para llevar',
+    city: 'San Clemente',
+    tagline: 'La comanda: ticket de pedido perforado, carta en mono y sello teja sobre papel.',
+    gradient: 'linear-gradient(135deg, #F4EAD8 0%, #A8441C 100%, #2A211A 200%)',
+  },
+  {
     slug: 'marbella-talcahuano',
     name: 'Café Marbella',
     rubro: 'Café y pastelería',
