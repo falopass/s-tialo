@@ -1663,6 +1663,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #17171C 0%, #C81E6B 90%, #E4B700 150%)',
   },
   {
+    slug: 'maderas-oyarce',
+    name: 'Maderas Oyarce',
+    rubro: 'Maderería y barraca',
+    city: 'Maule',
+    tagline: 'Escuadría: crema madera, verde pino de su logo y regla milimetrada.',
+    gradient: 'linear-gradient(135deg, #1B2417 0%, #3E7C3A 80%, #E8E0CC 150%)',
+  },
+  {
     slug: 'nogal-consulta-veterinaria',
     name: 'Nogal consulta veterinaria',
     rubro: 'Veterinario',
