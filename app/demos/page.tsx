@@ -3470,6 +3470,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0B2836 0%, #14506B 55%, #F2A93B 150%)',
   },
 >>>>>>> 18fe7a9029 (demo: Cabañas Lomas de Sol (Pelluhue) — parte de terreno solar con escenas bosquejo y datos SERNATUR)
+  {
+    slug: 'muerto-de-hambre',
+    name: 'Muerto de Hambre',
+    rubro: 'Restobar — comida casera',
+    city: 'San Clemente',
+    tagline: 'Cantina de campo: letrero de madera tallada, pizarra con su carta real y 4,3 estrellas en Google.',
+    gradient: 'linear-gradient(135deg, #171009 0%, #2E2114 60%, #E0A03A 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
