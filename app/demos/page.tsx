@@ -3069,6 +3069,30 @@ const BLITZ = [
     tagline: 'El spa como café de barrio: carta de la casa, tinaja en la terraza y el Café Spa de su propio logo.',
     gradient: 'linear-gradient(135deg, #0F0B08 0%, #C08A5A 150%, #F3ECE1 240%)',
   },
+  {
+    slug: 'dislac-distribuidora',
+    name: 'Dislac Distribuidora',
+    rubro: 'Distribuidora de lácteos',
+    city: 'Talca',
+    tagline: 'Mostrador de distribuidora: crema de leche, naranjo de su logo y cinta de marcas que distribuye.',
+    gradient: 'linear-gradient(135deg, #FAF3E4 0%, #E8720C 110%, #14100A 190%)',
+  },
+  {
+    slug: 'banos-quimicos-lazcano',
+    name: 'Baños Químicos Lazcano',
+    rubro: 'Baños químicos y limpieza de fosas',
+    city: 'Talca',
+    tagline: 'Cartel de faena: petróleo oscuro, verde de sus baños portátiles y fichas de servicio numeradas.',
+    gradient: 'linear-gradient(135deg, #0E2233 0%, #12304A 60%, #4E9A3C 170%)',
+  },
+  {
+    slug: 'supermercado-san-sebastian',
+    name: 'Supermercado San Sebastián',
+    rubro: 'Supermercado',
+    city: 'San Clemente',
+    tagline: 'Cartel de esquina: amarillo de la fachada, azul del letrero y 681 reseñas reales.',
+    gradient: 'linear-gradient(135deg, #F6B51E 0%, #C93A2E 90%, #12366E 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
