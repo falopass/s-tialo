@@ -76,7 +76,7 @@ export default function CentroMedicoCurimed() {
       />
 
       {/* ── Hero: el letrero real como portada ── */}
-      <section className="max-w-6xl mx-auto px-5 md:px-8 pt-6">
+      <section className="max-w-6xl mx-auto px-5 md:px-8 pt-[84px]">
         <Reveal>
           <div className="grid md:grid-cols-[1.2fr_1fr] gap-6 items-stretch">
             <div>
@@ -349,23 +349,24 @@ export default function CentroMedicoCurimed() {
             <a href={CALL_LINK} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(242,246,244,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(242,246,244,0.7)' }}>
-            Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#F2F6F4' }}>
-              Sitiazo
-            </a>{' '}
-            para {BIZ.name}. Los datos y las fotos son reales: ficha de
-            Google, su Facebook y su sitio curimed.cl — que ya existe; este
-            demo es una propuesta de vitrina. La galería publica poco
-            material propio, así que usamos su letrero y sus afiches, sin
-            fabricar imágenes.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#AEE3D2' }}>
-              ¿Lo hacemos realidad?
-            </a>
-          </p>
-        </div>
       </footer>
+
+      <div style={{ backgroundColor: '#0A2E39', borderTop: '1px solid rgba(242,246,244,0.14)' }}>
+        <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(242,246,244,0.7)' }}>
+          Sitio de ejemplo preparado por{' '}
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#F2F6F4' }}>
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name}. Los datos y las fotos son reales: ficha de
+          Google, su Facebook y su sitio curimed.cl — que ya existe; este
+          demo es una propuesta de vitrina. La galería publica poco
+          material propio, así que usamos su letrero y sus afiches, sin
+          fabricar imágenes.{' '}
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#AEE3D2' }}>
+            ¿Lo hacemos realidad?
+          </a>
+        </p>
+      </div>
 
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
     </div>
