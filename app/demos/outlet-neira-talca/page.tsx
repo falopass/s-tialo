@@ -76,12 +76,13 @@ const PISO = [
     nombre: 'Living y textil',
     detalle: 'Sofás, sillas y ropa de hogar — el otro lado del letrero.',
   },
-]
-
-const HORARIO = [
-  { dia: 'Lunes a viernes', horas: '9:00 – 19:00' },
-  { dia: 'Sábado', horas: '9:00 – 16:00' },
-  { dia: 'Domingo', horas: 'Cerrado' },
+  {
+    foto: `${IMG}/entrada.webp`,
+    alt: 'Sillas con cojines de colores en la entrada de Outlet Neira',
+    etq: 'ETQ-05',
+    nombre: 'Lo que va entrando',
+    detalle: 'La entrada siempre muestra lo nuevo que llegó esta semana.',
+  },
 ]
 
 export default function OutletNeira() {

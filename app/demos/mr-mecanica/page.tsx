@@ -300,6 +300,24 @@ export default function MrMecanica() {
                 En la bahía — foto del taller
               </figcaption>
             </figure>
+            <figure
+              className="overflow-hidden mt-6"
+              style={{ border: `1px solid ${C.line}` }}
+            >
+              <Image
+                src={`${IMG}/letrero.webp`}
+                alt="Letrero de la fachada de MR Mecánica con sus servicios"
+                width={640}
+                height={400}
+                className="w-full h-auto"
+              />
+              <figcaption
+                className={`${mono.className} px-4 py-3 text-[11px] uppercase tracking-widest`}
+                style={{ backgroundColor: C.steel, color: C.muted }}
+              >
+                El letrero de afuera
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
@@ -442,6 +460,15 @@ export default function MrMecanica() {
             </a>
           </Reveal>
           <Reveal delay={140}>
+            <figure className="overflow-hidden mb-6" style={{ border: `1px solid ${C.line}` }}>
+              <Image
+                src={`${IMG}/bahia.webp`}
+                alt="Entrada de la bahía del taller MR Mecánica"
+                width={640}
+                height={360}
+                className="w-full h-40 md:h-44 object-cover"
+              />
+            </figure>
             <div className="overflow-hidden" style={{ border: `1px solid ${C.line}` }}>
               <LazyMap
                 title="Mapa de MR Mecánica, San Clemente"
