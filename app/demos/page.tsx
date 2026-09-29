@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'la-orquidea-talca',
+    name: 'La Orquídea',
+    rubro: 'Panadería · Pastelería · Minimarket',
+    city: 'Talca',
+    tagline: 'Vitrina dorada: Playfair + DM Sans, oro orquídea sobre papel, tortas por encargo y minimarket importado.',
+    gradient: 'linear-gradient(135deg, #F8F1E4 0%, #C99A2E 130%, #2A1F14 190%)',
+  },
+  {
     slug: 'casa-de-campo-san-clemente',
     name: 'Casa de Campo',
     rubro: 'Restaurant campestre',
