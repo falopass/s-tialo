@@ -383,7 +383,7 @@ export default function HoteleraSomonturPage() {
       <footer style={{ backgroundColor: C.ink, color: C.cream }}>
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 pb-6 pt-8 md:flex-row md:items-center md:justify-between md:px-8">
           <div className="flex items-center gap-3">
-            <img src={`${IMG}/logo.webp`} alt="" width={40} height={40} className="h-10 w-10 rounded-full" />
+            <img src={`${IMG}/logo.webp`} alt="" width={40} height={40} className="h-10 w-10 rounded-full" aria-hidden="true" />
             <div>
               <p className={`${display.className} text-2xl leading-none`}>{BIZ.short}</p>
               <p className="mt-1 text-xs" style={{ color: C.mutedOnDark }}>
