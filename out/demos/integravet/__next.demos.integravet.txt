@@ -1,10 +1,4 @@
 1:"$Sreact.fragment"
 2:I[339756,["/_next/static/chunks/d96012bcfc98706a.js","/_next/static/chunks/495d1bbabd070728.js"],"default"]
 3:I[837457,["/_next/static/chunks/d96012bcfc98706a.js","/_next/static/chunks/495d1bbabd070728.js"],"default"]
-<<<<<<< HEAD
-0:{"buildId":"j6cHHFB1vSUZProUXPJPv","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
-||||||| parent of 054f685bd5 (chore: registrar el-rincon-del-sabor en catálogo + fechas + rebuild static export)
-0:{"buildId":"K5P71mOGWsfYe2Lo_DKIR","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
-=======
-0:{"buildId":"7cs5eBgFB2J10jJ9DpuoZ","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
->>>>>>> 054f685bd5 (chore: registrar el-rincon-del-sabor en catálogo + fechas + rebuild static export)
+0:{"buildId":"2Gp1-dmFlFIMxVlnpXKrh","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}

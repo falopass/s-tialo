@@ -1,11 +1,5 @@
 :HL["/_next/static/chunks/dd461230c2f4516d.css","style"]
-<<<<<<< HEAD
-:HL["/_next/static/chunks/b2b4ebf724d7a5a5.css","style"]
-||||||| parent of 054f685bd5 (chore: registrar el-rincon-del-sabor en catálogo + fechas + rebuild static export)
-:HL["/_next/static/chunks/705580a202942850.css","style"]
-=======
-:HL["/_next/static/chunks/2129581ab2a5046b.css","style"]
->>>>>>> 054f685bd5 (chore: registrar el-rincon-del-sabor en catálogo + fechas + rebuild static export)
+:HL["/_next/static/chunks/6e40602b5f34bb71.css","style"]
 :HL["/_next/static/media/italic_300_700-s.p.905ea8c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/italic_400_900-s.p.5602927e.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -22,10 +16,4 @@
 :HL["/_next/static/media/normal_800-s.p.ec0b24db.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/chunks/dda9181c48938b0d.css","style"]
 :HL["/images/logo/logo-white-letras.png","image"]
-<<<<<<< HEAD
-0:{"buildId":"j6cHHFB1vSUZProUXPJPv","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"cafe-paris-talca","paramType":null,"paramKey":"cafe-paris-talca","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
-||||||| parent of 054f685bd5 (chore: registrar el-rincon-del-sabor en catálogo + fechas + rebuild static export)
-0:{"buildId":"K5P71mOGWsfYe2Lo_DKIR","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"cafe-paris-talca","paramType":null,"paramKey":"cafe-paris-talca","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
-=======
-0:{"buildId":"7cs5eBgFB2J10jJ9DpuoZ","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"cafe-paris-talca","paramType":null,"paramKey":"cafe-paris-talca","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
->>>>>>> 054f685bd5 (chore: registrar el-rincon-del-sabor en catálogo + fechas + rebuild static export)
+0:{"buildId":"2Gp1-dmFlFIMxVlnpXKrh","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"cafe-paris-talca","paramType":null,"paramKey":"cafe-paris-talca","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
