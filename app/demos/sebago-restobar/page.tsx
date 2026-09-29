@@ -15,10 +15,7 @@ const body = localFont({
   src: [{ path: '../../fonts/karla/normal-200-800.woff2' }],
 })
 const mono = localFont({
-  src: [
-    { path: '../../fonts/roboto-mono/normal-400.woff2', weight: '400', style: 'normal' },
-    { path: '../../fonts/roboto-mono/normal-700.woff2', weight: '700', style: 'normal' },
-  ],
+  src: [{ path: '../../fonts/roboto-mono/normal-100-700.woff2', weight: '100 700', style: 'normal' }],
 })
 
 /** Techo de caña, lámparas tejidas y el verde petróleo de sus muros. */
