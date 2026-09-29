@@ -183,7 +183,7 @@ export default function Calypso() {
           </div>
           <div className="col-span-12 md:col-span-7 order-1 md:order-2">
             <Reveal>
-              <p className={`${mono.className} text-[11px] md:text-xs font-semibold uppercase tracking-[0.22em] mb-4`} style={{ color: C.teal }}>
+              <p className={`${mono.className} text-[11px] md:text-xs font-semibold uppercase tracking-[0.22em] mb-4`} style={{ color: C.sea }}>
                 costanera M-304 · frente a la playa
               </p>
               <h2 className={`${display.className} leading-[1.02] text-[clamp(2rem,5.5vw,4rem)] mb-5`}>
@@ -270,7 +270,7 @@ export default function Calypso() {
       <section style={{ backgroundColor: C.sand }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
           <Reveal>
-            <p className={`${mono.className} text-[11px] md:text-xs font-semibold uppercase tracking-[0.22em] mb-3`} style={{ color: C.teal }}>
+            <p className={`${mono.className} text-[11px] md:text-xs font-semibold uppercase tracking-[0.22em] mb-3`} style={{ color: C.sea }}>
               reseñas verificadas de Google
             </p>
             <h2 className={`${display.className} leading-[1.02] text-[clamp(2rem,5.5vw,3.8rem)] mb-10`}>
@@ -298,7 +298,7 @@ export default function Calypso() {
               target="_blank"
               rel="noopener noreferrer"
               className={`${mono.className} inline-block mt-8 text-xs md:text-sm font-semibold uppercase tracking-[0.14em] underline underline-offset-4 decoration-2 tap-44`}
-              style={{ color: C.teal }}
+              style={{ color: C.sea }}
             >
               Ver las {BIZ.reviews} opiniones en Google →
             </a>

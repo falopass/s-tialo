@@ -28,6 +28,7 @@ const C = {
   creamSoft: '#E7DBC2',
   wood: '#8A5A33',
   mustard: '#D9A441',
+  gold: '#E9C46A',
   ink: '#1C1810',
   muted: '#5E5748',
   line: 'rgba(28,24,16,0.18)',
@@ -43,7 +44,7 @@ export const metadata: Metadata = demoMetadata({
   slug: 'sebago-restobar',
   title: 'Sebago Restobar — Una casa como ninguna, Hualañé',
   description:
-    'Restobar en Arturo Prat 290, Hualañé: ceviches, tablas, pizzas de masa madre 24 h, burgers y mojitos. 4,6 estrellas en Google. Reserva por WhatsApp.',
+    'Restobar en Arturo Prat 290, Hualañé: ceviches, tablas, pizzas de masa fermentada 24 horas, burgers y mojitos. 4,6 estrellas en Google. Reserva por WhatsApp.',
   image: `${IMG}/15.webp`,
 })
 
@@ -180,7 +181,7 @@ export default function Sebago() {
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4 mb-4">
               <div>
-                <p className={`${mono.className} text-[11px] md:text-xs font-bold uppercase tracking-[0.22em] mb-3`} style={{ color: C.mustard }}>
+                <p className={`${mono.className} text-[11px] md:text-xs font-bold uppercase tracking-[0.22em] mb-3`} style={{ color: C.gold }}>
                   precios reales de su carta
                 </p>
                 <h2 className={`${display.className} font-extrabold uppercase leading-[0.92] text-[clamp(2.3rem,7vw,4.6rem)]`} style={{ color: C.cream }}>
@@ -198,7 +199,7 @@ export default function Sebago() {
               <Reveal key={g.group} delay={gi * 60} className="col-span-12 md:col-span-6 lg:col-span-4">
                 <h3
                   className={`${display.className} font-extrabold uppercase text-2xl md:text-[1.7rem] leading-none pb-3 border-b-2`}
-                  style={{ color: C.mustard, borderColor: 'rgba(241,232,213,0.3)' }}
+                  style={{ color: C.gold, borderColor: 'rgba(241,232,213,0.3)' }}
                 >
                   {g.group}
                 </h3>
@@ -209,7 +210,7 @@ export default function Sebago() {
                         <span className={`${display.className} font-bold text-base md:text-lg leading-tight`} style={{ color: C.cream }}>
                           {name}
                         </span>
-                        <span className={`${mono.className} text-sm md:text-base font-bold shrink-0`} style={{ color: C.mustard }}>
+                        <span className={`${mono.className} text-sm md:text-base font-bold shrink-0`} style={{ color: C.gold }}>
                           {price}
                         </span>
                       </div>
@@ -308,11 +309,11 @@ export default function Sebago() {
             {REVIEWS.map((r, i) => (
               <Reveal key={r.author} delay={i * 80} className="col-span-12 md:col-span-6">
                 <figure className="h-full p-5 md:p-6 flex flex-col" style={{ backgroundColor: i === 0 ? C.teal : C.cream, borderLeft: `4px solid ${i === 0 ? C.mustard : C.wood}` }}>
-                  <Stars value={r.stars} color={i === 0 ? C.mustard : C.wood} className="w-4 h-4 mb-3" />
+                  <Stars value={r.stars} color={i === 0 ? C.gold : C.wood} className="w-4 h-4 mb-3" />
                   <blockquote className="flex-1 text-sm md:text-base leading-relaxed" style={{ color: i === 0 ? 'rgba(241,232,213,0.92)' : C.ink }}>
                     “{r.text}”
                   </blockquote>
-                  <figcaption className={`${mono.className} mt-4 text-[11px] uppercase tracking-[0.14em] font-bold`} style={{ color: i === 0 ? C.mustard : C.muted }}>
+                  <figcaption className={`${mono.className} mt-4 text-[11px] uppercase tracking-[0.14em] font-bold`} style={{ color: i === 0 ? C.gold : C.muted }}>
                     {r.author} · {r.when} · reseña de Google
                   </figcaption>
                 </figure>
@@ -361,7 +362,7 @@ export default function Sebago() {
                 <p className={`${mono.className} text-xs uppercase tracking-[0.14em] mt-2`} style={{ color: 'rgba(241,232,213,0.75)' }}>
                   {BIZ.city}, {BIZ.region}
                 </p>
-                <a href={`tel:${BIZ.phoneTel}`} className={`${mono.className} inline-block mt-4 text-sm font-bold underline underline-offset-4 tap-44`} style={{ color: C.mustard }}>
+                <a href={`tel:${BIZ.phoneTel}`} className={`${mono.className} inline-block mt-4 text-sm font-bold underline underline-offset-4 tap-44`} style={{ color: C.gold }}>
                   {BIZ.phoneDisplay}
                 </a>
                 <p className={`${mono.className} text-xs mt-4 pt-4 border-t`} style={{ color: 'rgba(241,232,213,0.75)', borderColor: 'rgba(241,232,213,0.2)' }}>
