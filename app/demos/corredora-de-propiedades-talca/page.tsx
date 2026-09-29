@@ -544,7 +544,7 @@ export default function CorredoraDePropiedadesTalca() {
 
       <footer className="px-5 py-6 text-center border-t" style={{ borderColor: C.lineaOsc }}>
         <p className="font-[var(--f-mono)] text-[10px] uppercase tracking-[0.16em] leading-relaxed" style={{ color: C.suave }}>
-          {BIZ.rubro} · {BIZ.address},{'\u00A0'}{BIZ.city}{'\u00A0'}·{'\u00A0'}{BIZ.phoneDisplay}
+          {BIZ.rubro} · {BIZ.address},{'\u00A0'}{BIZ.city}{'\u00A0'}·{'\u00A0'}<span className="whitespace-nowrap">{BIZ.phoneDisplay}</span>
         </p>
       </footer>
 
