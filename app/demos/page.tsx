@@ -2615,6 +2615,14 @@ const BLITZ = [
     tagline: 'La cartelera del colegio: papel, cinta adhesiva, poleras amarillas y la insignia café de su portón.',
     gradient: 'linear-gradient(135deg, #F7F1E3 0%, #EFE5CD 45%, #4A1208 150%)',
   },
+  {
+    slug: 'instituto-ireland',
+    name: 'CFT Ireland',
+    rubro: 'Centro de Formación Técnica',
+    city: 'Talca',
+    tagline: 'El expediente: crema, azul marino, sello dorado y el registro de sus carreras a distancia.',
+    gradient: 'linear-gradient(135deg, #F3EDDE 0%, #EAE1CB 45%, #1E3A5F 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
