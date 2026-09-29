@@ -123,7 +123,7 @@ export default function LaClinicaDelAutomovil() {
                 />
               </div>
               <p className={`${mono.className} text-xs uppercase tracking-[0.25em] mb-2`} style={{ color: C.redDeep }}>
-                Molina · Av. Luis Cruz Martínez 1740
+                Molina · Av. Luis Cruz Martínez 1740
               </p>
             </div>
             <h1 className={`${display.className} uppercase leading-[0.95] text-[44px] md:text-[84px] mt-3`}>
