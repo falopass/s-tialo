@@ -61,8 +61,8 @@ export const waLinkLinea = (linea: string) =>
 
 export const IG_URL = 'https://www.instagram.com/comercial.rioclaro'
 
-export const MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=Comercial+R%C3%ADo+Claro+Talca'
+// Link por CID: resuelve siempre a esta ficha.
+export const MAPS_URL = 'https://www.google.com/maps?cid=0x911d9b05e4a41e5a'
 
 // Por nombre: abre la ficha del negocio con su pin en Carrera Pinto.
 export const MAPS_EMBED =

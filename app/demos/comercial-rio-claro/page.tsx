@@ -249,86 +249,143 @@ export default function ComercialRioClaroPage() {
         </p>
       </section>
 
-      {/* ── Las líneas de la casa ── */}
+      {/* ── La nota de pedido: el catálogo en el formato en que se pide ── */}
       <section id="lineas" className="scroll-mt-20 border-t" style={{ borderColor: C.line, backgroundColor: '#EFE9DA' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
               <h2 className={`${display.className} font-bold uppercase leading-[0.9] tracking-[-0.01em] text-4xl md:text-6xl`} style={{ color: C.forest }}>
-                Las tres líneas<br />de la repisa
+                Mandas la lista,<br />vuelve la cotización
               </h2>
               <p className="text-sm max-w-sm leading-relaxed" style={{ color: C.muted }}>
-                Lo que se ve en las fotos es el stock real del local. Precio y
-                disponibilidad se confirman por WhatsApp — al mayor y al detalle.
+                El catálogo se pide como una nota de pedido: marca la línea,
+                la mandas por WhatsApp y te confirman precio y stock al mayor
+                y al detalle.
               </p>
             </div>
           </Reveal>
 
-          <div>
-            {LINEAS.map((l, i) => (
-              <Reveal key={l.n} delay={i * 70}>
-                <article
-                  className="grid md:grid-cols-[220px_1fr_minmax(0,340px)] gap-6 md:gap-10 py-8 md:py-10 border-t items-start"
-                  style={{ borderColor: C.line }}
-                >
-                  <div>
-                    <p className={`${mono.className} text-xs mb-2`} style={{ color: C.brassInk }}>
-                      Línea {l.n}
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_340px] gap-8 lg:gap-12 items-start">
+            <Reveal>
+              <div style={{ backgroundColor: C.card, boxShadow: `0 0 0 1px ${C.line}, 0 28px 50px -30px rgba(19,35,24,0.4)` }}>
+                <header className="px-6 md:px-8 pt-7 pb-5" style={{ borderBottom: `2px dashed ${C.line}` }}>
+                  <div className="flex items-baseline justify-between gap-3">
+                    <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.brassInk }}>
+                      Nota de pedido
                     </p>
-                    <h3 className={`${display.className} font-bold uppercase leading-[0.95] text-2xl md:text-3xl`} style={{ color: C.ink }}>
-                      {l.name}
-                    </h3>
-                  </div>
-                  <div>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {l.tags.map((t) => (
-                        <MonoTag key={t}>{t}</MonoTag>
-                      ))}
-                    </div>
-                    <p className="text-sm md:text-[15px] leading-relaxed max-w-md" style={{ color: C.muted }}>
-                      {l.detalle}
+                    <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: C.muted }}>
+                      N° 088
                     </p>
-                    <a
-                      href={waLinkLinea(l.name)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${display.className} inline-flex items-center gap-2 mt-5 min-h-[44px] font-bold uppercase tracking-[0.06em] text-sm underline underline-offset-4 decoration-1 tap-44 ${FOCUS} focus-visible:outline-[#1E3D2F]`}
-                      style={{ color: C.forest }}
-                    >
-                      Cotizar esta línea →
-                    </a>
                   </div>
-                  <div className={`flex gap-4 ${l.shots.length > 1 ? '' : ''}`}>
-                    {l.shots.map((s, j) => (
-                      <div
-                        key={s.src}
-                        className={`relative overflow-hidden ${l.shots.length > 1 ? 'w-1/2 aspect-[4/5]' : 'w-full aspect-[4/3]'}`}
-                        style={{ boxShadow: `0 0 0 1px ${C.line}` }}
-                      >
-                        <Image
-                          src={s.src}
-                          alt={s.alt}
-                          fill
-                          sizes="(min-width: 768px) 340px, 90vw"
-                          className="object-cover"
-                          loading="lazy"
-                        />
-                        {l.shots.length > 1 && j === 0 && (
-                          <span className={`${mono.className} absolute bottom-2 left-2 text-[9px] uppercase tracking-[0.14em] px-2 py-1`} style={{ backgroundColor: 'rgba(19,35,24,0.85)', color: C.crema }}>
-                            5 L
-                          </span>
-                        )}
-                        {l.shots.length > 1 && j === 1 && (
-                          <span className={`${mono.className} absolute bottom-2 left-2 text-[9px] uppercase tracking-[0.14em] px-2 py-1`} style={{ backgroundColor: 'rgba(19,35,24,0.85)', color: C.crema }}>
-                            1 L
-                          </span>
-                        )}
+                  <p className="mt-3 text-sm font-semibold" style={{ color: C.ink }}>{BIZ.name}</p>
+                  <p className={`${mono.className} mt-1 text-[10px] uppercase tracking-[0.16em]`} style={{ color: C.muted }}>
+                    {BIZ.address} · {BIZ.city}
+                  </p>
+                </header>
+
+                <ul>
+                  {LINEAS.map((l, i) => (
+                    <li key={l.n} className="px-6 md:px-8 py-6" style={{ borderTop: i === 0 ? undefined : `1px dashed ${C.line}` }}>
+                      <div className="flex gap-4 md:gap-5">
+                        <div className="relative w-14 h-14 md:w-16 md:h-16 shrink-0 overflow-hidden" style={{ boxShadow: `0 0 0 1px ${C.line}` }}>
+                          <Image
+                            src={l.shots[0].src}
+                            alt={l.shots[0].alt}
+                            fill
+                            sizes="64px"
+                            className="object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-baseline justify-between gap-3">
+                            <h3 className={`${display.className} font-bold uppercase leading-[0.95] text-xl md:text-2xl`} style={{ color: C.ink }}>
+                              {l.name}
+                            </h3>
+                            <span className={`${mono.className} shrink-0 text-[10px] uppercase tracking-[0.16em]`} style={{ color: C.brassInk }}>
+                              {l.n}
+                            </span>
+                          </div>
+                          <div className="mt-3 flex flex-wrap gap-2">
+                            {l.tags.map((t) => (
+                              <MonoTag key={t}>{t}</MonoTag>
+                            ))}
+                          </div>
+                          <p className="mt-3 text-sm leading-relaxed" style={{ color: C.muted }}>
+                            {l.detalle}
+                          </p>
+                          <a
+                            href={waLinkLinea(l.name)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`${display.className} inline-flex items-center gap-2 mt-2 min-h-[44px] font-bold uppercase tracking-[0.06em] text-sm underline underline-offset-4 decoration-1 tap-44 ${FOCUS} focus-visible:outline-[#1E3D2F]`}
+                            style={{ color: C.forest }}
+                          >
+                            Cotizar esta línea →
+                          </a>
+                        </div>
                       </div>
-                    ))}
+                    </li>
+                  ))}
+                </ul>
+
+                <footer className="px-6 md:px-8 py-5 flex flex-wrap items-center justify-between gap-4" style={{ borderTop: `2px dashed ${C.line}` }}>
+                  <p className={`${mono.className} text-[10px] uppercase tracking-[0.16em] max-w-[220px]`} style={{ color: C.muted }}>
+                    Precio y stock se confirman por WhatsApp
+                  </p>
+                  <a
+                    href={WA_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${display.className} inline-flex items-center justify-center min-h-[48px] px-6 font-bold uppercase tracking-[0.06em] text-sm transition hover:brightness-110 active:scale-95 tap-44 ${FOCUS} focus-visible:outline-[#1E3D2F]`}
+                    style={{ backgroundColor: C.forest, color: C.crema }}
+                  >
+                    Mandar la lista
+                  </a>
+                </footer>
+                <div
+                  aria-hidden="true"
+                  className="h-8 opacity-70"
+                  style={{
+                    backgroundImage: `repeating-linear-gradient(90deg, ${C.ink} 0 2px, transparent 2px 5px, ${C.ink} 5px 6px, transparent 6px 10px, ${C.ink} 10px 13px, transparent 13px 15px)`,
+                  }}
+                />
+              </div>
+            </Reveal>
+
+            <Reveal delay={140}>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
+                <figure>
+                  <div className="relative aspect-[3/4] overflow-hidden" style={{ boxShadow: `0 0 0 1px ${C.line}` }}>
+                    <Image
+                      src={`${IMG}/botellas.webp`}
+                      alt="Botellas de 1 litro Winkler: desengrasante y desodorante ambiental citrus"
+                      fill
+                      sizes="(min-width: 1024px) 340px, (min-width: 640px) 45vw, 90vw"
+                      className="object-cover"
+                      loading="lazy"
+                    />
                   </div>
-                </article>
-              </Reveal>
-            ))}
+                  <figcaption className={`${mono.className} mt-3 text-[10px] uppercase tracking-[0.16em]`} style={{ color: C.muted }}>
+                    Foto publicada por el negocio en su ficha de Google
+                  </figcaption>
+                </figure>
+                <ol className="border-t" style={{ borderColor: C.line }}>
+                  {[
+                    'Marcas la línea en la nota',
+                    'La mandas por WhatsApp',
+                    'Confirman precio, stock y retiro en el local',
+                  ].map((paso, i) => (
+                    <li key={paso} className="flex gap-4 items-baseline py-3.5 border-b" style={{ borderColor: C.line }}>
+                      <span className={`${mono.className} text-[10px] uppercase tracking-[0.16em]`} style={{ color: C.brassInk }}>
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="text-sm" style={{ color: C.ink }}>{paso}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -354,7 +411,7 @@ export default function ComercialRioClaroPage() {
                 <div className="relative aspect-[16/10] overflow-hidden" style={{ boxShadow: `0 0 0 1px rgba(246,241,231,0.25)` }}>
                   <Image
                     src={`${IMG}/fachada.webp`}
-                    alt="La cuadra de Av. Ignacio Carrera Pinto donde está Comercial Río Claro, en Talca"
+                    alt="La casa de Av. Ignacio Carrera Pinto 088 donde atiende Comercial Río Claro: puerta de madera y letrero del negocio"
                     fill
                     sizes="(min-width: 1024px) 45vw, 90vw"
                     className="object-cover"
