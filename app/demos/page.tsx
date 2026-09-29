@@ -2607,6 +2607,14 @@ const BLITZ = [
     tagline: 'El museo del 1 Oriente: marfil, verde bosque, bronce y el Aldo\'s Bar con su fachada de toldo rayado.',
     gradient: 'linear-gradient(135deg, #0B241A 0%, #13392B 55%, #B08D4C 160%)',
   },
+  {
+    slug: 'colegio-san-francisco-de-asis',
+    name: 'Colegio San Francisco de Asís',
+    rubro: 'Escuela católica',
+    city: 'Talca',
+    tagline: 'La cartelera del colegio: papel, cinta adhesiva, poleras amarillas y la insignia café de su portón.',
+    gradient: 'linear-gradient(135deg, #F7F1E3 0%, #EFE5CD 45%, #4A1208 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
