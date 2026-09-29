@@ -3557,6 +3557,30 @@ const BLITZ = [
     tagline: 'La terraza sobre la arena: azul mar, teal de quitasoles y carta real con ceviches y tablas.',
     gradient: 'linear-gradient(135deg, #F3ECDC 0%, #0B6E78 110%, #0D2C36 190%)',
   },
+  {
+    slug: 'la-maestranza',
+    name: 'La Maestranza',
+    rubro: 'Pizzería y comida rápida',
+    city: 'Villa Alegre',
+    tagline: 'Póster callejero oscuro: stickers, teja flame y las papas naturales que repiten en sus 17 reseñas reales.',
+    gradient: 'linear-gradient(135deg, #14100B 0%, #E4572E 120%, #F4EFE3 190%)',
+  },
+  {
+    slug: 'raices-villalegrinas',
+    name: 'Raíces Villalegrinas',
+    rubro: 'Licorería artesanal',
+    city: 'Villa Alegre',
+    tagline: 'Etiqueta de bodega: papel y bosque con latón, la Canelita en su ficha real y la casa antigua de los Villena.',
+    gradient: 'linear-gradient(135deg, #F4EFE3 0%, #1E3D2F 120%, #C8A24B 190%)',
+  },
+  {
+    slug: 'las-delicias-de-roberto',
+    name: 'Las Delicias de Roberto',
+    rubro: 'Restaurant de almuerzo',
+    city: 'Cauquenes',
+    tagline: 'Ticket del día: papel, petróleo y sello rojo, vales reales del letrero y la pizarra frente a la plaza.',
+    gradient: 'linear-gradient(135deg, #FBF6EC 0%, #0E4C5C 120%, #C0392B 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
