@@ -39,6 +39,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F6F1E4 0%, #1F3A2C 100%, #8F5A1A 200%)',
   },
   {
+    slug: 'el-quincho-espacio-colibri',
+    name: 'El Quincho Espacio Colibrí',
+    rubro: 'Restaurante y cabañas',
+    city: 'Chanco, Pelluhue',
+    tagline: 'Libreta de sendero por 4 postas: verde bosque, burdeo y su sello de colibrí.',
+    gradient: 'linear-gradient(135deg, #F3EEE0 0%, #6E1F2C 90%, #1B2E1F 150%)',
+  },
+  {
     slug: 'como-en-peru',
     name: 'Como en Perú',
     rubro: 'Restaurante peruano',
