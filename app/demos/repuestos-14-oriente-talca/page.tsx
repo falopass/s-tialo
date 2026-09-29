@@ -175,6 +175,10 @@ export default function Page() {
                 <p className="font-bold">Como dato del local</p>
                 <p className="mt-1">También venden desodorante ambiental por litro, un clásico de los repuestos de barrio.</p>
               </div>
+              <figure className="mt-6 overflow-hidden rounded-2xl border-4" style={{ borderColor: C.crema, boxShadow: '0 12px 30px rgba(28,39,51,0.14)' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${IMG2}/promo.webp`} alt="Fachada completa pintada de Repuestos 14 Oriente con sus datos de contacto" className="w-full aspect-[21/10] object-cover" loading="lazy" />
+              </figure>
             </Reveal>
           </div>
         </section>
