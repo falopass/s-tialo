@@ -1,5 +1,5 @@
 /**
- * app/demos/otel-con-m-caba-as-del-cerro/content.ts
+ * app/demos/hotel-con-m-cabanas-del-cerro/content.ts
  *
  * Datos del mockup. REALES (ficha pública de Google Maps
  * "Otel con M - Cabañas del Cerro", Talca): nombre, dirección

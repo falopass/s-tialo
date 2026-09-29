@@ -6,7 +6,7 @@ import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import LazyMap from '../lazy-map'
 
-const IMG = '/demos/otel-con-m-caba-as-del-cerro'
+const IMG = '/demos/hotel-con-m-cabanas-del-cerro'
 
 const display = localFont({
   src: [{ path: '../../fonts/anton/normal-400.woff2', weight: '400', style: 'normal' }],
@@ -40,7 +40,7 @@ const C = {
 }
 
 export const metadata: Metadata = demoMetadata({
-  slug: 'otel-con-m-caba-as-del-cerro',
+  slug: 'hotel-con-m-cabanas-del-cerro',
   title: 'Cabañas del Cerro — hospedaje con vista a Talca',
   description:
     'Cabañas del Cerro (Otel con M) en el Cerro La Virgen, Talca: hospedaje a 150 m sobre la ciudad, camino a Pencahue. Reserva por WhatsApp.',
@@ -445,7 +445,7 @@ export default function Page() {
           <p className={`${mono.className} mt-2 text-[11px] leading-relaxed`} style={{ color: C.humo }}>
             {BIZ.address} · {BIZ.comuna}, {BIZ.region}
           </p>
-          <p className="mt-4 text-[11px] leading-relaxed max-w-2xl" style={{ color: 'rgba(169,176,212,0.65)' }}>
+          <p className="mt-4 text-[11px] leading-relaxed max-w-2xl" style={{ color: 'rgba(169,176,212,0.85)' }}>
             Textos descriptivos son de muestra; el nombre, la dirección, el teléfono, el promedio y
             el número de reseñas son los reales de su ficha de Google.
           </p>

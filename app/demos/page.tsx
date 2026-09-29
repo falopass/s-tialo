@@ -1887,7 +1887,7 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F7F3EA 0%, #211E17 150%)',
   },
   {
-    slug: 'otel-con-m-caba-as-del-cerro',
+    slug: 'hotel-con-m-cabanas-del-cerro',
     name: 'Cabañas del Cerro',
     rubro: 'Hospedaje',
     city: 'Talca',
