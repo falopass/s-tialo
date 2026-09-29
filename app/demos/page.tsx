@@ -2155,8 +2155,8 @@ const BLITZ = [
     name: 'Auto Castillo',
     rubro: 'Repuestos, servicio técnico y venta de autos',
     city: 'Talca',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #FBC440 0%, #F5F3EC 150%)',
+    tagline: 'Boleta de mostrador: amarillo del logo sobre acero oscuro, bordes troquelados y el showroom real de 1 Norte.',
+    gradient: 'linear-gradient(135deg, #ECEAE4 0%, #101114 55%, #FBC440 160%)',
   },
   {
     slug: 'cabanas-talca',
