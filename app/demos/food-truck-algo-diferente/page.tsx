@@ -484,8 +484,8 @@ export default function AlgoDiferentePage() {
         <Reveal>
           <Etiqueta n="§05">Pasado el peaje, mano derecha</Etiqueta>
         </Reveal>
-        <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
-          <Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start">
+          <Reveal className="min-w-0">
             <div className="border-2 rounded-sm p-5 md:p-7" style={{ borderColor: C.ink, backgroundColor: C.paperHi }}>
               <Senal>{BIZ.address}</Senal>
               <address className="not-italic mt-5 mb-5">
@@ -523,7 +523,7 @@ export default function AlgoDiferentePage() {
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <div className="relative overflow-hidden border-[3px] rounded-sm aspect-[4/3] min-h-[300px]" style={{ borderColor: C.ink }}>
+            <div className="relative overflow-hidden border-[3px] rounded-sm min-h-[300px] md:aspect-[4/3]" style={{ borderColor: C.ink }}>
               <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                 src={MAPS_EMBED}
