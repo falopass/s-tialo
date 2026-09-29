@@ -3725,6 +3725,30 @@ const BLITZ = [
     tagline: 'El recorrido de la casa: marcos de arco colonial, crema y teja de su fachada, y la pizarra de la colación.',
     gradient: 'linear-gradient(135deg, #F1E7D4 0%, #A43B26 110%, #20281F 190%)',
   },
+  {
+    slug: 'el-bajito',
+    name: 'El Bajito',
+    rubro: 'Almuerzos caseros',
+    city: 'Villa Alegre',
+    tagline: 'El letrero pintado a mano: papel crema, amarillo de su pendón y la pizarra del mediodía con el curanto que recomienda la gente.',
+    gradient: 'linear-gradient(135deg, #FAF3E4 0%, #F2B705 120%, #2A1E14 190%)',
+  },
+  {
+    slug: 'restaurant-pehuen',
+    name: 'Restaurant Pehuén',
+    rubro: 'Cocina chilena y sushi',
+    city: 'Yerbas Buenas',
+    tagline: 'De día cazuela, de noche sushi: teja de su fachada, patio con plantas y el volante real de promos.',
+    gradient: 'linear-gradient(135deg, #F5EEE1 0%, #9C4A2F 120%, #1D1B16 190%)',
+  },
+  {
+    slug: 'sushi-gou',
+    name: 'Sushi Gou',
+    rubro: 'Restaurante de sushi',
+    city: 'Parral',
+    tagline: 'La pizarra roja: negro carbón, rojo de su muralla y los precios reales escritos a mano en el local.',
+    gradient: 'linear-gradient(135deg, #161210 0%, #D93A2B 130%, #F7EFE3 210%)',
+  },
 ]
 
 export const metadata: Metadata = {
