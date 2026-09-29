@@ -3749,6 +3749,30 @@ const BLITZ = [
     tagline: 'La pizarra roja: negro carbón, rojo de su muralla y los precios reales escritos a mano en el local.',
     gradient: 'linear-gradient(135deg, #161210 0%, #D93A2B 130%, #F7EFE3 210%)',
   },
+  {
+    slug: 'oveja-negra-linares',
+    name: 'Oveja Negra',
+    rubro: 'Restobar · almuerzos',
+    city: 'Linares',
+    tagline: 'La colación de Manuel Rodríguez: ticket de tres pasos, ámbar de madera y la oveja de lentes.',
+    gradient: 'linear-gradient(135deg, #F7EFDD 0%, #C9862B 110%, #181209 190%)',
+  },
+  {
+    slug: 'la-terraza-resto-bar-rauco',
+    name: 'La Terraza Restobar',
+    rubro: 'Pub · Karaoke · Restobar',
+    city: 'Rauco',
+    tagline: 'La noche de Rauco: neón fucsia y verde, karaoke, tablas y la pista a toda pantalla.',
+    gradient: 'linear-gradient(135deg, #0D0A0E 0%, #E1256B 120%, #1DB584 200%)',
+  },
+  {
+    slug: 'kochu',
+    name: 'Kochü',
+    rubro: 'Restaurante · Cafetería · Pastelería',
+    city: 'Vichuquén',
+    tagline: 'A orillas del lago: papel crema, tinta manuscrita y horario solo de viernes a domingo.',
+    gradient: 'linear-gradient(135deg, #FAF5EA 0%, #0E5563 120%, #191510 200%)',
+  },
 ]
 
 export const metadata: Metadata = {

@@ -331,6 +331,9 @@ const BLITZ_CREATED: Record<string, string> = {
   'centro-veterinario-colchagua': '2026-09-28',
   'yum-express-talca': '2026-09-28',
   'camping-y-cabanas-jemaresdagu': '2026-09-28',
+  'oveja-negra-linares': '2026-09-29',
+  'la-terraza-resto-bar-rauco': '2026-09-29',
+  kochu: '2026-09-29',
 }
 
 function familyFor(rubro: string) {
