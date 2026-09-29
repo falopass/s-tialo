@@ -64,11 +64,11 @@ const PASOS = [
   },
   {
     num: '03',
-    src: `${IMG}/detalle3.webp`,
+    src: `${IMG}/comedor.webp`,
     tag: 'la mañana',
     title: 'Desayuno de casa para partir el día',
-    desc: 'Pan, mermelada casera, té o café y fruta, servido temprano para quienes salen a trabajar o siguen viaje.',
-    alt: 'Desayuno del hostal con té, jugo y fruta servido en bandeja',
+    desc: 'En el comedor del hostal: pan, mermelada casera, té o café y fruta, servido temprano para quienes salen a trabajar o siguen viaje.',
+    alt: 'Comedor del Hostal Josefa con mesas junto a los ventanales',
   },
 ]
 
@@ -317,17 +317,31 @@ export default function HostalJosefaPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-center mb-14 md:mb-20">
             <Reveal>
-              <div
-                className="relative aspect-[4/3] border-[3px]"
-                style={{ borderColor: 'rgba(237,230,218,0.35)', boxShadow: `10px 10px 0 ${C.orange}` }}
-              >
-                <Image
-                  src={`${IMG}/ambiente.webp`}
-                  alt="Pieza doble del hostal con cortinas naranjas y camas de sábanas blancas"
-                  fill
-                  sizes="(min-width: 1024px) 45vw, 100vw"
-                  className="object-cover"
-                />
+              <div className="flex flex-col gap-6">
+                <div
+                  className="relative aspect-[4/3] border-[3px]"
+                  style={{ borderColor: 'rgba(237,230,218,0.35)', boxShadow: `10px 10px 0 ${C.orange}` }}
+                >
+                  <Image
+                    src={`${IMG}/ambiente.webp`}
+                    alt="Pieza doble del hostal con cortinas naranjas y camas de sábanas blancas"
+                    fill
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div
+                  className="relative aspect-square w-3/4 ml-auto border-[3px]"
+                  style={{ borderColor: 'rgba(237,230,218,0.35)', boxShadow: `10px 10px 0 ${C.orange}` }}
+                >
+                  <Image
+                    src={`${IMG}/flyer.webp`}
+                    alt="Flyer del Residencial Josefa: convenio con empresas, baños privados, TV por cable, wifi, aire acondicionado y abierto las 24 horas"
+                    fill
+                    sizes="(min-width: 1024px) 35vw, 75vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </Reveal>
             <Reveal delay={140}>

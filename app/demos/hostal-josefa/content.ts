@@ -3,8 +3,9 @@
  *
  * Datos del mockup. REALES (ficha pública): nombre, dirección,
  * WhatsApp, Facebook, las 106 reseñas de Google Maps y las fotos
- * (bajadas de su ficha de Maps y su flyer publicado). Las tarifas
- * son contenido de muestra para mostrar cómo se vería el sitio.
+ * (bajadas de su ficha de Maps: fachada, piezas, recepción, comedor,
+ * más su flyer publicado). Las tarifas son contenido de muestra
+ * para mostrar cómo se vería el sitio.
  */
 
 export const BIZ = {
