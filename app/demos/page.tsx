@@ -3821,6 +3821,14 @@ const BLITZ = [
     tagline: 'Una casa como ninguna: verde petróleo, letrero tallado en madera y la carta con precios reales.',
     gradient: 'linear-gradient(135deg, #F1E8D5 0%, #0E5451 90%, #1C1810 180%)',
   },
+  {
+    slug: 'psic-yaritza-daney-pino-diaz',
+    name: 'Ps. Yaritza Daney Pino Díaz',
+    rubro: 'Psicóloga clínica',
+    city: 'Talca',
+    tagline: 'Consulta con luz de ventana: salvia y crema, reseñas 5,0 reales y la psicóloga que también escribe.',
+    gradient: 'linear-gradient(135deg, #F6F1E7 0%, #3E5F49 130%, #A4512E 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
