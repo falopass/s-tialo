@@ -4613,6 +4613,14 @@ const BLITZ = [
     tagline: 'Guía de despacho en papel y naranjo tapita: el cilindro como bosquejo marcado y el pedido en 3 pasos.',
     gradient: 'linear-gradient(135deg, #FBF4E8 0%, #F15A24 120%, #1C140C 200%)',
   },
+  {
+    slug: 'gasfiter-tecnifem',
+    name: 'Gasfitería Tecnifem',
+    rubro: 'Gasfitería · soluciones técnicas',
+    city: 'Talca',
+    tagline: 'Mujeres que resuelven: orden de trabajo, teal del sello real y amarillo de obra sobre papel.',
+    gradient: 'linear-gradient(135deg, #F4F1EA 0%, #0E7C86 130%, #F2C314 200%)',
+  },
 ]
 
 export const metadata: Metadata = {
