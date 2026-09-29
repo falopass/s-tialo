@@ -2535,6 +2535,14 @@ const BLITZ = [
     tagline: 'La clínica de la puerta de madera en Av. Sur: verde bosque, marco de madera y los carteles de las Correa.',
     gradient: 'linear-gradient(135deg, #0E2117 0%, #1E4433 55%, #9A6A3C 160%)',
   },
+  {
+    slug: 'atenas',
+    name: 'Atenas Entrenamiento Corporal',
+    rubro: 'Gimnasio · clases full body',
+    city: 'Molina',
+    tagline: 'Tinta y oro del Partenón: su eslogan DISCIPLINA en Marcellus, columnas estriadas, estela de horarios y reseñas 5.0.',
+    gradient: 'linear-gradient(135deg, #0C0C0E 0%, #141417 55%, #E0B034 160%)',
+  },
 ]
 
 export const metadata: Metadata = {

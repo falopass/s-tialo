@@ -1,5 +1,11 @@
 :HL["/_next/static/chunks/dd461230c2f4516d.css","style"]
+<<<<<<< HEAD
 :HL["/_next/static/chunks/6e40602b5f34bb71.css","style"]
+||||||| parent of 7ece49c3ff (demo(atenas): gimnasio tinta+oro del Partenón — eslogan DISCIPLINA en Marcellus, columnas estriadas, estela de horarios, reseñas 5.0 y mapa)
+:HL["/_next/static/chunks/b2b4ebf724d7a5a5.css","style"]
+=======
+:HL["/_next/static/chunks/f7631ac712c13367.css","style"]
+>>>>>>> 7ece49c3ff (demo(atenas): gimnasio tinta+oro del Partenón — eslogan DISCIPLINA en Marcellus, columnas estriadas, estela de horarios, reseñas 5.0 y mapa)
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.bd54c7c8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.c757f81b.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -11,4 +17,10 @@
 :HL["/_next/static/media/normal_700-s.p.cfdf3f4f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_800-s.p.ec0b24db.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/images/logo/logo-white-letras.png","image"]
+<<<<<<< HEAD
 0:{"buildId":"2Gp1-dmFlFIMxVlnpXKrh","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"casos","paramType":null,"paramKey":"casos","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+||||||| parent of 7ece49c3ff (demo(atenas): gimnasio tinta+oro del Partenón — eslogan DISCIPLINA en Marcellus, columnas estriadas, estela de horarios, reseñas 5.0 y mapa)
+0:{"buildId":"j6cHHFB1vSUZProUXPJPv","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"casos","paramType":null,"paramKey":"casos","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+=======
+0:{"buildId":"LZklDIkZCiOO3G-WWD4Sx","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"casos","paramType":null,"paramKey":"casos","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+>>>>>>> 7ece49c3ff (demo(atenas): gimnasio tinta+oro del Partenón — eslogan DISCIPLINA en Marcellus, columnas estriadas, estela de horarios, reseñas 5.0 y mapa)
