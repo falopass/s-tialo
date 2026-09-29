@@ -18,9 +18,9 @@
  *   (EcoRegistros). Le da nombre y espíritu al lugar.
  * - Vilches es el acceso principal a la Reserva Nacional Altos de Lircay
  *   (CONAF, comuna de San Clemente).
- * - Foto: la única imagen publicada en su ficha de Maps (cabaña de madera
- *   entre robles, letrero tallado "BIENVENIDOS", ene 2021). El resto de
- *   los visuales son bosquejos marcados.
+ * - Foto: imagen publicada en su ficha de Maps (cabaña de madera entre
+ *   robles, letrero tallado "BIENVENIDOS", ene 2021). El resto de los
+ *   visuales son bosquejos marcados.
  */
 
 export const BIZ = {
