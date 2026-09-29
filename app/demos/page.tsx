@@ -2511,6 +2511,14 @@ const BLITZ = [
     tagline: 'Paradero de la K-620: crema, rojo y amarillo de su sello de huaso, línea de ruta y su terraza real.',
     gradient: 'linear-gradient(135deg, #FBF4E4 0%, #F2B01E 60%, #C22F1F 130%)',
   },
+  {
+    slug: 'optica-loica',
+    name: 'Óptica Loica',
+    rubro: 'Óptica',
+    city: 'Talca',
+    tagline: 'La tienda del mural amarillo en 31 1/2 Oriente: ciruela, rojo loica y riel de armazones reales.',
+    gradient: 'linear-gradient(135deg, #33121F 0%, #5A2440 55%, #C8102E 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
