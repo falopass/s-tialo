@@ -4837,6 +4837,14 @@ const BLITZ = [
     tagline: 'Las etiquetas clavadas de la parcela 7: terracota de maceteros y el invernadero real.',
     gradient: 'linear-gradient(135deg, #F6F1E3 0%, #2F4A2E 110%, #B4552E 200%)',
   },
+  {
+    slug: 'la-clinica-del-automovil',
+    name: 'La Clínica del Automóvil',
+    rubro: 'Taller mecánico',
+    city: 'Molina',
+    tagline: 'La receta del auto: crema clínica, rojo de urgencia y la cinta amarilla del taller, con sus afiches reales de Instagram.',
+    gradient: 'linear-gradient(135deg, #F7F3E8 0%, #1A1C17 90%, #C8102E 180%)',
+  },
 ]
 
 export const metadata: Metadata = {
