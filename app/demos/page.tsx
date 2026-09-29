@@ -4013,6 +4013,22 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #17120E 0%, #2E6B62 150%)',
   },
+  {
+    slug: 'cabanas-cerro-colorado',
+    name: 'cabanas-cerro-colorado',
+    rubro: 'Servicios',
+    city: '',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #0E3446 0%, #A9713F 150%)',
+  },
+  {
+    slug: 'psic-yaritza-daney-pino-diaz',
+    name: 'Ps. Yaritza Daney Pino Díaz',
+    rubro: 'Psicóloga clínica',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F6F1E7 0%, #33262C 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
