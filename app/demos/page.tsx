@@ -2853,6 +2853,15 @@ const BLITZ = [
     tagline: 'El cuaderno del ABC: papel pautado, triángulos A-B-C y el mural de las estaciones de su muro real.',
     gradient: 'linear-gradient(135deg, #FDFAF1 0%, #FFDD00 60%, #2B3AA8 170%)',
   },
+  {
+    slug: 'imprenta-onix',
+    name: 'Imprenta Onix',
+    rubro: 'Imprenta gráfica',
+    city: 'Talca',
+    tagline: 'La página como libro impreso: capítulos con capitular en rúbrica, papel antiguo y el galpón celeste de la 6 Sur.',
+    gradient: 'linear-gradient(135deg, #1B1712 0%, #9E2B1B 85%, #F3EDDE 180%)',
+  },
+>>>>>>> 89fc2c2e74 (demo(imprenta-onix): página como libro impreso — capítulos con capitular en rúbrica, papel antiguo, fachada real de la 6 Sur vía Street View, taller marcado como bosquejo)
 ]
 
 export const metadata: Metadata = {
