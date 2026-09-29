@@ -192,7 +192,7 @@ export default function RanchoItahuePage() {
               </a>
             </div>
             <p className="mt-6 text-sm font-medium text-white/85">
-              {BIZ.address} · {BIZ.city} · {BIZ.reviews} reseñas en Google
+              {BIZ.address}, {BIZ.city} · Abierto todo el año · {BIZ.reviews} reseñas en Google
             </p>
           </div>
         </div>

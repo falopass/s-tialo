@@ -137,8 +137,8 @@ export const PADEL = {
 /** Tipos de evento que se ven en las fotos y que el dueño declara. */
 export const EVENTOS = {
   title: 'Lo que se celebra aquí',
-  lead: 'Más de 10 años con el centro de eventos: matrimonios con ceremonia en el jardín, cumpleaños, almuerzos de empresa, paseos de curso y fiestas que se extienden hasta la noche, con los árboles iluminados por guirnaldas.',
-  types: ['Matrimonios', 'Cumpleaños', 'Aniversarios', 'Reuniones de empresa', 'Paseos de curso', 'Almuerzos y cenas'],
+  lead: 'Más de 10 años con el centro de eventos: matrimonios con ceremonia en el jardín, cumpleaños, almuerzos de empresa, paseos de curso de fin de año y de empresas en verano, y fiestas que se extienden hasta la noche con los árboles iluminados por guirnaldas.',
+  types: ['Matrimonios', 'Cumpleaños', 'Aniversarios', 'Reuniones de empresa', 'Paseos de curso', 'Paseos de empresa', 'Almuerzos y cenas'],
   photos: [
     { src: `${F}/eventos/IMG-20260928-WA0253.webp`, alt: 'Mesas redondas montadas al aire libre bajo los árboles' },
     { src: `${F}/eventos/IMG-20260928-WA0079.webp`, alt: 'Ceremonia de matrimonio con arco blanco junto a la piscina' },
@@ -153,7 +153,7 @@ export const EVENTOS = {
 
 export const COMIDAS = {
   title: 'Almuerzos y banquetería',
-  lead: 'El rancho tiene servicio de almuerzos con cocina abierta de 11:00 a 16:00, y banquetería todo incluido para los eventos: asados a las brasas, tablas de quesos y fiambres, canapés, ensaladas y tortas.',
+  lead: 'El rancho lleva más de 2 años con su servicio de almuerzos — cocina abierta de 11:00 a 16:00 — y ofrece banquetería todo incluido para los eventos: asados a las brasas, tablas de quesos y fiambres, canapés, ensaladas y tortas.',
   note: `Almuerzos: ${BIZ.almuerzosDisplay}`,
   photos: [
     { src: `${F}/comidas/IMG-20260928-WA0229.webp`, alt: 'Costillares asándose sobre parrilla de carbón' },
