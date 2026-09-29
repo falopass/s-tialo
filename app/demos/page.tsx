@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'somos-yerbas-buenas',
+    name: 'Somos Yerbas Buenas',
+    rubro: 'Guía comunal · comidas y turismo',
+    city: 'Yerbas Buenas',
+    tagline: 'Las páginas amarillas de la comuna: índice numerado de guía impresa, lima de su marca y su logo de calco.',
+    gradient: 'linear-gradient(135deg, #F4F1E6 0%, #B3C938 90%, #1B2340 190%)',
+  },
+  {
     slug: 'come-rico',
     name: 'Come Rico',
     rubro: 'Cocinería — comida rápida y casera',
