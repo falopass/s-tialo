@@ -5,7 +5,7 @@ import type { CSSProperties } from 'react'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, VALES } from './content'
+import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, VALES, REVIEWS } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -49,17 +49,18 @@ export const metadata: Metadata = demoMetadata({
 const NAV_LINKS = [
   { label: 'La pizarra', href: '#pizarra' },
   { label: 'Vales', href: '#vales' },
+  { label: 'Opiniones', href: '#opiniones' },
   { label: 'El local', href: '#local' },
 ]
 
-/** Pizarra de muestra — la carta real no está publicada. */
+/** Ítems reales del pendón del local; el menú del día no está publicado. */
 const PIZARRA = [
-  { plato: 'Cazuela de ave o vacuno', nota: 'la que no falta' },
-  { plato: 'Pastel de choclo', nota: 'clásico de la casa' },
-  { plato: 'Pescado frito con ensalada', nota: 'de temporada' },
-  { plato: 'Porotos con rienda', nota: 'plato de fondo' },
-  { plato: 'Ensalada chilena', nota: 'fresca del día' },
-  { plato: 'Postre y té o café', nota: 'para cerrar' },
+  { plato: 'Colaciones', nota: 'almuerzo completo' },
+  { plato: 'Completos', nota: 'normal y gigante' },
+  { plato: 'Churrascos', nota: 'normal y gigante' },
+  { plato: 'Empanadas de queso', nota: 'de la casa' },
+  { plato: 'Pizzas y salchipapas', nota: 'para compartir' },
+  { plato: 'Papas fritas', nota: 'acompañamiento' },
 ]
 
 function TicketRow({ children }: { children: React.ReactNode }) {
@@ -253,13 +254,56 @@ export default function DeliciasDeRobertoPage() {
         </div>
       </section>
 
-      {/* ── La pizarra (de muestra) ── */}
+      {/* ── Opiniones reales de Google ── */}
+      <section id="opiniones" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16">
+        <Reveal>
+          <p className={`${mono.className} text-[11px] font-semibold uppercase tracking-[0.3em] mb-4 flex items-center gap-3`} style={{ color: C.sello }}>
+            <span className="inline-block w-8 h-px" style={{ backgroundColor: C.sello }} aria-hidden="true" />
+            lo que dicen en Google
+          </p>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 className={`${display.className} uppercase leading-[0.98] text-[clamp(1.9rem,5vw,3.4rem)]`} style={{ color: C.petroleoInk }}>
+              «Las 3 B», <span style={{ color: C.sello }}>dice la gente</span>
+            </h2>
+            <p className={`${mono.className} text-[11px] md:text-xs font-semibold uppercase tracking-[0.18em]`} style={{ color: C.muted }}>
+              {BIZ.rating} de 5 · {BIZ.reviews} opiniones publicadas
+            </p>
+          </div>
+        </Reveal>
+        <div className="grid md:grid-cols-3 gap-5 mt-8">
+          {REVIEWS.map((r, i) => (
+            <Reveal key={r.author} delay={i * 100} className="h-full">
+              <blockquote
+                className="h-full border-2 p-5 flex flex-col"
+                style={{
+                  backgroundColor: C.papelAlt,
+                  borderColor: C.tinta,
+                  boxShadow: '5px 6px 0 rgba(14,76,92,0.85)',
+                  transform: `rotate(${i % 2 === 0 ? -0.8 : 0.9}deg)`,
+                }}
+              >
+                <p className="text-sm tracking-[0.2em]" style={{ color: C.sello }} aria-label={`${r.stars} de 5 estrellas`}>
+                  {'★'.repeat(r.stars)}
+                </p>
+                <p className="mt-3 text-sm md:text-base leading-relaxed flex-1" style={{ color: C.tinta }}>
+                  «{r.text}»
+                </p>
+                <footer className={`${mono.className} mt-4 text-[10px] uppercase tracking-[0.2em]`} style={{ color: C.muted }}>
+                  — {r.author} · reseña de Google
+                </footer>
+              </blockquote>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ── La pizarra: ítems reales de su pendón ── */}
       <section id="pizarra" className="scroll-mt-20" style={{ backgroundColor: C.petroleo }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
           <Reveal>
             <div className="text-center mb-10">
               <p className={`${mono.className} text-[11px] font-semibold uppercase tracking-[0.3em] mb-4`} style={{ color: C.papelSoft }}>
-                restaurante · menú del día
+                restaurante · lo que ofrecen
               </p>
               <h2 className={`${display.className} uppercase leading-[0.98] text-[clamp(2.2rem,6vw,4.4rem)]`} style={{ color: C.papel }}>
                 La pizarra
@@ -268,7 +312,7 @@ export default function DeliciasDeRobertoPage() {
                 className={`${mono.className} inline-block mt-5 text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.2em] px-4 py-2 border-2`}
                 style={{ color: '#FFD9A0', borderColor: '#FFD9A0', transform: 'rotate(-1deg)' }}
               >
-                Carta de muestra — la del día se confirma por WhatsApp
+                De su propio pendón — el menú del día se confirma por WhatsApp
               </span>
             </div>
           </Reveal>
@@ -296,6 +340,22 @@ export default function DeliciasDeRobertoPage() {
               </Reveal>
             </div>
           </div>
+          <Reveal delay={160}>
+            <figure className="mt-10 max-w-xl mx-auto">
+              <div className="relative w-full aspect-[4/3] overflow-hidden border-2" style={{ borderColor: 'rgba(251,246,236,0.5)' }}>
+                <Image
+                  src={`${IMG}/pendon.webp`}
+                  alt="Pendón de Las Delicias de Roberto en su local original del terminal, con su carta y teléfonos"
+                  fill
+                  sizes="(min-width: 768px) 560px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className={`${mono.className} mt-2 text-[10px] uppercase tracking-[0.2em] text-center`} style={{ color: C.papelSoft }}>
+                su pendón de los tiempos del terminal — foto real
+              </figcaption>
+            </figure>
+          </Reveal>
           <Reveal delay={200}>
             <p className="text-center mt-9">
               <a
@@ -335,6 +395,14 @@ export default function DeliciasDeRobertoPage() {
                   <br />
                   {BIZ.frente}
                 </p>
+                <dl className={`${mono.className} text-[11px] uppercase tracking-[0.1em] mt-4 space-y-1.5`}>
+                  {BIZ.hours.map(([dia, hora]) => (
+                    <div key={dia} className="flex justify-between gap-3">
+                      <dt style={{ color: C.muted }}>{dia}</dt>
+                      <dd className="font-semibold" style={{ color: C.tinta }}>{hora}</dd>
+                    </div>
+                  ))}
+                </dl>
                 <a href={`tel:${BIZ.phoneTel}`} className={`${mono.className} inline-block mt-4 text-sm font-semibold underline underline-offset-4 tap-44`} style={{ color: C.sello }}>
                   {BIZ.phoneDisplay}
                 </a>
@@ -373,6 +441,38 @@ export default function DeliciasDeRobertoPage() {
             </div>
           </Reveal>
         </div>
+        <Reveal>
+          <div className="grid grid-cols-2 gap-4 md:gap-6 mt-8">
+            <figure>
+              <div className="relative w-full aspect-[3/4] overflow-hidden border-2" style={{ borderColor: C.tinta, boxShadow: '5px 6px 0 rgba(14,76,92,0.85)' }}>
+                <Image
+                  src={`${IMG}/comedor.webp`}
+                  alt="El comedor de Las Delicias de Roberto por dentro: mesas con mantel rojo y lámpara"
+                  fill
+                  sizes="(min-width: 768px) 45vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className={`${mono.className} mt-2 text-[10px] uppercase tracking-[0.2em]`} style={{ color: C.muted }}>
+                el comedor, por dentro — foto real
+              </figcaption>
+            </figure>
+            <figure>
+              <div className="relative w-full aspect-[3/4] overflow-hidden border-2" style={{ borderColor: C.tinta, boxShadow: '5px 6px 0 rgba(14,76,92,0.85)' }}>
+                <Image
+                  src={`${IMG}/rincon.webp`}
+                  alt="Un rincón del salón del restaurante, con sus mesas y el cuadro del valle"
+                  fill
+                  sizes="(min-width: 768px) 45vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className={`${mono.className} mt-2 text-[10px] uppercase tracking-[0.2em]`} style={{ color: C.muted }}>
+                el salón del local — foto real
+              </figcaption>
+            </figure>
+          </div>
+        </Reveal>
       </section>
 
       {/* ── Footer ── */}
