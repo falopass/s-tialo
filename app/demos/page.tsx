@@ -2829,6 +2829,14 @@ const BLITZ = [
     tagline: 'La granja de Orlando Franz: papel crema, verde pradera, puertas de granero y polaroids de sus semanas.',
     gradient: 'linear-gradient(135deg, #FBF3DC 0%, #F1E4BE 45%, #2F7D3A 160%)',
   },
+  {
+    slug: 'intermedica-imagenes',
+    name: 'Intermédica',
+    rubro: 'Centro médico e imágenes',
+    city: 'Talca',
+    tagline: 'La ficha clínica de la casa esquina: papel crema, teal de su fachada menta y arcos de su ventanal en 2 Norte.',
+    gradient: 'linear-gradient(135deg, #F5F1E8 0%, #BFE0D6 55%, #0E5B55 160%)',
+  },
 ]
 
 export const metadata: Metadata = {

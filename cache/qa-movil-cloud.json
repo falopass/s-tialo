@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3010",
-  "fecha": "2026-09-28T21:38:56.562Z",
+  "base": "http://localhost:4800",
+  "fecha": "2026-09-29T02:15:42.959Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "funeraria-vive-dios": {
-      "url": "http://localhost:3010/demos/funeraria-vive-dios/",
+    "intermedica-imagenes": {
+      "url": "http://localhost:4800/demos/intermedica-imagenes/",
       "status": 200,
       "botones": [],
-      "footerPx": 242,
-      "footerPct": 28.7,
+      "footerPx": 16,
+      "footerPct": 1.9,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 26999
+      "ms": 4163
     }
   }
 }
