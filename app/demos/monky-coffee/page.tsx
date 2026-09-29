@@ -250,6 +250,43 @@ export default function Page() {
         </div>
       </section>
 
+      {/* LA CASA — el equipo y la vitrina: "personas" y "pet friendly" son literales */}
+      <section id="la-casa" className="scroll-mt-16 px-5 py-16 md:py-24">
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.15fr_1fr] md:items-center">
+          <Reveal>
+            <div className="grid grid-cols-[1.4fr_1fr] items-end gap-3 md:gap-4">
+              <Photo
+                src="equipo"
+                alt="El equipo de Monky Coffee posando dentro de la cafetería con un perro"
+                ratio="aspect-[4/5]"
+              />
+              <Photo
+                src="vitrina"
+                alt="Vitrina de Monky Coffee con cheesecake de maracuyá, kuchen y vasos con el logo del mono"
+                ratio="aspect-[3/4]"
+                className="mb-8 md:mb-12"
+              />
+            </div>
+            <p className="mt-3 text-[12px]" style={{ color: C.muted }}>
+              El equipo de la casa — con perro incluido — y la vitrina de la pastelería.
+            </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <Eyebrow>La casa</Eyebrow>
+            <h2 className={`${display.className} text-[clamp(2rem,4.5vw,3.4rem)] font-medium leading-[1.05] tracking-tight`}>
+              Pet friendly de verdad: <em className="font-light" style={{ color: C.green }}>los peludos son parte del equipo</em>.
+            </h2>
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed" style={{ color: C.muted }}>
+              «Personas, café, plantas y cositas ricas» dice su bio — y se nota: el equipo posa con el perro,
+              las plantas cuelgan de la barra y la vitrina se llena cada día con la pastelería de la casa.
+            </p>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${btn} mt-7`} style={{ backgroundColor: C.coralDeep, color: '#fff' }}>
+              Venir con mi mascota
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
       {/* OPINIONES — citas reales de Google */}
       <section id="opiniones" className="scroll-mt-16 px-5 py-16 md:py-24" style={{ backgroundColor: C.green, color: C.paper }}>
         <div className="mx-auto max-w-6xl">

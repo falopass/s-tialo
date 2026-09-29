@@ -13,6 +13,7 @@ export function Chrome({ fontClass }: { fontClass: string }) {
         links={[
           { label: 'La carta', href: '#carta' },
           { label: 'El café', href: '#cafe' },
+          { label: 'La casa', href: '#la-casa' },
           { label: 'Opiniones', href: '#opiniones' },
           { label: 'Visítanos', href: '#contacto' },
         ]}
