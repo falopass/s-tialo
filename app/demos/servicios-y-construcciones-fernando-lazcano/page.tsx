@@ -168,7 +168,7 @@ export default function Page() {
         <div className="absolute inset-0" aria-hidden="true" style={{ background: 'linear-gradient(180deg, rgba(35,29,26,0.30) 0%, rgba(35,29,26,0.12) 40%, rgba(35,29,26,0.90) 100%)' }} />
         <div className="relative z-10 w-full max-w-5xl mx-auto px-5 pb-12 pt-40">
           <Reveal>
-            <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.ambar }}>
+            <p className={`${mono.className} inline text-[11px] md:text-xs uppercase tracking-[0.3em] px-2.5 py-1.5 rounded`} style={{ color: C.ambar, backgroundColor: 'rgba(35,29,26,0.82)', boxDecorationBreak: 'clone', WebkitBoxDecorationBreak: 'clone' }}>
               {BIZ.rubro} · {BIZ.address}, {BIZ.city}
             </p>
             <h1 className={`${display.className} mt-3 text-[44px] leading-[0.92] sm:text-[64px] md:text-[84px] font-extrabold uppercase tracking-tight`} style={{ color: C.papel }}>
@@ -303,7 +303,7 @@ export default function Page() {
                     obras y eventos. Variedad de modelos, precios conversables.
                   </p>
                 </div>
-                <span className={`${mono.className} shrink-0 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em]`} style={{ backgroundColor: '#3E7D2E', color: '#F2EBDF' }}>
+                <span className={`${mono.className} shrink-0 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em]`} style={{ backgroundColor: '#3E7D2E', color: '#FFFFFF' }}>
                   Sanitarios
                 </span>
               </article>
@@ -330,7 +330,7 @@ export default function Page() {
       </section>
 
       {/* En terreno: la faena tiene cara */}
-      <section id="terreno" className="px-5 py-20 md:py-28" style={{ backgroundColor: C.ladrillo }}>
+      <section id="terreno" className="px-5 py-20 md:py-28" style={{ backgroundColor: C.ladrilloDeep }}>
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <h2 className={`${display.className} text-[38px] sm:text-[54px] leading-[0.95] font-extrabold uppercase tracking-tight`} style={{ color: '#FFF4E8' }}>
@@ -366,7 +366,7 @@ export default function Page() {
             </Reveal>
           </div>
           <Reveal delay={240}>
-            <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-5 rounded-xl p-5" style={{ backgroundColor: 'rgba(35,29,26,0.35)' }}>
+            <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-5 rounded-xl p-5" style={{ backgroundColor: 'rgba(35,29,26,0.55)' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={`${IMG}/fosas-logo.webp`} alt="Limpia Fosas Chile, especialistas en limpieza de fosas y destape de alcantarillados, urgencias 24 horas" className="w-64 h-auto" />
               <p className="text-[15px] leading-snug" style={{ color: '#FFF4E8' }}>
