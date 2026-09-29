@@ -4653,6 +4653,14 @@ const BLITZ = [
     tagline: 'Pizarra de almuerzo: verde tiza, crema y teja, con la carta y fotos reales del local.',
     gradient: 'linear-gradient(135deg, #182A20 0%, #22372B 55%, #C14B2A 140%)',
   },
+  {
+    slug: 'restaurant-rancho-longavi',
+    name: 'Restaurant Rancho Longaví',
+    rubro: 'Restaurante',
+    city: 'Longaví',
+    tagline: 'Señalética de ruta: asfalto, amarillo Panamericana y el churrasco famoso, con fotos reales.',
+    gradient: 'linear-gradient(135deg, #191A1D 0%, #3F6B4F 55%, #F2B90C 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
