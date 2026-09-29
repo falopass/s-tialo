@@ -2869,6 +2869,14 @@ const BLITZ = [
     tagline: 'Sendero de un día en el jardín: crema y verde hoja de su logo, con fotos reales de su patio y sala cuna.',
     gradient: 'linear-gradient(135deg, #FAF5E8 0%, #7FB54A 55%, #2E5B34 150%)',
   },
+  {
+    slug: 'optica-del-maule',
+    name: 'Óptica del Maule',
+    rubro: 'Óptica',
+    city: 'Talca',
+    tagline: 'Tabla optométrica en madera y ámbar: letras que se achican, marcos de anteojo y su vitrina del 6 Oriente.',
+    gradient: 'linear-gradient(135deg, #F6F1E6 0%, #B9854A 60%, #17130E 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
