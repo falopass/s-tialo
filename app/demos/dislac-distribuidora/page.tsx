@@ -76,8 +76,8 @@ const VITRINA = [
   {
     t: 'Productos especiales',
     d: 'Quesos especiales, tablas armadas y jugos para el negocio o la casa.',
-    img: 'bosquejo-quesos',
-    alt: 'Bosquejo: quesos especiales trozados',
+    img: 'bosquejo-tablas',
+    alt: 'Bosquejo: tabla de quesos especiales con jugos',
     tag: 'vitrina 04',
   },
 ]
