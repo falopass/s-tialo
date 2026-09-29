@@ -354,7 +354,7 @@ export default function MilyRestaurantPage() {
             </p>
           </div>
         </Reveal>
-        <ul className="grid grid-cols-12 gap-6 md:gap-8">
+        <div className="grid grid-cols-12 gap-6 md:gap-8">
           {PLATOS.map((p, i) => (
             <Reveal
               key={p.n}
@@ -367,7 +367,7 @@ export default function MilyRestaurantPage() {
               }
               delay={(i % 3) * 90}
             >
-              <li className="mily-card h-full bg-white rounded-xl overflow-hidden shadow-sm" style={{ border: `1px solid ${C.line}` }}>
+              <article className="mily-card h-full bg-white rounded-xl overflow-hidden shadow-sm" style={{ border: `1px solid ${C.line}` }}>
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={p.src}
@@ -388,10 +388,10 @@ export default function MilyRestaurantPage() {
                     {p.desc}
                   </p>
                 </div>
-              </li>
+              </article>
             </Reveal>
           ))}
-        </ul>
+        </div>
       </section>
 
       {/* ── Marquee de la casa ── */}

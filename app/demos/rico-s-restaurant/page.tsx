@@ -263,10 +263,10 @@ export default function RicosRestaurantPage() {
             </p>
           </div>
         </Reveal>
-        <ul className="grid grid-cols-12 gap-5 md:gap-7">
+        <div className="grid grid-cols-12 gap-5 md:gap-7">
           {PLATOS.map((p, i) => (
             <Reveal key={p.name} className="col-span-12 md:col-span-4" delay={i * 90}>
-              <li className="ricos-card h-full rounded-lg overflow-hidden" style={{ backgroundColor: C.humo, border: `1px solid ${C.line}` }}>
+              <article className="ricos-card h-full rounded-lg overflow-hidden" style={{ backgroundColor: C.humo, border: `1px solid ${C.line}` }}>
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={p.src}
@@ -290,10 +290,10 @@ export default function RicosRestaurantPage() {
                     {p.desc}
                   </p>
                 </div>
-              </li>
+              </article>
             </Reveal>
           ))}
-        </ul>
+        </div>
         <Reveal delay={160}>
           <p className={`${mono.className} text-[10px] uppercase tracking-[0.2em] mt-6`} style={{ color: 'rgba(242,234,217,0.5)' }}>
             Fotos reales del local · la carta completa se confirma por WhatsApp
