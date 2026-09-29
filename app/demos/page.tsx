@@ -23,6 +23,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0E0C0A 0%, #E8A13B 90%, #F3EDE0 160%)',
   },
   {
+    slug: 'sushi-luna',
+    name: 'Luna Sushi',
+    rubro: 'Sushi y comida casera',
+    city: 'San Clemente',
+    tagline: 'Ticket de pedido con fases de luna: papel crema, índigo de noche y teja del salmón.',
+    gradient: 'linear-gradient(135deg, #F7F4EC 0%, #1E2A5A 90%, #E4572E 150%)',
+  },
+  {
     slug: 'salon-de-belleza-y-peluqueria-nip-tuck',
     name: 'Nip Tuck',
     rubro: 'Salón de belleza y peluquería',
