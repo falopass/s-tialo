@@ -731,8 +731,8 @@ const BLITZ = [
     name: 'Complejo Deportivo Brilla El Sol',
     rubro: 'Campo de fútbol',
     city: 'Talca',
-    tagline: 'Cancha sintética con focos en 12 Sur: arrienda por bloques de 90 minutos.',
-    gradient: 'linear-gradient(135deg, #10392E 0%, #178553 55%, #F4C64E 140%)',
+    tagline: 'Cartel de cancha: verde pasto y sol de su nombre, marcador de datos y rayos diagonales.',
+    gradient: 'linear-gradient(135deg, #08301C 0%, #1F7A43 55%, #FFC63D 140%)',
   },
   {
     slug: 'complejo-deportivo-carlos-aravena-se',
