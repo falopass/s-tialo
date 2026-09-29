@@ -2997,6 +2997,14 @@ const BLITZ = [
     tagline: 'El toldo celeste PF: franjas de almacén, precio naranja y fotos en la repisa.',
     gradient: 'linear-gradient(135deg, #FBF7EC 0%, #2D8BC0 80%, #1A5E85 150%)',
   },
+  {
+    slug: 'thermocold',
+    name: 'Thermocold',
+    rubro: 'Servicio técnico y repuestos',
+    city: 'Talca',
+    tagline: 'La página como orden de trabajo: verde de su letrero, marcas del mostrador en cinta y repuestos reales de su ficha.',
+    gradient: 'linear-gradient(135deg, #F4F6F1 0%, #1E7A3E 90%, #0D4524 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
