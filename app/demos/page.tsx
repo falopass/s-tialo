@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'hosteria-itahue',
+    name: 'Hostería Itahue',
+    rubro: 'Restaurant y hostería de ruta',
+    city: 'Molina',
+    tagline: 'El almanaque del km 212: burdeo vino, crema papel y madera, timbres de ruta y la carta real transcrita.',
+    gradient: 'linear-gradient(135deg, #F7F0DE 0%, #6E1423 120%, #241812 190%)',
+  },
+  {
     slug: 'restaurant-toro-bayo',
     name: 'Toro Bayo',
     rubro: 'Restaurant · parrilla y mariscos',
