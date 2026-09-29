@@ -3074,8 +3074,8 @@ const BLITZ = [
     name: 'Atenea Salón Spa',
     rubro: 'Centro de estética',
     city: 'Molina',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #2B1A24 0%, #4A2E3C 150%)',
+    tagline: 'La tarjeta del salón hecha sitio: vino y rosa acuarela, arcos, carta de precios real y 5,0 en Google.',
+    gradient: 'linear-gradient(135deg, #2B1A24 0%, #4A2E3C 60%, #E8ACC0 170%)',
   },
   {
     slug: 'cabanas-y-camping-el-esfuerzo',
