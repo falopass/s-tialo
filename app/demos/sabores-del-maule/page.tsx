@@ -367,7 +367,7 @@ export default function Page() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="tap-44 inline-block px-6 py-3 rounded-full text-base font-semibold whitespace-nowrap"
-                style={{ backgroundColor: C.miel, color: '#fff' }}
+                style={{ backgroundColor: C.mielOsc, color: '#fff' }}
               >
                 Consultar qué hay hoy
               </a>
