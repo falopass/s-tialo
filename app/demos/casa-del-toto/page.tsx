@@ -73,7 +73,7 @@ const RESENAS = [
     nombre: 'Manuel Díaz',
     fecha: 'Google',
     estrellas: 5,
-    texto: 'Se ve bien, no he comprado.',
+    texto: 'Se ve bien no e comprado',
   },
   {
     nombre: 'Juan José Donoso Silva',
