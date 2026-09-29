@@ -281,7 +281,7 @@ export default function RositaCocinaChilenaPage() {
               </h2>
             </div>
           </Reveal>
-          <div className="grid grid-cols-12 gap-8 md:gap-12 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
             <Reveal className="col-span-12 md:col-span-5">
               <figure>
                 <div className="relative overflow-hidden rounded-2xl border-4 aspect-[4/5]" style={{ borderColor: C.chalk }}>
