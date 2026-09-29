@@ -27,6 +27,8 @@ const C = {
   carbon: '#141210',
   humo: '#1E1A16',
   rojo: '#E14B3A',
+  rojoOsc: '#B93527',
+  rojoClaro: '#F0685A',
   crema: '#F2EAD9',
   piedra: '#B9AE9C',
   muted: 'rgba(242,234,217,0.62)',
@@ -128,7 +130,7 @@ export default function RicosRestaurantPage() {
           bar: 'rgba(20,18,16,0.94)',
           ink: C.crema,
           line: C.line,
-          btnBg: C.rojo,
+          btnBg: C.rojoOsc,
           btnInk: '#FFFFFF',
         }}
       />
@@ -191,7 +193,7 @@ export default function RicosRestaurantPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} ricos-btn uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3 rounded-sm tap-44`}
-                style={{ backgroundColor: C.rojo, color: '#FFFFFF' }}
+                style={{ backgroundColor: C.rojoOsc, color: '#FFFFFF' }}
               >
                 Consultar por WhatsApp
               </a>
@@ -302,7 +304,7 @@ export default function RicosRestaurantPage() {
       </section>
 
       {/* ── Servicios ── */}
-      <div className="border-y overflow-hidden py-3 md:py-4" style={{ borderColor: C.line, backgroundColor: C.rojo }} aria-hidden="true">
+      <div className="border-y overflow-hidden py-3 md:py-4" style={{ borderColor: C.line, backgroundColor: C.rojoOsc }} aria-hidden="true">
         <div className={`${display.className} flex flex-wrap justify-center gap-y-1.5 text-sm md:text-base uppercase tracking-[0.12em]`} style={{ color: '#FFF3E6' }}>
           {SERVICIOS.map((s) => (
             <span key={s} className="inline-flex items-center">
@@ -333,7 +335,7 @@ export default function RicosRestaurantPage() {
             </p>
           </Reveal>
           <Reveal className="col-span-12 md:col-span-5" delay={120}>
-            <p className={`${mono.className} text-[11px] tracking-[0.3em] uppercase mb-3`} style={{ color: C.rojo }}>
+            <p className={`${mono.className} text-[11px] tracking-[0.3em] uppercase mb-3`} style={{ color: C.rojoClaro }}>
               Banquetería y eventos
             </p>
             <h2 className={`${display.className} uppercase leading-[0.95] text-[clamp(2rem,5.5vw,4rem)] mb-5`}>
@@ -356,7 +358,7 @@ export default function RicosRestaurantPage() {
               target="_blank"
               rel="noopener noreferrer"
               className={`${display.className} ricos-btn inline-block uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3 rounded-sm tap-44`}
-              style={{ backgroundColor: C.rojo, color: '#FFFFFF' }}
+              style={{ backgroundColor: C.rojoOsc, color: '#FFFFFF' }}
             >
               Cotizar un evento
             </a>
@@ -455,7 +457,7 @@ export default function RicosRestaurantPage() {
               <br />
               escrito
             </h2>
-            <div className="md:ml-auto flex items-center gap-3 rounded-full px-5 py-3" style={{ backgroundColor: C.rojo }}>
+            <div className="md:ml-auto flex items-center gap-3 rounded-full px-5 py-3" style={{ backgroundColor: C.rojoOsc }}>
               <Stars value={BIZ.rating} color="#FFD9A0" className="w-4 h-4" />
               <span className={`${display.className} text-lg tracking-[0.02em]`} style={{ color: '#FFF3E6' }}>
                 {BIZ.rating} · {BIZ.reviews} reseñas en Google
@@ -480,7 +482,7 @@ export default function RicosRestaurantPage() {
         </div>
         <Reveal delay={180}>
           <div className="mt-6 rounded-lg p-5 md:p-6 border-l-4" style={{ backgroundColor: 'rgba(225,75,58,0.08)', borderColor: C.rojo }}>
-            <p className={`${mono.className} text-[10px] uppercase tracking-[0.2em] mb-2`} style={{ color: C.rojo }}>
+            <p className={`${mono.className} text-[10px] uppercase tracking-[0.2em] mb-2`} style={{ color: C.rojoClaro }}>
               La casa también responde
             </p>
             <p className="text-sm leading-relaxed" style={{ color: 'rgba(242,234,217,0.85)' }}>
@@ -497,7 +499,7 @@ export default function RicosRestaurantPage() {
             target="_blank"
             rel="noopener noreferrer"
             className={`${display.className} inline-block mt-7 text-sm uppercase tracking-[0.1em] underline underline-offset-4 decoration-2 tap-44`}
-            style={{ color: C.rojo, textDecorationColor: 'rgba(225,75,58,0.4)' }}
+            style={{ color: C.rojoClaro, textDecorationColor: 'rgba(240,104,90,0.4)' }}
           >
             Ver la ficha en Google →
           </a>
@@ -542,7 +544,7 @@ export default function RicosRestaurantPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${display.className} ricos-btn uppercase tracking-[0.08em] text-sm md:text-base px-7 py-3 rounded-sm tap-44`}
-                    style={{ backgroundColor: C.rojo, color: '#FFFFFF' }}
+                    style={{ backgroundColor: C.rojoOsc, color: '#FFFFFF' }}
                   >
                     Escribir por WhatsApp
                   </a>
@@ -599,7 +601,7 @@ export default function RicosRestaurantPage() {
             para {BIZ.name}. Las fotos, las reseñas y los datos salen de
             su ficha real de Google; la carta completa se confirma con el
             local.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.rojo }}>
+            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.rojoClaro }}>
               ¿Lo hacemos realidad?
             </a>
           </p>
