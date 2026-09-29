@@ -4082,6 +4082,14 @@ const BLITZ = [
     tagline: 'Pizarra de barraca: verde del letrero, tally marks y el listado pintado del galpón.',
     gradient: 'linear-gradient(135deg, #14130F 0%, #3E9B4F 90%, #F3EFE4 170%)',
   },
+  {
+    slug: 'cafeteria-los-nogales',
+    name: 'Cafetería Los Nogales',
+    rubro: 'Cafetería y heladería',
+    city: 'San Rafael',
+    tagline: 'El sello de la heladería: crema de cucurucho, naranjo del logo y almuerzo peruano en la Galería Gian Fu.',
+    gradient: 'linear-gradient(135deg, #F7EDD4 0%, #D9480F 110%, #38220F 200%)',
+  },
 ]
 
 export const metadata: Metadata = {

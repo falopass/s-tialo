@@ -5,7 +5,7 @@ import fs from 'fs'
 
 const q = process.argv[2]
 const outFile = process.argv[3] || '/tmp/scrape.json'
-const browser = await chromium.connectOverCDP('http://localhost:29229')
+const browser = await chromium.connectOverCDP('http://localhost:' + (process.env.CDP_PORT || '29229') + '')
 const ctx = browser.contexts()[0] || (await browser.newContext())
 const page = await ctx.newPage()
 
