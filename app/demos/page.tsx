@@ -4061,6 +4061,14 @@ const BLITZ = [
     tagline: 'El puesto del mercado: naranjo de la fachada, verde de la pizarra y banderas chilenas en el comedor de madera.',
     gradient: 'linear-gradient(135deg, #FAF3E3 0%, #C85A17 110%, #2E5231 190%)',
   },
+  {
+    slug: 'las-malvinas',
+    name: 'Las Malvinas',
+    rubro: 'Restaurant · residencial · banquetes',
+    city: 'Longaví',
+    tagline: 'La casona de eventos del Maule Sur: crema de la mantelería, índigo de los caminos de mesa y la terraza drapé.',
+    gradient: 'linear-gradient(135deg, #F6F1E6 0%, #4A3B63 110%, #54623B 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
