@@ -4185,6 +4185,14 @@ const BLITZ = [
     tagline: 'Señalética de ruta hacia Siete Tazas: café de letrero turístico, dorado del logo y hitos en kilómetros.',
     gradient: 'linear-gradient(135deg, #2A2013 0%, #6B4F2E 60%, #B9975B 160%)',
   },
+  {
+    slug: 'casona-las-camelias',
+    name: 'Casona Las Camelias',
+    rubro: 'Centro de eventos',
+    city: 'Buin',
+    tagline: 'La invitación de gala: marfil, borgoña Del Vecchio y la jornada del evento en cuatro actos.',
+    gradient: 'linear-gradient(135deg, #F7F2E8 0%, #5C1F2A 90%, #A5803C 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
