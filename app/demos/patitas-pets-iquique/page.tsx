@@ -201,14 +201,14 @@ export default function PatitasPetsPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} uppercase tracking-wide text-base px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 text-white ${focusRing} tap-44`}
+                  className={`${display.className} uppercase tracking-wide text-base px-7 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 text-white ${focusRing} tap-44`}
                   style={{ backgroundColor: C.verdeInk }}
                 >
                   Escribir por WhatsApp
                 </a>
                 <a
                   href="#secciones"
-                  className={`${display.className} uppercase tracking-wide text-base px-7 py-3.5 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
+                  className={`${display.className} uppercase tracking-wide text-base px-7 py-2.5 rounded-full border-2 transition-colors hover:bg-black/5 ${focusRing} tap-44`}
                   style={{ borderColor: 'rgba(43,35,19,0.3)', color: C.ink }}
                 >
                   Qué venden
@@ -497,7 +497,7 @@ export default function PatitasPetsPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} inline-block uppercase tracking-wide text-base px-8 py-4 rounded-full text-white transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing} tap-44`}
+                className={`${display.className} inline-block uppercase tracking-wide text-base px-8 py-3 rounded-full text-white transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${focusRing} tap-44`}
                 style={{ backgroundColor: C.verdeInk }}
               >
                 Escribir por WhatsApp
