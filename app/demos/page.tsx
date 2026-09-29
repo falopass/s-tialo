@@ -2781,6 +2781,14 @@ const BLITZ = [
     tagline: 'La pizarra del taller: azul de sus muros, ámbar del elevador, checklist de recepción y notas de Google pegadas.',
     gradient: 'linear-gradient(135deg, #10265E 0%, #1D4FC4 80%, #F0A52B 170%)',
   },
+  {
+    slug: 'first-security',
+    name: 'First Security',
+    rubro: 'Seguridad privada',
+    city: 'Talca',
+    tagline: 'Centro de monitoreo: navy + naranja de su logo, feeds CCTV con esquinas y el muro de clientes nacionales.',
+    gradient: 'linear-gradient(135deg, #070C1D 0%, #13204A 60%, #F04E23 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
