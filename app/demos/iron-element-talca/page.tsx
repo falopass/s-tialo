@@ -166,7 +166,7 @@ export default function IronElementPage() {
               </a>
               <a
                 href="#planes"
-                className={`${display.className} font-bold uppercase tracking-wide text-base md:text-lg px-7 py-3 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5B81E] tap-44`}
+                className={`${display.className} font-bold uppercase tracking-wide text-base md:text-lg px-7 py-2.5 border-2 transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F5B81E] tap-44`}
                 style={{ borderColor: 'rgba(243,239,228,0.55)', color: C.ink }}
               >
                 Ver planes
