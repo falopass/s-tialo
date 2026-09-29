@@ -92,7 +92,7 @@ export default function JardinViveroElCaneloPage() {
       />
 
       {/* ── Hero: la fachada con la placa ── */}
-      <section id="inicio" className="relative min-h-[100dvh] flex flex-col justify-end overflow-hidden">
+      <section id="inicio" className="relative min-h-[100dvh] flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.bosqueDeep }}>
         <Image
           src={`${IMG}/hero.webp`}
           alt="Fachada del vivero El Canelo con su letrero amarillo, entrada norte de Talca"
