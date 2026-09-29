@@ -1711,6 +1711,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0B2B4A 0%, #1B8BD0 70%, #FFC72C 140%)',
   },
   {
+    slug: 'camping-entre-pinos',
+    name: 'Camping Entre Pinos',
+    rubro: 'Camping y cabañas',
+    city: 'Gualleco · Curepto',
+    tagline: 'El álbum del verano del km 47: postales con cinta adhesiva, tablón de servicios y la ruta Talca–Gualleco publicada por el camping.',
+    gradient: 'linear-gradient(135deg, #0E2114 0%, #18301F 55%, #0E9BB8 150%)',
+  },
+  {
     slug: 'camping-y-cabanas-jemaresdagu',
     name: 'Camping y Cabañas Jemaresdagu',
     rubro: 'Camping y cabañas',
