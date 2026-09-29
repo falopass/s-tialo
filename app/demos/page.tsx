@@ -2599,6 +2599,14 @@ const BLITZ = [
     tagline: 'Etiqueta de exportación: vista satelital del predio, planta del grupo Agricom·Westfalia y el pallet que sale a Corea.',
     gradient: 'linear-gradient(135deg, #142F1C 0%, #1E4A2C 60%, #E0A82E 160%)',
   },
+  {
+    slug: 'hotel-marcos-gamero',
+    name: 'Hotel Marcos Gamero',
+    rubro: 'Hotel boutique · 4 estrellas',
+    city: 'Talca',
+    tagline: 'El museo del 1 Oriente: marfil, verde bosque, bronce y el Aldo\'s Bar con su fachada de toldo rayado.',
+    gradient: 'linear-gradient(135deg, #0B241A 0%, #13392B 55%, #B08D4C 160%)',
+  },
 ]
 
 export const metadata: Metadata = {

@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/dd461230c2f4516d.css","style"]
-:HL["/_next/static/chunks/2632bd3a0bdbaf9c.css","style"]
+:HL["/_next/static/chunks/08838123917245d3.css","style"]
 :HL["/_next/static/media/normal_100_700-s.p.834e65f7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.bd54c7c8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -17,4 +17,4 @@
 :HL["/_next/static/media/normal_800-s.p.ec0b24db.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/chunks/581c1219c444a7f1.css","style"]
 :HL["/images/logo/logo-white-letras.png","image"]
-0:{"buildId":"IpVbwV8R3hBZnD6Flv092","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"lipigas-vitugas-express-san-clemente","paramType":null,"paramKey":"lipigas-vitugas-express-san-clemente","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"X_tD_lrwFXrnRTOL1888e","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"lipigas-vitugas-express-san-clemente","paramType":null,"paramKey":"lipigas-vitugas-express-san-clemente","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
