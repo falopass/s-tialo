@@ -26,7 +26,7 @@ const C = {
   crema: '#F5EDDD',
   papel: '#FBF7EE',
   tinta: '#2A1D12',
-  teja: '#B4542B',
+  teja: '#A3491E',
   bosque: '#24402C',
   suave: '#6B5B49',
   linea: 'rgba(42,29,18,0.16)',
@@ -192,7 +192,7 @@ export default function Page() {
 
       {/* ── Hero: la mesa de la casa ── */}
       <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-14 md:pt-40 md:pb-20 grid grid-cols-12 gap-8 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-14 md:pt-40 md:pb-20 grid grid-cols-12 gap-x-4 gap-y-8 md:gap-8 items-center">
           <div className="col-span-12 md:col-span-6">
             <Reveal>
               <p className="text-xs font-bold uppercase tracking-[0.22em] mb-5" style={{ color: C.teja }}>
@@ -378,7 +378,7 @@ export default function Page() {
 
       {/* ── El comedor ── */}
       <section id="comedor" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <div className="grid grid-cols-12 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-12 items-center">
           <Reveal className="col-span-12 md:col-span-5">
             <Arco
               src={`${IMG}/salon.webp`}
@@ -463,7 +463,7 @@ export default function Page() {
 
       {/* ── Cómo llegar ── */}
       <section id="llegar" className="scroll-mt-20" style={{ backgroundColor: C.bosque }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-12 gap-8 md:gap-12 items-stretch">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-12 gap-x-4 gap-y-8 md:gap-12 items-stretch">
           <div className="col-span-12 md:col-span-5 flex flex-col justify-center">
             <Reveal>
               <h2 className={`${display.className} text-[clamp(2rem,5vw,3.2rem)] leading-[1.05] mb-6`} style={{ color: '#F5EDDD' }}>
