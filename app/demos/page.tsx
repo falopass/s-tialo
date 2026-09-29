@@ -3213,6 +3213,30 @@ const BLITZ = [
     tagline: 'Sello de pastelería: crema, el teal de su logo y su catálogo real con precios por tamaño.',
     gradient: 'linear-gradient(135deg, #FFF9F1 0%, #0E7C86 90%, #C2402F 170%)',
   },
+  {
+    slug: 'komo-a-lo-pobre-putu',
+    name: 'Komo a lo Pobre Putú',
+    rubro: 'Restaurant — comida casera',
+    city: 'Putú, Constitución',
+    tagline: 'El letrero colgante del camino a la costa: papel, tachuelas y platos de casa.',
+    gradient: 'linear-gradient(135deg, #F6ECD9 0%, #B8552A 110%, #3E7C6C 190%)',
+  },
+  {
+    slug: 'restaurant-casa-del-mar',
+    name: 'Restaurant Casa del Mar',
+    rubro: 'Marisquería',
+    city: 'Constitución',
+    tagline: 'Almuerzos frente al Pacífico: ventana, manteles blancos y pailas marinas.',
+    gradient: 'linear-gradient(135deg, #DFF0EC 0%, #0E2A3A 110%, #C97B4A 190%)',
+  },
+  {
+    slug: 'restaurant-30-y-tantos',
+    name: '30ytantos Restobar',
+    rubro: 'Restobar — música en vivo',
+    city: 'Constitución',
+    tagline: 'La noche de Constitución: neón rojo y cian, coctelería y shows.',
+    gradient: 'linear-gradient(135deg, #0B0A10 0%, #FF3B5C 115%, #35E0FF 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
