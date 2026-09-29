@@ -4053,6 +4053,14 @@ const BLITZ = [
     tagline: 'La picada del camino a la costa: rojo de la fachada, verde del toldo y la pizarra de colaciones escrita a tiza.',
     gradient: 'linear-gradient(135deg, #F8F2E4 0%, #8E2320 110%, #1F4A2E 190%)',
   },
+  {
+    slug: 'el-alero-de-anita',
+    name: 'El Alero de Anita',
+    rubro: 'Restaurant · Mercado Central',
+    city: 'Linares',
+    tagline: 'El puesto del mercado: naranjo de la fachada, verde de la pizarra y banderas chilenas en el comedor de madera.',
+    gradient: 'linear-gradient(135deg, #FAF3E3 0%, #C85A17 110%, #2E5231 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
