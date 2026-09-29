@@ -33,7 +33,7 @@ const C = {
   concreto: '#E9E6DC',
   concreto2: '#DDD8CA',
   tinta: '#1B1E1B',
-  tintaSuave: '#5A6159',
+  tintaSuave: '#545C50',
   verde: '#2F5233',
   verdeClaro: '#7FA65A',
   amarillo: '#E8B93B',
@@ -121,11 +121,11 @@ export default function EspacioUnihuePage() {
           />
           <div
             className="absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, rgba(21,24,26,.25) 25%, rgba(21,24,26,.82) 90%)' }}
+            style={{ background: 'linear-gradient(180deg, rgba(21,24,26,.40) 0%, rgba(21,24,26,.60) 60%, rgba(21,24,26,.87) 92%)' }}
           />
           <div className="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-5 pb-9 text-[#E9E6DC]">
             <Reveal>
-              <p className="text-xs uppercase tracking-[0.3em]" style={{ fontFamily: 'var(--un-mono)', color: C.amarillo }}>
+              <p className="text-xs uppercase tracking-[0.3em] text-balance" style={{ fontFamily: 'var(--un-mono)', color: C.amarillo }}>
                 arriendo de bodegas y contenedores · cruce unihue · talca
               </p>
               <h1
@@ -250,7 +250,7 @@ export default function EspacioUnihuePage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-full min-h-[76px] items-center justify-center rounded-md px-4 py-3 text-center text-base font-semibold transition-transform hover:-translate-y-0.5 sm:col-span-2"
+                className="col-span-2 flex min-h-[52px] items-center justify-center rounded-md px-3 py-3 text-center text-sm font-semibold whitespace-nowrap transition-transform hover:-translate-y-0.5"
                 style={{ background: C.verde, color: '#FFF' }}
               >
                 Preguntar qué bodega está disponible →
@@ -414,7 +414,7 @@ export default function EspacioUnihuePage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-full px-6 py-3 text-base font-semibold transition-transform hover:-translate-y-0.5"
+                  className="inline-flex items-center whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold transition-transform hover:-translate-y-0.5"
                   style={{ background: C.verde, color: '#FFF' }}
                 >
                   Escribir al {BIZ.phoneDisplay}
