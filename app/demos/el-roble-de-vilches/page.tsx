@@ -262,6 +262,7 @@ export default function Page() {
                 <div className="mt-4 space-y-1.5 text-[15px]" style={{ color: C.mutedCrema }}>
                   <p>Reservas: {BIZ.reserva1.display} · {BIZ.reserva2.display}</p>
                   <p>Consultas: {BIZ.consultas.display}</p>
+                  <p>Restaurant: {BIZ.restaurant.display}</p>
                 </div>
               </div>
               <div className="rounded-2xl p-6 flex flex-col justify-between" style={{ backgroundColor: 'rgba(241,237,224,0.07)', border: `1px solid ${C.lineCrema}` }}>
@@ -318,8 +319,8 @@ export default function Page() {
                   <a href={`tel:${BIZ.reserva1.tel}`} className="inline-flex items-center justify-center h-12 px-5 rounded-full text-[14px] font-bold" style={{ backgroundColor: C.bosque, color: '#F1EDE0' }}>
                     Reservas {BIZ.reserva1.display}
                   </a>
-                  <a href={`tel:${BIZ.consultas.tel}`} className="inline-flex items-center justify-center h-12 px-5 rounded-full text-[14px] font-bold border-2" style={{ borderColor: C.line, color: C.tinta }}>
-                    Consultas {BIZ.consultas.display}
+                  <a href={`tel:${BIZ.restaurant.tel}`} className="inline-flex items-center justify-center h-12 px-5 rounded-full text-[14px] font-bold border-2" style={{ borderColor: C.line, color: C.tinta }}>
+                    Restaurant {BIZ.restaurant.display}
                   </a>
                 </div>
               </div>

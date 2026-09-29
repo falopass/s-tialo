@@ -8,6 +8,10 @@
  * telefónica, servicios publicados en su web y todas las fotos
  * (aéreo del complejo, cabaña, tinaja, sauna, quincho, sendero y
  * portón de entrada tomadas de su propio sitio e Instagram).
+ * Además: el directorio turístico de la Municipalidad de San Clemente
+ * (sanclemente.cl/turismo/servicios/rest.html) lista "El Roble" en
+ * Vilches con el contacto del restaurant 9 8529 3925 y su sitio
+ * turismoelroble.cl — mismo negocio confirmado por el dominio.
  */
 
 export const BIZ = {
@@ -24,6 +28,7 @@ export const BIZ = {
   reserva1: { display: '71 224 2148', tel: '+56712242148' },
   reserva2: { display: '71 274 6250', tel: '+56712746250' },
   consultas: { display: '+56 9 2604 6903', tel: '+56926046903' },
+  restaurant: { display: '+56 9 8529 3925', tel: '+56985293925' },
   email: 'contacto@turismoelroble.cl',
   web: 'https://turismoelroble.cl',
   instagram: 'https://www.instagram.com/complejoturisticoelroble/',
