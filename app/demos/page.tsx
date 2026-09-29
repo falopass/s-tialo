@@ -827,8 +827,8 @@ const BLITZ = [
     name: 'Altos de Lircay',
     rubro: 'Clínica dental',
     city: 'San Clemente',
-    tagline: 'Cercano y natural: verde bosque y cobre.',
-    gradient: 'linear-gradient(135deg, #16342A 0%, #B4643C 140%)',
+    tagline: 'Clínica del valle: azules del letrero y ámbar del sol, hero a pantalla completa y su carta de especialidades.',
+    gradient: 'linear-gradient(135deg, #F6F9FC 0%, #0C65A9 90%, #D29A33 170%)',
   },
   {
     slug: 'jd-abogados',
@@ -2387,8 +2387,8 @@ const BLITZ = [
     name: 'Sociedad Cáceres e Hijos Maderas Ltda.',
     rubro: 'Ferretería y maderas',
     city: 'San Clemente',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #F4EFE3 0%, #2B1A10 150%)',
+    tagline: 'La ferretería de la cuadra: crema y verde bosque con diente de sierra, corta de madera y el local en Street View.',
+    gradient: 'linear-gradient(135deg, #F4EFE3 0%, #1E3D2F 120%, #2B1A10 190%)',
   },
   {
     slug: 'mr-coffe-humos-mauleos',

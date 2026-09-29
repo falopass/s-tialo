@@ -5,6 +5,9 @@
  * Maps: nombre, dirección, teléfono, rating/reseñas. El nombre de marca
  * ("Centro Odontológico Altos de Lircay") sale de su letrero y de su
  * carta de difusión oficial (fotos en public/demos/altos-de-lircay).
+ * Revisado 29-09-2026: la ficha solo publica la foto de portada (su
+ * "Ver fotos" abre Street View, sin galería); fachada, carta y logo son
+ * todo lo que el perfil entrega — no hay más fotos reales que sumar.
  * Todo lo demás es contenido de ejemplo para mostrar el sitio.
  */
 
