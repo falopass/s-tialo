@@ -158,7 +158,8 @@ export default function IngenieriaSanClementePage() {
               className={`${mono.className} inline-flex items-center gap-2.5 mt-8 px-4 py-2.5 border text-[11px] uppercase tracking-[0.16em]`}
               style={{ borderColor: C.lineDark, color: C.ambar, backgroundColor: 'rgba(240,165,0,0.07)' }}
             >
-              <span aria-hidden="true">⚠</span> Sin ficha pública en Google Maps
+              <span aria-hidden="true" className="inline-block w-2 h-2 rounded-full" style={{ backgroundColor: C.ambar }} />
+              Sin ficha pública en Google Maps
             </div>
             <div className="flex flex-col sm:flex-row gap-3 mt-8">
               <a
