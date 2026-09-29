@@ -333,15 +333,17 @@ export default function Page() {
           <Reveal delay={100}>
             <p className="mt-4 text-base md:text-lg leading-relaxed max-w-2xl" style={{ color: C.muted }}>
               Banquetería artesanal para cumpleaños, bautizos y oncecitas:
-              bocaditos, rollitos de canela, quiches, pizzas y tapaditos. Y para
-              quienes cuidan el azúcar, la trasnochada con stevia existe.
+              bocaditos, rollitos de canela, quiches, pizzas, tapaditos, galletas
+              y alfajores. Y para quienes cuidan el azúcar, la trasnochada con
+              stevia existe.
             </p>
           </Reveal>
-          <div className="mt-8 grid grid-cols-3 gap-3 md:gap-5">
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
             {[
               { src: 'bocaditos.webp', alt: 'Bocaditos y mini pasteles de banquetería dulce' },
               { src: 'rollitos-canela.webp', alt: 'Rollitos de canela con glaseado casero' },
               { src: 'quiches.webp', alt: 'Mini quiches de banquetería salada' },
+              { src: 'torta-personalizada.webp', alt: 'Torta personalizada de Pokébola por encargo' },
             ].map((f, i) => (
               <Reveal key={f.src} delay={i * 90}>
                 <img
@@ -373,7 +375,7 @@ export default function Page() {
               {
                 n: '1',
                 t: 'Escríbenos por WhatsApp',
-                d: `Al ${BIZ.phoneDisplay} o desde el botón verde. Cuéntanos la fecha y qué celebras.`,
+                d: `Al ${BIZ.phoneDisplay} o desde el botón verde. Responde su dueña, la misma que hornea.`,
               },
               {
                 n: '2',

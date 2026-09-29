@@ -4374,14 +4374,6 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F8F1DF 0%, #A83A2C 90%, #5D6E3B 170%)',
   },
   {
-    slug: 'acuerdate-de-mi-pasteleria',
-    name: 'Acuérdate de Mí',
-    rubro: 'Servicios',
-    city: 'Talca, Maule',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #F4ECD9 0%, #0F6E54 150%)',
-  },
-  {
     slug: 'bodegas-del-abate',
     name: 'Las Bodegas del Abate',
     rubro: 'Viñas y agroexportación',
