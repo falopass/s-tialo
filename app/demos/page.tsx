@@ -23,6 +23,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F2EAD9 0%, #B5492C 120%, #3F4A2A 190%)',
   },
   {
+    slug: 'restaurante-miramar',
+    name: 'Hostería Miramar',
+    rubro: 'Hostería, cabañas y restaurant de mar',
+    city: 'Llico, Vichuquén',
+    tagline: 'Bitácora del puerto: coordenadas náuticas, azul mar profundo y el timón azul de su letrero de madera.',
+    gradient: 'linear-gradient(135deg, #EEF3EF 0%, #1F5F7F 100%, #0D3548 180%)',
+  },
+  {
     slug: 'el-carrito',
     name: 'El Carrito',
     rubro: 'Comida rápida',
