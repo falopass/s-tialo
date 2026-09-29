@@ -244,45 +244,101 @@ export default function Page() {
             </p>
           </Reveal>
           <div className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-4">
-            <Reveal className="col-span-2 md:col-span-5">
-              <figure className="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
+            <Reveal className="col-span-2 md:col-span-4">
+              <figure className="relative aspect-[4/3] md:aspect-[3/4] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
                 <Image
-                  src={`${IMG}/trabajo-nipleria.webp`}
-                  alt="Flexibles y conectores hidráulicos sobre el torno, foto publicada en la ficha de Google del taller"
+                  src={`${IMG}/taller-torno.webp`}
+                  alt="Interior del taller de TORNO METAL: torno en uso junto al equipo, foto publicada en su ficha de Google"
                   fill
-                  sizes="(max-width: 768px) 100vw, 42vw"
+                  sizes="(max-width: 768px) 100vw, 34vw"
                   className="object-cover"
                 />
                 <figcaption className={`${mono.className} absolute bottom-0 inset-x-0 px-3 py-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em]`} style={{ backgroundColor: 'rgba(21,24,27,0.85)', color: C.acero }}>
-                  Del banco de trabajo · foto de su ficha
+                  El torno en uso · foto de su ficha
                 </figcaption>
               </figure>
             </Reveal>
-            <Reveal delay={100} className="md:col-span-4">
-              <figure className="relative h-full min-h-[180px] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
+            <Reveal delay={80} className="md:col-span-4">
+              <figure className="relative aspect-square md:aspect-[3/4] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
                 <Image
-                  src={`${IMG}/calle-5sur.webp`}
-                  alt="Calle 5 Sur frente al galpón del taller, con camiones y autos del barrio, Talca"
+                  src={`${IMG}/trabajo-nipleria.webp`}
+                  alt="Flexibles y conectores hidráulicos sobre el torno, foto publicada en la ficha de Google del taller"
                   fill
                   sizes="(max-width: 768px) 50vw, 34vw"
                   className="object-cover"
                 />
                 <figcaption className={`${mono.className} absolute bottom-0 inset-x-0 px-3 py-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em]`} style={{ backgroundColor: 'rgba(21,24,27,0.85)', color: C.acero }}>
-                  5 Sur · Street View
+                  Del banco · foto de su ficha
                 </figcaption>
               </figure>
             </Reveal>
-            <Reveal delay={180} className="md:col-span-3">
-              <figure className="relative h-full min-h-[180px] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
+            <Reveal delay={140} className="md:col-span-4">
+              <figure className="relative aspect-square md:aspect-[4/3] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
+                <Image
+                  src={`${IMG}/taladro.webp`}
+                  alt="Taladro de columna del taller en pleno trabajo, foto publicada en su ficha de Google"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 34vw"
+                  className="object-cover"
+                />
+                <figcaption className={`${mono.className} absolute bottom-0 inset-x-0 px-3 py-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em]`} style={{ backgroundColor: 'rgba(21,24,27,0.85)', color: C.acero }}>
+                  El taladro · foto de su ficha
+                </figcaption>
+              </figure>
+            </Reveal>
+            <Reveal delay={60} className="md:col-span-4">
+              <figure className="relative aspect-square md:aspect-[4/3] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
+                <Image
+                  src={`${IMG}/soldador.webp`}
+                  alt="Trabajo de soldadura en el taller, con chispas sobre la pieza, foto de su ficha de Google"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 34vw"
+                  className="object-cover"
+                />
+                <figcaption className={`${mono.className} absolute bottom-0 inset-x-0 px-3 py-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em]`} style={{ backgroundColor: 'rgba(21,24,27,0.85)', color: C.acero }}>
+                  Soldando · foto de su ficha
+                </figcaption>
+              </figure>
+            </Reveal>
+            <Reveal delay={120} className="md:col-span-4">
+              <figure className="relative aspect-square md:aspect-[4/3] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
+                <Image
+                  src={`${IMG}/fresado.webp`}
+                  alt="Fresa cortando metal con viruta, trabajo de fresado del taller, foto de su ficha de Google"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 34vw"
+                  className="object-cover"
+                />
+                <figcaption className={`${mono.className} absolute bottom-0 inset-x-0 px-3 py-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em]`} style={{ backgroundColor: 'rgba(21,24,27,0.85)', color: C.acero }}>
+                  El fresado · foto de su ficha
+                </figcaption>
+              </figure>
+            </Reveal>
+            <Reveal delay={180} className="md:col-span-2">
+              <figure className="relative aspect-square md:aspect-[4/3] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
+                <Image
+                  src={`${IMG}/calle-5sur.webp`}
+                  alt="Calle 5 Sur frente al galpón del taller, con camiones y autos del barrio, Talca"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 17vw"
+                  className="object-cover"
+                />
+                <figcaption className={`${mono.className} absolute bottom-0 inset-x-0 px-3 py-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em]`} style={{ backgroundColor: 'rgba(21,24,27,0.85)', color: C.acero }}>
+                  5 Sur · SV
+                </figcaption>
+              </figure>
+            </Reveal>
+            <Reveal delay={220} className="md:col-span-2">
+              <figure className="relative aspect-square md:aspect-[4/3] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
                 <Image
                   src={`${IMG}/bloque-5sur.webp`}
                   alt="Bloque industrial de Calle 5 Sur con el galpón amarillo del taller, Talca"
                   fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 50vw, 17vw"
                   className="object-cover"
                 />
                 <figcaption className={`${mono.className} absolute bottom-0 inset-x-0 px-3 py-2 text-[9px] md:text-[10px] uppercase tracking-[0.16em]`} style={{ backgroundColor: 'rgba(21,24,27,0.85)', color: C.acero }}>
-                  El bloque · Street View
+                  El bloque · SV
                 </figcaption>
               </figure>
             </Reveal>

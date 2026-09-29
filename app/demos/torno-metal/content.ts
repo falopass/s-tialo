@@ -13,8 +13,9 @@
  * ya no existe (cuelgan de una ficha de amarillas.cl).
  * Las reseñas citadas son texto real de la ficha de Google.
  * Fotos de public/demos/torno-metal/: fachada/bloque/calle son
- * Google Street View del galpón de 5 Sur; trabajo-nipleria.webp
- * es una foto publicada en la propia ficha de Google.
+ * Google Street View del galpón de 5 Sur; trabajo-nipleria,
+ * taller-torno, taladro, soldador y fresado son fotos publicadas
+ * en la propia ficha de Google del taller.
  */
 
 export const BIZ = {
