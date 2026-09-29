@@ -39,8 +39,9 @@ export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
   'Hola, vi la página de La Paila de Huevos y quiero consultar',
 )}`
 
-export const MAPS_URL =
-  'https://www.google.com/maps/place/La+paila+de+huevos/@-35.3366386,-71.5587006,17z/data=!4m6!3m5!1s0x9665b7f05ed40d93:0x8704e5f53a73e9e4!8m2!3d-35.3366386!4d-71.5587006!16s%2Fg%2F11csp9ljbz'
+export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  'La paila de huevos, San Rafael, Maule, Chile',
+)}`
 
 export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
   'La paila de huevos, San Rafael, Maule, Chile',
