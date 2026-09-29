@@ -3525,6 +3525,14 @@ const BLITZ = [
     tagline: 'Un día en Mariscadero: la línea de horas baja del sol a la noche, Prata y Space Mono.',
     gradient: 'linear-gradient(135deg, #F3EEE1 0%, #0C2A44 110%, #E8B33A 190%)',
   },
+  {
+    slug: 'cabanasvillaverde',
+    name: 'Cabañas Villa Verde',
+    rubro: 'Cabañas y hospedaje',
+    city: 'Pelluhue',
+    tagline: 'La casa del jardín: ventanas con partidor, hortensias, tarifas reales por capacidad y sello Sernatur.',
+    gradient: 'linear-gradient(135deg, #FBFAF7 0%, #3F7052 115%, #C0668B 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
