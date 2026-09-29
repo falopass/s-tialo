@@ -184,6 +184,10 @@ const CABANAS_LA_QUEBRADA: CatalogDemo = {
 }
 
 const BLITZ_CREATED: Record<string, string> = {
+  'topisima-optica-talca': '2026-09-29',
+  'venta-de-autos-usados': '2026-09-29',
+  'vivero-huilquilemu': '2026-09-29',
+  'centro-de-eventos-capelli': '2026-09-29',
   'hema-parque-infantil': '2026-09-28',
   'cabanas-los-barriles': '2026-09-28',
   'clinica-veterinaria-ecovets': '2026-09-28',
