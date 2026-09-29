@@ -929,10 +929,10 @@ const BLITZ = [
   {
     slug: 'matrokin',
     name: 'Matrokin SPA',
-    rubro: 'Spa y terapias',
+    rubro: 'Centro kinésico y matronil',
     city: 'Molina',
-    tagline: 'Calmo y natural: verde salvia, arena y carbón.',
-    gradient: 'linear-gradient(135deg, #2B2B27 0%, #7C8F7B 140%)',
+    tagline: 'Dos círculos del logo: índigo y coral sobre crema.',
+    gradient: 'linear-gradient(135deg, #221E5E 0%, #2F2B7A 55%, #E8503A 140%)',
   },
   {
     slug: 'sigel',
