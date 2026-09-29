@@ -731,8 +731,8 @@ const BLITZ = [
     name: 'Complejo Deportivo Brilla El Sol',
     rubro: 'Campo de fútbol',
     city: 'Talca',
-    tagline: 'Cartel de cancha: verde pasto y sol de su nombre, marcador de datos y rayos diagonales.',
-    gradient: 'linear-gradient(135deg, #08301C 0%, #1F7A43 55%, #FFC63D 140%)',
+    tagline: 'Cancha sintética con focos en 12 Sur: arrienda por bloques de 90 minutos.',
+    gradient: 'linear-gradient(135deg, #10392E 0%, #178553 55%, #F4C64E 140%)',
   },
   {
     slug: 'complejo-deportivo-carlos-aravena-se',
@@ -2311,7 +2311,7 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F7F0E3 0%, #BE3A24 70%, #33633C 140%)',
   },
   {
-    slug: 'aridos-los-maitenes-ltda-',
+    slug: 'aridos-los-maitenes-ltda',
     name: 'Áridos Los Maitenes Ltda.',
     rubro: 'Extracción y venta de áridos',
     city: 'San Clemente',
@@ -2327,7 +2327,7 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0B3C74 0%, #1463B8 55%, #D2292F 140%)',
   },
   {
-    slug: 'jard-n-do-a-ignacia-1',
+    slug: 'jardin-dona-ignacia-1',
     name: 'Jardín Doña Ignacia',
     rubro: 'Centro de jardinería',
     city: 'Talca',
