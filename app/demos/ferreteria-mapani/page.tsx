@@ -175,7 +175,7 @@ export default function Page() {
           <a
             href={`tel:${BIZ.phoneTel}`}
             className={`${mono.className} text-[11px] font-bold uppercase tracking-[0.18em] underline underline-offset-4 tap-44`}
-            style={{ color: C.amarillo }}
+            style={{ color: '#FFD77A' }}
           >
             {BIZ.phoneDisplay}
           </a>
