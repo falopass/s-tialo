@@ -3453,6 +3453,14 @@ const BLITZ = [
     tagline: 'La piscina mirando los cerros de Vilches: cabañas, camping y tinajas en bosque nativo.',
     gradient: 'linear-gradient(135deg, #F2EBDB 0%, #C33A4E 115%, #152A1E 190%)',
   },
+  {
+    slug: 'jungle',
+    name: 'Jungle',
+    rubro: 'Pub restaurante',
+    city: 'San Clemente',
+    tagline: 'Noche de selva urbana: verde neón, hojas marcadas como bosquejo y la ficha municipal verificada.',
+    gradient: 'linear-gradient(135deg, #0B1A11 0%, #122A1C 60%, #B8E04B 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
