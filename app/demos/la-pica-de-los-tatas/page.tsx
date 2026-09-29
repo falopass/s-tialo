@@ -90,11 +90,11 @@ const CARTA = [
   },
   {
     num: '03',
-    src: `${IMG}/detalle3.webp`,
-    alt: 'Empanada de pino dorada servida en plato blanco, en La Picá De Los Tatas',
-    kicker: 'El clásico',
-    title: 'La empanada de la casa',
-    text: 'La de siempre: pino jugoso, horno marcado y masa que aguanta el viaje a la once.',
+    src: `${IMG}/pastel.webp`,
+    alt: 'Pastel de choclo gratinado en paila de greda, servido en La Picá De Los Tatas',
+    kicker: 'De la paila',
+    title: 'Pastel de choclo',
+    text: 'El de greda, gratinado al horno: choclo molido, pollo y pino que se corta con la cuchara.',
   },
 ]
 
@@ -165,7 +165,7 @@ export default function LaPicaDeLosTatasPage() {
       <section id="inicio" className="relative min-h-svh flex items-center justify-center overflow-hidden">
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Fachada amarilla de La Picá De Los Tatas en Independencia 1843, Molina, con la rueda de carreta pintada en el muro"
+          alt="Fachada de La Picá De Los Tatas en Independencia 1843, Molina, con los murales pintados de los dueños y el letrero Chilean Food"
           fill
           priority
           sizes="100vw"
@@ -213,9 +213,10 @@ export default function LaPicaDeLosTatasPage() {
             </div>
           </Reveal>
           <Reveal delay={150}>
-            <dl className={`${GLASS} mt-16 mx-auto max-w-[44rem] grid grid-cols-3 divide-x divide-[#E8DCC8]/12 py-5 hover:border-[#E8DCC8]/12`}>
+            <dl className={`${GLASS} mt-16 mx-auto max-w-[52rem] grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-5 py-5 hover:border-[#E8DCC8]/12`}>
               {[
                 { v: BIZ.ratingLabel, k: `${BIZ.reviews} reseñas en Google` },
+                { v: 'Nº 1', k: 'Mejor empanada de Molina 2025' },
                 { v: BIZ.followers, k: 'seguidores en Facebook' },
                 { v: 'Molina', k: 'Región del Maule' },
               ].map((s) => (
@@ -329,8 +330,9 @@ export default function LaPicaDeLosTatasPage() {
             </h2>
             <p className="mt-5 text-base leading-relaxed text-[#E8DCC8]/80">
               En plena calle Independencia, con la puerta abierta y la cocina a
-              la vista. Quienes ya vinieron lo cuentan en Google, donde la picá
-              tiene nota {BIZ.ratingLabel} en{' '}
+              la vista. En 2025 su empanada ganó el concurso de la Municipalidad
+              de Molina como la mejor de la comuna. Quienes ya vinieron lo
+              cuentan en Google, donde la picá tiene nota {BIZ.ratingLabel} en{' '}
               <a
                 href={MAPS_URL}
                 target="_blank"
@@ -467,7 +469,7 @@ export default function LaPicaDeLosTatasPage() {
       {/* ── Contacto y ubicación ── */}
       <section id="contacto" className="relative overflow-hidden scroll-mt-24">
         <Image
-          src={`${IMG}/hero.webp`}
+          src={`${IMG}/puerta.webp`}
           alt=""
           aria-hidden="true"
           fill

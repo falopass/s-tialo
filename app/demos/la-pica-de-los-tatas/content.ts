@@ -6,9 +6,10 @@
  * (75) 255 4076 (SERNATUR y Facebook; atienden por un grupo de
  * WhatsApp, no por un móvil directo), nota 4,6 en 376 reseñas,
  * horario (Lu-Sa 9:30-16:00, domingo cerrado), fotos reales bajadas de
- * la ficha (fachada amarilla, empanadas, platos, comedor), letrero del
- * local como logo y reseñas citadas. La carta y los precios siguen
- * siendo contenido de muestra.
+ * la ficha (fachada con murales, puerta, empanadas, pastel de choclo,
+ * comedor), letrero del local como logo y reseñas citadas. Premio
+ * real: Mejor Empanada de Molina 2025 (concurso municipal). La carta
+ * y los precios siguen siendo contenido de muestra.
  */
 
 export const BIZ = {
