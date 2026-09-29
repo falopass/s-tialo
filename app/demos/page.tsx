@@ -2503,6 +2503,14 @@ const BLITZ = [
     tagline: 'La Pepona del Maule de Laura Ramos: lana de oveja, carmín de cochinilla y marcos de postal pespunteados.',
     gradient: 'linear-gradient(135deg, #33251F 0%, #F4EDDE 60%, #9A3138 170%)',
   },
+  {
+    slug: 'el-rincon-del-sabor',
+    name: 'El rincón del SABOR',
+    rubro: 'Restaurant de ruta',
+    city: 'Maule',
+    tagline: 'Paradero de la K-620: crema, rojo y amarillo de su sello de huaso, línea de ruta y su terraza real.',
+    gradient: 'linear-gradient(135deg, #FBF4E4 0%, #F2B01E 60%, #C22F1F 130%)',
+  },
 ]
 
 export const metadata: Metadata = {
