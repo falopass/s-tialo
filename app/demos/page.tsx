@@ -29,6 +29,13 @@ const BLITZ = [
     city: 'San Clemente',
     tagline: 'La casona del Álamo: Fraunces + Karla, rojo granero y pradera, carta criolla real y amenities del predio.',
     gradient: 'linear-gradient(135deg, #F4EDDC 0%, #A03123 120%, #2E5726 190%)',
+    slug: 'casa-del-toto',
+    name: 'Casa del Toto',
+    rubro: 'Casa de comidas',
+    city: 'Romeral',
+    tagline: 'La casa de portón a la Quilvo: mantel cuadrillé, mesa de campo propuesta y reseñas reales del pasajero.',
+    gradient: 'linear-gradient(135deg, #F7F1E3 0%, #B5522D 110%, #2E4A38 190%)',
+  {
     slug: 'el-roto-quezada',
     name: 'El Roto Quezada',
     rubro: 'Restaurante',
