@@ -41,6 +41,7 @@ const C = {
   malla: '#B23A7E',
   mallaOsc: '#8F2D64',
   terracota: '#BC5B33',
+  terracotaOsc: '#9C4A28',
   cinta: '#E3A72F',
   crema: '#FBF7EC',
 } as const
@@ -140,7 +141,7 @@ export default function ViveroColibriesPage() {
           />
           <div
             className="absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, rgba(37,52,29,.15) 30%, rgba(37,52,29,.78) 88%)' }}
+            style={{ background: 'linear-gradient(180deg, rgba(37,52,29,.30) 0%, rgba(37,52,29,.55) 55%, rgba(37,52,29,.85) 92%)' }}
           />
           <div className="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-5 pb-10 text-[#FBF7EC]">
             <Reveal>
@@ -249,7 +250,7 @@ export default function ViveroColibriesPage() {
       <section id="plantas" className="px-5 py-16 sm:py-20" style={{ background: C.papel2 }}>
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em]" style={{ fontFamily: 'var(--vc-mono)', color: C.terracota }}>
+            <p className="text-xs uppercase tracking-[0.3em]" style={{ fontFamily: 'var(--vc-mono)', color: C.terracotaOsc }}>
               qué se lleva la gente
             </p>
             <h2 className="mt-3 max-w-2xl text-4xl leading-tight sm:text-5xl" style={{ fontFamily: 'var(--vc-display)' }}>
