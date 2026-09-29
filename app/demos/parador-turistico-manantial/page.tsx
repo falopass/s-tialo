@@ -210,7 +210,10 @@ export default function ParadorManantial() {
               </h1>
             </Reveal>
             <Reveal delay={160}>
-              <p className="mt-4 max-w-lg text-base md:text-lg leading-relaxed" style={{ color: 'rgba(255,249,236,0.92)' }}>
+              <p
+                className="mt-4 max-w-lg text-base md:text-lg leading-relaxed"
+                style={{ color: 'rgba(255,249,236,0.92)', textShadow: '0 1px 3px rgba(20,42,32,0.85), 0 2px 14px rgba(20,42,32,0.65)' }}
+              >
                 Comida al paso de {BIZ.duenos}: completos, churrascos, empanadas y un café
                 caliente antes de seguir subiendo al parque.
               </p>
