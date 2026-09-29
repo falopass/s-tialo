@@ -55,6 +55,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F4F1E6 0%, #B3C938 90%, #1B2340 190%)',
   },
   {
+    slug: 'desayunos-el-225',
+    name: 'Desayunos "El 225"',
+    rubro: 'Desayunos — restaurant de carretera',
+    city: 'San Rafael',
+    tagline: 'La primera pará del día: banderines rojo/blanco de su techo, serifa de menú de carretera y el sol saliendo sobre el km 225.',
+    gradient: 'linear-gradient(135deg, #FBF3E4 0%, #C0392B 95%, #E8862E 190%)',
+  },
+  {
     slug: 'meshi-teno',
     name: 'Meshi Teno',
     rubro: 'Delivery — sushi, burger y handrolls',
