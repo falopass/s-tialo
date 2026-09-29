@@ -103,6 +103,89 @@ function Gota({ color, className = '' }: { color: string; className?: string }) 
   )
 }
 
+/** Escena bosquejo: el patio de juegos. La ficha de Maps solo publica dos
+ * fotos (fachada y entrada) y el jardín no tiene redes: el interior se
+ * dibuja y se marca visiblemente como bosquejo, como manda la regla. */
+function PatioBosquejo() {
+  return (
+    <figure
+      className="relative overflow-hidden rounded-[2rem] border-4"
+      style={{ borderColor: '#fff', boxShadow: '0 18px 44px rgba(43,58,74,0.18)' }}
+      role="img"
+      aria-label="Bosquejo ilustrado del patio de juegos del jardín: resbalín, columpio y casita entre el pasto"
+    >
+      <span
+        className="absolute top-4 left-4 z-10 px-4 py-1.5 rounded-full text-[11px] font-extrabold uppercase tracking-[0.16em]"
+        style={{ backgroundColor: C.ink, color: C.crema }}
+      >
+        bosquejo
+      </span>
+      <svg viewBox="0 0 800 420" className="block w-full aspect-[16/10] md:aspect-[21/8]" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        {/* cielo */}
+        <rect width="800" height="420" fill={C.celeste} />
+        <rect width="800" height="420" fill="url(#patio-cielo)" />
+        <defs>
+          <linearGradient id="patio-cielo" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#BCE0F2" />
+            <stop offset="0.62" stopColor={C.crema} />
+            <stop offset="0.63" stopColor={C.menta} />
+            <stop offset="1" stopColor="#6FBF8E" />
+          </linearGradient>
+        </defs>
+        {/* sol */}
+        <circle cx="668" cy="72" r="40" fill={C.amarillo} />
+        <circle cx="668" cy="72" r="52" fill="none" stroke={C.amarillo} strokeWidth="4" strokeDasharray="6 10" opacity="0.7" />
+        {/* nubes */}
+        <g fill="#fff" opacity="0.9">
+          <ellipse cx="150" cy="70" rx="52" ry="18" />
+          <ellipse cx="196" cy="60" rx="40" ry="16" />
+          <ellipse cx="470" cy="52" rx="44" ry="15" />
+        </g>
+        {/* casita del fondo */}
+        <g>
+          <rect x="70" y="210" width="120" height="80" rx="6" fill="#fff" />
+          <path d="M60 214 L130 168 L200 214 Z" fill={C.coral} />
+          <rect x="118" y="244" width="24" height="46" rx="3" fill={C.ink} opacity="0.75" />
+          <circle cx="96" cy="238" r="9" fill={C.celeste} />
+          <circle cx="164" cy="238" r="9" fill={C.celeste} />
+        </g>
+        {/* resbalín */}
+        <g stroke={C.ink} strokeWidth="6" strokeLinecap="round" fill="none" opacity="0.85">
+          <path d="M330 180 L330 300" />
+          <path d="M330 190 L260 190" />
+        </g>
+        <path d="M262 192 C262 240 282 262 302 296" stroke={C.coral} strokeWidth="14" strokeLinecap="round" fill="none" />
+        <rect x="316" y="170" width="28" height="14" rx="6" fill={C.ink} />
+        {/* columpio */}
+        <g stroke={C.ink} strokeWidth="6" strokeLinecap="round" fill="none" opacity="0.85">
+          <path d="M470 300 L510 170 L590 170 L630 300" />
+        </g>
+        <g stroke={C.ink} strokeWidth="3" fill="none" opacity="0.8">
+          <path d="M522 170 L518 248 M570 170 L574 248" />
+        </g>
+        <rect x="506" y="248" width="30" height="8" rx="4" fill={C.coral} />
+        <rect x="562" y="248" width="30" height="8" rx="4" fill={C.coral} />
+        {/* resortera: asiento que sube y baja */}
+        <g>
+          <path d="M676 284 L748 300" stroke={C.ink} strokeWidth="8" strokeLinecap="round" />
+          <circle cx="676" cy="284" r="10" fill={C.amarillo} />
+          <circle cx="748" cy="300" r="10" fill={C.celeste} stroke={C.ink} strokeWidth="3" />
+        </g>
+        {/* gotas decorativas de la marca */}
+        <path d="M236 96 C236 96 224 112 224 124 a12 12 0 1 0 24 0 C248 112 236 96 236 96Z" fill={C.coral} opacity="0.8" />
+        <path d="M408 120 C408 120 398 134 398 144 a10 10 0 1 0 20 0 C418 134 408 120 408 120Z" fill={C.celeste} stroke={C.ink} strokeWidth="1.5" opacity="0.9" />
+        {/* arbustos */}
+        <circle cx="40" cy="312" r="26" fill="#4E9E6E" />
+        <circle cx="764" cy="316" r="30" fill="#4E9E6E" />
+        <circle cx="700" cy="330" r="20" fill="#3E8F68" />
+      </svg>
+      <figcaption className="absolute bottom-3 right-4 md:bottom-4 md:right-6 rounded-full px-4 py-2 text-[11px] md:text-xs font-extrabold uppercase tracking-[0.14em]" style={{ backgroundColor: 'rgba(43,58,74,0.88)', color: C.crema }}>
+        se reemplaza por fotos del patio al publicar
+      </figcaption>
+    </figure>
+  )
+}
+
 function Wave({ fill, flip = false }: { fill: string; flip?: boolean }) {
   return (
     <svg
@@ -263,6 +346,14 @@ export default function GotitasPage() {
                 </Reveal>
               ))}
             </div>
+            <Reveal delay={160}>
+              <div className="mt-10">
+                <PatioBosquejo />
+                <p className="mt-3 text-xs font-semibold text-center" style={{ color: C.muted }}>
+                  La ficha del jardín solo publica fotos de la fachada y la entrada: el patio se dibuja como bosquejo.
+                </p>
+              </div>
+            </Reveal>
           </div>
           <Wave fill={C.celeste} />
         </section>
