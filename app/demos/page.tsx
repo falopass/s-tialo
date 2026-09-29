@@ -4517,6 +4517,14 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #F0E2C2 0%, #2B1D10 150%)',
   },
+  {
+    slug: 'corredora-de-propiedades-talca',
+    name: 'Corredora de Propiedades y Seguros',
+    rubro: 'Corretaje de propiedades y de seguros',
+    city: 'Talca',
+    tagline: 'El tablero de la galería: placas de latón sobre verde profundo y la oficina 3-C de 1 Sur 770 como identidad.',
+    gradient: 'linear-gradient(135deg, #0E1A13 0%, #1B3529 80%, #C9A45C 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
