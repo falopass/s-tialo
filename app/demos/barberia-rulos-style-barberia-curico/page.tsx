@@ -185,7 +185,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-semibold"
-      style={{ color: light ? C.orangeLite : C.orangeDark }}
+      style={{ color: light ? C.orangeLite : C.orangeDark, textShadow: light ? '0 1px 6px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.4)' : undefined }}
     >
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
       {children}
@@ -392,7 +392,7 @@ export default function BarberiaRulosStylePage() {
               <a
                 href="#servicios"
                 className={`${display.className} font-semibold text-sm md:text-base px-7 py-3.5 rounded-full border transition-colors hover:bg-white/10 tap-44`}
-                style={{ borderColor: 'rgba(237,230,218,0.55)', color: '#EDE6DA' }}
+                style={{ borderColor: 'rgba(237,230,218,0.55)', color: '#EDE6DA', backgroundColor: 'rgba(38,41,45,0.55)' }}
               >
                 Ver servicios y precios
               </a>
