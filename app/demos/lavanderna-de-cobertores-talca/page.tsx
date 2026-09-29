@@ -27,7 +27,7 @@ const C = {
   cyan: '#35C4F0',
   yellow: '#FFD94A',
   white: '#FFFFFF',
-  muted: '#4E7184',
+  muted: '#44667A',
   mutedLight: 'rgba(239,248,252,0.78)',
   line: 'rgba(14,58,83,0.16)',
   lineLight: 'rgba(239,248,252,0.22)',

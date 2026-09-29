@@ -387,7 +387,7 @@ export default function ClubFormasPage() {
                 <figure className="rounded-lg border p-6 h-full flex flex-col" style={{ borderColor: C.lineSoft, backgroundColor: C.panel }}>
                   <div className="flex items-center justify-between mb-4">
                     <Stars value={r.stars} color="#D89B1C" className="w-4 h-4" />
-                    <span className={`${mono.className} text-[9px] uppercase tracking-[0.18em]`} style={{ color: C.mutedDark }}>
+                    <span className={`${mono.className} text-[9px] uppercase tracking-[0.18em]`} style={{ color: C.muted }}>
                       Reseña de Google
                     </span>
                   </div>
@@ -440,7 +440,7 @@ export default function ClubFormasPage() {
                   <span className="text-sm md:text-base font-semibold" style={{ color: C.chalk }}>
                     {h.days}
                   </span>
-                  <span className={`${mono.className} text-xs md:text-sm`} style={{ color: h.time === 'Cerrado' ? C.mutedDark : C.tealSoft }}>
+                  <span className={`${mono.className} text-xs md:text-sm`} style={{ color: h.time === 'Cerrado' ? C.muted : C.tealSoft }}>
                     {h.time}
                   </span>
                 </li>
@@ -494,7 +494,7 @@ export default function ClubFormasPage() {
               <p className={`${display.className} uppercase font-extrabold text-xl leading-tight truncate`} style={{ color: C.chalk }}>
                 {BIZ.name}
               </p>
-              <address className="not-italic text-xs" style={{ color: C.mutedDark }}>
+              <address className="not-italic text-xs" style={{ color: C.muted }}>
                 {BIZ.address} · {BIZ.city}, {BIZ.region}
               </address>
             </div>

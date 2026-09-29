@@ -153,13 +153,13 @@ export default function CentroOftalmologicoNacionalPage() {
               </a>
             </div>
             <dl className={`${mono.className} grid grid-cols-2 gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] border-t pt-5 max-w-md`} style={{ borderColor: C.line }}>
-              <dt style={{ color: C.mutedDark }}>Dirección</dt>
+              <dt style={{ color: C.muted }}>Dirección</dt>
               <dd className="text-right" style={{ color: C.violetSoft }}>6 Ote. 1158, of. 11</dd>
-              <dt style={{ color: C.mutedDark }}>Ciudad</dt>
+              <dt style={{ color: C.muted }}>Ciudad</dt>
               <dd className="text-right" style={{ color: C.violetSoft }}>{BIZ.city}</dd>
-              <dt style={{ color: C.mutedDark }}>Contacto</dt>
+              <dt style={{ color: C.muted }}>Contacto</dt>
               <dd className="text-right" style={{ color: C.violetSoft }}>{BIZ.phoneDisplay}</dd>
-              <dt style={{ color: C.mutedDark }}>Atención</dt>
+              <dt style={{ color: C.muted }}>Atención</dt>
               <dd className="text-right" style={{ color: C.violetSoft }}>Lun a sáb</dd>
             </dl>
           </Reveal>
@@ -211,7 +211,7 @@ export default function CentroOftalmologicoNacionalPage() {
                   Armazones, tal como los muestran ellos
                 </h2>
               </div>
-              <p className={`${mono.className} text-[10px] uppercase tracking-[0.18em] max-w-[220px] text-right`} style={{ color: C.mutedDark }}>
+              <p className={`${mono.className} text-[10px] uppercase tracking-[0.18em] max-w-[220px] text-right`} style={{ color: C.muted }}>
                 Fotos reales de su Facebook
               </p>
             </div>
@@ -309,7 +309,7 @@ export default function CentroOftalmologicoNacionalPage() {
                 <p className={`${mono.className} text-[10px] uppercase tracking-[0.22em] font-semibold`} style={{ color: C.violet }}>
                   Cartilla de horarios
                 </p>
-                <p className={`${mono.className} text-[10px] uppercase tracking-[0.18em]`} style={{ color: C.mutedDark }}>
+                <p className={`${mono.className} text-[10px] uppercase tracking-[0.18em]`} style={{ color: C.muted }}>
                   Google Maps
                 </p>
               </div>
@@ -322,7 +322,7 @@ export default function CentroOftalmologicoNacionalPage() {
                   <span className="text-sm md:text-base font-semibold" style={{ color: C.ink }}>
                     {h.d}
                   </span>
-                  <span className={`${mono.className} text-xs md:text-sm text-right`} style={{ color: h.h === 'Cerrado' ? C.mutedDark : C.violetSoft }}>
+                  <span className={`${mono.className} text-xs md:text-sm text-right`} style={{ color: h.h === 'Cerrado' ? C.muted : C.violetSoft }}>
                     {h.h}
                   </span>
                 </div>
