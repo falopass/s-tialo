@@ -15,6 +15,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F5F2EF 0%, #691B2D 90%, #47001A 150%)',
   },
   {
+    slug: 'casa-alameda',
+    name: 'Casa Alameda',
+    rubro: 'Bar restaurante',
+    city: 'Talca',
+    tagline: 'Escenario nocturno “Food & Music”: negro carbón, ámbar de luces y la carta como setlist.',
+    gradient: 'linear-gradient(135deg, #0E0C0A 0%, #E8A13B 90%, #F3EDE0 160%)',
+  },
+  {
     slug: 'salon-de-belleza-y-peluqueria-nip-tuck',
     name: 'Nip Tuck',
     rubro: 'Salón de belleza y peluquería',
