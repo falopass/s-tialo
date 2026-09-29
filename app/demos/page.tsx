@@ -4533,6 +4533,14 @@ const BLITZ = [
     tagline: 'El afiche hecho página: negro taller, amarillo taxi y corona, cinta de servicios y el 5,0 de 62 reseñas.',
     gradient: 'linear-gradient(135deg, #0D0D0B 0%, #14140F 55%, #F2C500 160%)',
   },
+  {
+    slug: 'mr-mecanica',
+    name: 'MR Mecánica',
+    rubro: 'Taller mecánico',
+    city: 'San Clemente',
+    tagline: 'El taller de la cuadra: carbón y rojo del badge, puntos de inspección numerados y pizarrón de horario.',
+    gradient: 'linear-gradient(135deg, #141518 0%, #1F2227 60%, #C8102E 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
