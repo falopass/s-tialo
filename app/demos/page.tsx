@@ -23,6 +23,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F2EBDD 0%, #0B5CB8 90%, #10233B 150%)',
   },
   {
+    slug: 'carniceria-la-chepita',
+    name: 'Carnicería La Chepita',
+    rubro: 'Carnicería',
+    city: 'Lontué',
+    tagline: 'La vitrina de barrio: crema de envoltorio, rojo del logo y sus carteles de precio reales.',
+    gradient: 'linear-gradient(135deg, #221210 0%, #B02321 80%, #FAF4E8 160%)',
+  },
+  {
     slug: 'mercado-macro-feria-de-talca',
     name: 'Mercado Macro Feria de Talca',
     rubro: 'Feria y mercado',
