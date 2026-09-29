@@ -4413,6 +4413,30 @@ const BLITZ = [
     tagline: 'Cocina de pueblo en la Avenida Libertad: mantel cuadrillé, teja y solo datos verificados.',
     gradient: 'linear-gradient(135deg, #F7F1E3 0%, #A83A2A 120%, #4C6B3C 190%)',
   },
+  {
+    slug: 'restaurant-37-y-medio',
+    name: '37 1/2 Restaurant',
+    rubro: 'Restaurante de ruta · cocina casera',
+    city: 'San Clemente',
+    tagline: 'El Intergaláctico del km 37,5: espacio profundo y verde alien, la carta real de la pizarra y el alienígena de su marca.',
+    gradient: 'linear-gradient(135deg, #0B1030 0%, #141C48 90%, #9BEB3C 190%)',
+  },
+  {
+    slug: 'restaurante-vista-hermosa',
+    name: 'Restaurant Vista Hermosa',
+    rubro: 'Comedor familiar · comida casera',
+    city: 'San Clemente',
+    tagline: 'La mesa del cruce de Vilches: DM Serif + Karla, celosía de la terraza, cazuela con choclo y reseñas que dicen 3B.',
+    gradient: 'linear-gradient(135deg, #F6F0DE 0%, #A8431E 120%, #37502F 190%)',
+  },
+  {
+    slug: 'restaurante-lean-el-colorado',
+    name: 'LEAN',
+    rubro: 'Restaurante · hostería · cabañas',
+    city: 'San Clemente',
+    tagline: 'El refugio del km 73,5: bosque y mesa amarilla, rail de platos, quincho rojo y cabañas frente a la cordillera.',
+    gradient: 'linear-gradient(135deg, #1E2C1C 0%, #2A3D27 90%, #F2B21B 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
