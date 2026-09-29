@@ -5,8 +5,9 @@
  * Horario: lun–vie 9:00–18:00, sábado y domingo cerrado.
  * Las fotos del demo son reales y salen de esa misma ficha:
  * soldadura, reparación de carrocerías y cajas de camión, trabajo
- * en terreno con camión pluma y entregas de vehículos.
- * No tiene sitio web ni redes propias publicadas.
+ * en terreno con camión pluma, entregas de vehículos y el interior
+ * de un módulo acondicionado. No tiene sitio web ni redes propias
+ * publicadas.
  */
 export const BIZ = {
   name: 'Maestranza Parker',

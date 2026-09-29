@@ -73,6 +73,13 @@ const TRABAJOS = [
     alt: 'Camión con caja amarilla fabricada saliendo del taller por la Ruta 5',
     big: false,
   },
+  {
+    src: 'modulo.webp',
+    t: 'Módulos acondicionados',
+    d: 'Oficinas y containers habilitados por dentro: piso, aire y terminaciones.',
+    alt: 'Interior de un módulo acondicionado con piso flotante, cielo de madera y aire acondicionado instalado',
+    big: false,
+  },
 ]
 
 function Hazard({ className = '' }: { className?: string }) {
@@ -186,7 +193,7 @@ export default function MaestranzaParkerPage() {
               Acero que <span style={{ color: C.hazardDeep }}>trabaja duro</span>
             </h2>
           </Reveal>
-          <ul className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          <ul className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {TRABAJOS.map((w, i) => (
               <Reveal key={w.src} delay={i * 60} className={w.big ? 'col-span-2 md:row-span-2' : ''}>
                 <li className={`relative overflow-hidden rounded-lg h-full ${w.big ? 'aspect-[4/3] md:aspect-auto md:min-h-[420px]' : 'aspect-square'}`} style={{ boxShadow: '0 12px 28px rgba(23,25,28,0.16)' }}>
@@ -194,7 +201,7 @@ export default function MaestranzaParkerPage() {
                     src={`${IMG}/${w.src}`}
                     alt={w.alt}
                     fill
-                    sizes={w.big ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 50vw'}
+                    sizes={w.big ? '(min-width: 768px) 50vw, 100vw' : '(min-width: 768px) 25vw, 50vw'}
                     className="object-cover"
                   />
                   <div className="absolute inset-x-0 bottom-0 p-3 md:p-4" style={{ background: 'linear-gradient(180deg, rgba(23,25,28,0) 0%, rgba(23,25,28,0.85) 100%)' }}>
