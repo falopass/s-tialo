@@ -3194,8 +3194,13 @@ const BLITZ = [
     name: 'Atenea Salón Spa',
     rubro: 'Centro de estética',
     city: 'Molina',
+<<<<<<< HEAD
     tagline: 'La tarjeta del salón hecha sitio: vino y rosa acuarela, arcos, carta de precios real y 5,0 en Google.',
     gradient: 'linear-gradient(135deg, #2B1A24 0%, #4A2E3C 60%, #E8ACC0 170%)',
+=======
+    tagline: 'La tarjeta del salón hecha sitio: vino y rosa, arcos y la carta de precios real.',
+    gradient: 'linear-gradient(135deg, #2B1A24 0%, #4A2E3C 55%, #E8ACC0 160%)',
+>>>>>>> ddf8d11f19 (demo(atenea-salon): ficha real en catálogo + afiches del spa como figure con CTA compacto)
   },
   {
     slug: 'cabanas-y-camping-el-esfuerzo',
@@ -4072,7 +4077,7 @@ const BLITZ = [
   {
     slug: 'barraca-de-madera-maderex',
     name: 'Barraca de Madera Maderex',
-    rubro: 'Barraca de madera y herramientas',
+    rubro: 'Barraca de madera',
     city: 'San Clemente',
     tagline: 'Pizarra de barraca: verde del letrero, tally marks y el listado pintado del galpón.',
     gradient: 'linear-gradient(135deg, #14130F 0%, #3E9B4F 90%, #F3EFE4 170%)',

@@ -510,36 +510,52 @@ export default function AteneaSalonPage() {
           </Reveal>
           <div className="mt-10 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-8">
             <Reveal>
-              <a
-                href={waServicio('parafinoterapia')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="tap-44 block overflow-hidden rounded-3xl"
-              >
-                <Image
-                  src={`${IMG}/parafina.webp`}
-                  alt="Afiche de parafinoterapia del salón: manos sumergidas en parafina tibia, $5.000 por zona"
-                  width={720}
-                  height={1019}
-                  className="h-auto w-full transition-transform duration-500 hover:scale-[1.02]"
-                />
-              </a>
+              <figure>
+                <div className="overflow-hidden rounded-3xl">
+                  <Image
+                    src={`${IMG}/parafina.webp`}
+                    alt="Afiche de parafinoterapia del salón: manos sumergidas en parafina tibia, $5.000 por zona"
+                    width={720}
+                    height={1019}
+                    className="h-auto w-full"
+                  />
+                </div>
+                <figcaption className="mt-3">
+                  <a
+                    href={waServicio('parafinoterapia')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${mono.className} tap-44 inline-flex h-11 items-center gap-2 text-[11px] uppercase tracking-[0.25em] underline underline-offset-4`}
+                    style={{ color: C.deepRose }}
+                  >
+                    Consultar parafinoterapia
+                  </a>
+                </figcaption>
+              </figure>
             </Reveal>
             <Reveal delay={120}>
-              <a
-                href={waServicio('lipo láser')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="tap-44 block overflow-hidden rounded-3xl"
-              >
-                <Image
-                  src={`${IMG}/lipo-laser.webp`}
-                  alt="Afiche de lipo láser del salón: 10 sesiones por $199.990, una zona a elección"
-                  width={720}
-                  height={1281}
-                  className="h-auto w-full transition-transform duration-500 hover:scale-[1.02]"
-                />
-              </a>
+              <figure>
+                <div className="overflow-hidden rounded-3xl">
+                  <Image
+                    src={`${IMG}/lipo-laser.webp`}
+                    alt="Afiche de lipo láser del salón: 10 sesiones por $199.990, una zona a elección"
+                    width={720}
+                    height={1281}
+                    className="h-auto w-full"
+                  />
+                </div>
+                <figcaption className="mt-3">
+                  <a
+                    href={waServicio('lipo láser')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${mono.className} tap-44 inline-flex h-11 items-center gap-2 text-[11px] uppercase tracking-[0.25em] underline underline-offset-4`}
+                    style={{ color: C.deepRose }}
+                  >
+                    Consultar lipo láser
+                  </a>
+                </figcaption>
+              </figure>
             </Reveal>
           </div>
         </div>
