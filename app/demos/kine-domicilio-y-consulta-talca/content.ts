@@ -16,10 +16,9 @@
  *   choque, presoterapia, rehabilitación geriátrica y musculo-esquelética,
  *   terapias respiratorias, neuro-rehabilitación infantil, área estética).
  * - Reseñas citadas: textos reales de la ficha (nombre + antigüedad).
- * - Fotos reales: sesión de kinesiología y la kinesióloga (ficha de
- *   Maps); logo: avatar oficial de la ficha (4 rombos de colores).
- * - bosquejo-*.webp son imágenes de referencia generadas: van marcadas
- *   como bosquejo en la página.
+ * - Fotos reales: sesión en camilla, la kinesióloga y sesiones a
+ *   domicilio (ficha de Maps + Instagram @kine_domicilio_talca);
+ *   logo: avatar oficial de la ficha (4 rombos de colores).
  */
 
 export const BIZ = {

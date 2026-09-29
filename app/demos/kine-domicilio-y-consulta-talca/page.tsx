@@ -57,18 +57,6 @@ function Rombo({ color, size = 10 }: { color: string; size?: number }) {
   )
 }
 
-/** Marca visible de imagen de referencia (no es foto real del negocio). */
-function BosquejoBadge() {
-  return (
-    <span
-      className="absolute left-3 top-3 z-10 rounded-full px-3 py-1 text-[11px] font-medium"
-      style={{ backgroundColor: 'rgba(255,255,255,0.92)', color: C.soft, border: `1px dashed ${C.soft}` }}
-    >
-      bosquejo de referencia
-    </span>
-  )
-}
-
 export default function KinePage() {
   return (
     <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.bg, color: C.ink }}>
@@ -230,42 +218,46 @@ export default function KinePage() {
             ))}
           </div>
 
-          {/* El equipo en movimiento: foto real + bosquejo marcado */}
-          <div className="grid md:grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-6">
-            <Reveal delay={60}>
-              <figure className="relative rounded-3xl overflow-hidden h-full" style={{ border: `1px solid ${C.line}` }}>
-                <img
-                  src={`${IMG}/kinesiologa.webp`}
-                  alt={`${BIZ.profesional}, kinesióloga de ${BIZ.short}, junto a la camilla de la consulta`}
-                  loading="lazy"
-                  className="w-full h-full min-h-[280px] object-cover"
-                />
-                <figcaption
-                  className="absolute left-3 bottom-3 right-3 rounded-2xl px-4 py-3 text-[13px] leading-snug"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.94)', color: C.ink }}
-                >
-                  <strong>{BIZ.profesional}</strong> · kinesióloga a cargo · {BIZ.registro}
-                </figcaption>
-              </figure>
-            </Reveal>
-            <Reveal delay={140}>
-              <figure className="relative rounded-3xl overflow-hidden h-full" style={{ border: `1px dashed ${C.soft}` }}>
-                <BosquejoBadge />
-                <img
-                  src={`${IMG}/bosquejo-domicilio.webp`}
-                  alt="Bosquejo de referencia: camilla plegable, mochila e insumos que el equipo lleva al domicilio"
-                  loading="lazy"
-                  className="w-full h-full min-h-[280px] object-cover"
-                />
-                <figcaption
-                  className="absolute left-3 bottom-3 right-3 rounded-2xl px-4 py-3 text-[13px] leading-snug"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.94)', color: C.ink }}
-                >
-                  Camilla, insumos y equipo portátil — todo llega a tu casa.
-                  <span style={{ color: C.soft }}> (Imagen de referencia; se reemplaza por foto real al activar el sitio)</span>
-                </figcaption>
-              </figure>
-            </Reveal>
+          {/* El equipo en movimiento: fotos reales de la consulta y los domicilios */}
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-4 md:mt-6">
+            {[
+              {
+                f: 'kinesiologa',
+                alt: `${BIZ.profesional}, kinesióloga de ${BIZ.short}, junto al equipamiento de la consulta`,
+                cap: (
+                  <>
+                    <strong>{BIZ.profesional}</strong> · kinesióloga a cargo · {BIZ.registro}
+                  </>
+                ),
+              },
+              {
+                f: 'domicilio',
+                alt: `Sesión de kinesiología a domicilio de ${BIZ.short}: ejercicio de fuerza con mancuernas en el living de la casa`,
+                cap: 'A domicilio: ejercicio de fuerza con mancuernas, en tu living.',
+              },
+              {
+                f: 'trotadora',
+                alt: `Paciente adulta mayor rehabilitando la marcha en trotadora durante una sesión a domicilio de ${BIZ.short}`,
+                cap: 'Reeducación de la marcha en casa, con supervisión directa.',
+              },
+            ].map((p, i) => (
+              <Reveal key={p.f} delay={60 + i * 80}>
+                <figure className="relative rounded-3xl overflow-hidden h-full" style={{ border: `1px solid ${C.line}` }}>
+                  <img
+                    src={`${IMG}/${p.f}.webp`}
+                    alt={p.alt}
+                    loading="lazy"
+                    className="w-full h-full min-h-[280px] aspect-[3/4] object-cover"
+                  />
+                  <figcaption
+                    className="absolute left-3 bottom-3 right-3 rounded-2xl px-4 py-3 text-[13px] leading-snug"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.94)', color: C.ink }}
+                  >
+                    {p.cap}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
