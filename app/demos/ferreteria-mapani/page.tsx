@@ -170,7 +170,7 @@ export default function Page() {
             {BIZ.address} — {BIZ.city}
           </p>
           <p className={`${mono.className} text-[11px] uppercase tracking-[0.18em]`} style={{ color: 'rgba(247,241,228,0.85)' }}>
-            Lu–Sa 8:30–19:00 · Do 9:30–14:00
+            Lu–Sa 8:30–13:30 · 14:30–19:00 — Do 9:30–14:00
           </p>
           <a
             href={`tel:${BIZ.phoneTel}`}
