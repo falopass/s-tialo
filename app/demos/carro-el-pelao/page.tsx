@@ -431,8 +431,8 @@ export default function CarroElPelaoPage() {
           <Reveal>
             <Hito km="KM 3" titulo="Dónde parar" dark />
           </Reveal>
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div className="min-w-0">
               <Reveal>
                 <address className="not-italic mb-6">
                   <p className={`${display.className} uppercase leading-tight text-2xl md:text-4xl mb-2`} style={{ color: C.paper }}>
@@ -488,7 +488,7 @@ export default function CarroElPelaoPage() {
               </Reveal>
             </div>
             <Reveal delay={120}>
-              <div className="relative overflow-hidden border-2 aspect-[4/3] min-h-[300px]" style={{ borderColor: 'rgba(245,238,220,0.3)' }}>
+              <div className="relative overflow-hidden border-2 min-h-[300px] md:aspect-[4/3]" style={{ borderColor: 'rgba(245,238,220,0.3)' }}>
                 <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
