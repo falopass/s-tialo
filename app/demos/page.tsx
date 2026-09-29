@@ -3645,6 +3645,14 @@ const BLITZ = [
     tagline: 'La sobremesa del clásico: mantel, carbón y azul cuadrillé, con la historia de Río Claro a la 9 Oriente.',
     gradient: 'linear-gradient(135deg, #F6F1E7 0%, #1C1A17 95%, #C4552C 180%)',
   },
+  {
+    slug: 'varado-bar-restaurant',
+    name: 'Varado — Bar Restaurant',
+    rubro: 'Bar · restaurant',
+    city: 'Llico, Vichuquén',
+    tagline: 'La tarjeta del bar: azul marino de su logo del bote, banderines de señal y la empanada dibujada a mano.',
+    gradient: 'linear-gradient(135deg, #081F37 0%, #123A61 60%, #D6452B 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
