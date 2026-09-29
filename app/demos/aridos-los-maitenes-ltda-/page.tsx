@@ -126,7 +126,7 @@ export default function AridosLosMaitenesPage() {
         />
         <div className="relative max-w-6xl mx-auto w-full px-5 md:px-8 pb-10 md:pb-14 pt-32">
           <Reveal>
-            <p className={`${mono.className} text-[10px] md:text-[11px] tracking-[0.28em] uppercase`} style={{ color: C.ambar }}>
+            <p className={`${mono.className} text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-balance`} style={{ color: C.ambar }}>
               Planta de áridos · Sector Queri, San Clemente
             </p>
             <h1 className={`${display.className} font-extrabold leading-[1.04] text-[34px] md:text-[56px] mt-4 max-w-3xl`} style={{ color: '#F4F1EA' }}>
