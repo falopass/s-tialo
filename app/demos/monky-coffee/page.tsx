@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { demoMetadata } from '../meta'
+import LazyMap from '../lazy-map'
 import { Chrome, Reveal } from './chrome'
-import { BIZ, C, GALERIA, HOURS, IMG, MAPS_URL, METODOS, PROPUESTA, SELLOS, WA_LINK } from './content'
+import { BIZ, C, CARTA, GALERIA, HOURS, IMG, MAPS_EMBED, MAPS_URL, METODOS, PROPUESTA, RESENAS, SELLOS, WA_LINK } from './content'
 
 const display = localFont({
   src: [
@@ -53,9 +54,29 @@ function Stars() {
   )
 }
 
+/** Línea de carta impresa: nombre, puntos suspensivos y precio, como la hoja del local. */
+function ItemCarta({ nombre, precio, nota }: { nombre: string; precio: string; nota: string }) {
+  return (
+    <li className="flex items-baseline gap-2">
+      <div className="min-w-0">
+        <span className="text-[15px] font-bold">{nombre}</span>
+        {nota && (
+          <p className="text-[12px] leading-snug" style={{ color: C.muted }}>
+            {nota}
+          </p>
+        )}
+      </div>
+      <span aria-hidden="true" className="mx-1 flex-1 border-b-2 border-dotted" style={{ borderColor: 'rgba(28,31,29,0.3)' }} />
+      <span className={`${display.className} text-[16px] font-semibold whitespace-nowrap`} style={{ color: C.coralDeep }}>
+        ${precio}
+      </span>
+    </li>
+  )
+}
+
 export default function Page() {
   return (
-    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.paper, color: C.ink }}>
+    <div className={`${body.className} min-h-screen antialiased overflow-x-clip`} style={{ backgroundColor: C.paper, color: C.ink }}>
       <Chrome fontClass={display.className} />
 
       {/* HERO — foto real de la barra, con logo en la pared */}
@@ -74,15 +95,15 @@ export default function Page() {
               plantas y <em className="font-light" style={{ color: C.mint }}>cositas ricas</em>.
             </h1>
             <p className="mt-5 max-w-md text-[17px] leading-relaxed" style={{ color: C.mutedOnDark }}>
-              Desde {BIZ.since} en {BIZ.address.split(',')[0]}, {BIZ.city}: espresso, métodos, pastelería de la casa y un
-              rincón para juntarse. Con mascotas, bienvenidos.
+              Desde {BIZ.since} en una antigua casa de {BIZ.address.split(',')[0]}, {BIZ.city}: espresso, métodos,
+              pastelería de la casa y un rincón para juntarse. Con mascotas, bienvenidos.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={btn} style={{ backgroundColor: C.coralDeep, color: '#fff' }}>
                 Escribir por WhatsApp
               </a>
-              <a href="#cafe" className={`${btn} border`} style={{ borderColor: 'rgba(244,239,229,0.45)', color: C.paper }}>
-                Ver el café
+              <a href="#carta" className={`${btn} border`} style={{ borderColor: 'rgba(244,239,229,0.45)', color: C.paper }}>
+                Ver la carta
               </a>
             </div>
             <div className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-[14px]">
@@ -111,6 +132,54 @@ export default function Page() {
               aria-hidden="true"
               style={{ background: `linear-gradient(180deg, rgba(30,74,60,0) 60%, ${C.green} 100%)` }}
             />
+          </div>
+        </div>
+      </section>
+
+      {/* LA CARTA — la hoja impresa del local, con sus precios reales */}
+      <section id="carta" className="scroll-mt-16 px-5 py-16 md:py-24" style={{ backgroundColor: C.paper2 }}>
+        <div className="mx-auto max-w-6xl">
+          <div className="grid items-start gap-10 md:grid-cols-[1fr_1.15fr]">
+            <div className="md:sticky md:top-24">
+              <Reveal>
+                <Eyebrow>La carta</Eyebrow>
+                <h2 className={`${display.className} text-[clamp(2rem,4.5vw,3.4rem)] font-medium leading-[1.05] tracking-tight`}>
+                  Tal como se ve <em className="font-light" style={{ color: C.green }}>en la mesa</em>.
+                </h2>
+                <p className="mt-4 max-w-md text-[15px] leading-relaxed" style={{ color: C.muted }}>
+                  Sándwiches con nombre propio, tostadas, pastelería de la casa y los desayunos que la gente repite.
+                  Precios de la carta impresa del local.
+                </p>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <figure className="relative rotate-[-2deg] overflow-hidden rounded-[14px] border-4 border-white shadow-lg" style={{ aspectRatio: '3/4' }}>
+                    <img src={`${IMG}/carta.webp`} alt="La carta impresa de Monky Coffee, con desayunos, sándwiches, tostadas, bollería y pastelería" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                  </figure>
+                  <figure className="relative mt-6 rotate-[2.5deg] overflow-hidden rounded-[14px] border-4 border-white shadow-lg" style={{ aspectRatio: '3/4' }}>
+                    <img src={`${IMG}/carta-rosa.webp`} alt="Portada fucsia de la carta de Monky Coffee con el mono del logo" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                  </figure>
+                </div>
+                <p className="mt-4 text-[12px]" style={{ color: C.muted }}>
+                  *Carta sujeta a disponibilidad de stock — así lo dice la hoja.
+                </p>
+              </Reveal>
+            </div>
+            <Reveal delay={80}>
+              <div className="rounded-[24px] border bg-white p-6 shadow-sm md:p-9" style={{ borderColor: C.line }}>
+                {CARTA.map((g) => (
+                  <div key={g.grupo} className="mb-7 last:mb-0">
+                    <h3 className={`${display.className} mb-4 flex items-center gap-3 text-[13px] font-semibold uppercase tracking-[0.2em]`} style={{ color: C.green }}>
+                      {g.grupo}
+                      <span aria-hidden="true" className="h-px flex-1" style={{ backgroundColor: C.line }} />
+                    </h3>
+                    <ul className="space-y-4">
+                      {g.items.map((it) => (
+                        <ItemCarta key={it.nombre} {...it} />
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -156,12 +225,12 @@ export default function Page() {
       <section id="metodos" className="px-5 py-16 md:py-24" style={{ backgroundColor: C.paper2 }}>
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1fr_1fr] md:items-center">
           <Reveal>
-            <Photo src="cafe-2" alt="Flat white con arte latte en forma de tulipán sobre mesa de madera" ratio="aspect-[4/5] md:aspect-[5/6]" />
+            <Photo src="cafe-libro" alt="Espresso en plato verde junto a un sándwich y un libro sobre la mesa de Monky" ratio="aspect-[4/5] md:aspect-[5/6]" />
           </Reveal>
           <Reveal delay={80}>
             <Eyebrow>Métodos</Eyebrow>
             <h2 className={`${display.className} text-[clamp(2rem,4.5vw,3.4rem)] font-medium leading-[1.05] tracking-tight`}>
-              El mismo grano, <em className="font-light" style={{ color: C.green }}>tres maneras</em> de tomarlo.
+              El mismo grano, <em className="font-light" style={{ color: C.green }}>cuatro maneras</em> de tomarlo.
             </h2>
             <p className="mt-4 text-[16px] leading-relaxed" style={{ color: C.muted }}>
               Pide el de siempre o deja que el barista te recomiende. También hacemos talleres y catas para aprender a
@@ -181,46 +250,109 @@ export default function Page() {
         </div>
       </section>
 
-      {/* HORARIO + CONTACTO */}
-      <section id="horario" className="px-5 py-16 md:py-24" style={{ backgroundColor: C.green, color: C.paper }}>
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1fr_1fr]">
+      {/* OPINIONES — citas reales de Google */}
+      <section id="opiniones" className="scroll-mt-16 px-5 py-16 md:py-24" style={{ backgroundColor: C.green, color: C.paper }}>
+        <div className="mx-auto max-w-6xl">
           <Reveal>
-            <Eyebrow color={C.mint}>Horario</Eyebrow>
-            <h2 className={`${display.className} text-[clamp(2rem,4.5vw,3.4rem)] font-medium leading-[1.05] tracking-tight`}>
-              Abrimos <em className="font-light" style={{ color: C.mint }}>temprano</em>.
-            </h2>
-            <dl className="mt-6 divide-y" style={{ borderColor: C.lineOnDark }}>
-              {HOURS.map((h) => (
-                <div key={h.days} className="flex items-baseline justify-between gap-4 py-3" style={{ borderColor: C.lineOnDark }}>
-                  <dt className="text-[15px]" style={{ color: C.mutedOnDark }}>
-                    {h.days}
-                  </dt>
-                  <dd className={`${display.className} text-[20px] font-medium`}>{h.time}</dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-          <Reveal delay={80}>
-            <div id="contacto" className="rounded-[24px] p-6 md:p-8" style={{ backgroundColor: C.paper, color: C.ink }}>
-              <Eyebrow>Visítanos</Eyebrow>
-              <p className={`${display.className} text-[24px] font-medium leading-tight`}>
-                {BIZ.address}
-                <br />
-                <span style={{ color: C.muted }}>
-                  {BIZ.city}, {BIZ.region}
-                </span>
-              </p>
-              <p className="mt-4 text-[15px] leading-relaxed" style={{ color: C.muted }}>
-                Consultas, pedidos de pastelería y talleres por WhatsApp al {BIZ.phoneDisplay}.
-              </p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={btn} style={{ backgroundColor: C.coralDeep, color: '#fff' }}>
-                  Escribir por WhatsApp
-                </a>
-                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`${btn} border`} style={{ borderColor: C.ink, color: C.ink }}>
-                  Cómo llegar
-                </a>
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <Eyebrow color={C.mint}>Opiniones de Google</Eyebrow>
+                <h2 className={`${display.className} text-[clamp(2rem,4.5vw,3.4rem)] font-medium leading-[1.05] tracking-tight`}>
+                  Los que se <em className="font-light" style={{ color: C.mint }}>sentaron acá</em>.
+                </h2>
               </div>
+              <div className="flex items-center gap-2 pb-1">
+                <Stars />
+                <span className="text-[14px]">
+                  <b>{BIZ.rating.toLocaleString('es-CL')}</b> <span style={{ color: C.mutedOnDark }}>· {BIZ.reviews} reseñas</span>
+                </span>
+              </div>
+            </div>
+          </Reveal>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {RESENAS.map((r, i) => (
+              <Reveal key={r.nombre} delay={i * 90}>
+                <figure
+                  className="h-full rounded-[4px] p-6 shadow-md"
+                  style={{
+                    backgroundColor: C.paper,
+                    color: C.ink,
+                    transform: `rotate(${i === 1 ? 0 : i === 0 ? -1 : 1}deg)`,
+                    boxShadow: '0 12px 28px rgba(12,30,24,0.28)',
+                  }}
+                >
+                  <Stars />
+                  <blockquote className="mt-4 text-[14.5px] leading-relaxed" style={{ color: '#3E4642' }}>
+                    “{r.texto}”
+                  </blockquote>
+                  <figcaption className="mt-4 text-[12px] font-bold uppercase tracking-[0.14em]" style={{ color: C.coralDeep }}>
+                    {r.nombre}
+                    <span className="block font-semibold normal-case tracking-normal" style={{ color: C.muted }}>
+                      {r.cuando} · Google Maps
+                    </span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HORARIO + CONTACTO + MAPA */}
+      <section id="horario" className="scroll-mt-16 px-5 py-16 md:py-24" style={{ backgroundColor: C.paper }}>
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-10 md:grid-cols-[1fr_1fr]">
+            <Reveal>
+              <Eyebrow>Horario</Eyebrow>
+              <h2 className={`${display.className} text-[clamp(2rem,4.5vw,3.4rem)] font-medium leading-[1.05] tracking-tight`}>
+                Abrimos <em className="font-light" style={{ color: C.green }}>temprano</em>.
+              </h2>
+              <dl className="mt-6 divide-y" style={{ borderColor: C.line }}>
+                {HOURS.map((h) => (
+                  <div key={h.days} className="flex items-baseline justify-between gap-4 py-3" style={{ borderColor: C.line }}>
+                    <dt className="text-[15px]" style={{ color: C.muted }}>
+                      {h.days}
+                    </dt>
+                    <dd className={`${display.className} text-[20px] font-medium`}>{h.time}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-3 text-[12px]" style={{ color: C.muted }}>
+                Horario de su ficha de Google, confirmado por teléfono.
+              </p>
+            </Reveal>
+            <Reveal delay={80}>
+              <div id="contacto" className="scroll-mt-24 rounded-[24px] p-6 md:p-8" style={{ backgroundColor: C.green, color: C.paper }}>
+                <Eyebrow color={C.mint}>Visítanos</Eyebrow>
+                <p className={`${display.className} text-[24px] font-medium leading-tight`}>
+                  {BIZ.address}
+                  <br />
+                  <span style={{ color: C.mutedOnDark }}>
+                    {BIZ.city}, {BIZ.region}
+                  </span>
+                </p>
+                <p className="mt-4 text-[15px] leading-relaxed" style={{ color: C.mutedOnDark }}>
+                  Consultas, pedidos de pastelería y talleres por WhatsApp al {BIZ.phoneDisplay}.
+                </p>
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={btn} style={{ backgroundColor: C.coralDeep, color: '#fff' }}>
+                    Escribir por WhatsApp
+                  </a>
+                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`${btn} border`} style={{ borderColor: 'rgba(244,239,229,0.45)', color: C.paper }}>
+                    Cómo llegar
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={60}>
+            <div className="mt-10 overflow-hidden rounded-[24px] border" style={{ borderColor: C.line }}>
+              <LazyMap
+                title={`Mapa: ${BIZ.name}, ${BIZ.address}, ${BIZ.city}`}
+                src={MAPS_EMBED}
+                className="h-[280px] w-full md:h-[380px]"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </Reveal>
         </div>

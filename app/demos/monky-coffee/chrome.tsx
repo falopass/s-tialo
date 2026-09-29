@@ -11,9 +11,9 @@ export function Chrome({ fontClass }: { fontClass: string }) {
       <BlitzNav
         name={BIZ.name}
         links={[
+          { label: 'La carta', href: '#carta' },
           { label: 'El café', href: '#cafe' },
-          { label: 'Métodos', href: '#metodos' },
-          { label: 'Horario', href: '#horario' },
+          { label: 'Opiniones', href: '#opiniones' },
           { label: 'Visítanos', href: '#contacto' },
         ]}
         waLink={WA_LINK}
