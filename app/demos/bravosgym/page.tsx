@@ -173,7 +173,9 @@ export default function BravosgymPage() {
       >
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-36">
           <Reveal>
-            <Eyebrow light>Gimnasio · Molina · Región del Maule</Eyebrow>
+            <Eyebrow light>
+              <span style={{ letterSpacing: '0.14em' }}>Gimnasio · Molina · Región del Maule</span>
+            </Eyebrow>
             <h1
               className={`${display.className} leading-[1.02] tracking-[-0.01em] text-[clamp(2.9rem,10.5vw,6.2rem)] mb-6`}
               style={{ color: C.sand }}
