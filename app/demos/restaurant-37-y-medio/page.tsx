@@ -185,7 +185,7 @@ export default function Restaurant37YMedioPage() {
               </Reveal>
               <Reveal delay={100}>
                 <h1
-                  className={`${display.className} font-black uppercase leading-[1.0] tracking-[-0.01em] text-[clamp(2.4rem,7vw,5.6rem)] mb-6`}
+                  className={`${display.className} font-black uppercase leading-[1.0] tracking-[-0.01em] text-[clamp(2rem,7vw,5.6rem)] mb-6`}
                 >
                   El restaurante
                   <br />
@@ -281,7 +281,7 @@ export default function Restaurant37YMedioPage() {
 
       {/* ── Parada 01: la carta ── */}
       <section id="carta" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <Parada n="01" title="La carta de la pizarra" sub="precios reales" />
+        <Parada n="01" title={'La carta de la\u00A0pizarra'} sub="precios reales" />
         <div className="grid grid-cols-12 gap-8 md:gap-10 items-start">
           <div className="col-span-12 lg:col-span-7">
             <Reveal>
@@ -394,7 +394,7 @@ export default function Restaurant37YMedioPage() {
               </div>
               <div className="col-span-12 md:col-span-5">
                 <p className={`${display.className} font-bold uppercase text-xl md:text-2xl leading-tight mb-3`}>
-                  El pebre y el pan llegan primero
+                  El pebre y el pan llegan&nbsp;primero
                 </p>
                 <p className="text-sm md:text-base leading-relaxed" style={{ color: C.tenue }}>
                   Jugos naturales, pebre fresco y pan para empezar. En la terraza
@@ -430,7 +430,7 @@ export default function Restaurant37YMedioPage() {
 
       {/* ── Parada 03: bitácora de terrícolas ── */}
       <section id="opiniones" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <Parada n="03" title="Bitácora de terrícolas" sub={`${BIZ.rating} ★ · ${BIZ.reviews} reseñas`} />
+        <Parada n="03" title={'Bitácora de\u00A0terrícolas'} sub={`${BIZ.rating} ★ · ${BIZ.reviews} reseñas`} />
         <div className="grid grid-cols-12 gap-5 md:gap-6">
           {RESENAS.map((r, i) => (
             <Reveal key={r.nombre} className="col-span-12 md:col-span-6" delay={i * 90}>
@@ -465,7 +465,7 @@ export default function Restaurant37YMedioPage() {
       {/* ── Parada 04: coordenadas ── */}
       <section id="llegada" className="scroll-mt-20 border-t" style={{ borderColor: C.linea, backgroundColor: C.panel }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <Parada n="04" title="Coordenadas de aterrizaje" sub="ruta 115" />
+          <Parada n="04" title={'Coordenadas de\u00A0aterrzaje'} sub="ruta 115" />
           <div className="grid grid-cols-12 gap-8 md:gap-10 items-stretch">
             <div className="col-span-12 lg:col-span-5">
               <Reveal>
@@ -543,7 +543,7 @@ export default function Restaurant37YMedioPage() {
           <div className="flex flex-wrap items-center gap-3 mb-2">
             <Alien className="w-5 h-5" />
             <p className={`${display.className} font-extrabold uppercase text-lg md:text-xl`}>
-              {BIZ.name} · {BIZ.tag}
+              {BIZ.name} · <span className="whitespace-nowrap">{BIZ.tag}</span>
             </p>
           </div>
           <address className="not-italic text-xs md:text-sm leading-relaxed" style={{ color: C.tenue }}>
