@@ -203,7 +203,7 @@ export default function Page() {
                 <ul className="mt-4 grid grid-cols-2 gap-3">
                   {TEMAS.map(([t, n]) => (
                     <li key={t} className="rounded-lg px-3.5 py-3 border" style={{ borderColor: C.lineDark }}>
-                      <p className={`${display.className} text-lg uppercase`} style={{ color: C.crema }}>{t}</p>
+                      <p className={`${display.className} text-lg uppercase hyphens-auto`} style={{ color: C.crema }}>{t}</p>
                       <p className={`${mono.className} mt-0.5 text-[11px]`} style={{ color: C.celeste }}>{n}</p>
                     </li>
                   ))}
