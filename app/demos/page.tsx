@@ -2821,6 +2821,14 @@ const BLITZ = [
     tagline: 'Tablero unifilar: negro señalético, amarillo eléctrico y la red aérea real del barrio norte.',
     gradient: 'linear-gradient(135deg, #0C1015 0%, #F2C21B 85%, #E9EDF2 160%)',
   },
+  {
+    slug: 'granjeritos-san-clemente',
+    name: 'Granjeritos San Clemente',
+    rubro: 'Jardín infantil y escuela de lenguaje',
+    city: 'San Clemente',
+    tagline: 'La granja de Orlando Franz: papel crema, verde pradera, puertas de granero y polaroids de sus semanas.',
+    gradient: 'linear-gradient(135deg, #FBF3DC 0%, #F1E4BE 45%, #2F7D3A 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
