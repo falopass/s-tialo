@@ -83,7 +83,7 @@ function TagPromo({ children, color = C.fucsia }: { children: string; color?: st
   return (
     <span
       className={`${display.className} inline-block text-[10px] font-bold uppercase tracking-[0.12em] px-2.5 py-1`}
-      style={{ backgroundColor: color, color: '#fff', transform: 'rotate(-3deg)', borderRadius: 3 }}
+      style={{ backgroundColor: color, color: C.espacio, transform: 'rotate(-3deg)', borderRadius: 3 }}
     >
       {children}
     </span>
@@ -190,7 +190,7 @@ export default function TorosSushi() {
                 />
                 <figcaption
                   className={`${mono.className} absolute -bottom-3 right-4 text-[11px] uppercase tracking-[0.14em] px-2.5 py-1`}
-                  style={{ backgroundColor: C.fucsia, color: '#fff', borderRadius: 3, transform: 'rotate(2deg)' }}
+                  style={{ backgroundColor: C.fucsia, color: C.espacio, borderRadius: 3, transform: 'rotate(2deg)' }}
                 >
                   La nave insignia
                 </figcaption>
