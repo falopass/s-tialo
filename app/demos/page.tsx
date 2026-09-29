@@ -4637,6 +4637,14 @@ const BLITZ = [
     tagline: 'El letrero tal cual: navy de su marquesina, rojo del nombre y la carta leída de los vinilos del ventanal.',
     gradient: 'linear-gradient(135deg, #F8EFD9 0%, #14255E 80%, #C1272D 170%)',
   },
+  {
+    slug: 'oikos-pizzas',
+    name: 'Oikos Pizzas',
+    rubro: 'Pizzería y restaurante',
+    city: 'Molina',
+    tagline: 'Pizarra de colaciones: negro café, tomate y los afiches reales del menú del día que publica en su Facebook.',
+    gradient: 'linear-gradient(135deg, #1E1710 0%, #D34524 110%, #4C6B3A 200%)',
+  },
 ]
 
 export const metadata: Metadata = {
