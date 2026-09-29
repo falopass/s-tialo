@@ -31,6 +31,7 @@ const C = {
   ink: '#17333B',
   deep: '#0E232A',
   teal: '#0FA394',
+  tealDark: '#0A6E64',
   tealSoft: '#DDF0ED',
   wood: '#B97F55',
   muted: '#4E636A',
@@ -114,7 +115,7 @@ const RESENAS = [
 ]
 
 function AreaIcon({ kind }: { kind: string }) {
-  const stroke = { stroke: C.teal, strokeWidth: 1.8, fill: 'none', strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const }
+  const stroke = { stroke: C.tealDark, strokeWidth: 1.8, fill: 'none', strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const }
   return (
     <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
       {kind === 'leaf' && (
@@ -152,7 +153,7 @@ export default function Page() {
           bar: 'rgba(245,242,234,0.92)',
           ink: C.ink,
           line: C.line,
-          btnBg: C.teal,
+          btnBg: C.tealDark,
           btnInk: '#FFFFFF',
         }}
         logoSrc={`${IMG}/logo.webp`}
@@ -172,7 +173,7 @@ export default function Page() {
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-[104px] md:pt-[128px] pb-14 md:pb-20 grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:items-center">
           <div>
             <Reveal>
-              <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.teal }}>
+              <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.tealDark }}>
                 Psicólogo · Talca
               </p>
               <h1
@@ -180,7 +181,7 @@ export default function Page() {
                 style={{ color: C.ink }}
               >
                 Un espacio seguro para poner en orden{' '}
-                <span style={{ color: C.teal }}>lo que sientes</span>
+                <span style={{ color: C.tealDark }}>lo que sientes</span>
               </h1>
               <p className="mt-5 max-w-xl text-base md:text-lg leading-relaxed" style={{ color: C.muted }}>
                 Terapia individual, familiar y de parejas — online o presencial en el centro de Talca.
@@ -194,7 +195,7 @@ export default function Page() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${display.className} tap-44 inline-flex items-center gap-2 rounded-full px-6 py-3 text-base font-extrabold text-white shadow-lg transition-transform hover:scale-[1.02]`}
-                  style={{ backgroundColor: C.teal }}
+                  style={{ backgroundColor: C.tealDark }}
                 >
                   Agenda tu hora
                 </a>
@@ -215,7 +216,7 @@ export default function Page() {
                 className="tap-44 mt-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"
                 style={{ backgroundColor: C.tealSoft, color: C.ink }}
               >
-                <Stars value={5} color={C.teal} />
+                <Stars value={5} color={C.tealDark} />
                 <span>
                   <strong>{BIZ.rating}</strong> · {BIZ.reviews} reseñas en Google
                 </span>
@@ -271,7 +272,7 @@ export default function Page() {
       {/* ── Acompañamiento: proceso + áreas ── */}
       <section id="acompanamiento" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.teal }}>
+          <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.tealDark }}>
             El proceso
           </p>
           <h2 className={`${display.className} mt-3 text-3xl md:text-5xl font-black tracking-tight`}>
@@ -399,7 +400,7 @@ export default function Page() {
       <section id="opiniones" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Reveal>
-            <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.teal }}>
+            <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.tealDark }}>
               Opiniones
             </p>
             <h2 className={`${display.className} mt-3 text-3xl md:text-5xl font-black tracking-tight`}>
@@ -414,7 +415,7 @@ export default function Page() {
               className="tap-44 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"
               style={{ backgroundColor: C.card, border: `1px solid ${C.line}`, color: C.ink }}
             >
-              <Stars value={5} color={C.teal} />
+              <Stars value={5} color={C.tealDark} />
               {BIZ.rating} · {BIZ.reviews} reseñas · Google
             </a>
           </Reveal>
@@ -427,7 +428,7 @@ export default function Page() {
                 className="rounded-3xl p-6 h-full flex flex-col"
                 style={{ backgroundColor: C.card, border: `1px solid ${C.line}` }}
               >
-                <Stars value={5} color={C.teal} />
+                <Stars value={5} color={C.tealDark} />
                 <blockquote className="mt-4 text-sm leading-relaxed flex-1" style={{ color: C.muted }}>
                   “{r.texto}”
                 </blockquote>
@@ -444,7 +445,7 @@ export default function Page() {
       <section id="agenda" className="scroll-mt-20" style={{ backgroundColor: C.tealSoft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid gap-10 md:grid-cols-2 md:items-center">
           <Reveal>
-            <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.teal }}>
+            <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.tealDark }}>
               Agenda
             </p>
             <h2 className={`${display.className} mt-3 text-3xl md:text-5xl font-black tracking-tight`}>
@@ -521,7 +522,7 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
               className={`${display.className} tap-44 mt-8 inline-flex items-center rounded-full px-8 py-3 text-base font-extrabold`}
-              style={{ backgroundColor: C.teal, color: '#FFFFFF' }}
+              style={{ backgroundColor: C.tealDark, color: '#FFFFFF' }}
             >
               Hablar con Kevin
             </a>
