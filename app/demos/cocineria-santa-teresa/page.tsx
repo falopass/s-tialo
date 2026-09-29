@@ -144,6 +144,38 @@ function CampoBosquejo() {
   )
 }
 
+/** Escena bosquejo: el pizarrón — en una cocinería la carta se pregunta. */
+function PizarronBosquejo() {
+  const tiza = 'rgba(249,241,222,0.92)'
+  const lineas = ['¿qué hay del día?', '¿porciones para cuántos?', '¿a qué hora retiras?']
+  return (
+    <div
+      className="relative rounded-2xl overflow-hidden"
+      style={{ backgroundColor: '#26382C', border: '10px solid #6B4A2F', boxShadow: '0 16px 40px rgba(44,33,20,0.28), inset 0 0 60px rgba(0,0,0,0.35)' }}
+      role="img"
+      aria-label="Bosquejo: pizarrón de la cocinería con las preguntas de siempre escritas en tiza"
+    >
+      <Bosquejo />
+      <div className="px-8 py-8 md:px-12 md:py-10 text-center">
+        <p className={`${display.className} italic text-2xl md:text-3xl`} style={{ color: tiza, textDecoration: 'underline', textUnderlineOffset: 8, textDecorationStyle: 'wavy', textDecorationColor: 'rgba(249,241,222,0.4)' }}>
+          la pizarra de hoy
+        </p>
+        <ul className="mt-6 space-y-4">
+          {lineas.map((l) => (
+            <li key={l} className={`${display.className} italic text-xl md:text-2xl`} style={{ color: tiza }}>
+              {l}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 text-[11px] font-bold tracking-[0.3em] uppercase" style={{ color: 'rgba(249,241,222,0.55)' }}>
+          se responde por WhatsApp
+        </p>
+      </div>
+      <Vapor className="absolute w-16 h-10 right-6 top-4" color="rgba(249,241,222,0.35)" n={2} />
+    </div>
+  )
+}
+
 function Btn({ href, children, tone, external = true }: { href: string; children: React.ReactNode; tone: 'solid' | 'line' | 'light'; external?: boolean }) {
   const st =
     tone === 'solid'
@@ -286,6 +318,11 @@ export default function Page() {
               ))}
             </ol>
           </div>
+          <Reveal>
+            <div className="max-w-2xl mx-auto mt-14">
+              <PizarronBosquejo />
+            </div>
+          </Reveal>
         </section>
 
         {/* DUDAS */}
