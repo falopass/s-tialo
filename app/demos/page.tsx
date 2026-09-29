@@ -4837,6 +4837,14 @@ const BLITZ = [
     tagline: 'Plano de obra: asfalto, verde contenedor y el plano real de bodegas numeradas del cruce Unihue.',
     gradient: 'linear-gradient(135deg, #1B1E1B 0%, #2E4A34 60%, #7FA65A 140%)',
   },
+  {
+    slug: 'ferreteria-mapani',
+    name: 'Ferretería Mapani',
+    rubro: 'Tienda de herramientas',
+    city: 'San Clemente',
+    tagline: 'La ferretería por pasillos: rótulos de señalética, ticket de cotización y la fachada roja real.',
+    gradient: 'linear-gradient(135deg, #F7F1E4 0%, #A81E1E 110%, #1E1A16 200%)',
+  },
 ]
 
 export const metadata: Metadata = {
