@@ -2519,6 +2519,14 @@ const BLITZ = [
     tagline: 'La tienda del mural amarillo en 31 1/2 Oriente: ciruela, rojo loica y riel de armazones reales.',
     gradient: 'linear-gradient(135deg, #33121F 0%, #5A2440 55%, #C8102E 150%)',
   },
+  {
+    slug: 'agricola-y-forestal-don-rafael',
+    name: 'Agrícola y Forestal Don Rafael',
+    rubro: 'Aceite de oliva y sala de ventas',
+    city: 'Molina',
+    tagline: 'Anaquel de almazara en oscuro oliva: botellas 8 Olivos, Alto Lontué y Monjes, con diploma EVOO 2014.',
+    gradient: 'linear-gradient(135deg, #161B0D 0%, #3A4423 55%, #B48A2E 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
