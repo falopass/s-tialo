@@ -4845,6 +4845,14 @@ const BLITZ = [
     tagline: 'La ferretería por pasillos: rótulos de señalética, ticket de cotización y la fachada roja real.',
     gradient: 'linear-gradient(135deg, #F7F1E4 0%, #A81E1E 110%, #1E1A16 200%)',
   },
+  {
+    slug: 'cabanas-la-quinta-mercedes',
+    name: 'Cabañas La Quinta Mercedes',
+    rubro: 'Casa rural',
+    city: 'Talca',
+    tagline: 'Los llaveros de la quinta: casa blanca en la pradera con sauces, piscina y croquis marcados.',
+    gradient: 'linear-gradient(135deg, #FAF7EE 0%, #3D5A35 110%, #5E9BA8 200%)',
+  },
 ]
 
 export const metadata: Metadata = {
