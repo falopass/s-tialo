@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'el-gustoso-maule',
+    name: 'El Gustoso Maule',
+    rubro: 'Comida casera',
+    city: 'Maule',
+    tagline: 'La pizarra del almuerzo: carbón del mural, amarillo de su logo de pared y platos servidos en círculo.',
+    gradient: 'linear-gradient(135deg, #F8F1E3 0%, #F6B91E 80%, #171310 190%)',
+  },
+  {
     slug: 'somos-yerbas-buenas',
     name: 'Somos Yerbas Buenas',
     rubro: 'Guía comunal · comidas y turismo',
