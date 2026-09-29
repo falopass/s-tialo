@@ -4669,6 +4669,30 @@ const BLITZ = [
     tagline: 'Neón de carretera: carbón, rojo toro y verde viña, dos casas unidas por el túnel, con fotos reales.',
     gradient: 'linear-gradient(135deg, #141414 0%, #2E5D43 55%, #E23728 140%)',
   },
+  {
+    slug: 'stilo-restaurant',
+    name: 'Stilo Restaurant',
+    rubro: 'Restaurant de ruta',
+    city: 'Sagrada Familia',
+    tagline: 'El alto de la K-16 a la costa: nogal del letrero tallado real, hito kilométrico y bosquejos marcados de la mesa.',
+    gradient: 'linear-gradient(135deg, #F7EFE0 0%, #241608 90%, #B4552E 180%)',
+  },
+  {
+    slug: 'restaurant-tin-blan-casa-melendez',
+    name: 'Tin Blan · Casa Meléndez',
+    rubro: 'Comedor familiar · cocina chilena',
+    city: 'Teno',
+    tagline: 'La pizarra real a tiza: toldo rojo del 25 de Comalle, carbón y los platos de su propio Facebook.',
+    gradient: 'linear-gradient(135deg, #FBF3E4 0%, #B3261E 100%, #211E1A 200%)',
+  },
+  {
+    slug: 'club-social-yerbas-buenas',
+    name: 'Club Social Yerbas Buenas',
+    rubro: 'Club social · restaurante',
+    city: 'Yerbas Buenas',
+    tagline: 'Credencial de casa club: verde parrón y adobe del patio real con la bandera, bosquejos marcados de la mesa.',
+    gradient: 'linear-gradient(135deg, #F7F1E3 0%, #1E4630 90%, #B4552E 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
