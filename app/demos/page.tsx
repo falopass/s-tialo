@@ -4727,7 +4727,7 @@ const BLITZ = [
   },
   {
     slug: 'bruno-s-bar',
-    name: 'Bruno's Bar',
+    name: "Bruno's Bar",
     rubro: 'Bar restaurante',
     city: 'Licantén',
     tagline: 'Parada de ruta a la costa: madera de su salón de troncos, verde señal y ámbar de la cerveza.',
