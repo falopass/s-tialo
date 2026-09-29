@@ -56,6 +56,9 @@ export const MAPS_URL = `https://www.google.com/maps/dir/?api=1&destination=${PI
 
 export const MAPS_EMBED = `https://maps.google.com/maps?q=${PIN}&z=15&output=embed`
 
+/** Ficha de Google Maps del negocio (link corto que mandó el dueño). */
+export const MAPS_PLACE = 'https://maps.app.goo.gl/8EKRma4BUy3Hfc7r9'
+
 const IMG = '/demos/rancho-itahue'
 const F = `${IMG}/fotos`
 
@@ -69,8 +72,7 @@ export const HERO = {
   src: `${F}/portada-IMG-20260928-WA0053.webp`,
   alt: 'Piscina de Rancho Itahue rodeada de césped, palmeras y jardines',
   eyebrow: 'Multiespacio · Molina, Chile',
-  tagline: 'A 5 km de la plaza de Molina, sector Cerrillo Bascuñán',
-  lead: 'Somos un centro multiespacio, tenemos salón de eventos y terraza encarpada, para arriendos y servicios, también quinchos exteriores junto con amplios prados y sombras y 2 piscinas: una para niños y otra para adultos.',
+  lead: 'A 5 km de la plaza de Molina: salón de eventos, terraza encarpada, quinchos junto a los prados y 2 piscinas.',
 } as const
 
 /** Cifras, todas del texto oficial del dueño. */
@@ -182,6 +184,43 @@ export const EVENTOS = {
     { src: `${F}/exteriores/IMG-20260928-WA0176.webp`, alt: 'Paseo de curso: alumnos jugando en las canchas de tenis y descansando en el pasto' },
     { src: `${F}/eventos/IMG-20260928-WA0064.webp`, alt: 'Árboles del jardín iluminados con guirnaldas de noche' },
     { src: `${F}/personas/IMG-20260928-WA0061.webp`, alt: 'Grupo numeroso posando para una foto en el jardín' },
+  ],
+} as const
+
+/**
+ * Reseñas textuales de la ficha de Google «Rancho Itahue, Molina. Chile.»
+ * (K-165, Molina — 199 opiniones). Citadas tal cual, con la inicial del
+ * autor tal como aparece en la ficha. Respaldo en Facebook: 92% de
+ * recomendación (10 opiniones), según OFERTA-REAL.md.
+ */
+export const RESENAS = {
+  eyebrow: 'Reseñas',
+  count: '199',
+  source: 'opiniones en Google',
+  lead: 'Lo que repite la gente después de celebrar, almorzar o pasar el día en el rancho. Textos textuales de su ficha de Google.',
+  fb: '92% de recomendación en Facebook (10 opiniones)',
+  linkLabel: 'Ver la ficha en Google →',
+  items: [
+    {
+      q: 'Una experiencia inolvidable, un lugar hermoso!! Y gente muy cariñosa, full recomendado.',
+      by: 'C. M.',
+    },
+    {
+      q: 'Lindo lugar, pasto, sombra de arboles, juegos para los niños, piscinas para adultos y niños, kiosko y grato ambiente. Tranquilo y relajado',
+      by: 'M. W.',
+    },
+    {
+      q: 'Lugar amplio y cómodo ... Ideal para eventos masivos..',
+      by: 'R. G.',
+    },
+    {
+      q: 'Bello lugar de esparcimiento, amigable para niños y mascotas, atendido por sus dueños',
+      by: 'J. P.',
+    },
+    {
+      q: 'excelente quincho para los mejores asados',
+      by: 'D. O.',
+    },
   ],
 } as const
 

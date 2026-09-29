@@ -11,6 +11,7 @@ import {
   WA_LINK_EVENTO,
   MAPS_URL,
   MAPS_EMBED,
+  MAPS_PLACE,
   LOGO,
   LOGO_H,
   LOGO_V,
@@ -25,6 +26,7 @@ import {
   UBICACION,
   HORARIO,
   CONTACTOS,
+  RESENAS,
   type Title,
 } from './content'
 
@@ -62,11 +64,11 @@ export const metadata: Metadata = {
 }
 
 const NAV_LINKS = [
+  { label: 'Reseñas', href: '#resenas' },
   { label: 'Espacios', href: '#espacios' },
   { label: 'Pádel', href: '#padel' },
   { label: 'Eventos', href: '#eventos' },
   { label: 'Comidas', href: '#comidas' },
-  { label: 'Entorno', href: '#entorno' },
   { label: 'Ubicación', href: '#ubicacion' },
 ]
 
@@ -86,27 +88,38 @@ function SectionHead({
   lead,
   dark = false,
 }: {
-  eyebrow: string
+  eyebrow?: string
   title: Title
   lead?: string
   dark?: boolean
 }) {
   return (
     <div className="max-w-2xl">
-      <div className="flex items-center gap-3">
-        <Mark light={dark} />
-        <p
-          className="text-xs font-bold uppercase tracking-[0.22em]"
-          style={{ color: dark ? 'rgba(255,255,255,0.75)' : C.redText }}
-        >
-          {eyebrow}
-        </p>
-      </div>
+      {eyebrow && (
+        <div className="flex items-center gap-3">
+          <Mark light={dark} />
+          <p
+            className="text-xs font-bold uppercase tracking-[0.22em]"
+            style={{ color: dark ? 'rgba(255,255,255,0.75)' : C.redText }}
+          >
+            {eyebrow}
+          </p>
+        </div>
+      )}
       <h2
         className={`${display.className} mt-4 text-3xl md:text-5xl leading-[1.05] tracking-tight`}
         style={{ color: dark ? '#fff' : C.ink }}
       >
-        <span className="block font-light">{title.light}</span>
+        <span className="block font-light">
+          {!eyebrow && (
+            <span
+              aria-hidden="true"
+              className="inline-block w-[0.52em] h-[0.52em] mr-[0.32em]"
+              style={{ backgroundColor: C.red }}
+            />
+          )}
+          {title.light}
+        </span>
         <span className="block font-extrabold">{title.bold}</span>
       </h2>
       {lead && (
@@ -139,6 +152,17 @@ function Chip({ children, dark = false }: { children: React.ReactNode; dark?: bo
 export default function RanchoItahuePage() {
   return (
     <main className={body.className} style={{ backgroundColor: C.paper, color: C.ink }}>
+      <style>{`
+        @media (prefers-reduced-motion: no-preference) {
+          .ri-hero { animation: rizoom 14s cubic-bezier(0.16,1,0.3,1) both; }
+          @keyframes rizoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+          .ri-card img { transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+          .ri-card:hover img { transform: scale(1.04); }
+        }
+        .ri-rail { scrollbar-width: none; -ms-overflow-style: none; }
+        .ri-rail::-webkit-scrollbar { display: none; }
+        .ri-rail:focus-visible { outline: 3px solid ${C.red}; outline-offset: 4px; }
+      `}</style>
       <RanchoNav logoSrc={LOGO_H} links={NAV_LINKS} waLink={WA_LINK_EVENTO} />
 
       {/* ── Hero ─────────────────────────────────────────── */}
@@ -149,7 +173,7 @@ export default function RanchoItahuePage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover ri-hero"
         />
         <div
           aria-hidden="true"
@@ -181,8 +205,7 @@ export default function RanchoItahuePage() {
               <span className="block text-3xl md:text-5xl font-light tracking-[0.18em]">Rancho</span>
               <span className="block text-6xl md:text-8xl font-black tracking-tight">Itahue</span>
             </h1>
-            <p className="mt-4 text-base md:text-xl font-semibold text-white">{HERO.tagline}</p>
-            <p className="mt-5 text-base md:text-lg leading-relaxed text-white/85 max-w-xl">
+            <p className="mt-4 text-base md:text-lg leading-relaxed text-white/85 max-w-xl">
               {HERO.lead}
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -203,9 +226,6 @@ export default function RanchoItahuePage() {
                 Conocer los espacios
               </a>
             </div>
-            <p className="mt-6 text-sm font-medium text-white/85">
-              {BIZ.address}, {BIZ.city} · Funcionamos todo el año
-            </p>
           </div>
         </div>
       </section>
@@ -258,70 +278,147 @@ export default function RanchoItahuePage() {
         </div>
       </section>
 
-      {/* ── Espacios ─────────────────────────────────────── */}
-      <section id="espacios" className="scroll-mt-20 py-16 md:py-24">
+      {/* ── Reseñas: 199 opiniones reales de su ficha de Google ── */}
+      <section id="resenas" className="scroll-mt-20 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 grid lg:grid-cols-[0.85fr_1.15fr] gap-10 md:gap-16 items-start">
+          <Reveal>
+            <div className="flex items-center gap-3">
+              <Mark />
+              <p
+                className="text-xs font-bold uppercase tracking-[0.22em]"
+                style={{ color: C.redText }}
+              >
+                {RESENAS.eyebrow}
+              </p>
+            </div>
+            <p
+              className={`${display.className} mt-6 font-black leading-none tracking-tight text-7xl md:text-8xl`}
+              style={{ color: C.ink }}
+            >
+              {RESENAS.count}
+            </p>
+            <p className={`${display.className} mt-2 text-xl md:text-2xl font-bold`} style={{ color: C.redText }}>
+              {RESENAS.source}
+            </p>
+            <p className="mt-4 text-base leading-relaxed max-w-sm" style={{ color: C.muted }}>
+              {RESENAS.lead}
+            </p>
+            <p className="mt-4 text-sm font-semibold" style={{ color: C.ink }}>
+              {RESENAS.fb}
+            </p>
+            <a
+              href={MAPS_PLACE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tap-44 mt-6 inline-block text-sm font-bold underline underline-offset-4 decoration-2"
+              style={{ color: C.ink, textDecorationColor: C.red }}
+            >
+              {RESENAS.linkLabel}
+            </a>
+          </Reveal>
+          <div>
+            {RESENAS.items.map((r, i) => (
+              <Reveal key={r.by} delay={i * 90}>
+                <figure
+                  className={`py-5 md:py-6 ${i > 0 ? 'border-t' : ''}`}
+                  style={{ borderColor: C.line }}
+                >
+                  <blockquote
+                    className={`${display.className} text-lg md:text-[21px] font-medium leading-snug`}
+                    style={{ color: C.ink }}
+                  >
+                    <span aria-hidden="true" className="font-black" style={{ color: C.red }}>
+                      “
+                    </span>
+                    {r.q}
+                  </blockquote>
+                  <figcaption
+                    className="mt-3 text-xs font-bold uppercase tracking-[0.18em]"
+                    style={{ color: C.muted }}
+                  >
+                    {r.by} · Google
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Espacios: recorrido en tarjetas-postal por el predio ── */}
+      <section id="espacios" className="scroll-mt-20 py-16 md:py-24 overflow-hidden">
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
-            <SectionHead
-              eyebrow={ESPACIOS_HEAD.eyebrow}
-              title={ESPACIOS_HEAD.title}
-              lead={ESPACIOS_HEAD.lead}
-            />
+            <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
+              <SectionHead
+                eyebrow={ESPACIOS_HEAD.eyebrow}
+                title={ESPACIOS_HEAD.title}
+                lead={ESPACIOS_HEAD.lead}
+              />
+              <p
+                className="hidden md:block text-xs font-bold uppercase tracking-[0.22em] pb-2"
+                style={{ color: C.muted }}
+                aria-hidden="true"
+              >
+                Desliza para recorrer →
+              </p>
+            </div>
           </Reveal>
-          <div className="mt-14 md:mt-20 space-y-20 md:space-y-28">
-            {ESPACIOS.map((e, i) => (
-              <article key={e.id} className="grid md:grid-cols-2 gap-8 md:gap-14 items-center">
-                <div className={i % 2 === 1 ? 'md:order-2' : ''}>
-                  <div className="relative">
-                    <span
-                      aria-hidden="true"
-                      className="absolute -top-2.5 -right-2.5 w-5 h-5 z-10"
-                      style={{ backgroundColor: C.red }}
-                    />
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                      <Image
-                        src={e.photos[0].src}
-                        alt={e.photos[0].alt}
-                        fill
-                        sizes="(min-width: 768px) 46vw, 100vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div className={`mt-3 grid gap-3 ${e.photos.length - 1 >= 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
-                    {e.photos.slice(1).map((p) => (
-                      <div key={p.src} className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                        <Image
-                          src={p.src}
-                          alt={p.alt}
-                          fill
-                          sizes="(min-width: 768px) 15vw, 50vw"
-                          className="object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <p className={`${display.className} text-sm font-bold tracking-[0.3em]`} style={{ color: C.redText }}>
-                    {e.num}
+        </div>
+        <Reveal>
+          <div
+            className="ri-rail mt-10 md:mt-14 flex gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory px-5 pb-4 md:mx-auto md:max-w-6xl md:px-8"
+            role="region"
+            aria-label="Recorrido por los espacios del predio"
+            tabIndex={0}
+          >
+            {ESPACIOS.map((e) => (
+              <article
+                key={e.id}
+                className="ri-card group relative shrink-0 snap-start w-[82vw] sm:w-[380px] lg:w-[400px] h-[440px] md:h-[500px] rounded-2xl overflow-hidden"
+              >
+                <Image
+                  src={e.photos[0].src}
+                  alt={e.photos[0].alt}
+                  fill
+                  sizes="(min-width: 1024px) 400px, (min-width: 640px) 380px, 82vw"
+                  className="object-cover"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(180deg, rgba(20,20,17,0.05) 0%, rgba(20,20,17,0) 32%, rgba(20,20,17,0.55) 60%, rgba(20,20,17,0.9) 100%)',
+                  }}
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute top-4 right-4 w-5 h-5"
+                  style={{ backgroundColor: C.red }}
+                />
+                <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/75">
+                    {e.num} <span aria-hidden="true">/ 05</span>
                   </p>
-                  <h3 className={`${display.className} mt-3 text-2xl md:text-4xl font-bold tracking-tight`}>
+                  <h3 className={`${display.className} mt-2 text-2xl md:text-3xl font-bold tracking-tight text-white`}>
                     {e.name}
                   </h3>
-                  <p className="mt-4 text-base leading-relaxed" style={{ color: C.muted }}>
+                  <p className="mt-2.5 text-sm leading-relaxed text-white/85">
                     {e.desc}
                   </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {e.chips.map((c) => (
-                      <Chip key={c}>{c}</Chip>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {e.chips.slice(0, 3).map((c) => (
+                      <Chip key={c} dark>
+                        {c}
+                      </Chip>
                     ))}
                   </div>
                 </div>
               </article>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── PlayPádel ────────────────────────────────────── */}
@@ -334,9 +431,6 @@ export default function RanchoItahuePage() {
                   <div>
                     <div className="flex items-center gap-3">
                       <Mark light />
-                      <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/75">
-                        {PADEL.eyebrow}
-                      </p>
                     </div>
                     <h2
                       className={`${display.className} mt-4 text-4xl md:text-6xl font-black tracking-tight text-white`}
@@ -377,7 +471,6 @@ export default function RanchoItahuePage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
             <SectionHead
-              eyebrow={EVENTOS.eyebrow}
               title={EVENTOS.title}
               lead={EVENTOS.lead}
               dark
@@ -424,7 +517,6 @@ export default function RanchoItahuePage() {
           <div className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-14 items-start">
             <Reveal>
               <SectionHead
-                eyebrow={COMIDAS.eyebrow}
                 title={COMIDAS.title}
                 lead={COMIDAS.lead}
               />
@@ -478,7 +570,6 @@ export default function RanchoItahuePage() {
             <div>
               <Reveal>
                 <SectionHead
-                  eyebrow={ENTORNO.eyebrow}
                   title={ENTORNO.title}
                   lead={ENTORNO.lead}
                 />
