@@ -66,10 +66,14 @@ export const PASOS = [
   { n: '03', t: 'Llega y celebra', d: 'El local queda listo para tu evento. Tú solo traes la fiesta.' },
 ]
 
+// Fotos reales de la ficha de Google Maps y de su Instagram.
 export const FOTOS = [
-  { src: '/demos/kids-art-talca/interior.webp', alt: 'Interior del local de Kids Art: mesa de trabajo, pared decorada y sillas de colores' },
-  { src: '/demos/kids-art-talca/mesa.webp', alt: 'Niños haciendo manualidades alrededor de la mesa de trabajo de Kids Art' },
-  { src: '/demos/kids-art-talca/cocina.webp', alt: 'Cocina equipada con refrigerador y microondas disponible para los eventos' },
-  { src: '/demos/kids-art-talca/manualidad.webp', alt: 'Niño pintando una manualidad con plumas de colores en un taller de Kids Art' },
-  { src: '/demos/kids-art-talca/estrella.webp', alt: 'Niño pintando una estrella amarilla en la mesa de un taller de Kids Art' },
+  { src: '/demos/kids-art-talca/inflable.webp', alt: 'Niña jugando dentro del juego inflable de colores de Kids Art', w: 900, h: 1200 },
+  { src: '/demos/kids-art-talca/fachada.webp', alt: 'Fachada de colores del local de eventos infantiles en Villa Edén', w: 1200, h: 900 },
+  { src: '/demos/kids-art-talca/mesa-fiesta.webp', alt: 'Mesa de cumpleaños decorada con arco de globos y banderines en Kids Art', w: 1200, h: 900 },
+  { src: '/demos/kids-art-talca/deco-cumple.webp', alt: 'Muro decorado con letrero feliz cumpleaños y arco de globos', w: 1200, h: 675 },
+  { src: '/demos/kids-art-talca/piscina.webp', alt: 'Piscina del jardín de Kids Art cercada para los eventos', w: 1100, h: 619 },
+  { src: '/demos/kids-art-talca/pelotero.webp', alt: 'Pelotero de colores dentro del local de Kids Art', w: 1200, h: 900 },
+  { src: '/demos/kids-art-talca/juegos-jardin.webp', alt: 'Taca taca y piscina en el jardín exterior del local', w: 750, h: 1000 },
+  { src: '/demos/kids-art-talca/jardin.webp', alt: 'Árboles y sector de jardín del local de eventos Kids Art', w: 640, h: 640 },
 ]
