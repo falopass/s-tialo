@@ -81,7 +81,7 @@ export default function Page() {
                 <div className="flex items-center gap-2.5">
                   <Disco className="w-7 h-7" />
                   <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.22em]`} style={{ color: 'rgba(246,240,228,0.65)' }}>
-                    Sandwichs · Café Express · Manso de Velasco 556
+                    Sandwichs · Café Express · Manso de Velasco 556
                   </p>
                 </div>
               </Reveal>
