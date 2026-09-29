@@ -375,6 +375,54 @@ export default function MilaDecoYHogarPage() {
             </Reveal>
           </div>
         </div>
+        <div className="grid sm:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8">
+          <Reveal delay={80}>
+            <figure
+              className="relative border-[3px] overflow-hidden"
+              style={{ borderColor: C.ink, boxShadow: '10px 10px 0 rgba(238,217,211,1)' }}
+            >
+              <div className="relative aspect-square">
+                <Image
+                  src={`${IMG}/fachada.webp`}
+                  alt="Fachada del local en el mall: letrero Encantos de Mila Deco y Hogar sobre la vitrina de vidrio"
+                  fill
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption
+                className={`${mono.className} flex items-center justify-between gap-3 px-4 py-2.5 text-[10px] md:text-[11px] uppercase tracking-[0.18em] border-t-[3px]`}
+                style={{ borderColor: C.ink, color: C.muted }}
+              >
+                <span>El local, desde el pasillo del mall</span>
+                <span style={{ color: C.rosa }}>foto real</span>
+              </figcaption>
+            </figure>
+          </Reveal>
+          <Reveal delay={160}>
+            <figure
+              className="relative border-[3px] overflow-hidden"
+              style={{ borderColor: C.ink, boxShadow: '10px 10px 0 rgba(142,59,75,0.14)' }}
+            >
+              <div className="relative aspect-square">
+                <Image
+                  src={`${IMG}/interior.webp`}
+                  alt="Interior de la tienda: flores y plantas en primer plano con repisas de cojines y jarrones detrás"
+                  fill
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption
+                className={`${mono.className} flex items-center justify-between gap-3 px-4 py-2.5 text-[10px] md:text-[11px] uppercase tracking-[0.18em] border-t-[3px]`}
+                style={{ borderColor: C.ink, color: C.muted }}
+              >
+                <span>Flores y verde por dentro</span>
+                <span style={{ color: C.rosa }}>foto real</span>
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
       </section>
 
       {/* ── El índice: directorio de la tienda ── */}

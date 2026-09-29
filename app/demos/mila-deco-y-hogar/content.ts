@@ -4,8 +4,10 @@
  * Datos del mockup. REALES (verificados en Google Maps y en el
  * directorio del Mall Go Florida): nombre, rubro, dirección,
  * teléfono/WhatsApp, rating 5,0 (1 reseña) y despacho a domicilio.
- * La reseña citada es la real de la ficha. Los textos descriptivos
- * son de muestra: al publicar se ajustan con la tienda.
+ * La reseña citada es la real de la ficha; las fotos de fachada e
+ * interior vienen del directorio oficial del mall
+ * (mallgoflorida.cl/tienda/encantos-de-mila-deco-hogar). Los textos
+ * descriptivos son de muestra: al publicar se ajustan con la tienda.
  */
 
 export const BIZ = {
