@@ -3349,6 +3349,14 @@ const BLITZ = [
     tagline: 'La casa roja de O’Higgins: ladrillo, techo de madera y su terraza con barra corrida.',
     gradient: 'linear-gradient(135deg, #22100A 0%, #8C2E1C 110%, #E0A93F 190%)',
   },
+  {
+    slug: 'restaurant-la-esquina',
+    name: 'Restaurant La Esquina',
+    rubro: 'Restaurant y residencial',
+    city: 'Empedrado',
+    tagline: 'La esquina de Prat con la pizarra a tiza: mantel a cuadros, teja y su letrero colgante.',
+    gradient: 'linear-gradient(135deg, #F7F1E5 0%, #B4463C 110%, #2C5F8A 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
