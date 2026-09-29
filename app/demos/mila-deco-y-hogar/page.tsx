@@ -29,6 +29,7 @@ const C = {
   paperSoft: '#F3EAE2',
   ink: '#1B1613',
   rosa: '#8E3B4B',
+  rosaLight: '#C98A96',
   rosaDeep: '#6E2B38',
   blush: '#EED9D3',
   muted: '#6E6158',
@@ -451,7 +452,7 @@ export default function MilaDecoYHogarPage() {
                 >
                   <span
                     className={`${display.className} text-2xl md:text-3xl transition-colors group-hover:text-[#EED9D3]`}
-                    style={{ color: C.rosa }}
+                    style={{ color: C.rosaLight }}
                   >
                     {item.num}
                   </span>
