@@ -3773,6 +3773,30 @@ const BLITZ = [
     tagline: 'A orillas del lago: papel crema, tinta manuscrita y horario solo de viernes a domingo.',
     gradient: 'linear-gradient(135deg, #FAF5EA 0%, #0E5563 120%, #191510 200%)',
   },
+  {
+    slug: 'restaurant-koyotte-grill',
+    name: 'Restaurant Koyotte Grill',
+    rubro: 'Restaurant y parrilla',
+    city: 'Colbún',
+    tagline: 'La carta pintada en la pared: estuco, letras negras de mural y el coyote del letrero circular.',
+    gradient: 'linear-gradient(135deg, #EDEAE0 0%, #9E4E2D 110%, #1D1A12 190%)',
+  },
+  {
+    slug: 'calypso-restaurant',
+    name: 'Restaurante Calypso',
+    rubro: 'Restaurant y pizzería',
+    city: 'Constitución',
+    tagline: 'Terraza sobre el mar: azul profundo, arena y el atardecer frente a la Piedra de la Iglesia.',
+    gradient: 'linear-gradient(135deg, #F6F1E4 0%, #2A7F7E 80%, #07272F 170%)',
+  },
+  {
+    slug: 'sebago-restobar',
+    name: 'Sebago Restobar',
+    rubro: 'Restobar y eventos',
+    city: 'Hualañé',
+    tagline: 'Una casa como ninguna: verde petróleo, letrero tallado en madera y la carta con precios reales.',
+    gradient: 'linear-gradient(135deg, #F1E8D5 0%, #0E5451 90%, #1C1810 180%)',
+  },
 ]
 
 export const metadata: Metadata = {
