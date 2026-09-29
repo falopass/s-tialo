@@ -98,16 +98,6 @@ const TRATAMIENTOS = [
   },
 ]
 
-// Servicios reales del afiche publicado por el centro.
-const TAMBIEN = [
-  'Drenaje linfático',
-  'Botas de presoterapia',
-  'Depilación con cera y láser',
-  'Reflexología podal',
-  'Lifting y extensión de pestañas',
-  'Spa kids',
-]
-
 // Reseñas reales citadas desde la ficha pública de Google Maps.
 const QUOTES = [
   {
@@ -392,20 +382,15 @@ export default function IssaBellaPage() {
               <p className={`${KICKER} mb-5`} style={{ color: C.wine }}>
                 También en cabina
               </p>
-              <ul className="space-y-3 mb-7">
-                {TAMBIEN.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-baseline justify-between gap-4 pb-3 border-b border-dotted text-base"
-                    style={{ borderColor: 'rgba(124,45,78,0.35)' }}
-                  >
-                    {item}
-                    <span className={`${display.className} italic text-sm`} style={{ color: C.wine }}>
-                      consulta
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="relative aspect-[3/4] overflow-hidden mb-6">
+                <Image
+                  src={`${IMG}/servicios.webp`}
+                  alt="Afiche publicado por Issa-bella Spa con su carta de servicios: masajes, limpiezas faciales, presoterapia, depilación láser y más"
+                  fill
+                  sizes="(min-width: 1024px) 360px, 100vw"
+                  className="object-cover"
+                />
+              </div>
               <a
                 href={WA_LINK_FACIAL}
                 target="_blank"
@@ -416,7 +401,7 @@ export default function IssaBellaPage() {
                 Consulta por WhatsApp →
               </a>
               <p className="mt-5 text-xs leading-relaxed" style={{ color: C.muted }}>
-                Servicios del afiche que el centro publica en redes.
+                Afiche real que el centro publica en sus redes.
               </p>
             </aside>
           </Reveal>
@@ -452,8 +437,8 @@ export default function IssaBellaPage() {
       <figure className="relative mt-20 md:mt-28">
         <div className="relative w-full h-[68vw] max-h-[560px] min-h-[320px]" style={{ backgroundColor: C.wineDeep }}>
           <Image
-            src={`${IMG}/ambiente.webp`}
-            alt="Tratamiento facial en cabina de Issa-bella Spa, con luz cálida de velas"
+            src={`${IMG}/fachada.webp`}
+            alt="Casa de Sarajevo 1576, Curicó, donde atiende Issa-bella Spa"
             fill
             sizes="100vw"
             className="object-cover"
@@ -483,7 +468,7 @@ export default function IssaBellaPage() {
           className={`${WRAP} py-3 text-[11px] uppercase tracking-[0.18em] flex justify-between gap-4`}
           style={{ color: C.muted }}
         >
-          <span>Tratamiento facial en cabina · foto real del centro</span>
+          <span>La casa del centro en Sarajevo 1576 · foto de Google Maps</span>
           <span aria-hidden="true">↳ pág. doble</span>
         </figcaption>
       </figure>
@@ -544,19 +529,12 @@ export default function IssaBellaPage() {
               sales sin apuro. La sala es luminosa, ordenada, y se nota
               el cuidado en cada detalle.
             </p>
-            <div className="mt-8 md:columns-2 md:gap-10 text-base leading-relaxed" style={{ color: C.muted }}>
-              <p>
-                La atención es directa: la misma persona que te recibe es
-                quien trabaja tu piel y hace el seguimiento después por
-                WhatsApp. No hay recepcionistas ni esperas de más.
-              </p>
-              <p className="mt-4 md:mt-0">
-                Las clientas lo valoran: el centro acumula {BIZ.reviews}{' '}
-                reseñas en su ficha de Google y una comunidad activa en
-                Instagram, donde publica sus tratamientos y promociones.
-                Los datos de contacto, fotos y reseñas son reales.
-              </p>
-            </div>
+            <p className="mt-8 max-w-[52ch] text-base leading-relaxed" style={{ color: C.muted }}>
+              La atención es directa: la misma persona que te recibe es
+              quien trabaja tu piel y hace el seguimiento por WhatsApp.
+              Las clientas lo dicen en Google: {BIZ.reviews} reseñas y
+              una comunidad activa en Instagram.
+            </p>
           </Reveal>
         </div>
 

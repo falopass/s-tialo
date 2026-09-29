@@ -5,8 +5,9 @@
  * @issa_bella.spa): nombre, dirección en Sarajevo 1576, Curicó,
  * WhatsApp, Instagram (667 seguidores), nota 4,5 en 8 reseñas con
  * las citas reales, horario (Lu-Vi 9:00-21:30, Sá 10:00-19:00), logo
- * (silueta con loto), fotos (Maps + posts de IG), servicios del afiche
- * publicado y precios de las promociones publicadas en Instagram.
+ * (silueta con loto), fotos (Maps + posts de IG), fachada de la casa
+ * en Sarajevo 1576 (Street View de su ficha de Maps), afiche de
+ * servicios publicado y precios de las promociones de Instagram.
  */
 
 export const BIZ = {
