@@ -42,7 +42,7 @@ const C = {
   cream: '#F5EFE2',
   cream2: '#EDE4D0',
   ink: '#1B1712',
-  muted: '#7A6E5C',
+  muted: '#6E6353',
   mutedDark: '#A79B84',
   line: 'rgba(27,23,18,0.16)',
   lineDark: 'rgba(245,239,226,0.16)',
