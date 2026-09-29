@@ -3346,8 +3346,8 @@ const BLITZ = [
     name: 'Academia Kenpo Karate Freestyle',
     rubro: 'Escuela de artes marciales',
     city: 'Talca',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #0D0D10 0%, #D92323 150%)',
+    tagline: 'Dojo de competencia: negro y rojo de sus flyers, tatami azul y pinceladas — 48 años de trayectoria.',
+    gradient: 'linear-gradient(135deg, #0D0D10 0%, #D92323 110%, #2B4FA3 190%)',
   },
   {
     slug: 'agroservi',
