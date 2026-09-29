@@ -4661,6 +4661,14 @@ const BLITZ = [
     tagline: 'Señalética de ruta: asfalto, amarillo Panamericana y el churrasco famoso, con fotos reales.',
     gradient: 'linear-gradient(135deg, #191A1D 0%, #3F6B4F 55%, #F2B90C 140%)',
   },
+  {
+    slug: 'los-ganaderos',
+    name: 'Los Ganaderos',
+    rubro: 'Restaurante',
+    city: 'Maule',
+    tagline: 'Neón de carretera: carbón, rojo toro y verde viña, dos casas unidas por el túnel, con fotos reales.',
+    gradient: 'linear-gradient(135deg, #141414 0%, #2E5D43 55%, #E23728 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
