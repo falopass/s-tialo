@@ -3045,6 +3045,14 @@ const BLITZ = [
     tagline: 'Portafolio visto desde dron: navy y rojo de obra, índice de servicios numerado y el registro aéreo de sus propias plantas.',
     gradient: 'linear-gradient(135deg, #0A1524 0%, #10203A 60%, #E42620 190%)',
   },
+  {
+    slug: 'centro-de-estetica-korpus',
+    name: 'Centro de Estética Korpus',
+    rubro: 'Centro de estética',
+    city: 'Talca',
+    tagline: 'La belleza a la carta: menú de precios reales con líneas punteadas, flyers propios y malva de su marca en Las Rastras.',
+    gradient: 'linear-gradient(135deg, #F6F1EC 0%, #7E4F76 80%, #41596A 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
