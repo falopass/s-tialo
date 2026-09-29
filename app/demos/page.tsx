@@ -3502,6 +3502,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F6EFE0 0%, #4A2E1A 120%, #A4471F 190%)',
   },
   {
+    slug: 'restoran-sabor-pehuenche',
+    name: 'Cervecería Pwenche — Sabor Pehuenche',
+    rubro: 'Fábrica de cerveza y taproom',
+    city: 'San Clemente',
+    tagline: 'La casa cervecera del km 32: noche de brewpub, cobre y etiqueta crema.',
+    gradient: 'linear-gradient(135deg, #101612 0%, #18251D 55%, #C8842E 160%)',
+  },
+  {
     slug: 'pollo-krac-san-clemente',
     name: 'Pollo Krac',
     rubro: 'Sándwiches y pollo',
