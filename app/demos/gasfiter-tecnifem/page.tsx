@@ -112,7 +112,7 @@ export default function Tecnifem() {
       <BlitzNav
         name={
           <span className={display.className}>
-            TECNI<span style={{ color: C.teal }}>FEM</span>
+            TECNI<span style={{ color: C.tealOscuro }}>FEM</span>
           </span>
         }
         links={NAV_LINKS}
@@ -192,7 +192,7 @@ export default function Tecnifem() {
                   />
                 </div>
                 <figcaption
-                  className={`${mono.className} absolute -bottom-4 left-4 text-[11px] uppercase tracking-[0.14em] px-3 py-1.5`}
+                  className={`${mono.className} absolute -bottom-4 left-4 text-[11px] uppercase tracking-[0.14em] px-3 py-1.5 whitespace-nowrap`}
                   style={{ backgroundColor: C.amarillo, color: C.tinta, borderRadius: 3, transform: 'rotate(-2deg)' }}
                 >
                   Instalación real — su ficha de Google
