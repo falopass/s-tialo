@@ -96,7 +96,7 @@ export const AFICHES = [
   {
     src: `${IMG}/afiche-baterias.webp`,
     alt: 'Afiche real de La Clínica del Automóvil: baterías nuevas 60, 70 y 90 Ah con instalación',
-    cap: 'Baterías, su afiche real',
+    cap: 'Baterías, su afiche real',
   },
   {
     src: `${IMG}/letrero-repuestos.webp`,

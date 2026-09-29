@@ -138,7 +138,7 @@ export default function LaClinicaDelAutomovil() {
               neumáticos, A/C y repuestos en el mismo patio. Horario
               continuado, como ellos mismos lo anuncian.
             </p>
-            <div className="mt-5 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3 pr-14">
               <a
                 href={CALL_LINK}
                 className="inline-flex items-center justify-center h-[52px] px-6 rounded-full text-sm font-bold uppercase tracking-wide"
@@ -342,7 +342,7 @@ export default function LaClinicaDelAutomovil() {
               <br />
               Instagram: <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">{BIZ.instagramHandle}</a>
             </address>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3 pr-14">
               <a
                 href={CALL_LINK}
                 className="inline-flex items-center justify-center h-[52px] px-6 rounded-full text-sm font-bold uppercase tracking-wide"
@@ -390,22 +390,23 @@ export default function LaClinicaDelAutomovil() {
             <a href={CALL_LINK} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(247,243,232,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(247,243,232,0.7)' }}>
-            Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.paper }}>
-              Sitiazo
-            </a>{' '}
-            para {BIZ.name}. Los datos y las fotos son reales: salen de su
-            ficha de Google y de su Instagram; la dirección exacta no la
-            publica la ficha y la confirman sus propios afiches. No se
-            generó ninguna imagen.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellow }}>
-              ¿Lo hacemos realidad?
-            </a>
-          </p>
-        </div>
       </footer>
+
+      <div style={{ backgroundColor: '#12140F', borderTop: '1px solid rgba(247,243,232,0.14)' }}>
+        <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(247,243,232,0.7)' }}>
+          Sitio de ejemplo preparado por{' '}
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.paper }}>
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name}. Los datos y las fotos son reales: salen de su
+          ficha de Google y de su Instagram; la dirección exacta no la
+          publica la ficha y la confirman sus propios afiches. No se
+          generó ninguna imagen.{' '}
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.yellow }}>
+            ¿Lo hacemos realidad?
+          </a>
+        </p>
+      </div>
 
       <WaFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} />
     </div>
