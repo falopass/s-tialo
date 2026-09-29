@@ -1,6 +1,6 @@
 {
   "base": "http://localhost:4800",
-  "fecha": "2026-09-29T02:15:42.959Z",
+  "fecha": "2026-09-29T06:15:20.061Z",
   "viewport": {
     "width": 390,
     "height": 844
@@ -12,19 +12,19 @@
     "SETTLE_MS": 3500
   },
   "demos": {
-    "intermedica-imagenes": {
-      "url": "http://localhost:4800/demos/intermedica-imagenes/",
+    "como-en-peru": {
+      "url": "http://localhost:4800/demos/como-en-peru/",
       "status": 200,
       "botones": [],
-      "footerPx": 16,
-      "footerPct": 1.9,
+      "footerPx": 32,
+      "footerPct": 3.8,
       "contraste": [],
       "desborde": false,
       "scrollWidth": 390,
       "clientWidth": 390,
       "culpables": [],
       "invisibles": [],
-      "ms": 4163
+      "ms": 4123
     }
   }
 }

@@ -1,6 +1,6 @@
 # QA móvil (cloud) — http://localhost:4800/demos/
 
-Fecha: 2026-09-29T02:15:42.959Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
+Fecha: 2026-09-29T06:15:20.062Z · Viewport 390×844 · espera 3500 ms tras networkidle · sin scroll.
 
 ## Resumen
 
@@ -17,12 +17,12 @@ Fecha: 2026-09-29T02:15:42.959Z · Viewport 390×844 · espera 3500 ms tras netw
 
 ## Los 5 peores
 
-- **intermedica-imagenes** (gravedad 0): 0 botones, footer 1.9%, 0 contrastes, sin desborde, 0 invisibles
+- **como-en-peru** (gravedad 0): 0 botones, footer 3.8%, 0 contrastes, sin desborde, 0 invisibles
 
 ## Tabla por gravedad
 
 | # | Demo | Grav. | Btn>52 | Footer % | Contraste | Desborde | Invisibles |
 |---|---|---|---|---|---|---|---|
-| 1 | [intermedica-imagenes](http://localhost:4800/demos/intermedica-imagenes/) | 0 | 0 | 1.9 | 0 | — | 0 |
+| 1 | [como-en-peru](http://localhost:4800/demos/como-en-peru/) | 0 | 0 | 3.8 | 0 | — | 0 |
 
 ## Detalle por demo (solo con hallazgos)
