@@ -144,7 +144,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className={`${mono.className} text-[11px] uppercase tracking-[0.28em] mb-4 flex items-center gap-3`}
-      style={{ color: light ? '#BFD3B8' : C.cotto }}
+      style={{ color: light ? '#BFD3B8' : '#9C4E24' }}
     >
       <span className="inline-block w-8 border-t border-dashed" aria-hidden="true" />
       {children}
