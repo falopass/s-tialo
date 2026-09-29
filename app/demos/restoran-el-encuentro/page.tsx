@@ -118,7 +118,7 @@ function EscenaRuta() {
         <path d="M43,-10 q5,-8 0,-14 q-5,-6 0,-14" stroke={C.muted} strokeWidth="3" fill="none" strokeLinecap="round" />
       </g>
       {/* poste de señales */}
-      <g transform="translate(58,128)">
+      <g transform="translate(88,128)">
         <rect x="-4" y="0" width="8" height="96" fill={C.madera} stroke={C.tinta} strokeWidth="2" />
         <g>
           <path d="M-4,4 L60,4 L72,14 L60,24 L-4,24 Z" fill={C.papel} stroke={C.tinta} strokeWidth="2" />
