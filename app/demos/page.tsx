@@ -2965,6 +2965,14 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #F8F5EE 0%, #17171C 150%)',
   },
+  {
+    slug: 'signo-mas-corredores-de-seguros',
+    name: 'Signo Mas Corredores de Seguros',
+    rubro: 'Corredora de seguros',
+    city: 'Talca',
+    tagline: 'La página como póliza: carátula con sello "+", cuatro artículos y la firma de una corredora CMF desde 2011.',
+    gradient: 'linear-gradient(135deg, #F7F4EC 0%, #A02828 90%, #1A2436 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
