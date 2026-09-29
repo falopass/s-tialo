@@ -175,8 +175,23 @@ export default function NativaCuricoPage() {
                   ratio="aspect-[3/4]"
                 />
               </div>
-              <p className={`${display.className} text-[10px] uppercase tracking-[0.24em] mt-4 text-center`} style={{ color: 'rgba(191,232,223,0.6)' }}>
-                Foto real del negocio · sitio de ejemplo
+              {/* Segundo arco: el registro real de avance */}
+              <div
+                className="absolute -bottom-8 -left-2 md:-left-8 w-[42%] overflow-hidden"
+                style={{ borderRadius: '110px 110px 14px 14px', border: `3px solid ${C.deep}`, boxShadow: '0 16px 44px rgba(0,0,0,0.4)' }}
+              >
+                <div className="relative aspect-[3/4]">
+                  <Image
+                    src={`${IMG}/perfil.webp`}
+                    alt="Antes y después de perfil facial publicado por Nativa"
+                    fill
+                    sizes="(min-width:768px) 18vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <p className={`${display.className} text-[10px] uppercase tracking-[0.24em] mt-12 text-center`} style={{ color: 'rgba(191,232,223,0.6)' }}>
+                Fotos reales del negocio · sitio de ejemplo
               </p>
             </div>
           </Reveal>

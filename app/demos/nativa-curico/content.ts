@@ -23,7 +23,7 @@ export const BIZ = {
   ratingLabel: '5,0',
   reviews: 10,
   instagram: 'nativa.curico',
-  instagramFollowers: '4.032',
+  instagramFollowers: '4.033',
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
