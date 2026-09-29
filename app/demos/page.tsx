@@ -4861,6 +4861,38 @@ const BLITZ = [
     tagline: 'El letrero de Arturo Prat 163: teal clínico, banda ocre de convenios y seis pabellones reales.',
     gradient: 'linear-gradient(135deg, #F2F6F4 0%, #14677D 110%, #C98A12 190%)',
   },
+  {
+    slug: 'barberia-status',
+    name: 'Barbería Status',
+    rubro: 'Barbería',
+    city: 'Talca',
+    tagline: 'La carta del séptimo piso: carbón, oro viejo de su monograma BS y la lista de precios real.',
+    gradient: 'linear-gradient(135deg, #12100C 0%, #C8A24B 130%, #1A1710 200%)',
+  },
+  {
+    slug: 'andrea-beauty',
+    name: 'Andrea Beauty',
+    rubro: 'Centro de estética y cosmetología',
+    city: 'Talca',
+    tagline: 'La cabina del piso trece: marfil, rosa viejo de su logo y sus manicures reales con vista a Talca.',
+    gradient: 'linear-gradient(135deg, #F7F1E9 0%, #B76E79 120%, #241C19 220%)',
+  },
+  {
+    slug: 'puerta-del-sol-molina',
+    name: 'Puerta del Sol Molina',
+    rubro: 'Hostal y departamentos',
+    city: 'Molina',
+    tagline: 'Postal de la casa amarilla: mostaza del patio, verde jardín y ocho fotos reales del hostal.',
+    gradient: 'linear-gradient(135deg, #F7F1E3 0%, #C9852B 110%, #3D5A3A 200%)',
+  },
+  {
+    slug: 'basics-salon-masculino',
+    name: 'Basics Salon Masculino',
+    rubro: 'Barbería',
+    city: 'Molina',
+    tagline: 'El bastón de barrio: papel crema, condensada y banda rojo-azul — la ficha honesta sin fotos falsas.',
+    gradient: 'linear-gradient(135deg, #F3EDE2 0%, #B4372F 110%, #1E3A5F 200%)',
+  },
 ]
 
 export const metadata: Metadata = {
