@@ -3629,6 +3629,14 @@ const BLITZ = [
     tagline: 'La picada de la Ruta 5: papel de horno, greda y el letrero pintado a mano del quincho.',
     gradient: 'linear-gradient(135deg, #F4E9D2 0%, #B84A24 90%, #241B0F 170%)',
   },
+  {
+    slug: 'donde-alex',
+    name: 'Donde Alex',
+    rubro: 'Fuente de soda y completos',
+    city: 'Talca',
+    tagline: 'La carta mural: crema de afiche, rojo y verde del logo, con los precios reales de su pared.',
+    gradient: 'linear-gradient(135deg, #FAF4E8 0%, #D92B28 95%, #1B1312 175%)',
+  },
 ]
 
 export const metadata: Metadata = {
