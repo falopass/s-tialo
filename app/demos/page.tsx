@@ -2371,8 +2371,8 @@ const BLITZ = [
     name: 'Direcar',
     rubro: 'Taller de revisión de automóviles',
     city: 'Talca',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #F4F4F2 0%, #1E2023 150%)',
+    tagline: 'Orden de trabajo de taller: papel, amarillo de señalética y el elevador real — 4,8 de 140 reseñas.',
+    gradient: 'linear-gradient(135deg, #F4F4F2 0%, #1E2023 60%, #F2B90D 170%)',
   },
   {
     slug: 'hangiri-soluciones-gastronomicas',
