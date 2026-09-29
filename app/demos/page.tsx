@@ -2773,6 +2773,14 @@ const BLITZ = [
     tagline: 'La prueba de imprenta: marcas de registro, barras CMYK y el 5.0 perfecto de sus 29 reseñas.',
     gradient: 'linear-gradient(135deg, #111111 0%, #2056C8 60%, #00B6D9 140%)',
   },
+  {
+    slug: 'automotriz-mario-salinas',
+    name: 'Automotriz Mario Salinas',
+    rubro: 'Taller mecánico',
+    city: 'Talca',
+    tagline: 'La pizarra del taller: azul de sus muros, ámbar del elevador, checklist de recepción y notas de Google pegadas.',
+    gradient: 'linear-gradient(135deg, #10265E 0%, #1D4FC4 80%, #F0A52B 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
