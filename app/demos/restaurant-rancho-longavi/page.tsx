@@ -141,7 +141,7 @@ export default function RanchoLongaviPage() {
               className="text-[11px] md:text-xs uppercase tracking-[0.3em] font-semibold mb-5"
               style={{ color: C.yellow }}
             >
-              Panamericana Sur N° 3168 · Longaví
+              Panamericana Sur N° 3168 · Longaví
             </p>
             <h1
               className={`${display.className} uppercase font-semibold leading-[0.95] tracking-[-0.01em] text-[clamp(2.6rem,9vw,6.5rem)]`}
@@ -226,7 +226,7 @@ export default function RanchoLongaviPage() {
       {/* ── El famoso ── */}
       <section id="famoso" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <Road label="parada obligada" />
-        <div className="grid grid-cols-12 gap-8 md:gap-12 items-start mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start mt-6">
           <Reveal className="col-span-12 md:col-span-5">
             <div className="relative overflow-hidden aspect-[4/5] border-4" style={{ borderColor: C.asphalt }}>
               <Image
@@ -314,7 +314,7 @@ export default function RanchoLongaviPage() {
               </h2>
             </div>
           </Reveal>
-          <div className="grid grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <Reveal className="col-span-12 md:col-span-8">
               <ul className="grid grid-cols-2 gap-4 md:gap-5">
                 {FOTOS_CASA.map((f) => (
