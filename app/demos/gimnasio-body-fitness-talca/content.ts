@@ -55,6 +55,12 @@ export const RESENAS = [
     fecha: 'hace 7 años',
     estrellas: 5,
   },
+  {
+    texto: 'Excelentes máquinas y atención, muy limpio y bien atendido, no te amarran con planes como los otros.',
+    autor: 'D.',
+    fecha: 'hace un año',
+    estrellas: 5,
+  },
 ] as const
 
 export const WA_LINK = 'https://wa.me/56992268717?text=Hola%2C%20quiero%20consultar%20por%20el%20gimnasio.'
@@ -66,6 +72,6 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
 )}&output=embed`
 
 // Fuentes consultadas: ficha de Google Maps (nombre, categoría «Polideportivo», dirección,
-// teléfono, horario, rating 4,7 con 269 reseñas, las 4 reseñas citadas y 6 fotos reales de la
+// teléfono, horario, rating 4,7 con 269 reseñas, las 5 reseñas citadas y 6 fotos reales de la
 // sala). La página de Facebook enlazada desde la ficha solicita inicio de sesión; no se
 // encontró Instagram ni logo verificable: el nombre y las fotos reales hacen de marca.

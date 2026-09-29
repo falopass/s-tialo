@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, Stars, FaqList, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, RESENAS } from './content'
+import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, RESENAS, COORDS } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -174,11 +174,21 @@ export default function SantaFePage() {
               Obras que quedan
               <br />
               bien hechas
+              <br />
+              <span style={{ color: C.orange }}>en el Maule</span>
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-lg mb-8" style={{ color: 'rgba(237,239,241,0.8)' }}>
+            <p className="text-base md:text-lg leading-relaxed max-w-lg mb-6" style={{ color: 'rgba(237,239,241,0.8)' }}>
               Excavaciones, movimiento de tierras, caminos y maquinaria
-              con operador. Cotiza por WhatsApp.
+              con operador. Base en 4 Norte 30, Talca. Cotiza por WhatsApp.
             </p>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 text-xs uppercase tracking-[0.18em] font-semibold" style={{ color: 'rgba(237,239,241,0.85)' }}>
+              <span className="inline-flex items-center gap-2">
+                <Stars value={BIZ.rating} color={C.orange} className="w-3.5 h-3.5" />
+                {BIZ.ratingLabel} · {BIZ.reviews} reseñas
+              </span>
+              <span className="hidden sm:inline" style={{ color: 'rgba(237,239,241,0.35)' }}>|</span>
+              <span>{COORDS}</span>
+            </div>
             <div className="flex flex-wrap gap-3">
               <a
                 href={WA_LINK}
@@ -203,6 +213,16 @@ export default function SantaFePage() {
 
       {/* ── Servicios numerados ── */}
       <section id="servicios" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        {/* regla de agrimensura: ticks cada 8px, marca mayor cada 40px */}
+        <div
+          aria-hidden="true"
+          className="h-3 mb-10 select-none"
+          style={{
+            backgroundImage: `repeating-linear-gradient(90deg, ${C.line} 0 1px, transparent 1px 8px), repeating-linear-gradient(90deg, ${C.orangeInk} 0 1px, transparent 1px 40px)`,
+            backgroundSize: '100% 40%, 100% 100%',
+            backgroundRepeat: 'repeat-x',
+          }}
+        />
         <Reveal>
           <p className="text-[11px] uppercase tracking-[0.26em] mb-3 font-semibold" style={{ color: C.orangeInk }}>
             Servicios
@@ -288,7 +308,7 @@ export default function SantaFePage() {
               En terreno
             </p>
             <h2 className={`${display.className} uppercase font-semibold text-3xl md:text-5xl leading-tight mb-4`}>
-              Faenas reales
+              Faenas reales en terreno
             </h2>
             <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
               Fotos de trabajo real de la empresa: maquinaria, caminos y
@@ -383,6 +403,9 @@ export default function SantaFePage() {
               <br />
               {BIZ.region}, Chile
             </address>
+            <p className="text-xs uppercase tracking-[0.18em] font-semibold mb-8" style={{ color: C.orangeInk }}>
+              {COORDS}
+            </p>
             <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
               Teléfono:{' '}
               <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.graphite }}>

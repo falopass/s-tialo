@@ -75,6 +75,14 @@ const HITOS = [
   },
   {
     num: '03',
+    src: `${IMG}/tinaja.webp`,
+    alt: 'Tinaja de madera con humo saliendo del calefactor junto a la caseta de sauna de Cabañas Oasis',
+    name: 'La tinaja y el sauna',
+    desc: 'La zona de tinaja que nombran las visitas: madera caliente al lado del sauna, con el bosque alrededor.',
+    spec: 'Tinaja · sauna',
+  },
+  {
+    num: '04',
     src: `${IMG}/valle.webp`,
     alt: 'Bosque nativo y cerros que rodean el predio de Cabañas Oasis',
     name: 'El bosque del predio',
@@ -82,7 +90,7 @@ const HITOS = [
     spec: 'Sendero por el bosque',
   },
   {
-    num: '04',
+    num: '05',
     src: `${IMG}/rio.webp`,
     alt: 'Visitas bañándose en el río Claro junto a las rocas',
     name: 'La bajada al río',
@@ -90,6 +98,9 @@ const HITOS = [
     spec: 'Acceso directo al río',
   },
 ]
+
+/* El hito 04 (bosque) usa valle.webp; los números quedan 01 cabañas,
+   02 piscina, 03 tinaja+sauna, 04 bosque, 05 río, 06 postales. */
 
 const SENALES = [
   'Bajada al río',
@@ -377,10 +388,10 @@ export default function CabanasOasisPage() {
               </Reveal>
             </li>
           ))}
-          {/* fin del sendero: dos postales más */}
+          {/* fin del sendero: tres postales más */}
           <li className="relative">
             <span className="absolute -left-16 md:-left-20 top-0">
-              <Hito num="05" />
+              <Hito num="06" />
             </span>
             <Reveal delay={120}>
               <h3 className={`${display.className} font-bold text-2xl md:text-3xl tracking-[-0.01em] mb-4`} style={{ color: C.deep }}>
@@ -402,6 +413,15 @@ export default function CabanasOasisPage() {
                     alt="Piedras y agua clara del río Claro junto al predio"
                     fill
                     sizes="(min-width: 768px) 30vw, 40vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative overflow-hidden aspect-[16/10] border-2 col-span-2" style={{ borderColor: C.deep }}>
+                  <Image
+                    src={`${IMG}/fachada.webp`}
+                    alt="Fachada de una cabaña de Cabañas Oasis: terraza techada, jardín y el perro de la casa"
+                    fill
+                    sizes="(min-width: 768px) 60vw, calc(100vw - 6.5rem)"
                     className="object-cover"
                   />
                 </div>
