@@ -30,7 +30,7 @@ const C = {
   card: '#FFFDF6',
   ink: '#26333A',
   deep: '#1F2B31',
-  teal: '#0E7C7B',
+  teal: '#095E5E',
   tealSoft: '#DCEFED',
   coral: '#E4572E',
   coralDark: '#BC4522',
