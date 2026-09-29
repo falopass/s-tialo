@@ -7,6 +7,7 @@ export const BIZ = {
   city: 'Talca',
   phone: '56964725962',
   phoneDisplay: '+56 9 6472 5962',
+  instagram: 'https://www.instagram.com/emiliacoffee.cake/',
   rating: '4,8',
   reviews: '57',
 } as const

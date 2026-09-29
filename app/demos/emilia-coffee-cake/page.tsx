@@ -52,10 +52,16 @@ const NAV_LINKS = [
 ]
 
 const VITRINA = [
-  { img: 'pie.webp', t: 'Pie de limón', n: 'el que se acaba primero', alt: 'Trozo de pie de limón sobre plato rosado de Emilia Coffee & Cake' },
+  { img: 'limon.webp', t: 'Pie de limón', n: 'merengue flameado en plato rosado', alt: 'Trozo de pie de limón con merengue flameado sobre plato rosado de Emilia Coffee & Cake' },
   { img: 'torta.webp', t: 'Tortas de la casa', n: 'porciones y de encargo', alt: 'Trozo de torta húmeda de chocolate servido en Emilia Coffee & Cake' },
-  { img: 'croissant.webp', t: 'Croissant sandwich', n: 'el favorito del brunch', alt: 'Croissant sandwich con palta y huevo en plato rosado' },
+  { img: 'croissant.webp', t: 'Croissant sandwich', n: 'el favorito del brunch', alt: 'Croissant sandwich con salmón bajo el neón de Emilia' },
   { img: 'latte.webp', t: 'Café de especialidad', n: 'en la taza salvia', alt: 'Latte con arte servido en taza verde salvia de Emilia' },
+]
+
+const PARADOS = [
+  { img: 'torre.webp', t: 'La torre de dulces', d: 'los pasteles de la casa para compartir', alt: 'Torre de dulces y pasteles de Emilia Coffee & Cake' },
+  { img: 'avocado.webp', t: 'La mesa corrida', d: 'tostadas, huevo y jugo: el brunch de la casa', alt: 'Mesa servida con palta, huevos y café en Emilia' },
+  { img: 'matcha.webp', t: 'Los fríos', d: 'matcha y bebidas heladas para el patio', alt: 'Bebida fría de matcha de Emilia Coffee & Cake' },
 ]
 
 const NOMBRADOS = [
@@ -69,7 +75,7 @@ const NOMBRADOS = [
 const SERVICIOS = [
   { t: 'Mesa o terraza', d: 'Adentro entre el rosa y el salvia, o afuera en el patio cuando sale el sol.' },
   { t: 'Drive-through', d: 'Pides y retiras sin bajarte del auto: café y vitrina en la ventana.' },
-  { t: 'Pedir en línea', d: 'Encargas por WhatsApp y coordinas retiro o reparto en el mismo chat.' },
+  { t: 'Tortas a pedido', d: 'Se encargan por WhatsApp con agenda: avisan en su Instagram cuándo abre.' },
 ]
 
 const RESENAS = [
@@ -231,6 +237,38 @@ export default function Page() {
           </div>
         </section>
 
+        {/* PARA DOS — la mesa corrida de la casa */}
+        <section className="py-16 md:py-24" style={{ backgroundColor: C.rosa }}>
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
+            <Reveal>
+              <div className="text-center max-w-xl mx-auto">
+                <p className="text-[11px] font-extrabold tracking-[0.3em] uppercase" style={{ color: C.doradoK }}>para venir acompañada</p>
+                <h2 className={`${display.className} text-4xl sm:text-5xl leading-[1.04] tracking-tight mt-4`} style={{ color: C.ink }}>
+                  La mesa se sirve <span style={{ color: C.plato }}>de a dos</span>
+                </h2>
+                <p className="mt-4 text-base" style={{ color: C.muted }}>
+                  Emilia es de esas casas para sentarse a conversar: el brunch, la
+                  torre de dulces y el café se comparten mejor.
+                </p>
+              </div>
+            </Reveal>
+            <div className="mt-12 grid grid-cols-3 gap-3 md:gap-8 max-w-4xl mx-auto items-end">
+              {PARADOS.map((f, i) => (
+                <Reveal key={f.img} delay={i * 100}>
+                  <div className={`text-center ${i === 1 ? 'md:-translate-y-6' : ''}`}>
+                    <figure className="overflow-hidden rounded-t-full" style={{ border: `2px solid ${C.dorado}`, outline: `1px solid ${C.dorado}`, outlineOffset: 4, boxShadow: '0 14px 34px rgba(65,48,47,0.18)' }}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={`${IMG}/${f.img}`} alt={f.alt} className="w-full aspect-[3/4] object-cover" loading="lazy" />
+                    </figure>
+                    <h3 className={`${display.className} text-lg md:text-2xl mt-4`} style={{ color: C.ink }}>{f.t}</h3>
+                    <p className="mt-1 text-xs md:text-sm italic hidden sm:block" style={{ color: C.muted }}>{f.d}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* EL SILLÓN — el rincón de las fotos */}
         <section id="sillon" className="scroll-mt-20 py-16 md:py-24">
           <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-[1fr_1.1fr] gap-10 md:gap-14 items-center">
@@ -381,8 +419,8 @@ export default function Page() {
           <p className="text-xs tracking-[0.18em] uppercase" style={{ color: 'rgba(251,243,240,0.55)' }}>
             {BIZ.address} · {BIZ.city}
           </p>
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="text-sm font-bold tap-44 inline-flex items-center" style={{ color: '#EFC9CE' }}>
-            {BIZ.phoneDisplay}
+          <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className="text-sm font-bold tap-44 inline-flex items-center" style={{ color: '#EFC9CE' }}>
+            @emiliacoffee.cake
           </a>
         </div>
       </footer>
