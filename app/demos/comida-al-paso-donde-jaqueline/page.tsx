@@ -288,10 +288,23 @@ export default function DondeJaquelinePage() {
           <h2 className={`${display.className} font-bold text-[clamp(2rem,5vw,3.4rem)] leading-[1] tracking-tight mb-4`} style={{ color: C.ink }}>
             Los que pararon
           </h2>
-          <p className="text-sm md:text-base max-w-lg mb-10" style={{ color: C.muted }}>
+          <p className="text-sm md:text-base max-w-lg mb-4" style={{ color: C.muted }}>
             Reseñas reales de su ficha de Google, de automovilistas y visitas
             del sector.
           </p>
+        </Reveal>
+        <Reveal delay={60}>
+          <a
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 mb-10 tap-44"
+          >
+            <Stars value={3.8} color={C.accent} />
+            <span className={`${mono.className} text-xs md:text-sm font-medium`} style={{ color: C.ink }}>
+              {BIZ.rating} · {BIZ.reviews} reseñas en Google
+            </span>
+          </a>
         </Reveal>
         <ul>
           {RESENAS.map((r, i) => (
@@ -359,6 +372,10 @@ export default function DondeJaquelinePage() {
               <br />
               <a href={`tel:+${BIZ.phone}`} className="underline underline-offset-2 tap-44">
                 {BIZ.phoneDisplay}
+              </a>
+              <br />
+              <a href={`tel:+${BIZ.extraPhone}`} className="underline underline-offset-2 tap-44">
+                {BIZ.extraPhoneDisplay}
               </a>
             </address>
             <div className="flex flex-wrap gap-3 mt-6">

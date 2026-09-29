@@ -7,7 +7,10 @@ export const BIZ = {
   region: 'Región del Maule',
   phone: '56993726009',
   phoneDisplay: '+56 9 9372 6009',
+  extraPhone: '56953473968',
   extraPhoneDisplay: '+56 9 5347 3968',
+  rating: '3,8',
+  reviews: '55',
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.phone}?text=${encodeURIComponent(
