@@ -33,7 +33,7 @@ const C = {
   leaf: '#2C4A32',
   leafDeep: '#1C3322',
   gerbera: '#C23B3B',
-  anemona: '#C2449A',
+  anemona: '#A83B86',
   ink: '#23201A',
   muted: '#6E685A',
   line: 'rgba(35,32,26,0.14)',

@@ -120,14 +120,6 @@ export default function BrunoSBarPage() {
 
       {/* ── Hero: la cabaña de adentro ── */}
       <section id="inicio" className="relative min-h-[92svh] flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.wood }}>
-        <Image
-          src={`${IMG}/interior.webp`}
-          alt="Interior real de Bruno's Bar: mesas y sillas de madera, paredes de troncos, vitrina de copas y luz cálida de bar de campo"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
         <div
           className="absolute inset-0"
           style={{
@@ -240,7 +232,7 @@ export default function BrunoSBarPage() {
             de Google. Platos de fondue de carretera, hechos en casa.
           </p>
         </Reveal>
-        <ul className="grid grid-cols-12 gap-5 md:gap-6">
+        <ul className="grid grid-cols-1 sm:grid-cols-12 gap-5 md:gap-6">
           {PLATOS.map((p, i) => (
             <Reveal key={p.name} className="col-span-12 sm:col-span-6 lg:col-span-4" delay={i * 80}>
               <li
@@ -278,7 +270,7 @@ export default function BrunoSBarPage() {
               página va con texto — y lo que no hay foto, se dibuja y se marca.
             </p>
           </Reveal>
-          <div className="grid grid-cols-12 gap-6 md:gap-10 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
             <Reveal className="col-span-12 md:col-span-7">
               <figure className="border-[6px] shadow-2xl" style={{ borderColor: C.cream }}>
                 <Image
@@ -331,7 +323,7 @@ export default function BrunoSBarPage() {
               ['Ambiente familiar', 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3 20c0-3 2.5-5 5-5s5 2 5 5m1 0c0-3 2.5-5 5-5'],
             ].map(([t, d]) => (
               <Reveal key={t}>
-                <li className="flex flex-col items-start gap-2.5 border border-white/15 px-4 py-4">
+                <li className="flex flex-col items-start gap-2.5 border border-white/15 px-4 py-4" style={{ color: C.cream }}>
                   <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke={C.amber} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>
                   <span className={`${display.className} text-sm font-bold`} style={{ color: C.cream }}>{t}</span>
                 </li>
@@ -344,7 +336,7 @@ export default function BrunoSBarPage() {
       {/* ── Reseñas ── */}
       <section id="resenas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <Reveal>
-          <div className="grid grid-cols-12 gap-8 items-end mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end mb-10">
             <div className="col-span-12 md:col-span-7">
               <h2 className={`${display.className} font-black tracking-[-0.02em] text-[clamp(1.8rem,5vw,3.4rem)] leading-[1.02] mb-4`} style={{ color: C.wood }}>
                 Los que pararon, volvieron
@@ -367,7 +359,7 @@ export default function BrunoSBarPage() {
             </div>
           </div>
         </Reveal>
-        <ul className="grid grid-cols-12 gap-5 md:gap-6">
+        <ul className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
           {REVIEWS.map((r, i) => (
             <Reveal key={i} className="col-span-12 md:col-span-4" delay={i * 120}>
               <li className="h-full border-t-4 pt-5 px-5 pb-6 shadow-sm" style={{ backgroundColor: '#FBF4E3', borderColor: i === 1 ? C.moss : C.amber }}>
@@ -388,7 +380,7 @@ export default function BrunoSBarPage() {
               Bajas por la ruta y está ahí
             </h2>
           </Reveal>
-          <div className="grid grid-cols-12 gap-8 md:gap-10 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
             <div className="col-span-12 md:col-span-5 space-y-6">
               <Reveal>
                 <ul className="space-y-4 text-sm md:text-base" style={{ color: C.ink }}>

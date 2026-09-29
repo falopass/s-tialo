@@ -81,7 +81,7 @@ export default function LaClinicaDelAutomovil() {
       <BlitzNav
         name={
           <span className={`${display.className} text-lg tracking-wide uppercase`}>
-            La Clínica <span style={{ color: C.red }}>del Automóvil</span>
+            La Clínica <span className="hidden min-[430px]:inline" style={{ color: C.red }}>del Automóvil</span>
           </span>
         }
         links={NAV_LINKS}
@@ -208,7 +208,7 @@ export default function LaClinicaDelAutomovil() {
                   <p className={`${mono.className} text-xs font-bold`} style={{ color: C.red }}>{s.n}</p>
                   <span
                     className={`${mono.className} text-[10px] uppercase tracking-wider px-2 py-1 rounded-full`}
-                    style={{ backgroundColor: i % 2 === 0 ? 'rgba(200,16,46,0.10)' : 'rgba(242,185,12,0.22)', color: i % 2 === 0 ? C.redDeep : '#7A5B00' }}
+                    style={{ backgroundColor: i % 2 === 0 ? '#F8E1E6' : '#F9EAC2', color: i % 2 === 0 ? C.redDeep : '#7A5B00' }}
                   >
                     {s.tag}
                   </span>
@@ -377,11 +377,8 @@ export default function LaClinicaDelAutomovil() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#12140F' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-full overflow-hidden border-2" style={{ borderColor: 'rgba(247,243,232,0.4)' }}>
-              <Image src={`${IMG}/logo.webp`} alt="" width={40} height={40} className="w-full h-full object-cover" />
-            </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-5">
+          <div className="flex items-center gap-3 mb-1">
             <p className={`${display.className} uppercase text-xl md:text-2xl`} style={{ color: C.paper }}>{BIZ.name}</p>
           </div>
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(247,243,232,0.62)' }}>

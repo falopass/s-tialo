@@ -171,7 +171,7 @@ export default function EscuelaDeConductoresAmateurs() {
       {/* ── Los cursos, tal como los anuncian ── */}
       <section id="cursos" className="max-w-6xl mx-auto px-5 md:px-8 py-16">
         <Reveal>
-          <p className={`${mono.className} text-xs uppercase tracking-[0.25em] mb-2`} style={{ color: C.red }}>
+          <p className={`${mono.className} text-xs uppercase tracking-[0.25em] mb-2`} style={{ color: '#FF6B6B' }}>
             Tal como lo anuncian ellos
           </p>
           <h2 className={`${display.className} uppercase text-4xl md:text-6xl leading-[1.05]`}>
@@ -218,7 +218,7 @@ export default function EscuelaDeConductoresAmateurs() {
       {/* ── Afiches reales ── */}
       <section id="auto" className="max-w-6xl mx-auto px-5 md:px-8 pb-16">
         <Reveal>
-          <p className={`${mono.className} text-xs uppercase tracking-[0.25em] mb-2`} style={{ color: C.blue }}>
+          <p className={`${mono.className} text-xs uppercase tracking-[0.25em] mb-2`} style={{ color: '#7DB3FF' }}>
             De su propio Instagram
           </p>
           <h2 className={`${display.className} uppercase text-3xl md:text-5xl leading-[1.05]`}>
@@ -304,8 +304,8 @@ export default function EscuelaDeConductoresAmateurs() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#0A0B0D' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
-          <p className={`${display.className} uppercase text-xl md:text-2xl mb-2`} style={{ color: C.cream }}>{BIZ.name}</p>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-5">
+          <p className={`${display.className} uppercase text-xl md:text-2xl mb-1`} style={{ color: C.cream }}>{BIZ.name}</p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(245,241,230,0.6)' }}>
             {BIZ.address}, {BIZ.addressHint} · {BIZ.city}, {BIZ.region}
             <br />

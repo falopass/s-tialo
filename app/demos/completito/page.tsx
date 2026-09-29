@@ -28,7 +28,7 @@ const C = {
   navyDeep: '#0C1B42',
   crema: '#F6F0E4',
   papel: '#FDFBF4',
-  rojo: '#D8382E',
+  rojo: '#C22B21',
   celeste: '#7FB0D9',
   ink: '#1C1A16',
   muted: '#6B6254',
@@ -56,7 +56,7 @@ function Disco({ className = '' }: { className?: string }) {
 
 export default function Page() {
   return (
-    <main className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.crema, color: C.ink }}>
+    <main className={`${body.className} min-h-screen antialiased overflow-x-clip`} style={{ backgroundColor: C.crema, color: C.ink }}>
       <BlitzNav
         name={<span style={{ letterSpacing: '0.04em', textTransform: 'uppercase' }}>{BIZ.short}</span>}
         logoSrc={IMG.logo}
@@ -202,7 +202,7 @@ export default function Page() {
                 </p>
                 <ul className="mt-4 grid grid-cols-2 gap-3">
                   {TEMAS.map(([t, n]) => (
-                    <li key={t} className="rounded-lg px-3.5 py-3 border" style={{ borderColor: C.lineDark }}>
+                    <li key={t} className="rounded-lg px-3.5 py-3 border" style={{ borderColor: C.lineDark, color: C.crema }}>
                       <p className={`${display.className} text-lg uppercase hyphens-auto`} style={{ color: C.crema }}>{t}</p>
                       <p className={`${mono.className} mt-0.5 text-[11px]`} style={{ color: C.celeste }}>{n}</p>
                     </li>

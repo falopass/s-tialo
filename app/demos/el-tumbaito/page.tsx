@@ -129,7 +129,7 @@ export default function ElTumbaitoPage() {
               'repeating-linear-gradient(90deg, transparent 0 88px, rgba(255,255,255,0.35) 88px 90px)',
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-32 pb-10 md:pb-14 grid grid-cols-12 gap-8 items-center">
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-32 pb-10 md:pb-14 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           <div className="col-span-12 md:col-span-7">
             <Reveal>
               <a
@@ -268,7 +268,7 @@ export default function ElTumbaitoPage() {
             inventado, todo lo que se nombra viene de su carta real.
           </p>
         </Reveal>
-        <ul className="grid grid-cols-12 gap-6 md:gap-8">
+        <ul className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
           {PIZARRA.map((p, i) => (
             <Reveal
               key={p.n}
@@ -350,7 +350,7 @@ export default function ElTumbaitoPage() {
       {/* ── La casa: reseñas ── */}
       <section id="casa" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <Reveal>
-          <div className="grid grid-cols-12 gap-8 items-start mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-10">
             <div className="col-span-12 md:col-span-7">
               <h2 className={`${display.className} font-black uppercase tracking-[-0.02em] text-[clamp(1.8rem,5vw,3.4rem)] leading-[1.02] mb-5`} style={{ color: C.navy }}>
                 La picada que Linares conoce de memoria
@@ -374,7 +374,7 @@ export default function ElTumbaitoPage() {
             </div>
           </div>
         </Reveal>
-        <ul className="grid grid-cols-12 gap-5 md:gap-6">
+        <ul className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
           {REVIEWS.map((r, i) => (
             <Reveal key={i} className="col-span-12 md:col-span-4" delay={i * 120}>
               <li
@@ -402,7 +402,7 @@ export default function ElTumbaitoPage() {
               Cómo llegar a la picada
             </h2>
           </Reveal>
-          <div className="grid grid-cols-12 gap-8 md:gap-10 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
             <div className="col-span-12 md:col-span-5 space-y-6">
               <Reveal>
                 <ul className="space-y-4 text-sm md:text-base" style={{ color: C.ink }}>
