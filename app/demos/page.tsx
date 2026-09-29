@@ -3301,6 +3301,14 @@ const BLITZ = [
     tagline: 'La noche de Constitución: neón rojo y cian, coctelería y shows.',
     gradient: 'linear-gradient(135deg, #0B0A10 0%, #FF3B5C 115%, #35E0FF 190%)',
   },
+  {
+    slug: 'restaurante-neuquen',
+    name: 'Restaurante Neuquén',
+    rubro: 'Bar restaurante',
+    city: 'San Clemente',
+    tagline: 'Ticket de frontera: crema de mantel, verde pino, terracota y la ruta al Paso Pehuenche.',
+    gradient: 'linear-gradient(135deg, #F3EBD8 0%, #2D4A36 90%, #B4502A 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
