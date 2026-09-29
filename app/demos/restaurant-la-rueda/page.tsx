@@ -111,18 +111,20 @@ const HORARIO = [
 function Banderines({ invertido = false }: { invertido?: boolean }) {
   const colores = [C.red, C.yellow, C.green, '#2E7BBF', '#E7E0D0']
   return (
-    <div aria-hidden="true" className={`flex justify-between gap-[6px] ${invertido ? 'rotate-180' : ''}`}>
-      {Array.from({ length: 18 }).map((_, i) => (
-        <span
-          key={i}
-          className="w-0 h-0 shrink-0"
-          style={{
-            borderLeft: '9px solid transparent',
-            borderRight: '9px solid transparent',
-            borderTop: `16px solid ${colores[i % colores.length]}`,
-          }}
-        />
-      ))}
+    <div aria-hidden="true" className={`overflow-hidden ${invertido ? 'rotate-180' : ''}`}>
+      <div className="flex justify-between gap-[6px] -mx-2">
+        {Array.from({ length: 26 }).map((_, i) => (
+          <span
+            key={i}
+            className="w-0 h-0 shrink-0"
+            style={{
+              borderLeft: '9px solid transparent',
+              borderRight: '9px solid transparent',
+              borderTop: `16px solid ${colores[i % colores.length]}`,
+            }}
+          />
+        ))}
+      </div>
     </div>
   )
 }
