@@ -133,7 +133,7 @@ export default function MaderexPage() {
           bar: 'rgba(243,239,228,0.95)',
           ink: C.ink,
           line: C.line,
-          btnBg: C.verde,
+          btnBg: C.verdeOsc,
           btnInk: '#fff',
         }}
       />
@@ -174,7 +174,7 @@ export default function MaderexPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${display.className} mx-btn uppercase tracking-[0.05em] font-bold text-base px-7 py-3 tap-44`}
-                style={{ backgroundColor: C.verde, color: '#fff' }}
+                style={{ backgroundColor: C.verdeOsc, color: '#fff' }}
               >
                 Cotizar mi lista
               </a>
@@ -231,7 +231,7 @@ export default function MaderexPage() {
                 <div className="grid grid-cols-12 gap-3 md:gap-6 py-6 md:py-8 border-b border-dashed" style={{ borderColor: C.line }}>
                   <div className="col-span-12 md:col-span-4">
                     <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em] flex items-center gap-3`} style={{ color: C.muted }}>
-                      <span style={{ color: C.verde }}>{String(gi + 1).padStart(2, '0')}</span>
+                      <span style={{ color: C.verdeOsc }}>{String(gi + 1).padStart(2, '0')}</span>
                       {g.grupo}
                     </p>
                   </div>
@@ -421,7 +421,7 @@ export default function MaderexPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${display.className} mx-btn inline-block uppercase font-bold tracking-[0.05em] text-base px-7 py-3 tap-44`}
-                  style={{ backgroundColor: C.verde, color: '#fff' }}
+                  style={{ backgroundColor: C.verdeOsc, color: '#fff' }}
                 >
                   Cotizar por WhatsApp
                 </a>
