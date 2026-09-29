@@ -2551,6 +2551,14 @@ const BLITZ = [
     tagline: 'Afiche de torneo: negro de gi, brochazos rojos y cuadrícula de tatami, con su tigre y el mundial WAKO 2026.',
     gradient: 'linear-gradient(135deg, #0D0D10 0%, #17171C 45%, #D92323 130%)',
   },
+  {
+    slug: 'espacio-dominga',
+    name: 'Heladería Espacio Dominga',
+    rubro: 'Heladería de jardín',
+    city: 'San Clemente',
+    tagline: 'Letrero de neón en el patio: verde noche, rosa y menta de su logo, banderines y su terraza bajo los sauces.',
+    gradient: 'linear-gradient(135deg, #0B1710 0%, #12271B 55%, #FF6BAE 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
