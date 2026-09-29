@@ -4045,6 +4045,14 @@ const BLITZ = [
     tagline: 'Industrial de gym: carbón, pasto sintético verde y tipografía de placas.',
     gradient: 'linear-gradient(135deg, #141416 0%, #1E2B1C 55%, #3FA45B 150%)',
   },
+  {
+    slug: 'la-gaviota',
+    name: 'Restaurant La Gaviota',
+    rubro: 'Restaurant · comida casera',
+    city: 'Licantén',
+    tagline: 'La picada del camino a la costa: rojo de la fachada, verde del toldo y la pizarra de colaciones escrita a tiza.',
+    gradient: 'linear-gradient(135deg, #F8F2E4 0%, #8E2320 110%, #1F4A2E 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
