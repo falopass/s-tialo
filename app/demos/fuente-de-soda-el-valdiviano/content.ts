@@ -41,7 +41,9 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
 
 export const IMG = '/demos/fuente-de-soda-el-valdiviano'
 
-export const CARTA = [
+export type CartaItem = { n: string; name: string; desc: string; price?: string }
+
+export const CARTA: CartaItem[] = [
   {
     n: 'I',
     name: 'Completos y sandwich',
