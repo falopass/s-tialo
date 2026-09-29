@@ -1,478 +1,506 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
-import { Reveal, BlitzNav, Stars, WaFab } from '../blitz-kit'
+import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import LazyMap from '../lazy-map'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, REVIEWS } from './content'
+import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
-  src: [
-    { path: '../../fonts/fraunces/normal-100-900.woff2', weight: '100 900', style: 'normal' },
-    { path: '../../fonts/fraunces/italic-100-900.woff2', weight: '100 900', style: 'italic' },
-  ],
+  src: [{ path: '../../fonts/marcellus/normal-400.woff2' }],
 })
 const body = localFont({
-  src: [{ path: '../../fonts/outfit/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
+  src: [{ path: '../../fonts/public-sans/normal-100-900.woff2' }],
 })
 const mono = localFont({
-  src: [{ path: '../../fonts/roboto-mono/normal-100-700.woff2', weight: '100 700', style: 'normal' }],
+  src: [{ path: '../../fonts/geist-mono/normal-100-900.woff2' }],
 })
 
-// Folleto de ruta: papel crema, tinta café y el ámbar del logo Martabid.
-// Los proyectos se cuentan como una carretera que baja por el sur.
+/**
+ * Dirección de arte: «cartola de proyectos». La paleta sale del logo
+ * real — ámbar dorado sobre espresso — con Marcellus para el letrero
+ * de sala de ventas y Geist Mono para los datos de la cartola (UF,
+ * dormitorios, direcciones), como la lámina de precios de una inmobiliaria.
+ */
 const C = {
-  cream: '#F7F1E5',
-  paper: '#FDF9F0',
-  ink: '#2B1B10',
-  brown: '#452914',
-  amber: '#EB9900',
-  amberDeep: '#C96218',
-  muted: '#7A6A58',
-  line: 'rgba(69,41,20,0.16)',
-  night: '#241610',
+  espresso: '#171109',
+  ink: '#241B0E',
+  cream: '#F6F1E6',
+  paper: '#FBF7EF',
+  gold: '#E09A19',
+  goldDeep: '#9C6B12',
+  bronze: '#7A5C2E',
+  muted: '#6E6250',
+  line: 'rgba(36,27,14,0.16)',
+  lineDark: 'rgba(255,255,255,0.14)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'inmobiliaria-martabid',
-  title: 'Inmobiliaria Martabid — Casas y departamentos con oficina en Talca',
+  title: 'Inmobiliaria Martabid — Departamentos y casas de Ñuble a Puerto Montt',
   description:
-    'Inmobiliaria Martabid SpA. Proyectos de casas y departamentos en Temuco, Lautaro, Villarrica, Osorno y Puerto Montt; oficina en 2 Norte 940, Talca.',
-  image: `${IMG}/praderas-aerea.webp`,
+    'Proyectos con entrega inmediata en Villarrica, Temuco, Osorno y Puerto Montt, desde 1.990 UF. Casa matriz en Temuco y salas de venta en 7 ciudades.',
+  image: '/demos/inmobiliaria-martabid/hero.webp',
 })
 
 const NAV_LINKS = [
-  { label: 'Ruta', href: '#ruta' },
-  { label: 'Casas', href: '#casas' },
+  { label: 'Proyectos', href: '#proyectos' },
+  { label: 'Presencia', href: '#presencia' },
   { label: 'Opiniones', href: '#opiniones' },
-  { label: 'Oficinas', href: '#oficinas' },
+  { label: 'Contacto', href: '#contacto' },
 ]
 
-const RUTA = [
+const PROYECTOS_FOTO = [
   {
-    km: 'km 0',
-    ciudad: 'Temuco',
-    nombre: 'Edificio Belmonte y Plaza Cautín',
-    d: 'Departamentos y condominio en el centro de la ciudad donde nació la inmobiliaria, a pasos del Parque Isla Cautín.',
-    img: `${IMG}/belmonte-gym.webp`,
-    alt: 'Espacio común del proyecto Belmonte en Temuco',
-  },
-  {
-    km: 'km 30',
-    ciudad: 'Labranza · Lautaro',
-    nombre: 'Praderas de Labranza y Terrazas del Sur',
-    d: 'Casas en barrios consolidados con vista al volcán: la Ruta 5 alcanza ambos en menos de media hora.',
-    img: `${IMG}/praderas-casa.webp`,
-    alt: 'Casa modelo en Praderas de Labranza, Temuco',
-  },
-  {
-    km: 'km 85',
+    src: `${IMG}/condominio.webp`,
+    alt: 'Condominio Volcán Villarrica: edificio terminado con letrero de ventas Martabid al frente',
+    nombre: 'Volcán Villarrica',
     ciudad: 'Villarrica',
-    nombre: 'Condominio Volcán Villarrica',
-    d: 'Departamentos con piscina, juegos y multicancha a los pies del volcán — el proyecto más fotografiado de la ruta.',
-    img: `${IMG}/volcan-piscina.webp`,
-    alt: 'Piscina y edificios del condominio Volcán Villarrica',
+    tipo: 'Departamentos · 2 y 3 dorm.',
+    precio: 'desde 1.990 UF',
+    estado: 'Entrega inmediata',
+    sala: 'Av. Segunda Faja al Volcán 205, Local 3',
   },
   {
-    km: 'km 210',
-    ciudad: 'Osorno',
+    src: `${IMG}/casa-piloto.webp`,
+    alt: 'Casa modelo de Jardines del Sur en Osorno con prado y cielo sur',
     nombre: 'Jardines del Sur',
-    d: 'Dos modelos de casas en un barrio que ya tiene calles nuevas, juegos infantiles y vecinos instalados.',
-    img: `${IMG}/jardines-parque.webp`,
-    alt: 'Plaza y juegos infantiles del barrio Jardines del Sur, Osorno',
-  },
-  {
-    km: 'km 310',
-    ciudad: 'Puerto Montt',
-    nombre: 'Piedra Azul y Vista Chinquihue',
-    d: 'El sur austral también está en la ruta: proyectos junto al canal y la ciudad portuaria.',
-    img: `${IMG}/volcan-juegos.webp`,
-    alt: 'Áreas verdes y juegos dentro de un condominio Martabid',
+    ciudad: 'Osorno',
+    tipo: 'Casas · 3 dormitorios',
+    precio: 'desde 2.099 UF',
+    estado: 'Entrega inmediata',
+    sala: 'Psje. Matilde Troup Sepulveda 2091',
   },
 ]
 
-const OFICINAS = ['Temuco (casa matriz)', 'Talca', 'Chillán', 'Los Ángeles', 'Villarrica', 'Valdivia', 'Osorno', 'Puerto Montt']
+const PROYECTOS_MAS = [
+  { nombre: 'Edificio Belmonte', ciudad: 'Temuco centro', tipo: 'Depto. · 1-2 dorm.', dato: 'Entrega inmediata' },
+  { nombre: 'Praderas de Labranza II', ciudad: 'Temuco · Labranza', tipo: 'Casas · 3 dorm.', dato: 'En venta' },
+  { nombre: 'Vista Chinquihue', ciudad: 'Puerto Montt', tipo: 'Depto. · 2-3 dorm.', dato: 'Entrega inmediata' },
+  { nombre: 'Piedra Azul', ciudad: 'Puerto Montt', tipo: 'Depto. · 2-3 dorm.', dato: 'Subsidio desde $19.000.000' },
+]
 
-function Chip({ children }: { children: React.ReactNode }) {
-  return (
-    <span
-      className={`${mono.className} inline-flex items-center text-[10px] md:text-[11px] font-bold tracking-[0.14em] uppercase px-3 py-1.5 rounded-full border`}
-      style={{ borderColor: C.line, color: C.brown, backgroundColor: C.paper }}
-    >
-      {children}
-    </span>
-  )
-}
+const CIUDADES = ['Temuco', 'Villarrica', 'Chillán', 'Los Ángeles', 'Valdivia', 'Osorno', 'Puerto Montt']
 
-export default function MartabidDemo() {
+const DENTRO = [
+  {
+    src: `${IMG}/interior.webp`,
+    alt: 'Cocina y comedor de diario de la casa modelo en Jardines del Sur',
+    pie: 'Cocina y estar · Jardines del Sur',
+  },
+  {
+    src: `${IMG}/dormitorio.webp`,
+    alt: 'Dormitorio principal de la casa modelo en Jardines del Sur, Osorno',
+    pie: 'Dormitorio · Jardines del Sur',
+  },
+  {
+    src: `${IMG}/aerea-piscina.webp`,
+    alt: 'Vista aérea de la piscina y áreas verdes del Condominio Volcán Villarrica',
+    pie: 'Áreas comunes · Volcán Villarrica',
+  },
+]
+
+export default function InmobiliariaMartabid() {
   return (
-    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.cream, color: C.ink }}>
+    <main className={body.className} style={{ backgroundColor: C.paper, color: C.ink }}>
       <BlitzNav
         name={
-          <span className="px-2.5 py-1.5 rounded-lg" style={{ backgroundColor: C.night }}>
-            {/* eslint-disable-next-line @next/next/no-img-element -- logo oficial en public/ */}
-            <img src={`${IMG}/logo.svg`} alt={BIZ.name} className="h-6 md:h-7 w-auto" />
-          </span>
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element -- logo webp ya optimizado en public/ */}
+            <img src={`${IMG}/logo.webp`} alt="Martabid" className="h-6 w-auto" />
+          </>
         }
         links={NAV_LINKS}
         waLink={WA_LINK}
-        fontClass={display.className}
-        theme={{ over: 'light', bar: C.paper, ink: C.ink, line: C.line, btnBg: C.amberDeep, btnInk: '#FFF' }}
+        theme={{
+          over: 'dark',
+          bar: 'rgba(23,17,9,0.94)',
+          ink: '#F6F1E6',
+          line: 'rgba(255,255,255,0.12)',
+          btnBg: C.gold,
+          btnInk: '#171109',
+        }}
       />
+      <WaFab href={WA_LINK} label={`Escribir a ${BIZ.name} por WhatsApp`} />
 
-      {/* HERO — folleto de ruta */}
-      <section id="inicio" className="relative overflow-hidden">
+      {/* ── HERO ───────────────────────────────────────────────── */}
+      <section id="inicio" className="relative min-h-[92svh] flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.espresso }}>
+        <Image
+          src={`${IMG}/hero.webp`}
+          alt="Edificios del Condominio Volcán Villarrica con piscina y áreas verdes, proyecto de Inmobiliaria Martabid"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
         <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-[0.5]"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(${C.amber}33 1.5px, transparent 1.5px)`,
-            backgroundSize: '26px 26px',
+            background:
+              'linear-gradient(180deg, rgba(23,17,9,0.35) 0%, rgba(23,17,9,0.1) 40%, rgba(23,17,9,0.95) 90%)',
           }}
         />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-40 pb-14 md:pb-20">
-          <div className="grid md:grid-cols-[1.02fr_0.98fr] gap-10 md:gap-14 items-center">
-            <div>
-              <Reveal>
-                <div className="flex flex-wrap gap-2">
-                  <Chip>Desde 2004 · Araucanía</Chip>
-                  <Chip>Oficina en {BIZ.city}</Chip>
-                </div>
-              </Reveal>
-              <Reveal delay={100}>
-                <h1
-                  className={`${display.className} mt-6 text-[40px] md:text-[66px] leading-[1.0] font-black tracking-tight`}
-                  style={{ fontVariationSettings: '"opsz" 144' }}
+        <div className="relative max-w-6xl mx-auto w-full px-5 md:px-8 pb-10 md:pb-14">
+          <Reveal>
+            <p className={`${mono.className} text-[11px] md:text-xs tracking-[0.2em] mb-4`} style={{ color: C.gold }}>
+              INMOBILIARIA · CASA MATRIZ EN TEMUCO
+            </p>
+            <h1 className={`${display.className} text-[2.6rem] leading-[1.04] md:text-7xl text-white max-w-3xl`}>
+              De Ñuble a Los Lagos,{' '}
+              <em className="not-italic" style={{ color: C.gold }}>
+                la que entrega las llaves
+              </em>
+            </h1>
+            <p className="text-base md:text-lg leading-relaxed mt-4 max-w-xl text-white/85">
+              Departamentos y casas con entrega inmediata en Villarrica,
+              Temuco, Osorno y Puerto Montt — desde 1.990 UF, con sala de
+              ventas en cada ciudad.
+            </p>
+            <div className="flex flex-wrap items-center gap-2.5 mt-6">
+              {['Ventas en 7 ciudades', 'Entrega inmediata', 'desde 1.990 UF*'].map((chip) => (
+                <span
+                  key={chip}
+                  className={`${mono.className} text-[11px] tracking-[0.1em] px-3 py-1.5 rounded-full`}
+                  style={{ backgroundColor: 'rgba(224,154,25,0.16)', color: '#FFD98A', border: '1px solid rgba(224,154,25,0.5)' }}
                 >
-                  Tu casa nueva,
-                  <br />
-                  <em className="font-medium" style={{ color: C.amberDeep }}>
-                    del Maule al canal
-                  </em>{' '}
-                  de Chacao
-                </h1>
+                  {chip}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-3 mt-7">
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-sm font-semibold transition-transform active:scale-95"
+                style={{ backgroundColor: C.gold, color: C.espresso }}
+              >
+                Cotiza por WhatsApp
+              </a>
+              <a
+                href="#proyectos"
+                className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-sm font-semibold transition-transform active:scale-95"
+                style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: '#fff', border: '1px solid rgba(255,255,255,0.4)' }}
+              >
+                Ver proyectos
+              </a>
+            </div>
+            <p className={`${mono.className} text-[10px] tracking-[0.1em] mt-5`} style={{ color: 'rgba(255,255,255,0.55)' }}>
+              CONDOMINIO VOLCÁN VILLARRICA · *PRECIOS PUBLICADOS EN MARTABID.CL, SUJETOS A DISPONIBILIDAD
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── PRUEBA SOCIAL ──────────────────────────────────────── */}
+      <section className="border-b" style={{ borderColor: C.line, backgroundColor: C.cream }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-7 md:py-9 flex flex-wrap items-center gap-x-10 gap-y-4">
+          <Reveal className="flex items-center gap-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className={`${display.className} text-3xl leading-none`} style={{ color: C.goldDeep }}>
+                  {BIZ.googleRating}
+                </span>
+                <Stars value={3.9} color={C.goldDeep} className="w-4 h-4" />
+              </div>
+              <p className={`${mono.className} text-[10px] uppercase tracking-[0.12em] mt-1`} style={{ color: C.muted }}>
+                {BIZ.googleReviews} reseñas en Google
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={60} className="flex items-center gap-2.5">
+            <p className="text-sm" style={{ color: C.muted }}>
+              <strong style={{ color: C.ink }}>+24 mil</strong> personas siguen sus proyectos en Instagram
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="text-sm" style={{ color: C.muted }}>
+              Salas de venta de <strong style={{ color: C.ink }}>Ñuble a Puerto Montt</strong> — la oficina queda cerca de la obra
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── CARTOLA DE PROYECTOS ───────────────────────────────── */}
+      <section id="proyectos" className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.goldDeep }}>
+              Cartola vigente
+            </p>
+            <h2 className={`${display.className} text-3xl md:text-5xl leading-[1.06] max-w-2xl`}>
+              Proyectos que ya tienen{' '}
+              <span style={{ color: C.goldDeep }}>llaves en mano</span>
+            </h2>
+            <p className="text-sm md:text-base leading-relaxed mt-4 max-w-xl" style={{ color: C.muted }}>
+              Fotos reales de los proyectos publicados en martabid.cl.
+              Precios de lista, sujetos a disponibilidad y cambios.
+            </p>
+          </Reveal>
+
+          <div className="grid md:grid-cols-2 gap-5 md:gap-7 mt-10">
+            {PROYECTOS_FOTO.map((p, i) => (
+              <Reveal key={p.nombre} delay={i * 90}>
+                <article
+                  className="rounded-2xl overflow-hidden border"
+                  style={{ backgroundColor: '#fff', borderColor: C.line }}
+                >
+                  <div className="relative aspect-[16/10]">
+                    <Image src={p.src} alt={p.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+                    <span
+                      className={`${mono.className} absolute top-3 left-3 text-[10px] tracking-[0.14em] px-2.5 py-1 rounded`}
+                      style={{ backgroundColor: C.espresso, color: C.gold }}
+                    >
+                      {p.estado.toUpperCase()}
+                    </span>
+                  </div>
+                  <div className="p-5 md:p-6">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <h3 className={`${display.className} text-2xl`}>{p.nombre}</h3>
+                      <span className={`${mono.className} text-sm font-semibold shrink-0`} style={{ color: C.goldDeep }}>
+                        {p.precio}
+                      </span>
+                    </div>
+                    <p className={`${mono.className} text-[11px] tracking-[0.08em] mt-1.5`} style={{ color: C.bronze }}>
+                      {p.ciudad.toUpperCase()} · {p.tipo}
+                    </p>
+                    <p className="text-[13px] mt-3" style={{ color: C.muted }}>
+                      Sala de ventas: {p.sala}
+                    </p>
+                  </div>
+                </article>
               </Reveal>
-              <Reveal delay={180}>
-                <p className="mt-5 text-base md:text-lg leading-relaxed max-w-md" style={{ color: C.muted }}>
-                  Martabid desarrolla barrios completos — casas, departamentos y
-                  condominios con áreas verdes — en las ciudades del sur, y
-                  atiende en su oficina de {BIZ.address}, {BIZ.city}.
+            ))}
+          </div>
+
+          {/* Resto de la cartola, sin foto inventada */}
+          <Reveal delay={120}>
+            <div className="mt-6 rounded-2xl border overflow-hidden" style={{ borderColor: C.line, backgroundColor: C.cream }}>
+              {PROYECTOS_MAS.map((p, i) => (
+                <div
+                  key={p.nombre}
+                  className={`grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_auto] items-center gap-x-4 px-5 md:px-7 py-4 ${i > 0 ? 'border-t' : ''}`}
+                  style={{ borderColor: C.line }}
+                >
+                  <div>
+                    <p className="font-semibold text-[15px]">{p.nombre}</p>
+                    <p className={`${mono.className} text-[10px] tracking-[0.1em] mt-0.5`} style={{ color: C.muted }}>
+                      {p.ciudad.toUpperCase()}
+                    </p>
+                  </div>
+                  <p className={`${mono.className} hidden md:block text-[11px]`} style={{ color: C.bronze }}>
+                    {p.tipo}
+                  </p>
+                  <span className={`${mono.className} text-[10px] tracking-[0.08em] text-right`} style={{ color: C.goldDeep }}>
+                    {p.dato.toUpperCase()}
+                  </span>
+                </div>
+              ))}
+              <div className="px-5 md:px-7 py-4 border-t flex flex-wrap items-center justify-between gap-3" style={{ borderColor: C.line }}>
+                <p className="text-[13px]" style={{ color: C.muted }}>
+                  Cartola completa y disponibilidad al día en su sitio oficial
                 </p>
+                <a
+                  href={BIZ.web}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${mono.className} text-[11px] tracking-[0.1em] font-semibold`}
+                  style={{ color: C.goldDeep }}
+                >
+                  MARTABID.CL ↗
+                </a>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── POR DENTRO ─────────────────────────────────────────── */}
+      <section className="py-16 md:py-24" style={{ backgroundColor: C.espresso }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.gold }}>
+              Por dentro
+            </p>
+            <h2 className={`${display.className} text-3xl md:text-5xl leading-[1.06] text-white max-w-2xl`}>
+              Lo que se ve en la sala{' '}
+              <span style={{ color: C.gold }}>es lo que se entrega</span>
+            </h2>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-5 mt-10">
+            {DENTRO.map((d, i) => (
+              <Reveal key={d.pie} delay={i * 80}>
+                <figure>
+                  <div className="relative aspect-square rounded-2xl overflow-hidden border" style={{ borderColor: C.lineDark }}>
+                    <Image src={d.src} alt={d.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+                  </div>
+                  <figcaption className={`${mono.className} text-[10px] tracking-[0.12em] mt-2.5`} style={{ color: 'rgba(255,255,255,0.6)' }}>
+                    {d.pie.toUpperCase()}
+                  </figcaption>
+                </figure>
               </Reveal>
-              <Reveal delay={260}>
-                <div className="mt-8 flex flex-wrap gap-3">
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRESENCIA + MAPA ───────────────────────────────────── */}
+      <section id="presencia" className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.goldDeep }}>
+              Presencia
+            </p>
+            <h2 className={`${display.className} text-3xl md:text-5xl leading-[1.06] max-w-2xl`}>
+              La oficina queda cerca{' '}
+              <span style={{ color: C.goldDeep }}>de la obra</span>
+            </h2>
+          </Reveal>
+
+          <Reveal delay={70}>
+            <div className="flex flex-wrap gap-2 mt-7">
+              {CIUDADES.map((ci, i) => (
+                <span
+                  key={ci}
+                  className={`${mono.className} text-[11px] tracking-[0.08em] px-3.5 py-2 rounded-full`}
+                  style={
+                    i === 0
+                      ? { backgroundColor: C.espresso, color: C.gold }
+                      : { backgroundColor: '#fff', color: C.ink, border: `1px solid ${C.line}` }
+                  }
+                >
+                  {ci}
+                  {i === 0 ? ' · casa matriz' : ''}
+                </span>
+              ))}
+            </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-[1.35fr_1fr] gap-6 md:gap-8 mt-8 items-stretch">
+            <Reveal>
+              <div className="rounded-2xl overflow-hidden border h-[300px] md:h-full min-h-[300px]" style={{ borderColor: C.line }}>
+                <LazyMap
+                  src={MAPS_EMBED}
+                  title="Casa matriz de Inmobiliaria Martabid en Temuco"
+                  className="w-full h-full border-0"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={90}>
+              <div className="rounded-2xl border p-6 md:p-7 h-full flex flex-col justify-between gap-5" style={{ backgroundColor: '#fff', borderColor: C.line }}>
+                <div>
+                  <p className={`${mono.className} text-[10px] tracking-[0.18em] uppercase`} style={{ color: C.goldDeep }}>
+                    Casa matriz
+                  </p>
+                  <p className={`${display.className} text-2xl mt-2`}>{BIZ.address}, {BIZ.city}</p>
+                  <dl className="mt-4 space-y-2 text-sm" style={{ color: C.muted }}>
+                    <div className="flex gap-2">
+                      <dt className={`${mono.className} text-[10px] tracking-[0.1em] pt-1 w-[52px] shrink-0`}>FONO</dt>
+                      <dd><a href={`tel:${BIZ.phoneTel}`} className="font-semibold" style={{ color: C.ink }}>{BIZ.phoneDisplay}</a></dd>
+                    </div>
+                    <div className="flex gap-2">
+                      <dt className={`${mono.className} text-[10px] tracking-[0.1em] pt-1 w-[52px] shrink-0`}>HORARIO</dt>
+                      <dd>{BIZ.hours}</dd>
+                    </div>
+                    <div className="flex gap-2">
+                      <dt className={`${mono.className} text-[10px] tracking-[0.1em] pt-1 w-[52px] shrink-0`}>EMAIL</dt>
+                      <dd><a href={`mailto:${BIZ.email}`} style={{ color: C.ink }}>{BIZ.email}</a></dd>
+                    </div>
+                  </dl>
+                </div>
+                <div className="flex flex-col gap-3">
                   <a
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center h-[48px] px-6 text-[15px] font-bold rounded-full active:scale-95 transition-transform text-white"
-                    style={{ backgroundImage: `linear-gradient(100deg, ${C.amberDeep}, ${C.amber})` }}
+                    className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-sm font-semibold transition-transform active:scale-95"
+                    style={{ backgroundColor: C.gold, color: C.espresso }}
                   >
-                    Cotizar por WhatsApp
+                    Hablar con un ejecutivo
                   </a>
                   <a
-                    href="#ruta"
-                    className="inline-flex items-center h-[48px] px-6 text-[15px] font-bold rounded-full border-2 active:scale-95 transition-transform"
-                    style={{ borderColor: C.brown, color: C.brown }}
+                    href={MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-sm font-semibold transition-transform active:scale-95"
+                    style={{ backgroundColor: C.cream, color: C.ink, border: `1px solid ${C.line}` }}
                   >
-                    Ver la ruta de proyectos
+                    Cómo llegar
                   </a>
                 </div>
-              </Reveal>
-            </div>
-            <Reveal delay={160}>
-              <figure className="relative">
-                <div
-                  aria-hidden="true"
-                  className="absolute -inset-3 rounded-[28px] border-2 border-dashed"
-                  style={{ borderColor: C.amber }}
-                />
-                <Image
-                  src={`${IMG}/praderas-aerea.webp`}
-                  alt="Vista aérea del barrio Praderas de Labranza con el volcán al fondo, Temuco"
-                  width={970}
-                  height={608}
-                  className="w-full h-auto rounded-[22px]"
-                  priority
-                />
-                <figcaption
-                  className={`${mono.className} absolute bottom-4 left-4 text-[10px] md:text-[11px] font-bold tracking-[0.12em] uppercase px-3 py-2 rounded-full text-white`}
-                  style={{ backgroundColor: 'rgba(36,22,16,0.85)' }}
-                >
-                  Praderas de Labranza · Temuco
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* RUTA DE PROYECTOS — carretera vertical */}
-      <section id="ruta" className="border-y" style={{ borderColor: C.line, backgroundColor: C.night }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24">
-          <Reveal>
-            <p className={`${mono.className} text-[11px] font-bold tracking-[0.2em] uppercase`} style={{ color: C.amber }}>
-              Ruta 5 sur
-            </p>
-            <h2 className={`${display.className} mt-3 text-[32px] md:text-[50px] font-black leading-[1.02] tracking-tight text-white`}>
-              Una carretera de barrios
-              <br />
-              <em className="font-medium" style={{ color: C.amber }}>
-                que baja por el sur
-              </em>
-            </h2>
-          </Reveal>
-          <div className="relative mt-12 md:mt-16">
-            <div
-              aria-hidden="true"
-              className="absolute left-[13px] md:left-1/2 top-0 bottom-0 w-[3px] -translate-x-1/2 rounded-full"
-              style={{
-                backgroundImage: `repeating-linear-gradient(180deg, ${C.amber} 0 18px, transparent 18px 34px)`,
-              }}
-            />
-            <div className="space-y-10 md:space-y-16">
-              {RUTA.map((p, i) => (
-                <Reveal key={p.nombre} delay={80}>
-                  <div className={`relative grid md:grid-cols-2 gap-6 md:gap-12 items-center ${i % 2 ? 'md:[direction:rtl]' : ''}`}>
-                    <span
-                      aria-hidden="true"
-                      className="absolute left-[13px] md:left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-4"
-                      style={{ backgroundColor: C.night, borderColor: C.amber }}
-                    />
-                    <div className="pl-10 md:pl-0 md:[direction:ltr]">
-                      <p className={`${mono.className} text-[11px] font-bold tracking-[0.18em] uppercase`} style={{ color: C.amber }}>
-                        {p.km} · {p.ciudad}
-                      </p>
-                      <h3 className={`${display.className} mt-2 text-[22px] md:text-[30px] font-black leading-tight text-white`}>
-                        {p.nombre}
-                      </h3>
-                      <p className="mt-3 text-sm md:text-base leading-relaxed max-w-md" style={{ color: '#C9BBA8' }}>
-                        {p.d}
-                      </p>
-                    </div>
-                    <figure className="pl-10 md:pl-0 md:[direction:ltr]">
-                      <Image
-                        src={p.img}
-                        alt={p.alt}
-                        width={970}
-                        height={608}
-                        className="w-full h-auto rounded-2xl"
-                      />
-                    </figure>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ASÍ SE VE TU CASA — galería */}
-      <section id="casas" className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <Reveal>
-            <h2 className={`${display.className} text-[32px] md:text-[50px] font-black leading-[1.02] tracking-tight`}>
-              Así se ve <em className="font-medium" style={{ color: C.amberDeep }}>por dentro</em>
-            </h2>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className={`${mono.className} max-w-xs text-[11px] font-bold tracking-[0.1em] uppercase leading-relaxed`} style={{ color: C.muted }}>
-              Fotos reales de sus casas modelo y condominios, publicadas por la propia inmobiliaria.
-            </p>
-          </Reveal>
-        </div>
-        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-          <Reveal className="col-span-2 lg:row-span-2">
-            <figure className="relative h-full">
-              <Image
-                src={`${IMG}/volcan-aerea.webp`}
-                alt="Vista aérea de los edificios del condominio Volcán Villarrica"
-                width={970}
-                height={608}
-                className="w-full h-full object-cover rounded-2xl"
-              />
-              <figcaption className={`${mono.className} absolute bottom-3 left-3 text-[10px] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full text-white`} style={{ backgroundColor: 'rgba(36,22,16,0.85)' }}>
-                Volcán Villarrica
-              </figcaption>
-            </figure>
-          </Reveal>
-          <Reveal delay={100}>
-            <figure className="relative">
-              <Image
-                src={`${IMG}/jardines-interior.webp`}
-                alt="Living-comedor de la casa modelo en Jardines del Sur, Osorno"
-                width={1000}
-                height={1000}
-                className="w-full h-auto rounded-2xl"
-              />
-            </figure>
-          </Reveal>
-          <Reveal delay={160}>
-            <figure className="relative">
-              <Image
-                src={`${IMG}/belmonte-planta.webp`}
-                alt="Planta 3D referencial de un departamento del Edificio Belmonte"
-                width={1000}
-                height={800}
-                className="w-full h-auto rounded-2xl"
-              />
-              <span className={`${mono.className} absolute top-2 left-2 text-[9px] font-bold tracking-[0.12em] uppercase px-2 py-1 rounded`} style={{ backgroundColor: C.amber, color: C.ink }}>
-                Imagen referencial
-              </span>
-            </figure>
-          </Reveal>
-          <Reveal delay={220} className="col-span-2">
-            <figure className="relative">
-              <Image
-                src={`${IMG}/cautin-render.webp`}
-                alt="Render referencial del proyecto Plaza Cautín en Temuco"
-                width={970}
-                height={608}
-                className="w-full h-auto rounded-2xl"
-              />
-              <span className={`${mono.className} absolute top-2 left-2 text-[9px] font-bold tracking-[0.12em] uppercase px-2 py-1 rounded`} style={{ backgroundColor: C.amber, color: C.ink }}>
-                Imagen referencial del proyecto
-              </span>
-              <figcaption className={`${mono.className} absolute bottom-3 right-3 text-[10px] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full text-white`} style={{ backgroundColor: 'rgba(36,22,16,0.85)' }}>
-                Plaza Cautín · Temuco
-              </figcaption>
-            </figure>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* OPINIONES */}
-      <section id="opiniones" className="border-y" style={{ borderColor: C.line, backgroundColor: C.paper }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20 grid md:grid-cols-[0.8fr_1.2fr] gap-10 items-center">
-          <div>
-            <Reveal>
-              <p className={`${display.className} text-[56px] md:text-[80px] font-black leading-none`} style={{ color: C.amberDeep }}>
-                {BIZ.rating}
-              </p>
-            </Reveal>
-            <Reveal delay={100}>
-              <Stars value={3.9} color={C.amberDeep} className="w-5 h-5" />
-              <p className={`${mono.className} mt-3 text-[11px] font-bold tracking-[0.14em] uppercase`} style={{ color: C.muted }}>
-                {BIZ.reviewCount} · casa matriz Temuco
-              </p>
-            </Reveal>
-          </div>
-          <div className="space-y-5">
-            {REVIEWS.map((r, i) => (
-              <Reveal key={r.author} delay={i * 110}>
-                <blockquote className="border-l-4 pl-5 py-1" style={{ borderColor: C.amber }}>
-                  <Stars value={r.stars} color={C.amberDeep} className="w-4 h-4" />
-                  <p className={`${display.className} mt-2 text-[17px] md:text-[20px] italic leading-snug`} style={{ color: C.brown }}>
-                    “{r.text}”
-                  </p>
-                  <footer className={`${mono.className} mt-3 text-[10px] md:text-[11px] font-bold tracking-[0.12em] uppercase`} style={{ color: C.muted }}>
-                    {r.author} · {r.when}
-                  </footer>
-                </blockquote>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* OFICINAS */}
-      <section id="oficinas" className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24">
-        <Reveal>
-          <h2 className={`${display.className} text-[32px] md:text-[50px] font-black leading-[1.02] tracking-tight`}>
-            Ocho oficinas,{' '}
-            <em className="font-medium" style={{ color: C.amberDeep }}>
-              una en Talca
-            </em>
-          </h2>
-        </Reveal>
-        <Reveal delay={100}>
-          <div className="mt-8 flex flex-wrap gap-2.5">
-            {OFICINAS.map((o) => (
-              <Chip key={o}>{o}</Chip>
-            ))}
-          </div>
-        </Reveal>
-        <div className="mt-10 grid md:grid-cols-2 gap-10 items-start">
-          <div>
-            <Reveal>
-              <dl className="space-y-0 border-t" style={{ borderColor: C.line }}>
-                {[
-                  ['Sala de ventas Talca', `${BIZ.address}`],
-                  ['Casa matriz', BIZ.casaMatriz],
-                  ['Horario', BIZ.hours],
-                  ['Teléfono Talca', BIZ.phoneDisplay],
-                ].map(([k, v]) => (
-                  <div key={k} className="flex justify-between gap-6 py-4 border-b" style={{ borderColor: C.line }}>
-                    <dt className={`${mono.className} text-[11px] font-bold tracking-[0.12em] uppercase shrink-0`} style={{ color: C.amberDeep }}>
-                      {k}
-                    </dt>
-                    <dd className="text-right text-sm md:text-base font-semibold" style={{ color: C.ink }}>
-                      {v}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
-            <Reveal delay={150}>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  href={WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center h-[48px] px-6 text-[15px] font-bold rounded-full text-white active:scale-95 transition-transform"
-                  style={{ backgroundImage: `linear-gradient(100deg, ${C.amberDeep}, ${C.amber})` }}
-                >
-                  Escribir por WhatsApp
-                </a>
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center h-[48px] px-6 text-[15px] font-bold rounded-full border-2 active:scale-95 transition-transform"
-                  style={{ borderColor: C.brown, color: C.brown }}
-                >
-                  Cómo llegar
-                </a>
               </div>
             </Reveal>
           </div>
-          <Reveal delay={140}>
-            <div className="rounded-[22px] overflow-hidden border-2 h-[300px] md:h-[380px]" style={{ borderColor: C.amber }}>
-              <LazyMap
-                src={MAPS_EMBED}
-                title={`Mapa oficina ${BIZ.name} en ${BIZ.city}`}
-                className="w-full h-full border-0"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+        </div>
+      </section>
+
+      {/* ── OPINIONES ──────────────────────────────────────────── */}
+      <section id="opiniones" className="py-14 md:py-20 border-t" style={{ borderColor: C.line, backgroundColor: C.cream }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-[auto_1fr] gap-6 md:gap-12 items-center">
+          <Reveal>
+            <div className="flex items-center gap-4">
+              <p className={`${display.className} text-6xl leading-none`} style={{ color: C.goldDeep }}>
+                {BIZ.googleRating}
+              </p>
+              <div>
+                <Stars value={3.9} color={C.goldDeep} className="w-5 h-5" />
+                <p className={`${mono.className} text-[10px] uppercase tracking-[0.12em] mt-1.5`} style={{ color: C.muted }}>
+                  {BIZ.googleReviews} reseñas · Google Maps
+                </p>
+              </div>
             </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
+              La nota es la que publica su ficha de Temuco: compradores que
+              ya viven en sus proyectos y otros en plena postventa. Léela
+              completa en Google, o pregunta directo por WhatsApp a un
+              ejecutivo de la ciudad que te interesa.
+            </p>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${mono.className} inline-block text-[11px] tracking-[0.1em] font-semibold mt-3`}
+              style={{ color: C.goldDeep }}
+            >
+              VER RESEÑAS EN GOOGLE ↗
+            </a>
           </Reveal>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer style={{ backgroundColor: C.night }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-7 flex flex-wrap items-center justify-between gap-5">
-          <div>
-            {/* eslint-disable-next-line @next/next/no-img-element -- logo oficial en public/ */}
-            <img src={`${IMG}/logo.svg`} alt={BIZ.name} className="h-7 w-auto" />
-            <p className={`${mono.className} mt-2 text-[10px] font-bold tracking-[0.12em] uppercase`} style={{ color: '#C9BBA8' }}>
-              {BIZ.legal} · {BIZ.address}, {BIZ.city}
-            </p>
+      {/* ── FOOTER ─────────────────────────────────────────────── */}
+      <footer id="contacto" className="py-10 md:py-12" style={{ backgroundColor: C.espresso }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <div className="flex flex-wrap items-start justify-between gap-6">
+            <div>
+              {/* eslint-disable-next-line @next/next/no-img-element -- logo webp ya optimizado en public/ */}
+              <img src={`${IMG}/logo.webp`} alt="Inmobiliaria Martabid" className="h-7 w-auto" />
+              <p className={`${mono.className} text-[11px] mt-3`} style={{ color: 'rgba(255,255,255,0.55)' }}>
+                {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
+              </p>
+            </div>
+            <div className="flex flex-col gap-1.5 text-right">
+              <a href={BIZ.web} target="_blank" rel="noopener noreferrer" className={`${mono.className} text-[11px] tracking-[0.1em]`} style={{ color: C.gold }}>
+                MARTABID.CL ↗
+              </a>
+              <a href={BIZ.instagram} target="_blank" rel="noopener noreferrer" className={`${mono.className} text-[11px] tracking-[0.1em]`} style={{ color: 'rgba(255,255,255,0.65)' }}>
+                INSTAGRAM ↗
+              </a>
+              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className={`${mono.className} text-[11px] tracking-[0.1em]`} style={{ color: 'rgba(255,255,255,0.65)' }}>
+                WHATSAPP ↗
+              </a>
+            </div>
           </div>
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center h-[44px] px-5 text-sm font-bold rounded-full text-white"
-            style={{ backgroundImage: `linear-gradient(100deg, ${C.amberDeep}, ${C.amber})` }}
-          >
-            Hablar con un ejecutivo
-          </a>
+          <p className={`${mono.className} text-[10px] leading-relaxed mt-8 pt-5 border-t`} style={{ color: 'rgba(255,255,255,0.4)', borderColor: 'rgba(255,255,255,0.12)' }}>
+            Mockup de muestra para Sitiazo. Datos: martabid.cl y ficha de Google Maps (3,9 ★ · 75 reseñas, consultado sep. 2026).
+            Precios UF publicados por la inmobiliaria, sujetos a disponibilidad.
+          </p>
         </div>
       </footer>
-
-      <WaFab href={WA_LINK} label={`WhatsApp de ${BIZ.name}`} />
-    </div>
+    </main>
   )
 }
