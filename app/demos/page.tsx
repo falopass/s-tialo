@@ -4389,6 +4389,14 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #FBF3E4 0%, #402236 150%)',
   },
+  {
+    slug: 'pasteles-maca',
+    name: 'Pasteles Maca',
+    rubro: 'Repostería y eventos por pedido',
+    city: 'Talca · Maule · Colín',
+    tagline: 'La mesa dulce de Maca Araya: acuarela durazno, carta real con precios y reparto a domicilio.',
+    gradient: 'linear-gradient(135deg, #FBF3EA 0%, #E2906B 110%, #3B241B 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
