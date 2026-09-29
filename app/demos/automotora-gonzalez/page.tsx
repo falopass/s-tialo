@@ -241,7 +241,7 @@ export default function Page() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(16,21,15,0.62) 0%, rgba(16,21,15,0.28) 42%, rgba(16,21,15,0.9) 100%)',
+              'linear-gradient(180deg, rgba(16,21,15,0.66) 0%, rgba(16,21,15,0.5) 50%, rgba(16,21,15,0.92) 100%)',
           }}
         />
         <div className="absolute top-24 right-5 md:top-28 md:right-12 z-10">
@@ -252,13 +252,13 @@ export default function Page() {
           <Reveal>
             <p
               className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.24em] font-medium mb-4`}
-              style={{ color: 'rgba(243,245,240,0.8)' }}
+              style={{ color: 'rgba(243,245,240,0.8)', textShadow: '0 1px 10px rgba(16,21,15,0.85)' }}
             >
               Concesionario de usados · Av. Balmaceda 1971, Curicó
             </p>
             <h1
               className={`${display.className} italic font-extrabold uppercase leading-[0.98] text-[clamp(2.75rem,9vw,5.75rem)] mb-5 max-w-4xl`}
-              style={{ color: '#F3F5F0' }}
+              style={{ color: '#F3F5F0', textShadow: '0 2px 14px rgba(16,21,15,0.75)' }}
             >
               El auto que buscas
               <br />
