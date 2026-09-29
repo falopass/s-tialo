@@ -1895,7 +1895,7 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0C1230 0%, #141C4A 55%, #F2A93B 150%)',
   },
   {
-    slug: 'jard-n-lucerito',
+    slug: 'jardin-lucerito',
     name: 'Jardín Lucerito',
     rubro: 'Jardín infantil y sala cuna',
     city: 'Talca',

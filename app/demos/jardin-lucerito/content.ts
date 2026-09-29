@@ -1,5 +1,5 @@
 /**
- * app/demos/jard-n-lucerito/content.ts
+ * app/demos/jardin-lucerito/content.ts
  *
  * Datos del mockup. REALES (ficha pública de Google Maps "Jardín
  * Lucerito", Talca): nombre, dirección (Diez 1/2 Sur 1, Población

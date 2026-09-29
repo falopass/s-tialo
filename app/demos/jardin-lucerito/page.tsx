@@ -6,7 +6,7 @@ import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
 import LazyMap from '../lazy-map'
 
-const IMG = '/demos/jard-n-lucerito'
+const IMG = '/demos/jardin-lucerito'
 
 const display = localFont({
   src: [
@@ -33,7 +33,7 @@ const C = {
 }
 
 export const metadata: Metadata = demoMetadata({
-  slug: 'jard-n-lucerito',
+  slug: 'jardin-lucerito',
   title: 'Jardín Lucerito — jardín infantil y sala cuna en Talca',
   description:
     'Jardín infantil y sala cuna JUNJI en Población Carlos Trupp, Talca. De 85 días a 3 años 11 meses, con sello medioambientalista.',
@@ -244,7 +244,7 @@ export default function Page() {
       <section style={{ backgroundColor: C.crayon, color: C.papel }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
           <Reveal>
-            <p className={`${mono.className} text-[11px] tracking-[0.2em] uppercase mb-3`} style={{ color: C.sol }}>
+            <p className={`${mono.className} text-[11px] tracking-[0.2em] uppercase mb-3`} style={{ color: C.papel }}>
               De sala cuna a nivel mayor
             </p>
             <h2 className={`${display.className} text-3xl md:text-5xl leading-[1.05] mb-8`}>
@@ -256,7 +256,7 @@ export default function Page() {
               <Reveal key={n.tag} delay={i * 80}>
                 <div className="border-2 border-dashed px-4 py-5 md:px-6" style={{ borderColor: 'rgba(250,243,227,0.55)' }}>
                   <p className={`${display.className} text-xl md:text-2xl`}>{n.tag}</p>
-                  <p className={`${mono.className} mt-1.5 text-[10px] md:text-xs uppercase tracking-[0.12em]`} style={{ color: 'rgba(250,243,227,0.8)' }}>
+                  <p className={`${mono.className} mt-1.5 text-[10px] md:text-xs uppercase tracking-[0.12em]`} style={{ color: C.papel }}>
                     {n.txt}
                   </p>
                 </div>
@@ -264,7 +264,7 @@ export default function Page() {
             ))}
           </div>
           <Reveal delay={200}>
-            <p className={`${mono.className} mt-8 text-xs leading-relaxed`} style={{ color: 'rgba(250,243,227,0.85)' }}>
+            <p className={`${mono.className} mt-8 text-xs leading-relaxed`} style={{ color: C.papel }}>
               Jardín público gratuito de la Junta Nacional de Jardines Infantiles.
             </p>
           </Reveal>
@@ -300,6 +300,41 @@ export default function Page() {
             </Reveal>
           ))}
         </div>
+        {/* Fotos reales: jornada de postulación JUNJI 2024 realizada en el jardín */}
+        <div className="mt-10 grid grid-cols-2 gap-4 md:gap-8 items-start">
+          {[
+            {
+              src: `${IMG}/pintando-caballete.webp`,
+              alt: 'Niños y niñas pintando en un caballete dentro del Jardín Lucerito',
+              cap: 'Pintura al caballete',
+              rot: '-rotate-1',
+            },
+            {
+              src: `${IMG}/manos-moradas.webp`,
+              alt: 'Educadoras y párvulos del Jardín Lucerito mostrando las manos pintadas de morado',
+              cap: 'Manos a la obra',
+              rot: 'rotate-1',
+            },
+          ].map((f) => (
+            <Reveal key={f.src} delay={140}>
+              <figure className={`border-4 ${f.rot}`} style={{ borderColor: C.tinta, backgroundColor: '#fff' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element -- foto real optimizada en public/ */}
+                <img src={f.src} alt={f.alt} className="w-full aspect-[16/10] object-cover" loading="lazy" />
+                <figcaption
+                  className={`${mono.className} px-3 py-2.5 text-[10px] md:text-xs tracking-[0.12em] uppercase`}
+                  style={{ color: C.tinta2 }}
+                >
+                  {f.cap}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={200}>
+          <p className={`${mono.className} mt-5 text-[10px] md:text-xs tracking-[0.08em]`} style={{ color: C.tinta2 }}>
+            Fotos de la jornada de postulación JUNJI, hecha en este jardín.
+          </p>
+        </Reveal>
       </section>
 
       {/* ── Bosquejo de la sala cuna ── */}
@@ -463,10 +498,10 @@ export default function Page() {
           <p className={`${mono.className} mt-2 text-[11px] leading-relaxed`} style={{ color: C.tinta2 }}>
             {BIZ.address} · {BIZ.comuna}, {BIZ.region}
           </p>
-          <p className="mt-4 text-[11px] leading-relaxed max-w-2xl" style={{ color: 'rgba(92,90,80,0.8)' }}>
+          <p className="mt-4 text-[11px] leading-relaxed max-w-2xl" style={{ color: C.tinta2 }}>
             Los textos descriptivos son de muestra y la escena de la sala cuna es un bosquejo
-            ilustrativo; el nombre, la dirección, el teléfono, las fotos del jardín, el promedio
-            y las reseñas citadas son los reales de su ficha de Google.
+            ilustrativo; el nombre, la dirección, el teléfono, las fotos (ficha de Google y
+            prensa JUNJI), el promedio y las reseñas citadas son los reales.
           </p>
         </div>
       </footer>
