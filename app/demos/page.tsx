@@ -3402,8 +3402,8 @@ const BLITZ = [
     name: 'Vitugas Express San Clemente',
     rubro: 'Proveedor de cilindros de gas Lipigas',
     city: 'San Clemente',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #14256B 0%, #101833 150%)',
+    tagline: 'El vale como diseño: navy de sus flyers y amarillo Lipigas, tickets punteados y su perrito mascota.',
+    gradient: 'linear-gradient(135deg, #14256B 0%, #0C1746 55%, #FFD400 165%)',
   },
   {
     slug: 'maderas-oyarce',
