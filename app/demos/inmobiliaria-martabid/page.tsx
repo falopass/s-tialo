@@ -94,6 +94,11 @@ const DENTRO = [
     pie: 'Dormitorio · Jardines del Sur',
   },
   {
+    src: `${IMG}/juegos.webp`,
+    alt: 'Juegos infantiles entre los edificios del Condominio Volcán Villarrica',
+    pie: 'Juegos · Volcán Villarrica',
+  },
+  {
     src: `${IMG}/aerea-piscina.webp`,
     alt: 'Vista aérea de la piscina y áreas verdes del Condominio Volcán Villarrica',
     pie: 'Áreas comunes · Volcán Villarrica',
@@ -327,7 +332,7 @@ export default function InmobiliariaMartabid() {
               <span style={{ color: C.gold }}>es lo que se entrega</span>
             </h2>
           </Reveal>
-          <div className="grid md:grid-cols-3 gap-4 md:gap-5 mt-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mt-10">
             {DENTRO.map((d, i) => (
               <Reveal key={d.pie} delay={i * 80}>
                 <figure>
