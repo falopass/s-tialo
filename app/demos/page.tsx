@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'restaurant-el-rancho',
+    name: 'Restaurant El Rancho',
+    rubro: 'Restorant y minimarket de ruta',
+    city: 'Longaví',
+    tagline: 'El almacén del km 314: letrero rojo y verde Cristal, Anton de rótulo, antigüedades y camiones bajo los árboles.',
+    gradient: 'linear-gradient(135deg, #F4EDDC 0%, #B5241A 115%, #20633C 190%)',
+  },
+  {
     slug: 'hosteria-itahue',
     name: 'Hostería Itahue',
     rubro: 'Restaurant y hostería de ruta',
