@@ -3677,6 +3677,14 @@ const BLITZ = [
     tagline: 'El mesón nuevo de la Avenida Libertad: puertas en arco, lámparas de cobre y horario de almuerzo y de noche.',
     gradient: 'linear-gradient(135deg, #F3E9D7 0%, #5E1F27 110%, #B4743A 190%)',
   },
+  {
+    slug: 'la-pica-de-pato-miza',
+    name: 'La Picá de Pato Miza',
+    rubro: 'Restaurante — picada de campo',
+    city: 'Romeral',
+    tagline: 'La picada del camino J-55: madera rústica, pizarra a tiza y el muro de hiedra de su salón real.',
+    gradient: 'linear-gradient(135deg, #F0E7D2 0%, #3E5531 100%, #6E4526 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
