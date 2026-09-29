@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
-import { WaFab } from '../blitz-kit'
+import { Reveal, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
@@ -28,9 +28,9 @@ const body = localFont({
 /**
  * Identidad tomada de los activos reales del café: el logo es un
  * emblema negro con la torre Eiffel y "LA FRANCESA CAFETERIA" en
- * romanas, y el local mezcla listones de madera oscura con vitrina de
- * confitería. Cuaderno editorial: papel, tinta y caramelo, tarjetas
- * rotadas y cintas. Nada del verde de la versión anterior.
+ * romanas; el local es muro grafito, toldo negro y madera. La página
+ * es un cuaderno editorial — papel, tinta y caramelo — con tarjetas
+ * rotadas, cintas adhesivas y la Eiffel dibujada a línea como motivo.
  */
 const C = {
   tinta: '#1D1712',
@@ -53,42 +53,58 @@ const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visi
 export const metadata: Metadata = demoMetadata({
   slug: 'cafe-la-francesa',
   title: 'Café La Francesa - Cafetería en Linares',
-  description: 'Cafetería en Manuel Rodriguez 552, Linares: café, vitrina de confitería, sándwiches y helados. 4.2 estrellas en Google. Escríbenos por WhatsApp.',
+  description: 'Cafetería en Manuel Rodriguez 552, Linares, al costado de la Plaza de Armas: café, vitrina de confitería, sándwiches y terraza hasta la noche. 4.2 estrellas en Google.',
   image: '/demos/cafe-la-francesa/hero.webp',
 })
 
 const NAV_LINKS = [
   { label: 'La carta', href: '#carta' },
   { label: 'El café', href: '#nosotros' },
-  { label: 'Precios', href: '#precios' },
+  { label: 'La pizarra', href: '#pizarra' },
   { label: 'Cómo llegar', href: '#contacto' },
+]
+
+/** Ítems reales: todos aparecen en las fotos de su ficha o los nombran las reseñas. */
+const MARQUEE = [
+  'espresso',
+  'cortado',
+  'capuchino',
+  'frappuccino',
+  'café helado',
+  'té chai',
+  'pie de limón',
+  'kuchen',
+  'cheesecake',
+  'sándwich tostado',
+  'once',
+  'pisco sour',
 ]
 
 const CARTA = [
   {
-    src: `${IMG}/cafe.webp`,
-    alt: 'Café frío en capas servido en vaso de vidrio sobre una mesa del local',
+    src: `${IMG}/terraza.webp`,
+    alt: 'Latte frío con anís estrellado y frappuccino servidos en la terraza del café, sobre el individual de La Francesa',
     title: 'Cafés y frappuccinos',
-    lead: 'La barra prepara desde el espresso cortito hasta los frappuccinos que llenan sus redes.',
-    items: ['Espresso y cortado', 'Capuchino y latte', 'Frappuccinos', 'Té e infusiones'],
+    lead: 'De la barra salen el espresso cortito, el latte en capas y los frappuccinos que se ven en su terraza.',
+    items: ['Espresso y cortado', 'Capuchino y latte', 'Frappuccino y café helado', 'Té chai e infusiones'],
     tilt: '-rotate-2',
     tape: 'bg-[#E9DFC9]/90 -top-3 left-1/2 -translate-x-1/2 -rotate-3',
   },
   {
-    src: `${IMG}/vitrina.webp`,
-    alt: 'Vitrina de confitería del café con panes y pasteles expuestos en bandejas',
-    title: 'La vitrina dulce',
-    lead: 'La vitrina se repone durante el día: es lo primero que se ve apenas entras al local.',
-    items: ['Tortas y kuchen', 'Pasteles y brownies', 'Croissants y medialunas', 'Helados'],
+    src: `${IMG}/mesa.webp`,
+    alt: 'Brownie, copa de helado y bebida fría sobre la mesa con el individual impreso de La Francesa',
+    title: 'Tortas y dulces',
+    lead: 'El pie de limón y el kuchen son los que más nombran las reseñas; la vitrina se repone durante el día.',
+    items: ['Pie de limón y kuchen', 'Cheesecake', 'Brownie a la francesa', 'Helados'],
     tilt: 'rotate-[1.5deg] md:mt-12',
     tape: 'bg-[#F0E4CC]/95 -top-3 left-6 rotate-[-6deg]',
   },
   {
-    src: `${IMG}/comida.webp`,
-    alt: 'Sándwich con papas fritas servido en plato oscuro sobre la mesa de madera',
+    src: `${IMG}/tostado.webp`,
+    alt: 'Sándwich tostado con pollo y palta servido en bandeja negra sobre la mesa de madera',
     title: 'Salado y para compartir',
-    lead: 'Desayunos, sándwiches y picoteos para la colación o la once larga.',
-    items: ['Sándwiches calientes', 'Desayunos', 'Para compartir', 'Jugos y bebidas'],
+    lead: 'Desayunos, sándwiches tostados y picoteos para la colación o la once larga.',
+    items: ['Sándwich tostado', 'Desayunos y paila de huevos', 'Para compartir', 'Jugos y bebidas'],
     tilt: '-rotate-1 md:mt-4',
     tape: 'bg-[#E9DFC9]/90 -top-3 right-6 rotate-[5deg]',
   },
@@ -118,14 +134,37 @@ const RESENAS = [
   },
 ]
 
-const PRECIOS = [
+const INTERIOR = [
   {
-    title: 'De la barra',
-    rows: ['Espresso', 'Cortado', 'Capuchino', 'Frappuccino', 'Chocolate caliente'],
+    src: `${IMG}/interior.webp`,
+    alt: 'Salón del café con piso de madera, sillas oscuras y luz de tarde',
+    cls: 'md:mt-8',
   },
   {
-    title: 'Vitrina y salado',
-    rows: ['Trozo de torta', 'Brownie', 'Sándwich caliente', 'Desayuno completo', 'Once para dos'],
+    src: `${IMG}/vitrina.webp`,
+    alt: 'Estantes de panes y productos de la casa dentro del local',
+    cls: '',
+  },
+  {
+    src: `${IMG}/helados.webp`,
+    alt: 'Mesa de helados del café con cubetas de distintos sabores',
+    cls: 'md:mt-14',
+  },
+  {
+    src: `${IMG}/espresso.webp`,
+    alt: 'Espresso servido en taza blanca sobre el individual con la torre Eiffel de La Francesa',
+    cls: 'md:mt-5',
+  },
+]
+
+const PIZARRA = [
+  {
+    title: 'De la barra',
+    rows: ['Espresso y cortado', 'Capuchino y latte', 'Frappuccino y café helado', 'Té chai', 'Chocolate caliente'],
+  },
+  {
+    title: 'De la vitrina y la cocina',
+    rows: ['Pie de limón', 'Kuchen y cheesecake', 'Brownie a la francesa', 'Sándwich tostado', 'Desayuno y once'],
   },
 ]
 
@@ -158,6 +197,29 @@ function Bean({ className = '' }: { className?: string }) {
         strokeWidth="1.8"
         strokeLinecap="round"
       />
+    </svg>
+  )
+}
+
+/** La torre Eiffel del logo real, dibujada a línea. */
+function Eiffel({ className = '', stroke = C.caramelo }: { className?: string; stroke?: string }) {
+  return (
+    <svg
+      viewBox="0 0 40 56"
+      className={className}
+      fill="none"
+      stroke={stroke}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M20 3 C17 12 15 20 13 28 C11.5 34 11 38 10.5 41 C8 46 6 50 5 54" />
+      <path d="M20 3 C23 12 25 20 27 28 C28.5 34 29 38 29.5 41 C32 46 34 50 35 54" />
+      <path d="M13 28 L27 28" />
+      <path d="M10.5 41 L29.5 41" />
+      <path d="M13 54 C14.5 46 25.5 46 27 54" />
+      <path d="M20 3 L20 8" />
     </svg>
   )
 }
@@ -251,15 +313,21 @@ export default function CafeLaFrancesaPage() {
       className={`${body.className} min-h-screen antialiased overflow-x-hidden`}
       style={{ backgroundColor: C.papel, backgroundImage: PAPER, color: C.ink }}
     >
-      {/* ── Hero a sangre ── */}
+      <style>{`
+        @keyframes lf-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+        .lf-marquee { animation: lf-marquee 38s linear infinite }
+        @media (prefers-reduced-motion: reduce) { .lf-marquee { animation: none } }
+      `}</style>
+
+      {/* ── Hero a sangre: la fachada real del café ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col overflow-hidden">
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Interior del café: barra con vitrina de confitería, mesas de madera y techo de listones"
+          alt="Fachada de Café La Francesa en Manuel Rodriguez 552, Linares: muro grafito, toldo negro con el nombre y la entrada"
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-[50%_30%]"
         />
         <div
           className="absolute inset-0"
@@ -321,7 +389,7 @@ export default function CafeLaFrancesaPage() {
             <Tape className="bg-[#E9DFC9]/95 -top-3.5 left-10 -rotate-6" />
             <Tape className="bg-[#E9DFC9]/95 -top-3 right-8 rotate-[8deg] hidden sm:block" />
             <p className="text-[11px] uppercase tracking-[0.2em] font-semibold mb-4" style={{ color: C.caramelo }}>
-              Cafetería en {BIZ.city}
+              Cafetería en {BIZ.city} · junto a la Plaza de Armas
             </p>
             <h1
               className={`${display.className} text-[clamp(2.7rem,8vw,4.6rem)] leading-[0.95] tracking-[-0.015em]`}
@@ -376,53 +444,77 @@ export default function CafeLaFrancesaPage() {
         </div>
       </section>
 
+      {/* ── Cinta de la casa: lo que se pide acá ── */}
+      <div className="relative overflow-hidden border-y-2" style={{ backgroundColor: C.tinta, borderColor: C.caramelo }}>
+        <div className="lf-marquee flex w-max items-center gap-6 py-3.5 pl-6">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex items-center gap-6" aria-hidden={copy === 1}>
+              {MARQUEE.map((item) => (
+                <span key={`${copy}-${item}`} className="flex items-center gap-6">
+                  <span
+                    className="text-[13px] md:text-sm font-semibold uppercase tracking-[0.22em] whitespace-nowrap"
+                    style={{ color: C.papel }}
+                  >
+                    {item}
+                  </span>
+                  <Eiffel className="h-5 w-3.5 shrink-0" stroke={C.caramelo} />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* ── La carta ── */}
       <section id="carta" className="relative scroll-mt-6">
         <div className="max-w-[1300px] mx-auto px-5 md:px-10 pt-24 md:pt-32 pb-20 md:pb-28">
           <div className="flex items-end justify-between gap-6">
-            <Heading kicker="Lo que sale de la barra">La carta de todos los días</Heading>
+            <Reveal>
+              <Heading kicker="Lo que sale de la barra">La carta de todos los días</Heading>
+            </Reveal>
             <Cup className="hidden sm:block w-16 md:w-20 shrink-0 rotate-6" />
           </div>
 
           <div className="mt-14 md:mt-16 grid gap-12 md:gap-8 md:grid-cols-3 items-start">
-            {CARTA.map((c) => (
-              <article
-                key={c.title}
-                className={`relative ${c.tilt} ${TILT} bg-white p-3 pb-6 shadow-[0_14px_30px_-14px_rgba(41,34,27,0.5)]`}
-              >
-                <Tape className={c.tape} />
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src={c.src}
-                    alt={c.alt}
-                    fill
-                    sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="px-2 pt-5">
-                  <h3 className={`${display.className} text-[2rem] leading-none`} style={{ color: C.tinta }}>
-                    {c.title}
-                  </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed" style={{ color: C.muted }}>
-                    {c.lead}
-                  </p>
-                  <ul className="mt-4 space-y-2">
-                    {c.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2.5 text-[15px]">
-                        <Bean className="h-4 w-4 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
+            {CARTA.map((c, i) => (
+              <Reveal key={c.title} delay={i * 120}>
+                <article
+                  className={`relative ${c.tilt} ${TILT} bg-white p-3 pb-6 shadow-[0_14px_30px_-14px_rgba(41,34,27,0.5)]`}
+                >
+                  <Tape className={c.tape} />
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={c.src}
+                      alt={c.alt}
+                      fill
+                      sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="px-2 pt-5">
+                    <h3 className={`${display.className} text-[2rem] leading-none`} style={{ color: C.tinta }}>
+                      {c.title}
+                    </h3>
+                    <p className="mt-3 text-[15px] leading-relaxed" style={{ color: C.muted }}>
+                      {c.lead}
+                    </p>
+                    <ul className="mt-4 space-y-2">
+                      {c.items.map((item) => (
+                        <li key={item} className="flex items-center gap-2.5 text-[15px]">
+                          <Bean className="h-4 w-4 shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
 
           <p className="mt-12 md:mt-14 text-sm" style={{ color: C.muted }}>
-            Las fotos son reales del local y de su Facebook; la lista de
-            la carta es de muestra hasta publicar la oficial.
+            Fotos reales de su ficha de Google: la carta publicada lleva la
+            lista oficial del café.
           </p>
         </div>
       </section>
@@ -430,48 +522,69 @@ export default function CafeLaFrancesaPage() {
       {/* ── Sobre el café ── */}
       <section id="nosotros" className="relative scroll-mt-6" style={{ backgroundColor: 'rgba(233,223,201,0.5)' }}>
         <div className="max-w-[1300px] mx-auto px-5 md:px-10 py-20 md:py-28 grid lg:grid-cols-[1fr_1.05fr] gap-16 lg:gap-20 items-center">
-          <div className="relative order-2 lg:order-1 max-w-[560px] mx-auto w-full">
-            <figure className={`relative rotate-2 ${TILT} bg-white p-3 pb-12 shadow-[0_18px_36px_-14px_rgba(41,34,27,0.55)]`}>
-              <Tape className="bg-[#F0E4CC]/95 -top-3 -left-6 -rotate-[30deg]" />
-              <Tape className="bg-[#F0E4CC]/95 -top-3 -right-6 rotate-[30deg]" />
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={`${IMG}/fachada.webp`}
-                  alt="Entrada de Café La Francesa en Manuel Rodriguez 552, Linares, con su toldo negro"
-                  fill
-                  sizes="(min-width: 1024px) 560px, calc(100vw - 2.5rem)"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption
-                className={`${italic.className} italic absolute bottom-3 left-0 right-0 text-center text-xl`}
-                style={{ color: C.muted }}
+          <Reveal className="order-2 lg:order-1">
+            <div className="relative max-w-[560px] mx-auto w-full">
+              <figure className={`relative rotate-2 ${TILT} bg-white p-3 pb-12 shadow-[0_18px_36px_-14px_rgba(41,34,27,0.55)]`}>
+                <Tape className="bg-[#F0E4CC]/95 -top-3 -left-6 -rotate-[30deg]" />
+                <Tape className="bg-[#F0E4CC]/95 -top-3 -right-6 rotate-[30deg]" />
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={`${IMG}/fachada.webp`}
+                    alt="Entrada de Café La Francesa con su toldo negro y una mesa en la vereda"
+                    fill
+                    sizes="(min-width: 1024px) 560px, calc(100vw - 2.5rem)"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption
+                  className={`${italic.className} italic absolute bottom-3 left-0 right-0 text-center text-xl`}
+                  style={{ color: C.muted }}
+                >
+                  {BIZ.address}, {BIZ.city}
+                </figcaption>
+              </figure>
+              <Bean className="absolute -bottom-8 -left-4 w-16 -rotate-12" />
+              <div
+                className="absolute -top-8 right-4 md:-right-8 -rotate-6 px-4 py-2 text-sm font-semibold shadow-md"
+                style={{ backgroundColor: C.tinta, color: C.papel }}
               >
-                {BIZ.address}, {BIZ.city}
-              </figcaption>
-            </figure>
-            <Bean className="absolute -bottom-8 -left-4 w-16 -rotate-12" />
-            <div
-              className="absolute -top-8 right-4 md:-right-8 -rotate-6 px-4 py-2 text-sm font-semibold shadow-md"
-              style={{ backgroundColor: C.tinta, color: C.papel }}
-            >
-              {BIZ.followers} seguidores en Facebook
+                {BIZ.followers} seguidores en Facebook
+              </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="order-1 lg:order-2">
+          <Reveal delay={120} className="order-1 lg:order-2">
             <Heading kicker="El café">El café de la familia Artus</Heading>
             <p className="mt-7 text-base md:text-[17px] leading-relaxed max-w-[36rem]" style={{ color: C.muted }}>
               {BIZ.name} es el proyecto &ldquo;coffee &amp; bar&rdquo; de la
               familia Artus, la misma detrás de la histórica Panadería La
-              Francesa de {BIZ.city}. La idea: una cafetería de nivel de
-              capital, sin salir de la ciudad.
+              Francesa de {BIZ.city}: una cafetería de nivel de capital, sin
+              salir de la ciudad.
             </p>
             <p className="mt-4 text-base md:text-[17px] leading-relaxed max-w-[36rem]" style={{ color: C.muted }}>
-              Abierto {BIZ.horarioSemana.toLowerCase()} y{' '}
-              {BIZ.horarioFinde.toLowerCase()}: entra por el café de la
-              mañana, vuelve por la once o la terraza de la noche.
+              De día entra por el café y la vitrina; cuando baja el sol, la
+              terraza de arriba — con vista a la Plaza de Armas — pasa a
+              tragos y tablas para compartir.
             </p>
+
+            <div className="mt-8 grid grid-cols-2 gap-3 max-w-[36rem]">
+              <div className="px-4 py-3.5 border-2 -rotate-1" style={{ borderColor: C.tinta, backgroundColor: C.papel }}>
+                <p className="text-[10px] uppercase tracking-[0.18em] font-bold" style={{ color: C.caramelo }}>
+                  De día
+                </p>
+                <p className="mt-1 text-sm font-semibold leading-snug" style={{ color: C.tinta }}>
+                  Café, desayuno y la vitrina dulce
+                </p>
+              </div>
+              <div className="px-4 py-3.5 rotate-1" style={{ backgroundColor: C.tinta }}>
+                <p className="text-[10px] uppercase tracking-[0.18em] font-bold" style={{ color: C.hoja }}>
+                  De noche
+                </p>
+                <p className="mt-1 text-sm font-semibold leading-snug" style={{ color: C.papel }}>
+                  Terraza, tragos y pisco sour
+                </p>
+              </div>
+            </div>
 
             <div className="mt-10 grid sm:grid-cols-3 gap-5 items-start">
               {RESENAS.map((r) => (
@@ -515,108 +628,120 @@ export default function CafeLaFrancesaPage() {
                 Página de Facebook
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── Interior + helados: tira de fotos reales ── */}
+      {/* ── El local por dentro: tira de fotos reales ── */}
       <section style={{ backgroundColor: C.tinta }}>
         <div className="max-w-[1300px] mx-auto px-5 md:px-10 py-16 md:py-24">
-          <p className="text-[11px] uppercase tracking-[0.2em] font-semibold mb-8" style={{ color: C.hoja }}>
-            El local por dentro
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 items-start">
-            <figure className="relative aspect-[3/4] md:mt-8">
-              <Image
-                src={`${IMG}/interior.webp`}
-                alt="Mesas de madera del café junto a ventanales con luz de tarde"
-                fill
-                sizes="(min-width: 768px) 33vw, 50vw"
-                className="object-cover"
-              />
-            </figure>
-            <figure className="relative aspect-[3/4]">
-              <Image
-                src={`${IMG}/helados.webp`}
-                alt="Mesa de helados del café con cubetas de distintos sabores"
-                fill
-                sizes="(min-width: 768px) 33vw, 50vw"
-                className="object-cover"
-              />
-            </figure>
-            <figure className="relative aspect-[3/4] col-span-2 md:col-span-1 md:mt-14">
-              <Image
-                src={`${IMG}/torta.webp`}
-                alt="Trozo de torta casera servido sobre papel con la marca del café"
-                fill
-                sizes="(min-width: 768px) 33vw, 100vw"
-                className="object-cover"
-              />
-            </figure>
+          <Reveal>
+            <div className="flex items-end justify-between gap-6 mb-8">
+              <p className="text-[11px] uppercase tracking-[0.2em] font-semibold" style={{ color: C.hoja }}>
+                El local por dentro
+              </p>
+              <Eiffel className="h-10 w-7 shrink-0 rotate-3" stroke={C.hoja} />
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 items-start">
+            {INTERIOR.map((f, i) => (
+              <Reveal key={f.src} delay={i * 90}>
+                <figure className={`relative aspect-[3/4] ${f.cls}`}>
+                  <Image
+                    src={f.src}
+                    alt={f.alt}
+                    fill
+                    sizes="(min-width: 768px) 25vw, 50vw"
+                    className="object-cover"
+                  />
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Precios de referencia ── */}
-      <section id="precios" className="scroll-mt-6">
-        <div className="max-w-[1100px] mx-auto px-5 md:px-10 py-20 md:py-28">
-          <div
-            className={`relative -rotate-1 ${TILT} px-6 py-10 md:px-14 md:py-14 shadow-[0_18px_36px_-16px_rgba(41,34,27,0.5)]`}
-            style={{
-              backgroundColor: '#FFFFFF',
-              backgroundImage:
-                'linear-gradient(90deg, transparent 38px, rgba(150,100,47,0.5) 38px, rgba(150,100,47,0.5) 40px, transparent 40px), repeating-linear-gradient(180deg, transparent 0, transparent 35px, rgba(29,23,18,0.14) 35px, rgba(29,23,18,0.14) 36px)',
-            }}
-          >
-            <Tape className="bg-[#E9DFC9]/95 -top-3 left-12 -rotate-3" />
-            <Tape className="bg-[#E9DFC9]/95 -bottom-3 right-12 rotate-3" />
-            <span
-              className="absolute top-6 right-5 md:top-10 md:right-10 rotate-[8deg] border-[3px] rounded-md px-3 py-1 text-xs md:text-sm font-bold uppercase tracking-[0.18em]"
-              style={{ borderColor: C.caramelo, color: C.caramelo }}
+      {/* ── La pizarra ── */}
+      <section id="pizarra" className="scroll-mt-6">
+        <div className="max-w-[1100px] mx-auto px-5 md:px-10 py-20 md:py-28 grid lg:grid-cols-[1.25fr_0.75fr] gap-12 lg:gap-16 items-center">
+          <Reveal>
+            <div
+              className={`relative -rotate-1 ${TILT} px-6 py-10 md:px-14 md:py-14 shadow-[0_18px_36px_-16px_rgba(41,34,27,0.5)]`}
+              style={{
+                backgroundColor: '#FFFFFF',
+                backgroundImage:
+                  'linear-gradient(90deg, transparent 38px, rgba(150,100,47,0.5) 38px, rgba(150,100,47,0.5) 40px, transparent 40px), repeating-linear-gradient(180deg, transparent 0, transparent 35px, rgba(29,23,18,0.14) 35px, rgba(29,23,18,0.14) 36px)',
+              }}
             >
-              Muestra
-            </span>
-            <div className="pl-6 md:pl-8">
-              <p className="text-[11px] uppercase tracking-[0.2em] font-semibold mb-3" style={{ color: C.caramelo }}>
-                Precios de referencia
-              </p>
-              <h2
-                className={`${display.className} text-[clamp(2.2rem,5.5vw,3.6rem)] leading-[1] pr-24`}
-                style={{ color: C.tinta }}
+              <Tape className="bg-[#E9DFC9]/95 -top-3 left-12 -rotate-3" />
+              <Tape className="bg-[#E9DFC9]/95 -bottom-3 right-12 rotate-3" />
+              <span
+                className="absolute top-6 right-5 md:top-10 md:right-10 rotate-[8deg] border-[3px] rounded-md px-3 py-1 text-xs md:text-sm font-bold uppercase tracking-[0.18em]"
+                style={{ borderColor: C.caramelo, color: C.caramelo }}
               >
-                La pizarra del día
-              </h2>
-              <p className="mt-4 max-w-[34rem] text-[15px] leading-relaxed" style={{ color: C.muted }}>
-                Así se vería la lista de precios. Los valores quedan por confirmar:
-                al publicar va la carta real del café, con sus precios vigentes.
-              </p>
+                Muestra
+              </span>
+              <div className="pl-6 md:pl-8">
+                <p className="text-[11px] uppercase tracking-[0.2em] font-semibold mb-3" style={{ color: C.caramelo }}>
+                  La pizarra del día
+                </p>
+                <h2
+                  className={`${display.className} text-[clamp(2.2rem,5.5vw,3.6rem)] leading-[1] pr-24`}
+                  style={{ color: C.tinta }}
+                >
+                  Lo que piden en Linares
+                </h2>
+                <p className="mt-4 max-w-[34rem] text-[15px] leading-relaxed" style={{ color: C.muted }}>
+                  Ítems reales vistos en sus fotos y nombrados en las reseñas.
+                  Los precios quedan por confirmar: al publicar va la carta
+                  vigente del café.
+                </p>
 
-              <div className="mt-10 grid gap-10 md:gap-14 md:grid-cols-2">
-                {PRECIOS.map((g) => (
-                  <div key={g.title}>
-                    <h3 className={`${italic.className} italic text-[1.7rem] leading-none`} style={{ color: C.caramelo }}>
-                      {g.title}
-                    </h3>
-                    <ul className="mt-4">
-                      {g.rows.map((row) => (
-                        <li key={row} className="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-3 py-[7px] text-[15px]">
-                          <span>{row}</span>
-                          <span
-                            aria-hidden="true"
-                            className="h-[0.6em] border-b-2 border-dotted"
-                            style={{ borderColor: 'rgba(41,34,27,0.25)' }}
-                          />
-                          <span className="text-sm font-semibold" style={{ color: C.caramelo }}>
-                            por confirmar
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+                <div className="mt-10 grid gap-10 md:gap-14 md:grid-cols-2">
+                  {PIZARRA.map((g) => (
+                    <div key={g.title}>
+                      <h3 className={`${italic.className} italic text-[1.7rem] leading-none`} style={{ color: C.caramelo }}>
+                        {g.title}
+                      </h3>
+                      <ul className="mt-4 space-y-2.5">
+                        {g.rows.map((row) => (
+                          <li key={row} className="flex items-center gap-2.5 text-[15px]">
+                            <Bean className="h-4 w-4 shrink-0" />
+                            {row}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+
+                <p className={`${italic.className} italic mt-9 text-lg`} style={{ color: C.tinta }}>
+                  …y cuando cae la tarde, pisco sour y tragos en la terraza.
+                </p>
               </div>
             </div>
-          </div>
+          </Reveal>
+
+          <Reveal delay={140}>
+            <figure className={`relative rotate-2 ${TILT} bg-white p-3 pb-12 shadow-[0_18px_36px_-14px_rgba(41,34,27,0.55)] max-w-[340px] mx-auto w-full`}>
+              <Tape className="bg-[#F0E4CC]/95 -top-3 left-1/2 -translate-x-1/2 -rotate-2" />
+              <div className="relative aspect-[4/5]">
+                <Image
+                  src={`${IMG}/torta.webp`}
+                  alt="Trozo de pie de limón servido sobre el individual impreso de La Francesa"
+                  fill
+                  sizes="(min-width: 1024px) 340px, calc(100vw - 2.5rem)"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption
+                className={`${italic.className} italic absolute bottom-3 left-0 right-0 text-center text-xl`}
+                style={{ color: C.muted }}
+              >
+                el pie de limón de las reseñas
+              </figcaption>
+            </figure>
+          </Reveal>
         </div>
       </section>
 
@@ -627,7 +752,7 @@ export default function CafeLaFrancesaPage() {
         style={{ backgroundColor: C.tinta, backgroundImage: PAPER }}
       >
         <div className="max-w-[1300px] mx-auto px-5 md:px-10 py-20 md:py-28 grid lg:grid-cols-[1fr_1.1fr] gap-14 lg:gap-20 items-center">
-          <div>
+          <Reveal>
             <Heading kicker="Escríbenos o pasa a vernos" light>
               ¿Nos vemos a la hora del café?
             </Heading>
@@ -661,7 +786,9 @@ export default function CafeLaFrancesaPage() {
                 </a>
               </p>
               <p className="text-sm" style={{ color: 'rgba(246,241,231,0.75)' }}>
-                {BIZ.horarioSemana} · {BIZ.horarioFinde}
+                {BIZ.horarioSemana} · {BIZ.horarioSab}
+                <br />
+                {BIZ.horarioDom}
               </p>
             </address>
             <a
@@ -673,23 +800,25 @@ export default function CafeLaFrancesaPage() {
             >
               Cómo llegar en Google Maps
             </a>
-          </div>
+          </Reveal>
 
-          <div className={`relative rotate-[1.5deg] ${TILT} bg-white p-3 pb-10 shadow-[0_22px_40px_-16px_rgba(0,0,0,0.55)]`}>
-            <Tape className="bg-[#F0E4CC]/95 -top-3 left-1/2 -translate-x-1/2 rotate-2" />
-            <div className="h-[300px] md:h-[420px]">
-              <LazyMap
-                title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
-                src={MAPS_EMBED}
-                className="w-full h-full"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+          <Reveal delay={140}>
+            <div className={`relative rotate-[1.5deg] ${TILT} bg-white p-3 pb-10 shadow-[0_22px_40px_-16px_rgba(0,0,0,0.55)]`}>
+              <Tape className="bg-[#F0E4CC]/95 -top-3 left-1/2 -translate-x-1/2 rotate-2" />
+              <div className="h-[300px] md:h-[420px]">
+                <LazyMap
+                  title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
+                  src={MAPS_EMBED}
+                  className="w-full h-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <p className={`${italic.className} italic absolute bottom-2.5 left-0 right-0 text-center text-lg`} style={{ color: C.muted }}>
+                Al costado de la Plaza de Armas
+              </p>
             </div>
-            <p className={`${italic.className} italic absolute bottom-2.5 left-0 right-0 text-center text-lg`} style={{ color: C.muted }}>
-              Aquí estamos
-            </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -723,7 +852,7 @@ export default function CafeLaFrancesaPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.tinta, color: C.papel }}>
-        <div className="max-w-[1300px] mx-auto px-5 md:px-10 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="max-w-[1300px] mx-auto px-5 md:px-10 pt-8 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element -- logo ya optimizado en public/ */}
             <img src={`${IMG}/logo.webp`} alt="" aria-hidden="true" className="w-10 h-10 object-cover" />
