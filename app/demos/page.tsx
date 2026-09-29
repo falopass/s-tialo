@@ -4397,6 +4397,14 @@ const BLITZ = [
     tagline: 'La mesa dulce de Maca Araya: acuarela durazno, carta real con precios y reparto a domicilio.',
     gradient: 'linear-gradient(135deg, #FBF3EA 0%, #E2906B 110%, #3B241B 190%)',
   },
+  {
+    slug: 'refugio-el-rayadito',
+    name: 'El Rayadito',
+    rubro: 'Cabaña de montaña · refugio',
+    city: 'Vilches, San Clemente',
+    tagline: 'Refugio de madera entre robles, a la entrada de Altos de Lircay — le da nombre el ave rayada del bosque.',
+    gradient: 'linear-gradient(135deg, #152319 0%, #1D3123 55%, #9A5B33 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
