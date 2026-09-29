@@ -3,7 +3,6 @@ import type { ReactNode } from 'react'
 import Image from 'next/image'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
-import { Motif } from '../kit'
 import { Reveal, CallFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import { BIZ, CALL_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
@@ -11,161 +10,206 @@ import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
-    { path: '../../fonts/prata/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/gloock/normal-400.woff2', weight: '400', style: 'normal' },
   ],
 })
 const body = localFont({
   src: [
-    { path: '../../fonts/mulish/normal-200-1000.woff2', weight: '200 1000', style: 'normal' },
+    { path: '../../fonts/bitter/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+    { path: '../../fonts/bitter/italic-100-900.woff2', weight: '100 900', style: 'italic' },
   ],
 })
 
 /**
- * Paleta del demo: azul noche, arena y terracota sobre carbón.
- * Regla de formas: vidrio (glass) con radio 1.5rem para tarjetas,
- * píldora para todo lo interactivo; la terracota es la única luz.
- * La llama del kit marca las secciones: es una cocina a leña.
+ * Paleta sacada de la fachada real: amarillo del mural, rojo teja del
+ * letrero y los manteles, verde de las enredaderas pintadas, crema de
+ * mantel y el verde oscuro del pizarrón de la entrada. La madera da el
+ * color de tinta. Todo lo interactivo es pastilla o etiqueta de papel.
  */
 const C = {
-  coal: '#0F141C',
-  night: '#1B2A41',
-  sand: '#E8DCC8',
-  terra: '#C1663F',
-  terraSoft: '#E39A78',
-  white: '#FFFFFF',
+  paper: '#F7EEDB',
+  card: '#FDF6E8',
+  ink: '#33241B',
+  muted: '#6E5B49',
+  teja: '#A63A24',
+  tejaDeep: '#7E2A18',
+  gold: '#E4A61F',
+  goldLight: '#F0C95C',
+  leaf: '#4E6B33',
+  board: '#2B3322',
+  chalk: '#F3EBD6',
+  line: 'rgba(51,36,27,0.2)',
+  lineChalk: 'rgba(243,235,214,0.28)',
 }
 
-const GLASS =
-  'rounded-[1.5rem] border border-[#E8DCC8]/12 bg-[#1B2A41]/35 backdrop-blur-md transition-colors hover:border-[#E8DCC8]/22'
-const BTN_GLOW =
-  'inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 active:scale-95 shadow-[0_0_0_1px_rgba(227,154,120,0.45),0_12px_40px_-10px_rgba(193,102,63,0.75)] hover:shadow-[0_0_0_1px_rgba(227,154,120,0.7),0_16px_60px_-8px_rgba(193,102,63,0.95)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E39A78]'
-const BTN_GHOST =
-  'inline-flex items-center justify-center rounded-full font-semibold border border-[#E8DCC8]/30 transition-colors hover:bg-[#E8DCC8]/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E39A78]'
-const LINK_FOCUS =
-  'rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E39A78]'
-const EYEBROW = 'text-[11px] uppercase tracking-[0.28em] font-semibold'
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7E2A18]'
+const BTN_SOLID = `${FOCUS} inline-flex items-center justify-center gap-2 rounded-full bg-[#A63A24] text-[#F7EEDB] font-bold text-sm px-6 py-3 transition-all hover:bg-[#7E2A18] active:scale-95`
+const BTN_GHOST = `${FOCUS} inline-flex items-center justify-center gap-2 rounded-full border-2 font-bold text-sm px-6 py-2.5 transition-colors`
+const KICKER = 'text-[11px] uppercase tracking-[0.26em] font-extrabold'
+const WRAP = 'max-w-6xl mx-auto px-5 md:px-8'
 
-function Eyebrow({ children, center = false }: { children: ReactNode; center?: boolean }) {
+export const metadata: Metadata = demoMetadata({
+  slug: 'la-pica-de-los-tatas',
+  title: 'La Picá De Los Tatas — comida casera en Molina',
+  description: 'La picá de los murales pintados en Independencia 1843, Molina: empanadas de horno campeonas 2025, cazuelas y mesa sin apuro. Llama al (75) 255 4076.',
+  image: '/demos/la-pica-de-los-tatas/hero.webp',
+})
+
+const NAV_LINKS = [
+  { label: 'La pizarra', href: '#pizarra' },
+  { label: 'La casa', href: '#casa' },
+  { label: 'Premios', href: '#palmares' },
+  { label: 'Visítanos', href: '#visitanos' },
+]
+
+// Platos reales: pizarrón de la entrada, letrero de la fachada
+// ("Empanadas de horno · Desayunos · Comidas típicas de temporada"),
+// prensa (tres cazuelas en el Día de la Cazuela) y fotos de la ficha.
+const PIZARRA = [
+  { plato: 'Empanada de pino de horno', nota: 'la campeona de Molina 2025' },
+  { plato: 'Pastel de choclo en paila', nota: 'gratinado al horno' },
+  { plato: 'Cazuela de vacuno', nota: 'en agosto llega en tres versiones' },
+  { plato: 'Pollo al jugo con arroz', nota: 'de la pizarra de la entrada' },
+  { plato: 'Carne a la cacerola con puré', nota: 'de la pizarra de la entrada' },
+  { plato: 'Sopaipillas y pebre', nota: 'con pan amasado' },
+  { plato: 'Ensaladas de temporada', nota: 'hay opción vegetariana' },
+  { plato: 'Desayunos', nota: 'desde las 9:30' },
+]
+
+const PALMARES = [
+  {
+    anio: '2025',
+    titulo: 'Mejor Empanada de Molina',
+    detalle: 'Campeona del concurso de la Corporación de Turismo y Agamol entre 15 locales: el jurado destacó la masa, el dorado y el pino abundante.',
+  },
+  {
+    anio: '2024',
+    titulo: 'Relación precio-calidad',
+    detalle: 'Reconocimiento de la Municipalidad de Molina en la misma competencia de empanadas, un año antes de ganarla.',
+  },
+]
+
+const QUOTES = [
+  { q: 'Excelente atención, comida abundante y muy rica.', a: 'Francia Lizana', w: 'Hace 2 meses' },
+  { q: 'Simplemente maravilloso. Fuimos buscando comida tarde, estaban por cerrar e igual nos atendieron.', a: 'Garek', w: 'Hace 3 meses' },
+  { q: 'Llegamos por las recomendaciones de Google y cumplió con todas las expectativas.', a: 'Paulina Reyes', w: 'Hace 7 meses' },
+]
+
+const HORAS = [
+  { d: 'Lunes a sábado', h: '9:30 a 16:00' },
+  { d: 'Domingo', h: 'Cerrado' },
+]
+
+/** Enredadera pintada: el motivo que recorre los muros amarillos del local. */
+function Enredadera({ color, className = '' }: { color: string; className?: string }) {
+  const leaf = 'M0 0 Q 9 -8 18 -3 Q 9 5 0 0 Z'
+  return (
+    <svg
+      viewBox="0 0 240 30"
+      className={`block w-64 h-8 mx-auto ${className}`}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M0 15 C 30 4, 52 26, 82 15 S 140 4, 162 15 S 212 26, 240 15"
+        fill="none"
+        stroke={color}
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      />
+      <g fill={color}>
+        <path d={leaf} transform="translate(30 7) rotate(-20)" />
+        <path d={leaf} transform="translate(78 18) rotate(158)" />
+        <path d={leaf} transform="translate(116 8) rotate(-14)" />
+        <path d={leaf} transform="translate(156 20) rotate(170)" />
+        <path d={leaf} transform="translate(200 9) rotate(-18)" />
+      </g>
+    </svg>
+  )
+}
+
+/** Escarapela tricolor: las guirnaldas de papel del comedor, en premio. */
+function Escarapela({ className = 'w-12 h-14' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 60" className={className} aria-hidden="true" focusable="false">
+      {/* cintas */}
+      <path d="M19 34 L14 56 L23 50 L26 34 Z" fill={C.teja} />
+      <path d="M29 34 L34 56 L25 50 L22 34 Z" fill="#24418A" />
+      {/* rosetón plisado */}
+      <circle cx="24" cy="24" r="21" fill={C.teja} />
+      <circle cx="24" cy="24" r="21" fill="none" stroke={C.tejaDeep} strokeWidth="2.5" strokeDasharray="3.4 3" />
+      <circle cx="24" cy="24" r="13.5" fill={C.chalk} />
+      <circle cx="24" cy="24" r="6.5" fill="#24418A" />
+    </svg>
+  )
+}
+
+/** Rueda de carreta: la que está pintada junto a la puerta. */
+function Rueda({ className = 'w-5 h-5', color = 'currentColor' }: { className?: string; color?: string }) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} fill="none" stroke={color} strokeWidth="3" strokeLinecap="round" aria-hidden="true" focusable="false">
+      <circle cx="24" cy="24" r="19" />
+      <circle cx="24" cy="24" r="4.5" />
+      <path d="M24 5v38M5 24h38M10.6 10.6l26.8 26.8M37.4 10.6L10.6 37.4" />
+    </svg>
+  )
+}
+
+function Eyebrow({ children, light = false, center = false }: { children: ReactNode; light?: boolean; center?: boolean }) {
   return (
     <p
-      className={`${EYEBROW} flex items-center gap-3 ${center ? 'justify-center' : ''}`}
-      style={{ color: C.terraSoft }}
+      className={`${KICKER} flex items-center gap-3 ${center ? 'justify-center' : ''}`}
+      style={{ color: light ? C.goldLight : C.teja }}
     >
-      <Motif motif="flame" className="w-3.5 h-3.5 shrink-0" />
+      <Rueda className="w-4 h-4 shrink-0" />
       <span>{children}</span>
     </p>
   )
 }
 
-export const metadata: Metadata = demoMetadata({
-  slug: 'la-pica-de-los-tatas',
-  title: 'La Picá De Los Tatas - Restaurante en Molina',
-  description: 'Restaurante en Independencia 1843, Molina: comida casera, mesa tranquila y atención directa. Reserva tu mesa por teléfono.',
-  image: '/demos/la-pica-de-los-tatas/hero.webp',
-})
-
-const NAV_LINKS = [
-  { label: 'La carta', href: '#carta' },
-  { label: 'La casa', href: '#casa' },
-  { label: 'Precios', href: '#precios' },
-  { label: 'Visítanos', href: '#contacto' },
-]
-
-const CARTA = [
-  {
-    num: '01',
-    src: `${IMG}/detalle1.webp`,
-    alt: 'Plato con empanadas de pino recién horneadas, copa de vino tinto y pebre en La Picá De Los Tatas',
-    kicker: 'Del horno',
-    title: 'Empanadas y masas',
-    text: 'Masa hecha en casa y horno encendido desde temprano. Para comer aquí o llevar a la once.',
-  },
-  {
-    num: '02',
-    src: `${IMG}/detalle2.webp`,
-    alt: 'Mesa servida en La Picá De Los Tatas con plato de fondo, puré, ensalada y vino',
-    kicker: 'De la olla',
-    title: 'Almuerzo casero',
-    text: 'Platos de olla y de fondo, con pan y pebre en la mesa, servidos sin apuro.',
-  },
-  {
-    num: '03',
-    src: `${IMG}/pastel.webp`,
-    alt: 'Pastel de choclo gratinado en paila de greda, servido en La Picá De Los Tatas',
-    kicker: 'De la paila',
-    title: 'Pastel de choclo',
-    text: 'El de greda, gratinado al horno: choclo molido, pollo y pino que se corta con la cuchara.',
-  },
-]
-
-const VALORES = [
-  { title: 'Atención directa', text: 'Te recibe la misma gente que cocina. Sin intermediarios ni apuro por desocupar la mesa.' },
-  { title: 'Sabor de casa', text: 'Recetas de siempre, porciones generosas y el pan calentito que no falta.' },
-  { title: 'Mesa tranquila', text: 'Un comedor luminoso para almorzar en familia o hacer una pausa en la semana.' },
-]
-
-const PRECIOS = [
-  {
-    title: 'Almuerzos',
-    rows: ['Menú del día', 'Cazuela de vacuno', 'Plato de fondo con agregado', 'Postre casero'],
-  },
-  {
-    title: 'Horno y mesón',
-    rows: ['Empanada de pino', 'Empanada de queso', 'Sopaipillas (porción)', 'Bebida o jugo natural'],
-  },
-]
-
 export default function LaPicaDeLosTatasPage() {
   return (
     <div
       className={`${body.className} min-h-screen antialiased overflow-x-clip`}
-      style={{ backgroundColor: C.coal, color: C.sand }}
+      style={{ backgroundColor: C.paper, color: C.ink }}
     >
       <style>{`html { scroll-behavior: auto }`}</style>
-      {/* ── Barra flotante de vidrio ── */}
-      <header className="fixed top-3 inset-x-3 md:top-5 z-40">
-        <div className="max-w-[1100px] mx-auto flex items-center justify-between gap-4 pl-5 pr-2 py-2 rounded-full border border-[#E8DCC8]/12 bg-[#0F141C]/60 backdrop-blur-xl">
-          <a
-            href="#inicio"
-            className={`${display.className} ${LINK_FOCUS} text-lg md:text-xl tap-44 flex items-center gap-2.5`}
-            style={{ color: C.white }}
-          >
+
+      {/* ── Barra: papel con el letrero pintado ── */}
+      <header className="sticky top-0 z-40 border-b backdrop-blur-md" style={{ backgroundColor: 'rgba(247,238,219,0.92)', borderColor: C.line }}>
+        <div className={`${WRAP} flex items-center justify-between gap-3 py-2`}>
+          <a href="#inicio" className={`${FOCUS} flex items-center gap-2.5 min-w-0 tap-44`}>
             <Image
               src={`${IMG}/logo.webp`}
               alt=""
               aria-hidden="true"
-              width={30}
-              height={30}
-              className="rounded-md border border-[#E8DCC8]/25"
+              width={36}
+              height={36}
+              className="rounded-md border shrink-0 object-cover"
+              style={{ borderColor: C.line }}
             />
-            {BIZ.short}
+            <span className={`${display.className} text-lg md:text-xl leading-none truncate`}>
+              {BIZ.short}
+            </span>
           </a>
-          <nav className="hidden md:flex items-center gap-7 text-sm" aria-label="Principal">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-semibold" aria-label="Principal">
             {NAV_LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className={`transition-colors text-[#E8DCC8]/75 hover:text-white ${LINK_FOCUS} tap-44`}
-              >
+              <a key={l.href} href={l.href} className={`${FOCUS} tap-44 transition-colors hover:text-[#A63A24]`} style={{ color: C.muted }}>
                 {l.label}
               </a>
             ))}
           </nav>
-          <a
-            href={CALL_LINK}
-            className={`${BTN_GLOW} text-sm px-5 py-2.5 tap-44`}
-            style={{ backgroundColor: C.terra, color: C.coal }}
-          >
-            Reservar
+          <a href={CALL_LINK} className={`${BTN_SOLID} tap-44 shrink-0`}>
+            Reservar mesa
           </a>
         </div>
       </header>
 
-      {/* ── Hero a sangre ── */}
-      <section id="inicio" className="relative min-h-svh flex items-center justify-center overflow-hidden">
+      {/* ── Portada: el mural se funde en papel ── */}
+      <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden">
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Fachada de La Picá De Los Tatas en Independencia 1843, Molina, con los murales pintados de los dueños y el letrero Chilean Food"
+          alt="Fachada de La Picá De Los Tatas en Independencia 1843, Molina: murales pintados a mano con los dueños, la rueda de carreta y el letrero Chilean Food"
           fill
           priority
           sizes="100vw"
@@ -175,396 +219,438 @@ export default function LaPicaDeLosTatasPage() {
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 70% 60% at 50% 55%, rgba(15,20,28,0.55) 0%, rgba(15,20,28,0.82) 70%, rgba(15,20,28,0.96) 100%)',
+              'linear-gradient(180deg, rgba(51,36,27,0.22) 0%, rgba(247,238,219,0.06) 34%, rgba(247,238,219,0.88) 72%, #F7EEDB 92%)',
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-x-0 bottom-0 h-40" style={{ background: `linear-gradient(180deg, transparent, ${C.coal})` }} aria-hidden="true" />
-        <div className="relative w-full max-w-[1100px] mx-auto px-5 pt-32 pb-24 text-center">
+        <div className={`relative ${WRAP} pb-10 md:pb-14 pt-36`}>
           <Reveal>
-            <p className={`${EYEBROW} flex items-center justify-center gap-4`} style={{ color: C.terraSoft }}>
-              <span className="h-px w-8 md:w-12 bg-[#C1663F]/70" aria-hidden="true" />
-              Restaurante en Molina
-              <span className="h-px w-8 md:w-12 bg-[#C1663F]/70" aria-hidden="true" />
-            </p>
+            <Eyebrow>Independencia 1843 · Molina</Eyebrow>
             <h1
-              className={`${display.className} mt-6 text-[clamp(2.6rem,8vw,5.6rem)] leading-[1.04] tracking-[-0.01em]`}
-              style={{ color: C.white }}
+              className={`${display.className} mt-4 leading-[1.0] text-[clamp(2.7rem,9.5vw,5.8rem)]`}
+              style={{ color: C.ink }}
             >
-              Comida de casa,
+              El buen sabor
               <br />
-              <span style={{ color: C.sand }}>mesa sin apuro</span>
+              de la <span style={{ color: C.teja }}>comida casera</span>
             </h1>
-            <p className="mt-7 mx-auto max-w-[36rem] text-base md:text-lg leading-relaxed" style={{ color: 'rgba(232,220,200,0.85)' }}>
-              Almuerzos caseros, horno encendido y atención de la casa en
-              Independencia 1843. Llega, siéntate tranquilo y déjate atender.
+            <p className="mt-5 max-w-xl text-base md:text-lg leading-relaxed" style={{ color: C.muted }}>
+              La picá de los muros pintados a mano: almuerzos de olla,
+              empanadas de horno premiadas y mesa con mantel rojo, a una
+              cuadra de la carretera en Molina.
             </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href={CALL_LINK} className={`${BTN_SOLID} tap-44`}>
+                Llamar al {BIZ.phoneDisplay}
+              </a>
               <a
-                href={CALL_LINK}
-                className={`${BTN_GLOW} text-base px-8 py-3 md:py-4 tap-44`}
-                style={{ backgroundColor: C.terra, color: C.coal }}
+                href="#pizarra"
+                className={`${BTN_GHOST} tap-44`}
+                style={{ borderColor: C.ink, color: C.ink }}
               >
-                Reservar por teléfono
-              </a>
-              <a href="#carta" className={`${BTN_GHOST} text-base px-8 py-3 md:py-4 tap-44`} style={{ color: C.sand }}>
-                Ver la carta
+                Ver la pizarra
               </a>
             </div>
           </Reveal>
-          <Reveal delay={150}>
-            <dl className={`${GLASS} mt-16 mx-auto max-w-[52rem] grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-5 py-5 hover:border-[#E8DCC8]/12`}>
-              {[
-                { v: BIZ.ratingLabel, k: `${BIZ.reviews} reseñas en Google` },
-                { v: 'Nº 1', k: 'Mejor empanada de Molina 2025' },
-                { v: BIZ.followers, k: 'seguidores en Facebook' },
-                { v: 'Molina', k: 'Región del Maule' },
-              ].map((s) => (
-                <div key={s.k} className="px-3">
-                  <dt className="sr-only">{s.k}</dt>
-                  <dd>
-                    <span className={`${display.className} block text-2xl md:text-3xl`} style={{ color: C.white }}>
-                      {s.v}
-                    </span>
-                    <span className="block mt-1 text-[11px] md:text-xs" style={{ color: 'rgba(232,220,200,0.65)' }}>{s.k}</span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
+          <Reveal delay={140}>
+            <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-2 border-t pt-4 text-[11px] md:text-xs uppercase tracking-[0.18em] font-bold" style={{ borderColor: C.line, color: C.muted }}>
+              <li className="flex items-center gap-2">
+                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill={C.gold} stroke={C.tejaDeep} strokeWidth="1" aria-hidden="true">
+                  <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
+                </svg>
+                {BIZ.ratingLabel} · {BIZ.reviews} reseñas en Google
+              </li>
+              <li style={{ color: C.teja }}>Mejor Empanada de Molina 2025</li>
+              <li>Lu–Sá 9:30–16:00</li>
+              <li className="hidden md:inline">Sitio de ejemplo</li>
+            </ul>
           </Reveal>
         </div>
       </section>
 
-      {/* ── La carta ── */}
-      <section id="carta" className="relative scroll-mt-24">
-        <div
-          className="absolute left-1/2 top-24 -translate-x-1/2 w-[70vw] h-[40vw] max-w-[900px] max-h-[500px] rounded-full blur-[120px] opacity-25 pointer-events-none"
-          style={{ backgroundColor: C.terra }}
-          aria-hidden="true"
-        />
-        <div className="relative max-w-[1200px] mx-auto px-5 md:px-8 py-24 md:py-32">
-          <Reveal className="max-w-[40rem]">
-            <Eyebrow>La carta</Eyebrow>
-            <h2 className={`${display.className} mt-4 text-[clamp(2rem,5vw,3.4rem)] leading-[1.08]`} style={{ color: C.white }}>
-              Lo que sale de nuestra cocina
-            </h2>
-            <p className="mt-5 text-base leading-relaxed" style={{ color: 'rgba(232,220,200,0.75)' }}>
-              Tres razones para sentarse a la mesa, en fotos reales de
-              la casa y de sus platos. La carta completa va al publicar.
-            </p>
-          </Reveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-3 md:items-start">
-            {CARTA.map((item, i) => (
-              <Reveal key={item.title} delay={i * 120} className={i === 1 ? 'md:mt-16' : ''}>
-                <article className={`${GLASS} overflow-hidden group`}>
-                  <div className="relative aspect-[4/5] overflow-hidden">
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      fill
-                      sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div
-                      className="absolute inset-0"
-                      style={{ background: 'linear-gradient(180deg, rgba(15,20,28,0.1) 30%, rgba(15,20,28,0.92) 100%)' }}
-                      aria-hidden="true"
-                    />
-                    <span
-                      className={`${display.className} absolute right-5 top-4 text-sm tracking-[0.2em]`}
-                      style={{ color: 'rgba(232,220,200,0.7)' }}
-                      aria-hidden="true"
-                    >
-                      {item.num}
-                    </span>
-                    <div className="absolute inset-x-0 bottom-0 p-6">
-                      <p className={EYEBROW} style={{ color: C.terraSoft }}>
-                        {item.kicker}
-                      </p>
-                      <h3 className={`${display.className} mt-2 text-2xl md:text-[1.7rem]`} style={{ color: C.white }}>
-                        {item.title}
-                      </h3>
-                    </div>
-                  </div>
-                  <p className="p-6 pt-5 text-base leading-relaxed" style={{ color: 'rgba(232,220,200,0.8)' }}>{item.text}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── La casa ── */}
-      <section id="casa" className="scroll-mt-24" style={{ backgroundColor: C.night }}>
-        <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-24 md:py-32 grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-20 items-center">
+      {/* ── El letrero: pintado a mano, como todo lo demás ── */}
+      <section className={`${WRAP} pt-16 md:pt-24 pb-4`}>
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <Reveal>
-            <div className="relative">
-              <div
-                className="absolute -inset-6 rounded-[2rem] blur-3xl opacity-30 pointer-events-none"
-                style={{ backgroundColor: C.terra }}
-                aria-hidden="true"
+            <figure
+              className="relative border-[3px] p-3 md:p-4"
+              style={{ borderColor: C.ink, backgroundColor: C.card, boxShadow: `8px 8px 0 ${C.gold}` }}
+            >
+              <Image
+                src={`${IMG}/logo.webp`}
+                alt="Letrero pintado a mano de La Picá de Los Tatas: los dos dueños retratados sobre fondo amarillo"
+                width={640}
+                height={640}
+                className="w-full h-auto"
               />
-              <div className="relative rounded-[1.5rem] overflow-hidden border border-[#E8DCC8]/15 aspect-[4/3]">
-                <Image
-                  src={`${IMG}/ambiente.webp`}
-                  alt="Comedor de La Picá De Los Tatas en Molina, con manteles rojos, madera y banderitas chilenas"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, calc(100vw - 2.5rem)"
-                  className="object-cover"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{ background: 'linear-gradient(180deg, rgba(15,20,28,0) 50%, rgba(15,20,28,0.75) 100%)' }}
-                  aria-hidden="true"
-                />
-                <p className={`${GLASS} absolute left-4 bottom-4 px-4 py-2 text-sm hover:border-[#E8DCC8]/12`} style={{ color: C.white }}>
-                  {BIZ.address}, {BIZ.city}
-                </p>
-              </div>
-            </div>
+              <figcaption className={`${KICKER} mt-3 text-center`} style={{ color: C.muted }}>
+                El letrero de la casa, pintado a mano
+              </figcaption>
+            </figure>
           </Reveal>
           <Reveal delay={120}>
-            <Eyebrow>La casa</Eyebrow>
-            <h2 className={`${display.className} mt-4 text-[clamp(2rem,5vw,3.2rem)] leading-[1.08]`} style={{ color: C.white }}>
-              Una picá de Molina, atendida por su gente
+            <Eyebrow>La casa que se ve desde la calle</Eyebrow>
+            <h2 className={`${display.className} mt-4 text-4xl md:text-5xl leading-[1.05]`}>
+              Una esquina amarilla
+              <br />
+              <span style={{ color: C.teja }}>pintada a mano</span>
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#E8DCC8]/80">
-              En plena calle Independencia, con la puerta abierta y la cocina a
-              la vista. En 2025 su empanada ganó el concurso de la Municipalidad
-              de Molina como la mejor de la comuna. Quienes ya vinieron lo
-              cuentan en Google, donde la picá tiene nota {BIZ.ratingLabel} en{' '}
+            <p className="mt-5 text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
+              En Independencia 1843 no hay letrero luminoso: hay mural.
+              Los tatas retratados en la fachada, la rueda de carreta y la
+              olla de greda pintadas sobre el muro, y el pizarrón que
+              avisa lo que hay ese día.
+            </p>
+            <p className="mt-4 text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
+              Adentro, manteles rojos, techo de madera y guirnaldas
+              tricolor. Atienden los mismos de siempre — y en Google la
+              picá junta {BIZ.reviews} reseñas con nota {BIZ.ratingLabel}.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`font-semibold underline underline-offset-4 decoration-[#C1663F] transition-colors hover:text-[#E39A78] ${LINK_FOCUS} tap-44`}
-                style={{ color: C.white }}
+                className={`${BTN_GHOST} tap-44`}
+                style={{ borderColor: C.teja, color: C.teja }}
               >
-                {BIZ.reviews} reseñas
+                Ver ficha en Google →
               </a>
-              , y en Facebook la siguen {BIZ.followers} personas.
-            </p>
-            <ul className="mt-10 space-y-4">
-              {VALORES.map((v) => (
-                <li key={v.title} className={`${GLASS} p-5 flex gap-4`}>
-                  <span
-                    aria-hidden="true"
-                    className="mt-2 h-2 w-2 shrink-0 rounded-full shadow-[0_0_12px_2px_rgba(193,102,63,0.8)]"
-                    style={{ backgroundColor: C.terraSoft }}
-                  />
-                  <div>
-                    <h3 className="font-semibold" style={{ color: C.white }}>
-                      {v.title}
-                    </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-[#E8DCC8]/75">{v.text}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <a
-              href={CALL_LINK}
-              className={`${BTN_GLOW} mt-9 text-sm px-6 py-3.5 tap-44`}
-              style={{ backgroundColor: C.terra, color: C.coal }}
-            >
-              Reservar por teléfono
-            </a>
-            <p className="mt-5 text-xs text-[#E8DCC8]/55">
-              Fotos, horario y reseñas: ficha real de Google Maps. Los
-              textos de esta columna son de muestra.
-            </p>
+              <a
+                href={BIZ.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${BTN_GHOST} tap-44`}
+                style={{ borderColor: C.line, color: C.ink }}
+              >
+                Facebook · {BIZ.followers} seguidores
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Lo que dicen en Google (reseñas reales de la ficha) ── */}
-      <section aria-label="Reseñas de Google" style={{ backgroundColor: C.coal }}>
-        <div className="max-w-[1100px] mx-auto px-5 md:px-8 py-20 md:py-24">
-          <Reveal className="text-center">
-            <Eyebrow center>Reseñas de Google</Eyebrow>
-            <div className="mt-4 flex items-center justify-center gap-3">
-              <Stars value={BIZ.rating} color={C.terraSoft} className="w-5 h-5" />
-              <p className={`${display.className} text-2xl`} style={{ color: C.white }}>
-                {BIZ.ratingLabel}
+      {/* ── La pizarra: platos reales, sin precios inventados ── */}
+      <section id="pizarra" className="scroll-mt-20 mt-14 md:mt-20">
+        <Enredadera color={C.leaf} />
+        <div style={{ backgroundColor: C.board }}>
+          <div className={`${WRAP} py-14 md:py-20`}>
+            <div className="grid lg:grid-cols-[1fr_1.3fr] gap-10 md:gap-14 items-start">
+              <Reveal>
+                <Eyebrow light>La pizarra del local</Eyebrow>
+                <h2
+                  className={`${display.className} mt-4 text-4xl md:text-5xl leading-[1.05]`}
+                  style={{ color: C.chalk }}
+                >
+                  Lo que hay hoy
+                  <br />
+                  <span style={{ color: C.gold }}>se ve en la entrada</span>
+                </h2>
+                <p className="mt-5 text-base leading-relaxed max-w-sm" style={{ color: 'rgba(243,235,214,0.82)' }}>
+                  Como toda picá, la carta se escribe en tiza cada mañana.
+                  Estos son los platos que el letrero, el pizarrón y la
+                  prensa ya conocen; los precios se leen al llegar.
+                </p>
+                <p className="mt-4 text-sm leading-relaxed max-w-sm" style={{ color: 'rgba(243,235,214,0.6)' }}>
+                  Carta de muestra para el demo: los platos del día se
+                  confirman en el local o por teléfono.
+                </p>
+              </Reveal>
+              <Reveal delay={120}>
+                <div
+                  className="border-[3px] p-6 md:p-8"
+                  style={{ borderColor: 'rgba(243,235,214,0.5)', backgroundColor: 'rgba(0,0,0,0.15)' }}
+                >
+                  <ul className="grid sm:grid-cols-2 gap-x-8">
+                    {PIZARRA.map((p) => (
+                      <li key={p.plato} className="py-3.5 border-b border-dashed" style={{ borderColor: C.lineChalk }}>
+                        <p className={`${body.className} italic font-semibold text-base md:text-lg`} style={{ color: C.chalk }}>
+                          {p.plato}
+                        </p>
+                        <p className="text-xs mt-0.5" style={{ color: 'rgba(243,235,214,0.6)' }}>
+                          {p.nota}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+        <Enredadera color={C.leaf} className="rotate-180" />
+      </section>
+
+      {/* ── Recién salidas: las fotos reales de la ficha ── */}
+      <section className={`${WRAP} pt-14 md:pt-20`}>
+        <Reveal>
+          <Eyebrow center>De la cocina a la mesa</Eyebrow>
+          <h2 className={`${display.className} mt-4 text-center text-4xl md:text-5xl leading-[1.05]`}>
+            Recién salidas <span style={{ color: C.teja }}>del horno</span>
+          </h2>
+        </Reveal>
+        <div className="mt-10 grid sm:grid-cols-3 gap-4 md:gap-6">
+          {[
+            {
+              src: `${IMG}/detalle1.webp`,
+              alt: 'Empanadas de pino de horno con vino tinto, pebre y ajíes en la mesa de La Picá De Los Tatas',
+              pie: 'las empanadas campeonas',
+            },
+            {
+              src: `${IMG}/pastel.webp`,
+              alt: 'Pastel de choclo gratinado en paila de greda servido en La Picá De Los Tatas',
+              pie: 'el pastel de choclo en paila',
+            },
+            {
+              src: `${IMG}/detalle2.webp`,
+              alt: 'Almuerzo casero en La Picá De Los Tatas: carne con puré, papas fritas, ensalada de tomate y pebre',
+              pie: 'el almuerzo de todos los días',
+            },
+          ].map((f, i) => (
+            <Reveal key={f.src} delay={i * 100} className={i === 1 ? 'sm:mt-10' : ''}>
+              <figure>
+                <div
+                  className="relative aspect-[4/5] overflow-hidden border-[3px]"
+                  style={{ borderColor: C.ink, boxShadow: `6px 6px 0 ${C.teja}` }}
+                >
+                  <Image
+                    src={f.src}
+                    alt={f.alt}
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className={`${body.className} mt-3 text-center italic text-sm md:text-base font-semibold`} style={{ color: C.teja }}>
+                  {f.pie}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Palmarés: escarapelas y prensa real ── */}
+      <section id="palmares" className="scroll-mt-20 mt-16 md:mt-24" style={{ backgroundColor: C.card }}>
+        <div className={`${WRAP} py-14 md:py-20`}>
+          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-start">
+            <Reveal>
+              <Eyebrow>Premiada por la comuna</Eyebrow>
+              <h2 className={`${display.className} mt-4 text-4xl md:text-5xl leading-[1.05]`}>
+                La empanada que
+                <br />
+                <span style={{ color: C.teja }}>ganó Molina</span>
+              </h2>
+              <p className="mt-5 text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
+                En septiembre de 2025, un jurado de cliente incógnito
+                eligió la empanada de los Tatas como la mejor de la
+                comuna entre 15 competidores. La prensa local lo contó:
+                “probamos sus empanadas y son espectaculares”, dijo el
+                alcalde al premiarlas.
+              </p>
+              <p className="mt-3 text-sm" style={{ color: C.muted }}>
+                Fuentes: Radio Favorita y Municipalidad de Molina.
+              </p>
+            </Reveal>
+            <div className="space-y-5">
+              {PALMARES.map((p, i) => (
+                <Reveal key={p.anio} delay={i * 110}>
+                  <div
+                    className="flex gap-5 border-[3px] p-5 md:p-6 items-start"
+                    style={{ borderColor: C.ink, backgroundColor: C.paper, boxShadow: `6px 6px 0 ${C.gold}` }}
+                  >
+                    <Escarapela className="w-12 h-14 shrink-0 mt-1" />
+                    <div>
+                      <p className={KICKER} style={{ color: C.teja }}>
+                        {p.anio}
+                      </p>
+                      <h3 className={`${display.className} text-xl md:text-2xl mt-1`}>{p.titulo}</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed" style={{ color: C.muted }}>
+                        {p.detalle}
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          {/* reseñas reales */}
+          <div className="mt-14 border-t pt-10" style={{ borderColor: C.line }}>
+            <Reveal className="flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 text-center">
+              <Stars value={BIZ.rating} color={C.teja} className="w-4 h-4" />
+              <p className={`${display.className} text-2xl md:text-3xl`}>
+                {BIZ.ratingLabel} en Google
               </p>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm underline underline-offset-4 decoration-[#C1663F] transition-colors hover:text-[#E39A78] ${LINK_FOCUS} tap-44`}
-                style={{ color: 'rgba(232,220,200,0.8)' }}
+                className={`${FOCUS} text-sm font-bold underline underline-offset-4 tap-44`}
+                style={{ color: C.teja }}
               >
                 {BIZ.reviews} reseñas
               </a>
-            </div>
-          </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
-              { q: 'Excelente atención, comida abundante y muy rica.', a: 'Francia Lizana', w: 'Hace 2 meses' },
-              { q: 'Simplemente maravilloso. Fuimos buscando comida tarde, estaban por cerrar e igual nos atendieron.', a: 'Garek', w: 'Hace 3 meses' },
-              { q: 'Llegamos por las recomendaciones de Google y cumplió con todas las expectativas.', a: 'Paulina Reyes', w: 'Hace 7 meses' },
-            ].map((r, i) => (
-              <Reveal key={r.a} delay={i * 120}>
-                <figure className={`${GLASS} h-full p-6 hover:border-[#E8DCC8]/12`}>
-                  <Stars value={5} color={C.terraSoft} className="w-3.5 h-3.5" />
-                  <blockquote className="mt-4 text-base leading-relaxed" style={{ color: 'rgba(232,220,200,0.9)' }}>
-                    “{r.q}”
-                  </blockquote>
-                  <figcaption className="mt-4 text-xs uppercase tracking-[0.14em]" style={{ color: C.terraSoft }}>
-                    {r.a} · {r.w}
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-          <p className="mt-6 text-center text-xs text-[#E8DCC8]/55">
-            Reseñas citadas textualmente de la ficha de Google de la picá.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Precios de referencia ── */}
-      <section id="precios" className="scroll-mt-24">
-        <div className="max-w-[1000px] mx-auto px-5 md:px-8 py-24 md:py-32">
-          <Reveal className="text-center">
-            <Eyebrow center>Precios de referencia</Eyebrow>
-            <h2 className={`${display.className} mt-4 text-[clamp(2rem,5vw,3.2rem)] leading-[1.08]`} style={{ color: C.white }}>
-              La pizarra del día
-            </h2>
-            <p className="mt-5 mx-auto max-w-[34rem] text-base leading-relaxed text-[#E8DCC8]/75">
-              Carta de muestra, sin precios: al publicar van los platos y
-              valores reales que defina la picá.
-            </p>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className={`${GLASS} mt-14 p-6 md:p-10 grid gap-10 md:grid-cols-2 md:gap-14 hover:border-[#E8DCC8]/12`}>
-              {PRECIOS.map((group) => (
-                <div key={group.title}>
-                  <h3 className={`${display.className} text-xl`} style={{ color: C.white }}>
-                    {group.title}
-                  </h3>
-                  <ul className="mt-5">
-                    {group.rows.map((row) => (
-                      <li key={row} className="flex items-baseline gap-3 py-3.5 text-base">
-                        <span className="text-[#E8DCC8]/90">{row}</span>
-                        <span
-                          aria-hidden="true"
-                          className="flex-1 border-b border-dotted border-[#E8DCC8]/30 -translate-y-1"
-                        />
-                        <span
-                          className="text-[11px] uppercase tracking-[0.16em] whitespace-nowrap"
-                          style={{ color: C.terraSoft }}
-                        >
-                          Precio de muestra
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            </Reveal>
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              {QUOTES.map((r, i) => (
+                <Reveal key={r.a} delay={i * 100}>
+                  <figure className="h-full border p-5" style={{ borderColor: C.line, backgroundColor: C.paper }}>
+                    <blockquote className={`${body.className} italic text-sm md:text-base leading-relaxed`}>
+                      “{r.q}”
+                    </blockquote>
+                    <figcaption className={`${KICKER} mt-4`} style={{ color: C.teja }}>
+                      {r.a} · {r.w}
+                    </figcaption>
+                  </figure>
+                </Reveal>
               ))}
             </div>
-          </Reveal>
+            <p className="mt-5 text-center text-xs" style={{ color: C.muted }}>
+              Citas textuales de la ficha de Google de la picá.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* ── Contacto y ubicación ── */}
-      <section id="contacto" className="relative overflow-hidden scroll-mt-24">
-        <Image
-          src={`${IMG}/puerta.webp`}
-          alt=""
-          aria-hidden="true"
-          fill
-          loading="eager"
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15,20,28,0.9)' }} aria-hidden="true" />
-        <div className="relative max-w-[1200px] mx-auto px-5 md:px-8 py-24 md:py-32">
-          <Reveal className="text-center">
-            <Eyebrow center>Visítanos</Eyebrow>
-            <h2 className={`${display.className} mt-4 text-[clamp(2.2rem,6vw,4rem)] leading-[1.05]`} style={{ color: C.white }}>
-              Te guardamos la mesa
-            </h2>
-            <p className="mt-5 mx-auto max-w-[32rem] text-base md:text-lg leading-relaxed text-[#E8DCC8]/80">
-              Llámanos para reservar o preguntar por el menú del
-              día. También puedes llegar directo a Independencia 1843.
-            </p>
-            <a
-              href={CALL_LINK}
-              className={`${BTN_GLOW} mt-10 text-base md:text-lg px-10 py-3 md:py-4 tap-44`}
-              style={{ backgroundColor: C.terra, color: C.coal }}
-            >
-              Llamar al {BIZ.phoneDisplay}
-            </a>
-            <p className="mt-4 text-sm text-[#E8DCC8]/70">
-              o llama al{' '}
-              <a
-                href={`tel:${BIZ.phoneTel}`}
-                className={`underline underline-offset-4 transition-colors hover:text-[#E39A78] ${LINK_FOCUS} tap-44`}
-                style={{ color: C.white }}
+      {/* ── La casa por dentro ── */}
+      <section id="casa" className="scroll-mt-20">
+        <div className={`${WRAP} py-14 md:py-24 grid gap-10 lg:grid-cols-2 lg:gap-16 items-center`}>
+          <Reveal>
+            <div className="grid grid-cols-5 gap-4 items-end">
+              <div
+                className="col-span-3 relative aspect-[4/3] overflow-hidden border-[3px]"
+                style={{ borderColor: C.ink, boxShadow: `6px 6px 0 ${C.teja}` }}
               >
-                {BIZ.phoneDisplay}
-              </a>
-            </p>
-          </Reveal>
-          <Reveal delay={150}>
-            <div className="mt-16 grid gap-6 lg:grid-cols-[1fr_1.6fr]">
-              <div className={`${GLASS} p-7 md:p-8 flex flex-col hover:border-[#E8DCC8]/12`}>
-                <h3 className={`${display.className} text-2xl`} style={{ color: C.white }}>
-                  Dónde estamos
-                </h3>
-                <address className="not-italic mt-4 text-base leading-relaxed text-[#E8DCC8]/85">
-                  {BIZ.address}
-                  <br />
-                  {BIZ.postal} {BIZ.city}, {BIZ.region}
-                </address>
-                <p className="mt-6 text-sm leading-relaxed text-[#E8DCC8]/70">
-                  Lunes a sábado de 9:30 a 16:00 hrs. Domingo cerrado.
-                </p>
-                <div className="mt-auto pt-8 flex flex-wrap gap-3">
-                  <a
-                    href={MAPS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${BTN_GHOST} text-sm px-5 py-3 tap-44`}
-                    style={{ color: C.sand }}
-                  >
-                    Cómo llegar
-                  </a>
-                  <a
-                    href={BIZ.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${BTN_GHOST} text-sm px-5 py-3 tap-44`}
-                    style={{ color: C.sand }}
-                  >
-                    Facebook
-                  </a>
-                </div>
+                <Image
+                  src={`${IMG}/ambiente.webp`}
+                  alt="Comedor de La Picá De Los Tatas: manteles rojos, techo de madera y guirnaldas de papel tricolor"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 60vw"
+                  className="object-cover"
+                />
               </div>
-              <div className={`${GLASS} overflow-hidden h-[320px] md:h-[400px] hover:border-[#E8DCC8]/12`}>
-                <LazyMap
-                  title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
-                  src={MAPS_EMBED}
-                  className="w-full h-full grayscale-[0.4] contrast-[1.05]"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+              <div
+                className="col-span-2 relative aspect-[3/4] overflow-hidden border-[3px]"
+                style={{ borderColor: C.ink, boxShadow: `6px 6px 0 ${C.gold}` }}
+              >
+                <Image
+                  src={`${IMG}/puerta.webp`}
+                  alt="Entrada de La Picá De Los Tatas: muro amarillo con enredaderas pintadas, rueda de carreta y el pizarrón del día"
+                  fill
+                  sizes="(min-width: 1024px) 22vw, 40vw"
+                  className="object-cover"
                 />
               </div>
             </div>
           </Reveal>
+          <Reveal delay={120}>
+            <Eyebrow>La casa</Eyebrow>
+            <h2 className={`${display.className} mt-4 text-4xl md:text-5xl leading-[1.05]`}>
+              Mantel rojo,
+              <br />
+              <span style={{ color: C.teja }}>techo de madera</span>
+            </h2>
+            <p className="mt-5 text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
+              El comedor es el de siempre: guirnaldas de papel, cocina a
+              la vista y mesas que no tienen apuro por desocuparse. Te
+              recibe la misma gente que cocina y que pintó los muros.
+            </p>
+            <ul className="mt-6 space-y-3 text-sm md:text-base">
+              {[
+                'Desayunos y almuerzos de lunes a sábado',
+                'Comidas típicas de temporada, como dice el mural',
+                'Opción vegetariana anotada en la pizarra',
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-3">
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: C.leaf }} aria-hidden="true" />
+                  <span style={{ color: C.ink }}>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Visítanos ── */}
+      <section id="visitanos" className="scroll-mt-20" style={{ backgroundColor: C.tejaDeep }}>
+        <div className={`${WRAP} py-14 md:py-20`}>
+          <div className="grid lg:grid-cols-2 gap-10 items-stretch">
+            <Reveal>
+              <Eyebrow light>Visítanos</Eyebrow>
+              <h2 className={`${display.className} mt-4 text-4xl md:text-5xl leading-[1.05]`} style={{ color: C.chalk }}>
+                Te guardamos
+                <br />
+                <span style={{ color: C.gold }}>la mesa</span>
+              </h2>
+              <address className="not-italic mt-6 text-base md:text-lg leading-relaxed" style={{ color: 'rgba(243,235,214,0.85)' }}>
+                {BIZ.name}
+                <br />
+                {BIZ.address} · {BIZ.city}, {BIZ.region}
+              </address>
+              <ul className="mt-5 border-t" style={{ borderColor: 'rgba(243,235,214,0.3)' }}>
+                {HORAS.map((h) => (
+                  <li
+                    key={h.d}
+                    className="flex items-baseline justify-between gap-6 py-3 border-b text-sm md:text-base"
+                    style={{ borderColor: 'rgba(243,235,214,0.3)', color: 'rgba(243,235,214,0.85)' }}
+                  >
+                    <span>{h.d}</span>
+                    <span className="font-bold" style={{ color: C.chalk }}>{h.h}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={CALL_LINK}
+                  className={`${FOCUS} inline-flex items-center justify-center rounded-full bg-[#F7EEDB] font-bold text-sm px-6 py-3 transition-transform active:scale-95 tap-44`}
+                  style={{ color: C.tejaDeep }}
+                >
+                  Llamar al {BIZ.phoneDisplay}
+                </a>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${FOCUS} inline-flex items-center justify-center rounded-full border-2 border-[#F7EEDB]/70 font-bold text-sm px-6 py-2.5 tap-44 transition-colors hover:bg-white/10`}
+                  style={{ color: C.chalk }}
+                >
+                  Cómo llegar
+                </a>
+              </div>
+              <p className="mt-5 text-xs leading-relaxed" style={{ color: 'rgba(243,235,214,0.65)' }}>
+                Atienden por teléfono fijo y por su grupo de WhatsApp:
+                para reservar, lo más directo es llamar.
+              </p>
+            </Reveal>
+            <Reveal delay={120}>
+              <div
+                className="border-[3px] h-[320px] lg:h-full lg:min-h-[400px] overflow-hidden"
+                style={{ borderColor: 'rgba(243,235,214,0.5)' }}
+              >
+                <LazyMap
+                  title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
+                  src={MAPS_EMBED}
+                  className="w-full h-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* ── Franja Sitiazo ── */}
-      <section style={{ backgroundColor: C.terra }}>
-        <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <p className="text-sm md:text-[15px] leading-relaxed" style={{ color: C.coal }}>
+      <section style={{ backgroundColor: C.gold }}>
+        <div className={`${WRAP} py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3`}>
+          <p className="text-sm md:text-[15px] leading-relaxed font-semibold" style={{ color: C.ink }}>
             Sitio de ejemplo de{' '}
             <a
               href={SITE.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold underline underline-offset-4 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F141C] tap-44"
+              className={`${FOCUS} font-extrabold underline underline-offset-4 tap-44`}
             >
               Sitiazo
             </a>{' '}
@@ -574,8 +660,8 @@ export default function LaPicaDeLosTatasPage() {
             href={whatsappLink('contacto')}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 text-sm font-bold underline underline-offset-4 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F141C] tap-44"
-            style={{ color: C.coal }}
+            className={`${FOCUS} shrink-0 text-sm font-extrabold underline underline-offset-4 tap-44`}
+            style={{ color: C.ink }}
           >
             ¿Lo hacemos realidad?
           </a>
@@ -583,23 +669,28 @@ export default function LaPicaDeLosTatasPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.coal }}>
-        <div className="max-w-[1200px] mx-auto px-5 md:px-8 pt-8 pb-24 md:pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <footer style={{ backgroundColor: C.ink, color: C.chalk }}>
+        <div className={`${WRAP} pt-8 pb-16 flex flex-col md:flex-row md:items-center justify-between gap-4`}>
           <div>
-            <p className={`${display.className} text-xl md:text-2xl mb-1`} style={{ color: C.white }}>
+            <p className={`${display.className} text-xl md:text-2xl`}>
               {BIZ.name}
             </p>
-            <address className="not-italic text-sm leading-relaxed text-[#E8DCC8]/75">
-              {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
+            <address className="not-italic mt-1 text-sm" style={{ color: 'rgba(243,235,214,0.78)' }}>
+              {BIZ.address}, {BIZ.city} ·{' '}
+              <a href={CALL_LINK} className={`${FOCUS} underline underline-offset-2 tap-44`}>
+                {BIZ.phoneDisplay}
+              </a>
             </address>
           </div>
-          <p className="text-xs leading-relaxed md:max-w-[26rem] text-[#E8DCC8]/70">
-            Mockup de Sitiazo: datos, fotos, horario y reseñas reales (ficha de Google); carta y precios de muestra.
+          <p className="text-xs leading-relaxed md:max-w-[26rem]" style={{ color: 'rgba(243,235,214,0.65)' }}>
+            Mockup de Sitiazo: datos, fotos, letrero, horario, premios y
+            reseñas reales (ficha de Google y prensa local); textos y
+            carta de muestra.
           </p>
         </div>
       </footer>
 
-      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.terra} />
+      <CallFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.teja} />
     </div>
   )
 }
