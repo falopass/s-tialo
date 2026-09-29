@@ -292,14 +292,30 @@ export default function MinimarketEmily() {
       <section id="local" className="scroll-mt-20" style={{ backgroundColor: C.crema }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
-            <div className="relative rounded-2xl overflow-hidden h-full min-h-[280px] border-2" style={{ borderColor: C.azulOscuro }}>
-              <Image
-                src={`${IMG}/entrada.webp`}
-                alt="Entrada de Minimarket Emily con el toldo a cuadros azul y blanco y el cartel del negocio"
-                fill
-                sizes="(min-width: 768px) 45vw, 92vw"
-                className="object-cover"
-              />
+            <div className="grid grid-rows-[1fr_auto] gap-4 h-full">
+              <div className="relative rounded-2xl overflow-hidden min-h-[280px] border-2" style={{ borderColor: C.azulOscuro }}>
+                <Image
+                  src={`${IMG}/entrada.webp`}
+                  alt="Entrada de Minimarket Emily con el toldo a cuadros azul y blanco y el cartel del negocio"
+                  fill
+                  sizes="(min-width: 768px) 45vw, 92vw"
+                  className="object-cover"
+                />
+              </div>
+              <figure className="relative rounded-2xl overflow-hidden border-2" style={{ borderColor: C.azulOscuro }}>
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    src={`${IMG}/interior-verduras.webp`}
+                    alt="Interior de Minimarket Emily: cooler de bebidas, estantes de abarrotes y la mesa de frutas y verduras"
+                    fill
+                    sizes="(min-width: 768px) 45vw, 92vw"
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className={`${mono.className} absolute bottom-3 left-3 px-2.5 py-1 text-[11px] uppercase tracking-[0.14em] rounded-sm`} style={{ backgroundColor: C.amarillo, color: C.tinta }}>
+                  El local por dentro
+                </figcaption>
+              </figure>
             </div>
           </Reveal>
           <Reveal delay={100}>
