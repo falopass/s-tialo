@@ -13,6 +13,7 @@ import {
   MAPS_EMBED,
   LOGO,
   LOGO_H,
+  LOGO_V,
   HERO,
   ESPACIOS,
   EVENTOS,
@@ -402,29 +403,44 @@ export default function RanchoItahuePage() {
       {/* ── Entorno ──────────────────────────────────────── */}
       <section id="entorno" className="scroll-mt-20 py-16 md:py-24" style={{ backgroundColor: C.soft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
-          <Reveal>
-            <SectionHead eyebrow="Alrededor" title={ENTORNO.title} lead={ENTORNO.lead} />
-          </Reveal>
-          <Reveal>
-            <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3">
-              {ENTORNO.photos.map((p, i) => (
-                <div
-                  key={p.src}
-                  className={`relative overflow-hidden rounded-xl ${
-                    i === 0 ? 'col-span-2 aspect-[16/9]' : 'aspect-[4/3]'
-                  }`}
-                >
-                  <Image
-                    src={p.src}
-                    alt={p.alt}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
+          <div className="md:grid md:grid-cols-[110px_1fr] md:gap-10 md:items-center">
+            {/* Logo vertical del cliente: formato tótem, va como lomo de marca
+                de la última sección editorial. Oculto en móvil (muy angosto). */}
+            <div className="hidden md:flex justify-center self-stretch py-2">
+              {/* eslint-disable-next-line @next/next/no-img-element -- logo del cliente en public/ */}
+              <img
+                src={LOGO_V}
+                alt=""
+                aria-hidden="true"
+                className="h-[430px] xl:h-[500px] w-auto object-contain opacity-90"
+              />
             </div>
-          </Reveal>
+            <div>
+              <Reveal>
+                <SectionHead eyebrow="Alrededor" title={ENTORNO.title} lead={ENTORNO.lead} />
+              </Reveal>
+              <Reveal>
+                <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3">
+                  {ENTORNO.photos.map((p, i) => (
+                    <div
+                      key={p.src}
+                      className={`relative overflow-hidden rounded-xl ${
+                        i === 0 ? 'col-span-2 aspect-[16/9]' : 'aspect-[4/3]'
+                      }`}
+                    >
+                      <Image
+                        src={p.src}
+                        alt={p.alt}
+                        fill
+                        sizes="(min-width: 768px) 30vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
