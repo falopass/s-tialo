@@ -46,6 +46,7 @@ const C = {
   ink: '#F1EEE8',
   muted: '#9AA1A9',
   rojo: '#C8102E',
+  rojoClaro: '#F6485C',
   papel: '#F4F1E9',
   line: 'rgba(241,238,232,0.14)',
 } as const
@@ -230,7 +231,7 @@ export default function MrMecanica() {
         <Reveal>
           <p
             className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`}
-            style={{ color: C.rojo }}
+            style={{ color: C.rojoClaro }}
           >
             Lo que anuncia el letrero
           </p>
@@ -335,7 +336,7 @@ export default function MrMecanica() {
             >
               Llega temprano,
               <br />
-              sal anda <span style={{ color: C.rojo }}>rápido</span>
+              sal anda <span style={{ color: C.rojoClaro }}>rápido</span>
             </h2>
             <p className="mt-4 text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
               El taller atiende en su casa de Humberto Silva, a la entrada de
@@ -362,7 +363,7 @@ export default function MrMecanica() {
                     style={{ borderColor: C.line }}
                   >
                     <dt style={{ color: C.ink }}>{h.dia}</dt>
-                    <dd style={{ color: h.horas === 'Cerrado' ? C.rojo : C.muted }}>
+                    <dd style={{ color: h.horas === 'Cerrado' ? C.rojoClaro : C.muted }}>
                       {h.horas}
                     </dd>
                   </div>
@@ -378,7 +379,7 @@ export default function MrMecanica() {
         <Reveal>
           <p
             className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`}
-            style={{ color: C.rojo }}
+            style={{ color: C.rojoClaro }}
           >
             Lo que dicen en Google
           </p>
@@ -422,7 +423,7 @@ export default function MrMecanica() {
           <Reveal>
             <p
               className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`}
-              style={{ color: C.rojo }}
+              style={{ color: C.rojoClaro }}
             >
               Cómo llegar
             </p>
