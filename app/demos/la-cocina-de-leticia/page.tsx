@@ -95,7 +95,7 @@ function Mile({ n, title, sub }: { n: string; title: string; sub: string }) {
       </span>
       <div>
         <p className={`${display.className} font-semibold text-xl md:text-2xl leading-tight`}>{title}</p>
-        <p className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.2em]`} style={{ color: C.muted }}>
+        <p className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.2em]`} style={{ color: 'rgba(247,240,222,0.75)' }}>
           {sub}
         </p>
       </div>
@@ -227,7 +227,7 @@ export default function LaCocinaDeLeticiaPage() {
       {/* ── Postas de la ruta: fogón y cafetería ── */}
       <section id="fogon" className="scroll-mt-20" style={{ backgroundColor: C.greenDeep, color: C.paper }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <div className="grid grid-cols-12 gap-10">
+          <div className="grid grid-cols-12 gap-6 md:gap-10">
             {/* línea de ruta con hitos */}
             <div className="col-span-12 md:col-span-4">
               <div className="relative flex md:block gap-8">
@@ -458,7 +458,7 @@ export default function LaCocinaDeLeticiaPage() {
 
       {/* ── Ubicación y contacto ── */}
       <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.ink, color: C.paper }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20 grid grid-cols-12 gap-8 md:gap-10">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20 grid grid-cols-12 gap-6 md:gap-10">
           <div className="col-span-12 md:col-span-5">
             <Reveal>
               <p className={`${mono.className} text-[10px] md:text-xs uppercase tracking-[0.3em] mb-3`} style={{ color: C.sun }}>
