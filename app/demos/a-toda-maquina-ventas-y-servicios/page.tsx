@@ -155,7 +155,7 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
   return (
     <p
       className={`${display.className} text-[11px] uppercase tracking-[0.24em] mb-4 font-bold flex items-center gap-3`}
-      style={{ color: light ? C.mostazaSoft : C.madera }}
+      style={{ color: light ? C.mostazaSoft : C.madera, textShadow: light ? '0 1px 10px rgba(30,51,42,0.9)' : undefined }}
     >
       <span className="inline-block w-8 border-t-2 border-dashed" aria-hidden="true" />
       {children}
@@ -199,10 +199,10 @@ export default function ATodaMaquinaPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(30,51,42,0.62) 0%, rgba(30,51,42,0.18) 45%, rgba(30,51,42,0.9) 100%)',
+              'linear-gradient(180deg, rgba(30,51,42,0.62) 0%, rgba(30,51,42,0.5) 48%, rgba(30,51,42,0.9) 100%)',
           }}
         />
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-12 pt-40">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-20 md:pb-12 pt-40">
           <Reveal>
             <Eyebrow light>Tienda de máquinas de coser · Linares · Maule</Eyebrow>
             <h1
