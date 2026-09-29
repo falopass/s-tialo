@@ -25,17 +25,20 @@ const mono = localFont({
   variable: '--font-mono',
 })
 
+// Identidad sacada del furgón rotulado: azul corporativo + naranja de señal
+// sobre papel claro, como una hoja de servicio. Se aparta de los demos
+// oscuros del rubro (navy/teal y ámbar).
 const C = {
-  carbon: '#101216',
-  carbonSoft: '#171A20',
-  panel: '#1E222B',
-  volt: '#FFC400',
-  paper: '#F2EFE9',
-  ink: '#14161B',
-  muted: '#5A6068',
-  creamDim: 'rgba(242,239,233,0.72)',
-  lineDark: 'rgba(242,239,233,0.16)',
-  lineLight: 'rgba(20,22,27,0.14)',
+  paper: '#F3F5F8',
+  paperDeep: '#E8ECF2',
+  panel: '#FFFFFF',
+  ink: '#0F1E3A',
+  blue: '#1E55B4',
+  orange: '#E8720C',
+  orangeInk: '#A84E08',
+  muted: '#45526B',
+  line: 'rgba(15,30,58,0.16)',
+  lineBlue: 'rgba(30,85,180,0.28)',
 }
 
 export const metadata: Metadata = demoMetadata({
@@ -48,12 +51,12 @@ export const metadata: Metadata = demoMetadata({
 
 const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Trabajos', href: '#trabajos' },
-  { label: 'Reseñas', href: '#resenas' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Terreno', href: '#terreno' },
+  { label: 'Opiniones', href: '#opiniones' },
+  { label: 'Agenda', href: '#agenda' },
 ]
 
-const CIRCUITOS = [
+const SERVICIOS = [
   {
     n: '01',
     name: 'Instalaciones eléctricas',
@@ -86,14 +89,15 @@ const CIRCUITOS = [
   },
 ]
 
-const TRABAJOS = [
-  { src: `${IMG}/tablero.webp`, alt: 'Tablero eléctrico abierto con circuitos ordenados', tag: 'tablero' },
-  { src: `${IMG}/lineman.webp`, alt: 'Trabajo en poste con escalera y herramientas', tag: 'terreno' },
-  { src: `${IMG}/breakers.webp`, alt: 'Caja de breakers instalada en muro', tag: 'breakers' },
-  { src: `${IMG}/split.webp`, alt: 'Aire acondicionado split instalado en interior', tag: 'clima' },
-  { src: `${IMG}/casa-ac.webp`, alt: 'Casa con unidad exterior de aire acondicionado instalada', tag: 'clima' },
-  { src: `${IMG}/ac-muro.webp`, alt: 'Unidad exterior de aire acondicionado en muro de madera', tag: 'clima' },
-  { src: `${IMG}/tablero-luz.webp`, alt: 'Tablero con luces indicadoras encendidas', tag: 'tablero' },
+const INFORME = [
+  { src: `${IMG}/medidor.webp`, alt: 'Medidor eléctrico instalado en reja de acceso', fig: 'FIG. 01', tag: 'empalme' },
+  { src: `${IMG}/tablero-casa.webp`, alt: 'Tablero de casa con breakers encendidos y tapa abierta', fig: 'FIG. 02', tag: 'tablero' },
+  { src: `${IMG}/lineman.webp`, alt: 'Trabajo en altura sobre escalera junto a poste', fig: 'FIG. 03', tag: 'terreno' },
+  { src: `${IMG}/rack.webp`, alt: 'Rack de red con cableado ordenado tras puerta de vidrio', fig: 'FIG. 04', tag: 'redes' },
+  { src: `${IMG}/split.webp`, alt: 'Aire acondicionado split instalado en muro interior', fig: 'FIG. 05', tag: 'clima' },
+  { src: `${IMG}/tablero.webp`, alt: 'Tablero industrial grande con circuitos etiquetados', fig: 'FIG. 06', tag: 'tablero' },
+  { src: `${IMG}/breakers.webp`, alt: 'Caja de breakers instalada en muro', fig: 'FIG. 07', tag: 'tablero' },
+  { src: `${IMG}/ac-muro.webp`, alt: 'Unidad exterior de aire acondicionado sobre muro de madera', fig: 'FIG. 08', tag: 'clima' },
 ]
 
 const RESENAS = [
@@ -115,14 +119,14 @@ const RESENAS = [
   },
 ]
 
-function Tag({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
+function MonoTag({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <span
-      className="font-[var(--font-mono)] text-[11px] md:text-xs font-semibold uppercase tracking-[0.18em] px-2.5 py-1 rounded-sm"
+      className="font-[var(--font-mono)] text-[11px] md:text-xs font-semibold uppercase tracking-[0.18em] px-2.5 py-1"
       style={{
-        color: dark ? C.volt : C.ink,
-        border: `1px solid ${dark ? 'rgba(255,196,0,0.45)' : 'rgba(20,22,27,0.35)'}`,
-        backgroundColor: dark ? 'rgba(255,196,0,0.08)' : 'transparent',
+        color: light ? '#0F1E3A' : C.orangeInk,
+        border: `1px solid ${light ? 'rgba(15,30,58,0.4)' : C.lineBlue}`,
+        backgroundColor: 'transparent',
       }}
     >
       {children}
@@ -132,179 +136,147 @@ function Tag({ children, dark = false }: { children: React.ReactNode; dark?: boo
 
 export default function Page() {
   return (
-    <main className={`${display.variable} ${body.variable} ${mono.variable} font-[var(--font-body)] antialiased`} style={{ backgroundColor: C.carbon }}>
+    <main
+      className={`${display.variable} ${body.variable} ${mono.variable} font-[var(--font-body)] antialiased`}
+      style={{ backgroundColor: C.paper, color: C.ink }}
+    >
       <BlitzNav
         name={BIZ.name}
         links={NAV_LINKS}
         waLink={WA_LINK}
         logoSrc={`${IMG}/logo.webp`}
         fontClass="font-[var(--font-display)] font-extrabold uppercase tracking-wide"
-        theme={{ over: 'dark', bar: C.carbon, ink: '#F2EFE9', line: C.lineDark, btnBg: C.volt, btnInk: C.ink }}
+        theme={{ over: 'light', bar: C.paper, ink: C.ink, line: C.line, btnBg: C.ink, btnInk: '#F3F5F8' }}
       />
 
-      {/* ── HERO ── */}
-      <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.carbon }}>
-        <div
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(${C.lineDark} 1px, transparent 1px), linear-gradient(90deg, ${C.lineDark} 1px, transparent 1px)`,
-            backgroundSize: '56px 56px',
-            opacity: 0.25,
-          }}
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-32 pb-14 md:pt-40 md:pb-20">
-          <div className="grid md:grid-cols-[1.15fr_0.85fr] gap-10 md:gap-14 items-center">
-            <div>
-              <Reveal>
-                <div className="flex flex-wrap gap-2">
-                  <Tag dark>Instalador certificado</Tag>
-                  <Tag dark>Región del Maule</Tag>
-                </div>
-              </Reveal>
-              <Reveal>
-                <h1
-                  className="font-[var(--font-display)] font-extrabold uppercase leading-[0.92] mt-6 text-[clamp(2.9rem,11vw,6.5rem)]"
-                  style={{ color: '#F2EFE9' }}
-                >
-                  Corriente
-                  <br />
-                  <span style={{ color: C.volt }}>bien</span> instalada
-                </h1>
-              </Reveal>
-              <Reveal>
-                <p className="mt-6 max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.creamDim }}>
-                  Electricidad, empalmes, CCTV y climatización para casas y
-                  empresas del Maule. Trabajo con garantía, a la hora acordada.
-                </p>
-              </Reveal>
-              <Reveal>
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <a
-                    href={WA_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="tap-44 inline-flex items-center gap-2 rounded-sm px-6 py-3 text-base font-bold uppercase tracking-wide active:scale-95 transition-transform"
-                    style={{ backgroundColor: C.volt, color: C.ink }}
-                  >
-                    Cotizar por WhatsApp
-                  </a>
-                  <div className="flex items-center gap-2">
-                    <Stars value={5} color={C.volt} className="w-3.5 h-3.5" />
-                    <span className="font-[var(--font-mono)] text-xs" style={{ color: C.creamDim }}>
-                      {BIZ.rating} · {BIZ.reviews} reseñas
-                    </span>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-            <Reveal>
-              <figure className="relative">
-                <div
-                  className="absolute -top-3 -left-3 w-full h-full rounded-md"
-                  style={{ border: `1px solid rgba(255,196,0,0.5)` }}
-                  aria-hidden="true"
-                />
-                <Image
-                  src={`${IMG}/van.webp`}
-                  alt="Furgón de MS Electric SPA con logo y servicios rotulados"
-                  width={900}
-                  height={1600}
-                  priority
-                  className="relative rounded-md w-full h-auto max-h-[520px] object-cover"
-                  style={{ objectPosition: '50% 30%' }}
-                />
-                <figcaption
-                  className="absolute bottom-3 left-3 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em] px-2 py-1 rounded-sm"
-                  style={{ backgroundColor: 'rgba(16,18,22,0.85)', color: C.volt }}
-                >
-                  Unidad móvil · a domicilio
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
-
+      {/* ── HERO: hoja de servicio sobre el furgón ── */}
+      <section id="inicio" className="relative">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-10 md:pb-14">
           <Reveal>
-            <dl
-              className="mt-14 md:mt-18 grid grid-cols-1 sm:grid-cols-3 gap-px rounded-md overflow-hidden"
-              style={{ backgroundColor: C.lineDark, border: `1px solid ${C.lineDark}` }}
+            <div className="flex flex-wrap gap-2">
+              <MonoTag>Instalador certificado</MonoTag>
+              <MonoTag>{BIZ.region}</MonoTag>
+            </div>
+          </Reveal>
+          <Reveal>
+            <h1
+              className="font-[var(--font-display)] font-extrabold uppercase leading-[0.9] mt-6 text-[clamp(3rem,12vw,7.5rem)]"
+              style={{ color: C.ink }}
             >
-              {[
-                ['Dirección', `${BIZ.address}, ${BIZ.city}`],
-                ['Horario', 'Lun a Sáb · 8:00 a 19:00'],
-                ['Contacto', BIZ.phoneDisplay],
-              ].map(([k, v]) => (
-                <div key={k} className="px-4 py-3" style={{ backgroundColor: C.carbonSoft }}>
-                  <dt className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em]" style={{ color: C.volt }}>
-                    {k}
-                  </dt>
-                  <dd className="mt-1 text-sm font-medium" style={{ color: '#F2EFE9' }}>
-                    {v}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+              La luz que
+              <br />
+              <span style={{ color: C.blue }}>no te falla</span>
+            </h1>
+          </Reveal>
+          <Reveal>
+            <div className="mt-7 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+              <p className="max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.muted }}>
+                Electricidad, empalmes, CCTV y climatización para casas y
+                empresas del Maule. Trabajo con garantía, a la hora acordada.
+              </p>
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="tap-44 inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-bold uppercase tracking-wide active:scale-95 transition-transform"
+                style={{ backgroundColor: C.orange, color: C.ink }}
+              >
+                Cotizar por WhatsApp
+              </a>
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <figure className="relative">
+              <div
+                aria-hidden="true"
+                className="absolute -top-3 -right-3 w-full h-full"
+                style={{ border: `2px solid ${C.orange}` }}
+              />
+              <Image
+                src={`${IMG}/van.webp`}
+                alt="Furgón de MS Electric SPA rotulado con sus servicios y teléfono"
+                width={900}
+                height={1600}
+                priority
+                className="relative w-full h-auto max-h-[560px] object-cover"
+                style={{ objectPosition: '50% 42%', border: `1px solid ${C.line}` }}
+              />
+              <figcaption
+                className="absolute bottom-0 inset-x-0 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-2.5 font-[var(--font-mono)] text-[10px] md:text-xs uppercase tracking-[0.16em]"
+                style={{ backgroundColor: 'rgba(15,30,58,0.92)', color: '#F3F5F8' }}
+              >
+                <span>Unidad móvil · a domicilio en el Maule</span>
+                <span className="inline-flex items-center gap-1.5" style={{ color: '#FFC233' }}>
+                  <Stars value={5} color="#FFC233" className="w-3 h-3" />
+                  {BIZ.rating} · {BIZ.reviews} reseñas
+                </span>
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
 
-      {/* ── TABLERO DE SERVICIOS ── */}
+      {/* ── SERVICIOS: planilla de obra ── */}
       <section id="servicios" style={{ backgroundColor: C.paper }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-14">
               <div>
-                <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: C.muted }}>
-                  Servicios · tablero general
+                <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: C.orangeInk }}>
+                  Servicios · planilla
                 </p>
                 <h2
                   className="font-[var(--font-display)] font-extrabold uppercase leading-[0.95] text-[clamp(2.2rem,7vw,4rem)]"
                   style={{ color: C.ink }}
                 >
-                  Todo lo que corre
-                  <br />
-                  por tus cables
+                  Lo que cubre la visita
                 </h2>
               </div>
-              <Tag>Cada circuito, revisado</Tag>
+              <MonoTag>Cada circuito, revisado</MonoTag>
             </div>
           </Reveal>
 
-          <div className="rounded-lg overflow-hidden" style={{ border: `1px solid ${C.lineLight}`, backgroundColor: '#FBFAF7' }}>
-            {CIRCUITOS.map((s, i) => (
-              <Reveal key={s.n}>
-                <div
-                  className="grid grid-cols-[auto_auto_1fr] sm:grid-cols-[auto_auto_1fr_auto] items-center gap-x-4 gap-y-1 px-4 md:px-6 py-4"
-                  style={{ borderTop: i === 0 ? 'none' : `1px solid ${C.lineLight}` }}
-                >
-                  <span className="font-[var(--font-mono)] text-xs font-semibold" style={{ color: C.muted }}>
-                    {s.n}
-                  </span>
-                  <span
-                    className="w-2.5 h-2.5 rounded-[2px]"
-                    style={{ backgroundColor: C.volt, boxShadow: '0 0 0 3px rgba(255,196,0,0.18)' }}
-                    aria-hidden="true"
-                  />
-                  <div>
+          <div
+            className="grid sm:grid-cols-2 gap-px"
+            style={{ backgroundColor: C.line, border: `1px solid ${C.line}` }}
+          >
+            {SERVICIOS.map((s) => (
+              <div key={s.n} className="px-5 py-5 md:px-7 md:py-6" style={{ backgroundColor: C.panel }}>
+                <Reveal>
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-[var(--font-mono)] text-xs font-semibold" style={{ color: C.orange }}>
+                      [{s.n}]
+                    </span>
                     <h3
                       className="font-[var(--font-display)] font-bold uppercase tracking-wide text-xl md:text-2xl leading-none"
                       style={{ color: C.ink }}
                     >
                       {s.name}
                     </h3>
-                    <p className="text-sm mt-1 leading-snug" style={{ color: C.muted }}>
-                      {s.desc}
-                    </p>
                   </div>
-                  <span
-                    className="hidden sm:block font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em] px-2 py-0.5 rounded-sm"
-                    style={{ color: C.muted, border: `1px dashed ${C.lineLight}` }}
-                  >
-                    ON
-                  </span>
-                </div>
-              </Reveal>
+                  <p className="text-sm mt-2 leading-snug max-w-sm" style={{ color: C.muted }}>
+                    {s.desc}
+                  </p>
+                </Reveal>
+              </div>
             ))}
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tap-44 sm:col-span-2 px-5 py-3.5 md:px-7 md:py-5 flex items-center justify-between gap-4 group"
+              style={{ backgroundColor: C.ink }}
+            >
+              <span className="font-[var(--font-display)] font-bold uppercase tracking-wide text-lg md:text-xl" style={{ color: '#F3F5F8' }}>
+                ¿Tu caso no está en la lista?
+              </span>
+              <span className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]" style={{ color: '#FFC233' }}>
+                Pregunta por WhatsApp →
+              </span>
+            </a>
           </div>
 
           <Reveal>
@@ -316,91 +288,108 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── TRABAJOS ── */}
-      <section id="trabajos" style={{ backgroundColor: C.carbon }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <Reveal>
-            <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: C.volt }}>
-              Registro fotográfico
-            </p>
-            <h2
-              className="font-[var(--font-display)] font-extrabold uppercase leading-[0.95] text-[clamp(2.2rem,7vw,4rem)] mb-10 md:mb-14"
-              style={{ color: '#F2EFE9' }}
-            >
-              Trabajo que se ve
-            </h2>
-          </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {TRABAJOS.map((t, i) => (
-              <Reveal key={t.src}>
-                <figure className={i === 0 ? 'col-span-2 row-span-2' : ''}>
-                  <div className="relative overflow-hidden rounded-md" style={{ border: `1px solid ${C.lineDark}` }}>
-                    <Image
-                      src={t.src}
-                      alt={t.alt}
-                      width={1200}
-                      height={1600}
-                      className={`w-full object-cover ${i === 0 ? 'h-full aspect-[4/5] md:aspect-auto' : 'aspect-[3/4]'}`}
-                    />
-                    <span
-                      className="absolute top-2 left-2 font-[var(--font-mono)] text-[9px] uppercase tracking-[0.18em] px-1.5 py-0.5 rounded-sm"
-                      style={{ backgroundColor: 'rgba(16,18,22,0.8)', color: C.volt }}
-                    >
-                      {t.tag}
-                    </span>
-                  </div>
-                </figure>
-              </Reveal>
+      {/* ── TERRENO: informe fotográfico en carrusel ── */}
+      <section id="terreno" style={{ backgroundColor: C.ink }}>
+        <div className="py-16 md:py-24">
+          <div className="max-w-6xl mx-auto px-5 md:px-8">
+            <Reveal>
+              <div className="flex flex-wrap items-end justify-between gap-4">
+                <div>
+                  <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: '#FFC233' }}>
+                    Registro en terreno
+                  </p>
+                  <h2
+                    className="font-[var(--font-display)] font-extrabold uppercase leading-[0.95] text-[clamp(2.2rem,7vw,4rem)]"
+                    style={{ color: '#F3F5F8' }}
+                  >
+                    Instalado, no
+                    <br />
+                    prometido
+                  </h2>
+                </div>
+                <p
+                  className="font-[var(--font-mono)] text-[11px] uppercase tracking-[0.18em] pb-1"
+                  style={{ color: 'rgba(243,245,248,0.6)' }}
+                >
+                  Desliza →
+                </p>
+              </div>
+            </Reveal>
+          </div>
+          <div
+            className="mt-10 md:mt-14 flex gap-3 overflow-x-auto px-5 md:px-8 pb-4 snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none' }}
+          >
+            {INFORME.map((t) => (
+              <figure
+                key={t.src}
+                className="relative shrink-0 w-[240px] md:w-[300px] snap-start"
+              >
+                <Image
+                  src={t.src}
+                  alt={t.alt}
+                  width={675}
+                  height={1200}
+                  className="w-full aspect-[3/4] object-cover"
+                  style={{ border: `1px solid rgba(243,245,248,0.2)` }}
+                />
+                <figcaption
+                  className="absolute top-2 left-2 font-[var(--font-mono)] text-[9px] uppercase tracking-[0.18em] px-1.5 py-0.5"
+                  style={{ backgroundColor: C.orange, color: C.ink }}
+                >
+                  {t.fig} · {t.tag}
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── RESEÑAS ── */}
-      <section id="resenas" style={{ backgroundColor: C.carbonSoft }}>
+      {/* ── OPINIONES ── */}
+      <section id="opiniones" style={{ backgroundColor: C.paperDeep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16">
             <Reveal>
               <div>
-                <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: C.volt }}>
-                  Reseñas de Google
+                <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: C.orangeInk }}>
+                  Opiniones de Google
                 </p>
                 <div className="flex items-end gap-4">
                   <span
                     className="font-[var(--font-display)] font-extrabold leading-none text-[clamp(4.5rem,16vw,8rem)]"
-                    style={{ color: '#F2EFE9' }}
+                    style={{ color: C.ink }}
                   >
                     {BIZ.rating}
                   </span>
                   <div className="pb-3">
-                    <Stars value={5} color={C.volt} className="w-4.5 h-4.5" />
-                    <p className="font-[var(--font-mono)] text-xs mt-2" style={{ color: C.creamDim }}>
+                    <Stars value={5} color={C.orange} className="w-4.5 h-4.5" />
+                    <p className="font-[var(--font-mono)] text-xs mt-2" style={{ color: C.muted }}>
                       {BIZ.reviews} reseñas · todas 5 estrellas
                     </p>
                   </div>
                 </div>
-                <p className="mt-6 text-base leading-relaxed max-w-sm" style={{ color: C.creamDim }}>
+                <p className="mt-6 text-base leading-relaxed max-w-sm" style={{ color: C.muted }}>
                   Puntualidad, honestidad y garantía son las palabras que más
                   repiten sus clientes en el Maule.
                 </p>
               </div>
             </Reveal>
-            <div className="grid sm:grid-cols-2 gap-3">
-              {RESENAS.map((r) => (
+            <div>
+              {RESENAS.map((r, i) => (
                 <Reveal key={r.nombre}>
                   <blockquote
-                    className="h-full rounded-md p-5 flex flex-col"
-                    style={{ backgroundColor: C.panel, border: `1px solid ${C.lineDark}` }}
+                    className="py-5"
+                    style={{ borderTop: i === 0 ? `2px solid ${C.ink}` : `1px solid ${C.line}` }}
                   >
-                    <Stars value={5} color={C.volt} className="w-3 h-3" />
-                    <p className="mt-3 text-sm leading-relaxed flex-1" style={{ color: 'rgba(242,239,233,0.85)' }}>
+                    <Stars value={5} color={C.orange} className="w-3 h-3" />
+                    <p className="mt-3 text-base leading-relaxed" style={{ color: C.ink }}>
                       “{r.texto}”
                     </p>
                     <footer
-                      className="mt-4 font-[var(--font-mono)] text-[11px] uppercase tracking-[0.16em]"
-                      style={{ color: C.volt }}
+                      className="mt-3 font-[var(--font-mono)] text-[11px] uppercase tracking-[0.16em]"
+                      style={{ color: C.orangeInk }}
                     >
-                      {r.nombre}
+                      {r.nombre} · Google
                     </footer>
                   </blockquote>
                 </Reveal>
@@ -410,13 +399,13 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── CONTACTO + MAPA ── */}
-      <section id="contacto" style={{ backgroundColor: C.paper }}>
+      {/* ── AGENDA + MAPA ── */}
+      <section id="agenda" style={{ backgroundColor: C.paper }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
             <div>
               <Reveal>
-                <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: C.muted }}>
+                <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: C.orangeInk }}>
                   Contacto directo
                 </p>
                 <h2
@@ -463,18 +452,18 @@ export default function Page() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="tap-44 mt-8 inline-flex items-center gap-2 rounded-sm px-6 py-3 text-base font-bold uppercase tracking-wide active:scale-95 transition-transform"
-                  style={{ backgroundColor: C.ink, color: '#F2EFE9' }}
+                  className="tap-44 mt-8 inline-flex items-center gap-2 px-6 py-3 text-base font-bold uppercase tracking-wide active:scale-95 transition-transform"
+                  style={{ backgroundColor: C.ink, color: '#F3F5F8' }}
                 >
-                  Pedir cotización
+                  Cotizar por WhatsApp
                 </a>
               </Reveal>
             </div>
             <Reveal>
-              <div className="rounded-lg overflow-hidden" style={{ border: `1px solid ${C.lineLight}` }}>
+              <div style={{ border: `1px solid ${C.line}` }}>
                 <LazyMap
                   src={MAPS_EMBED}
-                  title={`Mapa de ${BIZ.name} en ${BIZ.city}`}
+                  title={`Ubicación de ${BIZ.name} en ${BIZ.address}, ${BIZ.city}`}
                   className="w-full h-[300px] md:h-[380px] block"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -486,26 +475,26 @@ export default function Page() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer style={{ backgroundColor: C.carbon, borderTop: `1px solid ${C.lineDark}` }}>
+      <footer style={{ backgroundColor: C.ink }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 pb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Image src={`${IMG}/logo.webp`} alt="" width={32} height={32} className="rounded-full" aria-hidden="true" />
+            <Image src={`${IMG}/logo.webp`} alt="" width={36} height={36} className="h-8 w-8 rounded-full" aria-hidden="true" />
             <div>
-              <p className="font-[var(--font-display)] font-bold uppercase tracking-wide text-sm" style={{ color: '#F2EFE9' }}>
+              <p className="font-[var(--font-display)] font-bold uppercase tracking-wide text-sm" style={{ color: '#F3F5F8' }}>
                 {BIZ.name}
               </p>
-              <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.18em]" style={{ color: C.creamDim }}>
-                {BIZ.rubro} · {BIZ.city}, Región del Maule
+              <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.16em]" style={{ color: 'rgba(243,245,248,0.6)' }}>
+                {BIZ.rubro} · {BIZ.city}
               </p>
             </div>
           </div>
-          <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.16em]" style={{ color: C.creamDim }}>
-            {BIZ.phoneDisplay} · Lun–Sáb 8:00–19:00
+          <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.14em]" style={{ color: 'rgba(243,245,248,0.6)' }}>
+            {BIZ.address} · {BIZ.phoneDisplay}
           </p>
         </div>
       </footer>
 
-      <WaFab href={WA_LINK} label="Cotizar por WhatsApp" />
+      <WaFab href={WA_LINK} label="Cotizar un trabajo eléctrico por WhatsApp" />
     </main>
   )
 }
