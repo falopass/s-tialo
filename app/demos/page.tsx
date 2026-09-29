@@ -3509,6 +3509,14 @@ const BLITZ = [
     tagline: 'El cartel del campo: papel, teja y oliva, escenas bosquejo marcadas y fotos reales del sector.',
     gradient: 'linear-gradient(135deg, #F3E9D5 0%, #B4542E 120%, #333B1F 190%)',
   },
+  {
+    slug: 'cabanasdelpinar',
+    name: 'Cabañas del Pinar',
+    rubro: 'Cabañas y hospedaje',
+    city: 'Curepto',
+    tagline: 'Casas sobre pilotes: paneles blancos suspendidos en postes, verde pino del logo de tres árboles.',
+    gradient: 'linear-gradient(135deg, #F5F3EA 0%, #1E3B2A 120%, #A87E4F 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
