@@ -2551,6 +2551,22 @@ const BLITZ = [
     tagline: 'La pizarra verde de Quechereguas: crema de papel, Gloock de época, vitrina con tortas, kuchen y el gramófono del local.',
     gradient: 'linear-gradient(135deg, #F6F0E0 0%, #FBF7EA 45%, #2E5B34 150%)',
   },
+  {
+    slug: 'buses-villar',
+    name: 'Buses Villar',
+    rubro: 'Transporte de pasajeros y turismo',
+    city: 'Talca',
+    tagline: 'Panel de salidas: navy terminal, amarillo señalética y la flota ficha por ficha de su propio sitio.',
+    gradient: 'linear-gradient(135deg, #04152B 0%, #0B2A54 55%, #F6C90E 160%)',
+  },
+  {
+    slug: 'centro-de-eventos-fortunata-tejos',
+    name: 'Centro de Eventos Fortunata Tejos',
+    rubro: 'Centro de eventos',
+    city: 'Talca',
+    tagline: 'Cartelera del 12 Sur: noche borgoña, luz de vela y el salón de madera en fotos reales.',
+    gradient: 'linear-gradient(135deg, #1D0E12 0%, #3A1520 55%, #E5A33D 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
