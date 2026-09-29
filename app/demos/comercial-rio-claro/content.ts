@@ -7,7 +7,9 @@
  * 9:00–13:00, domingo cerrado), 5,0 estrellas con 3 reseñas y los
  * textos de esas reseñas. Los productos citados corresponden a lo
  * que se ve en las fotos del propio negocio (Winkler, CleanCarrier,
- * Ovella). Precios: se cotizan por WhatsApp.
+ * Ovella) y en sus posts de Instagram (jabones, cubre calzado).
+ * Precios: se cotizan por WhatsApp. El logo (logo.webp) es la foto
+ * de perfil real de @comercial.rioclaro.
  */
 
 export const BIZ = {

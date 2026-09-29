@@ -86,6 +86,24 @@ const LINEAS = [
       { src: `${IMG}/papel.webp`, alt: 'Torres de toalla Nova Ovella y cajas ProPaper apiladas en el stock del local' },
     ],
   },
+  {
+    n: '04',
+    name: 'Jabones Winkler',
+    tags: ['Jabón líquido 1 L', 'Yoghurt berries', 'Jabón mecánico WK-116'],
+    detalle: 'Del neutro perlado para el baño del negocio al mecánico que corta la grasa de las manos del taller.',
+    shots: [
+      { src: `${IMG}/jabon.webp`, alt: 'Botella de 1 litro de jabón líquido neutro Winkler con dosificador' },
+    ],
+  },
+  {
+    n: '05',
+    name: 'Cubre calzado CleanCarrier',
+    tags: ['Pack ×100', 'Antideslizante', 'Negro y celeste'],
+    detalle: 'Cubre zapatos descartable para visitas, faenas y áreas limpias — entra el cliente, no el barro.',
+    shots: [
+      { src: `${IMG}/cubre.webp`, alt: 'Cubre calzado antideslizante CleanCarrier negro puesto sobre zapatos de trabajo' },
+    ],
+  },
 ]
 
 const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-3'
@@ -115,6 +133,7 @@ export default function ComercialRioClaroPage() {
         name={<span className={`${display.className} font-bold uppercase tracking-[0.04em]`}>{BIZ.name}</span>}
         links={NAV_LINKS}
         waLink={WA_LINK}
+        logoSrc={`${IMG}/logo.webp`}
         fontClass={`${display.className} font-bold uppercase tracking-[0.04em]`}
         ctaLabel="Cotizar"
         theme={{
@@ -370,7 +389,22 @@ export default function ComercialRioClaroPage() {
                     Foto publicada por el negocio en su ficha de Google
                   </figcaption>
                 </figure>
-                <ol className="border-t" style={{ borderColor: C.line }}>
+                <figure>
+                  <div className="relative aspect-square overflow-hidden" style={{ boxShadow: `0 0 0 1px ${C.line}` }}>
+                    <Image
+                      src={`${IMG}/mantenedor.webp`}
+                      alt="Bidón de 5 litros de mantenedor de pisos Winkler aroma floral"
+                      fill
+                      sizes="(min-width: 1024px) 340px, (min-width: 640px) 45vw, 90vw"
+                      className="object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption className={`${mono.className} mt-3 text-[10px] uppercase tracking-[0.16em]`} style={{ color: C.muted }}>
+                    Producto publicado en Instagram @{BIZ.instagram}
+                  </figcaption>
+                </figure>
+                <ol className="border-t sm:col-span-2 lg:col-span-1" style={{ borderColor: C.line }}>
                   {[
                     'Marcas la línea en la nota',
                     'La mandas por WhatsApp',
@@ -516,7 +550,11 @@ export default function ComercialRioClaroPage() {
       <footer style={{ backgroundColor: C.deep, color: C.crema }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <p className={`${display.className} font-bold uppercase tracking-[0.04em] text-xl md:text-2xl mb-1.5`}>{BIZ.name}</p>
+            <p className={`${display.className} font-bold uppercase tracking-[0.04em] text-xl md:text-2xl mb-1.5 flex items-center gap-2.5`}>
+              {/* eslint-disable-next-line @next/next/no-img-element -- logo real del perfil, ya optimizado */}
+              <img src={`${IMG}/logo.webp`} alt="" className="h-9 w-9 rounded-full object-cover bg-white" />
+              {BIZ.name}
+            </p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(246,241,231,0.8)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
