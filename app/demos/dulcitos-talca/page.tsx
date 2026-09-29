@@ -165,8 +165,8 @@ export default function Page() {
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-4 text-base md:text-lg leading-relaxed max-w-md" style={{ color: C.muted }}>
-                Horneamos todos los días en 14 Oriente, dentro del CREA. Venezolanos
-                haciendo el pan de los talquinos.
+                Horneamos de lunes a sábado en 14 Oriente, diagonal al Hospital
+                Regional. Venezolanos haciendo el pan de los talquinos.
               </p>
             </Reveal>
             <Reveal delay={220}>
@@ -304,9 +304,9 @@ export default function Page() {
             </Reveal>
             <Reveal delay={100}>
               <p className="mt-4 text-base md:text-lg leading-relaxed max-w-xl" style={{ color: C.deepMuted }}>
-                Dulcitos ya le hace el pan de hamburguesa, perro caliente y
-                sándwich a locales de comida rápida del Maule. Cuéntanos tu
-                volumen y te cotizamos.
+                Dulcitos ya abastece locales de comida rápida, cafeterías y
+                pastelerías, y despacha a Talca, Linares y alrededores. Cuéntanos
+                tu volumen y te cotizamos.
               </p>
             </Reveal>
             <Reveal delay={180}>
@@ -424,13 +424,12 @@ export default function Page() {
                 className="text-4xl md:text-6xl uppercase leading-[0.95]"
                 style={{ fontFamily: 'var(--f-d)', fontWeight: 700 }}
               >
-                En el CREA, Talca
+                Diagonal al Hospital
               </h2>
             </Reveal>
             <Reveal delay={100}>
               <p className="mt-4 text-base leading-relaxed" style={{ color: C.muted }}>
-                {BIZ.address}. {BIZ.addressNote}. Abre de {BIZ.hours}; confirma
-                el horario del día en su ficha de Google.
+                {BIZ.address}: {BIZ.addressNote}. Abre de {BIZ.hours}.
               </p>
             </Reveal>
             <Reveal delay={160}>
