@@ -156,11 +156,11 @@ function Rueda({ className = 'w-20 h-20' }: { className?: string }) {
   )
 }
 
-function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
+function Eyebrow({ children, dark = false, color }: { children: React.ReactNode; dark?: boolean; color?: string }) {
   return (
     <p
       className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.26em] mb-4 font-bold`}
-      style={{ color: dark ? C.yellow : C.green }}
+      style={{ color: color ?? (dark ? C.yellow : C.green) }}
     >
       {children}
     </p>
@@ -366,11 +366,11 @@ export default function RestaurantLaRuedaPage() {
               <Rueda className="lr-gira w-28 h-28 md:w-40 md:h-40" />
             </div>
             <Reveal>
-              <Eyebrow>Delivery y para llevar</Eyebrow>
+              <Eyebrow color="#124E28">Delivery y para llevar</Eyebrow>
               <h2 className={`${display.className} font-extrabold uppercase leading-[0.96] text-[clamp(2.1rem,7vw,4.4rem)] mb-5`}>
                 La rueda gira
                 <br />
-                <span style={{ color: C.red }}>y el pedido sale</span>
+                <span style={{ color: '#B02820' }}>y el pedido sale</span>
               </h2>
               <p className="text-sm md:text-base leading-relaxed max-w-md mb-7 font-semibold" style={{ color: '#4A3A12' }}>
                 Chorrillanas dobles, completos gigantes y almuerzos en caja:
@@ -511,8 +511,8 @@ export default function RestaurantLaRuedaPage() {
       {/* ── Ubicación ── */}
       <section id="ubicacion" className="scroll-mt-20" style={{ backgroundColor: C.night }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div className="min-w-0">
               <Reveal>
                 <Eyebrow dark>Cómo llegar · K-16</Eyebrow>
                 <address className="not-italic mb-6">
@@ -571,7 +571,7 @@ export default function RestaurantLaRuedaPage() {
               </Reveal>
             </div>
             <Reveal delay={120}>
-              <div className="relative overflow-hidden border-2 aspect-[4/3] min-h-[300px]" style={{ borderColor: 'rgba(255,246,227,0.3)' }}>
+              <div className="relative overflow-hidden border-2 min-h-[300px] md:aspect-[4/3]" style={{ borderColor: 'rgba(255,246,227,0.3)' }}>
                 <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
