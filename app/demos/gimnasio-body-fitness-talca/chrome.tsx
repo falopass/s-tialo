@@ -3,6 +3,7 @@ import { BlitzNav, WaFab } from '../blitz-kit'
 import { BIZ, WA_LINK } from './content'
 
 const NAV_LINKS = [
+  { label: 'Reseñas', href: '#resenas' },
   { label: 'Qué encuentras', href: '#equipamiento' },
   { label: 'La sala', href: '#sala' },
   { label: 'Horario y ubicación', href: '#contacto' },

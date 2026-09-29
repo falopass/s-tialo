@@ -8,8 +8,26 @@ export const BIZ = {
     { days: 'Domingo', time: 'Cerrado' },
   ],
   equipment: ['Máquinas de entrenamiento', 'Pesas'],
+  rating: 4.7,
+  reviewCount: 269,
   photoAlt: 'Interior de Gimnasio Body Fitness Talca, foto de su ficha de Google Maps',
 }
+
+/** Reseñas textuales publicadas en la ficha de Google Maps del gimnasio. */
+export const RESENAS = [
+  {
+    text: 'El mejor y clásico gimnasio de Talca… buen ambiente hoy. Uno va a entrenar y ya! Céntrico.',
+    author: 'Paola Muñoz Parada',
+  },
+  {
+    text: 'Este GYM cuenta con excelentes máquinas para aumentar masa muscular. Se nota que son bien mantenidas. El ambiente es grato y cordial.',
+    author: 'Gustavo A.',
+  },
+  {
+    text: 'Excelentes máquinas y atención, muy limpio y bien atendido, no te amarran con planes como los otros.',
+    author: 'D.',
+  },
+] as const
 
 const IMG = '/demos/gimnasio-body-fitness-talca'
 
@@ -30,4 +48,7 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
   `${BIZ.name}, ${BIZ.address}`,
 )}&output=embed`
 
-// Fuentes consultadas: ficha de Google Maps (nombre, dirección, teléfono, horario y 5 fotos reales de la sala); reseñas públicas de Google Maps mencionan máquinas y pesas. La página de Facebook enlazada desde Maps solicita inicio de sesión; no se encontró un Instagram verificable.
+// Fuentes consultadas: ficha de Google Maps (nombre, dirección, teléfono, horario,
+// rating 4.7 de 269 reseñas y 5 fotos reales de la sala); reseñas citadas verbatim
+// de la ficha de Google. La página de Facebook enlazada desde Maps solicita inicio
+// de sesión, así que no hay logo descargable; no se encontró un Instagram verificable.
