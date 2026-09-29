@@ -3661,6 +3661,14 @@ const BLITZ = [
     tagline: 'La carta del mar: arena, teal de su logo de ola y sus precios reales en pauta de carta de pared.',
     gradient: 'linear-gradient(135deg, #F4EAD6 0%, #0E5258 110%, #C05A28 190%)',
   },
+  {
+    slug: 'cazuelas-day-s',
+    name: "Cazuelas Day's",
+    rubro: 'Restaurante de carretera',
+    city: 'Retiro',
+    tagline: 'La parada del km 328: señalética de ruta, rojo del letrero real y la cazuela que recomiendan los camioneros.',
+    gradient: 'linear-gradient(135deg, #191714 0%, #A61E1E 90%, #F4EDDC 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
