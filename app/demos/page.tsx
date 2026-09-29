@@ -4645,6 +4645,14 @@ const BLITZ = [
     tagline: 'Pizarra de colaciones: negro café, tomate y los afiches reales del menú del día que publica en su Facebook.',
     gradient: 'linear-gradient(135deg, #1E1710 0%, #D34524 110%, #4C6B3A 200%)',
   },
+  {
+    slug: 'rosita-cocina-chilena',
+    name: 'Rosita Cocina Chilena',
+    rubro: 'Restaurante',
+    city: 'Linares',
+    tagline: 'Pizarra de almuerzo: verde tiza, crema y teja, con la carta y fotos reales del local.',
+    gradient: 'linear-gradient(135deg, #182A20 0%, #22372B 55%, #C14B2A 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
