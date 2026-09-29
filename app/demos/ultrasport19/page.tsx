@@ -480,13 +480,13 @@ export default function Ultrasport19Page() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-baseline gap-3 px-4 py-3 sm:block sm:py-4 sm:border-r-[3px] last:border-r-0 border-b-[3px] sm:border-b-0 last:border-b-0 hover:bg-[#ECEAE0] transition-colors tap-44"
+                  className="flex items-center gap-2.5 px-3.5 py-2.5 sm:block sm:py-4 sm:border-r-[3px] last:border-r-0 border-b-[3px] sm:border-b-0 last:border-b-0 hover:bg-[#ECEAE0] transition-colors tap-44"
                   style={{ borderColor: C.ink }}
                 >
                   <p className={`${display.className} font-black text-2xl leading-none`} style={{ color: C.slate }}>
                     {s.v}
                   </p>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.14em] sm:mt-1.5" style={{ color: 'rgba(16,20,24,0.6)' }}>
+                  <p className="font-mono text-[9px] leading-tight uppercase tracking-[0.1em] sm:mt-1.5" style={{ color: 'rgba(16,20,24,0.6)' }}>
                     {s.l}
                   </p>
                 </a>
@@ -617,7 +617,7 @@ export default function Ultrasport19Page() {
                     href={WA_LINK_CLASE}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} block text-center font-black uppercase text-sm md:text-base px-6 py-3 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[5px_5px_0_#2F4858] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_#2F4858] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none tap-44`}
+                    className={`${display.className} block text-center font-black uppercase text-[13px] md:text-base px-4 py-2.5 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[5px_5px_0_#2F4858] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[3px_3px_0_#2F4858] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none tap-44`}
                     style={{ backgroundColor: C.yellow, color: C.ink, borderColor: C.ink }}
                   >
                     Escribir por WhatsApp →
@@ -646,11 +646,10 @@ export default function Ultrasport19Page() {
       {/* ── CTA final ── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: C.slateDeep }}>
         <div
-          className="absolute inset-0 opacity-[0.18]"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `url(${IMG}/hero.webp)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            background:
+              'linear-gradient(180deg, rgba(242,183,5,0.10) 0%, rgba(242,183,5,0.03) 100%)',
           }}
           aria-hidden="true"
         />

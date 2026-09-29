@@ -223,7 +223,7 @@ export default function FuenteDeSodaElValdiviano() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#0A1330' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6">
           <p className={`${display.className} text-xl md:text-2xl mb-2`} style={{ color: C.paper }}>{BIZ.name}</p>
           <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(248,239,217,0.62)' }}>
             {BIZ.address} · {BIZ.city}, {BIZ.region}
@@ -232,15 +232,14 @@ export default function FuenteDeSodaElValdiviano() {
           </address>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(248,239,217,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(248,239,217,0.7)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-12 text-xs leading-relaxed" style={{ color: 'rgba(248,239,217,0.7)' }}>
             Sitio de ejemplo preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.paper }}>
               Sitiazo
             </a>{' '}
-            para {BIZ.name}. Los datos son reales y salen de su ficha de
-            Google y del registro de SERNATUR; la única foto publicada es
-            la fachada, así que el diseño se apoya en la carta del
-            ventanal y no en imágenes inventadas.{' '}
+            para {BIZ.name}. Datos reales de su ficha de Google y SERNATUR;
+            su única foto es la fachada, así que el diseño se apoya en la
+            carta del ventanal, no en imágenes inventadas.{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#F5C842' }}>
               ¿Lo hacemos realidad?
             </a>

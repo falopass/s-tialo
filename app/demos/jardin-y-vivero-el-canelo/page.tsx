@@ -50,11 +50,8 @@ const NAV_LINKS = [
 
 const FOTOS = [
   { src: `${IMG}/invernadero.webp`, alt: 'Invernadero del vivero El Canelo visto desde el centro, con hileras de plantas', label: 'el túnel de las plantas' },
-  { src: `${IMG}/pasillo.webp`, alt: 'Pasillo interior del invernadero con mesas de plantas a ambos lados', label: 'el pasillo central' },
-  { src: `${IMG}/plantas.webp`, alt: 'Maceteros con flores de colores en el patio del vivero', label: 'floración en maceta' },
   { src: `${IMG}/galpon.webp`, alt: 'Interior del galpón del vivero con plantas y visitantes', label: 'adentro del galpón' },
   { src: `${IMG}/porton.webp`, alt: 'Portón de entrada del vivero El Canelo', label: 'la entrada' },
-  { src: `${IMG}/suculentas.webp`, alt: 'Suculentas variadas en maceteros del vivero El Canelo', label: 'suculentas' },
 ]
 
 export default function JardinViveroElCaneloPage() {
@@ -108,7 +105,7 @@ export default function JardinViveroElCaneloPage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(20,42,32,0.55) 0%, rgba(20,42,32,0.2) 45%, rgba(20,42,32,0.94) 100%)',
+              'linear-gradient(180deg, rgba(20,42,32,0.62) 0%, rgba(20,42,32,0.52) 45%, rgba(20,42,32,0.96) 100%)',
           }}
         />
         <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 pt-44">
@@ -146,14 +143,14 @@ export default function JardinViveroElCaneloPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} canelo-btn uppercase tracking-wide text-sm md:text-base px-7 py-3 rounded-full tap-44`}
+                className={`${display.className} canelo-btn uppercase tracking-wide text-[13px] md:text-base px-5 py-2.5 rounded-full tap-44`}
                 style={{ backgroundColor: C.sol, color: C.bosque }}
               >
                 Escribir por WhatsApp
               </a>
               <a
                 href="#llegar"
-                className={`${display.className} canelo-btn uppercase tracking-wide text-sm md:text-base px-7 py-3 rounded-full border-2 tap-44`}
+                className={`${display.className} canelo-btn uppercase tracking-wide text-[13px] md:text-base px-5 py-2.5 rounded-full border-2 tap-44`}
                 style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#fff' }}
               >
                 Cómo llegar
@@ -218,7 +215,7 @@ export default function JardinViveroElCaneloPage() {
                   href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${display.className} canelo-btn uppercase tracking-wide text-sm px-7 py-3 rounded-full tap-44`}
+                  className={`${display.className} canelo-btn uppercase tracking-wide text-[13px] px-5 py-2.5 rounded-full tap-44`}
                   style={{ backgroundColor: C.bosque, color: C.crema }}
                 >
                   Preguntar por una planta
@@ -387,7 +384,7 @@ export default function JardinViveroElCaneloPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} canelo-btn uppercase tracking-wide text-sm px-7 py-3 rounded-full tap-44`}
+                    className={`${display.className} canelo-btn uppercase tracking-wide text-[13px] px-5 py-2.5 rounded-full tap-44`}
                     style={{ backgroundColor: C.sol, color: C.bosque }}
                   >
                     WhatsApp {BIZ.phoneDisplay}
@@ -396,7 +393,7 @@ export default function JardinViveroElCaneloPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} canelo-btn uppercase tracking-wide text-sm px-7 py-3 rounded-full border-2 tap-44`}
+                    className={`${display.className} canelo-btn uppercase tracking-wide text-[13px] px-5 py-2.5 rounded-full border-2 tap-44`}
                     style={{ borderColor: 'rgba(255,255,255,0.55)', color: '#fff' }}
                   >
                     Abrir en Maps

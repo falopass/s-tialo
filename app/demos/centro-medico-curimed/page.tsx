@@ -141,8 +141,8 @@ export default function CentroMedicoCurimed() {
               ['WhatsApp', 'agenda directa'],
             ].map(([big, small]) => (
               <div key={big}>
-                <p className={`${display.className} text-xl md:text-2xl font-bold`} style={{ color: '#FFF8EA' }}>{big}</p>
-                <p className={`${mono.className} text-[11px] uppercase tracking-wider`} style={{ color: 'rgba(255,248,234,0.85)' }}>{small}</p>
+                <p className={`${display.className} text-xl md:text-2xl font-bold`} style={{ color: '#33230A' }}>{big}</p>
+                <p className={`${mono.className} text-[11px] uppercase tracking-wider`} style={{ color: '#4A3308' }}>{small}</p>
               </div>
             ))}
           </div>
@@ -336,7 +336,7 @@ export default function CentroMedicoCurimed() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: '#0A2E39' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="w-12 h-12 rounded-xl overflow-hidden bg-white">
               <Image src={`${IMG}/logo.webp`} alt="" width={48} height={48} className="w-full h-full object-cover object-left" />
@@ -352,16 +352,15 @@ export default function CentroMedicoCurimed() {
       </footer>
 
       <div style={{ backgroundColor: '#0A2E39', borderTop: '1px solid rgba(242,246,244,0.14)' }}>
-        <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(242,246,244,0.7)' }}>
+        <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-12 text-xs leading-relaxed" style={{ color: 'rgba(242,246,244,0.7)' }}>
           Sitio de ejemplo preparado por{' '}
           <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#F2F6F4' }}>
             Sitiazo
           </a>{' '}
-          para {BIZ.name}. Los datos y las fotos son reales: ficha de
-          Google, su Facebook y su sitio curimed.cl — que ya existe; este
-          demo es una propuesta de vitrina. La galería publica poco
-          material propio, así que usamos su letrero y sus afiches, sin
-          fabricar imágenes.{' '}
+          para {BIZ.name}. Datos y fotos reales de su ficha de Google, su
+          Facebook y su sitio curimed.cl — que ya existe; este demo es una
+          propuesta de vitrina con su letrero y afiches, sin fabricar
+          imágenes.{' '}
           <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#AEE3D2' }}>
             ¿Lo hacemos realidad?
           </a>

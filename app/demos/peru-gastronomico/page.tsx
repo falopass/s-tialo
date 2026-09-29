@@ -148,14 +148,14 @@ export default function Page() {
           <Reveal>
             <div className="flex items-end justify-between gap-4 flex-wrap">
               <div>
-                <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: 'rgba(251,246,236,0.55)' }}>
+                <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`} style={{ color: 'rgba(251,246,236,0.78)' }}>
                   Los precios, tal como están impresos
                 </p>
                 <h2 className={`${display.className} mt-3 text-3xl md:text-5xl tracking-tight`} style={{ color: C.papel, fontWeight: 560 }}>
                   La carta de la casa
                 </h2>
               </div>
-              <p className={`${mono.className} text-[11px] uppercase tracking-[0.16em]`} style={{ color: 'rgba(251,246,236,0.45)' }}>
+              <p className={`${mono.className} text-[11px] uppercase tracking-[0.16em]`} style={{ color: 'rgba(251,246,236,0.78)' }}>
                 Leída de su propia foto
               </p>
             </div>
@@ -290,19 +290,19 @@ export default function Page() {
               </h2>
               <dl className="mt-6 space-y-3 text-base">
                 <div className="flex gap-3">
-                  <dt className={`${mono.className} w-24 shrink-0 text-[11px] uppercase tracking-[0.14em] pt-1`} style={{ color: C.muted }}>
+                  <dt className={`${mono.className} w-24 shrink-0 text-[11px] uppercase tracking-[0.14em] pt-1`} style={{ color: '#6B5A44' }}>
                     Dirección
                   </dt>
                   <dd>{BIZ.address}, {BIZ.city}, {BIZ.region}</dd>
                 </div>
                 <div className="flex gap-3">
-                  <dt className={`${mono.className} w-24 shrink-0 text-[11px] uppercase tracking-[0.14em] pt-1`} style={{ color: C.muted }}>
+                  <dt className={`${mono.className} w-24 shrink-0 text-[11px] uppercase tracking-[0.14em] pt-1`} style={{ color: '#6B5A44' }}>
                     Horario
                   </dt>
                   <dd>{BIZ.hours}</dd>
                 </div>
                 <div className="flex gap-3">
-                  <dt className={`${mono.className} w-24 shrink-0 text-[11px] uppercase tracking-[0.14em] pt-1`} style={{ color: C.muted }}>
+                  <dt className={`${mono.className} w-24 shrink-0 text-[11px] uppercase tracking-[0.14em] pt-1`} style={{ color: '#6B5A44' }}>
                     Pedidos
                   </dt>
                   <dd className={mono.className}>
@@ -332,7 +332,7 @@ export default function Page() {
             <h2 className={`${display.className} mt-4 text-3xl md:text-5xl tracking-tight`} style={{ color: '#FFF6F0', fontWeight: 560 }}>
               ¿Un ceviche o un chupe hoy?
             </h2>
-            <p className="mt-3 text-base md:text-lg max-w-lg mx-auto" style={{ color: 'rgba(255,246,240,0.8)' }}>
+            <p className="mt-3 text-base md:text-lg max-w-lg mx-auto" style={{ color: '#FFF6F0' }}>
               Pedidos por WhatsApp o directo en Yungay 660 — abierto todos los días.
             </p>
             <a
