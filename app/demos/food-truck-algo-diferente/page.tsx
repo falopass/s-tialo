@@ -248,7 +248,7 @@ export default function AlgoDiferentePage() {
               </div>
               <div>
                 <p className={`${mono.className} text-[10px] uppercase tracking-[0.16em] mb-1`} style={{ color: C.muted }}>Atiende</p>
-                <p className={`${display.className} font-semibold uppercase text-base md:text-lg leading-tight`}>José Agurto</p>
+                <p className={`${display.className} font-semibold uppercase text-base md:text-lg leading-tight`}>{BIZ.dueno}</p>
               </div>
             </div>
           </div>
