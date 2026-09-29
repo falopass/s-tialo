@@ -2749,6 +2749,30 @@ const BLITZ = [
     tagline: 'Vitrina inmobiliaria en azul corporativo: cartera real con precios, su equipo y “Don Ricardo” según sus reseñas.',
     gradient: 'linear-gradient(135deg, #042C4E 0%, #063A66 60%, #00A0E3 170%)',
   },
+  {
+    slug: 'trazos-publicidad',
+    name: 'Trazos Publicidad',
+    rubro: 'Taller de imagen y rotulación',
+    city: 'Talca',
+    tagline: 'La cartelera de 5 Sur: azul marino con la Z lima, pendones colgados con sus wraps y la lista de la vitrina.',
+    gradient: 'linear-gradient(135deg, #0B1739 0%, #12245C 55%, #D8E22E 160%)',
+  },
+  {
+    slug: 'intersof',
+    name: 'Intersof',
+    rubro: 'Tienda de informática y soporte técnico',
+    city: 'Talca',
+    tagline: 'La vitrina morada de 9 Oriente: etiquetas de precio, cámaras de vigilancia, tóneres y su globe azul.',
+    gradient: 'linear-gradient(135deg, #24104E 0%, #5B1E8C 55%, #2E9BD6 160%)',
+  },
+  {
+    slug: 'colorjet-una-buena-impresion',
+    name: 'ColorJet',
+    rubro: 'Imprenta gráfica',
+    city: 'Talca',
+    tagline: 'La prueba de imprenta: marcas de registro, barras CMYK y el 5.0 perfecto de sus 29 reseñas.',
+    gradient: 'linear-gradient(135deg, #111111 0%, #2056C8 60%, #00B6D9 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
