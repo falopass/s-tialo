@@ -45,16 +45,16 @@ export const WA_LINK_EVENTO = `https://wa.me/${BIZ.whatsapp}?text=${encodeURICom
 )}`
 
 /**
- * Pin exacto del predio: el dueño lo va a mandar. Cuando llegue, pegar aquí
- * las coordenadas como 'lat,lng' (ej. '-35.0,-71.2'); mapa embebido y botón
- * «Cómo llegar» pasan a usarlo solos. Mientras sea null, se busca por nombre.
+ * Pin exacto del predio, enviado por el dueño el 29-09
+ * (https://maps.app.goo.gl/8EKRma4BUy3Hfc7r9). Mapa embebido y «Cómo llegar»
+ * usan estas mismas coordenadas.
  */
-const PIN: string | null = null
-const MAPS_Q = encodeURIComponent(PIN ?? 'Rancho Itahue, Molina, Chile')
+const PIN = '-35.130029,-71.331246'
 
-export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${MAPS_Q}`
+/** «Cómo llegar»: abre la ruta en Google Maps con destino al pin. */
+export const MAPS_URL = `https://www.google.com/maps/dir/?api=1&destination=${PIN}`
 
-export const MAPS_EMBED = `https://www.google.com/maps?q=${MAPS_Q}&z=15&output=embed`
+export const MAPS_EMBED = `https://maps.google.com/maps?q=${PIN}&z=15&output=embed`
 
 const IMG = '/demos/rancho-itahue'
 const F = `${IMG}/fotos`

@@ -63,8 +63,17 @@ Nuestras redes: Instagram "Rancho Itahue" y Facebook "Rancho Itahue, Molina. Chi
 > podrían usar.
 
 Notas de Diego: reseñas solo si son REALES de su ficha de Maps, citadas textual. El pin exacto
-viene en camino: se pega en `PIN` de `content.ts`. Redes: IG @ranchoitahue, FB /indomaule.
+va en `PIN` de `content.ts` (ver «Ubicación exacta» abajo). Redes: IG @ranchoitahue, FB /indomaule.
 Teléfonos: +56 9 9918 8169 / 9 3306 4953 / 9 4298 0891 (PlayPádel). Sitio anunciado: ranchoitahue.cl.
+
+## Ubicación exacta (pin enviado por el dueño, 29-09)
+
+- Latitud **-35.130029**, longitud **-71.331246**.
+- Enlace corto original: https://maps.app.goo.gl/8EKRma4BUy3Hfc7r9
+- Mapa embebido: `https://maps.google.com/maps?q=-35.130029,-71.331246&z=15&output=embed`
+- Cómo llegar: `https://www.google.com/maps/dir/?api=1&destination=-35.130029,-71.331246`
+- Coincide con lo que dijo: zona rural de Molina, sector Cerrillo Bascuñán, 5 km de la plaza y
+  2 km de la Ruta 5 Sur, entre Curicó y Molina.
 
 ## Negociación en curso (para saber el tono, no va en la página)
 
