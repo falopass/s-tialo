@@ -3093,6 +3093,30 @@ const BLITZ = [
     tagline: 'Cartel de esquina: amarillo de la fachada, azul del letrero y 681 reseñas reales.',
     gradient: 'linear-gradient(135deg, #F6B51E 0%, #C93A2E 90%, #12366E 170%)',
   },
+  {
+    slug: 'ramona-cafe',
+    name: 'Ramona Café',
+    rubro: 'Cafetería de especialidad',
+    city: 'Talca',
+    tagline: 'Diario de la barra: crema de papel, sello circular de su letrero y las dos casas de la mujer del café.',
+    gradient: 'linear-gradient(135deg, #F5EFE3 0%, #B0432F 120%, #2B1B12 200%)',
+  },
+  {
+    slug: 'emilia-coffee-cake',
+    name: 'Emilia Coffee & Cake',
+    rubro: 'Cafetería y pastelería',
+    city: 'Talca',
+    tagline: 'Salón de té: rosa empolvado, marcos ovalados dorados de su rótulo y el sillón del neón.',
+    gradient: 'linear-gradient(135deg, #FBF3F0 0%, #9E4E58 110%, #3A2B2C 200%)',
+  },
+  {
+    slug: 'cocineria-santa-teresa',
+    name: 'Cocinería Santa Teresa',
+    rubro: 'Cocinería — comida casera',
+    city: 'San Clemente',
+    tagline: 'El fogón de Perquín: trigo, teja y vapor de la olla; bosquejos marcados porque no tiene fotos publicadas.',
+    gradient: 'linear-gradient(135deg, #F1E4C8 0%, #A84E28 110%, #33503A 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
