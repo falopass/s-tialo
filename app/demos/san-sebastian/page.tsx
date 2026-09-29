@@ -28,7 +28,7 @@ const C = {
   card: '#FCF8EC',
   ink: '#26201A',
   muted: '#6E6152',
-  lapiz: '#C2402F',
+  lapiz: '#A83426',
   feria: '#2F5D3A',
   cinta: '#E4D6B4',
   line: 'rgba(38,32,26,0.2)',
