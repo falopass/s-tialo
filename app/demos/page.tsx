@@ -1403,8 +1403,8 @@ const BLITZ = [
     name: 'Centro Oftalmológico Nacional',
     rubro: 'Oftalmólogo y óptica',
     city: 'Talca',
-    tagline: 'Hero tipográfico con optotipo: azul profundo, cian y blanco clínico, vitrina de armazones con fotos reales.',
-    gradient: 'linear-gradient(135deg, #0B2740 0%, #123A5C 55%, #4FB7D9 140%)',
+    tagline: 'Ficha clínica añil oscura: letrero real del piso 2, vitrina de armazones y cartilla de horarios.',
+    gradient: 'linear-gradient(135deg, #161435 0%, #232052 60%, #9AA3F5 160%)',
   },
   {
     slug: 'luxe-gym-talca',
@@ -4036,14 +4036,6 @@ const BLITZ = [
     city: 'Talca',
     tagline: 'Espuma y frescura: celeste de letrero, burbujas y ciclo de lavado en 4 pasos.',
     gradient: 'linear-gradient(135deg, #EFF8FC 0%, #1284C4 55%, #08304A 130%)',
-  },
-  {
-    slug: 'centro-oftalmologico-nacional',
-    name: 'Centro Oftalmológico Nacional',
-    rubro: 'Oftalmología',
-    city: 'Talca',
-    tagline: 'Ficha clínica oscura: petróleo, cian médico y escena bosquejo de examen visual.',
-    gradient: 'linear-gradient(135deg, #07222B 0%, #12505E 60%, #4FD8D2 150%)',
   },
   {
     slug: 'club-formas',
