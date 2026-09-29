@@ -4725,6 +4725,14 @@ const BLITZ = [
     tagline: 'Central de emergencias: azul de piloto encendido sobre medianoche, cobre del calefont y urgencias a domicilio.',
     gradient: 'linear-gradient(135deg, #04090F 0%, #0A141F 55%, #4C9BFF 160%, #CD8148 210%)',
   },
+  {
+    slug: 'escuela-de-conductores-amateurs',
+    name: 'Escuela de Conductores Amateurs',
+    rubro: 'Escuela de conductores',
+    city: 'Talca',
+    tagline: 'Señalética vial: amarillo de letrero, asfalto y el auto rojo de práctica — 32 años y sus afiches reales.',
+    gradient: 'linear-gradient(135deg, #17181C 0%, #FFD200 130%, #C8102E 200%)',
+  },
 ]
 
 export const metadata: Metadata = {

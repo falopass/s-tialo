@@ -65,28 +65,28 @@ const SERVICIOS = [
   {
     num: 'S.01',
     src: `${IMG}/detalle1.webp`,
-    alt: 'Instrumental veterinario sobre mesa de acero: estetoscopio, otoscopio, termómetro y guantes',
+    alt: 'Dra. Karina Valenzuela, médico veterinario dermatóloga de CSF, en su box de atención',
     name: 'Consulta y diagnóstico',
     desc: 'Evaluación completa en box, con plan de tratamiento claro antes de cualquier procedimiento.',
   },
   {
     num: 'S.02',
     src: `${IMG}/detalle3.webp`,
-    alt: 'Ecógrafo junto a mesa de examen con vista al centro de Talca',
+    alt: 'Equipo de la clínica CSF trabajando en el interior del centro veterinario',
     name: 'Ecografía e imagenología',
     desc: 'Diagnóstico por imágenes dentro de la clínica, sin derivar a otro centro.',
   },
   {
     num: 'S.03',
     src: `${IMG}/detalle2.webp`,
-    alt: 'Recepción de la clínica con repisas de insumos y productos veterinarios',
+    alt: 'Edificio de la clínica veterinaria CSF visto desde la calle al atardecer',
     name: 'Vacunas y farmacia',
     desc: 'Calendario de vacunas, desparasitación e insumos veterinarios en el mismo lugar.',
   },
   {
     num: 'S.04',
-    src: `${IMG}/hero.webp`,
-    alt: 'Box de atención de la clínica: mesa de acero, ecógrafo y ventana con vista a Talca',
+    src: `${IMG}/pabellon.webp`,
+    alt: 'Médico veterinario de CSF en el pabellón durante un procedimiento quirúrgico',
     name: 'Cirugía y urgencias',
     desc: 'Procedimientos programados y atención de urgencia con el equipo de la casa.',
   },
@@ -195,12 +195,14 @@ export default function CsfVeterinariaPage() {
       >
         <div className="max-w-6xl mx-auto px-5 md:px-8 h-[60px] md:h-[68px] flex items-center justify-between gap-4">
           <a href="#inicio" className="flex items-center gap-2.5 leading-none tap-44">
-            <span
-              className={`${display.className} font-black text-base md:text-lg px-2 py-1 border-[3px]`}
-              style={{ backgroundColor: C.blue, color: C.white, borderColor: C.ink }}
-            >
-              CSF
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element -- logo real optimizado en public/ */}
+            <img
+              src={`${IMG}/logo.webp`}
+              alt=""
+              aria-hidden="true"
+              className="h-9 w-9 md:h-10 md:w-10 shrink-0 border-[3px] object-cover"
+              style={{ borderColor: C.ink }}
+            />
             <span className={`${display.className} font-extrabold uppercase text-xs md:text-sm tracking-[0.04em]`}>
               Especialidades
               <br className="md:hidden" /> Veterinarias
@@ -237,7 +239,7 @@ export default function CsfVeterinariaPage() {
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.ink }}>
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Box de atención de la clínica veterinaria CSF: mesa de acero, ecógrafo y ventana con vista a Talca"
+          alt="Recepción de la clínica veterinaria CSF: mesa curva blanca con el logo en la pared y sillas de espera"
           fill
           priority
           sizes="100vw"
@@ -398,7 +400,7 @@ export default function CsfVeterinariaPage() {
               <div className="relative aspect-[4/3]">
                 <Image
                   src={`${IMG}/ambiente.webp`}
-                  alt="Fachada de la clínica veterinaria a nivel de calle, con vitrina y perritos en la ventana"
+                  alt="Fachada de la clínica CSF de noche con el letrero de neón encendido"
                   fill
                   sizes="(min-width: 1024px) 45vw, 92vw"
                   className="object-cover"
