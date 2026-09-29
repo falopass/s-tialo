@@ -240,7 +240,7 @@ export default function EscuelaDeConductoresAmateurs() {
           ))}
         </div>
         <Reveal delay={80}>
-          <p className={`${mono.className} mt-4 text-[11px] uppercase tracking-wider`} style={{ color: C.muted }}>
+          <p className={`${mono.className} mt-4 text-[11px] uppercase tracking-wider break-all`} style={{ color: C.muted }}>
             @{BIZ.ig} · facebook.com/EscueladeConductoresAmateurs
           </p>
         </Reveal>
@@ -312,21 +312,22 @@ export default function EscuelaDeConductoresAmateurs() {
             <a href={`tel:${BIZ.wa}`} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(245,241,230,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(245,241,230,0.7)' }}>
-            Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.cream }}>
-              Sitiazo
-            </a>{' '}
-            para {BIZ.name}. Los datos son reales y salen de su ficha de
-            Google y sus redes; el logo, el auto de práctica y los afiches
-            son los que la escuela publica en su Facebook e Instagram.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.signal }}>
-              ¿Lo hacemos realidad?
-            </a>
-          </p>
-        </div>
       </footer>
+
+      <div style={{ backgroundColor: '#0A0B0D', borderTop: '1px solid rgba(245,241,230,0.14)' }}>
+        <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(245,241,230,0.7)' }}>
+          Sitio de ejemplo preparado por{' '}
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.cream }}>
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name}. Los datos son reales y salen de su ficha de
+          Google y sus redes; el logo, el auto de práctica y los afiches
+          son los que la escuela publica en su Facebook e Instagram.{' '}
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.signal }}>
+            ¿Lo hacemos realidad?
+          </a>
+        </p>
+      </div>
 
       <WaFab href={WA_LINK} label={`Escribir a ${BIZ.name} por WhatsApp`} />
     </div>
