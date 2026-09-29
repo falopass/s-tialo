@@ -297,7 +297,7 @@ export default function CabanasMarYLuzPage() {
                   </p>
                   {f.stars && (
                     <div className="flex justify-center md:justify-start mb-1">
-                      <Stars rating={5} color={C.sol} size={13} />
+                      <Stars value={5} color={C.sol} className="w-[13px] h-[13px]" />
                     </div>
                   )}
                   <p className="text-sm leading-snug" style={{ color: 'rgba(243,238,225,0.66)' }}>
@@ -403,7 +403,7 @@ export default function CabanasMarYLuzPage() {
                 Quienes ya durmieron <span className="italic">aquí</span>
               </h2>
               <div className="flex items-center gap-2">
-                <Stars rating={5} color={C.sol} size={16} />
+                <Stars value={5} color={C.sol} className="w-[16px] h-[16px]" />
                 <span className={`${mono.className} text-sm font-bold`} style={{ color: C.navy }}>
                   4,7 · {BIZ.reviews} reseñas
                 </span>
@@ -417,7 +417,7 @@ export default function CabanasMarYLuzPage() {
                   className="h-full rounded-2xl border p-6 flex flex-col gap-4"
                   style={{ backgroundColor: C.panel, borderColor: C.line }}
                 >
-                  <Stars rating={5} color={C.sol} size={13} />
+                  <Stars value={5} color={C.sol} className="w-[13px] h-[13px]" />
                   <p className="text-[15px] leading-relaxed flex-1" style={{ color: C.ink }}>
                     “{r.quote}”
                   </p>

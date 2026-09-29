@@ -245,7 +245,7 @@ export default function CabanasVillaVerdePage() {
             </Reveal>
             <Reveal delay={280}>
               <div className="flex items-center gap-3 mb-7">
-                <Stars rating={5} color={C.verde} size={15} />
+                <Stars value={5} color={C.verde} className="w-[15px] h-[15px]" />
                 <span className={`${mono.className} text-sm font-semibold`} style={{ color: C.verdeDeep }}>
                   4,8 · {BIZ.reviews} reseñas
                 </span>
@@ -284,7 +284,7 @@ export default function CabanasVillaVerdePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center">
             <Reveal>
               <p className={`${display.className} text-3xl md:text-4xl leading-tight mb-1`} style={{ color: '#FBFAF7' }}>4,8</p>
-              <div className="mb-1"><Stars rating={5} color="#FBFAF7" size={13} /></div>
+              <div className="mb-1"><Stars value={5} color="#FBFAF7" className="w-[13px] h-[13px]" /></div>
               <p className="text-sm" style={{ color: 'rgba(251,250,247,0.72)' }}>{BIZ.reviews} reseñas en Google</p>
             </Reveal>
             <Reveal delay={90}>
@@ -470,7 +470,7 @@ export default function CabanasVillaVerdePage() {
                 Y los dueños <span className="italic font-normal">contestan</span>
               </h2>
               <div className="flex items-center gap-2">
-                <Stars rating={5} color={C.verde} size={16} />
+                <Stars value={5} color={C.verde} className="w-[16px] h-[16px]" />
                 <span className={`${mono.className} text-sm font-semibold`} style={{ color: C.verdeDeep }}>
                   4,8 · {BIZ.reviews} reseñas
                 </span>
@@ -485,7 +485,7 @@ export default function CabanasVillaVerdePage() {
                     className="flex-1 rounded-md border p-6 flex flex-col gap-4"
                     style={{ backgroundColor: C.panel, borderColor: C.line }}
                   >
-                    <Stars rating={5} color={C.verde} size={13} />
+                    <Stars value={5} color={C.verde} className="w-[13px] h-[13px]" />
                     <p className="text-[15px] leading-relaxed flex-1" style={{ color: C.ink }}>
                       “{r.quote}”
                     </p>
