@@ -671,6 +671,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F4EAD8 0%, #A8441C 100%, #2A211A 200%)',
   },
   {
+    slug: 'sabores-del-maule',
+    name: 'Sabores del Maule',
+    rubro: 'Cocinería · comida para llevar',
+    city: 'Talca',
+    tagline: 'El toldo de la feria: rayas bosque y crema, etiquetas colgantes y carta de muestra.',
+    gradient: 'linear-gradient(135deg, #F5EFDF 0%, #1E3D2F 100%, #B96B1F 200%)',
+  },
+  {
     slug: 'marbella-talcahuano',
     name: 'Café Marbella',
     rubro: 'Café y pastelería',
