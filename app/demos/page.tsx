@@ -1187,8 +1187,8 @@ const BLITZ = [
     name: 'Atlantix Clínica Odontológica',
     rubro: 'Clínica dental',
     city: 'San Javier de Loncomilla',
-    tagline: 'Hero tipográfico sin foto: azul noche, arena y terracota, calmo y hospitalario.',
-    gradient: 'linear-gradient(135deg, #1B2A41 0%, #1B2A41 55%, #C1663F 140%)',
+    tagline: 'La esquina turquesa: el arco-sonrisa de su logo, el eslogan pintado en la vitrina y la agenda real.',
+    gradient: 'linear-gradient(135deg, #F3FAF9 0%, #12B5A5 90%, #0E2F33 170%)',
   },
   {
     slug: 'peluqueria-fran-wartemberg',
