@@ -3141,6 +3141,30 @@ const BLITZ = [
     tagline: 'El fogón de Perquín: trigo, teja y vapor de la olla; bosquejos marcados porque no tiene fotos publicadas.',
     gradient: 'linear-gradient(135deg, #F1E4C8 0%, #A84E28 110%, #33503A 190%)',
   },
+  {
+    slug: 'come-y-calla',
+    name: 'Come y Calla',
+    rubro: 'Comida rápida · food truck',
+    city: 'Talca',
+    tagline: 'Carrito nocturno: azul tinta, ámbar de ampolleta y su carta real con precios hasta las 4 AM.',
+    gradient: 'linear-gradient(135deg, #0B0D14 0%, #1B2136 60%, #FFB020 160%)',
+  },
+  {
+    slug: 'parador-turistico-manantial',
+    name: 'Parador Manantial',
+    rubro: 'Comida al paso · cafetería',
+    city: 'San Clemente',
+    tagline: 'Letrero de camino en el km 27: bosque, crema y los banderines reales de su entrada.',
+    gradient: 'linear-gradient(135deg, #142A20 0%, #1E3D2F 55%, #DDA03C 150%)',
+  },
+  {
+    slug: 'marcela-moraga-pasteleria',
+    name: 'Marcela Moraga Pastelería',
+    rubro: 'Pastelería artesanal',
+    city: 'Talca',
+    tagline: 'Sello de pastelería: crema, el teal de su logo y su catálogo real con precios por tamaño.',
+    gradient: 'linear-gradient(135deg, #FFF9F1 0%, #0E7C86 90%, #C2402F 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
