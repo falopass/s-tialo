@@ -2163,8 +2163,8 @@ const BLITZ = [
     name: 'Cabañas Talca',
     rubro: 'Cabañas y alojamiento',
     city: 'Comuna de Maule',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #F2ECDD 0%, #22301F 150%)',
+    tagline: 'Plano del predio: la vista aérea real entre los árboles, plus code en mono y bosquejos honestos.',
+    gradient: 'linear-gradient(135deg, #F2ECDD 0%, #18251B 55%, #C08A3E 160%)',
   },
   {
     slug: 'casa-de-campo-san-clemente',
