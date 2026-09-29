@@ -19,8 +19,8 @@ export const BIZ = {
   phoneTel: '+56994706032',
   whatsapp: '56994706032',
   rating: 4.6,
-  reviews: 327,
-  hours: 'Todos los días, 9:00 a 20:00',
+  reviews: 372,
+  hours: 'Todos los días · cierra a las 20:00',
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(

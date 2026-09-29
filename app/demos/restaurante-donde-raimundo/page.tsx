@@ -261,7 +261,7 @@ export default function Page() {
                     style={{ backgroundColor: C.bosque, color: '#F5EDDD' }}
                   >
                     <p className="font-bold">{BIZ.hours}</p>
-                    <p style={{ color: 'rgba(245,237,221,0.75)' }}>Almuerzo y once, todos los días</p>
+                    <p style={{ color: 'rgba(245,237,221,0.75)' }}>En el local o para llevar</p>
                   </div>
                 </div>
               </div>
