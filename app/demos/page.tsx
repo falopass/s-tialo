@@ -3728,7 +3728,7 @@ const BLITZ = [
   {
     slug: 'el-bajito',
     name: 'El Bajito',
-    rubro: 'Almuerzos caseros',
+    rubro: 'Restaurant de almuerzo',
     city: 'Villa Alegre',
     tagline: 'El letrero pintado a mano: papel crema, amarillo de su pendón y la pizarra del mediodía con el curanto que recomienda la gente.',
     gradient: 'linear-gradient(135deg, #FAF3E4 0%, #F2B705 120%, #2A1E14 190%)',
@@ -3736,7 +3736,7 @@ const BLITZ = [
   {
     slug: 'restaurant-pehuen',
     name: 'Restaurant Pehuén',
-    rubro: 'Cocina chilena y sushi',
+    rubro: 'Restaurant chileno y sushi',
     city: 'Yerbas Buenas',
     tagline: 'De día cazuela, de noche sushi: teja de su fachada, patio con plantas y el volante real de promos.',
     gradient: 'linear-gradient(135deg, #F5EEE1 0%, #9C4A2F 120%, #1D1B16 190%)',
