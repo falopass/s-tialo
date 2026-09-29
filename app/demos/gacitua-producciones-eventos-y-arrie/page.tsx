@@ -271,8 +271,8 @@ export default function GacituaPage() {
             <Reveal delay={80}>
               <Frame className="!bg-transparent">
                 <img
-                  src={`${IMG}/buffet-empanadas.webp`}
-                  alt="Buffet de empanadas y bandejas saladas servidas en un evento de Gacitúa"
+                  src={`${IMG}/domo.webp`}
+                  alt="Domo vestido por Gacitúa con telas blancas y mesas de banquete: el montaje también se arrienda"
                   loading="lazy"
                   className="w-full aspect-[16/11] object-cover"
                 />

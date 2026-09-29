@@ -12,8 +12,9 @@
  *   reseñas); Instagram @gacituaproduccionesyeventos ("Entre Platos &
  *   Momentos").
  * - Reseñas citadas: textos reales de la ficha (nombre + antigüedad).
- * - Fotos: bajadas de la ficha de Maps (gps-cs). Logo: avatar oficial
- *   de la ficha (monograma G/Z con "GACITUA PRODUCCIONES & EVENTOS").
+ * - Fotos: bajadas de la ficha de Maps (gps-cs) e Instagram
+ *   @gacituaproduccionesyeventos. Logo: avatar oficial de la ficha
+ *   (monograma G/Z con "GACITUA PRODUCCIONES & EVENTOS").
  * - La ficha no publica horario ni tarifas: el demo invita a cotizar
  *   por WhatsApp.
  */
@@ -56,8 +57,8 @@ export const PROGRAMA = [
     paso: 'El montaje',
     texto:
       'Mesas vestidas, vajilla propia y decoración lista antes de que llegue el primer invitado. La puesta en escena también la hacen ellos.',
-    foto: 'buffet-dorado',
-    alt: 'Salón de evento con mesas vestidas de mantel blanco y runner dorado montadas por Gacitúa',
+    foto: 'mesa-interior',
+    alt: 'Mesa de evento montada por Gacitúa con loza dorada, copas y centro floral',
   },
   {
     paso: 'El cóctel',
