@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'hosteria-la-huerta',
+    name: 'Hostería La Huerta',
+    rubro: 'Hostería y restaurante',
+    city: 'Hualañé',
+    tagline: 'El letrero pintado a mano: Gloock + Karla, bosque y mostaza, pizarrón de la casa y el patio de plantas.',
+    gradient: 'linear-gradient(135deg, #F4EFE3 0%, #1E3D2F 115%, #D9A441 185%)',
+  },
+  {
     slug: 'acuerdate-de-mi-pasteleria',
     name: 'Acuérdate de Mí',
     rubro: 'Pastelería por encargo',
