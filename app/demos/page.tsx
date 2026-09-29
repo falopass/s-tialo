@@ -3218,13 +3218,8 @@ const BLITZ = [
     name: 'Atenea Salón Spa',
     rubro: 'Centro de estética',
     city: 'Molina',
-<<<<<<< HEAD
     tagline: 'La tarjeta del salón hecha sitio: vino y rosa acuarela, arcos, carta de precios real y 5,0 en Google.',
     gradient: 'linear-gradient(135deg, #2B1A24 0%, #4A2E3C 60%, #E8ACC0 170%)',
-=======
-    tagline: 'La tarjeta del salón hecha sitio: vino y rosa, arcos y la carta de precios real.',
-    gradient: 'linear-gradient(135deg, #2B1A24 0%, #4A2E3C 55%, #E8ACC0 160%)',
->>>>>>> ddf8d11f19 (demo(atenea-salon): ficha real en catálogo + afiches del spa como figure con CTA compacto)
   },
   {
     slug: 'cabanas-y-camping-el-esfuerzo',
@@ -4121,6 +4116,22 @@ const BLITZ = [
     city: 'Pelluhue',
     tagline: 'Carta náutica de la costa: arena, azul profundo y el sol naranjo de su logo, con tarifas reales.',
     gradient: 'linear-gradient(135deg, #0A1F2B 0%, #10303F 55%, #D96E1E 160%)',
+  },
+  {
+    slug: 'cafe-rapanui',
+    name: 'Rapanuí Terraza Bar',
+    rubro: 'Café, terraza y bar',
+    city: 'Constitución',
+    tagline: 'La marquesina de la terraza: negro de toldo, cinta roja del letrero y la noche de Cruz 402 hasta medianoche.',
+    gradient: 'linear-gradient(135deg, #14100F 0%, #D2232E 110%, #E4B33C 210%)',
+  },
+  {
+    slug: 'frida-cafe-y-bistro',
+    name: 'Frida Café y Bistro',
+    rubro: 'Cafetería y bistró',
+    city: 'Cauquenes',
+    tagline: 'La carta escrita a mano: papel de libreta, amarillo de la fachada y las flores del logo de Claudina Urrutia.',
+    gradient: 'linear-gradient(135deg, #FFF8EC 0%, #E8A614 90%, #B32C6F 190%)',
   },
 ]
 

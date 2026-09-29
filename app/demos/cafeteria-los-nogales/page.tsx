@@ -160,7 +160,7 @@ export default function Page() {
 
       <main>
         {/* HERO — el sello timbra el rincón */}
-        <section className="relative overflow-hidden pt-24 pb-10 md:pb-16">
+        <section id="inicio" className="relative overflow-hidden pt-24 pb-10 md:pb-16">
           <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-[1.05fr_1fr] gap-10 md:gap-14 items-center">
             <div className="text-center md:text-left">
               <Reveal>
