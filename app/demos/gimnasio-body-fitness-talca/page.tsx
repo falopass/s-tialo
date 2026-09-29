@@ -171,73 +171,12 @@ export default function BodyFitnessPage() {
           </p>
         </div>
 
-        {/* ── 01 Lo que dicen: reseñas reales de Google ── */}
-        <section id="resenas" className="scroll-mt-20">
+        {/* ── 01 Qué encuentras ── */}
+        <section id="equipamiento" className="scroll-mt-20">
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
             <Reveal>
               <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.humo }}>
-                <Label><span style={{ color: C.humo }}>N°01</span> — Lo que dicen</Label>
-                <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.faint }}>
-                  reseñas reales de Google
-                </p>
-              </div>
-            </Reveal>
-            <div className="grid lg:grid-cols-[minmax(0,280px)_1fr] gap-10 md:gap-14 items-start">
-              <Reveal>
-                <h2 className={`${display.className} uppercase text-4xl md:text-5xl leading-[0.95] mb-6`} style={{ color: C.humo }}>
-                  El clásico
-                  <br />
-                  <span style={{ color: C.lime }}>de Talca</span>
-                </h2>
-                <p className={`${display.className} text-6xl md:text-7xl leading-none mb-3`} style={{ color: C.lime }}>
-                  {BIZ.rating}
-                </p>
-                <Stars value={BIZ.rating} color={C.lime} className="w-5 h-5" />
-                <p className="mt-4 text-sm leading-relaxed" style={{ color: C.dim }}>
-                  {BIZ.reviewCount} reseñas verificadas en su ficha de Google Maps.
-                </p>
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-block mt-2 text-sm font-bold underline underline-offset-4 decoration-2 transition-opacity hover:opacity-75 ${focusRing} tap-44`}
-                  style={{ color: C.lime, textDecorationColor: 'rgba(199,242,53,0.35)' }}
-                >
-                  Ver la ficha en Google →
-                </a>
-              </Reveal>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {RESENAS.map((r, i) => (
-                  <Reveal key={r.author} delay={i * 90} className="h-full">
-                    <figure
-                      className="h-full border p-6 flex flex-col"
-                      style={{
-                        borderColor: C.lineLight,
-                        backgroundColor: C.card,
-                        clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%)',
-                      }}
-                    >
-                      <span className="block w-10 h-1" style={{ backgroundColor: C.lime }} aria-hidden="true" />
-                      <blockquote className="mt-4 text-sm md:text-base leading-relaxed" style={{ color: C.dim }}>
-                        “{r.text}”
-                      </blockquote>
-                      <figcaption className="mt-auto pt-5 text-[10px] uppercase tracking-[0.18em] font-bold" style={{ color: C.faint }}>
-                        {r.author} · Reseña en Google
-                      </figcaption>
-                    </figure>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── 02 Qué encuentras ── */}
-        <section id="equipamiento" className="scroll-mt-20 border-t" style={{ borderColor: C.lineLight }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-            <Reveal>
-              <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.humo }}>
-                <Label><span style={{ color: C.humo }}>N°02</span> — Qué encuentras</Label>
+                <Label><span style={{ color: C.humo }}>N°01</span> — Qué encuentras</Label>
                 <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.faint }}>
                   según su ficha y reseñas
                 </p>
@@ -245,10 +184,8 @@ export default function BodyFitnessPage() {
             </Reveal>
             <Reveal>
               <h2 className={`${display.className} uppercase text-4xl md:text-6xl leading-[0.95] mb-10 md:mb-14`} style={{ color: C.humo }}>
-                Máquinas y pesas,
-                <br />
-                <span style={{ color: C.lime }}>a la antigua</span>
                 Uno va a entrenar
+                <br />
                 <span style={{ color: C.arco }}>y ya</span>
               </h2>
             </Reveal>
@@ -274,14 +211,11 @@ export default function BodyFitnessPage() {
           </div>
         </section>
 
-        {/* ── 03 La sala ── */}
-        <section id="sala" className="scroll-mt-20 border-t" style={{ borderColor: C.lineLight }}>
+        {/* ── 02 La nave: la sala en marcos con arco ── */}
+        <section id="nave" className="scroll-mt-20 border-t" style={{ borderColor: C.lineLight }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
             <Reveal>
               <div className="flex items-end justify-between gap-6 border-t-2 pt-4 mb-10 md:mb-12" style={{ borderColor: C.humo }}>
-                <Label><span style={{ color: C.humo }}>N°03</span> — La sala</Label>
-        {/* ── 02 La nave: la sala en marcos con arco ── */}
-        <section id="nave" className="scroll-mt-20 border-t" style={{ borderColor: C.lineLight }}>
                 <Label><span style={{ color: C.humo }}>N°02</span> — La nave</Label>
                 <p className="hidden sm:block text-[11px] uppercase tracking-[0.18em] font-bold shrink-0" style={{ color: C.faint }}>
                   fotos reales de su ficha
@@ -328,6 +262,7 @@ export default function BodyFitnessPage() {
                     {BIZ.ratingLabel}
                   </span>
                   <Stars value={BIZ.rating} color={C.arco} className="w-5 h-5" />
+                </div>
                 <h2 className={`${display.className} uppercase text-3xl md:text-4xl leading-[0.95] mb-4`} style={{ color: C.humo }}>
                   Lo que dicen
                   <br />
@@ -384,7 +319,6 @@ export default function BodyFitnessPage() {
                     <p className="text-[10px] uppercase tracking-[0.2em] font-bold mb-2" style={{ color: C.arcoTxt }}>Dirección</p>
                     <address className="not-italic text-sm md:text-base leading-relaxed mb-3" style={{ color: C.humo }}>
                       <strong className="font-bold">{BIZ.address}</strong>
-                      <span className="block mt-1" style={{ color: C.dim }}>entre 8 y 9 Oriente</span>
                     </address>
                     <a
                       href={MAPS_URL}
