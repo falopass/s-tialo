@@ -29,9 +29,9 @@ const C = {
   soft: '#EDE7D4',
   leaf: '#3F6B3B',
   deep: '#1E3320',
-  rose: '#C4738A',
+  rose: '#99495C',
   ink: '#2C3128',
-  muted: '#64705C',
+  muted: '#586551',
   line: 'rgba(63,107,59,0.22)',
 }
 
