@@ -2,7 +2,8 @@
  * app/demos/rancho-itahue/content.ts
  *
  * Página final del cliente (no es demo). Fuentes, por prioridad:
- * `BRIEF-CLIENTE.md` (texto del propio dueño por WhatsApp), `OFERTA-REAL.md`
+ * texto oficial del dueño por WhatsApp (29-09, copiado en `BRIEF-CLIENTE.md`:
+ * sus palabras tal cual; lo que no está ahí no se inventa), `OFERTA-REAL.md`
  * (sus redes: IG @ranchoitahue, FB /indomaule) e `INDICE-FOTOS.md` (lo que
  * se ve en las fotos que mandó). Sin dormitorios ni baños, sin capacidad
  * máxima del salón, sin precios y sin afirmar que el río está dentro del
@@ -29,6 +30,8 @@ export const BIZ = {
   instagram: 'https://www.instagram.com/ranchoitahue/',
   instagramHandle: '@ranchoitahue',
   facebook: 'https://www.facebook.com/indomaule',
+  /** Nombre de su página de Facebook, como lo escribe el dueño. */
+  facebookName: 'Rancho Itahue, Molina. Chile',
   site: 'https://ranchoitahue.cl',
   siteDisplay: 'ranchoitahue.cl',
 } as const
@@ -41,13 +44,17 @@ export const WA_LINK_EVENTO = `https://wa.me/${BIZ.whatsapp}?text=${encodeURICom
   'Hola, vi la página de Rancho Itahue y quiero cotizar un evento',
 )}`
 
-export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  'Rancho Itahue, Molina, Chile',
-)}`
+/**
+ * Pin exacto del predio: el dueño lo va a mandar. Cuando llegue, pegar aquí
+ * las coordenadas como 'lat,lng' (ej. '-35.0,-71.2'); mapa embebido y botón
+ * «Cómo llegar» pasan a usarlo solos. Mientras sea null, se busca por nombre.
+ */
+const PIN: string | null = null
+const MAPS_Q = encodeURIComponent(PIN ?? 'Rancho Itahue, Molina, Chile')
 
-export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
-  'Rancho Itahue, Molina, Chile',
-)}&output=embed`
+export const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${MAPS_Q}`
+
+export const MAPS_EMBED = `https://www.google.com/maps?q=${MAPS_Q}&z=15&output=embed`
 
 const IMG = '/demos/rancho-itahue'
 const F = `${IMG}/fotos`
@@ -63,21 +70,21 @@ export const HERO = {
   alt: 'Piscina de Rancho Itahue rodeada de césped, palmeras y jardines',
   eyebrow: 'Multiespacio · Molina, Chile',
   tagline: 'A 5 km de la plaza de Molina, sector Cerrillo Bascuñán',
-  lead: 'Somos un centro multiespacio: salón de eventos y terraza encarpada para arriendos y servicios, quinchos exteriores junto con amplios prados y sombras, y 2 piscinas, una para niños y otra para adultos.',
+  lead: 'Somos un centro multiespacio, tenemos salón de eventos y terraza encarpada, para arriendos y servicios, también quinchos exteriores junto con amplios prados y sombras y 2 piscinas: una para niños y otra para adultos.',
 } as const
 
-/** Cifras del propio dueño (BRIEF) y de su Facebook (OFERTA-REAL). */
+/** Cifras, todas del texto oficial del dueño. */
 export const CIFRAS = [
-  { value: '+10', unit: 'años', label: 'con el centro de eventos' },
-  { value: '+2', unit: 'años', label: 'con el servicio de almuerzos' },
-  { value: '5', unit: 'canchas', label: '2 de tenis, 1 multicancha y 2 de pádel' },
-  { value: '92%', unit: 'lo recomienda', label: 'en Facebook (10 opiniones)' },
+  { value: '+10', unit: 'años', label: 'con nuestro centro de eventos' },
+  { value: '+2', unit: 'años', label: 'en almuerzos' },
+  { value: '5', unit: 'canchas', label: '2 de tenis, 1 multicancha y 2 de pádel techadas' },
+  { value: '2', unit: 'piscinas', label: 'una para niños y otra para adultos' },
 ] as const
 
 export const ESPACIOS_HEAD = {
   eyebrow: 'Arriendo de espacios',
   title: { light: 'Cinco espacios,', bold: 'un solo predio en Itahue' } satisfies Title,
-  lead: 'Salón de eventos, terraza encarpada, quinchos exteriores y piscinas, con amplios prados y sombras. Todo dentro del mismo rancho.',
+  lead: 'Ofrecemos servicios de arriendo de espacios como salón de eventos, quinchos exteriores y piscinas.',
 } as const
 
 /** Los espacios del predio: texto del dueño + lo que se ve en las fotos. */
@@ -135,8 +142,8 @@ export const ESPACIOS = [
     id: 'canchas',
     num: '05',
     name: 'Tenis y multicancha',
-    desc: '2 canchas de tenis más una multicancha entre los árboles. En el jardín también hay tenis de mesa, taca-taca y juegos infantiles.',
-    chips: ['2 canchas de tenis', 'Multicancha', 'Tenis de mesa', 'Taca-taca', 'Juegos infantiles'],
+    desc: 'Junto con todo esto tenemos 2 canchas de tenis más una multicancha, con arriendo de canchas de tenis. En el jardín también hay tenis de mesa, taca-taca y juegos infantiles.',
+    chips: ['2 canchas de tenis', 'Multicancha', 'Arriendo de canchas', 'Tenis de mesa', 'Taca-taca'],
     photos: [
       { src: `${F}/exteriores/IMG-20260928-WA0213.webp`, alt: 'Canchas de tenis del rancho vistas desde altura' },
       { src: `${F}/exteriores/IMG-20260928-WA0168.webp`, alt: 'Personas jugando en la cancha de tenis al aire libre' },
@@ -154,15 +161,15 @@ export const ESPACIOS = [
 export const PADEL = {
   eyebrow: 'Dentro del rancho',
   title: 'PlayPádel',
-  tagline: '2 canchas de pádel techadas, para invierno y verano',
-  lead: 'Las canchas de pádel del Rancho Itahue funcionan como PlayPádel, con su propio número para reservar.',
+  tagline: '2 canchas de pádel techadas para invierno y verano',
+  lead: 'Arriendo de canchas de pádel en el Rancho Itahue: funcionan como PlayPádel, con su propio número para reservar.',
   photo: { src: `${F}/exteriores/IMG-20260928-WA0295.webp`, alt: 'Canchas de pádel de PlayPádel iluminadas de noche' },
 } as const
 
 export const EVENTOS = {
   eyebrow: 'Eventos',
   title: { light: 'Más de 10 años', bold: 'celebrando en Itahue' } satisfies Title,
-  lead: 'Atendemos a empresas y personas: matrimonios con ceremonia en el jardín, cumpleaños, reuniones y presentaciones. En verano, paseos de curso de fin de año y paseos de empresas.',
+  lead: 'Estamos hace más de 10 años con nuestro centro de eventos. Muchos clientes de todo tipo: empresas, personas, todos muy conformes. Ahora en verano, paseos de curso de fin de año y también de empresas.',
   types: ['Matrimonios', 'Cumpleaños', 'Reuniones', 'Presentaciones', 'Paseos de curso', 'Paseos de empresa'],
   photos: [
     { src: `${F}/eventos/IMG-20260928-WA0253.webp`, alt: 'Mesas redondas montadas al aire libre bajo los árboles' },
@@ -180,8 +187,8 @@ export const EVENTOS = {
 
 export const COMIDAS = {
   eyebrow: 'Almuerzos y banquetería',
-  title: { light: 'De 11 a 16 hrs,', bold: 'la cocina del rancho está abierta' } satisfies Title,
-  lead: 'Funcionamos todo el año con nuestro servicio de almuerzos, que ya lleva más de 2 años. Para los eventos, banquetería todo incluido.',
+  title: { light: 'De 11 a 16 hrs,', bold: 'cocina abierta' } satisfies Title,
+  lead: 'Funcionamos todo el año, con nuestro servicio de almuerzos desde las 11 a las 16 hrs: +2 años en almuerzos. También hacemos servicios de banquetería todo incluido.',
   chips: ['Asados', 'Tablas', 'Canapés', 'Tortas'],
   photos: [
     { src: `${F}/comidas/IMG-20260928-WA0229.webp`, alt: 'Costillares asándose sobre parrilla de carbón' },
@@ -208,16 +215,16 @@ export const ENTORNO = {
 export const UBICACION = {
   eyebrow: 'Ubicación',
   title: { light: 'A 5 km de la plaza', bold: 'de Molina' } satisfies Title,
-  lead: 'Estamos en zona rural de Molina, a 5 km de la plaza, sector Cerrillo Bascuñán. Además, entre Curicó y Molina, a 2 km de la Ruta 5 Sur: Km 210, Ruta K-165.',
+  lead: 'Estamos ubicados en zona rural de Molina, a 5 km de la plaza, sector Cerrillo Bascuñán, comuna de Molina. Además estamos entre Curicó y Molina, a 2 km de la Ruta 5 Sur, Km 210, Ruta K-165.',
 } as const
 
-/** Horario, con las palabras del dueño (BRIEF). */
+/** Horario, con las palabras del dueño (texto oficial). */
 export const HORARIO = {
   title: 'Funcionamos todo el año',
   items: [
-    { k: 'Almuerzos', v: 'Todo el año, cocina abierta de 11 a 16 hrs.' },
-    { k: 'Canchas y eventos', v: 'En verano, todos los días desde las 10 am en adelante.' },
-    { k: 'Resto del año', v: 'Solo cuando tenemos eventos agendados.' },
+    { k: 'Almuerzos', v: 'Todo el año, desde las 11 a las 16 hrs, cocina abierta.' },
+    { k: 'Canchas deportivas y eventos', v: 'En el verano, todos los días desde las 10 am en adelante.' },
+    { k: 'En los otros tiempos', v: 'Solo cuando tenemos eventos agendados.' },
   ],
 } as const
 

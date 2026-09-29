@@ -243,7 +243,7 @@ export default function RanchoItahuePage() {
               rel="noopener noreferrer"
               className="tap-44 font-bold underline underline-offset-4"
             >
-              {BIZ.instagramHandle}
+              Instagram {BIZ.instagramHandle}
             </a>
             {' · '}
             <a
@@ -252,7 +252,7 @@ export default function RanchoItahuePage() {
               rel="noopener noreferrer"
               className="tap-44 font-bold underline underline-offset-4"
             >
-              Rancho Itahue en Facebook
+              Facebook {BIZ.facebookName}
             </a>
           </p>
         </div>
