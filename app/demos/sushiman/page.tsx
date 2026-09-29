@@ -26,6 +26,7 @@ const C = {
   carbon2: '#1C191B',
   crema: '#F6F0E8',
   rojo: '#C8102E',
+  rojoClaro: '#F6485C',
   rojoOscuro: '#8F0B20',
   verde: '#1E3D2F',
   muda: 'rgba(246,240,232,0.7)',
@@ -81,7 +82,7 @@ function Sello({ children }: { children: ReactNode }) {
   return (
     <span
       className={`${mono.className} inline-flex items-center text-[11px] font-bold uppercase tracking-[0.18em] px-3 py-1.5 rounded-full`}
-      style={{ border: `1.5px solid ${C.rojo}`, color: C.rojo }}
+      style={{ border: `1.5px solid ${C.rojoClaro}`, color: C.rojoClaro }}
     >
       {children}
     </span>
@@ -97,7 +98,7 @@ export default function Sushiman() {
       <BlitzNav
         name={
           <span className={`${display.className} uppercase tracking-[0.06em]`}>
-            Sushi<span style={{ color: C.rojo }}>man</span>
+            Sushi<span style={{ color: C.rojoClaro }}>man</span>
           </span>
         }
         links={NAV_LINKS}
@@ -178,7 +179,7 @@ export default function Sushiman() {
       <section id="llevar" className="py-14 md:py-20" style={{ backgroundColor: C.carbon2 }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
-            <p className={`${mono.className} text-xs uppercase tracking-[0.2em] mb-3`} style={{ color: C.rojo }}>
+            <p className={`${mono.className} text-xs uppercase tracking-[0.2em] mb-3`} style={{ color: C.rojoClaro }}>
               Así funciona
             </p>
             <h2 className={`${display.className} text-3xl md:text-5xl uppercase`}>
@@ -269,7 +270,7 @@ export default function Sushiman() {
             </figure>
           </Reveal>
           <Reveal delay={100}>
-            <p className={`${mono.className} text-xs uppercase tracking-[0.2em] mb-3`} style={{ color: C.rojo }}>
+            <p className={`${mono.className} text-xs uppercase tracking-[0.2em] mb-3`} style={{ color: C.rojoClaro }}>
               Villa Esperanza, Sagrada Familia
             </p>
             <h2 className={`${display.className} text-3xl md:text-5xl uppercase`}>
@@ -321,7 +322,7 @@ export default function Sushiman() {
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
             <Reveal>
-              <p className={`${mono.className} text-xs uppercase tracking-[0.2em] mb-3`} style={{ color: C.rojo }}>
+              <p className={`${mono.className} text-xs uppercase tracking-[0.2em] mb-3`} style={{ color: C.rojoClaro }}>
                 Punto de retiro
               </p>
               <h2 className={`${display.className} text-3xl md:text-5xl uppercase`}>
