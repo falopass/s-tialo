@@ -2724,8 +2724,8 @@ const BLITZ = [
     name: 'Café París',
     rubro: 'Cafetería · Salón de té',
     city: 'Talca',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #F8F1E9 0%, #B44A72 150%)',
+    tagline: 'Salón de té de la 2 Poniente: crema, frambuesa y dorado — el piano, el techo francés y su carta.',
+    gradient: 'linear-gradient(135deg, #FDF8F1 0%, #211D1C 90%, #B44A72 170%)',
   },
   {
     slug: 'camping-el-carro',
