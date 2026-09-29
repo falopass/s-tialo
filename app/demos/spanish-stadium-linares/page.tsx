@@ -131,19 +131,19 @@ export default function SpanishStadiumLinaresPage() {
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-32 pb-10 grid grid-cols-12 gap-8 md:gap-10 items-center">
           <div className="col-span-12 md:col-span-7">
             <Reveal>
-              <div className="flex items-center gap-5 md:gap-6 mb-7">
+              <div className="flex items-center flex-wrap gap-4 md:gap-6 mb-7">
                 <Image
                   src={`${IMG}/logo.webp`}
                   alt="Escudo del Estadio Español de Linares: león rojo coronado dentro de un escudo blanco"
                   width={450}
                   height={474}
                   sizes="120px"
-                  className="w-[92px] md:w-[120px] h-auto shrink-0"
+                  className="w-[76px] md:w-[120px] h-auto shrink-0"
                   priority
                 />
-                <div>
+                <div className="min-w-0">
                   <h1
-                    className={`${display.className} leading-[1.04] text-[clamp(1.9rem,6vw,3.6rem)]`}
+                    className={`${display.className} leading-[1.04] text-[clamp(1.55rem,6vw,3.6rem)]`}
                     style={{ color: C.ink }}
                   >
                     Estadio Español

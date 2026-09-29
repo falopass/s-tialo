@@ -338,7 +338,7 @@ export default function Page() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: C.ink, color: C.papel }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-6 pb-4 md:pt-8 md:pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
           <div>
             <p className={`${display.className} text-xl mb-1`}>{BIZ.name}</p>
             <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(250,247,238,0.65)' }}>
@@ -358,7 +358,7 @@ export default function Page() {
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(250,247,238,0.14)' }}>
           <p
-            className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed"
+            className="max-w-6xl mx-auto px-5 md:px-8 py-3 text-xs leading-snug"
             style={{ color: 'rgba(250,247,238,0.75)' }}
           >
             Mockup preparado por{' '}

@@ -274,7 +274,7 @@ export default function CsfVeterinariaPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-extrabold uppercase text-sm md:text-base px-6 py-3 md:px-7 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[6px_6px_0_#2251FF] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0_#2251FF] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none tap-44`}
+                className={`${display.className} font-extrabold uppercase text-[13px] md:text-base whitespace-nowrap px-5 py-3 md:px-7 md:py-4 border-[3px] transition-[transform,box-shadow] shadow-[6px_6px_0_#2251FF] hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[3px_3px_0_#2251FF] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none tap-44`}
                 style={{ backgroundColor: C.lime, color: C.ink, borderColor: C.ink }}
               >
                 Agendar por WhatsApp →
@@ -637,7 +637,7 @@ export default function CsfVeterinariaPage() {
 
       {/* ── Footer ── */}
       <footer className="border-t-[3px]" style={{ backgroundColor: C.ink, borderColor: C.lime, color: C.white }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 md:py-6 flex flex-col md:flex-row md:items-end justify-between gap-3">
           <div>
             <p className={`${display.className} font-black uppercase text-xl md:text-2xl mb-2`}>
               <span style={{ color: C.lime }}>CSF</span> Especialidades Veterinarias
@@ -655,7 +655,7 @@ export default function CsfVeterinariaPage() {
           </div>
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.15)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-6 font-mono text-[10px] uppercase tracking-[0.12em] leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-3 pb-4 font-mono text-[10px] uppercase tracking-[0.12em] leading-snug" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Mockup preparado por{' '}
             <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44" style={{ color: C.lime }}>
               Sitiazo
