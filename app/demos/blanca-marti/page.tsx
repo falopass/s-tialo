@@ -444,7 +444,7 @@ export default function BlancaMartiPage() {
                       >
                         <LogoChip size={40} />
                       </span>
-                      <p className={`${mono.className} text-[9px] uppercase tracking-[0.22em] mb-2 font-semibold`} style={{ color: C.red }}>
+                      <p className={`${mono.className} text-[9px] uppercase tracking-[0.22em] mb-2 font-semibold`} style={{ color: C.redDeep }}>
                         Blanca responde
                       </p>
                       <p className="text-sm leading-relaxed font-medium">{r.reply}</p>
