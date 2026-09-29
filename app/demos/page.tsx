@@ -3061,6 +3061,14 @@ const BLITZ = [
     tagline: 'La página como prospectus: lema en latín, seis sellos numerados y el único IB entre O’Higgins y el Maule.',
     gradient: 'linear-gradient(135deg, #15255B 0%, #C8102E 140%, #F7F4EC 220%)',
   },
+  {
+    slug: 'kelly-spa-las-rastras',
+    name: 'Kelly Spa Las Rastras',
+    rubro: 'Centro de estética integral',
+    city: 'Talca',
+    tagline: 'El spa como café de barrio: carta de la casa, tinaja en la terraza y el Café Spa de su propio logo.',
+    gradient: 'linear-gradient(135deg, #0F0B08 0%, #C08A5A 150%, #F3ECE1 240%)',
+  },
 ]
 
 export const metadata: Metadata = {
