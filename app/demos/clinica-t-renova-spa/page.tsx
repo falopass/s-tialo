@@ -12,6 +12,7 @@ import {
   MAPS_URL,
   MAPS_EMBED,
   IMG,
+  RESENAS,
 } from './content'
 import LazyMap from '../lazy-map'
 
@@ -57,6 +58,7 @@ export const metadata: Metadata = demoMetadata({
 const NAV_LINKS = [
   { label: 'Tratamientos', href: '#tratamientos' },
   { label: 'El espacio', href: '#espacio' },
+  { label: 'Opiniones', href: '#opiniones' },
   { label: 'Agenda', href: '#agenda' },
   { label: 'Contacto', href: '#contacto' },
 ]
@@ -359,6 +361,69 @@ export default function ClinicaTRenovaPage() {
         </div>
       </section>
 
+      {/* ── Opiniones reales de la ficha de Google ── */}
+      <section id="opiniones" className="scroll-mt-24" style={{ backgroundColor: C.mintSoft }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-10 lg:gap-14 items-start">
+          <Reveal>
+            <Eyebrow>Opiniones de sus clientes</Eyebrow>
+            <h2 className={`${display.className} mt-3 text-[30px] md:text-[44px] leading-[1.1] font-bold`} style={{ color: C.petrol }}>
+              {BIZ.rating} de 5 en Google: Linares{' '}
+              <span className="italic pb-1 inline-block leading-[1.1]" style={{ color: C.bambooDeep }}>ya la probó</span>
+            </h2>
+            <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-relaxed" style={{ color: C.gris }}>
+              Son {BIZ.reviews} reseñas en su ficha de Google, y en Facebook el
+              92% de quienes opinan la recomienda. Estas son algunas, tal como
+              las escribieron.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-x-8 gap-y-4">
+              <div className="border-l-[3px] pl-4" style={{ borderColor: C.bamboo }}>
+                <p className={`${display.className} text-[30px] font-extrabold leading-none`} style={{ color: C.petrol }}>
+                  {BIZ.rating} ★
+                </p>
+                <p className="mt-1 text-[12px] font-bold uppercase tracking-[0.14em]" style={{ color: C.gris }}>
+                  {BIZ.reviews} reseñas en Google
+                </p>
+              </div>
+              <div className="border-l-[3px] pl-4" style={{ borderColor: C.mint }}>
+                <p className={`${display.className} text-[30px] font-extrabold leading-none`} style={{ color: C.petrol }}>
+                  92%
+                </p>
+                <p className="mt-1 text-[12px] font-bold uppercase tracking-[0.14em]" style={{ color: C.gris }}>
+                  la recomienda en Facebook
+                </p>
+              </div>
+            </div>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${FOCUS} mt-7 inline-flex min-h-[44px] items-center text-[14px] font-bold underline underline-offset-4 tap-44`}
+              style={{ color: C.petrol, outlineColor: C.petrol }}
+            >
+              Ver la ficha en Google →
+            </a>
+          </Reveal>
+          <div className="space-y-5">
+            {RESENAS.map((r, i) => (
+              <Reveal key={r.nombre} delay={i * 100}>
+                <figure
+                  className="rounded-[22px] p-6 md:p-7"
+                  style={{ backgroundColor: C.white, border: `1px solid ${C.line}`, boxShadow: '0 18px 40px -30px rgba(9,53,64,0.4)' }}
+                >
+                  <Stars value={5} color={C.bambooDeep} className="w-[15px] h-[15px]" />
+                  <blockquote className="mt-3.5 text-[15px] md:text-[16px] leading-relaxed" style={{ color: C.ink }}>
+                    “{r.texto}”
+                  </blockquote>
+                  <figcaption className="mt-4 text-[12px] font-bold uppercase tracking-[0.14em]" style={{ color: C.gris }}>
+                    {r.nombre} · {r.fecha} · Google
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Agenda: 3 pasos + tarjeta de contacto ── */}
       <section id="agenda" className="scroll-mt-24 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
@@ -481,7 +546,7 @@ export default function ClinicaTRenovaPage() {
           </p>
           <p className="max-w-md leading-relaxed">
             <span className="font-bold" style={{ color: C.mint }}>Sitio de ejemplo de Sitiazo.</span>{' '}
-            Datos, fotos y servicios del negocio; reseñas textuales de muestra.
+            Datos, fotos, servicios y reseñas reales del negocio; textos descriptivos de muestra.
           </p>
         </div>
         <div className="max-w-6xl mx-auto px-5 md:px-8 pb-24 [&>div]:static [&>div]:max-w-full [&>div]:w-fit">

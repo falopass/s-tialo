@@ -8,7 +8,7 @@
  * (facebook.com/trenovaspa, 92% recomienda con 17 reseñas), Instagram
  * @clinica_trenova y los servicios publicados en sus redes (masajes,
  * limpieza facial, pestañas, uñas, sport recovery, podología clínica).
- * Las reseñas textuales son de ejemplo para mostrar cómo se vería el sitio.
+ * Las reseñas citadas son reales de la ficha de Google Maps (29-09-2026).
  */
 
 export const BIZ = {
@@ -53,3 +53,25 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
 )}&output=embed`
 
 export const IMG = '/demos/clinica-t-renova-spa'
+
+// Reseñas reales de la ficha de Google Maps de la clínica (4,7 ★ · 109 reseñas).
+export const RESENAS = [
+  {
+    nombre: 'JVV Jesucristo Verdad y Vida',
+    fecha: 'Hace un mes',
+    texto:
+      'Excelente servicio, absolutamente recomendable, les invito a todos a compartir esta hermosa experiencia. T-Renova… maravilloso.',
+  },
+  {
+    nombre: 'David Ramírez Olivan',
+    fecha: 'Hace un mes',
+    texto:
+      'Excelente servicio, muy buena relación-calidad, sport recovery totalmente recomendado.',
+  },
+  {
+    nombre: 'Paola Andrea Morales Morales',
+    fecha: 'Hace un año',
+    texto:
+      'Si quieres regalonear a ti o a tus seres queridos, T-Renova 100% recomendable: excelente atención y equipo de trabajo.',
+  },
+] as const
