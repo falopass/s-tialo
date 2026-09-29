@@ -122,6 +122,7 @@ export default function EstampaTuDisenoPage() {
       <SwatchRibbon />
       <BlitzNav
         name={BIZ.short}
+        logoSrc={BIZ.logo}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
@@ -475,7 +476,8 @@ export default function EstampaTuDisenoPage() {
       <SwatchRibbon />
       <footer style={{ backgroundColor: C.ink }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 flex flex-wrap items-center justify-between gap-4">
-          <div>
+          <div className="flex items-center gap-3">
+            <img src={BIZ.logo} alt={`Logo de ${BIZ.name}`} className="h-9 w-9 rounded-lg object-cover" />
             <p className={`${display.className} uppercase text-lg leading-none`} style={{ color: C.white }}>
               {BIZ.name}
             </p>
