@@ -201,7 +201,7 @@ export default function ImperioPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base font-bold px-7 py-3 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base font-bold px-5 py-3 whitespace-nowrap transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 tap-44`}
                 style={{ backgroundColor: C.bronze, color: '#FFFFFF' }}
               >
                 Cotizar por WhatsApp
@@ -288,7 +288,7 @@ export default function ImperioPage() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} self-start uppercase tracking-[0.04em] text-sm font-bold px-6 py-3 transition-all hover:-translate-y-0.5 active:scale-95 tap-44`}
+              className={`${display.className} self-start uppercase tracking-[0.04em] text-sm font-bold px-6 py-3 whitespace-nowrap transition-all hover:-translate-y-0.5 active:scale-95 tap-44`}
               style={{ backgroundColor: C.bronzeHi, color: C.deep }}
             >
               Escribir →
@@ -345,7 +345,7 @@ export default function ImperioPage() {
                 href={WA_LINK_MEDIDA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base font-bold px-7 py-3 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 tap-44`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm md:text-base font-bold px-5 py-3 whitespace-nowrap transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 tap-44`}
                 style={{ backgroundColor: C.bronzeHi, color: C.deep }}
               >
                 Cotizar con mi medida
@@ -464,7 +464,7 @@ export default function ImperioPage() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm font-bold px-6 py-3 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 tap-44`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm font-bold px-6 py-3 whitespace-nowrap transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 tap-44`}
                 style={{ backgroundColor: C.bronze, color: '#FFFFFF' }}
               >
                 Escribir por WhatsApp
@@ -473,7 +473,7 @@ export default function ImperioPage() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} uppercase tracking-[0.04em] text-sm font-bold px-6 py-3 border-2 transition-all hover:bg-black/5 active:scale-95 tap-44`}
+                className={`${display.className} uppercase tracking-[0.04em] text-sm font-bold px-6 py-3 border-2 whitespace-nowrap transition-all hover:bg-black/5 active:scale-95 tap-44`}
                 style={{ borderColor: C.ink, color: C.ink }}
               >
                 Cómo llegar →
@@ -520,7 +520,7 @@ export default function ImperioPage() {
               href={WA_LINK_MEDIDA}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${display.className} uppercase tracking-[0.04em] inline-block text-sm md:text-base font-bold px-8 py-3.5 transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 tap-44`}
+              className={`${display.className} uppercase tracking-[0.04em] inline-block text-sm md:text-base font-bold px-6 py-3.5 whitespace-nowrap transition-all hover:-translate-y-0.5 hover:brightness-110 active:scale-95 tap-44`}
               style={{ backgroundColor: C.bronze, color: '#FFFFFF' }}
             >
               Cotizar por WhatsApp
