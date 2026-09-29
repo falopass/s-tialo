@@ -160,7 +160,7 @@ export default function Page() {
 
       {/* ── Hero: la esquina con letrero ── */}
       <section id="inicio" style={{ backgroundColor: C.papel }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-12 md:pt-40 md:pb-16 grid grid-cols-12 gap-8 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-12 md:pt-40 md:pb-16 grid grid-cols-12 gap-x-4 gap-y-8 md:gap-8 items-center">
           <div className="col-span-12 md:col-span-6">
             <Reveal>
               <p className="text-xs font-bold uppercase tracking-[0.22em] mb-5" style={{ color: C.madera }}>
@@ -230,7 +230,7 @@ export default function Page() {
 
       {/* ── La pizarra ── */}
       <section id="pizarra" className="scroll-mt-20" style={{ backgroundColor: C.pizarra }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-12 gap-8 md:gap-12 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-12 gap-x-4 gap-y-8 md:gap-12 items-center">
           <div className="col-span-12 md:col-span-6">
             <Reveal>
               <h2 className={`${display.className} font-semibold text-[clamp(2rem,5vw,3.4rem)] leading-[1.05] mb-4`} style={{ color: C.tiza }}>
@@ -292,7 +292,7 @@ export default function Page() {
           ))}
         </div>
         <Reveal delay={160}>
-          <div className="grid grid-cols-12 gap-8 items-center mt-14 md:mt-20">
+          <div className="grid grid-cols-12 gap-x-4 gap-y-8 md:gap-8 items-center mt-14 md:mt-20">
             <div className="col-span-12 md:col-span-7">
               <Marco
                 src={`${IMG}/letreros.webp`}
@@ -357,7 +357,7 @@ export default function Page() {
 
       {/* ── Cómo llegar ── */}
       <section id="llegar" className="scroll-mt-20" style={{ backgroundColor: C.pizarra }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-12 gap-8 md:gap-12 items-stretch">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-12 gap-x-4 gap-y-8 md:gap-12 items-stretch">
           <div className="col-span-12 md:col-span-5 flex flex-col justify-center">
             <Reveal>
               <h2 className={`${display.className} font-semibold text-[clamp(2rem,5vw,3.2rem)] leading-[1.05] mb-6`} style={{ color: C.tiza }}>
