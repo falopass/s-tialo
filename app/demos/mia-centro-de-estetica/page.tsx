@@ -5,7 +5,7 @@ import type { CSSProperties } from 'react'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, SERVICIOS, REVIEWS } from './content'
+import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED, IMG, SERVICIOS, SERVICIO_EXTRA, REVIEWS } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -190,6 +190,9 @@ export default function MiaCentroDeEsteticaPage() {
                 {s.name}
               </span>
             ))}
+            <span className={`${display.className} font-bold text-[11px] md:text-xs tracking-[0.22em]`} style={{ color: C.gold }}>
+              + {SERVICIO_EXTRA}
+            </span>
           </div>
         </div>
       </section>
@@ -221,6 +224,12 @@ export default function MiaCentroDeEsteticaPage() {
                     </span>
                   </li>
                 ))}
+                <li className="flex items-baseline gap-4 px-7 md:px-8 py-4 border-t" style={{ borderColor: 'rgba(253,249,255,0.16)', color: C.bone }}>
+                  <span className={`${display.className} text-sm font-bold`} style={{ color: C.gold }}>+</span>
+                  <span className={`${display.className} font-bold text-base md:text-lg tracking-[0.08em]`} style={{ color: C.violetSoft }}>
+                    {SERVICIO_EXTRA} <span className="font-normal text-sm normal-case tracking-normal" style={{ color: 'rgba(253,249,255,0.66)' }}>— lo avisan por Facebook</span>
+                  </span>
+                </li>
               </ul>
               <div className="px-7 md:px-8 py-6" style={{ backgroundColor: 'rgba(0,0,0,0.18)' }}>
                 <a
@@ -259,9 +268,9 @@ export default function MiaCentroDeEsteticaPage() {
             <Reveal delay={80}>
               <div className="grid grid-cols-2 gap-4 pt-2">
                 <figure className="relative aspect-[4/5] rounded-2xl overflow-hidden" style={{ border: `1px solid ${C.line}` }}>
-                  <Image src={`${IMG}/masaje.webp`} alt="Masaje relajante en cabina de Mía Centro De Estética" fill sizes="(min-width:768px) 25vw, 45vw" className="object-cover" />
+                  <Image src={`${IMG}/peluqueria.webp`} alt="Balayage rubio hecho en Mía, publicado en su Facebook con productos Schwarzkopf Professional" fill sizes="(min-width:768px) 25vw, 45vw" className="object-cover" />
                   <figcaption className="absolute bottom-0 inset-x-0 text-[10px] uppercase tracking-[0.16em] font-bold px-3 py-2" style={{ backgroundColor: 'rgba(42,15,69,0.82)', color: C.bone }}>
-                    Masajes
+                    Peluquería
                   </figcaption>
                 </figure>
                 <figure className="relative aspect-[4/5] rounded-2xl overflow-hidden" style={{ border: `1px solid ${C.line}` }}>
@@ -293,10 +302,12 @@ export default function MiaCentroDeEsteticaPage() {
               </p>
             </div>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
             {[
               { src: 'unas1', alt: 'Uñas en tonos menta con glitter dorado hechas en Mía' },
+              { src: 'unas5', alt: 'Manicure rosada con glitter dorado hecha en Mía' },
               { src: 'unas2', alt: 'Manicure rosada con detalle en glitter hecha en Mía' },
+              { src: 'unas6', alt: 'Manicure degradado menta con glitter hecha en Mía' },
               { src: 'unas3', alt: 'Esmaltado rosado con acento dorado, trabajo de Mía' },
               { src: 'unas4', alt: 'Uñas celestes con glitter plateado hechas en Mía' },
             ].map((f, i) => (
