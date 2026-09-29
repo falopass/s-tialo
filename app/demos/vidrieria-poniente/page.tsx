@@ -22,6 +22,9 @@ const mono = localFont({
   variable: '--font-mono',
 })
 
+// Identidad del logo VP: rombo carmesí sobre blanco, taller de aluminio.
+// Motivo: el corte a inglete (45°) del marco de ventana — borde biselado
+// en tarjetas, botones y la vitrina del hero.
 const C = {
   steel: '#EEF0F1',
   steelDeep: '#E2E5E7',
@@ -34,23 +37,30 @@ const C = {
   paper: '#F7F8F8',
 }
 
+const CORTE =
+  'polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px)'
+
+// regla con marcas de medida — el taller mide al milímetro
+const REGLA = {
+  backgroundImage:
+    'repeating-linear-gradient(90deg, rgba(238,240,241,0.4) 0 1px, transparent 1px 12px)',
+  maskImage: 'linear-gradient(90deg, transparent, black 8%, black 92%, transparent)',
+}
+
 export const metadata: Metadata = demoMetadata({
   slug: 'vidrieria-poniente',
   title: 'Vidriería Poniente — Vidrios, aluminio y PVC a la medida en Talca',
   description:
     'Vidrios y espejos a medida, termopanel, mamparas y estructuras de aluminio y PVC. Diecinueve Sur 506 esquina 4 Poniente, Talca. Cotiza por WhatsApp.',
-  image: `${IMG}/fachada.webp`,
+  image: `${IMG}/terraza.webp`,
 })
 
 const NAV_LINKS = [
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Trabajos', href: '#trabajos' },
+  { label: 'El taller', href: '#taller' },
+  { label: 'Obras', href: '#obras' },
   { label: 'Reseñas', href: '#resenas' },
-  { label: 'Dónde estamos', href: '#visita' },
+  { label: 'La esquina', href: '#visita' },
 ]
-
-const CORTE_MITRADO =
-  'polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px)'
 
 const SERVICIOS = [
   { cod: 'V-01', name: 'Vidrios a medida', desc: 'Corte e instalación para ventanas, puertas y muebles.' },
@@ -61,16 +71,13 @@ const SERVICIOS = [
   { cod: 'V-06', name: 'Reparaciones', desc: 'Hojas, correderas, cierres y vidrios quebrados.' },
 ]
 
-const TRABAJOS = [
-  { src: `${IMG}/fachada.webp`, alt: 'Fachada de Vidriería Poniente en 19 Sur con letrero Aluminios y Vidrios', tag: 'el local' },
-  { src: `${IMG}/p4.webp`, alt: 'Entrada del local con puertas plegables de aluminio y vidrio', tag: 'entrada' },
-  { src: `${IMG}/p1.webp`, alt: 'Mamparas de baño en exhibición dentro del showroom', tag: 'mamparas' },
-  { src: `${IMG}/p9.webp`, alt: 'Divisores de baño en aluminio color bronce expuestos en la tienda', tag: 'mamparas' },
-  { src: `${IMG}/p7.webp`, alt: 'Casa de madera con ventanas de aluminio oscuras instaladas', tag: 'instalación' },
-  { src: `${IMG}/p3.webp`, alt: 'Ventana PVC blanca con vidrio decorativo en exhibición', tag: 'PVC' },
-  { src: `${IMG}/p10.webp`, alt: 'Ventana PVC blanca corredera expuesta en el showroom', tag: 'PVC' },
-  { src: `${IMG}/p11.webp`, alt: 'Puerta de aluminio bronce con vidrio texturizado', tag: 'puertas' },
-  { src: `${IMG}/p13.webp`, alt: 'Ventana PVC con vista a las vías del tren de Talca', tag: 'PVC' },
+const OBRAS = [
+  { src: `${IMG}/corredera.webp`, alt: 'Puerta corredera de aluminio abriéndose a la terraza', tag: 'corredera' },
+  { src: `${IMG}/casa-ventanas.webp`, alt: 'Casa de madera con ventanas de aluminio oscuras instaladas', tag: 'ventanas' },
+  { src: `${IMG}/mampara-frost.webp`, alt: 'Mampara de baño templada con vidrio esmerilado instalada', tag: 'mampara' },
+  { src: `${IMG}/pvc-detalle.webp`, alt: 'Detalle de ventana PVC blanca recién instalada', tag: 'PVC' },
+  { src: `${IMG}/quebrado.webp`, alt: 'Vidrio quebrado listo para reposición en el taller', tag: 'reparación' },
+  { src: `${IMG}/shower-negro.webp`, alt: 'Shower door de perfil negro con vidrio texturizado instalado', tag: 'shower' },
 ]
 
 const RESENAS = [
@@ -94,103 +101,98 @@ const RESENAS = [
 
 export default function Page() {
   return (
-    <main className={`${display.variable} ${body.variable} ${mono.variable} font-[var(--font-body)] antialiased`} style={{ backgroundColor: C.steel }}>
+    <main
+      className={`${display.variable} ${body.variable} ${mono.variable} font-[var(--font-body)] antialiased`}
+      style={{ backgroundColor: C.steel, color: C.ink }}
+    >
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
         waLink={WA_LINK}
-        logoSrc={`${IMG}/logo.webp`}
         fontClass="font-[var(--font-display)] font-semibold uppercase tracking-wide"
-        theme={{ over: 'light', bar: C.steel, ink: C.ink, line: C.line, btnBg: C.crimson, btnInk: '#fff' }}
+        theme={{ over: 'dark', bar: C.steel, ink: C.ink, line: C.line, btnBg: C.crimson, btnInk: '#fff' }}
       />
 
-      {/* ── HERO: la nota de trabajo ── */}
+      {/* ── HERO: obra instalada a sangre + vitrina de vidrio ── */}
       <section id="inicio" className="relative">
-        {/* regla con marcas de medida */}
-        <div
-          aria-hidden="true"
-          className="h-5 w-full"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(90deg, rgba(27,31,36,0.35) 0 1px, transparent 1px 12px)',
-            maskImage: 'linear-gradient(90deg, transparent, black 8%, black 92%, transparent)',
-          }}
-        />
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-10 pb-14 md:pt-16 md:pb-20">
-          <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-14 items-end">
-            <div>
-              <Reveal>
+        <div className="relative">
+          <Image
+            src={`${IMG}/terraza.webp`}
+            alt="Terraza cerrada con ventanales y puerta de aluminio oscuro mirando al campo"
+            width={900}
+            height={1200}
+            priority
+            className="w-full h-[460px] md:h-[560px] object-cover"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'linear-gradient(180deg, rgba(27,31,36,0.4) 0%, rgba(27,31,36,0.08) 40%, rgba(27,31,36,0.5) 100%)',
+            }}
+          />
+          <div aria-hidden="true" className="absolute bottom-0 inset-x-0 h-5" style={REGLA} />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <div
+              className="relative -mt-44 md:-mt-52 max-w-xl p-6 md:p-9"
+              style={{
+                backgroundColor: 'rgba(247,248,248,0.88)',
+                backdropFilter: 'blur(14px)',
+                WebkitBackdropFilter: 'blur(14px)',
+                border: `1px solid ${C.line}`,
+                clipPath: CORTE,
+              }}
+            >
+              <div className="flex items-center gap-4">
                 <Image
                   src={`${IMG}/logo.webp`}
-                  alt="Logo de Vidriería Poniente: rombo carmesí VP y texto Aluminios y Vidrios"
-                  width={560}
-                  height={213}
-                  priority
-                  className="w-[150px] md:w-[190px] h-auto"
+                  alt="Logo de Vidriería Poniente: rombo carmesí VP, Aluminios y Vidriería Poniente"
+                  width={720}
+                  height={720}
+                  className="w-14 h-14 md:w-16 md:h-16 object-contain"
                 />
-              </Reveal>
-              <Reveal>
-                <h1
-                  className="font-[var(--font-display)] font-semibold uppercase leading-[0.98] mt-7 text-[clamp(2.7rem,10vw,5.4rem)]"
-                  style={{ color: C.ink }}
-                >
-                  El vidrio
+                <p className="font-[var(--font-mono)] text-[10px] md:text-xs uppercase tracking-[0.2em]" style={{ color: C.crimson }}>
+                  {BIZ.rubro}
                   <br />
-                  <span style={{ color: C.crimson }}>a la medida</span>
-                  <br />
-                  de Talca
-                </h1>
-              </Reveal>
-              <Reveal>
-                <p className="mt-6 max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.muted }}>
-                  Vidrios, espejos, termopanel y estructuras de aluminio y PVC,
-                  cortados y fabricados en el taller de{' '}
-                  <strong style={{ color: C.ink }}>19 Sur con 4 Poniente</strong>.
+                  <span style={{ color: C.muted }}>{BIZ.address} · {BIZ.city}</span>
                 </p>
-              </Reveal>
-              <Reveal>
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <a
-                    href={WA_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="tap-44 inline-flex items-center gap-2 px-6 py-3 text-base font-bold uppercase tracking-wide active:scale-95 transition-transform"
-                    style={{ backgroundColor: C.crimson, color: '#fff', clipPath: CORTE_MITRADO }}
-                  >
-                    Cotizar mi medida
-                  </a>
-                  <div className="font-[var(--font-mono)] text-xs" style={{ color: C.muted }}>
-                    <Stars value={4} color={C.crimson} className="w-4 h-4 inline-block align-[-2px] mr-1.5" />
-                    {BIZ.rating} · {BIZ.reviews} reseñas en Google
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-            <Reveal>
-              <figure className="relative">
-                <div
-                  aria-hidden="true"
-                  className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2"
-                  style={{ borderColor: C.crimson }}
-                />
-                <Image
-                  src={`${IMG}/fachada.webp`}
-                  alt="Fachada de Vidriería Poniente con su letrero rojo Aluminios y Vidrios en 19 Sur, Talca"
-                  width={808}
-                  height={958}
-                  priority
-                  className="w-full h-auto"
-                  style={{ clipPath: CORTE_MITRADO, border: `1px solid ${C.line}` }}
-                />
-                <figcaption
-                  className="absolute bottom-3 left-3 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.16em] px-3 py-1.5"
-                  style={{ backgroundColor: C.graphite, color: '#EEF0F1' }}
+              </div>
+              <h1
+                className="font-[var(--font-display)] font-semibold uppercase leading-[0.98] mt-6 text-[clamp(2.5rem,9.5vw,4.6rem)]"
+                style={{ color: C.ink }}
+              >
+                El vidrio
+                <br />
+                <span style={{ color: C.crimson }}>a la medida</span>
+                <br />
+                de Talca
+              </h1>
+              <p className="mt-5 max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.muted }}>
+                Vidrios, espejos, termopanel y estructuras de aluminio y PVC,
+                cortados y fabricados en el taller de{' '}
+                <strong style={{ color: C.ink }}>19 Sur con 4 Poniente</strong>.
+              </p>
+              <div className="mt-7 flex flex-wrap items-center gap-4">
+                <a
+                  href={WA_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tap-44 inline-flex items-center gap-2 px-6 py-3 text-base font-bold uppercase tracking-wide active:scale-95 transition-transform"
+                  style={{ backgroundColor: C.crimson, color: '#fff', clipPath: CORTE }}
                 >
-                  {BIZ.address} · {BIZ.esquina}
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
+                  Cotizar mi medida
+                </a>
+                <div className="font-[var(--font-mono)] text-xs" style={{ color: C.muted }}>
+                  <Stars value={4} color={C.crimson} className="w-4 h-4 inline-block align-[-2px] mr-1.5" />
+                  {BIZ.rating} · {BIZ.reviews} reseñas en Google
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -221,12 +223,12 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── SERVICIOS: especificaciones ── */}
-      <section id="servicios">
+      {/* ── EL TALLER: especificaciones ── */}
+      <section id="taller">
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: C.crimson }}>
-              Especificaciones · lo que fabrica el taller
+              El taller · lo que sale del inglete
             </p>
             <h2
               className="font-[var(--font-display)] font-semibold uppercase leading-[0.98] text-[clamp(2.2rem,6.5vw,4rem)] mb-10 md:mb-14"
@@ -240,7 +242,7 @@ export default function Page() {
               <Reveal key={s.cod}>
                 <div
                   className="h-full p-5"
-                  style={{ backgroundColor: C.paper, border: `1px solid ${C.line}`, clipPath: CORTE_MITRADO }}
+                  style={{ backgroundColor: C.paper, border: `1px solid ${C.line}`, clipPath: CORTE }}
                 >
                   <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.2em]" style={{ color: C.crimson }}>
                     {s.cod}
@@ -264,21 +266,100 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── TRABAJOS: la vitrina ── */}
-      <section id="trabajos" style={{ backgroundColor: C.steelDeep }}>
+      {/* ── LA ESQUINA: el local ── */}
+      <section style={{ backgroundColor: C.steelDeep }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-4 mb-10 md:mb-14">
+              <h2
+                className="font-[var(--font-display)] font-semibold uppercase leading-[0.98] text-[clamp(2.2rem,6.5vw,4rem)]"
+                style={{ color: C.ink }}
+              >
+                La vidriería
+                <br />
+                de la esquina
+              </h2>
+              <p className="font-[var(--font-mono)] text-xs pb-2" style={{ color: C.muted }}>
+                {BIZ.address} · {BIZ.esquina}
+              </p>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-3">
+            <Reveal>
+              <figure className="relative">
+                <Image
+                  src={`${IMG}/entrada.webp`}
+                  alt="Entrada de Vidriería Poniente: puertas de aluminio con el logo VP y el letrero rojo de la esquina"
+                  width={1200}
+                  height={707}
+                  className="w-full h-full object-cover"
+                  style={{ border: `1px solid ${C.line}` }}
+                />
+                <figcaption
+                  className="absolute bottom-2 left-2 font-[var(--font-mono)] text-[9px] uppercase tracking-[0.16em] px-2 py-0.5"
+                  style={{ backgroundColor: C.graphite, color: '#EEF0F1' }}
+                >
+                  la entrada · 19 Sur
+                </figcaption>
+              </figure>
+            </Reveal>
+            <div className="grid grid-rows-2 gap-3">
+              <Reveal>
+                <figure className="relative">
+                  <Image
+                    src={`${IMG}/fachada.webp`}
+                    alt="Fachada de Vidriería Poniente con su letrero rojo Aluminios y Vidrios"
+                    width={808}
+                    height={958}
+                    className="w-full h-full object-cover"
+                    style={{ border: `1px solid ${C.line}`, objectPosition: '50% 20%' }}
+                  />
+                  <span
+                    className="absolute top-2 left-2 font-[var(--font-mono)] text-[9px] uppercase tracking-[0.16em] px-2 py-0.5"
+                    style={{ backgroundColor: C.crimson, color: '#fff' }}
+                  >
+                    el letrero
+                  </span>
+                </figure>
+              </Reveal>
+              <Reveal>
+                <figure className="relative">
+                  <Image
+                    src={`${IMG}/vitrina-mamparas.webp`}
+                    alt="Vitrina del local con mamparas de baño en exhibición"
+                    width={1200}
+                    height={900}
+                    className="w-full h-full object-cover"
+                    style={{ border: `1px solid ${C.line}` }}
+                  />
+                  <span
+                    className="absolute top-2 left-2 font-[var(--font-mono)] text-[9px] uppercase tracking-[0.16em] px-2 py-0.5"
+                    style={{ backgroundColor: C.crimson, color: '#fff' }}
+                  >
+                    la vitrina
+                  </span>
+                </figure>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── OBRAS INSTALADAS ── */}
+      <section id="obras">
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <h2
               className="font-[var(--font-display)] font-semibold uppercase leading-[0.98] text-[clamp(2.2rem,6.5vw,4rem)] mb-10 md:mb-14"
               style={{ color: C.ink }}
             >
-              La vitrina y
+              Lo que sale del taller,
               <br />
-              lo que sale de ella
+              ya instalado
             </h2>
           </Reveal>
           <div className="columns-2 md:columns-3 gap-3 [&>figure]:mb-3">
-            {TRABAJOS.map((g) => (
+            {OBRAS.map((g) => (
               <Reveal key={g.src}>
                 <figure className="break-inside-avoid relative">
                   <Image
@@ -303,7 +384,7 @@ export default function Page() {
       </section>
 
       {/* ── RESEÑAS ── */}
-      <section id="resenas">
+      <section id="resenas" style={{ backgroundColor: C.steelDeep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <Reveal>
             <div className="flex flex-wrap items-end gap-4 md:gap-8 mb-10 md:mb-14">
@@ -323,7 +404,7 @@ export default function Page() {
               <Reveal key={r.nombre}>
                 <blockquote
                   className="p-5 md:p-6 h-full"
-                  style={{ backgroundColor: C.paper, border: `1px solid ${C.line}`, clipPath: CORTE_MITRADO }}
+                  style={{ backgroundColor: C.paper, border: `1px solid ${C.line}`, clipPath: CORTE }}
                 >
                   <Stars value={5} color={C.crimson} className="w-3.5 h-3.5" />
                   <p className="mt-3 text-base leading-relaxed" style={{ color: C.ink }}>
@@ -401,14 +482,14 @@ export default function Page() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="tap-44 mt-8 inline-flex items-center gap-2 px-6 py-3 text-base font-bold uppercase tracking-wide active:scale-95 transition-transform"
-                  style={{ backgroundColor: '#fff', color: C.crimson, clipPath: CORTE_MITRADO }}
+                  style={{ backgroundColor: '#fff', color: C.crimson, clipPath: CORTE }}
                 >
                   Cotizar por WhatsApp
                 </a>
               </Reveal>
             </div>
             <Reveal>
-              <div style={{ border: `1px solid rgba(238,240,241,0.25)` }}>
+              <div style={{ border: `1px solid rgba(238,240,241,0.25)`, clipPath: CORTE }}>
                 <LazyMap
                   src={MAPS_EMBED}
                   title={`Ubicación de ${BIZ.name} en ${BIZ.address}, ${BIZ.city}`}
@@ -426,7 +507,7 @@ export default function Page() {
       <footer style={{ backgroundColor: '#14171B' }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 pb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Image src={`${IMG}/logo.webp`} alt="" width={36} height={36} className="h-8 w-auto" aria-hidden="true" />
+            <Image src={`${IMG}/logo.webp`} alt="" width={36} height={36} className="h-8 w-8 object-contain" aria-hidden="true" />
             <div>
               <p className="font-[var(--font-display)] font-semibold uppercase tracking-wide text-sm" style={{ color: '#EEF0F1' }}>
                 {BIZ.name}
