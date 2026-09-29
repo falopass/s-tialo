@@ -363,14 +363,28 @@ export default function PizzeriaLaToscana() {
             </div>
 
             <Reveal delay={80}>
-              <div className="mt-12 md:mt-16 rounded-2xl overflow-hidden border-2 min-h-[300px]" style={{ borderColor: 'rgba(33,23,17,0.5)' }}>
-                <LazyMap
-                  title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
-                  src={MAPS_EMBED}
-                  className="w-full min-h-[300px] block"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+              <div className="mt-12 md:mt-16 grid md:grid-cols-[0.45fr_1fr] gap-5 items-stretch">
+                <figure className="relative rounded-2xl overflow-hidden border-4 min-h-[300px] md:min-h-0" style={{ borderColor: C.carbon }}>
+                  <Image
+                    src={`${IMG}/puerta-cartel.webp`}
+                    alt="Puerta de Pizzería la Toscana con sus calcomanías de marca: teléfono, redes y la dirección Maipú 2030-2032, Molina"
+                    fill
+                    sizes="(min-width: 768px) 28vw, 92vw"
+                    className="object-cover"
+                  />
+                  <figcaption className={`${mono.className} absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.16em] px-2.5 py-1.5 rounded-full`} style={{ backgroundColor: 'rgba(33,23,17,0.85)', color: C.crema }}>
+                    La puerta, con sus datos
+                  </figcaption>
+                </figure>
+                <div className="rounded-2xl overflow-hidden border-2 min-h-[300px]" style={{ borderColor: 'rgba(33,23,17,0.5)' }}>
+                  <LazyMap
+                    title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
+                    src={MAPS_EMBED}
+                    className="w-full min-h-[300px] block"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
             </Reveal>
           </div>
