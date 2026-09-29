@@ -4573,6 +4573,14 @@ const BLITZ = [
     tagline: 'Rolls con carita: mascota kawaii real, reparto gratis a toda Teno y matcha sobre crema.',
     gradient: 'linear-gradient(135deg, #FBF5EA 0%, #3E7C4F 130%, #E86A4A 190%)',
   },
+  {
+    slug: 'outlet-neira-talca',
+    name: 'Outlet Neira Talca',
+    rubro: 'Mueblería outlet',
+    city: 'Talca',
+    tagline: 'El letrero verde de la 3 y media: carbón, lima de su marca y etiquetas de precio colgando del piso.',
+    gradient: 'linear-gradient(135deg, #F3F2EC 0%, #B7E335 100%, #15171B 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
