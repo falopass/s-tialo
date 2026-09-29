@@ -31,6 +31,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F4F1E6 0%, #B3C938 90%, #1B2340 190%)',
   },
   {
+    slug: 'el-sauce-mote-con-huesillo',
+    name: 'El Sauce - Mote Con Huesillo',
+    rubro: 'Restaurant — comida típica',
+    city: 'Longaví',
+    tagline: 'La pará de la ruta 5: letrero rojo de carretera, manteles a cuadros en cada corte y el vaso de mote con huesillo de portada.',
+    gradient: 'linear-gradient(135deg, #FAF3E3 0%, #B4231E 95%, #C07A2A 190%)',
+  },
+  {
     slug: 'come-rico',
     name: 'Come Rico',
     rubro: 'Cocinería — comida rápida y casera',
