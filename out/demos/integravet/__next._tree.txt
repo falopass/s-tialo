@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/dd461230c2f4516d.css","style"]
-:HL["/_next/static/chunks/7e53fdc43e62084c.css","style"]
+:HL["/_next/static/chunks/aeae79bf158be90f.css","style"]
 :HL["/_next/static/media/normal_100_800-s.p.d75dc2df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.2fc7e6c4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/normal_100_900-s.p.bd54c7c8.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -18,4 +18,4 @@
 :HL["/demos/integravet/letrero.webp","image"]
 :HL["/demos/integravet/paciente.webp","image"]
 :HL["/demos/integravet/cachorro.webp","image"]
-0:{"buildId":"6QAwejz6CqUuBx7TEOavH","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"integravet","paramType":null,"paramKey":"integravet","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"ztZswSvPdJVPklWW4VxfB","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"demos","paramType":null,"paramKey":"demos","hasRuntimePrefetch":false,"slots":{"children":{"name":"integravet","paramType":null,"paramKey":"integravet","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
