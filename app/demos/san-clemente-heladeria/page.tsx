@@ -334,7 +334,7 @@ export default function SanClementeHeladeriaPage() {
               </em>
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: 'rgba(255,246,233,0.9)' }}>
-              Cada sábado y domingo la vitrina se llena de sabores de
+              De viernes a domingo la vitrina se llena de sabores de
               temporada, copas para la once y helado para llevar.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -624,8 +624,8 @@ export default function SanClementeHeladeriaPage() {
               Pásate <em className="italic inline-block pb-1" style={{ color: C.frambuesaFuerte }}>a probar</em>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-lg mb-8" style={{ color: C.muted }}>
-              El local abre los fines de semana y el resto se coordina por
-              WhatsApp.
+              El local abre de viernes a domingo, en el camino K-693.
+              Acumula un {BIZ.rating} con {BIZ.reviews} reseñas en Google.
             </p>
             <div className="relative overflow-hidden rounded-[28px] border aspect-[16/9] md:aspect-[21/8]" style={{ borderColor: C.line }}>
               <Image
@@ -662,26 +662,26 @@ export default function SanClementeHeladeriaPage() {
                   {BIZ.name}
                 </p>
                 <address className="not-italic text-sm leading-relaxed mb-4" style={{ color: C.muted }}>
-                  {BIZ.city}, {BIZ.region}
+                  {BIZ.address}, {BIZ.city}, {BIZ.region}
                   <br />
-                  <span className="text-xs">La dirección exacta se confirma por WhatsApp.</span>
+                  <span className="text-xs">{BIZ.rating} de promedio en {BIZ.reviews} reseñas de Google.</span>
                 </address>
                 <ul className="space-y-2 mb-5">
                   <li className="flex items-start gap-2.5 text-sm" style={{ color: C.muted }}>
                     <Cone className="w-4 h-4 shrink-0 mt-0.5" color={C.frambuesaFuerte} />
                     <span>
-                      <strong className="font-bold" style={{ color: C.chocolate }}>Sábados y domingos:</strong> de 15:00 a 19:30
+                      <strong className="font-bold" style={{ color: C.chocolate }}>{BIZ.hoursOpen}</strong>
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5 text-sm" style={{ color: C.muted }}>
                     <Cone className="w-4 h-4 shrink-0 mt-0.5" color={C.frambuesaFuerte} />
                     <span>
-                      <strong className="font-bold" style={{ color: C.chocolate }}>Entre semana:</strong> encargos por WhatsApp
+                      <strong className="font-bold" style={{ color: C.chocolate }}>Lunes a jueves:</strong> encargos por WhatsApp
                     </span>
                   </li>
                 </ul>
                 <p className="text-[11px] leading-relaxed mb-5" style={{ color: C.muted }}>
-                  Horario referencial, tomado de su Instagram.
+                  Horario según su ficha de Google Maps.
                 </p>
                 <div className="flex flex-wrap gap-2.5">
                   <a
@@ -763,12 +763,12 @@ export default function SanClementeHeladeriaPage() {
               {BIZ.name}
             </p>
             <p className="text-sm mb-2" style={{ color: 'rgba(255,246,233,0.8)' }}>
-              {BIZ.city}, {BIZ.region} · sábados y domingos de 15:00 a 19:30
+              {BIZ.address}, {BIZ.city} · vie a dom de 15:00 a 20:00
             </p>
             <p className="text-xs leading-relaxed" style={{ color: 'rgba(255,246,233,0.8)' }}>
-              Sitio de ejemplo de Sitiazo: nombre, comuna, WhatsApp, Instagram,
-              horario, sabores marcados, fotos y logo son reales; carta completa
-              y textos son de muestra.
+              Sitio de ejemplo de Sitiazo: nombre, comuna, dirección, WhatsApp,
+              Instagram, horario, rating, sabores marcados, fotos y logo son
+              reales; carta completa y textos son de muestra.
             </p>
           </div>
         </div>
