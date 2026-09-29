@@ -188,7 +188,7 @@ export default function IngenieriaSanClementePage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
           <Reveal>
             <div className="grid md:grid-cols-[1fr_1.4fr] gap-10 md:gap-14 items-start">
-              <div>
+              <div className="min-w-0">
                 <Tag dark={false}>Ficha técnica · datos públicos</Tag>
                 <h2 className={`${display.className} font-semibold uppercase text-4xl md:text-5xl leading-[0.98] mb-5`}>
                   Lo que se puede decir con certeza
@@ -209,7 +209,7 @@ export default function IngenieriaSanClementePage() {
                   </ul>
                 </details>
               </div>
-              <div className="border-2" style={{ borderColor: C.tinta }}>
+              <div className="border-2 min-w-0" style={{ borderColor: C.tinta }}>
                 <div className={`${mono.className} px-4 py-2.5 text-[11px] uppercase tracking-[0.18em] border-b-2 flex justify-between`} style={{ borderColor: C.tinta, backgroundColor: 'rgba(240,165,0,0.12)' }}>
                   <span>Dato</span>
                   <span>Estado</span>
