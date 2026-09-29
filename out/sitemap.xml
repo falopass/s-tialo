@@ -967,6 +967,12 @@
 <priority>0.5</priority>
 </url>
 <url>
+<loc>https://sitiazo.cl/demos/first-security/</loc>
+<lastmod>2026-09-25T00:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
 <loc>https://sitiazo.cl/demos/fixstore-servicio-tecnico-talca/</loc>
 <lastmod>2026-09-25T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
@@ -2078,6 +2084,12 @@
 </url>
 <url>
 <loc>https://sitiazo.cl/demos/topomaule/</loc>
+<lastmod>2026-09-25T00:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://sitiazo.cl/demos/trazos-publicidad/</loc>
 <lastmod>2026-09-25T00:00:00.000Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
