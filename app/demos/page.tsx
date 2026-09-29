@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'acuerdate-de-mi-pasteleria',
+    name: 'Acuérdate de Mí',
+    rubro: 'Pastelería por encargo',
+    city: 'Talca',
+    tagline: 'Marcellus + Jost, crema y esmeralda del colibrí: bordes de blonda, carta numerada de tortas y cinta de encargos.',
+    gradient: 'linear-gradient(135deg, #F4ECD9 0%, #0F6E54 140%, #14332A 190%)',
+  },
+  {
     slug: 'aluminios-y-vidrios-thonyglass',
     name: 'Aluminios y Vidrios Thonyglass',
     rubro: 'Vidriería y ventanas a medida',
@@ -3648,9 +3656,9 @@ const BLITZ = [
   {
     slug: 'dulcitos-talca',
     name: 'Dulcitos Talca',
-    rubro: 'Servicios',
+    rubro: 'Panadería · Pastelería · Minimarket',
     city: 'Talca, Maule',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    tagline: 'Passion One + Barlow, naranja del toldo en el CREA: vitrina en cinta polaroid y pan brioche para locales del Maule.',
     gradient: 'linear-gradient(135deg, #FFF8EE 0%, #B03C0C 150%)',
   },
   {
@@ -3680,9 +3688,9 @@ const BLITZ = [
   {
     slug: 'panes-y-postres-metodo-grez-talca',
     name: 'Panes y Postres Método Grez',
-    rubro: 'Servicios',
+    rubro: 'Repostería sin azúcar ni gluten',
     city: 'Talca, Maule',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    tagline: 'Onest + Karla en oliva saludable: fichas con specs sin azúcar/sin gluten, sección "para quién" y encargo por WhatsApp.',
     gradient: 'linear-gradient(135deg, #FBFAF5 0%, #4E6420 150%)',
   },
   {
