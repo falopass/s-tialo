@@ -843,8 +843,8 @@ const BLITZ = [
     name: 'Restaurant El Encuentro',
     rubro: 'Restaurante',
     city: 'Pencahue',
-    tagline: 'Cuadrícula suiza utilitaria: mostaza, verde oscuro y hueso, reglas finas y tipografía de cartel.',
-    gradient: 'linear-gradient(135deg, #17231C 0%, #2E4A3C 55%, #D9A441 140%)',
+    tagline: 'La jornada del domingo: mantel morado, toldo y crema, guirnalda tricolor y reseñas reales.',
+    gradient: 'linear-gradient(135deg, #331C46 0%, #56346E 55%, #B0231A 140%)',
   },
   {
     slug: 'muebleria-comercial-sofia',
@@ -1021,6 +1021,22 @@ const BLITZ = [
     city: 'San Clemente',
     tagline: 'Postal de cordillera: pino, crema y madera, fotos tipo polaroid y sendero punteado hasta el mapa.',
     gradient: 'linear-gradient(135deg, #0E241B 0%, #16362A 55%, #C9713A 140%)',
+  },
+  {
+    slug: 'el-roble-de-vilches',
+    name: 'Complejo Turístico El Roble',
+    rubro: 'Alojamiento y turismo',
+    city: 'Vilches · San Clemente',
+    tagline: 'Recorrido por el complejo: bosque profundo, turquesa de piscina y madera, paradas numeradas estilo sendero.',
+    gradient: 'linear-gradient(135deg, #12271A 0%, #1E3D28 55%, #157A90 140%)',
+  },
+  {
+    slug: 'lircay-experience',
+    name: 'Lircay Experience',
+    rubro: 'Cafetería outdoor',
+    city: 'Vilches Alto · San Clemente',
+    tagline: 'Cuaderno de ruta a lápiz: papel kraft, tinta moca y acentos rasta, escenas dibujadas marcadas como bosquejo.',
+    gradient: 'linear-gradient(135deg, #202B1F 0%, #6B4226 60%, #D9A62E 140%)',
   },
   {
     slug: 'forastero-sabor-en-cada-bocado',
