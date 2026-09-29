@@ -434,18 +434,18 @@ export default function ResidencialJuanitaPage() {
             <div className="relative">
               <div className="relative overflow-hidden rounded-[6px]" style={{ rotate: '1.4deg', boxShadow: '0 24px 50px rgba(0,0,0,0.35)' }}>
                 <Image
-                  src={`${IMG}/cocina.webp`}
-                  alt="Cocina de madera de Residencial Juanita, donde sale la pensión completa"
-                  width={675}
-                  height={1200}
-                  className="w-full h-auto object-cover max-h-[520px]"
+                  src={`${IMG}/esquina.webp`}
+                  alt="La casa verde de Residencial Juanita vista desde la esquina de José Gil Aguayo, Curepto"
+                  width={1200}
+                  height={900}
+                  className="w-full h-auto object-cover max-h-[420px]"
                 />
               </div>
               <div
                 className={`${mono.className} absolute -bottom-4 left-4 md:-left-4 text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-2.5`}
                 style={{ backgroundColor: C.amber, color: C.greenDeep, rotate: '-2deg' }}
               >
-                Desde esta cocina
+                El restaurant en la esquina
               </div>
             </div>
           </Reveal>
