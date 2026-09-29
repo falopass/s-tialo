@@ -8,6 +8,8 @@ export const BIZ = {
   region: 'Región del Maule',
   phone: '56979888035',
   phoneDisplay: '+56 9 7988 8035',
+  rating: '2,9',
+  reviews: '12',
   hours: 'Abre todos los días a las 8:00',
   delivery: 'Delivery gratis · Hospital y alrededores',
 } as const

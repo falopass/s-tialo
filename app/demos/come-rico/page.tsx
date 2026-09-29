@@ -346,9 +346,22 @@ export default function ComeRicoPage() {
       {/* ── Reseñas ── */}
       <section id="resenas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <Reveal>
-          <h2 className={`${display.className} font-extrabold uppercase text-[clamp(2rem,5vw,3.4rem)] leading-none tracking-tight mb-10`} style={{ color: C.ink }}>
+          <h2 className={`${display.className} font-extrabold uppercase text-[clamp(2rem,5vw,3.4rem)] leading-none tracking-tight mb-4`} style={{ color: C.ink }}>
             Lo que dicen en Google
           </h2>
+        </Reveal>
+        <Reveal delay={60}>
+          <a
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 mb-10 tap-44"
+          >
+            <Stars value={2.9} color={C.accent} />
+            <span className={`${mono.className} text-xs md:text-sm`} style={{ color: C.muted }}>
+              {BIZ.rating} · {BIZ.reviews} reseñas en Google
+            </span>
+          </a>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {RESENAS.map((r, i) => (
