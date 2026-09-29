@@ -2631,24 +2631,35 @@ const BLITZ = [
     tagline: 'El museo del 1 Oriente: marfil, verde bosque, bronce y el Aldo\'s Bar con su fachada de toldo rayado.',
     gradient: 'linear-gradient(135deg, #0B241A 0%, #13392B 55%, #B08D4C 160%)',
   },
-  {
+{
     slug: 'colegio-san-francisco-de-asis',
     name: 'Colegio San Francisco de Asís',
     rubro: 'Escuela católica',
     city: 'Talca',
     tagline: 'La cartelera del colegio: papel, cinta adhesiva, poleras amarillas y la insignia café de su portón.',
     gradient: 'linear-gradient(135deg, #F7F1E3 0%, #EFE5CD 45%, #4A1208 150%)',
-  },
-  {
+{
     slug: 'instituto-ireland',
     name: 'CFT Ireland',
     rubro: 'Centro de Formación Técnica',
     city: 'Talca',
     tagline: 'El expediente: crema, azul marino, sello dorado y el registro de sus carreras a distancia.',
     gradient: 'linear-gradient(135deg, #F3EDDE 0%, #EAE1CB 45%, #1E3A5F 150%)',
+  },{
+    slug: 'javier-albornoz-y-cia',
+    name: 'Javier Albornoz y Cía',
+    rubro: 'Estudio jurídico',
+    city: 'Talca',
+    tagline: 'Carátula de expediente en papel crema: Instrument Serif, mono de folios y la fachada real del 772.',
+    gradient: 'linear-gradient(135deg, #EFE9D8 0%, #E3DAC2 45%, #8C2F26 160%)',
+  },{
+    slug: 'rtc-ingenieros',
+    name: 'RTC Ingenieros',
+    rubro: 'Ingeniería y auditoría técnica',
+    city: 'Talca',
+    tagline: 'Papel de plano y azul de ingeniería: retícula técnica, mono de datos y su estudio CIREN 2012 del embalse Huencuecho.',
+    gradient: 'linear-gradient(135deg, #0C2740 0%, #143A5E 55%, #0E7C9C 160%)',
   },
-]
-
 export const metadata: Metadata = {
   title: 'Demos por rubro — ejemplos de sitios para pymes',
   description:
