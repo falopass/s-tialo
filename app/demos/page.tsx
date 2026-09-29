@@ -2813,6 +2813,14 @@ const BLITZ = [
     tagline: 'Libro mayor en crema y verde: carátula SpA con RUT, servicios como líneas de cuenta y el condominio del 841.',
     gradient: 'linear-gradient(135deg, #F6F1E3 0%, #1D5B42 90%, #22303E 160%)',
   },
+  {
+    slug: 'eminel-talca',
+    name: 'EMINEL',
+    rubro: 'Ingeniería eléctrica',
+    city: 'Talca',
+    tagline: 'Tablero unifilar: negro señalético, amarillo eléctrico y la red aérea real del barrio norte.',
+    gradient: 'linear-gradient(135deg, #0C1015 0%, #F2C21B 85%, #E9EDF2 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
