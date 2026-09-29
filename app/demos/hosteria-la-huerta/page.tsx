@@ -34,6 +34,7 @@ const C = {
   green: '#1E3D2F',
   green2: '#163026',
   gold: '#D9A441',
+  goldOsc: '#7A5A10',
   ink: '#23281F',
   mut: '#5A6254',
   line: '#DDD4BF',
@@ -358,7 +359,7 @@ export default function Page() {
               <h2 className="text-4xl sm:text-5xl" style={{ fontFamily: 'var(--f-gloock)' }}>
                 {BIZ.rating} de 5
               </h2>
-              <span style={{ color: C.gold }} aria-hidden>★★★★★</span>
+              <span style={{ color: C.goldOsc }} aria-hidden>★★★★★</span>
               <span className="text-[14px]" style={{ color: C.mut }}>{BIZ.reviews} reseñas publicadas</span>
             </div>
           </Reveal>
@@ -369,7 +370,7 @@ export default function Page() {
                   className="flex h-full flex-col rounded-2xl p-5"
                   style={{ background: C.cream, border: `1px solid ${C.line}` }}
                 >
-                  <span style={{ color: C.gold, fontSize: 14 }} aria-hidden>{r.estrellas}</span>
+                  <span style={{ color: C.goldOsc, fontSize: 14 }} aria-hidden>{r.estrellas}</span>
                   <p className="mt-3 flex-1 text-[14.5px] leading-relaxed">“{r.texto}”</p>
                   <footer className="mt-4 text-[12px] uppercase tracking-wider" style={{ color: C.mut, fontFamily: 'var(--f-mono)' }}>
                     {r.autor} · {r.cuando} · Google
