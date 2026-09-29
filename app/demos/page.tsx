@@ -3053,6 +3053,14 @@ const BLITZ = [
     tagline: 'La belleza a la carta: menú de precios reales con líneas punteadas, flyers propios y malva de su marca en Las Rastras.',
     gradient: 'linear-gradient(135deg, #F6F1EC 0%, #7E4F76 80%, #41596A 190%)',
   },
+  {
+    slug: 'colegio-ingles-de-talca',
+    name: 'Colegio Inglés de Talca',
+    rubro: 'Colegio bilingüe',
+    city: 'Talca',
+    tagline: 'La página como prospectus: lema en latín, seis sellos numerados y el único IB entre O’Higgins y el Maule.',
+    gradient: 'linear-gradient(135deg, #15255B 0%, #C8102E 140%, #F7F4EC 220%)',
+  },
 ]
 
 export const metadata: Metadata = {
