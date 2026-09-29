@@ -252,7 +252,7 @@ export default function MiCabanaPage() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(180deg, rgba(43,27,18,0.52) 0%, rgba(43,27,18,0.18) 42%, rgba(43,27,18,0.92) 88%)',
+                'linear-gradient(180deg, rgba(43,27,18,0.52) 0%, rgba(43,27,18,0.28) 40%, rgba(43,27,18,0.92) 64%)',
             }}
             aria-hidden="true"
           />
@@ -261,7 +261,7 @@ export default function MiCabanaPage() {
               <Reveal>
                 <p
                   className="font-mono text-[11px] md:text-xs uppercase tracking-[0.28em] mb-4"
-                  style={{ color: C.pink, textShadow: '0 1px 10px rgba(0,0,0,0.6)' }}
+                  style={{ color: '#F0B8BF', textShadow: '0 1px 12px rgba(0,0,0,0.75)' }}
                 >
                   Pastelería · Panadería · 5 Poniente esq. 31 Sur
                 </p>
