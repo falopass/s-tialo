@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'aluminios-y-vidrios-thonyglass',
+    name: 'Aluminios y Vidrios Thonyglass',
+    rubro: 'Vidriería y ventanas a medida',
+    city: 'Talca',
+    tagline: 'Catálogo técnico cian: Space Grotesk + Work Sans, termopanel y vidrio espejo, con el letrero ATG.',
+    gradient: 'linear-gradient(135deg, #EDF3F5 0%, #1298C4 120%, #0D2A33 190%)',
+  },
+  {
     slug: 'la-orquidea-talca',
     name: 'La Orquídea',
     rubro: 'Panadería · Pastelería · Minimarket',
