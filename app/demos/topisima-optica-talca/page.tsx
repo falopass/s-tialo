@@ -125,7 +125,7 @@ export default function TopisimaOpticaPage() {
                 <span className="block w-12 h-14 rounded-full overflow-hidden bg-white border" style={{ borderColor: C.line }}>
                   <Image src={`${IMG}/logo.webp`} alt="Ícono del letrero de Topísima Óptica" width={96} height={120} className="w-full h-full object-cover" priority />
                 </span>
-                <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.22em]`} style={{ color: C.magenta }}>
+                <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.22em] text-balance`} style={{ color: C.magenta }}>
                   Óptica · {BIZ.address.split(',')[0]} · {BIZ.city}
                 </p>
               </div>
