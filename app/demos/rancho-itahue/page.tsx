@@ -15,16 +15,21 @@ import {
   LOGO_H,
   LOGO_V,
   HERO,
+  CIFRAS,
+  ESPACIOS_HEAD,
   ESPACIOS,
   EVENTOS,
   COMIDAS,
   ENTORNO,
   PADEL,
+  UBICACION,
   HORARIO,
+  CONTACTOS,
+  type Title,
 } from './content'
 
 const display = localFont({
-  src: [{ path: '../../fonts/space-grotesk/normal-300-700.woff2', weight: '300 700', style: 'normal' }],
+  src: [{ path: '../../fonts/libre-franklin/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
 })
 const body = localFont({
   src: [{ path: '../../fonts/manrope/normal-200-800.woff2', weight: '200 800', style: 'normal' }],
@@ -44,13 +49,17 @@ const C = {
   line: 'rgba(44,44,40,0.14)',
 } as const
 
-export const metadata: Metadata = demoMetadata({
+const base = demoMetadata({
   slug: 'rancho-itahue',
-  title: 'Rancho Itahue — Multiespacio para eventos en Molina',
+  title: 'Rancho Itahue — Multiespacio en Molina',
   description:
-    'Salón de eventos con techo de madera, terraza encarpada, quinchos, dos piscinas, canchas de tenis y PlayPádel en el sector Itahue, Molina. Cotiza tu evento por WhatsApp.',
+    'Salón de eventos, terraza encarpada, quinchos, 2 piscinas, canchas de tenis, multicancha y PlayPádel. Almuerzos todo el año. Zona rural de Molina, a 5 km de la plaza.',
   image: '/demos/rancho-itahue/fotos/portada-IMG-20260928-WA0053.webp',
 })
+export const metadata: Metadata = {
+  ...base,
+  openGraph: { ...base.openGraph, siteName: 'Rancho Itahue' },
+}
 
 const NAV_LINKS = [
   { label: 'Espacios', href: '#espacios' },
@@ -78,7 +87,7 @@ function SectionHead({
   dark = false,
 }: {
   eyebrow: string
-  title: string
+  title: Title
   lead?: string
   dark?: boolean
 }) {
@@ -94,10 +103,11 @@ function SectionHead({
         </p>
       </div>
       <h2
-        className={`${display.className} mt-4 text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight`}
+        className={`${display.className} mt-4 text-3xl md:text-5xl leading-[1.05] tracking-tight`}
         style={{ color: dark ? '#fff' : C.ink }}
       >
-        {title}
+        <span className="block font-light">{title.light}</span>
+        <span className="block font-extrabold">{title.bold}</span>
       </h2>
       {lead && (
         <p
@@ -167,11 +177,11 @@ export default function RanchoItahuePage() {
                 {HERO.eyebrow}
               </p>
             </div>
-            <h1
-              className={`${display.className} mt-4 text-4xl md:text-6xl font-bold leading-[1.02] tracking-tight text-white`}
-            >
-              {HERO.title}
+            <h1 className={`${display.className} mt-4 uppercase leading-[0.9] text-white`}>
+              <span className="block text-3xl md:text-5xl font-light tracking-[0.18em]">Rancho</span>
+              <span className="block text-6xl md:text-8xl font-black tracking-tight">Itahue</span>
             </h1>
+            <p className="mt-4 text-base md:text-xl font-semibold text-white">{HERO.tagline}</p>
             <p className="mt-5 text-base md:text-lg leading-relaxed text-white/85 max-w-xl">
               {HERO.lead}
             </p>
@@ -194,9 +204,57 @@ export default function RanchoItahuePage() {
               </a>
             </div>
             <p className="mt-6 text-sm font-medium text-white/85">
-              {BIZ.address}, {BIZ.city} · Abierto todo el año · {BIZ.reviews} reseñas en Google
+              {BIZ.address}, {BIZ.city} · Funcionamos todo el año
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ── Cifras ───────────────────────────────────────── */}
+      <section className="py-10 md:py-14" style={{ backgroundColor: C.gray }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-5 gap-y-8">
+            {CIFRAS.map((c, i) => (
+              <Reveal key={c.label} delay={i * 120}>
+                <div className="flex items-start gap-2.5">
+                  <span
+                    aria-hidden="true"
+                    className="mt-2.5 w-2 h-2 shrink-0"
+                    style={{ backgroundColor: C.red }}
+                  />
+                  <div>
+                    <p className={`${display.className} text-4xl md:text-5xl font-extrabold text-white`}>
+                      {c.value}
+                    </p>
+                    <p className="mt-1 text-sm font-bold uppercase tracking-[0.18em] text-white">
+                      {c.unit}
+                    </p>
+                    <p className="mt-1 text-sm text-white/85 leading-snug">{c.label}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <p className="mt-8 text-sm text-white">
+            Síguenos:{' '}
+            <a
+              href={BIZ.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tap-44 font-bold underline underline-offset-4"
+            >
+              {BIZ.instagramHandle}
+            </a>
+            {' · '}
+            <a
+              href={BIZ.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tap-44 font-bold underline underline-offset-4"
+            >
+              Rancho Itahue en Facebook
+            </a>
+          </p>
         </div>
       </section>
 
@@ -205,9 +263,9 @@ export default function RanchoItahuePage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
             <SectionHead
-              eyebrow="El lugar"
-              title="Cinco espacios, un solo predio"
-              lead="Todo lo que se ve aquí está dentro del rancho: el salón y su terraza, el quincho, la piscina y las canchas conviven bajo los mismos árboles."
+              eyebrow={ESPACIOS_HEAD.eyebrow}
+              title={ESPACIOS_HEAD.title}
+              lead={ESPACIOS_HEAD.lead}
             />
           </Reveal>
           <div className="mt-14 md:mt-20 space-y-20 md:space-y-28">
@@ -277,52 +335,36 @@ export default function RanchoItahuePage() {
                     <div className="flex items-center gap-3">
                       <Mark light />
                       <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/75">
-                        Dentro del rancho
+                        {PADEL.eyebrow}
                       </p>
                     </div>
                     <h2
-                      className={`${display.className} mt-4 text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight text-white`}
+                      className={`${display.className} mt-4 text-4xl md:text-6xl font-black tracking-tight text-white`}
                     >
                       {PADEL.title}
                     </h2>
-                    <p className="mt-4 text-base md:text-lg leading-relaxed text-white/78">{PADEL.lead}</p>
-                    <div className="mt-5 flex flex-wrap gap-2">
-                      {PADEL.chips.slice(0, 2).map((c) => (
-                        <Chip key={c} dark>
-                          {c}
-                        </Chip>
-                      ))}
-                    </div>
+                    <p className="mt-3 text-lg md:text-xl font-semibold text-white">{PADEL.tagline}</p>
+                    <p className="mt-4 text-base md:text-lg leading-relaxed text-white/80">{PADEL.lead}</p>
                   </div>
-                  <a
-                    href={`tel:${BIZ.padelTel}`}
-                    className="inline-flex items-center justify-center self-start h-12 px-6 rounded-full text-sm font-bold transition-transform active:scale-95"
-                    style={{ backgroundColor: C.red, color: '#fff' }}
-                  >
-                    Reservar cancha · {BIZ.padelDisplay}
-                  </a>
+                  <div>
+                    <a
+                      href={`tel:${BIZ.padelTel}`}
+                      className="inline-flex items-center justify-center h-12 px-6 rounded-full text-sm font-bold transition-transform active:scale-95"
+                      style={{ backgroundColor: C.red, color: '#fff' }}
+                    >
+                      Reservar cancha
+                    </a>
+                    <p className="mt-3 text-sm text-white/85">PlayPádel · {BIZ.padelDisplay}</p>
+                  </div>
                 </div>
-                <div className="grid grid-cols-2 gap-px min-h-[280px]" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
-                  <div className="relative col-span-2 aspect-[16/9]">
-                    <Image
-                      src={PADEL.photos[0].src}
-                      alt={PADEL.photos[0].alt}
-                      fill
-                      sizes="(min-width: 768px) 46vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  {PADEL.photos.slice(1).map((p) => (
-                    <div key={p.src} className="relative aspect-[4/3]">
-                      <Image
-                        src={p.src}
-                        alt={p.alt}
-                        fill
-                        sizes="(min-width: 768px) 23vw, 50vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
+                <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[360px]">
+                  <Image
+                    src={PADEL.photo.src}
+                    alt={PADEL.photo.alt}
+                    fill
+                    sizes="(min-width: 768px) 46vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -334,7 +376,12 @@ export default function RanchoItahuePage() {
       <section id="eventos" className="scroll-mt-20 py-16 md:py-24" style={{ backgroundColor: C.deep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
-            <SectionHead eyebrow="Eventos" title={EVENTOS.title} lead={EVENTOS.lead} dark />
+            <SectionHead
+              eyebrow={EVENTOS.eyebrow}
+              title={EVENTOS.title}
+              lead={EVENTOS.lead}
+              dark
+            />
           </Reveal>
           <Reveal>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -347,22 +394,25 @@ export default function RanchoItahuePage() {
           </Reveal>
           <Reveal>
             <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
-              {EVENTOS.photos.map((p, i) => (
-                <div
-                  key={p.src}
-                  className={`relative overflow-hidden rounded-xl ${
-                    i === 0 || i === 3 ? 'md:col-span-2 aspect-[4/3] md:aspect-[8/5]' : 'aspect-[3/4] md:aspect-[4/5]'
-                  }`}
-                >
-                  <Image
-                    src={p.src}
-                    alt={p.alt}
-                    fill
-                    sizes="(min-width: 768px) 25vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
+              {EVENTOS.photos.map((p, i) => {
+                const wide = i === 0 || i === 7
+                return (
+                  <div
+                    key={p.src}
+                    className={`relative overflow-hidden rounded-xl ${
+                      wide ? 'col-span-2 aspect-[16/10]' : 'aspect-[4/5]'
+                    }`}
+                  >
+                    <Image
+                      src={p.src}
+                      alt={p.alt}
+                      fill
+                      sizes={wide ? '(min-width: 768px) 50vw, 100vw' : '(min-width: 768px) 25vw, 50vw'}
+                      className="object-cover"
+                    />
+                  </div>
+                )
+              })}
             </div>
           </Reveal>
         </div>
@@ -373,13 +423,23 @@ export default function RanchoItahuePage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <div className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-14 items-start">
             <Reveal>
-              <SectionHead eyebrow="La mesa" title={COMIDAS.title} lead={COMIDAS.lead} />
-              <p
-                className="mt-5 inline-block text-sm font-bold px-4 py-2 rounded-full"
-                style={{ backgroundColor: C.soft, color: C.ink, border: `1px solid ${C.line}` }}
+              <SectionHead
+                eyebrow={COMIDAS.eyebrow}
+                title={COMIDAS.title}
+                lead={COMIDAS.lead}
+              />
+              <div className="mt-5 flex flex-wrap gap-2">
+                {COMIDAS.chips.map((c) => (
+                  <Chip key={c}>{c}</Chip>
+                ))}
+              </div>
+              <a
+                href={`tel:${BIZ.almuerzosTel}`}
+                className="inline-flex items-center h-11 px-5 rounded-full text-sm font-bold mt-5 transition-transform active:scale-95"
+                style={{ border: `1.5px solid ${C.ink}`, color: C.ink }}
               >
-                {COMIDAS.note}
-              </p>
+                Almuerzos · {BIZ.almuerzosDisplay}
+              </a>
             </Reveal>
             <Reveal>
               <div className="grid grid-cols-2 gap-3">
@@ -417,7 +477,11 @@ export default function RanchoItahuePage() {
             </div>
             <div>
               <Reveal>
-                <SectionHead eyebrow="Alrededor" title={ENTORNO.title} lead={ENTORNO.lead} />
+                <SectionHead
+                  eyebrow={ENTORNO.eyebrow}
+                  title={ENTORNO.title}
+                  lead={ENTORNO.lead}
+                />
               </Reveal>
               <Reveal>
                 <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -449,9 +513,9 @@ export default function RanchoItahuePage() {
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
             <SectionHead
-              eyebrow="Ubicación"
-              title="En el sector Cerrillo Bascuñán, Molina"
-              lead="Zona rural de Molina, a 5 km de la plaza y a 2 km de la Ruta 5 Sur (Km 210, Ruta K-165), entre Curicó y Molina."
+              eyebrow={UBICACION.eyebrow}
+              title={UBICACION.title}
+              lead={UBICACION.lead}
             />
           </Reveal>
           <Reveal>
@@ -473,17 +537,30 @@ export default function RanchoItahuePage() {
                     </a>
                     .
                   </p>
-                  <p className="mt-4 text-sm leading-relaxed text-white/80">{HORARIO.text}</p>
-                  <p className="mt-4 text-xs leading-relaxed text-white/75">
-                    Almuerzos:{' '}
-                    <a href={`tel:+56933064953`} className="font-bold underline underline-offset-2">
-                      {BIZ.almuerzosDisplay}
-                    </a>
-                    {' · '}Pádel PlayPádel:{' '}
-                    <a href={`tel:${BIZ.padelTel}`} className="font-bold underline underline-offset-2">
-                      {BIZ.padelDisplay}
-                    </a>
+                  <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-white">
+                    {HORARIO.title}
                   </p>
+                  <dl className="mt-2 space-y-1.5 text-sm text-white/90">
+                    {HORARIO.items.map((h) => (
+                      <div key={h.k}>
+                        <dt className="inline font-bold text-white">{h.k}: </dt>
+                        <dd className="inline">{h.v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <ul className="mt-5 space-y-1 text-sm text-white/90">
+                    {CONTACTOS.map((c) => (
+                      <li key={c.k}>
+                        {c.k}:{' '}
+                        <a
+                          href={`tel:${c.tel}`}
+                          className="font-bold text-white underline underline-offset-2"
+                        >
+                          {c.display}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 <div className="space-y-3">
                   <a
@@ -504,8 +581,8 @@ export default function RanchoItahuePage() {
                   >
                     Cómo llegar
                   </a>
-                  <p className="text-xs text-white/70 leading-relaxed">
-                    {BIZ.address}, {BIZ.city}, {BIZ.region} · {BIZ.reviews} reseñas en Google
+                  <p className="text-xs text-white/85 leading-relaxed">
+                    {BIZ.address}, {BIZ.city}, {BIZ.region}
                   </p>
                 </div>
               </div>
@@ -535,7 +612,7 @@ export default function RanchoItahuePage() {
               </p>
             </div>
           </div>
-          <div className="text-xs text-white/60 leading-relaxed md:text-right">
+          <div className="text-xs text-white/75 leading-relaxed md:text-right">
             <p>
               {BIZ.address}, {BIZ.city} ·{' '}
               <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2">
@@ -557,6 +634,10 @@ export default function RanchoItahuePage() {
               {' · '}
               <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
                 Google Maps
+              </a>
+              {' · '}
+              <a href={BIZ.site} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                {BIZ.siteDisplay}
               </a>
             </p>
           </div>

@@ -8,11 +8,13 @@ import { whatsappLink } from '@/lib/config'
  * una muestra moldeable a su gusto y que las fotos salieron de sus redes (con
  * mejores fotos, la página queda mejor). Barra oscura translúcida y texto claro:
  * neutro frente a cualquier paleta de demo. Se omite en /demos (el catálogo no
- * es un demo).
+ * es un demo) y en /demos/rancho-itahue, que es la página final de un cliente.
  */
+const SIN_AVISO = new Set(['/demos', '/demos/rancho-itahue'])
+
 export function AvisoMuestra() {
   const pathname = usePathname()
-  if (pathname.replace(/\/$/, '') === '/demos') return null
+  if (SIN_AVISO.has(pathname.replace(/\/$/, ''))) return null
 
   return (
     <aside data-aviso-muestra style={{ backgroundColor: 'rgba(10,10,10,0.94)' }}>

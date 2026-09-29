@@ -1,18 +1,21 @@
 /**
  * app/demos/rancho-itahue/content.ts
  *
- * Página definitiva del cliente. Fuentes verificadas, por prioridad:
- * `BRIEF-CLIENTE.md` (texto del propio dueño), `OFERTA-REAL.md` (sus
- * redes: IG @ranchoitahue, FB /indomaule) e `INDICE-FOTOS.md` (lo que
- * se ve en las fotos que mandó). Sin dormitorios ni baños, sin
- * capacidad máxima del salón y sin afirmar que el río está dentro del
+ * Página final del cliente (no es demo). Fuentes, por prioridad:
+ * `BRIEF-CLIENTE.md` (texto del propio dueño por WhatsApp), `OFERTA-REAL.md`
+ * (sus redes: IG @ranchoitahue, FB /indomaule) e `INDICE-FOTOS.md` (lo que
+ * se ve en las fotos que mandó). Sin dormitorios ni baños, sin capacidad
+ * máxima del salón, sin precios y sin afirmar que el río está dentro del
  * predio.
+ *
+ * Los títulos van en dos pesos, como el logo: RANCHO (fino) + ITAHUE (bold).
  */
+
+export type Title = { light: string; bold: string }
 
 export const BIZ = {
   name: 'Rancho Itahue',
-  short: 'Rancho Itahue',
-  rubro: 'Multiespacio para eventos',
+  rubro: 'Multiespacio',
   address: 'Ruta K-165, sector Cerrillo Bascuñán',
   city: 'Molina',
   region: 'Región del Maule',
@@ -20,11 +23,14 @@ export const BIZ = {
   phoneTel: '+56999188169',
   whatsapp: '56999188169',
   almuerzosDisplay: '+56 9 3306 4953',
+  almuerzosTel: '+56933064953',
   padelDisplay: '+56 9 4298 0891',
   padelTel: '+56942980891',
   instagram: 'https://www.instagram.com/ranchoitahue/',
+  instagramHandle: '@ranchoitahue',
   facebook: 'https://www.facebook.com/indomaule',
-  reviews: 209,
+  site: 'https://ranchoitahue.cl',
+  siteDisplay: 'ranchoitahue.cl',
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
@@ -55,9 +61,23 @@ export const LOGO_V = `${IMG}/logo-vertical-recortado.png`
 export const HERO = {
   src: `${F}/portada-IMG-20260928-WA0053.webp`,
   alt: 'Piscina de Rancho Itahue rodeada de césped, palmeras y jardines',
-  eyebrow: 'Multiespacio para eventos · Molina, Chile',
-  title: 'Un rancho para celebrar a lo grande',
-  lead: 'Salón de eventos, terraza encarpada, quinchos, dos piscinas, canchas de tenis y pádel, y amplios prados con sombra — a 5 km de la plaza de Molina.',
+  eyebrow: 'Multiespacio · Molina, Chile',
+  tagline: 'A 5 km de la plaza de Molina, sector Cerrillo Bascuñán',
+  lead: 'Somos un centro multiespacio: salón de eventos y terraza encarpada para arriendos y servicios, quinchos exteriores junto con amplios prados y sombras, y 2 piscinas, una para niños y otra para adultos.',
+} as const
+
+/** Cifras del propio dueño (BRIEF) y de su Facebook (OFERTA-REAL). */
+export const CIFRAS = [
+  { value: '+10', unit: 'años', label: 'con el centro de eventos' },
+  { value: '+2', unit: 'años', label: 'con el servicio de almuerzos' },
+  { value: '5', unit: 'canchas', label: '2 de tenis, 1 multicancha y 2 de pádel' },
+  { value: '92%', unit: 'lo recomienda', label: 'en Facebook (10 opiniones)' },
+] as const
+
+export const ESPACIOS_HEAD = {
+  eyebrow: 'Arriendo de espacios',
+  title: { light: 'Cinco espacios,', bold: 'un solo predio en Itahue' } satisfies Title,
+  lead: 'Salón de eventos, terraza encarpada, quinchos exteriores y piscinas, con amplios prados y sombras. Todo dentro del mismo rancho.',
 } as const
 
 /** Los espacios del predio: texto del dueño + lo que se ve en las fotos. */
@@ -66,19 +86,19 @@ export const ESPACIOS = [
     id: 'salon',
     num: '01',
     name: 'Salón de eventos',
-    desc: 'Salón amplio con techo de madera y ventanales hacia el jardín. Se monta con mesas redondas para banquetes, con escenario para charlas y presentaciones, y con iluminación para las fiestas que duran hasta la noche.',
+    desc: 'Salón para arriendos y servicios, con techo de madera y ventanales hacia el jardín. Se monta con mesas redondas para banquetes, con escenario para presentaciones y con iluminación para las fiestas.',
     chips: ['Techo de madera', 'Ventanales al jardín', 'Escenario', 'Iluminación de fiesta'],
     photos: [
       { src: `${F}/eventos/IMG-20260928-WA0268.webp`, alt: 'Mesas blancas montadas en el salón de techo de madera' },
       { src: `${F}/eventos/IMG-20260928-WA0248.webp`, alt: 'Salón montado para banquete con mesas y sillas con lazos amarillos' },
-      { src: `${F}/eventos/IMG-20260928-WA0155.webp`, alt: 'Salón vacío preparado con mesas redondas de mantel blanco' },
+      { src: `${F}/eventos/IMG-20260928-WA0155.webp`, alt: 'Salón preparado con mesas redondas de mantel blanco' },
     ],
   },
   {
     id: 'terraza',
     num: '02',
     name: 'Terraza encarpada',
-    desc: 'Corredor techado junto al salón, con cortinas blancas y piso de ladrillo, abierto de cara al jardín. Sirve para recepciones, mesas de banquete y como espacio de resguardo durante el evento.',
+    desc: 'Corredor techado junto al salón, con cortinas blancas y piso de ladrillo, abierto hacia los prados. Se usa para montar mesas y recibir a los invitados.',
     chips: ['Cortinas blancas', 'Piso de ladrillo', 'Junto al salón', 'Abierta al jardín'],
     photos: [
       { src: `${F}/exteriores/IMG-20260928-WA0052.webp`, alt: 'Corredor techado con piso de ladrillo, cortinas blancas y vista al jardín' },
@@ -89,9 +109,9 @@ export const ESPACIOS = [
   {
     id: 'quincho',
     num: '03',
-    name: 'Quinchos y asados',
-    desc: 'Quinchos exteriores con barra azul, mesones, fogón y parrilla. Es el sector donde se hacen los asados a las brasas, junto a los prados y la sombra de los árboles.',
-    chips: ['Barra azul', 'Mesones y fogón', 'Parrilla', 'Arriendo de quinchos'],
+    name: 'Quinchos exteriores',
+    desc: 'Quinchos en arriendo junto con amplios prados y sombras, con barra, mesones, fogón y parrilla para los asados.',
+    chips: ['Arriendo de quinchos', 'Barra y mesones', 'Fogón', 'Parrilla'],
     photos: [
       { src: `${F}/exteriores/IMG-20260928-WA0125.webp`, alt: 'Quincho abierto con barra azul y techo de zinc' },
       { src: `${F}/exteriores/IMG-20260928-WA0096.webp`, alt: 'Barra azul del quincho techado con mesas y televisor' },
@@ -102,9 +122,9 @@ export const ESPACIOS = [
   {
     id: 'piscina',
     num: '04',
-    name: 'Piscinas',
-    desc: 'Dos piscinas: una para adultos y otra para niños, separada por reja. Están rodeadas de césped y palmeras, con sombrillas y la sombra de los árboles alrededor.',
-    chips: ['Piscina de adultos', 'Piscina de niños con reja', 'Césped y palmeras', 'Sombrillas'],
+    name: '2 piscinas',
+    desc: 'Una para niños y otra para adultos, separadas por reja y rodeadas de césped, palmeras y la sombra de los árboles.',
+    chips: ['Piscina de adultos', 'Piscina de niños', 'Césped y palmeras', 'Sombra'],
     photos: [
       { src: `${F}/exteriores/IMG-20260928-WA0083.webp`, alt: 'Piscina azul con palmeras y árboles al fondo' },
       { src: `${F}/exteriores/IMG-20260928-WA0184.webp`, alt: 'Piscina dividida por reja con palmeras al fondo' },
@@ -114,8 +134,8 @@ export const ESPACIOS = [
   {
     id: 'canchas',
     num: '05',
-    name: 'Canchas y juegos',
-    desc: 'Dos canchas de tenis y una multicancha entre los árboles, más tenis de mesa sobre el césped, taca-taca y juegos infantiles en el jardín.',
+    name: 'Tenis y multicancha',
+    desc: '2 canchas de tenis más una multicancha entre los árboles. En el jardín también hay tenis de mesa, taca-taca y juegos infantiles.',
     chips: ['2 canchas de tenis', 'Multicancha', 'Tenis de mesa', 'Taca-taca', 'Juegos infantiles'],
     photos: [
       { src: `${F}/exteriores/IMG-20260928-WA0213.webp`, alt: 'Canchas de tenis del rancho vistas desde altura' },
@@ -126,39 +146,43 @@ export const ESPACIOS = [
   },
 ] as const
 
-/** PlayPádel: las canchas de pádel funcionan con marca y teléfono propios. */
+/**
+ * PlayPádel: las canchas de pádel funcionan con marca y teléfono propios.
+ * Única foto de pádel del lote (WA0295); las otras "canchas deportivas" del
+ * índice son de tenis y no van acá.
+ */
 export const PADEL = {
+  eyebrow: 'Dentro del rancho',
   title: 'PlayPádel',
-  lead: 'Dos canchas de pádel techadas dentro del rancho, para jugar en invierno y verano. Funcionan como PlayPádel: con identidad, coordinación y reservas propias.',
-  chips: ['2 canchas techadas', 'Invierno y verano', 'Reservas: ' + BIZ.padelDisplay],
-  photos: [
-    { src: `${F}/exteriores/IMG-20260928-WA0295.webp`, alt: 'Cancha deportiva del rancho iluminada de noche' },
-    { src: `${F}/exteriores/IMG-20260928-WA0087.webp`, alt: 'Cancha deportiva de piso rojo rodeada de árboles' },
-    { src: `${F}/exteriores/IMG-20260928-WA0176.webp`, alt: 'Cancha deportiva con jugadores y espectadores bajo los árboles' },
-  ],
+  tagline: '2 canchas de pádel techadas, para invierno y verano',
+  lead: 'Las canchas de pádel del Rancho Itahue funcionan como PlayPádel, con su propio número para reservar.',
+  photo: { src: `${F}/exteriores/IMG-20260928-WA0295.webp`, alt: 'Canchas de pádel de PlayPádel iluminadas de noche' },
 } as const
 
-/** Tipos de evento que se ven en las fotos y que el dueño declara. */
 export const EVENTOS = {
-  title: 'Lo que se celebra aquí',
-  lead: 'Más de 10 años con el centro de eventos: matrimonios con ceremonia en el jardín, cumpleaños, almuerzos de empresa, paseos de curso de fin de año y de empresas en verano, y fiestas que se extienden hasta la noche con los árboles iluminados por guirnaldas.',
-  types: ['Matrimonios', 'Cumpleaños', 'Aniversarios', 'Reuniones de empresa', 'Paseos de curso', 'Paseos de empresa', 'Almuerzos y cenas'],
+  eyebrow: 'Eventos',
+  title: { light: 'Más de 10 años', bold: 'celebrando en Itahue' } satisfies Title,
+  lead: 'Atendemos a empresas y personas: matrimonios con ceremonia en el jardín, cumpleaños, reuniones y presentaciones. En verano, paseos de curso de fin de año y paseos de empresas.',
+  types: ['Matrimonios', 'Cumpleaños', 'Reuniones', 'Presentaciones', 'Paseos de curso', 'Paseos de empresa'],
   photos: [
     { src: `${F}/eventos/IMG-20260928-WA0253.webp`, alt: 'Mesas redondas montadas al aire libre bajo los árboles' },
     { src: `${F}/eventos/IMG-20260928-WA0079.webp`, alt: 'Ceremonia de matrimonio con arco blanco junto a la piscina' },
     { src: `${F}/eventos/IMG-20260928-WA0250.webp`, alt: 'Novios bailando en el césped bajo guirnaldas de luces' },
     { src: `${F}/eventos/IMG-20260928-WA0241.webp`, alt: 'Multitud junto al salón iluminado en celebración nocturna' },
     { src: `${F}/eventos/IMG-20260928-WA0056.webp`, alt: 'Montaje de ceremonia con cortinas blancas y luces bajo los árboles' },
-    { src: `${F}/eventos/IMG-20260928-WA0270.webp`, alt: 'Integrantes de Rotary almorzando en las mesas del salón' },
+    { src: `${F}/eventos/IMG-20260928-WA0270.webp`, alt: 'Grupo almorzando en las mesas del salón' },
     { src: `${F}/eventos/IMG-20260928-WA0131.webp`, alt: 'Grupo musical con vestuario rojo actuando en el escenario' },
+    { src: `${F}/exteriores/IMG-20260928-WA0176.webp`, alt: 'Paseo de curso: alumnos jugando en las canchas de tenis y descansando en el pasto' },
+    { src: `${F}/eventos/IMG-20260928-WA0064.webp`, alt: 'Árboles del jardín iluminados con guirnaldas de noche' },
     { src: `${F}/personas/IMG-20260928-WA0061.webp`, alt: 'Grupo numeroso posando para una foto en el jardín' },
   ],
 } as const
 
 export const COMIDAS = {
-  title: 'Almuerzos y banquetería',
-  lead: 'El rancho lleva más de 2 años con su servicio de almuerzos — cocina abierta de 11:00 a 16:00 — y ofrece banquetería todo incluido para los eventos: asados a las brasas, tablas de quesos y fiambres, canapés, ensaladas y tortas.',
-  note: `Almuerzos: ${BIZ.almuerzosDisplay}`,
+  eyebrow: 'Almuerzos y banquetería',
+  title: { light: 'De 11 a 16 hrs,', bold: 'la cocina del rancho está abierta' } satisfies Title,
+  lead: 'Funcionamos todo el año con nuestro servicio de almuerzos, que ya lleva más de 2 años. Para los eventos, banquetería todo incluido.',
+  chips: ['Asados', 'Tablas', 'Canapés', 'Tortas'],
   photos: [
     { src: `${F}/comidas/IMG-20260928-WA0229.webp`, alt: 'Costillares asándose sobre parrilla de carbón' },
     { src: `${F}/comidas/IMG-20260928-WA0171.webp`, alt: 'Tabla de quesos, fiambres, frutas y nueces' },
@@ -168,8 +192,9 @@ export const COMIDAS = {
 } as const
 
 export const ENTORNO = {
-  title: 'El entorno del sector Itahue',
-  lead: 'El rancho está en zona rural de Molina, entre Curicó y Molina y a 2 km de la Ruta 5 Sur. En el entorno se ven cerros, un río tranquilo, atardeceres abiertos y animales de campo: caballos, burros, gallinas y pavos reales.',
+  eyebrow: 'Alrededor',
+  title: { light: 'El campo', bold: 'entre Curicó y Molina' } satisfies Title,
+  lead: 'Zona rural de Molina. Alrededor del rancho: cerros, río, atardeceres abiertos y animales de campo, como caballos, burros, gallinas y pavos reales.',
   photos: [
     { src: `${F}/entorno/IMG-20260928-WA0146.webp`, alt: 'Caballos pastando bajo cielo violeta al atardecer' },
     { src: `${F}/entorno/IMG-20260928-WA0197.webp`, alt: 'Pavo real azul posado junto a una palmera' },
@@ -180,8 +205,25 @@ export const ENTORNO = {
   ],
 } as const
 
-/** Horario de funcionamiento según el dueño. */
+export const UBICACION = {
+  eyebrow: 'Ubicación',
+  title: { light: 'A 5 km de la plaza', bold: 'de Molina' } satisfies Title,
+  lead: 'Estamos en zona rural de Molina, a 5 km de la plaza, sector Cerrillo Bascuñán. Además, entre Curicó y Molina, a 2 km de la Ruta 5 Sur: Km 210, Ruta K-165.',
+} as const
+
+/** Horario, con las palabras del dueño (BRIEF). */
 export const HORARIO = {
   title: 'Funcionamos todo el año',
-  text: 'En verano, todos los días desde las 10:00 con canchas y eventos. El resto del año, con los eventos agendados. La cocina de almuerzos abre de 11:00 a 16:00.',
+  items: [
+    { k: 'Almuerzos', v: 'Todo el año, cocina abierta de 11 a 16 hrs.' },
+    { k: 'Canchas y eventos', v: 'En verano, todos los días desde las 10 am en adelante.' },
+    { k: 'Resto del año', v: 'Solo cuando tenemos eventos agendados.' },
+  ],
 } as const
+
+/** Los tres números que publican ellos (OFERTA-REAL). */
+export const CONTACTOS = [
+  { k: 'Rancho Itahue', display: BIZ.phoneDisplay, tel: BIZ.phoneTel },
+  { k: 'Rancho Almuerzos', display: BIZ.almuerzosDisplay, tel: BIZ.almuerzosTel },
+  { k: 'PlayPádel', display: BIZ.padelDisplay, tel: BIZ.padelTel },
+] as const
