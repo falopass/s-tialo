@@ -2395,8 +2395,8 @@ const BLITZ = [
     name: 'Mr.Coffe / Humos Mauleños',
     rubro: 'Restaurante · smokehouse y café',
     city: 'San Clemente',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #171009 0%, #F5EDE0 150%)',
+    tagline: 'Parada de ruta al salir de San Clemente: madera oscura, brasa naranja y la reseña que lo dice todo — 4,8 de 503 opiniones.',
+    gradient: 'linear-gradient(135deg, #171009 0%, #221710 55%, #E4572E 170%)',
   },
   {
     slug: 'prevenci-n-de-riesgos-talca',
