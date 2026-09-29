@@ -25,6 +25,7 @@ const C = {
   matcha: '#3E7C4F',
   matchaOscuro: '#2C5A3A',
   coral: '#E86A4A',
+  coralOscuro: '#B04527',
   ambar: '#F0B13E',
   muda: 'rgba(46,42,31,0.66)',
   linea: 'rgba(46,42,31,0.14)',
@@ -147,7 +148,7 @@ export default function Alguita() {
                 <h1 className={`${display.className} leading-[0.95] text-[13vw] md:text-7xl`}>
                   Sabrosas piezas
                   <br />
-                  de <span style={{ color: C.coral }}>sushi</span> con
+                  de <span style={{ color: C.coralOscuro }}>sushi</span> con
                   <br />
                   <span style={{ color: C.matcha }}>reparto gratis</span>
                 </h1>
@@ -201,7 +202,7 @@ export default function Alguita() {
           <Reveal>
             <div className="flex items-end justify-between flex-wrap gap-4">
               <div>
-                <p className={`${mono.className} text-xs uppercase tracking-[0.2em] mb-3`} style={{ color: C.coral }}>
+                <p className={`${mono.className} text-xs uppercase tracking-[0.2em] mb-3`} style={{ color: C.coralOscuro }}>
                   Recién pasados por tempura
                 </p>
                 <h2 className={`${display.className} text-3xl md:text-5xl`}>
@@ -257,7 +258,7 @@ export default function Alguita() {
       <section id="reparto" className="py-14 md:py-20" style={{ backgroundColor: C.matcha, color: C.crema }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
-            <p className={`${mono.className} text-xs uppercase tracking-[0.2em] mb-3`} style={{ color: C.ambar }}>
+            <p className={`${mono.className} text-xs uppercase tracking-[0.2em] mb-3`} style={{ color: C.crema }}>
               Palabra de la casa
             </p>
             <h2 className={`${display.className} text-3xl md:text-5xl`}>
@@ -277,10 +278,10 @@ export default function Alguita() {
               <Reveal key={s.l} delay={i * 80}>
                 <div
                   className="h-full rounded-3xl p-6 text-center"
-                  style={{ backgroundColor: 'rgba(251,245,234,0.1)', border: '2px solid rgba(251,245,234,0.3)' }}
+                  style={{ backgroundColor: 'rgba(44,90,58,0.55)', border: '2px solid rgba(251,245,234,0.3)' }}
                 >
                   <p className={`${display.className} text-4xl`}>{s.n}</p>
-                  <p className={`${mono.className} mt-2 text-xs uppercase tracking-[0.14em]`} style={{ color: 'rgba(251,245,234,0.75)' }}>
+                  <p className={`${mono.className} mt-2 text-xs uppercase tracking-[0.14em]`} style={{ color: C.crema }}>
                     {s.l}
                   </p>
                 </div>
