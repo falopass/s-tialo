@@ -296,7 +296,8 @@ export default function CentroTuristicoRayenPage() {
                   />
                   <div>
                     <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.26em] mb-2`} style={{ color: C.copihue }}>
-                      Vilches · San Clemente · K-705 km 8
+                      Vilches · San Clemente ·{' '}
+                      <span className="whitespace-nowrap">K-705 km 8</span>
                     </p>
                     <h1
                       className={`${display.className} uppercase font-extrabold leading-[0.95] tracking-[0.01em] text-[clamp(2.6rem,9vw,4.8rem)]`}
