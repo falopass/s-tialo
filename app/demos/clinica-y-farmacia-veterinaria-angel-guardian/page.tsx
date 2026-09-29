@@ -43,15 +43,13 @@ const SCRIM = {
     'linear-gradient(180deg, rgba(42,26,12,0.5) 0%, rgba(42,26,12,0.08) 30%, rgba(42,26,12,0.78) 82%, rgba(42,26,12,0.94) 100%), linear-gradient(270deg, rgba(42,26,12,0.82) 0%, rgba(42,26,12,0.46) 40%, rgba(42,26,12,0) 74%)',
   sobre:
     'linear-gradient(180deg, rgba(42,26,12,0.4) 0%, rgba(42,26,12,0.6) 42%, rgba(42,26,12,0.9) 72%, rgba(42,26,12,0.97) 100%)',
-  contacto:
-    'linear-gradient(180deg, rgba(42,26,12,0.9) 0%, rgba(42,26,12,0.93) 55%, rgba(42,26,12,0.97) 100%)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'clinica-y-farmacia-veterinaria-angel-guardian',
   title: 'Clínica y Farmacia Veterinaria Ángel Guardián - Veterinaria en Linares',
   description: 'Clínica y farmacia veterinaria en Maipú 774, Linares: consulta, vacunas, medicamentos, alimentos y accesorios para tu mascota. Agenda por teléfono.',
-  image: '/demos/clinica-y-farmacia-veterinaria-angel-guardian/hero.webp',
+  image: '/demos/clinica-y-farmacia-veterinaria-angel-guardian/consulta.webp',
 })
 
 const NAV_LINKS = [
@@ -72,14 +70,13 @@ type Panel = {
   lead: string
   items: string[]
   note: string
-  columns?: boolean
 }
 
 const PANELES: Panel[] = [
   {
     id: 'servicios',
-    src: `${IMG}/consulta.webp`,
-    alt: 'Equipo de la clínica examinando a un perro sobre la mesa de atención',
+    src: `${IMG}/gata.webp`,
+    alt: 'Gata gris paciente de la clínica sobre la mesa de examen',
     scrim: SCRIM.left,
     side: 'left',
     height: 'min-h-[100svh]',
@@ -95,8 +92,8 @@ const PANELES: Panel[] = [
     note: 'Servicios reales, del flyer de la clínica en Facebook.',
   },
   {
-    src: `${IMG}/gata.webp`,
-    alt: 'Gata gris paciente de la clínica descansando sobre la mesa de examen',
+    src: `${IMG}/cachorro.webp`,
+    alt: 'Cachorro paciente de la clínica descansando sobre una frazada rosada',
     scrim: SCRIM.right,
     side: 'right',
     height: 'min-h-[92svh]',
@@ -110,24 +107,18 @@ const PANELES: Panel[] = [
     ],
     note: 'La farmacia figura en los servicios reales que publica la clínica.',
   },
-  {
-    src: `${IMG}/tienda.webp`,
-    alt: 'Publicación de la clínica con bolsita de transporte para mascotas a la venta',
-    scrim: SCRIM.left,
-    side: 'left',
-    height: 'min-h-[100svh]',
-    title: 'Alimentos, accesorios y boutique',
-    lead: 'Lo de todos los días para tu mascota, con el consejo de quienes la atienden desde cachorra.',
-    items: [
-      'Alimentos y snacks',
-      'Accesorios y bolsitas de transporte',
-      'Boutique para mascotas',
-      'Higiene y cuidado',
-    ],
-    note: 'Imagen real de una publicación de la tienda en Facebook.',
-    columns: true,
-  },
 ]
+
+const TIENDA = {
+  title: 'La tienda de la clínica, en el mismo local',
+  lead: 'Lo de todos los días para tu mascota, con el consejo de quienes la atienden desde cachorra: alimento, accesorios y boutique, sin una segunda vuelta por la ciudad.',
+  items: [
+    'Alimentos y snacks',
+    'Accesorios y bolsitas de transporte',
+    'Boutique para mascotas',
+    'Higiene y cuidado',
+  ],
+}
 
 const RESENAS = [
   {
@@ -175,7 +166,18 @@ const HORAS = [
   { days: 'Domingo', time: 'cerrado' },
 ]
 
-function PhotoPanel({ id, src, alt, scrim, side, height, title, lead, items, note, columns }: Panel) {
+function Paw({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <ellipse cx="6.6" cy="8.6" rx="2" ry="2.7" />
+      <ellipse cx="12" cy="6.8" rx="2.1" ry="2.9" />
+      <ellipse cx="17.4" cy="8.6" rx="2" ry="2.7" />
+      <path d="M12 11.6c-3 0-5.4 2.7-5.4 5 0 1.5 1.2 2.6 2.7 2.6 1 0 1.8-.5 2.7-.5s1.7.5 2.7.5c1.5 0 2.7-1.1 2.7-2.6 0-2.3-2.4-5-5.4-5z" />
+    </svg>
+  )
+}
+
+function PhotoPanel({ id, src, alt, scrim, side, height, title, lead, items, note }: Panel) {
   return (
     <section id={id} className={`relative flex overflow-hidden scroll-mt-16 ${height}`} style={{ backgroundColor: C.wineInk }}>
       <Parallax src={src} alt={alt} />
@@ -192,7 +194,7 @@ function PhotoPanel({ id, src, alt, scrim, side, height, title, lead, items, not
             <p className="mt-5 text-[15px] md:text-base leading-relaxed" style={{ color: 'rgba(250,243,233,0.84)' }}>
               {lead}
             </p>
-            <ul className={columns ? 'mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3.5' : 'mt-8 space-y-3.5'}>
+            <ul className="mt-8 space-y-3.5">
               {items.map((item) => (
                 <li
                   key={item}
@@ -236,7 +238,7 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
         ctaLabel="Llamar"
         fontClass={display.className}
         theme={{
-          bar: 'rgba(46,22,32,0.88)',
+          bar: 'rgba(42,26,12,0.88)',
           ink: C.bone,
           line: 'rgba(250,243,233,0.18)',
           accent: C.gold,
@@ -248,8 +250,8 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
       {/* ── Hero a sangre ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.wineInk }}>
         <Parallax
-          src={`${IMG}/hero.webp`}
-          alt="Cachorro negro paciente de la clínica, sobre la mesa de examen veterinario"
+          src={`${IMG}/consulta.webp`}
+          alt="Equipo de la clínica examinando a un perrito sobre la mesa de atención"
           strength={5}
           eager
         />
@@ -329,16 +331,61 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
         </div>
       </section>
 
-      {/* ── Servicios y productos, a sangre ── */}
+      {/* ── Servicios, a sangre ── */}
       {PANELES.map((panel) => (
         <PhotoPanel key={panel.title} {...panel} />
       ))}
 
+      {/* ── La tienda: editorial en hueso con su flyer real ── */}
+      <section className="scroll-mt-16" style={{ backgroundColor: C.bone }}>
+        <div className="max-w-[1400px] mx-auto px-5 md:px-10 py-20 md:py-28 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-20 items-center">
+          <Fade>
+            <h2
+              className={`${display.className} font-extrabold text-[clamp(2.1rem,5.2vw,3.6rem)] leading-[1.04] tracking-[-0.02em]`}
+              style={{ color: C.wineInk }}
+            >
+              {TIENDA.title}
+            </h2>
+            <p className="mt-5 max-w-[34rem] text-[15px] md:text-base leading-relaxed" style={{ color: C.muted }}>
+              {TIENDA.lead}
+            </p>
+            <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-3.5">
+              {TIENDA.items.map((item) => (
+                <li key={item} className="flex gap-3 text-[15px] md:text-base" style={{ color: C.ink }}>
+                  <span
+                    aria-hidden="true"
+                    className="mt-[0.75em] h-px w-6 shrink-0"
+                    style={{ backgroundColor: C.wine }}
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Fade>
+          <Fade delay={0.1}>
+            <figure className="max-w-[26rem] mx-auto lg:ml-auto lg:mr-0 rotate-[1.5deg]">
+              {/* eslint-disable-next-line @next/next/no-img-element -- flyer real ya optimizado en public/ */}
+              <img
+                src={`${IMG}/tienda.webp`}
+                alt="Publicación real de la tienda de la clínica: bolsita de transporte para mascotas"
+                className="w-full rounded-[1.75rem] shadow-2xl border"
+                style={{ borderColor: 'rgba(42,26,12,0.14)' }}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption className="mt-4 text-xs leading-snug text-center" style={{ color: C.muted }}>
+                Publicación real de la tienda en Facebook: la bolsita de transporte que venden en el local.
+              </figcaption>
+            </figure>
+          </Fade>
+        </div>
+      </section>
+
       {/* ── Sobre el negocio ── */}
       <section id="clinica" className="relative flex overflow-hidden min-h-[100svh] scroll-mt-16" style={{ backgroundColor: C.wineInk }}>
         <Parallax
-          src={`${IMG}/cachorro.webp`}
-          alt="Cachorro blanco paciente de la clínica, en brazos de un asistente"
+          src={`${IMG}/cachorro2.webp`}
+          alt="Cachorro blanco paciente de la clínica mirando a la cámara"
         />
         <div className="absolute inset-0" style={{ background: SCRIM.sobre }} aria-hidden="true" />
         <div className="relative w-full max-w-[1400px] mx-auto px-5 md:px-10 pt-32 pb-16 md:pb-24 flex flex-col justify-end">
@@ -471,12 +518,15 @@ export default function ClinicaVeterinariaAngelGuardianPage() {
 
       {/* ── Contacto y ubicación ── */}
       <section id="contacto" className="relative flex overflow-hidden min-h-[100svh] scroll-mt-16" style={{ backgroundColor: C.wineInk }}>
-        <Parallax
-          src={`${IMG}/cachorro2.webp`}
-          alt="Cachorro blanco paciente de la clínica mirando a la cámara"
-          strength={3.5}
-        />
-        <div className="absolute inset-0" style={{ background: SCRIM.contacto }} aria-hidden="true" />
+        {/* Huellitas: el motivo que la clínica usa en sus propios flyers */}
+        <div aria-hidden="true" className="absolute top-24 md:top-28 inset-x-0 flex justify-center gap-7 md:gap-10" style={{ color: C.gold }}>
+          {[0, 1, 2, 3, 4].map((i) => (
+            <Paw
+              key={i}
+              className={`w-4 h-4 md:w-5 md:h-5 opacity-[0.35] ${i % 2 ? 'rotate-12' : '-rotate-12'} ${i === 0 || i === 4 ? 'hidden sm:block' : ''}`}
+            />
+          ))}
+        </div>
         <div className="relative w-full max-w-[1400px] mx-auto px-5 md:px-10 pt-32 pb-16 md:pb-24 grid lg:grid-cols-[1fr_1.05fr] gap-10 lg:gap-16 items-center">
           <Fade>
             <h2
