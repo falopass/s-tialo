@@ -4565,6 +4565,14 @@ const BLITZ = [
     tagline: 'El sabor convertido en adicción: sello rojo sobre carbón y pedidos para llevar en Villa Esperanza.',
     gradient: 'linear-gradient(135deg, #141214 0%, #1C191B 55%, #C8102E 160%)',
   },
+  {
+    slug: 'alguita-sushi-rolls',
+    name: 'Alguita Sushi Rolls',
+    rubro: 'Restaurante de sushi',
+    city: 'Teno',
+    tagline: 'Rolls con carita: mascota kawaii real, reparto gratis a toda Teno y matcha sobre crema.',
+    gradient: 'linear-gradient(135deg, #FBF5EA 0%, #3E7C4F 130%, #E86A4A 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
