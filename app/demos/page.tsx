@@ -2575,6 +2575,30 @@ const BLITZ = [
     tagline: 'La calle de los árboles: verde pino de 1 Oriente, crema de papel y los bosquejos de su consulta.',
     gradient: 'linear-gradient(135deg, #0B2E26 0%, #123B33 55%, #D8B35C 160%)',
   },
+  {
+    slug: 'constructora-naba',
+    name: 'Constructora Naba',
+    rubro: 'Constructora',
+    city: 'Talca',
+    tagline: 'Obras sanitarias y viales por licitación pública: parte de terreno en asfalto, naranjo cono y fotos reales de Huépil y Yumbel.',
+    gradient: 'linear-gradient(135deg, #15181B 0%, #1E2226 55%, #F26522 160%)',
+  },
+  {
+    slug: 'inmobiliaria-martabid',
+    name: 'Inmobiliaria Martabid',
+    rubro: 'Inmobiliaria',
+    city: 'Talca',
+    tagline: 'Folleto de ruta crema y ámbar: sus proyectos bajan por la Ruta 5 de Temuco a Puerto Montt, con oficina en Talca.',
+    gradient: 'linear-gradient(135deg, #F7F1E5 0%, #EB9900 75%, #C96218 140%)',
+  },
+  {
+    slug: 'frupol-san-clemente',
+    name: 'Frupol San Clemente',
+    rubro: 'Frutícola / packing',
+    city: 'San Clemente',
+    tagline: 'Etiqueta de exportación: vista satelital del predio, planta del grupo Agricom·Westfalia y el pallet que sale a Corea.',
+    gradient: 'linear-gradient(135deg, #142F1C 0%, #1E4A2C 60%, #E0A82E 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
