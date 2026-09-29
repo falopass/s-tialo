@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'gussland',
+    name: 'Gussland',
+    rubro: 'Restaurante y terraza',
+    city: 'Licantén',
+    tagline: 'El wordmark de corchetes de la casa: Archivo Black, papel y terracota de la fachada de la Lautaro.',
+    gradient: 'linear-gradient(135deg, #F5EDE0 0%, #B9552F 115%, #241307 185%)',
+  },
+  {
     slug: 'sabor-ok',
     name: 'Sabor Ok',
     rubro: 'Sushi y cocina de noche',
