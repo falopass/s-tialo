@@ -3317,6 +3317,14 @@ const BLITZ = [
     tagline: 'Ticket de frontera: crema de mantel, verde pino, terracota y la ruta al Paso Pehuenche.',
     gradient: 'linear-gradient(135deg, #F3EBD8 0%, #2D4A36 90%, #B4502A 170%)',
   },
+  {
+    slug: 'restaurant-donde-quelito',
+    name: 'Restaurant Donde Quelito',
+    rubro: 'Restaurante — comida casera chilena',
+    city: 'Curepto',
+    tagline: 'La casa roja de O’Higgins: ladrillo, techo de madera y su terraza con barra corrida.',
+    gradient: 'linear-gradient(135deg, #22100A 0%, #8C2E1C 110%, #E0A93F 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
