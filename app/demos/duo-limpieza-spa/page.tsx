@@ -19,17 +19,24 @@ const mono = localFont({
   variable: '--font-mono',
 })
 
+// Identidad del logo Dúo: azul + verde sobre crema, con la cinta chilena
+// (blanco-rojo-azul) como motivo de cierre — del sombrero huaso del logo.
 const C = {
   cream: '#F7F2E7',
   creamDeep: '#EFE7D5',
-  navy: '#1C3A5E',
-  navyDeep: '#132A46',
-  green: '#216B45',
+  navy: '#16304C',
+  navyDeep: '#10243A',
+  green: '#1F7A4D',
   greenSoft: '#E2EFE5',
+  red: '#C74440',
   ink: '#16304C',
-  muted: '#5C6B7A',
-  line: 'rgba(28,58,94,0.16)',
+  muted: '#506276',
+  line: 'rgba(22,48,76,0.16)',
 }
+
+// Cinta chilena: blanco + rojo + azul, del logo
+const CINTA =
+  'repeating-linear-gradient(90deg, #F7F2E7 0 28px, #C74440 28px 56px, #16304C 56px 84px)'
 
 export const metadata: Metadata = demoMetadata({
   slug: 'duo-limpieza-spa',
@@ -40,33 +47,33 @@ export const metadata: Metadata = demoMetadata({
 })
 
 const NAV_LINKS = [
+  { label: 'La lista', href: '#lista' },
   { label: 'El dúo', href: '#duo' },
-  { label: 'Servicios', href: '#servicios' },
   { label: 'Reseñas', href: '#resenas' },
   { label: 'Agenda', href: '#contacto' },
 ]
 
-const CHECKLIST = [
-  { name: 'Limpieza profunda extrema', desc: 'El servicio estrella: cada rincón, de verdad.' },
-  { name: 'Cocinas', desc: 'Campanas, cubiertas y acero inoxidable sin grasa ni marcas.' },
-  { name: 'Baños', desc: 'Sanitizados completos: mamparas, cerámica, llaves y rejillas.' },
-  { name: 'Vidrios y ventanas', desc: 'Por dentro y por fuera, sin pelusa ni cerco.' },
-  { name: 'Terrazas y quinchos', desc: 'Pisos, parrillas y mobiliario de exterior.' },
-  { name: 'Post-construcción', desc: 'Retiro de polvo de obra, restos de material y pintura.' },
-  { name: 'Entrega de arriendos', desc: 'Dejar la propiedad lista para recibir o entregar.' },
-  { name: 'Oficinas y empresas', desc: 'Limpieza programada para espacios de trabajo.' },
+const LISTA = [
+  'Limpieza profunda extrema — cada rincón, de verdad',
+  'Cocinas: campanas, cubiertas y acero sin grasa ni marcas',
+  'Baños sanitizados: mamparas, cerámica, llaves y rejillas',
+  'Vidrios y ventanas por dentro y por fuera',
+  'Terrazas y quinchos: pisos, parrillas y mobiliario',
+  'Post-construcción: polvo de obra, restos y pintura',
+  'Entrega de arriendos: lista para recibir o entregar',
+  'Oficinas y empresas: limpieza programada',
 ]
 
 const GALERIA = [
   { src: `${IMG}/kitchen.webp`, alt: 'Cocina limpia con cubierta de acero y accesorios ordenados', tag: 'cocina' },
   { src: `${IMG}/shower.webp`, alt: 'Baño con tina y mampara limpios, trabajador de Dúo Limpieza', tag: 'baño' },
-  { src: `${IMG}/sink.webp`, alt: 'Lavamanos impecable con productos de limpieza', tag: 'baño' },
   { src: `${IMG}/living.webp`, alt: 'Living ordenado y aspirado con sillones y centro de madera', tag: 'living' },
   { src: `${IMG}/table.webp`, alt: 'Mesa de comedor puesta y reluciente', tag: 'comedor' },
   { src: `${IMG}/room2.webp`, alt: 'Muro con repisas verdes limpias y ordenadas', tag: 'detalle' },
   { src: `${IMG}/mop.webp`, alt: 'Piso de madera siendo trapeado', tag: 'pisos' },
   { src: `${IMG}/room1.webp`, alt: 'Mueble de entretenimiento limpio en living', tag: 'detalle' },
   { src: `${IMG}/dining1.webp`, alt: 'Comedor con ventanal y mesa de madera impecable', tag: 'comedor' },
+  { src: `${IMG}/sink.webp`, alt: 'Lavamanos impecable con productos de limpieza', tag: 'baño' },
 ]
 
 const RESENAS = [
@@ -88,118 +95,192 @@ const RESENAS = [
   },
 ]
 
-function Check() {
-  return (
-    <span
-      className="inline-flex shrink-0 w-6 h-6 rounded-md items-center justify-center"
-      style={{ backgroundColor: C.green, color: '#fff' }}
-      aria-hidden="true"
-    >
-      <svg viewBox="0 0 20 20" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 10.5 L8.5 15 L16 5.5" />
-      </svg>
-    </span>
-  )
-}
-
 export default function Page() {
   return (
-    <main className={`${display.variable} ${body.variable} ${mono.variable} font-[var(--font-body)] antialiased`} style={{ backgroundColor: C.cream }}>
+    <main
+      className={`${display.variable} ${body.variable} ${mono.variable} font-[var(--font-body)] antialiased`}
+      style={{ backgroundColor: C.cream, color: C.ink }}
+    >
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
         waLink={WA_LINK}
         logoSrc={`${IMG}/avatar.webp`}
         fontClass="font-[var(--font-display)] font-bold"
-        theme={{ over: 'light', bar: C.cream, ink: C.navy, line: C.line, btnBg: C.navy, btnInk: '#F7F2E7' }}
+        theme={{ over: 'dark', bar: C.cream, ink: C.navy, line: C.line, btnBg: C.green, btnInk: '#fff' }}
       />
 
-      {/* ── HERO ── */}
-      <section id="inicio" className="relative overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="absolute -top-24 -right-32 w-[480px] h-[480px] rounded-full"
-          style={{ backgroundColor: C.greenSoft }}
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 pb-14 md:pt-36 md:pb-20">
-          <div className="grid md:grid-cols-[1.05fr_0.95fr] gap-10 md:gap-14 items-center">
-            <div>
-              <Reveal>
-                <Image
-                  src={`${IMG}/logo.webp`}
-                  alt="Logo de Dúo Limpieza SpA: letra D con sombrero huaso y cinta chilena"
-                  width={720}
-                  height={232}
-                  priority
-                  className="w-[190px] md:w-[240px] h-auto -ml-1"
-                />
-              </Reveal>
-              <Reveal>
-                <h1
-                  className="font-[var(--font-display)] font-extrabold leading-[1.02] mt-6 text-[clamp(2.6rem,9.5vw,5rem)]"
-                  style={{ color: C.navy }}
+      {/* ── HERO: foto de equipo a sangre + ticket crema ── */}
+      <section id="inicio" className="relative">
+        <div className="relative">
+          <Image
+            src={`${IMG}/team.webp`}
+            alt="Camilo y Luis con su equipo de Dúo Limpieza con chaquetas de la marca"
+            width={925}
+            height={540}
+            priority
+            className="w-full h-[430px] md:h-[540px] object-cover"
+            style={{ objectPosition: '50% 30%' }}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'linear-gradient(180deg, rgba(16,36,58,0.45) 0%, rgba(16,36,58,0.1) 45%, rgba(16,36,58,0.55) 100%)',
+            }}
+          />
+        </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <div
+              className="relative -mt-40 md:-mt-48 rounded-[1.75rem] p-6 md:p-9 max-w-xl"
+              style={{ backgroundColor: C.cream, border: `1px solid ${C.line}`, boxShadow: '0 12px 40px rgba(16,36,58,0.18)' }}
+            >
+              <Image
+                src={`${IMG}/logo.webp`}
+                alt="Logo de Dúo Limpieza SpA: letra D con sombrero huaso y cinta chilena"
+                width={720}
+                height={232}
+                className="w-[170px] md:w-[200px] h-auto -ml-1"
+              />
+              <h1
+                className="font-[var(--font-display)] font-extrabold leading-[1.0] mt-5 text-[clamp(2.3rem,8.5vw,4rem)]"
+                style={{ color: C.navy }}
+              >
+                Tu casa, como
+                <br />
+                recién limpiada<span style={{ color: C.green }}>.</span>
+              </h1>
+              <p className="mt-4 text-base md:text-lg leading-relaxed" style={{ color: C.muted }}>
+                {BIZ.owners} y su equipo limpian hogares y empresas de Talca y
+                el Maule — con productos que no contaminan y el detalle de quien
+                lo hace con cariño.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-4">
+                <a
+                  href={WA_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tap-44 inline-flex items-center gap-2 rounded-full px-6 py-3 text-base font-bold active:scale-95 transition-transform"
+                  style={{ backgroundColor: C.green, color: '#fff' }}
                 >
-                  Tu casa, como recién limpiada
-                  <span style={{ color: C.green }}>.</span>
-                </h1>
-              </Reveal>
-              <Reveal>
-                <p className="mt-5 max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.muted }}>
-                  {BIZ.owners} y su equipo limpian hogares y empresas de Talca y
-                  el Maule — con productos que no contaminan y el detalle de
-                  quien lo hace con cariño.
-                </p>
-              </Reveal>
-              <Reveal>
-                <div className="mt-7 flex flex-wrap items-center gap-4">
-                  <a
-                    href={WA_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="tap-44 inline-flex items-center gap-2 rounded-full px-6 py-3 text-base font-bold active:scale-95 transition-transform"
-                    style={{ backgroundColor: C.green, color: '#fff' }}
+                  Cotizar mi limpieza
+                </a>
+                <div className="flex items-center gap-2">
+                  <Stars value={5} color={C.green} className="w-4 h-4" />
+                  <span className="font-[var(--font-mono)] text-xs" style={{ color: C.muted }}>
+                    {BIZ.rating} · {BIZ.reviews} reseñas
+                  </span>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                className="absolute top-0 inset-x-6 h-[6px] rounded-b"
+                style={{ backgroundImage: CINTA }}
+              />
+            </div>
+          </Reveal>
+        </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 mt-8 mb-2">
+          <Reveal>
+            <div className="flex flex-wrap gap-x-6 gap-y-2 font-[var(--font-mono)] text-[11px] uppercase tracking-[0.14em]" style={{ color: C.muted }}>
+              <span>Lun–Dom 8:00–18:30</span>
+              <span>{BIZ.hogares} hogares felices</span>
+              <span>Talca y el Maule</span>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── LA LISTA: la pauta en papel ── */}
+      <section id="lista">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: C.green }}>
+              La pauta que dejan tachada
+            </p>
+            <h2
+              className="font-[var(--font-display)] font-extrabold leading-[1.02] text-[clamp(2.2rem,6.5vw,3.8rem)] mb-10 md:mb-14"
+              style={{ color: C.navy }}
+            >
+              Tú marcas la casilla.
+              <br />
+              Ellos la limpian.
+            </h2>
+          </Reveal>
+          <Reveal>
+            <div
+              className="rounded-[1.5rem] overflow-hidden"
+              style={{
+                backgroundColor: '#FFFDF8',
+                border: `1px solid ${C.line}`,
+                backgroundImage:
+                  'repeating-linear-gradient(180deg, transparent 0 51px, rgba(22,48,76,0.1) 51px 52px)',
+              }}
+            >
+              <div className="grid sm:grid-cols-2">
+                {LISTA.map((item, i) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-4 px-5 md:px-7 py-4"
+                    style={{ borderTop: i === 0 || i === 1 ? 'none' : `1px dashed ${C.line}` }}
                   >
-                    Cotizar mi limpieza
-                  </a>
-                  <div className="flex items-center gap-2">
-                    <Stars value={5} color={C.green} className="w-4 h-4" />
-                    <span className="font-[var(--font-mono)] text-xs" style={{ color: C.muted }}>
-                      {BIZ.rating} · {BIZ.reviews} reseñas
+                    <span
+                      className="mt-0.5 inline-flex shrink-0 w-6 h-6 rounded-md items-center justify-center rotate-[-4deg]"
+                      style={{ backgroundColor: C.green, color: '#fff' }}
+                      aria-hidden="true"
+                    >
+                      <svg viewBox="0 0 20 20" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M3.5 10.5 L8 15.5 L17 4.5" />
+                      </svg>
                     </span>
+                    <p className="text-base md:text-lg font-medium leading-snug" style={{ color: C.ink }}>
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+          <Reveal>
+            <p className="mt-6 font-[var(--font-mono)] text-xs leading-relaxed" style={{ color: C.muted }}>
+              * Servicios publicados por la propia empresa en su Instagram
+              @duolimpiezaoficial. Productos no contaminantes, según sus clientes.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── CÓMO AGENDA ── */}
+      <section style={{ backgroundColor: C.green }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-12 md:py-16">
+          <div className="grid sm:grid-cols-3 gap-8">
+            {[
+              ['1', 'Les escribes', 'Mandas foto o cuentas qué hay que limpiar.'],
+              ['2', 'Agendan la visita', 'Coordinan día y hora, y llegan puntuales.'],
+              ['3', 'Tú disfrutas', 'Espacio impecable, sin mover un dedo.'],
+            ].map(([n, t, d]) => (
+              <Reveal key={n}>
+                <div className="flex gap-4">
+                  <span
+                    className="font-[var(--font-display)] font-extrabold text-5xl leading-none"
+                    style={{ color: 'rgba(247,242,231,0.5)' }}
+                    aria-hidden="true"
+                  >
+                    {n}
+                  </span>
+                  <div>
+                    <h3 className="font-[var(--font-display)] font-bold text-xl leading-tight" style={{ color: '#F7F2E7' }}>
+                      {t}
+                    </h3>
+                    <p className="text-sm mt-1.5 leading-snug" style={{ color: 'rgba(247,242,231,0.85)' }}>
+                      {d}
+                    </p>
                   </div>
                 </div>
               </Reveal>
-              <Reveal>
-                <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-[var(--font-mono)] text-[11px] uppercase tracking-[0.14em]" style={{ color: C.muted }}>
-                  <span>Lun–Dom 8:00–18:30</span>
-                  <span>{BIZ.hogares} hogares felices</span>
-                  <span>Talca y el Maule</span>
-                </div>
-              </Reveal>
-            </div>
-            <Reveal>
-              <figure className="relative">
-                <div
-                  aria-hidden="true"
-                  className="absolute -bottom-4 -right-4 w-full h-full rounded-[2.5rem]"
-                  style={{ border: `2px solid ${C.green}` }}
-                />
-                <Image
-                  src={`${IMG}/team.webp`}
-                  alt="Camilo y Luis con su equipo de Dúo Limpieza con chaquetas de la marca"
-                  width={925}
-                  height={540}
-                  priority
-                  className="relative rounded-[2rem] w-full h-auto object-cover"
-                />
-                <figcaption
-                  className="absolute -bottom-3 left-5 font-[var(--font-mono)] text-[10px] uppercase tracking-[0.16em] px-3 py-1.5 rounded-full shadow"
-                  style={{ backgroundColor: C.navy, color: '#F7F2E7' }}
-                >
-                  {BIZ.owners} · el dúo fundador
-                </figcaption>
-              </figure>
-            </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -239,7 +320,7 @@ export default function Page() {
                 >
                   Dos personas,
                   <br />
-                  <span style={{ color: '#7FC79E' }}>un estándar.</span>
+                  <span style={{ color: '#8FD4A8' }}>un estándar.</span>
                 </h2>
               </Reveal>
               <Reveal>
@@ -257,7 +338,7 @@ export default function Page() {
                     [`${BIZ.reviews}`, 'reseñas 5★'],
                   ].map(([n, l]) => (
                     <div key={l} className="px-4 py-4" style={{ backgroundColor: C.navyDeep }}>
-                      <p className="font-[var(--font-display)] font-extrabold text-2xl md:text-3xl leading-none" style={{ color: '#7FC79E' }}>
+                      <p className="font-[var(--font-display)] font-extrabold text-2xl md:text-3xl leading-none" style={{ color: '#8FD4A8' }}>
                         {n}
                       </p>
                       <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.14em] mt-2" style={{ color: 'rgba(247,242,231,0.65)' }}>
@@ -267,53 +348,19 @@ export default function Page() {
                   ))}
                 </div>
               </Reveal>
+              <Reveal>
+                <a
+                  href={BIZ.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="tap-44 mt-6 inline-flex items-center gap-2 text-sm font-bold underline underline-offset-4"
+                  style={{ color: '#8FD4A8' }}
+                >
+                  @duolimpiezaoficial · {BIZ.instagramFollowers} seguidores
+                </a>
+              </Reveal>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── CHECKLIST DE SERVICIOS ── */}
-      <section id="servicios">
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <Reveal>
-            <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: C.green }}>
-              Servicios · lo que tachan de tu lista
-            </p>
-            <h2
-              className="font-[var(--font-display)] font-extrabold leading-[1.02] text-[clamp(2.2rem,6.5vw,3.8rem)] mb-10 md:mb-14"
-              style={{ color: C.navy }}
-            >
-              Tú marcas la casilla.
-              <br />
-              Ellos la limpian.
-            </h2>
-          </Reveal>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {CHECKLIST.map((s) => (
-              <Reveal key={s.name}>
-                <div
-                  className="flex items-start gap-4 rounded-2xl px-5 py-4 h-full"
-                  style={{ backgroundColor: '#FFFDF8', border: `1px solid ${C.line}` }}
-                >
-                  <Check />
-                  <div>
-                    <h3 className="font-[var(--font-display)] font-bold text-xl leading-tight" style={{ color: C.navy }}>
-                      {s.name}
-                    </h3>
-                    <p className="text-sm mt-1 leading-snug" style={{ color: C.muted }}>
-                      {s.desc}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal>
-            <p className="mt-6 font-[var(--font-mono)] text-xs leading-relaxed" style={{ color: C.muted }}>
-              * Servicios publicados por la propia empresa en su Instagram
-              @duolimpiezaoficial. Productos no contaminantes, según sus clientes.
-            </p>
-          </Reveal>
         </div>
       </section>
 
@@ -344,7 +391,7 @@ export default function Page() {
                   />
                   <span
                     className="absolute top-2 left-2 font-[var(--font-mono)] text-[9px] uppercase tracking-[0.16em] px-2 py-0.5 rounded-full"
-                    style={{ backgroundColor: 'rgba(19,42,70,0.85)', color: '#F7F2E7' }}
+                    style={{ backgroundColor: 'rgba(16,36,58,0.85)', color: '#F7F2E7' }}
                   >
                     {g.tag}
                   </span>
@@ -379,15 +426,6 @@ export default function Page() {
                   Detallistas, puntuales y respetuosos del hogar: es lo que más
                   se repite en sus reseñas.
                 </p>
-                <a
-                  href={BIZ.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="tap-44 mt-5 inline-flex items-center gap-2 text-sm font-bold underline underline-offset-4"
-                  style={{ color: C.navy }}
-                >
-                  @duolimpiezaoficial · {BIZ.instagramFollowers} seguidores
-                </a>
               </div>
             </Reveal>
             <div className="space-y-3">
@@ -415,13 +453,13 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── CONTACTO ── */}
+      {/* ── AGENDA + MAPA ── */}
       <section id="contacto" style={{ backgroundColor: C.navy }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
             <div>
               <Reveal>
-                <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: '#7FC79E' }}>
+                <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] mb-3" style={{ color: '#8FD4A8' }}>
                   Agenda por WhatsApp
                 </p>
                 <h2
@@ -469,17 +507,17 @@ export default function Page() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="tap-44 mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 text-base font-bold active:scale-95 transition-transform"
-                  style={{ backgroundColor: '#7FC79E', color: C.navyDeep }}
+                  style={{ backgroundColor: C.green, color: '#fff' }}
                 >
                   Cotizar mi limpieza
                 </a>
               </Reveal>
             </div>
             <Reveal>
-              <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid rgba(247,242,231,0.2)` }}>
+              <div className="rounded-2xl overflow-hidden" style={{ border: `1px solid rgba(247,242,231,0.25)` }}>
                 <LazyMap
                   src={MAPS_EMBED}
-                  title={`Zona de trabajo de ${BIZ.name} en ${BIZ.city}`}
+                  title={`Zona de trabajo de ${BIZ.name}: ${BIZ.city} y el Maule`}
                   className="w-full h-[300px] md:h-[380px] block"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -490,22 +528,23 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
+      {/* ── FOOTER con cinta ── */}
       <footer style={{ backgroundColor: C.navyDeep }}>
+        <div aria-hidden="true" className="h-[6px]" style={{ backgroundImage: CINTA }} />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 pb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Image src={`${IMG}/avatar.webp`} alt="" width={32} height={32} className="rounded-full" aria-hidden="true" />
+            <Image src={`${IMG}/avatar.webp`} alt="" width={36} height={36} className="h-8 w-8 rounded-full" aria-hidden="true" />
             <div>
               <p className="font-[var(--font-display)] font-bold text-sm" style={{ color: '#F7F2E7' }}>
                 {BIZ.name}
               </p>
-              <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.16em]" style={{ color: 'rgba(247,242,231,0.6)' }}>
-                {BIZ.rubro} · {BIZ.city}, Maule
+              <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.16em]" style={{ color: 'rgba(247,242,231,0.55)' }}>
+                {BIZ.rubro} · {BIZ.city}
               </p>
             </div>
           </div>
-          <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.14em]" style={{ color: 'rgba(247,242,231,0.6)' }}>
-            {BIZ.phoneDisplay} · Lun–Dom 8:00–18:30
+          <p className="font-[var(--font-mono)] text-[10px] uppercase tracking-[0.14em]" style={{ color: 'rgba(247,242,231,0.55)' }}>
+            Servicio a domicilio · {BIZ.phoneDisplay}
           </p>
         </div>
       </footer>
