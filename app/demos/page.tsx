@@ -4170,6 +4170,14 @@ const BLITZ = [
     tagline: 'La carta escrita a mano: papel de libreta, amarillo de la fachada y las flores del logo de Claudina Urrutia.',
     gradient: 'linear-gradient(135deg, #FFF8EC 0%, #E8A614 90%, #B32C6F 190%)',
   },
+  {
+    slug: 'cabanas-las-lomas',
+    name: 'Cabañas Las Lomas',
+    rubro: 'Cabañas, restobar y pub',
+    city: 'San Clemente',
+    tagline: 'Señalética de ruta hacia Siete Tazas: café de letrero turístico, dorado del logo y hitos en kilómetros.',
+    gradient: 'linear-gradient(135deg, #2A2013 0%, #6B4F2E 60%, #B9975B 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
