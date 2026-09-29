@@ -2845,6 +2845,14 @@ const BLITZ = [
     tagline: 'La escuela donde se aprende con las manos en la tierra: mural del picaflor, huerto medicinal y una bitácora de veinte años.',
     gradient: 'linear-gradient(135deg, #16283D 0%, #1D5FC4 70%, #7FB2F0 170%)',
   },
+  {
+    slug: 'jardin-infantil-abc',
+    name: 'Jardín Infantil ABC',
+    rubro: 'Sala cuna y jardín infantil',
+    city: 'San Clemente',
+    tagline: 'El cuaderno del ABC: papel pautado, triángulos A-B-C y el mural de las estaciones de su muro real.',
+    gradient: 'linear-gradient(135deg, #FDFAF1 0%, #FFDD00 60%, #2B3AA8 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
