@@ -4349,6 +4349,46 @@ const BLITZ = [
     tagline: 'La tabla del domingo: mantel a cuadros, la carta del rincón y bosquejos honestos sobre fotos de la comuna.',
     gradient: 'linear-gradient(135deg, #F8F1DF 0%, #A83A2C 90%, #5D6E3B 170%)',
   },
+  {
+    slug: 'acuerdate-de-mi-pasteleria',
+    name: 'Acuérdate de Mí',
+    rubro: 'Servicios',
+    city: 'Talca, Maule',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F4ECD9 0%, #0F6E54 150%)',
+  },
+  {
+    slug: 'bodegas-del-abate',
+    name: 'Las Bodegas del Abate',
+    rubro: 'Viñas y agroexportación',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F1E9D8 0%, #4A1420 150%)',
+  },
+  {
+    slug: 'cabanas-oasis',
+    name: 'Cabañas Oasis',
+    rubro: 'Cabañas y hospedaje',
+    city: 'Río Claro, Molina',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #EEF1E9 0%, #9FD4CC 150%)',
+  },
+  {
+    slug: 'restaurante-donde-raimundo',
+    name: 'Restaurante Donde Raimundo',
+    rubro: 'Restaurante — comida casera',
+    city: 'Chanco',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F9F2E4 0%, #271B0F 150%)',
+  },
+  {
+    slug: 'veterinaria-lavaudog',
+    name: 'Veterinaria Lavaudog',
+    rubro: 'Veterinaria y peluquería canina',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #FBF3E4 0%, #402236 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
