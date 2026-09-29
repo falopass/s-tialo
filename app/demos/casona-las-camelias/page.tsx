@@ -34,6 +34,7 @@ const T = {
   wine: '#7A3342',
   camellia: '#C4607B',
   gold: '#A5803C',
+  goldDeep: '#8A6B28',
   goldSoft: '#CBA96B',
   ink: '#27181B',
   soft: '#6E5350',
@@ -100,7 +101,7 @@ export default function CasonaLasCameliasPage() {
         }
         .casona .kicker {
           font-family: ${mono.style.fontFamily}; font-size: 10px; letter-spacing: 0.4em;
-          text-transform: uppercase; color: ${T.gold}; display: flex; align-items: center; gap: 10px;
+          text-transform: uppercase; color: ${T.goldDeep}; display: flex; align-items: center; gap: 10px;
         }
         .casona .kicker::before { content: ''; width: 26px; height: 1px; background: ${T.gold}; flex: none; }
         .casona .btn-burg {
@@ -150,6 +151,7 @@ export default function CasonaLasCameliasPage() {
         .casona .flor { display: inline-flex; color: ${T.gold}; }
         .casona .dotted { border-top: 1px dashed ${T.line}; }
         .casona .sealring { border: 1px solid rgba(247,242,232,0.5); border-radius: 999px; }
+        .casona [id] { scroll-margin-top: 76px; }
       `}</style>
 
       <BlitzNav
@@ -164,7 +166,7 @@ export default function CasonaLasCameliasPage() {
           ink: T.ivory,
           line: 'rgba(247,242,232,0.2)',
           btnBg: T.gold,
-          btnInk: '#FFFFFF',
+          btnInk: T.ink,
         }}
       />
 
@@ -228,7 +230,7 @@ export default function CasonaLasCameliasPage() {
             </div>
           </div>
 
-          <div className="mo dotted" style={{ borderColor: 'rgba(247,242,232,0.3)', paddingTop: 16, fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(247,242,232,0.75)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
+          <div className="mo dotted" style={{ borderColor: 'rgba(247,242,232,0.3)', paddingTop: 16, paddingRight: 72, fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(247,242,232,0.75)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
             <span>Producción: {BIZ.producer}</span>
             <span>Eventos de 50 invitados en adelante</span>
           </div>
