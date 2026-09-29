@@ -4069,6 +4069,14 @@ const BLITZ = [
     tagline: 'La casona de eventos del Maule Sur: crema de la mantelería, índigo de los caminos de mesa y la terraza drapé.',
     gradient: 'linear-gradient(135deg, #F6F1E6 0%, #4A3B63 110%, #54623B 190%)',
   },
+  {
+    slug: 'barraca-de-madera-maderex',
+    name: 'Barraca de Madera Maderex',
+    rubro: 'Barraca de madera y herramientas',
+    city: 'San Clemente',
+    tagline: 'Pizarra de barraca: verde del letrero, tally marks y el listado pintado del galpón.',
+    gradient: 'linear-gradient(135deg, #14130F 0%, #3E9B4F 90%, #F3EFE4 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
