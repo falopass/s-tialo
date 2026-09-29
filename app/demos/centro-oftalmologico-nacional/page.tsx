@@ -1,386 +1,363 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import localFont from 'next/font/local'
 import { DemoBand } from '../kit'
 import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, WA_LINK_EXAMEN, MAPS_URL, MAPS_EMBED, FACEBOOK_URL, HOURS, IMG } from './content'
+import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
+import LazyMap from '../lazy-map'
 
 const display = localFont({
-  src: [{ path: '../../fonts/dm-serif-display/normal-400.woff2', weight: '400', style: 'normal' }],
+  src: [{ path: '../../fonts/prata/normal-400.woff2', weight: '400', style: 'normal' }],
 })
 const body = localFont({
   src: [{ path: '../../fonts/public-sans/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
 })
+const mono = localFont({
+  src: [{ path: '../../fonts/geist-mono/normal-100-900.woff2', weight: '100 900', style: 'normal' }],
+})
 
 const C = {
-  paper: '#F4F7F9',
-  card: '#FFFFFF',
-  navy: '#123A5C',
-  deep: '#0B2740',
-  cyan: '#4FB7D9',
-  // versión oscura del acento: cumple AA en texto chico sobre fondo claro
-  cyanDeep: '#1B6D8C',
-  ink: '#1E2A33',
-  muted: '#54636E',
-  line: 'rgba(18,58,92,0.15)',
+  deep: '#07222B',
+  panel: '#0C313D',
+  panelSoft: '#0F3A47',
+  cian: '#4FD8D2',
+  cianSoft: '#A8EDEA',
+  ink: '#E9F5F5',
+  muted: '#9CC4C6',
+  mutedDark: '#3E6669',
+  paper: '#F3FAF9',
+  line: 'rgba(233,245,245,0.16)',
+  linePaper: 'rgba(7,34,43,0.14)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'centro-oftalmologico-nacional',
-  title: 'Centro Oftalmológico Nacional · Oftalmología y óptica en Talca',
+  title: 'Centro Oftalmológico Nacional — Oftalmología en Talca',
   description:
-    'Oftalmólogo y óptica en Calle 6 Oriente 1158, centro de Talca: consulta oftalmológica, medición de vista y armazones. Agenda por WhatsApp.',
-  image: `${IMG}/fachada.webp`,
+    'Oftalmología en Calle 6 Oriente 1158, Talca centro. Atención de lunes a sábado — agenda tu consulta por WhatsApp.',
 })
 
 const NAV_LINKS = [
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'La óptica', href: '#la-optica' },
+  { label: 'Atención', href: '#atencion' },
   { label: 'Horarios', href: '#horarios' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Cómo llegar', href: '#contacto' },
 ]
 
-// Optotipo estilo cartilla de Snellen: solo tipografía, sin foto de relleno.
-const CHART_ROWS = [
-  { letters: 'E', size: '3.4rem', track: '0.06em' },
-  { letters: 'F P', size: '2.5rem', track: '0.14em' },
-  { letters: 'T O Z', size: '1.9rem', track: '0.18em' },
-  { letters: 'L P E D', size: '1.45rem', track: '0.2em' },
-  { letters: 'P E C F D', size: '1.1rem', track: '0.22em' },
-  { letters: 'E D F C Z P', size: '0.85rem', track: '0.24em' },
-]
-
-const SERVICIOS = [
+const FICHAS = [
   {
+    num: 'F-01',
     name: 'Consulta oftalmológica',
-    desc: 'Atención con tecnólogos médicos en oftalmología, con la opción de pagar con bono FONASA según su descripción pública.',
-    note: 'agenda por WhatsApp',
+    desc: 'Evaluación general de la vista: molestias, visión borrosa, cansancio visual o control de rutina.',
+    datum: 'Agenda por WhatsApp',
   },
   {
+    num: 'F-02',
     name: 'Medición de vista',
-    desc: 'Examen de refracción para saber si necesitas lentes y con qué graduación.',
-    note: 'examen',
+    desc: 'Examen de agudeza visual para receta de lentes, el paso antes de encargar tus anteojos.',
+    datum: 'Receta para óptica',
   },
   {
-    name: 'Óptica y armazones',
-    desc: 'La óptica del mismo centro: vitrina de armazones y lentes, como se ve en sus fotos reales.',
-    note: 'vitrina en el local',
-  },
-  {
-    name: 'Lentes a pedido',
-    desc: 'Con tu receta o tu medición reciente, cotizas tus lentes directo por WhatsApp.',
-    note: 'cotización directa',
+    num: 'F-03',
+    name: 'Control y seguimiento',
+    desc: 'Controles periódicos para quienes ya usan lentes o siguen un tratamiento en curso.',
+    datum: 'Controles periódicos',
   },
 ]
 
-// Fotos reales de la vitrina publicadas en su página de Facebook (160px)
-const ARMAZONES = [1, 2, 3, 4, 5, 6, 7].map((n) => ({
-  src: `${IMG}/armazon${n}.webp`,
-  alt: `Vitrina de armazones y lentes del Centro Oftalmológico Nacional, foto ${n} de su Facebook`,
-}))
+const HORAS = [
+  { days: 'Lunes a viernes', time: '9:00 a 13:30 · 15:00 a 18:00' },
+  { days: 'Sábado', time: '10:00 a 13:00' },
+  { days: 'Domingo', time: 'Cerrado' },
+]
 
-function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+const OPTOTIPO = ['E', 'F P', 'T O Z', 'L P E D', 'P E C F D', 'E D F C Z P', 'F E L O P Z D']
+
+function EyeIcon({ className = 'w-4 h-4', color = 'currentColor' }: { className?: string; color?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M2.5 12 C6 5.5, 18 5.5, 21.5 12 C18 18.5, 6 18.5, 2.5 12 Z" />
+      <circle cx="12" cy="12" r="3.2" />
+    </svg>
+  )
+}
+
+function Eyebrow({ children, onPaper = false }: { children: React.ReactNode; onPaper?: boolean }) {
   return (
     <p
-      className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-bold"
-      style={{ color: light ? C.cyan : C.cyanDeep }}
+      className={`${mono.className} text-[11px] uppercase tracking-[0.26em] mb-4 flex items-center gap-3 font-medium`}
+      style={{ color: onPaper ? C.mutedDark : C.cian }}
     >
-      <span
-        className="inline-block w-8 h-px"
-        style={{ backgroundColor: 'currentColor' }}
-        aria-hidden="true"
-      />
+      <EyeIcon className="w-[18px] h-[18px]" color={onPaper ? C.panelSoft : C.cian} />
       {children}
     </p>
   )
 }
 
+function BosquejoTag({ dark = false }: { dark?: boolean }) {
+  return (
+    <span
+      className={`${mono.className} inline-block text-[9px] uppercase tracking-[0.2em] font-semibold px-2 py-0.5 rounded-sm border border-dashed`}
+      style={{
+        color: dark ? C.deep : C.cian,
+        borderColor: dark ? 'rgba(7,34,43,0.55)' : 'rgba(79,216,210,0.6)',
+        backgroundColor: dark ? 'rgba(79,216,210,0.55)' : 'rgba(79,216,210,0.12)',
+      }}
+    >
+      Bosquejo
+    </span>
+  )
+}
+
 export default function CentroOftalmologicoNacionalPage() {
   return (
-    <div
-      className={`${body.className} min-h-screen antialiased`}
-      style={{ backgroundColor: C.paper, color: C.ink }}
-    >
+    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.deep, color: C.ink }}>
       <BlitzNav
         name={BIZ.short}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
+        ctaLabel="Agendar"
         theme={{
-          over: 'light',
-          bar: 'rgba(244,247,249,0.95)',
-          ink: C.navy,
+          over: 'dark',
+          bar: 'rgba(7,34,43,0.94)',
+          ink: C.ink,
           line: C.line,
-          btnBg: C.navy,
-          btnInk: '#F4F7F9',
+          btnBg: C.cian,
+          btnInk: C.deep,
         }}
       />
 
-      {/* ── Hero tipográfico con optotipo ── */}
-      <section
-        id="inicio"
-        className="border-b"
-        style={{ borderColor: C.line, backgroundColor: C.paper }}
-      >
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-[104px] md:pt-[120px] pb-14 md:pb-20 grid lg:grid-cols-[1.15fr_1fr] gap-10 md:gap-14 items-center">
+      {/* ── Hero: ficha clínica oscura + optotipo (bosquejo) ── */}
+      <section id="inicio" className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(700px 420px at 82% 12%, rgba(79,216,210,0.14), transparent 65%)',
+          }}
+        />
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-14 md:pb-20 grid md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center">
           <Reveal>
-            <Eyebrow>Oftalmólogo y óptica · Centro de Talca · Región del Maule</Eyebrow>
-            <h1
-              className={`${display.className} leading-[1.04] text-[clamp(2.6rem,9vw,5.4rem)] mb-6`}
-              style={{ color: C.navy }}
-            >
-              Ver bien
-              <br />
-              <em className="not-italic" style={{ color: C.cyanDeep }}>empieza por medirse</em>
-            </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-9" style={{ color: C.muted }}>
-              Consulta oftalmológica, medición de vista y óptica en un
-              mismo lugar, en pleno centro de Talca. La agenda es directa:
-              un mensaje y quedas con hora.
+            <p className={`${mono.className} text-[10px] uppercase tracking-[0.3em] mb-5`} style={{ color: C.muted }}>
+              Expediente — oftalmología · Talca centro
             </p>
-            <div className="flex flex-wrap gap-3">
+            <h1 className={`${display.className} text-[clamp(2.4rem,8vw,4.4rem)] leading-[1.08] mb-6`} style={{ color: C.ink }}>
+              Tu vista,
+              <br />
+              atendida en el <em style={{ color: C.cian }}>centro de Talca</em>
+            </h1>
+            <p className="text-base md:text-lg leading-relaxed max-w-lg mb-8" style={{ color: C.muted }}>
+              {BIZ.name} atiende en {BIZ.address}. Agenda tu consulta
+              directo por WhatsApp: sin formularios, sin esperas de
+              call center.
+            </p>
+            <div className="flex flex-wrap gap-3 mb-9">
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C] tap-44`}
-                style={{ backgroundColor: C.navy, color: '#F4F7F9' }}
+                className={`${display.className} text-sm md:text-base px-7 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 tap-44`}
+                style={{ backgroundColor: C.cian, color: C.deep }}
               >
-                Agendar por WhatsApp
+                Agendar consulta
               </a>
               <a
-                href="#servicios"
-                className={`${display.className} font-semibold text-sm md:text-base px-7 py-3 rounded-full border transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C] tap-44`}
-                style={{ borderColor: C.line, color: C.navy }}
+                href="#horarios"
+                className={`${display.className} text-sm md:text-base px-7 py-3 rounded-full border tap-44 transition-colors hover:bg-white/5`}
+                style={{ borderColor: C.cian, color: C.cian }}
               >
-                Ver servicios
+                Ver horarios
               </a>
             </div>
+            <dl className={`${mono.className} grid grid-cols-2 gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.18em] border-t pt-5 max-w-md`} style={{ borderColor: C.line }}>
+              <dt style={{ color: C.mutedDark }}>Dirección</dt>
+              <dd className="text-right" style={{ color: C.cianSoft }}>6 Ote. 1158, of. 11</dd>
+              <dt style={{ color: C.mutedDark }}>Ciudad</dt>
+              <dd className="text-right" style={{ color: C.cianSoft }}>{BIZ.city}</dd>
+              <dt style={{ color: C.mutedDark }}>Contacto</dt>
+              <dd className="text-right" style={{ color: C.cianSoft }}>{BIZ.phoneDisplay}</dd>
+              <dt style={{ color: C.mutedDark }}>Atención</dt>
+              <dd className="text-right" style={{ color: C.cianSoft }}>Lun a sáb</dd>
+            </dl>
           </Reveal>
-
-          {/* Cartilla optotipo */}
           <Reveal delay={140}>
-            <div
-              className="rounded-2xl border p-5 md:p-7 text-center select-none"
-              style={{ backgroundColor: C.card, borderColor: C.line, boxShadow: '0 16px 44px rgba(11,39,64,0.10)' }}
-              role="img"
-              aria-label="Cartilla de medición de vista con letras que se hacen cada vez más pequeñas"
-            >
-              <p className="text-[10px] uppercase tracking-[0.28em] font-bold mb-5" style={{ color: C.muted }}>
-                ¿Hasta qué línea lees?
-              </p>
-              {CHART_ROWS.map((r) => (
-                <p
-                  key={r.letters}
-                  className={`${display.className} leading-[1.35]`}
-                  style={{ fontSize: r.size, letterSpacing: r.track, color: C.ink }}
-                  aria-hidden="true"
-                >
-                  {r.letters}
+            {/* Escena bosquejo: optotipo de examen visual */}
+            <div className="relative rounded-2xl border p-1.5 shadow-2xl" style={{ borderColor: C.line, backgroundColor: C.panel }}>
+              <div className="absolute -top-3 left-5 z-10"><BosquejoTag /></div>
+              <div className="rounded-xl overflow-hidden" style={{ backgroundColor: C.paper }}>
+                <div className="flex items-center justify-between px-5 pt-4 pb-2 border-b border-dashed" style={{ borderColor: C.linePaper }}>
+                  <p className={`${mono.className} text-[10px] uppercase tracking-[0.22em] font-semibold`} style={{ color: C.mutedDark }}>
+                    Optotipo — examen visual
+                  </p>
+                  <EyeIcon className="w-5 h-5" color={C.panelSoft} />
+                </div>
+                <div className="px-5 py-6 flex flex-col items-center gap-3" aria-hidden="true">
+                  {OPTOTIPO.map((row, i) => (
+                    <p
+                      key={row}
+                      className={`${display.className} leading-none tracking-[0.3em] whitespace-nowrap`}
+                      style={{ color: C.deep, fontSize: `${3.4 - i * 0.42}rem` }}
+                    >
+                      {row}
+                    </p>
+                  ))}
+                </div>
+                <p className={`${mono.className} px-5 pb-4 text-[9px] uppercase tracking-[0.18em] text-center`} style={{ color: C.mutedDark }}>
+                  Escena referencial — al publicar va una foto real del centro
                 </p>
-              ))}
-              <div className="mt-5 pt-4 border-t flex items-center justify-between text-[10px] uppercase tracking-[0.2em] font-bold" style={{ borderColor: C.line, color: C.muted }}>
-                <span>Medición de vista</span>
-                <span style={{ color: C.cyanDeep }}>6 Oriente 1158</span>
               </div>
             </div>
           </Reveal>
         </div>
-        <div className="border-t" style={{ borderColor: C.line, backgroundColor: C.card }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap gap-x-8 gap-y-1.5 text-[11px] md:text-xs uppercase tracking-[0.18em]" style={{ color: C.muted }}>
-            <span>Calle 6 Oriente 1158, Talca</span>
-            <span>Consulta + óptica en un mismo lugar</span>
-            <span>Bono FONASA</span>
-            <span className="hidden md:inline" style={{ color: C.cyanDeep }}>sitio de ejemplo</span>
+      </section>
+
+      {/* ── La atención: fichas ── */}
+      <section id="atencion" className="scroll-mt-20" style={{ backgroundColor: C.paper, color: C.deep }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <Eyebrow onPaper>La atención</Eyebrow>
+            <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6 md:gap-14 items-end mb-10 md:mb-14">
+              <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.08]`} style={{ color: C.deep }}>
+                Oftalmología directa,
+                <br />
+                <em style={{ color: C.panelSoft }}>sin vueltas</em>
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.mutedDark }}>
+                Servicios de muestra para mostrar cómo se vería el sitio:
+                al publicar va la lista real de prestaciones del centro.
+              </p>
+            </div>
+          </Reveal>
+          <div className="grid sm:grid-cols-3 gap-3 md:gap-4">
+            {FICHAS.map((f, i) => (
+              <Reveal key={f.num} delay={i * 90}>
+                <article
+                  className="relative rounded-xl border bg-white p-6 md:p-7 h-full shadow-sm"
+                  style={{ borderColor: C.linePaper }}
+                >
+                  <div className="flex items-center justify-between mb-5">
+                    <span className={`${mono.className} text-[11px] font-semibold tracking-[0.2em]`} style={{ color: C.mutedDark }}>
+                      {f.num}
+                    </span>
+                    <BosquejoTag dark />
+                  </div>
+                  <h3 className={`${display.className} text-2xl leading-tight mb-3`} style={{ color: C.deep }}>
+                    {f.name}
+                  </h3>
+                  <p className="text-sm leading-relaxed mb-5" style={{ color: C.mutedDark }}>
+                    {f.desc}
+                  </p>
+                  <p className={`${mono.className} text-[10px] uppercase tracking-[0.2em] font-semibold flex items-center gap-2`} style={{ color: C.panelSoft }}>
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#2AA89F' }} aria-hidden="true" />
+                    {f.datum}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Servicios ── */}
-      <section id="servicios" className="scroll-mt-20" style={{ backgroundColor: C.paper }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      {/* ── Horarios: cartilla ── */}
+      <section id="horarios" className="scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-start">
           <Reveal>
-            <Eyebrow>Servicios</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.06] mb-4`} style={{ color: C.navy }}>
-              De la consulta
+            <Eyebrow>Horarios de atención</Eyebrow>
+            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.08] mb-5`} style={{ color: C.ink }}>
+              De lunes a sábado,
               <br />
-              a tus lentes
+              <em style={{ color: C.cian }}>en dos jornadas</em>
             </h2>
-            <p className="text-sm md:text-base max-w-xl leading-relaxed mb-8 md:mb-10" style={{ color: C.muted }}>
-              La descripción pública del centro anuncia atención con
-              tecnólogos médicos en oftalmología y pago con bono FONASA;
-              el detalle de cada servicio se confirma al agendar.
+            <p className="text-sm md:text-base leading-relaxed max-w-sm mb-8" style={{ color: C.muted }}>
+              Horario real de la ficha pública del centro. Entre semana
+              atiende con colación intermedia; los sábados solo en la
+              mañana.
             </p>
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${display.className} inline-block text-sm md:text-base px-7 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 tap-44`}
+              style={{ backgroundColor: C.cian, color: C.deep }}
+            >
+              Agendar por WhatsApp
+            </a>
           </Reveal>
-          <ul>
-            {SERVICIOS.map((s, i) => (
-              <Reveal key={s.name} delay={i * 70}>
-                <li
-                  className="grid grid-cols-[44px_1fr_auto] md:grid-cols-[64px_1fr_auto] gap-4 md:gap-8 items-baseline border-t py-5 md:py-6"
-                  style={{ borderColor: C.line }}
+          <Reveal delay={120}>
+            <div className="rounded-xl border overflow-hidden" style={{ borderColor: C.line }}>
+              <div className="flex items-center justify-between px-5 py-3.5 border-b" style={{ borderColor: C.line, backgroundColor: C.panel }}>
+                <p className={`${mono.className} text-[10px] uppercase tracking-[0.22em] font-semibold`} style={{ color: C.cian }}>
+                  Cartilla de horarios
+                </p>
+                <p className={`${mono.className} text-[10px] uppercase tracking-[0.18em]`} style={{ color: C.mutedDark }}>
+                  Google Maps
+                </p>
+              </div>
+              {HORAS.map((h) => (
+                <div
+                  key={h.days}
+                  className="flex items-center justify-between gap-4 px-5 py-4 border-b last:border-0"
+                  style={{ borderColor: C.line, backgroundColor: 'rgba(12,49,61,0.4)' }}
                 >
-                  <span
-                    className={`${display.className} text-xl md:text-3xl`}
-                    style={{ color: C.cyanDeep }}
-                    aria-hidden="true"
-                  >
-                    {String(i + 1).padStart(2, '0')}
+                  <span className="text-sm md:text-base font-semibold" style={{ color: C.ink }}>
+                    {h.days}
                   </span>
-                  <div className="min-w-0">
-                    <h3 className={`${display.className} text-xl md:text-2xl leading-tight mb-1`} style={{ color: C.navy }}>
-                      {s.name}
-                    </h3>
-                    <p className="text-sm leading-relaxed max-w-lg" style={{ color: C.muted }}>
-                      {s.desc}
-                    </p>
-                  </div>
-                  <span className="text-[10px] md:text-[11px] uppercase tracking-[0.16em] font-bold text-right shrink-0" style={{ color: C.muted }}>
-                    {s.note}
+                  <span className={`${mono.className} text-xs md:text-sm text-right`} style={{ color: h.time === 'Cerrado' ? C.mutedDark : C.cianSoft }}>
+                    {h.time}
                   </span>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-          <Reveal delay={120}>
-            <a
-              href={WA_LINK_EXAMEN}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${display.className} inline-block mt-8 font-semibold text-sm md:text-base px-7 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C] tap-44`}
-              style={{ backgroundColor: C.navy, color: '#F4F7F9' }}
-            >
-              Consultar por una medición
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── La óptica: fotos reales de la vitrina ── */}
-      <section id="la-optica" className="scroll-mt-20" style={{ backgroundColor: C.deep }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <Reveal>
-            <Eyebrow light>La óptica</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.06] mb-4`} style={{ color: '#F4F7F9' }}>
-              Armazones que
-              <br />
-              se ven en persona
-            </h2>
-            <p className="text-sm md:text-base max-w-xl leading-relaxed mb-9" style={{ color: 'rgba(244,247,249,0.75)' }}>
-              Fotos reales de la vitrina, publicadas por el centro en su
-              página de Facebook. El stock y los modelos disponibles se
-              ven en el local o consultando por WhatsApp.
-            </p>
-          </Reveal>
-          <ul className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 md:gap-3 mb-9">
-            {ARMAZONES.map((a, i) => (
-              <Reveal key={a.src} delay={i * 50}>
-                <li className="relative aspect-square rounded-lg overflow-hidden border" style={{ borderColor: 'rgba(244,247,249,0.2)' }}>
-                  <Image
-                    src={a.src}
-                    alt={a.alt}
-                    fill
-                    sizes="(min-width: 1024px) 140px, 30vw"
-                    loading="lazy"
-                    className="object-cover"
-                  />
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-          <Reveal delay={120}>
-            <a
-              href={FACEBOOK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-semibold underline underline-offset-4 decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4FB7D9] tap-44"
-              style={{ color: C.cyan }}
-            >
-              Ver más en su Facebook →
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Horarios y ubicación ── */}
-      <section id="horarios" className="scroll-mt-20" style={{ backgroundColor: C.paper }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-14 items-start">
-          <Reveal>
-            <Eyebrow>Horarios de la ficha</Eyebrow>
-            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.06] mb-6`} style={{ color: C.navy }}>
-              En pleno centro,
-              <br />
-              con hora
-            </h2>
-            <dl className="rounded-2xl border overflow-hidden mb-7" style={{ backgroundColor: C.card, borderColor: C.line }}>
-              {HOURS.map((h) => (
-                <div key={h.d} className="flex items-baseline justify-between gap-4 px-5 py-4 border-b last:border-b-0" style={{ borderColor: C.line }}>
-                  <dt className="text-sm font-semibold" style={{ color: C.ink }}>{h.d}</dt>
-                  <dd className="text-sm text-right" style={{ color: C.muted }}>{h.h}</dd>
                 </div>
               ))}
-            </dl>
-            <address className="not-italic text-sm leading-relaxed mb-7" style={{ color: C.muted }}>
-              <strong className="block mb-1 font-semibold" style={{ color: C.ink }}>{BIZ.address}, {BIZ.city}</strong>
-              Oficina 11, segundo piso · centro de Talca.
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── Cómo llegar ── */}
+      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.paper, color: C.deep }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
+          <Reveal>
+            <Eyebrow onPaper>Cómo llegar</Eyebrow>
+            <h2 className={`${display.className} text-4xl md:text-5xl leading-[1.08] mb-6`} style={{ color: C.deep }}>
+              Calle 6 Oriente 1158,
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1B6D8C] tap-44" style={{ color: C.cyanDeep }}>
-                {BIZ.phoneDisplay}
-              </a>
+              <em style={{ color: C.panelSoft }}>Talca centro</em>
+            </h2>
+            <address className="not-italic text-sm md:text-base leading-relaxed mb-6" style={{ color: C.mutedDark }}>
+              {BIZ.address}
+              <br />
+              {BIZ.city}, {BIZ.region}, Chile
             </address>
+            <p className="text-xs leading-relaxed mb-8 max-w-sm" style={{ color: C.mutedDark }}>
+              A pasos de la Alameda y el Mercado de Talca. El acceso es
+              por la entrada del edificio: el centro atiende en el piso 2.
+            </p>
             <div className="flex flex-wrap gap-3">
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full transition-transform hover:-translate-y-0.5 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C] tap-44`}
-                style={{ backgroundColor: C.navy, color: '#F4F7F9' }}
+                className={`${display.className} text-sm md:text-base px-7 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 tap-44`}
+                style={{ backgroundColor: C.deep, color: C.cian }}
               >
-                Agendar hora
+                Escribir por WhatsApp
               </a>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${display.className} font-semibold text-sm px-6 py-3 rounded-full border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123A5C] tap-44`}
-                style={{ borderColor: C.line, color: C.navy }}
+                className={`${display.className} text-sm md:text-base px-7 py-3 rounded-full border-2 transition-colors hover:bg-black/5 tap-44`}
+                style={{ borderColor: C.deep, color: C.deep }}
               >
-                Cómo llegar →
+                Abrir en Google Maps
               </a>
             </div>
           </Reveal>
           <Reveal delay={140}>
-            <div className="rounded-2xl overflow-hidden border" style={{ borderColor: C.line, boxShadow: '0 16px 44px rgba(11,39,64,0.12)' }}>
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={`${IMG}/fachada.webp`}
-                  alt="Letrero luminoso del Centro Oftalmológico Nacional en Calle 6 Oriente, Talca"
-                  fill
-                  sizes="(min-width: 1024px) 480px, 100vw"
-                  loading="lazy"
-                  className="object-cover"
-                />
-              </div>
-              <div className="px-5 py-4" style={{ backgroundColor: C.card }}>
-                <p className="text-xs leading-relaxed" style={{ color: C.muted }}>
-                  Foto real del letrero del centro, publicada en su Facebook. El
-                  local está en el segundo piso del edificio.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Mapa + cierre ── */}
-      <section id="contacto" className="scroll-mt-20" style={{ backgroundColor: C.card }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
-          <Reveal>
-            <div className="rounded-2xl overflow-hidden min-h-[320px] border" style={{ borderColor: C.line }}>
-              <iframe
-                title={`Mapa: ${BIZ.name}, ${BIZ.address}, ${BIZ.city}`}
+            <div className="rounded-xl overflow-hidden border shadow-lg h-full min-h-[320px] bg-white" style={{ borderColor: C.linePaper }}>
+              <LazyMap
+                title={`Mapa: ${BIZ.name}, Calle 6 Ote. 1158, ${BIZ.city}`}
                 src={MAPS_EMBED}
-                className="w-full h-[320px] md:h-[380px]"
+                className="w-full h-full min-h-[320px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -390,34 +367,36 @@ export default function CentroOftalmologicoNacionalPage() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.deep, color: '#F4F7F9' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-6 md:py-8 border-t" style={{ borderColor: 'rgba(244,247,249,0.14)' }}>
-          <div className="flex flex-wrap items-start justify-between gap-x-10 gap-y-5">
-            <div>
-              <p className={`${display.className} text-xl mb-1`}>{BIZ.name}</p>
-              <p className="text-xs" style={{ color: 'rgba(244,247,249,0.65)' }}>
-                {BIZ.rubro} · {BIZ.address}, {BIZ.city}
-              </p>
-            </div>
-            <div className="text-xs leading-relaxed" style={{ color: 'rgba(244,247,249,0.65)' }}>
-              <p className="font-semibold mb-1" style={{ color: 'rgba(244,247,249,0.9)' }}>Contacto</p>
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4FB7D9] tap-44" style={{ color: C.cyan }}>
-                WhatsApp {BIZ.phoneDisplay}
-              </a>
-              <br />
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4FB7D9] tap-44" style={{ color: C.cyan }}>
-                Facebook del centro
-              </a>
-            </div>
+      <footer style={{ backgroundColor: '#051820' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-8 grid md:grid-cols-2 gap-4 md:gap-5 items-start">
+          <div>
+            <p className={`${display.className} text-2xl mb-2 flex items-center gap-3`} style={{ color: C.ink }}>
+              <EyeIcon className="w-5 h-5" color={C.cian} />
+              {BIZ.name}
+            </p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(233,245,245,0.8)' }}>
+              {BIZ.address} · {BIZ.city}, {BIZ.region}
+            </address>
           </div>
-          <p className="text-[11px] mt-5 pt-4 border-t" style={{ color: 'rgba(244,247,249,0.5)', borderColor: 'rgba(244,247,249,0.14)' }}>
-            Sitio de ejemplo preparado por Sitiazo con datos públicos de la ficha de Google y el Facebook del centro.
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm" style={{ color: 'rgba(233,245,245,0.8)' }}>
+            {NAV_LINKS.map((l) => (
+              <a key={l.href} href={l.href} className="hover:text-white transition-colors tap-44">
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className="border-t" style={{ borderColor: 'rgba(233,245,245,0.14)' }}>
+          <p className="max-w-6xl mx-auto px-5 md:px-8 py-3 text-xs leading-relaxed" style={{ color: 'rgba(233,245,245,0.72)' }}>
+            Servicios e imágenes son bosquejos de muestra; nombre,
+            dirección, teléfono y horario son públicos.
           </p>
         </div>
+        <div className="px-5 pt-1 pb-6 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
+          <DemoBand name={BIZ.name} />
+        </div>
       </footer>
-
       <WaFab href={WA_LINK} label={`Escribir por WhatsApp a ${BIZ.name}`} />
-      <DemoBand name={BIZ.name} />
     </div>
   )
 }
