@@ -40,7 +40,7 @@ export function RanchoNav({
     >
       <div className="max-w-6xl mx-auto px-5 md:px-8 h-[60px] md:h-[68px] flex items-center justify-between gap-4">
         <a href="#inicio" className="tap-44 flex items-center" aria-label="Rancho Itahue — inicio">
-          {/* eslint-disable-next-line @next/next/no-img-element -- logo vectorial del cliente en public/ */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- logo del cliente en public/ */}
           <img
             src={logoSrc}
             alt="Rancho Itahue — multiespacio, Molina"

@@ -47,9 +47,9 @@ const IMG = '/demos/rancho-itahue'
 const F = `${IMG}/fotos`
 
 export const LOGO = `${IMG}/logo-rancho-itahue.png`
-/** Versión horizontal vectorial que mandó el cliente (negro + rojo). */
-export const LOGO_H = `${IMG}/logo-horizontal.svg`
-/** Versión vertical (tótem) del cliente; el PDF vectorial aún no llega al repo — usar logo-vertical.svg cuando aterrice. */
+/** Versión horizontal del cliente, recortada al contenido (los SVG quedan de respaldo). */
+export const LOGO_H = `${IMG}/logo-horizontal-recortado.png`
+/** Versión vertical (tótem) del cliente, recortada al contenido. */
 export const LOGO_V = `${IMG}/logo-vertical-recortado.png`
 
 export const HERO = {
