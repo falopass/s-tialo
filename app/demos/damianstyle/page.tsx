@@ -659,8 +659,9 @@ export default function DamianStylePage() {
               {BIZ.address} · {BIZ.city}
             </address>
             <p className="text-xs leading-relaxed" style={{ color: 'rgba(245,239,230,0.8)' }}>
-              Sitio de ejemplo de Sitiazo: dirección, WhatsApp e Instagram son
-              reales; servicios, precios, horarios y fotos son de muestra.
+              Sitio de ejemplo de Sitiazo: dirección, WhatsApp, Instagram y
+              fotos son reales (de @{BIZ.instagram}); servicios, precios y
+              horarios son de muestra.
             </p>
           </div>
         </div>
