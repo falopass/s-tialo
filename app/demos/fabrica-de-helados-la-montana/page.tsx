@@ -49,8 +49,8 @@ const VITRINA = [
   { src: `${IMG}/vitrina.webp`, alt: 'Vitrina de sabores de helado de La Montaña' },
   { src: `${IMG}/conos.webp`, alt: 'Conos de helado de dos bolas frente a la vitrina' },
   { src: `${IMG}/sabores.webp`, alt: 'Cubetas de helado artesanal de distintos sabores' },
-  { src: `${IMG}/par.webp`, alt: 'Dos conos de helado, uno rosado y uno rojo, en la vitrina' },
-  { src: `${IMG}/interior.webp`, alt: 'Interior de la heladería con mesas y sillas teal' },
+  { src: `${IMG}/par.webp`, alt: 'Dos conos de helado, uno rosado y uno morado, frente a la vitrina' },
+  { src: `${IMG}/interior.webp`, alt: 'Interior de La Montaña: las vitrinas de sabores y el mesón' },
   { src: `${IMG}/barquillo.webp`, alt: 'Cono de helado morado recién servido' },
 ]
 
@@ -247,7 +247,7 @@ export default function Page() {
             </p>
             <div className="rounded-2xl overflow-hidden aspect-[4/3]">
               {/* eslint-disable-next-line @next/next/no-img-element -- ya optimizado */}
-              <img src={`${IMG}/interior.webp`} alt="Interior de La Montaña con mesas blancas y sillas teal" loading="lazy" className="w-full h-full object-cover" />
+              <img src={`${IMG}/terraza.webp`} alt="Dos conos de helado sobre la mesa de la terraza de La Montaña" loading="lazy" className="w-full h-full object-cover" />
             </div>
           </Reveal>
         </div>
