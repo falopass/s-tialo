@@ -40,6 +40,7 @@ const NAV_LINKS = [
 ]
 
 const LOCAL = [
+  { src: 'neon.webp', alt: 'Barra de toppings de Acai City bajo el letrero de neón I Love Acai' },
   { src: 'local.webp', alt: 'Interior de Acai City con su barra, murales y lámparas de ratán' },
   { src: 'mesas.webp', alt: 'Mesas junto al mural de palma de açaí y el ventanal a Lircay' },
   { src: 'mural.webp', alt: 'Mural de racimos de açaí y tucán pintado en el local' },
