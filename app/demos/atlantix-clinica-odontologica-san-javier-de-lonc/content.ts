@@ -6,7 +6,8 @@
  * 4,8 estrellas en 58 reseñas con citas reales, WhatsApp, horarios y la
  * lista de servicios publicada (afiche + agenda online). El titular del
  * hero es el eslogan pintado en su propia vitrina. Las fotos son reales:
- * fachada y letreros de Maps; interior, ortodoncia y carillas de su IG.
+ * fachada y letreros de Maps; mural del logo en la pared, ortodoncia,
+ * carillas y restauraciones de su IG (@clinicaatlantix).
  */
 
 export const BIZ = {
