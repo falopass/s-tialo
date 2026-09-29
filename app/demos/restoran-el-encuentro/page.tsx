@@ -202,7 +202,7 @@ export default function Page() {
                 className="mt-3 text-[13vw] sm:text-6xl md:text-7xl leading-[0.95] uppercase"
                 style={{ fontFamily: 'var(--f-display), sans-serif' }}
               >
-                La parada de la <span style={{ color: C.teja }}>ruta a Pehuenche</span>
+                La parada de la <span style={{ color: C.teja }}>ruta a&nbsp;Pehuenche</span>
               </h1>
               <p className="mt-4 text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: C.muted }}>
                 {BIZ.name} atiende en {BIZ.sector}, el caserío de la ribera del río Maule en el camino internacional — restorán inscrito en el directorio turístico de la Municipalidad de San Clemente.
