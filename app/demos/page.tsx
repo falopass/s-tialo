@@ -433,10 +433,10 @@ const BLITZ = [
   {
     slug: 'rancho-itahue',
     name: 'Rancho Itahue',
-    rubro: 'Agroturismo y eventos',
+    rubro: 'Multiespacio para eventos',
     city: 'Molina',
-    tagline: 'Editorial de campo: verde bosque, hueso y ámbar, con fotos.',
-    gradient: 'linear-gradient(135deg, #12231A 0%, #B97E33 140%)',
+    tagline: 'Página definitiva del cliente: gris de marca, rojo Itahue y fotos reales del predio.',
+    gradient: 'linear-gradient(135deg, #585856 0%, #E20411 140%)',
   },
   {
     slug: 'panaderia-bravo',
@@ -2660,6 +2660,40 @@ const BLITZ = [
     tagline: 'Papel de plano y azul de ingeniería: retícula técnica, mono de datos y su estudio CIREN 2012 del embalse Huencuecho.',
     gradient: 'linear-gradient(135deg, #0C2740 0%, #143A5E 55%, #0E7C9C 160%)',
   },
+  {
+    slug: 'consulta-fonointegra',
+    name: 'Consulta Fonointegra',
+    rubro: 'Fonoaudiología infantil · Talca',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #FBF5EA 0%, #FFFDF7 150%)',
+  },
+  {
+    slug: 'gasfiteria-jaramillo',
+    name: 'Gasfitería Jaramillo',
+    rubro: 'Gasfitería a domicilio · autorizado SEC',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #F3ECDF 0%, #FBF7EE 150%)',
+  },
+  {
+    slug: 'gasfiteria-sec-soluciones',
+    name: 'Gasfiter Sec',
+    rubro: 'Gasfitería certificada SEC',
+    city: 'Talca',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #141517 0%, #EDEAE3 150%)',
+  },
+  {
+    slug: 'espacio-dominga',
+    name: 'Heladería Espacio Dominga',
+    rubro: 'Heladería',
+    city: 'San Clemente',
+    tagline: 'Muestra nueva (ficha de diseno pendiente).',
+    gradient: 'linear-gradient(135deg, #0B1710 0%, #F4EFE3 150%)',
+  },
+]
+
 export const metadata: Metadata = {
   title: 'Demos por rubro — ejemplos de sitios para pymes',
   description:
