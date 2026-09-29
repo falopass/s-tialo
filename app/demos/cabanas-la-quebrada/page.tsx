@@ -1,43 +1,61 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { demoMetadata } from '../meta'
 import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
-import { BIZ, WA_LINK, MAPS_URL, MAPS_EMBED } from './content'
+import { BIZ, WA_LINK, WA_LINK_EQUIPOS, MAPS_URL, MAPS_EMBED, IMG, RESENAS } from './content'
 import { Reveal, SiteNav, WhatsAppFab } from './chrome'
-import {
-  HeroScene,
-  CabinScene,
-  ForestPanel,
-  RiverPanel,
-  ValleyPanel,
-  CtaScene,
-} from './scenes'
+import { Hoja, Parada, BosquejoBadge, BosquejoDormitorio, BosquejoBano } from './scenes'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
   src: [
-    { path: '../../fonts/fraunces/italic-100-900.woff2', weight: '100 900', style: 'italic' },
-    { path: '../../fonts/fraunces/normal-100-900.woff2', weight: '100 900', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-700.woff2', weight: '700', style: 'normal' },
+    { path: '../../fonts/barlow-condensed/normal-800.woff2', weight: '800', style: 'normal' },
+  ],
+  display: 'swap',
+})
+const body = localFont({
+  src: [
+    { path: '../../fonts/barlow/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/barlow/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/barlow/normal-600.woff2', weight: '600', style: 'normal' },
+  ],
+  display: 'swap',
+})
+const mono = localFont({
+  src: [
+    { path: '../../fonts/space-mono/normal-400.woff2', weight: '400', style: 'normal' },
+    { path: '../../fonts/space-mono/normal-700.woff2', weight: '700', style: 'normal' },
   ],
   display: 'swap',
 })
 
+/**
+ * Dirección de arte: «el croquis del pasaje». El predio se recorre por un
+ * sendero de ripio (se ve en las fotos reales): la página baja como ese
+ * pasaje, con paradas numeradas de croquis de terreno, hojas de sauce y
+ * trazo de alzado. Barlow Condensed hace de letrero de obra en madera;
+ * Space Mono rotula las paradas y los datos.
+ */
 const C = {
-  bosque: '#173A2B',
-  bosqueDeep: '#0E241B',
-  arena: '#E8DCC8',
-  arenaSoft: '#F1EADA',
-  terracota: '#C4704B',
-  terracotaInk: '#9E4F2C',
-  crema: '#FAF7F0',
-  muted: '#55685A',
-  line: 'rgba(23,58,43,0.14)',
+  papel: '#F1EBDC',
+  papelSoft: '#E7DFC9',
+  oliva: '#3C4A2E',
+  olivaDeep: '#232B18',
+  ink: '#1C2214',
+  miel: '#D9A13C',
+  sage: '#8A9B6E',
+  muted: '#5C6248',
+  line: 'rgba(60,74,46,0.22)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'cabanas-la-quebrada',
-  title: 'Cabañas La Quebrada — Cabañas en Talca, Región del Maule',
-  description: 'Cabañas equipadas en Talca para descansar con calma. Consulta disponibilidad por WhatsApp.',
+  title: 'Cabañas La Quebrada — Cabañas de madera en Talca',
+  description: 'Cabañas de madera en Cuatro Poniente 1197, Talca: cocina equipada, estacionamiento interior y jardín. Consulta por WhatsApp.',
+  image: `${IMG}/hero.webp`,
 })
 
 // ── Utilidades ───────────────────────────────────────────────
@@ -47,8 +65,8 @@ function Star({ filled, className = 'w-4 h-4' }: { filled: boolean; className?: 
     <svg
       viewBox="0 0 20 20"
       className={className}
-      fill={filled ? C.terracota : 'none'}
-      stroke={C.terracota}
+      fill={filled ? 'currentColor' : 'none'}
+      stroke="currentColor"
       strokeWidth="1.4"
       aria-hidden="true"
     >
@@ -57,7 +75,7 @@ function Star({ filled, className = 'w-4 h-4' }: { filled: boolean; className?: 
   )
 }
 
-function Stars({ n = 4, className = 'w-4 h-4' }: { n?: number; className?: string }) {
+function Stars({ n = 5, className = 'w-4 h-4' }: { n?: number; className?: string }) {
   return (
     <span className="inline-flex gap-0.5" role="img" aria-label={`${n} de 5 estrellas`}>
       {[0, 1, 2, 3, 4].map((i) => (
@@ -82,30 +100,23 @@ const ICON_PATHS: Record<string, React.ReactNode> = {
       <path d="M2.5 9.5 h19" />
     </g>
   ),
-  wifi: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-      <path d="M4.5 9.5 a11 11 0 0 1 15 0" />
-      <path d="M7.5 13 a7 7 0 0 1 9 0" />
-      <path d="M10.5 16.5 a3 3 0 0 1 3 0" />
-      <circle cx="12" cy="19.2" r="1.2" fill="currentColor" stroke="none" />
+  frigo: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="7" y="3" width="10" height="18" rx="1.5" />
+      <path d="M7 9.5 h10 M14.5 5.5 v2 M14.5 12 v2.5" />
     </g>
   ),
-  parrilla: (
+  microondas: (
     <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 5.5 h14 v3 a7 7 0 0 1 -14 0 Z" />
-      <path d="M5 8.5 h14 M8 5.5 v3 M12 5.5 v3 M16 5.5 v3" />
-      <path d="M7.5 15.5 L5.5 20 M16.5 15.5 L18.5 20 M12 15.5 v4" />
+      <rect x="2.5" y="5.5" width="19" height="13" rx="1.5" />
+      <rect x="5.5" y="8.5" width="9" height="7" rx="1" />
+      <path d="M17.5 9.5 v0.1 M17.5 13.5 v3" />
     </g>
   ),
-  agua: (
+  plato: (
     <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3 C12 3 5.5 10.5 5.5 14.5 a6.5 6.5 0 0 0 13 0 C18.5 10.5 12 3 12 3 Z" />
-      <path d="M9 14.5 a3 3 0 0 0 3 3" />
-    </g>
-  ),
-  lena: (
-    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3 C12 7 7.5 9.5 7.5 14 a4.5 4.5 0 0 0 9 0 c0 -3.2 -2.2 -4.7 -2.4 -7.4 c-1 1.3 -2 1.7 -2.8 2" />
+      <circle cx="12" cy="12" r="8.5" />
+      <circle cx="12" cy="12" r="4" />
     </g>
   ),
   cama: (
@@ -115,10 +126,18 @@ const ICON_PATHS: Record<string, React.ReactNode> = {
       <path d="M9.5 14.5 v-2.5 h7 a2.5 2.5 0 0 1 2.5 2.5" />
     </g>
   ),
-  tinaja: (
+  jardin: (
     <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4.5 10 h15 v4.5 a6.5 6.5 0 0 1 -15 0 Z" />
-      <path d="M8 3.5 c-1 1.4 1 2.2 0 3.6 M12 3.5 c-1 1.4 1 2.2 0 3.6 M16 3.5 c-1 1.4 1 2.2 0 3.6" />
+      <path d="M12 21 V9" />
+      <path d="M12 9 C12 5 9 3.5 5.5 3.5 C5.5 8 8 10.5 12 9 Z" />
+      <path d="M12 13 C12 9.5 14.5 8 18 8 C18 12 15.5 14.5 12 13 Z" />
+      <path d="M8 21 h8" />
+    </g>
+  ),
+  llave: (
+    <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="8" cy="14" r="4.5" />
+      <path d="M11.5 10.5 L20 3 M16 6 l3 3 M13.5 8.5 l2.5 2.5" />
     </g>
   ),
 }
@@ -126,8 +145,8 @@ const ICON_PATHS: Record<string, React.ReactNode> = {
 function AmenityIcon({ icon }: { icon: keyof typeof ICON_PATHS }) {
   return (
     <span
-      className="w-[44px] h-[44px] rounded-full flex items-center justify-center shrink-0"
-      style={{ backgroundColor: C.arenaSoft, color: C.bosque }}
+      className="w-[44px] h-[44px] rounded-full border flex items-center justify-center shrink-0"
+      style={{ borderColor: C.line, color: C.oliva, backgroundColor: C.papel }}
     >
       <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" aria-hidden="true">
         {ICON_PATHS[icon]}
@@ -136,56 +155,75 @@ function AmenityIcon({ icon }: { icon: keyof typeof ICON_PATHS }) {
   )
 }
 
-// ── Datos de ejemplo (genéricos, no son datos del negocio) ───
+// ── Datos (servicios visibles en las fotos y la ficha) ───────
 
-const CABINS = [
-  {
-    variant: 'parejas' as const,
-    name: 'Cabaña para dos',
-    tag: 'Parejas',
-    features: ['Cocina equipada', 'Baño privado', 'Terraza al aire libre'],
-  },
-  {
-    variant: 'familiar' as const,
-    name: 'Cabaña familiar',
-    tag: 'Familias',
-    features: ['Dos habitaciones', 'Cocina equipada', 'Quincho y parrilla'],
-  },
-  {
-    variant: 'grupo' as const,
-    name: 'Cabaña para grupos',
-    tag: 'Grupos',
-    features: ['Capacidad amplia', 'Comedor completo', 'Estacionamiento interior'],
-  },
+const INCLUYE: { icon: keyof typeof ICON_PATHS; label: string; note?: string }[] = [
+  { icon: 'cocina', label: 'Cocina equipada' },
+  { icon: 'frigo', label: 'Refrigerador' },
+  { icon: 'microondas', label: 'Microondas' },
+  { icon: 'plato', label: 'Loza y menaje' },
+  { icon: 'cama', label: 'Ropa de cama' },
+  { icon: 'auto', label: 'Estacionamiento interior' },
+  { icon: 'jardin', label: 'Jardín y arboleda' },
+  { icon: 'llave', label: 'Trato directo con los dueños' },
 ]
 
-const AMENITIES: { icon: keyof typeof ICON_PATHS; label: string; note?: string }[] = [
-  { icon: 'auto', label: 'Estacionamiento' },
-  { icon: 'cocina', label: 'Cocina equipada' },
-  { icon: 'wifi', label: 'WiFi' },
-  { icon: 'parrilla', label: 'Parrilla y quincho' },
-  { icon: 'agua', label: 'Agua caliente' },
-  { icon: 'lena', label: 'Calefacción a leña' },
-  { icon: 'cama', label: 'Ropa de cama' },
-  { icon: 'tinaja', label: 'Tinaja', note: 'a consultar' },
+const PARADAS = [
+  {
+    n: '01',
+    img: `${IMG}/pasaje.webp`,
+    w: 1200,
+    h: 675,
+    alt: 'Dos cabañas de madera a lo largo del pasaje de ripio, con jardín y el sauce del predio',
+    tag: 'El predio',
+    titulo: 'el pasaje de ripio que da nombre al recorrido',
+    texto:
+      'Las cabañas se ordenan a lo largo de un pasaje interior de ripio, entre jardines y un sauce que tapona el ruido de la calle. Se entra, se cierra el portón y la ciudad queda afuera.',
+  },
+  {
+    n: '02',
+    img: `${IMG}/cocina.webp`,
+    w: 675,
+    h: 1200,
+    alt: 'Cocina de la cabaña con microondas, cocina de dos platos, hervidor, refrigerador y loza',
+    tag: 'Por dentro',
+    titulo: 'la cocina viene lista para usar',
+    texto:
+      'Cada cabaña trae cocina equipada de verdad: microondas, cocina de dos platos, hervidor, frigobar y loza. Llegas, guardas la compra y cocinas como en casa.',
+  },
+  {
+    n: '03',
+    img: null,
+    w: 0,
+    h: 0,
+    alt: undefined,
+    tag: 'Por dentro',
+    titulo: 'dormitorios simples, de madera a la vista',
+    texto:
+      'Camas con ropa de cama incluida y muros de pino. Al activar el sitio esta vista se reemplaza por las fotos reales de cada cabaña.',
+  },
 ]
 
 const FAQS = [
   {
     q: '¿Cómo reservo una cabaña?',
-    a: 'Escríbenos por WhatsApp con las fechas que te acomodan y la cantidad de personas. Te confirmamos disponibilidad y valor el mismo día.',
+    a: 'Escríbenos por WhatsApp con las fechas y cuántas personas vienen. Te confirmamos disponibilidad y valor el mismo día.',
+  },
+  {
+    q: '¿Para cuántas personas son las cabañas?',
+    a: 'Hay opciones para 2 personas y para grupos más grandes. Cuéntanos cuántos son y te decimos cuál cabaña acomoda mejor.',
+  },
+  {
+    q: '¿Alojan equipos de trabajo o empresas?',
+    a: 'Sí. Empresas de la zona alojan a sus equipos acá hace años — escríbenos y coordinamos estadías por periodos.',
   },
   {
     q: '¿A qué hora es el check-in y el check-out?',
-    a: 'Los horarios de llegada y salida se coordinan al momento de reservar, según la ocupación del día.',
+    a: 'Los horarios de llegada y salida se coordinan al reservar, según la ocupación del día.',
   },
   {
     q: '¿Se aceptan mascotas?',
-    a: 'Depende de la cabaña y la fecha. Cuéntanos por WhatsApp a qué mascota traes y te confirmamos.',
-  },
-  {
-    q: '¿Hay dónde estacionar?',
-    a: 'Sí, hay espacio para estacionar dentro del recinto. Consulta los detalles al reservar.',
+    a: 'Consulta por WhatsApp contándonos a qué mascota traes y te confirmamos antes de reservar.',
   },
 ]
 
@@ -194,41 +232,53 @@ const FAQS = [
 export default function CabanasLaQuebrada() {
   return (
     <div
-      className="min-h-screen font-body antialiased"
-      style={{ backgroundColor: C.crema, color: C.bosqueDeep }}
+      className={`min-h-screen ${body.className} antialiased`}
+      style={{ backgroundColor: C.papel, color: C.ink }}
     >
       <SiteNav name={BIZ.name} fontClass={display.className} />
 
-      {/* ── Hero ── */}
-      <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden" style={{ backgroundColor: C.bosqueDeep }}>
-        <HeroScene className="absolute inset-0 w-full h-full" />
+      {/* ── Hero: foto real del predio ── */}
+      <section id="inicio" className="relative min-h-svh flex items-end overflow-hidden" style={{ backgroundColor: C.olivaDeep }}>
+        <Image
+          src={`${IMG}/hero.webp`}
+          alt="Cabaña de madera de Cabañas La Quebrada en Talca, con jardín y puerta de pino"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(14,36,27,0.35) 0%, rgba(14,36,27,0.05) 40%, rgba(14,36,27,0.75) 100%)',
+              'linear-gradient(180deg, rgba(35,43,24,0.42) 0%, rgba(35,43,24,0.08) 42%, rgba(35,43,24,0.82) 100%)',
           }}
         />
-        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24 pt-32">
+        <div className="relative w-full max-w-6xl mx-auto px-5 md:px-8 pb-14 md:pb-20 pt-32">
           <Reveal>
-            <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] mb-5 flex items-center gap-3" style={{ color: C.arena }}>
-              <span className="inline-block w-8 h-px" style={{ backgroundColor: C.terracota }} aria-hidden="true" />
-              Cabañas · Talca · Región del Maule
+            <p
+              className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.22em] mb-4 flex items-center gap-3`}
+              style={{ color: C.miel }}
+            >
+              <Hoja className="w-4 h-4" />
+              Cabañas de madera · 4 Poniente 1197 · Talca
             </p>
             <h1
-              className={`${display.className} font-semibold leading-[0.98] tracking-[-0.01em] text-[clamp(3rem,11vw,7rem)] mb-5`}
-              style={{ color: C.crema }}
+              className={`${display.className} font-bold uppercase leading-[0.92] tracking-[-0.01em] text-[clamp(3rem,12vw,7.5rem)] mb-4`}
+              style={{ color: C.papel }}
             >
               Cabañas
               <br />
-              <em className="font-medium" style={{ color: C.arena }}>La Quebrada</em>
+              La Quebrada
             </h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-3" style={{ color: 'rgba(250,247,240,0.85)' }}>
-              Una pausa con ritmo de campo a pocas cuadras del centro de
-              Talca. Cabañas acogedoras para descansar, sin irte lejos.
+            <p className="text-base md:text-lg leading-relaxed max-w-xl mb-3" style={{ color: 'rgba(241,235,220,0.9)' }}>
+              Un predio de cabañas de pino en pleno barrio de Talca: portón,
+              pasaje de ripio, jardín y la quebrada del Piduco a pasos.
             </p>
-            <p className="flex items-center gap-2 text-sm mb-9" style={{ color: C.arena }}>
-              <Stars n={4} />
+            <p className="flex items-center gap-2 text-sm mb-8" style={{ color: C.papel }}>
+              <span style={{ color: C.miel }}>
+                <Stars n={4} className="w-4 h-4" />
+              </span>
               <span>
                 {BIZ.rating} en Google · {BIZ.reviews} reseñas
               </span>
@@ -238,260 +288,299 @@ export default function CabanasLaQuebrada() {
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
-                style={{ backgroundColor: C.terracotaInk, color: C.crema }}
+                className="font-semibold text-sm px-7 py-3 rounded-full transition-transform active:scale-95 tap-44"
+                style={{ backgroundColor: C.miel, color: C.olivaDeep }}
               >
                 Consultar disponibilidad
               </a>
               <a
-                href="#cabanas"
-                className="font-semibold text-sm px-7 py-3.5 rounded-full border transition-colors tap-44"
-                style={{ borderColor: 'rgba(250,247,240,0.5)', color: C.crema }}
+                href="#pasaje"
+                className="font-semibold text-sm px-7 py-3 rounded-full border transition-colors tap-44"
+                style={{ borderColor: 'rgba(241,235,220,0.55)', color: C.papel }}
               >
-                Ver las cabañas
+                Bajar por el pasaje
               </a>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Las cabañas ── */}
-      <section id="cabanas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      {/* ── Franja de datos reales ── */}
+      <div style={{ backgroundColor: C.olivaDeep }}>
+        <div className={`${mono.className} max-w-6xl mx-auto px-5 md:px-8 py-4 flex flex-wrap items-center gap-x-6 gap-y-1 text-[11px] uppercase tracking-[0.16em]`} style={{ color: C.sage }}>
+          <span>Cottage · ficha en Google</span>
+          <span aria-hidden="true" style={{ color: C.miel }}>·</span>
+          <span>Cocina equipada</span>
+          <span aria-hidden="true" style={{ color: C.miel }}>·</span>
+          <span>Estacionamiento interior</span>
+          <span aria-hidden="true" style={{ color: C.miel }}>·</span>
+          <span>Familias y equipos de trabajo</span>
+        </div>
+      </div>
+
+      {/* ── El pasaje: recorrido con paradas ── */}
+      <section id="pasaje" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
-            Alojamiento
+          <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`} style={{ color: C.oliva }}>
+            Croquis del predio
           </p>
-          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.bosque }}>
-            Las cabañas
+          <h2 className={`${display.className} font-bold uppercase text-4xl md:text-6xl leading-[0.95] mb-4`} style={{ color: C.olivaDeep }}>
+            Baja por el pasaje
           </h2>
-          <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
-            Presentación referencial: al publicar el sitio van los nombres,
-            fotos y capacidades reales de cada cabaña.
+          <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-12" style={{ color: C.muted }}>
+            Fotos reales de la ficha de Google, en el orden en que se recorre el
+            predio. Lo que aún no tiene foto va dibujado a línea y marcado como
+            bosquejo.
           </p>
         </Reveal>
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {CABINS.map((c, i) => (
-            <Reveal key={c.name} delay={i * 120}>
-              <li
-                className="group rounded-2xl overflow-hidden border transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-16px_rgba(14,36,27,0.35)] h-full"
-                style={{ backgroundColor: '#FFFFFF', borderColor: C.line }}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <CabinScene
-                    variant={c.variant}
-                    className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-[1.06]"
-                  />
-                  <span
-                    className="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full"
-                    style={{ backgroundColor: 'rgba(250,247,240,0.9)', color: C.bosque }}
-                  >
-                    {c.tag}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <h3 className={`${display.className} font-semibold text-xl mb-3`} style={{ color: C.bosque }}>
-                    {c.name}
-                  </h3>
-                  <ul className="space-y-1.5">
-                    {c.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2 text-sm" style={{ color: C.muted }}>
-                        <span className="w-1 h-1 rounded-full shrink-0" style={{ backgroundColor: C.terracota }} aria-hidden="true" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={WA_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-4 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
-                    style={{ color: C.terracotaInk, textDecorationColor: 'rgba(158,79,44,0.4)' }}
-                  >
-                    Consultar por WhatsApp →
-                  </a>
-                </div>
+
+        <div className="relative">
+          {/* el sendero de ripio */}
+          <div
+            className="absolute top-0 bottom-0 left-[25px] md:left-[25px] border-l-2 border-dashed"
+            style={{ borderColor: 'rgba(60,74,46,0.35)' }}
+            aria-hidden="true"
+          />
+          <ul className="space-y-14 md:space-y-20">
+            {PARADAS.map((p, i) => (
+              <li key={p.n} className="relative">
+                <Reveal delay={i * 80}>
+                  <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
+                    <div className="flex items-start gap-5">
+                      <Parada n={p.n} />
+                      <div className="pt-1">
+                        <p className={`${mono.className} text-[10px] uppercase tracking-[0.2em] mb-2`} style={{ color: C.muted }}>
+                          Parada {p.n} · {p.tag}
+                        </p>
+                        <h3 className={`${display.className} font-bold uppercase text-2xl md:text-4xl leading-[1] mb-3`} style={{ color: C.olivaDeep }}>
+                          {p.titulo}
+                        </h3>
+                        <p className="text-sm md:text-base leading-relaxed max-w-md" style={{ color: C.muted }}>
+                          {p.texto}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="relative rounded-2xl overflow-hidden border shadow-[0_18px_40px_-22px_rgba(35,43,24,0.45)]" style={{ borderColor: C.line }}>
+                      {p.img ? (
+                        <Image
+                          src={p.img}
+                          alt={p.alt ?? ''}
+                          width={p.w}
+                          height={p.h}
+                          className={`w-full h-auto object-cover ${p.h > p.w ? 'max-h-[520px] object-top' : ''}`}
+                        />
+                      ) : (
+                        <>
+                          <BosquejoBadge />
+                          <BosquejoDormitorio className="w-full aspect-[4/3]" />
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </Reveal>
               </li>
-            </Reveal>
-          ))}
-        </ul>
+            ))}
+          </ul>
+        </div>
       </section>
 
-      {/* ── El entorno ── */}
-      <section
-        id="entorno"
-        className="scroll-mt-20"
-        style={{ backgroundColor: C.arenaSoft }}
-      >
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
-          <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
-              El entorno
-            </p>
-            <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-6`} style={{ color: C.bosque }}>
-              El Valle del Maule,
-              <br />
-              <em className="font-medium">a tu ritmo</em>
-            </h2>
-            <div className="space-y-4 text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
-              <p>
-                Talca es la puerta del valle: viñedos, caminos rurales y la
-                precordillera a menos de una hora. {BIZ.name} queda en la
-                ciudad, a pocas cuadras del centro, con la calma de un
-                refugio.
+      {/* ── Qué incluye ── */}
+      <section id="incluye" className="scroll-mt-20" style={{ backgroundColor: C.papelSoft }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-[1.2fr_1fr] gap-10 md:gap-14 items-center">
+          <div>
+            <Reveal>
+              <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`} style={{ color: C.oliva }}>
+                Lo que trae cada cabaña
               </p>
-              <p>
-                La idea es simple: llegar, dejar el auto, prender la
-                parrilla y bajar el ritmo. Sin agenda ni apuro.
-              </p>
-              <p className="font-medium" style={{ color: C.bosque }}>
-                Consulta por fechas y te ayudamos a armar la escapada.
-              </p>
-            </div>
-          </Reveal>
+              <h2 className={`${display.className} font-bold uppercase text-4xl md:text-5xl leading-[0.95] mb-10`} style={{ color: C.olivaDeep }}>
+                Equipada de verdad
+              </h2>
+            </Reveal>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-7">
+              {INCLUYE.map((a, i) => (
+                <Reveal key={a.label} delay={i * 50}>
+                  <li className="flex flex-col gap-3">
+                    <AmenityIcon icon={a.icon} />
+                    <p className="text-sm font-semibold leading-snug" style={{ color: C.olivaDeep }}>
+                      {a.label}
+                      {a.note && (
+                        <span
+                          className="ml-2 text-[10px] font-semibold uppercase tracking-[0.1em] px-1.5 py-0.5 rounded-full align-middle"
+                          style={{ backgroundColor: C.papel, color: C.oliva }}
+                        >
+                          {a.note}
+                        </span>
+                      )}
+                    </p>
+                  </li>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
           <Reveal delay={150}>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-2xl overflow-hidden aspect-[4/5]">
-                <ForestPanel className="w-full h-full" />
-              </div>
-              <div className="grid gap-3">
-                <div className="rounded-2xl overflow-hidden aspect-[4/3]">
-                  <RiverPanel className="w-full h-full" />
-                </div>
-                <div className="rounded-2xl overflow-hidden aspect-[4/2.4]">
-                  <ValleyPanel className="w-full h-full" />
-                </div>
-              </div>
+            <div className="relative rounded-2xl overflow-hidden border" style={{ borderColor: C.line }}>
+              <BosquejoBadge />
+              <BosquejoBano className="w-full aspect-[4/3]" />
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── Qué encontrarás ── */}
-      <section id="servicios" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
-            Servicios
-          </p>
-          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`} style={{ color: C.bosque }}>
-            Qué encontrarás
-          </h2>
-          <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
-            Servicios referenciales: confirma los incluidos en tu cabaña al
-            momento de reservar.
-          </p>
-        </Reveal>
-        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
-          {AMENITIES.map((a, i) => (
-            <Reveal key={a.label} delay={i * 60}>
-              <li className="flex flex-col gap-3">
-                <AmenityIcon icon={a.icon} />
-                <p className="text-sm font-medium" style={{ color: C.bosque }}>
-                  {a.label}
-                  {a.note && (
-                    <span
-                      className="ml-2 text-[10px] font-semibold uppercase tracking-[0.1em] px-1.5 py-0.5 rounded-full align-middle"
-                      style={{ backgroundColor: C.arena, color: C.bosque }}
-                    >
-                      {a.note}
-                    </span>
-                  )}
-                </p>
-              </li>
-            </Reveal>
-          ))}
-        </ul>
-      </section>
-
-      {/* ── Reseñas ── */}
-      <section id="resenas" className="scroll-mt-20" style={{ backgroundColor: C.bosque, color: C.crema }}>
+      {/* ── Quiénes llegan ── */}
+      <section className="scroll-mt-20" style={{ backgroundColor: C.oliva, color: C.papel }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-          <div className="grid md:grid-cols-[1fr_1.6fr] gap-10 md:gap-14 items-start">
-            <Reveal>
+          <Reveal>
+            <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`} style={{ color: C.miel }}>
+              Quiénes llegan
+            </p>
+            <h2 className={`${display.className} font-bold uppercase text-4xl md:text-5xl leading-[0.95] mb-10 max-w-2xl`}>
+              Dos puertas para llegar
+            </h2>
+          </Reveal>
+          <div className="grid md:grid-cols-2 gap-5">
+            <Reveal delay={80}>
               <div
-                className="rounded-2xl p-7 md:p-9"
-                style={{ backgroundColor: 'rgba(250,247,240,0.06)', border: '1px solid rgba(250,247,240,0.14)' }}
+                className="rounded-2xl p-7 md:p-9 h-full"
+                style={{ backgroundColor: 'rgba(241,235,220,0.07)', border: '1px solid rgba(241,235,220,0.18)' }}
               >
-                <p className="text-[11px] uppercase tracking-[0.22em] mb-4" style={{ color: C.arena }}>
-                  En Google Maps
-                </p>
-                <p className={`${display.className} font-semibold text-6xl md:text-7xl leading-none mb-3`}>
-                  {BIZ.rating}
-                </p>
-                <Stars n={4} className="w-5 h-5" />
-                <p className="text-sm mt-3" style={{ color: 'rgba(250,247,240,0.75)' }}>
-                  {BIZ.reviews} reseñas de huéspedes
+                <Hoja className="w-6 h-6 mb-4" />
+                <h3 className={`${display.className} font-bold uppercase text-2xl md:text-3xl leading-[1] mb-3`} style={{ color: C.papel }}>
+                  Familias de paso
+                </h3>
+                <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: 'rgba(241,235,220,0.8)' }}>
+                  Una escala tranquila camino al sur o al valle: cocina propia,
+                  auto adentro y el centro de Talca a pocas cuadras.
                 </p>
                 <a
-                  href={MAPS_URL}
+                  href={WA_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
-                  style={{ color: C.arena, textDecorationColor: 'rgba(232,220,200,0.4)' }}
+                  className="inline-block text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
+                  style={{ color: C.miel, textDecorationColor: 'rgba(217,161,60,0.45)' }}
                 >
-                  Ver la ficha en Google →
+                  Consultar por WhatsApp →
                 </a>
               </div>
             </Reveal>
-            <div className="space-y-5">
-              <Reveal delay={100}>
-                <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-tight`}>
-                  Lo que dicen los huéspedes
-                </h2>
-                <p className="text-sm mt-2 mb-2" style={{ color: 'rgba(250,247,240,0.6)' }}>
-                  Textos de muestra — al publicar van las reseñas reales.
+            <Reveal delay={160}>
+              <div
+                className="rounded-2xl p-7 md:p-9 h-full"
+                style={{ backgroundColor: 'rgba(241,235,220,0.07)', border: '1px solid rgba(241,235,220,0.18)' }}
+              >
+                <span className="inline-block w-6 h-6 mb-4" style={{ color: C.miel }}>
+                  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="3.5" y="7.5" width="17" height="12.5" rx="1.5" />
+                    <path d="M9 7.5 V5.5 a1.5 1.5 0 0 1 1.5 -1.5 h3 a1.5 1.5 0 0 1 1.5 1.5 v2 M3.5 12.5 h17" />
+                  </svg>
+                </span>
+                <h3 className={`${display.className} font-bold uppercase text-2xl md:text-3xl leading-[1] mb-3`} style={{ color: C.papel }}>
+                  Equipos y empresas
+                </h3>
+                <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: 'rgba(241,235,220,0.8)' }}>
+                  Empresas de la zona alojan aquí a sus equipos hace años:
+                  cabañas independientes, cocina propia y estacionamiento
+                  dentro del recinto.
                 </p>
-              </Reveal>
-              {[
-                {
-                  text: 'Cabaña impecable, todo funcionando y una atención muy cercana. Perfecta para desconectar un fin de semana.',
-                  author: 'Reseña de ejemplo',
-                },
-                {
-                  text: 'Llegamos con los niños y estuvo todo listo. El quincho y la parrilla hicieron el asado del sábado.',
-                  author: 'Reseña de ejemplo',
-                },
-              ].map((t, i) => (
-                <Reveal key={i} delay={200 + i * 120}>
-                  <figure
-                    className="rounded-2xl p-6 md:p-7"
-                    style={{ backgroundColor: 'rgba(250,247,240,0.06)', border: '1px solid rgba(250,247,240,0.14)' }}
-                  >
-                    <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: 'rgba(250,247,240,0.88)' }}>
-                      “{t.text}”
-                    </blockquote>
-                    <figcaption className="text-xs uppercase tracking-[0.15em]" style={{ color: C.arena }}>
-                      {t.author}
-                    </figcaption>
-                  </figure>
-                </Reveal>
-              ))}
+                <a
+                  href={WA_LINK_EQUIPOS}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
+                  style={{ color: C.miel, textDecorationColor: 'rgba(217,161,60,0.45)' }}
+                >
+                  Cotizar para mi equipo →
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Reseñas ── */}
+      <section id="resenas" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+        <div className="grid md:grid-cols-[1fr_1.6fr] gap-10 md:gap-14 items-start">
+          <Reveal>
+            <div
+              className="rounded-2xl p-7 md:p-9 border"
+              style={{ backgroundColor: C.papelSoft, borderColor: C.line }}
+            >
+              <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-4`} style={{ color: C.oliva }}>
+                En Google Maps
+              </p>
+              <p className={`${display.className} font-bold text-7xl md:text-8xl leading-none mb-3`} style={{ color: C.olivaDeep }}>
+                {BIZ.rating}
+              </p>
+              <span style={{ color: C.miel }}>
+                <Stars n={4} className="w-5 h-5" />
+              </span>
+              <p className="text-sm mt-3" style={{ color: C.muted }}>
+                {BIZ.reviews} reseñas de huéspedes
+              </p>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-6 text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
+                style={{ color: C.oliva, textDecorationColor: 'rgba(60,74,46,0.4)' }}
+              >
+                Ver la ficha en Google →
+              </a>
             </div>
+          </Reveal>
+          <div className="space-y-5">
+            <Reveal delay={100}>
+              <h2 className={`${display.className} font-bold uppercase text-4xl md:text-5xl leading-[0.95]`} style={{ color: C.olivaDeep }}>
+                Lo que dicen
+                <br />
+                los huéspedes
+              </h2>
+              <p className="text-sm mt-2 mb-2" style={{ color: C.muted }}>
+                Textos literales de la ficha de Google — y los dueños responden
+                cada reseña.
+              </p>
+            </Reveal>
+            {RESENAS.map((t, i) => (
+              <Reveal key={t.autor} delay={200 + i * 120}>
+                <figure
+                  className="rounded-2xl p-6 md:p-7 border"
+                  style={{ backgroundColor: '#FFFFFF', borderColor: C.line }}
+                >
+                  <span style={{ color: C.miel }}>
+                    <Stars n={t.estrellas} className="w-4 h-4" />
+                  </span>
+                  <blockquote className="text-sm md:text-base leading-relaxed mt-3 mb-4" style={{ color: C.ink }}>
+                    “{t.texto}”
+                  </blockquote>
+                  <figcaption className={`${mono.className} text-[11px] uppercase tracking-[0.15em]`} style={{ color: C.oliva }}>
+                    {t.autor} · {t.fecha} · Google
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── Ubicación ── */}
-      <section id="ubicacion" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
+      <section id="ubicacion" className="scroll-mt-20" style={{ backgroundColor: C.papelSoft }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-2 gap-10 md:gap-14 items-stretch">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: C.terracotaInk }}>
+            <p className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`} style={{ color: C.oliva }}>
               Ubicación
             </p>
-            <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-6`} style={{ color: C.bosque }}>
-              En Talca, a pocas
+            <h2 className={`${display.className} font-bold uppercase text-4xl md:text-5xl leading-[0.95] mb-6`} style={{ color: C.olivaDeep }}>
+              Cuatro Poniente 1197,
               <br />
-              cuadras del centro
+              a pasos del Piduco
             </h2>
             <address className="not-italic text-sm md:text-base leading-relaxed mb-2" style={{ color: C.muted }}>
               {BIZ.address}
               <br />
               {BIZ.region}, Chile
             </address>
-            <p className="text-sm md:text-base mb-8" style={{ color: C.muted }}>
-              Teléfono:{' '}
-              <a href={`tel:${BIZ.phoneTel}`} className="font-semibold underline underline-offset-4 tap-44" style={{ color: C.bosque }}>
-                {BIZ.phoneDisplay}
-              </a>
+            <p className="text-sm md:text-base leading-relaxed mb-6 max-w-md" style={{ color: C.muted }}>
+              En el mismo barrio quedan el Parque Pablo Neruda y el Estero
+              Piduco; el centro de Talca está a pocas cuadras.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -499,7 +588,7 @@ export default function CabanasLaQuebrada() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-sm px-6 py-3 rounded-full transition-transform active:scale-95 tap-44"
-                style={{ backgroundColor: C.bosque, color: C.crema }}
+                style={{ backgroundColor: C.oliva, color: C.papel }}
               >
                 Cómo llegar →
               </a>
@@ -508,7 +597,7 @@ export default function CabanasLaQuebrada() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-sm px-6 py-3 rounded-full border transition-colors tap-44"
-                style={{ borderColor: C.line, color: C.bosque }}
+                style={{ borderColor: C.line, color: C.oliva }}
               >
                 Escribir por WhatsApp
               </a>
@@ -517,7 +606,7 @@ export default function CabanasLaQuebrada() {
           <Reveal delay={150}>
             <div
               className="rounded-2xl overflow-hidden border min-h-[300px] md:min-h-0 h-full"
-              style={{ borderColor: C.line, backgroundColor: C.arenaSoft }}
+              style={{ borderColor: C.line, backgroundColor: C.papel }}
             >
               <LazyMap
                 title={`Mapa: ${BIZ.name}, ${BIZ.address}`}
@@ -532,21 +621,21 @@ export default function CabanasLaQuebrada() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24">
+      <section id="faq" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-20">
         <Reveal>
-          <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-10`} style={{ color: C.bosque }}>
-            Preguntas frecuentes
+          <h2 className={`${display.className} font-bold uppercase text-4xl md:text-5xl leading-[0.95] mb-10`} style={{ color: C.olivaDeep }}>
+            Antes de escribir
           </h2>
         </Reveal>
         <div className="max-w-3xl">
           {FAQS.map((f, i) => (
-            <Reveal key={f.q} delay={i * 80}>
+            <Reveal key={f.q} delay={i * 60}>
               <details className="group border-b py-5" style={{ borderColor: C.line }}>
-                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base md:text-lg tap-44" style={{ color: C.bosque }}>
+                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base md:text-lg tap-44" style={{ color: C.olivaDeep }}>
                   {f.q}
                   <span
                     className="shrink-0 w-[30px] h-[30px] rounded-full flex items-center justify-center text-lg leading-none transition-transform group-open:rotate-45"
-                    style={{ backgroundColor: C.arenaSoft, color: C.terracotaInk }}
+                    style={{ backgroundColor: C.papelSoft, color: C.oliva }}
                     aria-hidden="true"
                   >
                     +
@@ -562,38 +651,37 @@ export default function CabanasLaQuebrada() {
       </section>
 
       {/* ── CTA final ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: C.bosqueDeep }}>
-        <CtaScene className="absolute inset-0 w-full h-full" />
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(180deg, rgba(14,36,27,0.55) 0%, rgba(14,36,27,0.25) 50%, rgba(14,36,27,0.6) 100%)' }}
-        />
-        <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-24 md:py-36 text-center">
+      <section className="relative overflow-hidden" style={{ backgroundColor: C.olivaDeep }}>
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28">
           <Reveal>
+            <div className="flex items-center gap-3 mb-6" style={{ color: C.miel }}>
+              <Hoja className="w-5 h-5" />
+              <span className={`${mono.className} text-[11px] uppercase tracking-[0.22em]`}>Reserva directa</span>
+            </div>
             <h2
-              className={`${display.className} font-semibold text-[clamp(2.2rem,7vw,4.5rem)] leading-[1.02] mb-6`}
-              style={{ color: C.crema }}
+              className={`${display.className} font-bold uppercase text-[clamp(2.4rem,8vw,5rem)] leading-[0.95] mb-6 max-w-3xl`}
+              style={{ color: C.papel }}
             >
-              ¿Listo para <em className="font-medium" style={{ color: C.arena }}>bajar el ritmo?</em>
+              El pasaje queda a pasos del centro
             </h2>
-            <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: 'rgba(250,247,240,0.8)' }}>
-              Escríbenos por WhatsApp y consulta disponibilidad para tus
-              fechas.
+            <p className="text-sm md:text-base max-w-md mb-9" style={{ color: 'rgba(241,235,220,0.8)' }}>
+              Escríbenos por WhatsApp y consulta disponibilidad para tus fechas —
+              o para tu equipo.
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap gap-3">
               <a
                 href={WA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-sm px-8 py-3.5 rounded-full transition-transform active:scale-95 tap-44"
-                style={{ backgroundColor: C.terracotaInk, color: C.crema }}
+                className="font-semibold text-sm px-8 py-3 rounded-full transition-transform active:scale-95 tap-44"
+                style={{ backgroundColor: C.miel, color: C.olivaDeep }}
               >
                 Consultar disponibilidad
               </a>
               <a
                 href={`tel:${BIZ.phoneTel}`}
-                className="font-semibold text-sm px-8 py-3.5 rounded-full border transition-colors tap-44"
-                style={{ borderColor: 'rgba(250,247,240,0.5)', color: C.crema }}
+                className="font-semibold text-sm px-8 py-3 rounded-full border transition-colors tap-44"
+                style={{ borderColor: 'rgba(241,235,220,0.5)', color: C.papel }}
               >
                 {BIZ.phoneDisplay}
               </a>
@@ -603,29 +691,29 @@ export default function CabanasLaQuebrada() {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ backgroundColor: C.bosqueDeep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-10 pb-8 flex flex-col md:flex-row md:items-center justify-between gap-8">
+      <footer style={{ backgroundColor: C.olivaDeep, color: C.papel }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-6 border-t flex flex-col md:flex-row md:items-center justify-between gap-6" style={{ borderColor: 'rgba(241,235,220,0.14)' }}>
           <div>
-            <p className={`${display.className} font-semibold text-2xl mb-2`}>{BIZ.name}</p>
-            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(250,247,240,0.65)' }}>
+            <p className={`${display.className} font-bold uppercase text-xl mb-1`}>{BIZ.name}</p>
+            <address className="not-italic text-sm leading-relaxed" style={{ color: 'rgba(241,235,220,0.65)' }}>
               {BIZ.address} · {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44" style={{ color: C.crema }}>
+              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 tap-44" style={{ color: C.papel }}>
                 {BIZ.phoneDisplay}
               </a>
             </address>
           </div>
           <div className="flex items-center gap-6">
-            <p className="text-xs" style={{ color: 'rgba(250,247,240,0.65)' }}>
+            <p className="text-xs" style={{ color: 'rgba(241,235,220,0.65)' }}>
               © {new Date().getFullYear()} {BIZ.name}
             </p>
             <WhatsAppFab />
           </div>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(250,247,240,0.14)' }}>
+        <div className="border-t" style={{ borderColor: 'rgba(241,235,220,0.14)' }}>
           <p
             className="max-w-6xl mx-auto px-5 md:px-8 py-4 text-xs leading-relaxed"
-            style={{ color: 'rgba(250,247,240,0.75)' }}
+            style={{ color: 'rgba(241,235,220,0.75)' }}
           >
             Mockup preparado por{' '}
             <a
@@ -633,7 +721,7 @@ export default function CabanasLaQuebrada() {
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold underline underline-offset-2 tap-44"
-              style={{ color: C.crema }}
+              style={{ color: C.papel }}
             >
               Sitiazo
             </a>{' '}
@@ -643,7 +731,7 @@ export default function CabanasLaQuebrada() {
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold underline underline-offset-2 tap-44"
-              style={{ color: C.crema }}
+              style={{ color: C.papel }}
             >
               ¿Lo hacemos realidad?
             </a>

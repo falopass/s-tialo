@@ -60,9 +60,9 @@ export function Reveal({
 }
 
 const NAV_LINKS = [
-  { label: 'Cabañas', href: '#cabanas' },
-  { label: 'El entorno', href: '#entorno' },
-  { label: 'Servicios', href: '#servicios' },
+  { label: 'El pasaje', href: '#pasaje' },
+  { label: 'Qué incluye', href: '#incluye' },
+  { label: 'Reseñas', href: '#resenas' },
   { label: 'Ubicación', href: '#ubicacion' },
   { label: 'FAQ', href: '#faq' },
 ]
@@ -79,20 +79,20 @@ export function SiteNav({ name, fontClass }: { name: string; fontClass: string }
 
   return (
     <header
-      className="absolute top-0 inset-x-0 z-40 transition-colors duration-500"
+      className="fixed top-0 inset-x-0 z-40 transition-colors duration-500"
       style={{
-        backgroundColor: scrolled ? 'rgba(250,247,240,0.92)' : 'transparent',
-        backgroundImage: scrolled ? 'none' : 'linear-gradient(180deg, rgba(14,36,27,0.6), rgba(14,36,27,0))',
+        backgroundColor: scrolled ? 'rgba(241,235,220,0.92)' : 'transparent',
+        backgroundImage: scrolled ? 'none' : 'linear-gradient(180deg, rgba(35,43,24,0.62), rgba(35,43,24,0))',
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(10px)' : 'none',
-        boxShadow: scrolled ? '0 1px 0 rgba(23,58,43,0.12)' : 'none',
+        boxShadow: scrolled ? '0 1px 0 rgba(60,74,46,0.16)' : 'none',
       }}
     >
       <div className="max-w-6xl mx-auto px-5 md:px-8 h-[60px] md:h-[68px] flex items-center justify-between gap-4">
         <a
           href="#inicio"
           className={`${fontClass} text-lg md:text-xl leading-none transition-colors duration-500 tap-44`}
-          style={{ color: scrolled ? '#173A2B' : '#FAF7F0' }}
+          style={{ color: scrolled ? '#3C4A2E' : '#F1EBDC' }}
         >
           {name}
         </a>
@@ -102,7 +102,7 @@ export function SiteNav({ name, fontClass }: { name: string; fontClass: string }
               key={l.href}
               href={l.href}
               className="text-sm font-medium transition-colors duration-500 tap-44"
-              style={{ color: scrolled ? '#3D5548' : 'rgba(250,247,240,0.85)' }}
+              style={{ color: scrolled ? '#4B5A3A' : 'rgba(241,235,220,0.85)' }}
             >
               {l.label}
             </a>
@@ -115,8 +115,8 @@ export function SiteNav({ name, fontClass }: { name: string; fontClass: string }
           className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-all duration-500 active:scale-95 tap-44"
           style={
             scrolled
-              ? { backgroundColor: '#173A2B', color: '#FAF7F0' }
-              : { backgroundColor: 'rgba(250,247,240,0.14)', color: '#FAF7F0', border: '1px solid rgba(250,247,240,0.45)' }
+              ? { backgroundColor: '#3C4A2E', color: '#F1EBDC' }
+              : { backgroundColor: 'rgba(241,235,220,0.14)', color: '#F1EBDC', border: '1px solid rgba(241,235,220,0.45)' }
           }
         >
           WhatsApp
