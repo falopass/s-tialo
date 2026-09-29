@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'salon-de-belleza-y-peluqueria-nip-tuck',
+    name: 'Nip Tuck',
+    rubro: 'Salón de belleza y peluquería',
+    city: 'San Clemente',
+    tagline: 'Editorial de belleza: ciruela y rosa viejo de su letrero, cinta de servicios y placas numeradas.',
+    gradient: 'linear-gradient(135deg, #33101F 0%, #A8416B 80%, #FBF2EC 160%)',
+  },
+  {
     slug: 'mercado-macro-feria-de-talca',
     name: 'Mercado Macro Feria de Talca',
     rubro: 'Feria y mercado',
