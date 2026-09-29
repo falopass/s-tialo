@@ -7,6 +7,30 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'come-rico',
+    name: 'Come Rico',
+    rubro: 'Cocinería — comida rápida y casera',
+    city: 'Talca',
+    tagline: 'El letrero del local amarillo: carbón del rótulo, amarillo de su fachada y la carta en dos columnas como en la tienda.',
+    gradient: 'linear-gradient(135deg, #FBF6EA 0%, #F2C230 90%, #181209 190%)',
+  },
+  {
+    slug: 'comida-al-paso-donde-jaqueline',
+    name: 'Donde Jaqueline',
+    rubro: 'Comida al paso — picada campestre',
+    city: 'San Clemente',
+    tagline: 'La señal del camino: letreros direccionales de carretera y papel campestre para la picada del Cruce La Raya.',
+    gradient: 'linear-gradient(135deg, #F3EDE0 0%, #A63E22 100%, #2C3823 190%)',
+  },
+  {
+    slug: 'comida-al-paso-san-sebastian',
+    name: 'San Sebastián',
+    rubro: 'Comida al paso y cabañas',
+    city: 'San Clemente',
+    tagline: 'La casa del camino en Vilches: almanaque editorial, bosque de cordillera y ámbar de mote con huesillo.',
+    gradient: 'linear-gradient(135deg, #F6F1E4 0%, #1F3A2C 100%, #8F5A1A 200%)',
+  },
+  {
     slug: 'el-mexicano',
     name: 'El Mexicano',
     rubro: 'Restaurante mexicano',
