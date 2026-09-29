@@ -3829,6 +3829,14 @@ const BLITZ = [
     tagline: 'Consulta con luz de ventana: salvia y crema, reseñas 5,0 reales y la psicóloga que también escribe.',
     gradient: 'linear-gradient(135deg, #F6F1E7 0%, #3E5F49 130%, #A4512E 190%)',
   },
+  {
+    slug: 'cabanas-cerro-colorado',
+    name: 'Cabañas Cerro Colorado',
+    rubro: 'Cabañas de montaña',
+    city: 'Vilches, San Clemente',
+    tagline: 'A la orilla del Lago Colbún: pabellón sobre el agua, cabañas en pilotes y la bañera con vista al bosque.',
+    gradient: 'linear-gradient(135deg, #092230 0%, #0E3446 60%, #A9713F 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
