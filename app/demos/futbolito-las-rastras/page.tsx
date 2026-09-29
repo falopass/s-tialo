@@ -35,16 +35,23 @@ const C = {
 
 const NAV_LINKS = [
   { label: 'El recinto', href: '#recinto' },
+  { label: 'Opiniones', href: '#opiniones' },
   { label: 'Horarios', href: '#horarios' },
   { label: 'Dónde', href: '#ubicacion' },
 ]
 
 const ACTIVIDADES = [
   {
-    src: 'cancha.webp',
-    t: 'Canchas de futbolito',
-    d: 'Pasto sintético al aire libre, el corazón del recinto. Arrienda con tu equipo.',
-    alt: 'Cancha de futbolito de pasto sintético al atardecer con niños entrenando y el mural de Futbolito Las Rastras',
+    src: 'padel.webp',
+    t: 'Pádel techado',
+    d: 'Cancha de pádel bajo techo, con los banners del recinto al fondo.',
+    alt: 'Cancha de pádel techada de piso azul con banners de Pádel Las Rastras en la pared',
+  },
+  {
+    src: 'quincho.webp',
+    t: 'Quincho con parrilla',
+    d: 'Asado mirando el partido: el tercer tiempo también se juega aquí.',
+    alt: 'Carne asándose en la parrilla del quincho con la cancha de futbolito iluminada al fondo',
   },
   {
     src: 'taekwondo.webp',
@@ -54,9 +61,48 @@ const ACTIVIDADES = [
   },
   {
     src: 'interior.webp',
-    t: 'Cafetería y descanso',
-    d: 'Sector techado y cafetería para mirar el partido o esperar a los niños.',
-    alt: 'Interior del recinto con camarotes, camarín y sector de descanso',
+    t: 'Gimnasio techado',
+    d: 'Colchonetas y espacio cubierto donde entrenan academias y talleres.',
+    alt: 'Niñas entrenando sobre colchonetas azules en el gimnasio techado del recinto',
+  },
+  {
+    src: 'noche.webp',
+    t: 'Futbolito bajo los focos',
+    d: 'Iluminación para jugar de noche: entre semana la cancha corre hasta las 22:00.',
+    alt: 'Partido de futbolito nocturno bajo los focos de la cancha sintética',
+  },
+  {
+    src: 'edificio.webp',
+    t: 'El recinto de día',
+    d: 'Casino, terraza y estacionamiento junto a las canchas en la K-55.',
+    alt: 'Edificio del recinto Las Rastras visto desde el estacionamiento en un día soleado',
+  },
+]
+
+const RESENAS = [
+  {
+    nombre: 'David Useche',
+    nota: 5,
+    fecha: 'Hace 6 meses',
+    texto: 'Fuimos a un partido amistoso de mi hijo. Amplio estacionamiento y 3 canchas de fútbol con grama sintética.',
+  },
+  {
+    nombre: 'Elieser Valdebenito',
+    nota: 5,
+    fecha: 'Hace 3 años',
+    texto: 'Muy buen lugar para ir a entretenerse y entrenar un rato, canchas en buen estado y estacionamiento seguro.',
+  },
+  {
+    nombre: 'Carlos Ismael Delgado Valenzuela',
+    nota: 5,
+    fecha: 'Hace 4 años',
+    texto: 'Grandes instalaciones para practica de futbolito, canchas en perfecto estado, bien mantenidas y lo mas importante sin parches que pongan en riesgo a los deportistas.',
+  },
+  {
+    nombre: 'yhon santaella',
+    nota: 4,
+    fecha: 'Hace 2 años',
+    texto: 'Bien sitio para hacer deporte, falta algo mejor para que esté la familia o niños que esperan, pero recomendable.',
   },
 ]
 
@@ -180,10 +226,10 @@ export default function FutbolitoLasRastrasPage() {
               Aquí pasa más <span style={{ color: C.blue }}>que futbolito</span>
             </h2>
           </Reveal>
-          <ul className="mt-10 grid md:grid-cols-3 gap-4 md:gap-5">
+          <ul className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
             {ACTIVIDADES.map((a, i) => (
               <Reveal key={a.src} delay={i * 70}>
-                <li className="group relative overflow-hidden rounded-xl aspect-[4/5]" style={{ boxShadow: '0 14px 34px rgba(10,35,80,0.16)' }}>
+                <li className="group relative overflow-hidden rounded-xl aspect-[4/5] md:aspect-[4/4.6]" style={{ boxShadow: '0 14px 34px rgba(10,35,80,0.16)' }}>
                   <Image
                     src={`${IMG}/${a.src}`}
                     alt={a.alt}
@@ -202,6 +248,48 @@ export default function FutbolitoLasRastrasPage() {
           <Reveal delay={120}>
             <p className="mt-4 text-sm" style={{ color: C.muted }}>
               Fotos reales publicadas en la ficha de Google Maps del recinto.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* OPINIONES — reseñas reales de Google */}
+      <section id="opiniones" className="py-16 md:py-24" style={{ backgroundColor: C.navy }}>
+        <div className="max-w-6xl mx-auto px-5">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className={`${mono.className} text-xs uppercase tracking-widest`} style={{ color: '#9CCBFF' }}>Opiniones</p>
+                <h2 className={`${display.className} mt-2 text-4xl md:text-6xl uppercase font-bold leading-[0.95]`} style={{ color: '#FFFFFF' }}>
+                  Los que juegan <span style={{ color: C.grass }}>lo dicen</span>
+                </h2>
+              </div>
+              <div className="flex items-center gap-3">
+                <Stars value={4.5} color={C.grass} className="w-5 h-5" />
+                <span className={`${mono.className} text-sm`} style={{ color: '#FFFFFF' }}>
+                  {BIZ.rating} · {BIZ.reviews} reseñas en Google
+                </span>
+              </div>
+            </div>
+          </Reveal>
+          <ul className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {RESENAS.map((r, i) => (
+              <Reveal key={r.nombre} delay={i * 70}>
+                <li className="h-full rounded-xl p-5 flex flex-col" style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)' }}>
+                  <Stars value={r.nota} color={C.grass} className="w-4 h-4" />
+                  <p className="mt-3 text-sm leading-relaxed flex-1" style={{ color: 'rgba(255,255,255,0.88)' }}>
+                    “{r.texto}”
+                  </p>
+                  <p className={`${mono.className} mt-4 text-[11px] uppercase tracking-widest`} style={{ color: '#9CCBFF' }}>
+                    {r.nombre} · {r.fecha}
+                  </p>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal delay={120}>
+            <p className="mt-4 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
+              Reseñas textuales de su ficha de Google Maps.
             </p>
           </Reveal>
         </div>

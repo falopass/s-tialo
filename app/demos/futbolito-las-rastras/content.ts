@@ -3,9 +3,10 @@
  * "Futbolito Las Rastras", categoría Cafetería, Ruta K-55 1900, Talca,
  * teléfono 9 8722 2269, 4.5 estrellas con 266 reseñas. Horario:
  * lun–vie 9:00–22:00, sábado 9:00–19:00, domingo cerrado.
- * Las fotos del demo son reales y salen de esa misma ficha: canchas
- * de futbolito de pasto sintético, clases de taekwondo que se hacen
- * en el recinto y el interior con camarotes de pádel/gradas.
+ * Las fotos del demo son reales y salen de esa misma ficha: terraza
+ * del casino frente a la cancha, pádel techado, quincho con parrilla,
+ * gimnasio, taekwondo, partido nocturno y fachada del edificio.
+ * Las reseñas citadas son textuales de la ficha (266 opiniones, 4.5).
  * No tiene sitio web propio publicado.
  */
 export const BIZ = {
