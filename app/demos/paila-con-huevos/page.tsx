@@ -404,8 +404,8 @@ export default function PailaConHuevos() {
       </section>
 
       {/* ── Reseñas ── */}
-      <section style={{ backgroundColor: C.paperSoft }} className="border-y-4" >
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20" style={{ borderColor: C.ink }}>
+      <section className="border-y-4" style={{ backgroundColor: C.paperSoft, borderColor: C.ink }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
               <h2 className={`${display.className} uppercase leading-[0.95] text-[clamp(2.2rem,6.5vw,4.5rem)]`}>

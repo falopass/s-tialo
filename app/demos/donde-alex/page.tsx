@@ -77,7 +77,6 @@ export default function DondeAlex() {
         waLink={WA_LINK}
         fontClass={display.className}
         ctaLabel="Pedir al WhatsApp"
-        logoSrc={`${IMG}/logo.webp`}
         theme={{
           over: 'light',
           bar: C.cream,
