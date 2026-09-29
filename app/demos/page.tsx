@@ -2989,6 +2989,14 @@ const BLITZ = [
     tagline: 'La recepción: marfil, vino, relojes de mostrador y las láminas del hall.',
     gradient: 'linear-gradient(135deg, #F6F1E6 0%, #5E2530 80%, #3B151E 150%)',
   },
+  {
+    slug: 'unicasa',
+    name: 'Unicasa',
+    rubro: 'Minimarket y librería',
+    city: 'San Clemente',
+    tagline: 'El toldo celeste PF: franjas de almacén, precio naranja y fotos en la repisa.',
+    gradient: 'linear-gradient(135deg, #FBF7EC 0%, #2D8BC0 80%, #1A5E85 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
