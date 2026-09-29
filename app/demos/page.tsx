@@ -2567,6 +2567,14 @@ const BLITZ = [
     tagline: 'Cartelera del 12 Sur: noche borgoña, luz de vela y el salón de madera en fotos reales.',
     gradient: 'linear-gradient(135deg, #1D0E12 0%, #3A1520 55%, #E5A33D 160%)',
   },
+  {
+    slug: 'eduardo-valenzuela-odontologia',
+    name: 'Odontología Dr. Eduardo Valenzuela',
+    rubro: 'Consulta dental',
+    city: 'Talca',
+    tagline: 'La calle de los árboles: verde pino de 1 Oriente, crema de papel y los bosquejos de su consulta.',
+    gradient: 'linear-gradient(135deg, #0B2E26 0%, #123B33 55%, #D8B35C 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
