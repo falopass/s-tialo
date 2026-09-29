@@ -108,7 +108,7 @@ export default function ElReyPage() {
                     href={WA_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${display.className} inline-flex items-center gap-2 uppercase font-semibold tracking-[0.06em] text-base px-7 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 ${focusRing} tap-44`}
+                    className={`${display.className} inline-flex items-center gap-2 uppercase font-semibold tracking-[0.06em] text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 md:text-base md:px-7 ${focusRing} tap-44`}
                     style={{ backgroundColor: C.amarillo, color: C.tintaOscura }}
                   >
                     Agendar hora por WhatsApp
@@ -376,7 +376,7 @@ export default function ElReyPage() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`${mono.className} block px-4 py-3 text-[11px] uppercase tracking-[0.18em] transition-colors hover:bg-white/5 ${focusRing} tap-44`}
+                    className={`${mono.className} block px-4 py-3 text-[10px] uppercase tracking-[0.1em] transition-colors hover:bg-white/5 ${focusRing} tap-44`}
                     style={{ color: C.tinta, backgroundColor: C.panel }}
                   >
                     Cómo llegar en Google Maps →
@@ -399,7 +399,7 @@ export default function ElReyPage() {
                 >
                   ¿El auto suena raro?
                   <br />
-                  al taller del rey
+                  al taller del&nbsp;rey
                 </h2>
               </div>
             </Reveal>

@@ -47,8 +47,8 @@ export function Chrome({ children, fontClass = '' }: { children: React.ReactNode
       />
       {children}
       <footer className="border-t" style={{ backgroundColor: '#0A0A08', borderColor: C.linea }}>
-        <div className="max-w-6xl mx-auto pl-5 pr-[4.5rem] md:px-8 pt-8 pb-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-8 mb-5">
+        <div className="max-w-6xl mx-auto pl-5 pr-[4.5rem] md:px-8 pt-6 pb-5">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-8 mb-4">
             <div>
               <p className={`${fontClass} uppercase font-semibold text-2xl md:text-3xl mb-1`} style={{ color: C.tinta }}>
                 {BIZ.name}
