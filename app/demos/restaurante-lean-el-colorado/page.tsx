@@ -211,7 +211,7 @@ export default function LeanElColoradoPage() {
           {[
             { k: BIZ.rating, v: 'nota en Google' },
             { k: BIZ.reviews, v: 'opiniones reales' },
-            { k: '3 en 1', v: 'restaurante · hostería · cabañas' },
+            { k: '3 en 1', v: 'restaurante · hostería y cabañas' },
           ].map((s) => (
             <Reveal key={s.v}>
               <div className="text-center">
