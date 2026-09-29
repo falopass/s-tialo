@@ -201,8 +201,8 @@ export default function Page() {
 
         {/* CINTA LETRERO: los servicios como en el letrero de la fachada */}
         <div className="overflow-hidden py-4" style={{ backgroundColor: C.rojo }} aria-hidden="true">
-          <style>{`@keyframes er-cinta{to{transform:translateX(-50%)}}`}</style>
-          <div className={`${display.className} flex gap-10 whitespace-nowrap uppercase tracking-wide text-lg w-max`} style={{ color: C.crema, animation: 'er-cinta 30s linear infinite' }}>
+          <style>{`@keyframes er-cinta{to{transform:translateX(-50%)}}@media (prefers-reduced-motion:reduce){.er-cinta-anim{animation:none!important}}`}</style>
+          <div className={`${display.className} er-cinta-anim flex gap-10 whitespace-nowrap uppercase tracking-wide text-lg w-max`} style={{ color: C.crema, animation: 'er-cinta 30s linear infinite' }}>
             {[...CINTA, ...CINTA].map((s, i) => (
               <span key={i} className="flex items-center gap-10">
                 {s}
