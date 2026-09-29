@@ -242,7 +242,7 @@ export default function HostalEbenEzerPage() {
             </p>
           </div>
           <Reveal>
-            <div className="marco relative aspect-[4/3] rounded-sm overflow-hidden md:rotate-[1.5deg]">
+            <div className="marco relative aspect-[16/9] md:aspect-[4/3] rounded-sm overflow-hidden md:rotate-[1.5deg]">
               <Image
                 src={`${IMG}/comedor.webp`}
                 alt="Comedor de Hostal Eben-Ezer con mesas y clientes almorzando"
@@ -253,7 +253,7 @@ export default function HostalEbenEzerPage() {
               />
             </div>
             <p
-              className={`${mono.className} mt-10 md:mt-3 text-[11px] uppercase tracking-[0.2em] text-center md:rotate-[1.5deg]`}
+              className={`${mono.className} mt-6 md:mt-3 text-[11px] uppercase tracking-[0.2em] text-center md:rotate-[1.5deg]`}
               style={{ color: 'rgba(38,32,25,0.6)' }}
             >
               El comedor a la hora de almuerzo
