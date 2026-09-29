@@ -6,8 +6,10 @@
  * nombre, rubro, dirección, teléfono fijo, horario, rating y reseñas,
  * y las marcas que distribuyen (listadas en su web). El logo real viene
  * de su página de Facebook; el logo de Surlat de su sitio. Las fotos
- * del mostrador/vitrina son bosquejos: no hay fotos reales del local
- * publicadas — van marcadas en la página.
+ * del mostrador/vitrina son bosquejos: su ficha de Maps no publica
+ * fotos y sus redes están tras login — van marcadas en la página.
+ * La foto de la cuadra es real: captura de Google Street View del
+ * 21 Oriente 1080 (mar 2024).
  */
 
 export const IMG = '/demos/dislac-distribuidora'

@@ -367,6 +367,20 @@ export default function Page() {
                       </dd>
                     </div>
                   </dl>
+                  <figure className="mt-6">
+                    <div className="overflow-hidden rounded-xl border" style={{ borderColor: C.line }}>
+                      <Image
+                        src={`${IMG}/cuadra-streetview.webp`}
+                        alt="Vista de la cuadra de 21 Oriente 1080, Talca, donde funciona Dislac (Google Street View)"
+                        width={1024}
+                        height={658}
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <figcaption className={`${mono.className} mt-2 text-[10px] uppercase tracking-[0.18em]`} style={{ color: C.muted }}>
+                      Así se ve la cuadra · Google Street View
+                    </figcaption>
+                  </figure>
                 </div>
                 <LazyMap src={MAPS_EMBED} title={`Mapa de ${BIZ.name} en ${BIZ.city}`} className="w-full h-full min-h-[300px]" loading="lazy" />
               </div>
