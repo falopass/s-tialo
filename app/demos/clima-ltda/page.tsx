@@ -71,7 +71,7 @@ const SERVICIOS = [
     name: 'Instalación',
     desc: 'Instalación de unidades interiores y exteriores con técnica propia del rubro: nivel, soporte y refrigeración.',
     img: `${IMG}/instalacion.webp`,
-    alt: 'Técnica de Clima Ltda. instalando una unidad interior de aire acondicionado en muro',
+    alt: 'Split de muro instalado en la casa de un cliente, publicado por Clima Ltda. en su Instagram',
   },
   {
     n: '03',
@@ -224,7 +224,7 @@ export default function ClimaLtdaPage() {
             {[
               ['Rubro', 'Tienda de A/C'],
               ['Nota Google', `${BIZ.rating} ★ · ${BIZ.reviews} reseñas`],
-              ['Marcas', 'Midea · Trane'],
+              ['Marcas', 'Midea · Carrier · Trane'],
               ['Teléfono', BIZ.phoneDisplay],
             ].map(([k, v], i) => (
               <Reveal key={k} delay={i * 70}>
@@ -323,8 +323,8 @@ export default function ClimaLtdaPage() {
             <figure className="h-full min-h-[320px] flex flex-col">
               <div className="relative flex-1 min-h-[280px] overflow-hidden" style={{ border: `1.5px solid ${C.navy}` }}>
                 <Image
-                  src={`${IMG}/local.webp`}
-                  alt="Local de Clima Ltda. en Talca: puerta de vidrio con letrero de distribuidor autorizado"
+                  src={`${IMG}/fachada.webp`}
+                  alt="Fachada de Clima Ltda. en Calle 18 Oriente, Talca: letrero de distribuidor autorizado con logos Carrier y Midea"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
