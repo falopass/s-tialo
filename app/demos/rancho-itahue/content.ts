@@ -47,6 +47,8 @@ const IMG = '/demos/rancho-itahue'
 const F = `${IMG}/fotos`
 
 export const LOGO = `${IMG}/logo-rancho-itahue.png`
+/** Versión horizontal vectorial que mandó el cliente (negro + rojo). */
+export const LOGO_H = `${IMG}/logo-horizontal.svg`
 
 export const HERO = {
   src: `${F}/portada-IMG-20260928-WA0053.webp`,

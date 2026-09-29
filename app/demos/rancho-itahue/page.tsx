@@ -12,6 +12,7 @@ import {
   MAPS_URL,
   MAPS_EMBED,
   LOGO,
+  LOGO_H,
   HERO,
   ESPACIOS,
   EVENTOS,
@@ -127,7 +128,7 @@ function Chip({ children, dark = false }: { children: React.ReactNode; dark?: bo
 export default function RanchoItahuePage() {
   return (
     <main className={body.className} style={{ backgroundColor: C.paper, color: C.ink }}>
-      <RanchoNav logoSrc={LOGO} links={NAV_LINKS} waLink={WA_LINK_EVENTO} />
+      <RanchoNav logoSrc={LOGO_H} links={NAV_LINKS} waLink={WA_LINK_EVENTO} />
 
       {/* ── Hero ─────────────────────────────────────────── */}
       <section id="inicio" className="relative min-h-[92svh] flex items-end overflow-hidden">
