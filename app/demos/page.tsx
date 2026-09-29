@@ -4029,6 +4029,30 @@ const BLITZ = [
     tagline: 'Muestra nueva (ficha de diseno pendiente).',
     gradient: 'linear-gradient(135deg, #F6F1E7 0%, #33262C 150%)',
   },
+  {
+    slug: 'lavanderna-de-cobertores-talca',
+    name: 'Lavandería Clean is Good',
+    rubro: 'Lavandería',
+    city: 'Talca',
+    tagline: 'Espuma y frescura: celeste de letrero, burbujas y ciclo de lavado en 4 pasos.',
+    gradient: 'linear-gradient(135deg, #EFF8FC 0%, #1284C4 55%, #08304A 130%)',
+  },
+  {
+    slug: 'centro-oftalmologico-nacional',
+    name: 'Centro Oftalmológico Nacional',
+    rubro: 'Oftalmología',
+    city: 'Talca',
+    tagline: 'Ficha clínica oscura: petróleo, cian médico y escena bosquejo de examen visual.',
+    gradient: 'linear-gradient(135deg, #07222B 0%, #12505E 60%, #4FD8D2 150%)',
+  },
+  {
+    slug: 'club-formas',
+    name: 'Club Formas',
+    rubro: 'Gimnasio',
+    city: 'Molina',
+    tagline: 'Industrial de gym: carbón, pasto sintético verde y tipografía de placas.',
+    gradient: 'linear-gradient(135deg, #141416 0%, #1E2B1C 55%, #3FA45B 150%)',
+  },
 ]
 
 export const metadata: Metadata = {
