@@ -126,7 +126,7 @@ export default function BeautyLovePage() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(180deg, rgba(27,7,16,0.55) 0%, rgba(27,7,16,0.2) 40%, rgba(27,7,16,0.94) 100%)',
+              'linear-gradient(180deg, rgba(27,7,16,0.6) 0%, rgba(27,7,16,0.5) 45%, rgba(27,7,16,0.94) 100%)',
           }}
           aria-hidden="true"
         />
@@ -148,7 +148,7 @@ export default function BeautyLovePage() {
               Beauty <span style={{ color: C.pink }}>Love</span>
             </h1>
             <div className="grid md:grid-cols-[1.2fr_1fr] gap-7 md:gap-12 items-end">
-              <p className="text-base md:text-lg leading-relaxed max-w-xl" style={{ color: C.muted }}>
+              <p className="text-base md:text-lg leading-relaxed max-w-xl" style={{ color: C.muted, textShadow: '0 1px 12px rgba(27,7,16,0.9)' }}>
                 Manicura y pedicura en Notre Damme, {BIZ.city}. Cada diseño se
                 dibuja a mano en tu hora reservada — la misma persona te
                 responde y te atiende.
