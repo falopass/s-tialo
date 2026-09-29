@@ -15,6 +15,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #171010 0%, #E0632F 90%, #F0987B 170%)',
   },
   {
+    slug: 'la-cafeteria',
+    name: 'La Cafetería',
+    rubro: 'Cafetería, pastelería y restaurant',
+    city: 'Talca',
+    tagline: 'La esquina de Las Rastras: verde botella de sus azulejos, neón que no apaga y toldo a rayas.',
+    gradient: 'linear-gradient(135deg, #F6EFE1 0%, #9FE870 90%, #14382C 190%)',
+  },
+  {
     slug: 'el-fogon-de-rio-claro',
     name: 'El Fogón de Río Claro',
     rubro: 'Hospedaje, restaurant y cafetería',
