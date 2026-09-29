@@ -3693,6 +3693,14 @@ const BLITZ = [
     tagline: 'La recepción de la casa verde: dijes de llave numerados, tablero de pensión completa y la mesa de la señora Juanita.',
     gradient: 'linear-gradient(135deg, #F7F0DF 0%, #31401E 120%, #D9972E 190%)',
   },
+  {
+    slug: 'la-casona',
+    name: 'Restaurant La Casona',
+    rubro: 'Restaurant de comida chilena',
+    city: 'Villa Alegre',
+    tagline: 'El recorrido de la casa: marcos de arco colonial, crema y teja de su fachada, y la pizarra de la colación.',
+    gradient: 'linear-gradient(135deg, #F1E7D4 0%, #A43B26 110%, #20281F 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
