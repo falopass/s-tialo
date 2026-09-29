@@ -1859,7 +1859,7 @@ const BLITZ = [
     name: 'Kids Art Talca',
     rubro: 'Centro de eventos infantiles',
     city: 'Talca',
-    tagline: 'Cumpleaños en Villa Edén: crema de fiesta, confeti y collage en blobs con sus fotos reales.',
+    tagline: 'Invitación de cumpleaños en Villa Edén: festones, polaroids pegadas y el programa de la fiesta.',
     gradient: 'linear-gradient(135deg, #33284A 0%, #C22E78 60%, #FFF3D6 140%)',
   },
   {
@@ -1867,15 +1867,15 @@ const BLITZ = [
     name: 'Protalca',
     rubro: 'Comercializadora de aseo y hogar',
     city: 'Talca',
-    tagline: 'Folleto de ofertas en 27 Sur: rojo folleto, precios de afiche y flyers reales de su Instagram.',
-    gradient: 'linear-gradient(135deg, #C41E12 0%, #FFD23F 70%, #FFFDF6 140%)',
+    tagline: 'La góndola de 27 Sur: pasillos como estantes, precios en etiqueta colgante y los datos en boleta.',
+    gradient: 'linear-gradient(135deg, #E05A1E 0%, #B32F8F 50%, #2456C4 140%)',
   },
   {
     slug: 'estudio-juridico-30-oriente',
     name: 'Estudio Jurídico Talca',
     rubro: 'Abogados y asesoría legal',
     city: 'Talca',
-    tagline: 'Carátula de expediente todo-tipográfica: tinta medianoche, latón e índice de secciones.',
+    tagline: 'Directorio del edificio: placas de latón, tinta medianoche y fotos reales de Edificio Plaza Oriente.',
     gradient: 'linear-gradient(135deg, #101822 0%, #775126 65%, #F5F0E4 140%)',
   },
   {
