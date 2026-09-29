@@ -9,8 +9,10 @@
  *   hostería, camping, piscina, 2 tinajas privadas de agua caliente con
  *   hidromasaje (a gas), check-in 12:00 / check-out 14:00, reserva con
  *   50% de anticipo, transferencia o efectivo, ropa de cama y toallas
- *   las facilita la administración, mascotas bienvenidas, atención los
- *   365 días. Propietario: Florentino Vásquez. IG @centroturisticorayen,
+ *   las facilita la administración, mascotas bienvenidas. La ficha de
+ *   Maps marca "Cerrado temporalmente" (verificado sep 2026): la página
+ *   pide consultar disponibilidad por WhatsApp, sin prometer fechas.
+ *   Propietario: Florentino Vásquez. IG @centroturisticorayen,
  *   FB "Cabañas Rayen". Camino a Vilches km 8 (Ruta K-705).
  * - Fotos: descargadas de su propio sitio (wp-content/uploads) + logo.
  */

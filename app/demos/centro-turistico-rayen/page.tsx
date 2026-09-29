@@ -124,7 +124,7 @@ const DATOS = [
   { k: 'Ropa de cama', v: 'la facilita la administración' },
   { k: 'Mascotas', v: 'bienvenidas' },
   { k: 'Estacionamiento', v: 'junto a cada cabaña' },
-  { k: 'Atención', v: 'los 365 días del año' },
+  { k: 'Estado', v: 'cerrado temporalmente' },
 ]
 
 const RESENAS = [
@@ -343,7 +343,7 @@ export default function CentroTuristicoRayenPage() {
           >
             <li>{BIZ.rating} ★ en Google · {BIZ.reviews} opiniones</li>
             <li>Atendido por sus dueños</li>
-            <li>Abierto los 365 días</li>
+            <li>Cerrado temporalmente · consulta por WhatsApp</li>
             <li>Mascotas bienvenidas</li>
           </ul>
         </div>
