@@ -245,7 +245,7 @@ export default function Page() {
             <h2
               className={`${display.className} uppercase leading-none text-[34px] md:text-[52px] max-w-2xl`}
             >
-              Pedir es un ticket de tres líneas
+              Pedir es un ticket de tres&nbsp;líneas
             </h2>
           </Reveal>
           <div className="mt-10 grid md:grid-cols-3 gap-5">
@@ -356,7 +356,7 @@ export default function Page() {
               className={`${display.className} uppercase leading-none text-[34px] md:text-[52px] text-center mt-3`}
               style={{ color: C.onDark }}
             >
-              De la olla a la bolsa, caliente
+              De la olla a la bolsa,&nbsp;caliente
             </h2>
           </Reveal>
           <Reveal delay={120}>
