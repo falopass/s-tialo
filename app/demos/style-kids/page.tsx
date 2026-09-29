@@ -127,6 +127,7 @@ export default function StyleKidsPage() {
   return (
     <div className={body.className} style={{ backgroundColor: C.cream, color: C.ink }}>
       <BlitzNav
+        logoSrc={`${IMG}/logo.webp`}
         name={
           <span className={display.className} style={{ fontWeight: 800, letterSpacing: '0.01em' }}>
             Style <span style={{ color: C.red }}>Kids</span>
