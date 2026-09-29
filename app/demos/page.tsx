@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'restaurant-germania',
+    name: 'Restaurant Germania',
+    rubro: 'Restaurant y bar',
+    city: 'Molina',
+    tagline: 'La esquina de la buena mesa: noche piedra, teal envejecido y vela amarilla, Prata + Jost, terraza de día a noche.',
+    gradient: 'linear-gradient(135deg, #17120E 0%, #2E6B62 130%, #E2B45A 200%)',
+  },
+  {
     slug: 'restaurant-el-rancho',
     name: 'Restaurant El Rancho',
     rubro: 'Restorant y minimarket de ruta',
