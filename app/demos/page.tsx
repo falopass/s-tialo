@@ -7,6 +7,30 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'restaurant-fuego-bendito',
+    name: 'Restaurante Fuego Bendito',
+    rubro: 'Restaurante · parrilla y mariscos',
+    city: 'Curicó',
+    tagline: 'El brasero de piedra de Av. España: monograma FB grabado, carbón y brasa, parrilla a la vista.',
+    gradient: 'linear-gradient(135deg, #171310 0%, #C8552B 130%, #F3EDE3 220%)',
+  },
+  {
+    slug: 'peru-gastronomico',
+    name: 'Perú Gastronómico',
+    rubro: 'Restaurante peruano',
+    city: 'Curicó',
+    tagline: 'La carta real de Yungay 660: espiral roja, ceviche y los precios leídos de su propia carta impresa.',
+    gradient: 'linear-gradient(135deg, #FBF6EC 0%, #BE1F2D 110%, #26150F 200%)',
+  },
+  {
+    slug: 'completito',
+    name: 'Comple-Tito',
+    rubro: 'Sandwichería · fuente de soda',
+    city: 'Curicó',
+    tagline: 'La fuente de soda de Manso de Velasco: letrero navy con Pepsi, pizarra de mostrador y rojo italiano.',
+    gradient: 'linear-gradient(135deg, #13255A 0%, #D8382E 130%, #F6F0E4 220%)',
+  },
+  {
     slug: 'gussland',
     name: 'Gussland',
     rubro: 'Restaurante y terraza',
