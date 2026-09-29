@@ -3685,6 +3685,14 @@ const BLITZ = [
     tagline: 'La picada del camino J-55: madera rústica, pizarra a tiza y el muro de hiedra de su salón real.',
     gradient: 'linear-gradient(135deg, #F0E7D2 0%, #3E5531 100%, #6E4526 170%)',
   },
+  {
+    slug: 'restaurant-y-residencial-juanita',
+    name: 'Residencial Juanita',
+    rubro: 'Residencial y restaurant',
+    city: 'Curepto',
+    tagline: 'La recepción de la casa verde: dijes de llave numerados, tablero de pensión completa y la mesa de la señora Juanita.',
+    gradient: 'linear-gradient(135deg, #F7F0DF 0%, #31401E 120%, #D9972E 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
