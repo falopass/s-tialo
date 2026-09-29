@@ -23,7 +23,7 @@ export const BIZ = {
   whatsapp: '56973328096',
   reviews: 30,
   rating: '4,7',
-  followers: '1.474',
+  followers: '1.476',
   facebook: 'https://www.facebook.com/peluqueriafranwartemberg/',
   instagram: 'https://www.instagram.com/pelu_franwartemberg/',
   agendapro: 'https://agendapro.com/mp/cl/pl/peluqueria-fran-wartemberg-curico/34837',

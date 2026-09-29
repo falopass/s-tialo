@@ -632,20 +632,20 @@ export default function PeluqueriaFranWartembergPage() {
               </Reveal>
               <div className="space-y-4">
                 {[
-                  'Exelente atención y super buena peluquería. Recomendable al 100%',
-                  'La mejor peluquera, muy bueno su servicio se nota la experiencia',
-                  'Excelente atención, mi pelo quedó increíble 100% recomendable',
-                ].map((t, i) => (
+                  { t: 'He visto como es su trabajo... es buenísimo, excelente. 100% recomendada!', n: 'Ruthy Diaz', f: 'Recomendación en Facebook' },
+                  { t: 'Exelente atención y super buena peluquería. Recomendable al 100%', n: null, f: 'Reseña en Google Maps' },
+                  { t: 'La mejor peluquera, muy bueno su servicio se nota la experiencia', n: null, f: 'Reseña en Google Maps' },
+                ].map((r, i) => (
                   <Reveal key={i} delay={120 + i * 100}>
                     <figure
                       className="p-6 border bg-white"
                       style={{ borderColor: C.line }}
                     >
                       <blockquote className="text-sm md:text-base leading-relaxed mb-4" style={{ color: C.ink }}>
-                        “{t}”
+                        “{r.t}”
                       </blockquote>
                       <figcaption className="text-[11px] uppercase tracking-[0.18em] font-bold" style={{ color: C.muted }}>
-                        Reseña en Google Maps
+                        {r.n ? `${r.n} · ` : ''}{r.f}
                       </figcaption>
                     </figure>
                   </Reveal>
