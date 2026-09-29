@@ -3005,6 +3005,14 @@ const BLITZ = [
     tagline: 'La página como orden de trabajo: verde de su letrero, marcas del mostrador en cinta y repuestos reales de su ficha.',
     gradient: 'linear-gradient(135deg, #F4F6F1 0%, #1E7A3E 90%, #0D4524 190%)',
   },
+  {
+    slug: 'transportes-opazo',
+    name: 'Transportes Opazo',
+    rubro: 'Transporte de carga',
+    city: 'San Javier',
+    tagline: 'La página como ficha de ruta: asfalto y azul de su camión, manifiesto de cargas y flota real al frente.',
+    gradient: 'linear-gradient(135deg, #10161E 0%, #2E63C4 120%, #F2B705 200%)',
+  },
 ]
 
 export const metadata: Metadata = {
