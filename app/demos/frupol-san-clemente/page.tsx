@@ -1,144 +1,434 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import localFont from 'next/font/local'
-import { Reveal, BlitzNav, Stars, CallFab } from '../blitz-kit'
+import { Reveal, BlitzNav, CallFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import LazyMap from '../lazy-map'
-import { BIZ, TEL_LINK, MAPS_URL, MAPS_EMBED, IMG, REVIEWS } from './content'
+import { BIZ, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
-  src: [{ path: '../../fonts/archivo-black/normal-400.woff2', weight: '400', style: 'normal' }],
+  src: [{ path: '../../fonts/bricolage-grotesque/normal-200-800.woff2' }],
 })
 const body = localFont({
-  src: [{ path: '../../fonts/source-sans-3/normal-200-900.woff2', weight: '200 900', style: 'normal' }],
+  src: [{ path: '../../fonts/work-sans/normal-100-900.woff2' }],
 })
 const mono = localFont({
-  src: [
-    { path: '../../fonts/space-mono/normal-400.woff2', weight: '400', style: 'normal' },
-    { path: '../../fonts/space-mono/normal-700.woff2', weight: '700', style: 'normal' },
-  ],
+  src: [{ path: '../../fonts/space-mono/normal-400.woff2' }],
+})
+const monoBold = localFont({
+  src: [{ path: '../../fonts/space-mono/normal-700.woff2' }],
 })
 
-// Etiqueta de caja de exportación: verde huerto, crema bin y acento cereza.
+/**
+ * Dirección de arte: «cartón de exportación». La identidad sale de
+ * las marcas reales del grupo — el azul Agricom y el verde lima de
+ * su isotipo — aplicadas como etiqueta de caja de fruta: datos en
+ * Space Mono estampado, verde huerto de fondo y Bricolage Grotesque
+ * para el titular de estación.
+ */
 const C = {
-  leaf: '#1E4A2C',
-  leafDark: '#142F1C',
-  cream: '#F3EEDF',
-  paper: '#FBF8EF',
-  ink: '#1C2419',
-  muted: '#6B7A66',
-  line: 'rgba(28,36,25,0.14)',
-  lineLight: 'rgba(255,255,255,0.14)',
-  cherry: '#B03A2E',
-  sun: '#E0A82E',
+  orchard: '#0E2416',
+  deep: '#0A1A10',
+  navy: '#1D3B8B',
+  lime: '#7CBF43',
+  limeSoft: '#A8D977',
+  cherry: '#C2351F',
+  cream: '#F4F1E4',
+  paper: '#FBF8EE',
+  ink: '#17251B',
+  muted: '#5B6853',
+  line: 'rgba(23,37,27,0.16)',
+  lineDark: 'rgba(255,255,255,0.14)',
 }
 
 export const metadata: Metadata = demoMetadata({
   slug: 'frupol-san-clemente',
-  title: 'Frupol San Clemente — Frutícola del grupo Agricom·Westfalia en el Maule',
+  title: 'Frupol San Clemente — Fruta del Maule para el mundo',
   description:
-    'Frupol San Clemente: predio frutícola en San Clemente, Maule. Operación del grupo Agricom / Westfalia Fruit; exportación de paltas, cerezas y fruta fresca.',
-  image: `${IMG}/predio-satelital.webp`,
+    'Productora de fruta fresca en San Clemente, Maule, parte del grupo Agricom: huertos, packing y exportación. Ficha con 5,0 en Google.',
+  image: '/demos/frupol-san-clemente/huerto.webp',
 })
 
 const NAV_LINKS = [
+  { label: 'La fruta', href: '#fruta' },
+  { label: 'El proceso', href: '#proceso' },
   { label: 'El predio', href: '#predio' },
-  { label: 'La operación', href: '#operacion' },
-  { label: 'Del campo a la caja', href: '#proceso' },
-  { label: 'Ficha', href: '#ficha' },
+  { label: 'Contacto', href: '#contacto' },
+]
+
+const ESPECIES = [
+  'Cerezas',
+  'Uva de mesa',
+  'Paltos',
+  'Mandarinas',
+  'Clementinas',
+  'Ciruelas',
+  'Nogales',
+  'Almendros',
+  'Granadas',
 ]
 
 const PROCESO = [
-  { n: '01', t: 'Huerto', d: 'Predios propios y asociados en el valle de San Clemente, a los pies del cruce K-565/K-569.' },
-  { n: '02', t: 'Recepción', d: 'La fruta entra a la planta del grupo en el Maule por camión, en bins y cajas de cosecha.' },
-  { n: '03', t: 'Proceso', d: 'Líneas de selección y calibre que separan cada calibre y calidad para cada mercado.' },
-  { n: '04', t: 'Exportación', d: 'Paletas embaladas bajo la marca del grupo salen a Asia, Europa y América — el pallet dice “Corea”.' },
+  {
+    n: '01',
+    src: `${IMG}/aerea.webp`,
+    alt: 'Vista aérea del predio frutícola con cuarteles de huertos parejos',
+    titulo: 'Producimos',
+    desc: 'Cuarteles de huertos en la tierra maulina: riego, poda y cosecha al ritmo de cada especie.',
+  },
+  {
+    n: '02',
+    src: `${IMG}/packing.webp`,
+    alt: 'Línea de empaque de fruta con operarios en la planta',
+    titulo: 'Embalamos',
+    desc: 'La fruta pasa por la línea de packing: selección, calibre y caja para que llegue en estado de exportación.',
+  },
+  {
+    n: '03',
+    src: `${IMG}/planta-aerea.webp`,
+    alt: 'Vista aérea de la planta de empaque entre huertos',
+    titulo: 'Exportamos',
+    desc: 'Del predio al puerto: la planta entre sus propios huertos, como parte del grupo Agricom.',
+  },
 ]
 
-const FICHA = [
-  { k: 'Ficha Maps', v: 'Frupol San Clemente — asociación agrícola' },
-  { k: 'Sociedad', v: BIZ.legal },
-  { k: 'RUT', v: BIZ.rut },
-  { k: 'Grupo', v: BIZ.grupo },
-  { k: 'Ubicación', v: 'K-565 con K-569, San Clemente, Maule' },
-  { k: 'Teléfono', v: BIZ.phoneDisplay },
-]
-
-function Tag({ children, onDark = false }: { children: React.ReactNode; onDark?: boolean }) {
+export default function FrupolSanClemente() {
   return (
-    <span
-      className={`${mono.className} inline-flex items-center gap-2 px-3 py-1.5 text-[10px] md:text-[11px] tracking-[0.14em] uppercase font-bold`}
-      style={{
-        backgroundColor: onDark ? C.sun : 'rgba(20,47,28,0.85)',
-        color: onDark ? C.ink : C.cream,
-      }}
-    >
-      {children}
-    </span>
-  )
-}
-
-// Sello circular tipo etiqueta de fruta.
-function Sello({ text, sub }: { text: string; sub: string }) {
-  return (
-    <div
-      aria-hidden="true"
-      className="w-[110px] h-[110px] md:w-[130px] md:h-[130px] rounded-full flex flex-col items-center justify-center text-center rotate-[-8deg] shadow-lg"
-      style={{ backgroundColor: C.sun, color: C.ink }}
-    >
-      <span className={`${display.className} text-[15px] md:text-[17px] leading-tight`}>{text}</span>
-      <span className={`${mono.className} text-[8px] md:text-[9px] tracking-[0.12em] uppercase mt-1 px-3`}>{sub}</span>
-    </div>
-  )
-}
-
-export default function FrupolDemo() {
-  return (
-    <div className={`${body.className} min-h-screen antialiased`} style={{ backgroundColor: C.cream, color: C.ink }}>
+    <main className={body.className} style={{ backgroundColor: C.paper, color: C.ink }}>
       <BlitzNav
-        name={
-          <span className={`${display.className} tracking-tight`}>
-            FRUPOL<span style={{ color: C.cherry }}>·</span>
-            <span className="hidden sm:inline font-normal" style={{ fontFamily: 'inherit', fontSize: '0.7em', color: C.leaf }}> San Clemente</span>
-          </span>
-        }
+        name={<span style={{ ...display.style, fontWeight: 800 }}>FRUPOL</span>}
         links={NAV_LINKS}
-        waLink={TEL_LINK}
+        waLink={`tel:${BIZ.phoneTel}`}
         ctaLabel="Llamar"
-        fontClass={display.className}
-        theme={{ over: 'light', bar: C.paper, ink: C.ink, line: C.line, btnBg: C.leaf, btnInk: '#FFF' }}
+        theme={{
+          over: 'dark',
+          bar: 'rgba(14,36,22,0.93)',
+          ink: '#F4F1E4',
+          line: 'rgba(255,255,255,0.12)',
+          btnBg: C.lime,
+          btnInk: '#0E2416',
+        }}
       />
+      <CallFab href={`tel:${BIZ.phoneTel}`} label={`Llamar a ${BIZ.name}`} bg={C.lime} fg={C.orchard} />
 
-      {/* HERO — vista satelital del predio real */}
-      <section id="inicio" className="relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-36 pb-14 md:pb-20">
-          <div className="grid md:grid-cols-[0.92fr_1.08fr] gap-10 md:gap-14 items-center">
-            <div>
-              <Reveal>
-                <Tag>Predio frutícola · {BIZ.city}, Maule</Tag>
-              </Reveal>
-              <Reveal delay={90}>
-                <h1 className={`${display.className} mt-6 text-[36px] md:text-[58px] leading-[1.02] uppercase`}>
-                  Del huerto de
-                  <br />
-                  <span style={{ color: C.leaf }}>San Clemente</span>
-                  <br />
-                  a <em style={{ color: C.cherry, fontStyle: 'normal', textDecoration: 'underline', textDecorationColor: C.sun, textDecorationThickness: '5px' }}>Corea</em>
-                </h1>
-              </Reveal>
-              <Reveal delay={170}>
-                <p className="mt-5 text-base md:text-lg leading-relaxed max-w-md" style={{ color: C.muted }}>
-                  Frupol opera el predio frutícola del cruce K-565/K-569 y
-                  embarca su fruta por la planta de su grupo en el Maule —
-                  paltas, cerezas y fruta fresca de exportación.
+      {/* ── HERO ───────────────────────────────────────────────── */}
+      <section id="inicio" className="relative min-h-[92svh] flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
+        <Image
+          src={`${IMG}/huerto.webp`}
+          alt="Hileras de cerezos en flor en un huerto del grupo Frupol"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(10,26,16,0.38) 0%, rgba(10,26,16,0.12) 40%, rgba(10,26,16,0.94) 90%)',
+          }}
+        />
+        <div className="relative max-w-6xl mx-auto w-full px-5 md:px-8 pb-10 md:pb-14">
+          <Reveal>
+            <p className={`${mono.className} text-[11px] md:text-xs tracking-[0.2em] mb-4`} style={{ color: C.limeSoft }}>
+              {BIZ.name.toUpperCase()} · {BIZ.city.toUpperCase()}, MAULE
+            </p>
+            <h1
+              className={`${display.className} text-[2.6rem] leading-[1.03] md:text-7xl text-white max-w-3xl`}
+              style={{ fontWeight: 800 }}
+            >
+              Del huerto de San Clemente{' '}
+              <span style={{ color: C.limeSoft }}>a la mesa del mundo</span>
+            </h1>
+            <p className="text-base md:text-lg leading-relaxed mt-4 max-w-xl text-white/85">
+              {BIZ.rubro} del grupo Agricom: huertos, packing y exportación
+              desde el corazón del Maule.
+            </p>
+            <div className="flex flex-wrap items-center gap-2.5 mt-6">
+              {[`${BIZ.googleRating} ★ en Google`, BIZ.grupo, 'Cruce K-565 × K-569'].map((chip) => (
+                <span
+                  key={chip}
+                  className={`${mono.className} text-[11px] tracking-[0.1em] px-3 py-1.5 rounded-full`}
+                  style={{ backgroundColor: 'rgba(124,191,67,0.16)', color: '#D6EFC0', border: '1px solid rgba(124,191,67,0.5)' }}
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-3 mt-7">
+              <a
+                href={`tel:${BIZ.phoneTel}`}
+                className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-sm font-semibold transition-transform active:scale-95"
+                style={{ backgroundColor: C.lime, color: C.orchard }}
+              >
+                Llamar {BIZ.phoneDisplay}
+              </a>
+              <a
+                href="#predio"
+                className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-sm font-semibold transition-transform active:scale-95"
+                style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: '#fff', border: '1px solid rgba(255,255,255,0.4)' }}
+              >
+                Ver el predio
+              </a>
+            </div>
+            <p className={`${mono.className} text-[10px] tracking-[0.12em] mt-5`} style={{ color: 'rgba(255,255,255,0.55)' }}>
+              HUERTOS DEL GRUPO AGRICOM · ARCHIVO CORPORATIVO
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── PRUEBA ─────────────────────────────────────────────── */}
+      <section className="border-b" style={{ borderColor: C.line, backgroundColor: C.cream }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-7 md:py-9 flex flex-wrap items-center gap-x-10 gap-y-4">
+          <Reveal>
+            <div className="flex items-center gap-3">
+              <span className={`${display.className} text-3xl leading-none`} style={{ ...display.style, fontWeight: 800, color: C.navy }}>
+                {BIZ.googleRating}
+              </span>
+              <div>
+                <Stars value={5} color={C.navy} className="w-4 h-4" />
+                <p className={`${mono.className} text-[10px] uppercase tracking-[0.12em] mt-1`} style={{ color: C.muted }}>
+                  {BIZ.googleReviews} reseñas en Google Maps
                 </p>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={70}>
+            <p className="text-sm" style={{ color: C.muted }}>
+              La agrícola detrás de la ficha pertenece al{' '}
+              <strong style={{ color: C.ink }}>grupo Agricom</strong>, empresa
+              de <strong style={{ color: C.ink }}>Westfalia Fruit</strong>.
+            </p>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="text-sm" style={{ color: C.muted }}>
+              Predio con planta en <strong style={{ color: C.ink }}>San Clemente</strong>, entre los huertos del Maule.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── LA FRUTA ───────────────────────────────────────────── */}
+      <section id="fruta" className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.cherry }}>
+              Origen Maule
+            </p>
+            <h2
+              className={`${display.className} text-3xl md:text-5xl leading-[1.05] max-w-2xl`}
+              style={{ fontWeight: 800 }}
+            >
+              Las especies que salen{' '}
+              <span style={{ color: C.navy }}>de la agrícola</span>
+            </h2>
+            <p className="text-sm md:text-base leading-relaxed mt-4 max-w-xl" style={{ color: C.muted }}>
+              La cartola frutícola del grupo: cada especie viaja en su propia
+              caja, con su etiqueta al día.
+            </p>
+          </Reveal>
+
+          {/* Etiquetas de caja — estampadas, sin foto inventada */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mt-10">
+            {ESPECIES.map((e, i) => (
+              <Reveal key={e} delay={i * 50}>
+                <div
+                  className="rounded-xl border-2 border-dashed px-4 py-4 md:py-5 flex items-center justify-between gap-2"
+                  style={{ borderColor: 'rgba(29,59,139,0.35)', backgroundColor: i % 3 === 0 ? C.cream : '#fff' }}
+                >
+                  <span
+                    className={`${display.className} text-lg md:text-xl`}
+                    style={{ fontWeight: 800, color: C.ink }}
+                  >
+                    {e}
+                  </span>
+                  <span className={`${mono.className} text-[9px] tracking-[0.14em] text-right leading-tight`} style={{ color: C.navy }}>
+                    PRODUCTO DE
+                    <br />
+                    CHILE
+                  </span>
+                </div>
               </Reveal>
-              <Reveal delay={240}>
-                <div className="mt-8 flex flex-wrap gap-3">
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROCESO ────────────────────────────────────────────── */}
+      <section id="proceso" className="py-16 md:py-24" style={{ backgroundColor: C.orchard }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.limeSoft }}>
+              De la rama a la caja
+            </p>
+            <h2
+              className={`${display.className} text-3xl md:text-5xl leading-[1.05] text-white max-w-2xl`}
+              style={{ fontWeight: 800 }}
+            >
+              Producimos, embalamos{' '}
+              <span style={{ color: C.limeSoft }}>y exportamos</span>
+            </h2>
+            <p className="text-sm md:text-base leading-relaxed mt-4 max-w-xl" style={{ color: 'rgba(255,255,255,0.7)' }}>
+              El lema del grupo, tal cual: la misma empresa controla el
+              huerto, el packing y la salida al mundo.
+            </p>
+          </Reveal>
+
+          <div className="grid md:grid-cols-3 gap-5 md:gap-6 mt-10">
+            {PROCESO.map((p, i) => (
+              <Reveal key={p.titulo} delay={i * 90}>
+                <article>
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border" style={{ borderColor: C.lineDark }}>
+                    <Image src={p.src} alt={p.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+                    <span
+                      className={`${monoBold.className} absolute top-3 left-3 text-lg px-2 py-0.5 rounded`}
+                      style={{ backgroundColor: C.lime, color: C.orchard }}
+                    >
+                      {p.n}
+                    </span>
+                  </div>
+                  <h3
+                    className={`${display.className} text-2xl text-white mt-4`}
+                    style={{ fontWeight: 800 }}
+                  >
+                    {p.titulo}
+                  </h3>
+                  <p className="text-sm leading-relaxed mt-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                    {p.desc}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Grupo */}
+          <Reveal delay={140}>
+            <div
+              className="mt-12 rounded-2xl border p-6 md:p-8 flex flex-wrap items-center gap-6 md:gap-10"
+              style={{ borderColor: C.lineDark, backgroundColor: 'rgba(255,255,255,0.05)' }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element -- logos webp ya optimizados en public/ */}
+              <img src={`${IMG}/agricom.webp`} alt="Logo de Agricom" className="h-14 w-auto rounded bg-white p-1.5" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${IMG}/westfalia.webp`} alt="Logo de Westfalia Fruit" className="h-14 w-auto rounded bg-white p-1.5" />
+              <p className="text-sm leading-relaxed flex-1 min-w-[220px]" style={{ color: 'rgba(255,255,255,0.75)' }}>
+                Frupol es la agrícola del <strong className="text-white">grupo Agricom</strong>,
+                empresa chilena de <strong className="text-white">Westfalia Fruit</strong>:
+                la fruta sale con respaldo exportador internacional.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── EQUIPO ─────────────────────────────────────────────── */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <Reveal>
+            <div className="relative aspect-square rounded-2xl overflow-hidden border" style={{ borderColor: C.line }}>
+              <Image
+                src={`${IMG}/equipo.webp`}
+                alt="Equipo de trabajadores de la agrícola posando en el huerto"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.cherry }}>
+              La gente
+            </p>
+            <h2
+              className={`${display.className} text-3xl md:text-4xl leading-tight`}
+              style={{ fontWeight: 800 }}
+            >
+              El trabajo pesado lo hace{' '}
+              <span style={{ color: C.navy }}>gente de la zona</span>
+            </h2>
+            <p className="text-sm md:text-base leading-relaxed mt-4" style={{ color: C.muted }}>
+              Raleo, poda, cosecha y línea de empaque: en temporada, el predio
+              de San Clemente se llena de cuadrillas del Maule que conocen la
+              fruta de memoria.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── PREDIO + MAPA ──────────────────────────────────────── */}
+      <section id="predio" className="py-16 md:py-24" style={{ backgroundColor: C.cream }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <Reveal>
+            <p className={`${mono.className} text-[11px] tracking-[0.18em] uppercase mb-3`} style={{ color: C.cherry }}>
+              El predio
+            </p>
+            <h2
+              className={`${display.className} text-3xl md:text-5xl leading-[1.05] max-w-2xl`}
+              style={{ fontWeight: 800 }}
+            >
+              En el cruce de caminos{' '}
+              <span style={{ color: C.navy }}>de San Clemente</span>
+            </h2>
+          </Reveal>
+
+          <div className="grid md:grid-cols-[1.35fr_1fr] gap-6 md:gap-8 mt-8 items-stretch">
+            <Reveal>
+              <div>
+                <div className="rounded-2xl overflow-hidden border h-[260px] md:h-[320px]" style={{ borderColor: C.line }}>
+                  <LazyMap
+                    src={MAPS_EMBED}
+                    title="Frupol San Clemente en Google Maps"
+                    className="w-full h-full border-0"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="relative rounded-2xl overflow-hidden border mt-4 aspect-[16/9]" style={{ borderColor: C.line }}>
+                  <Image
+                    src={`${IMG}/predio.webp`}
+                    alt="Vista satelital del predio de Frupol San Clemente entre huertos, imagen de Google Maps"
+                    fill
+                    sizes="(min-width: 768px) 60vw, 100vw"
+                    className="object-cover"
+                  />
+                  <span
+                    className={`${mono.className} absolute bottom-2.5 left-2.5 text-[9px] tracking-[0.12em] px-2 py-1 rounded`}
+                    style={{ backgroundColor: 'rgba(14,36,22,0.85)', color: '#D6EFC0' }}
+                  >
+                    VISTA SATELITAL · GOOGLE MAPS
+                  </span>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={90}>
+              <div
+                className="rounded-2xl border p-6 md:p-7 h-full flex flex-col justify-between gap-6"
+                style={{ backgroundColor: C.orchard, borderColor: C.lineDark }}
+              >
+                <div>
+                  <p className={`${mono.className} text-[10px] tracking-[0.18em] uppercase`} style={{ color: C.limeSoft }}>
+                    Oficina del predio
+                  </p>
+                  <p className={`${display.className} text-2xl text-white mt-2`} style={{ fontWeight: 800 }}>
+                    {BIZ.city}, {BIZ.region}
+                  </p>
+                  <dl className="mt-4 space-y-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                    <div className="flex gap-2">
+                      <dt className={`${mono.className} text-[10px] tracking-[0.1em] pt-1 w-[60px] shrink-0`}>FONO</dt>
+                      <dd><a href={`tel:${BIZ.phoneTel}`} className="font-semibold text-white">{BIZ.phoneDisplay}</a></dd>
+                    </div>
+                    <div className="flex gap-2">
+                      <dt className={`${mono.className} text-[10px] tracking-[0.1em] pt-1 w-[60px] shrink-0`}>UBICACIÓN</dt>
+                      <dd>{BIZ.plusCode}</dd>
+                    </div>
+                  </dl>
+                </div>
+                <div className="flex flex-col gap-3">
                   <a
-                    href={TEL_LINK}
-                    className="inline-flex items-center h-[48px] px-6 text-[15px] font-bold rounded-sm active:scale-95 transition-transform text-white"
-                    style={{ backgroundColor: C.leaf }}
+                    href={`tel:${BIZ.phoneTel}`}
+                    className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-sm font-semibold transition-transform active:scale-95"
+                    style={{ backgroundColor: C.lime, color: C.orchard }}
                   >
                     Llamar a la oficina
                   </a>
@@ -146,260 +436,43 @@ export default function FrupolDemo() {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center h-[48px] px-6 text-[15px] font-bold rounded-sm border-2 active:scale-95 transition-transform"
-                    style={{ borderColor: C.leaf, color: C.leaf }}
+                    className="inline-flex items-center justify-center h-[48px] px-6 rounded-full text-sm font-semibold transition-transform active:scale-95"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#fff', border: '1px solid rgba(255,255,255,0.3)' }}
                   >
-                    Ver el predio
+                    Cómo llegar
                   </a>
                 </div>
-              </Reveal>
-            </div>
-            <Reveal delay={160}>
-              <figure className="relative">
-                <div className="absolute -top-6 -right-4 md:-top-8 md:-right-6 z-10">
-                  <Sello text="ESTE es el predio" sub="vista satelital real" />
-                </div>
-                <Image
-                  src={`${IMG}/predio-satelital.webp`}
-                  alt="Vista satelital del predio Frupol en el cruce K-565 con K-569, San Clemente: huertos y tranque de riego"
-                  width={1168}
-                  height={760}
-                  className="w-full h-auto border-4 rounded-sm shadow-xl"
-                  style={{ borderColor: C.leaf }}
-                  priority
-                />
-                <figcaption className={`${mono.className} mt-3 text-[10px] md:text-[11px] tracking-[0.12em] uppercase`} style={{ color: C.muted }}>
-                  Cruce K-565 / K-569 · San Clemente, Maule
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* BANDA GRUPO */}
-      <section className="border-y" style={{ borderColor: C.lineLight, backgroundColor: C.leafDark, color: C.cream }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-10 md:py-14 grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { n: '5,0 ★', d: 'en su ficha de Google Maps' },
-            { n: 'Grupo', d: 'Agricom · Westfalia Fruit' },
-            { n: 'Exporta', d: 'paltas, cerezas, manzanas, cítricos, berries' },
-            { n: 'Maule', d: 'predio en San Clemente + planta en Romeral' },
-          ].map((s, i) => (
-            <Reveal key={s.n} delay={i * 70}>
-              <div>
-                <p className={`${display.className} text-[26px] md:text-[36px] leading-none`} style={{ color: C.sun }}>
-                  {s.n}
-                </p>
-                <p className={`${mono.className} mt-2 text-[10px] md:text-[11px] tracking-[0.1em] uppercase leading-relaxed`} style={{ color: '#A9BFA6' }}>
-                  {s.d}
-                </p>
               </div>
             </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* LA OPERACIÓN — planta del grupo en el Maule */}
-      <section id="operacion" className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <Reveal>
-            <h2 className={`${display.className} text-[30px] md:text-[48px] uppercase leading-[1.03]`}>
-              La operación <span style={{ color: C.leaf }}>del grupo</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className={`${mono.className} max-w-xs text-[10px] md:text-[11px] tracking-[0.1em] uppercase leading-relaxed`} style={{ color: C.muted }}>
-              Fotos reales de la planta Agricom en el Maule (Romeral), la operación hermana que embala la fruta de Frupol.
-            </p>
-          </Reveal>
-        </div>
-        <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-          <Reveal className="col-span-2">
-            <figure className="relative h-full">
-              <Image
-                src={`${IMG}/linea-packing.webp`}
-                alt="Línea de packing con trabajadoras seleccionando fruta en la planta del grupo en el Maule"
-                width={900}
-                height={1200}
-                className="w-full h-full object-cover rounded-sm"
-              />
-              <figcaption className="absolute bottom-3 left-3"><Tag>Planta Agricom · Romeral</Tag></figcaption>
-            </figure>
-          </Reveal>
-          <Reveal delay={90}>
-            <figure className="relative">
-              <Image
-                src={`${IMG}/planta-maule.webp`}
-                alt="Camión de carga frente a la fachada AGRICOM de la planta del grupo"
-                width={900}
-                height={1200}
-                className="w-full h-auto rounded-sm"
-              />
-            </figure>
-          </Reveal>
-          <Reveal delay={160}>
-            <figure className="relative">
-              <Image
-                src={`${IMG}/westfalia-camion.webp`}
-                alt="Camión en el patio de la planta con el logo de Westfalia Fruit en la fachada"
-                width={675}
-                height={1200}
-                className="w-full h-auto rounded-sm"
-              />
-            </figure>
-          </Reveal>
-          <Reveal delay={230} className="col-span-2">
-            <figure className="relative">
-              <Image
-                src={`${IMG}/pallet-corea.webp`}
-                alt="Pallet de cajas marca AGRICOM embalado para exportación con destino Corea"
-                width={1200}
-                height={900}
-                className="w-full h-auto rounded-sm"
-              />
-              <figcaption className="absolute top-3 left-3"><Tag onDark>Embarque: Corea</Tag></figcaption>
-            </figure>
-          </Reveal>
-          <Reveal delay={280} className="col-span-2">
-            <figure className="relative">
-              <Image
-                src={`${IMG}/camion-acceso.webp`}
-                alt="Camión Scania entrando a la planta del grupo entre árboles"
-                width={900}
-                height={1200}
-                className="w-full h-auto rounded-sm"
-              />
-              <figcaption className="absolute bottom-3 left-3"><Tag>Acceso de camiones · Maule</Tag></figcaption>
-            </figure>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* DEL CAMPO A LA CAJA */}
-      <section id="proceso" className="border-y" style={{ borderColor: C.lineLight, backgroundColor: C.leaf, color: C.cream }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24">
-          <Reveal>
-            <h2 className={`${display.className} text-[30px] md:text-[48px] uppercase leading-[1.03]`}>
-              Del campo <span style={{ color: C.sun }}>a la caja</span>
-            </h2>
-          </Reveal>
-          <div className="mt-10 relative">
-            <div aria-hidden="true" className="hidden lg:block absolute top-[26px] left-0 right-0 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.25)' }} />
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {PROCESO.map((p, i) => (
-                <Reveal key={p.n} delay={i * 100}>
-                  <div className="relative">
-                    <span
-                      aria-hidden="true"
-                      className={`${mono.className} inline-flex items-center justify-center w-[52px] h-[52px] rounded-full text-[15px] font-bold`}
-                      style={{ backgroundColor: C.sun, color: C.ink }}
-                    >
-                      {p.n}
-                    </span>
-                    <h3 className={`${display.className} mt-4 text-[17px] md:text-xl uppercase tracking-wide`}>{p.t}</h3>
-                    <p className="mt-2.5 text-[13px] md:text-sm leading-relaxed" style={{ color: '#C6D4C0' }}>
-                      {p.d}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
-      {/* RESEÑA + FICHA */}
-      <section id="ficha" className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24 grid md:grid-cols-2 gap-10 items-start">
-        <div>
-          <Reveal>
-            <div className="flex items-center gap-3">
-              <p className={`${display.className} text-[44px] md:text-[64px] leading-none`} style={{ color: C.cherry }}>
-                {BIZ.rating}
+      {/* ── FOOTER ─────────────────────────────────────────────── */}
+      <footer id="contacto" className="py-10 md:py-12" style={{ backgroundColor: C.deep }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8">
+          <div className="flex flex-wrap items-start justify-between gap-6">
+            <div>
+              <p className={`${display.className} text-lg text-white`} style={{ fontWeight: 800 }}>{BIZ.name}</p>
+              <p className={`${mono.className} text-[11px] mt-1`} style={{ color: 'rgba(255,255,255,0.55)' }}>
+                {BIZ.city}, {BIZ.region} · {BIZ.phoneDisplay} · {BIZ.grupo}
               </p>
-              <Stars value={5} color={C.cherry} className="w-5 h-5" />
             </div>
-          </Reveal>
-          {REVIEWS.map((r) => (
-            <Reveal key={r.author} delay={120}>
-              <blockquote className="mt-6 border-l-4 pl-5" style={{ borderColor: C.sun }}>
-                <p className="text-lg md:text-xl italic leading-snug" style={{ color: C.ink }}>
-                  “{r.text}”
-                </p>
-                <footer className={`${mono.className} mt-3 text-[10px] md:text-[11px] tracking-[0.12em] uppercase`} style={{ color: C.muted }}>
-                  {r.author} · {r.when} · Google Maps
-                </footer>
-              </blockquote>
-            </Reveal>
-          ))}
-          <Reveal delay={180}>
-            <dl className={`${mono.className} mt-8 border-t text-[12px] md:text-[13px]`} style={{ borderColor: C.line }}>
-              {FICHA.map((f) => (
-                <div key={f.k} className="flex justify-between gap-5 py-3 border-b" style={{ borderColor: C.line }}>
-                  <dt className="uppercase tracking-[0.1em] shrink-0" style={{ color: C.muted }}>
-                    {f.k}
-                  </dt>
-                  <dd className="text-right font-semibold" style={{ color: C.ink }}>
-                    {f.v}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-        </div>
-        <Reveal delay={140}>
-          <div className="border-4 rounded-sm overflow-hidden h-[300px] md:h-[420px] shadow-xl" style={{ borderColor: C.leaf }}>
-            <LazyMap
-              src={MAPS_EMBED}
-              title={`Mapa de ${BIZ.name}`}
-              className="w-full h-full border-0"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            <div className="flex flex-col gap-1.5 text-right">
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className={`${mono.className} text-[11px] tracking-[0.1em]`} style={{ color: C.limeSoft }}>
+                GOOGLE MAPS ↗
+              </a>
+              <a href={`tel:${BIZ.phoneTel}`} className={`${mono.className} text-[11px] tracking-[0.1em]`} style={{ color: 'rgba(255,255,255,0.65)' }}>
+                {BIZ.phoneDisplay}
+              </a>
+            </div>
           </div>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <a
-              href={TEL_LINK}
-              className="inline-flex items-center h-[48px] px-6 text-[15px] font-bold rounded-sm text-white active:scale-95 transition-transform"
-              style={{ backgroundColor: C.leaf }}
-            >
-              {BIZ.phoneDisplay}
-            </a>
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center h-[48px] px-6 text-[15px] font-bold rounded-sm border-2 active:scale-95 transition-transform"
-              style={{ borderColor: C.leaf, color: C.leaf }}
-            >
-              Cómo llegar
-            </a>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* FOOTER */}
-      <footer style={{ backgroundColor: C.leafDark }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-7 flex flex-wrap items-center justify-between gap-5">
-          <div>
-            <p className={`${display.className} tracking-tight text-white`}>
-              FRUPOL<span style={{ color: C.cherry }}>·</span> <span style={{ color: C.sun, fontSize: '0.65em' }}>SAN CLEMENTE</span>
-            </p>
-            <p className={`${mono.className} mt-1.5 text-[10px] tracking-[0.12em] uppercase`} style={{ color: '#A9BFA6' }}>
-              {BIZ.legal} · {BIZ.grupo}
-            </p>
-          </div>
-          <a
-            href={TEL_LINK}
-            className="inline-flex items-center h-[44px] px-5 text-sm font-bold rounded-sm text-white"
-            style={{ backgroundColor: C.leaf }}
-          >
-            Llamar ahora
-          </a>
+          <p className={`${mono.className} text-[10px] leading-relaxed mt-8 pt-5 border-t`} style={{ color: 'rgba(255,255,255,0.4)', borderColor: 'rgba(255,255,255,0.12)' }}>
+            Mockup de muestra para Sitiazo. Datos: ficha de Google Maps ({BIZ.googleRating} ★ · {BIZ.googleReviews} reseñas, consultado sep. 2026)
+            y sitio corporativo agricom.cl (archivo). Fotos: archivo corporativo y vista satelital de Google Maps.
+          </p>
         </div>
       </footer>
-
-      <CallFab href={TEL_LINK} label={`Llamar a ${BIZ.name}`} bg={C.cherry} fg="#FFF" />
-    </div>
+    </main>
   )
 }
