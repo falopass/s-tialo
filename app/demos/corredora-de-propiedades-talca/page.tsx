@@ -32,6 +32,7 @@ const C = {
   verde2: '#14261E',
   lata: '#C9A45C',
   lataCl: '#E3C886',
+  lataOsc: '#6B5226',
   crema: '#F2ECDC',
   crema2: '#E7DCC2',
   tinta: '#1B2A21',
@@ -145,7 +146,7 @@ function Kicker({ children, light = false }: { children: React.ReactNode; light?
   return (
     <p
       className="font-[var(--f-mono)] text-[11px] uppercase tracking-[0.28em]"
-      style={{ color: light ? C.lataCl : '#7A5F2E' }}
+      style={{ color: light ? C.lataCl : C.lataOsc }}
     >
       {children}
     </p>
@@ -303,9 +304,9 @@ export default function CorredoraDePropiedadesTalca() {
                 datos, tus servicios y tus formas de contacto.
               </p>
               <ul className="mt-5 space-y-2 font-[var(--f-mono)] text-[11px] uppercase tracking-[0.14em]" style={{ color: C.suave }}>
-                <li className="flex gap-3"><span style={{ color: '#7A5F2E' }}>—</span> Sin nombre comercial publicado</li>
-                <li className="flex gap-3"><span style={{ color: '#7A5F2E' }}>—</span> Sin fotos ni sitio web</li>
-                <li className="flex gap-3"><span style={{ color: '#7A5F2E' }}>—</span> Ficha sin reclamar por el dueño</li>
+                <li className="flex gap-3"><span style={{ color: C.lataOsc }}>—</span> Sin nombre comercial publicado</li>
+                <li className="flex gap-3"><span style={{ color: C.lataOsc }}>—</span> Sin fotos ni sitio web</li>
+                <li className="flex gap-3"><span style={{ color: C.lataOsc }}>—</span> Ficha sin reclamar por el dueño</li>
               </ul>
             </div>
           </Reveal>
@@ -369,7 +370,7 @@ export default function CorredoraDePropiedadesTalca() {
                     boxShadow: '0 14px 30px rgba(27,42,33,0.08)',
                   }}
                 >
-                  <p className="font-[var(--f-mono)] text-[10px] uppercase tracking-[0.26em]" style={{ color: '#7A5F2E' }}>
+                  <p className="font-[var(--f-mono)] text-[10px] uppercase tracking-[0.26em]" style={{ color: C.lataOsc }}>
                     {g.piso}
                   </p>
                   <h3 className="font-[var(--f-display)] mt-2 text-2xl md:text-[30px]" style={{ color: C.tinta }}>
@@ -520,7 +521,7 @@ export default function CorredoraDePropiedadesTalca() {
       <section style={{ backgroundColor: C.verde }}>
         <div className="max-w-4xl mx-auto px-5 md:px-8 py-14 md:py-20 text-center">
           <Reveal>
-            <Kicker light>{BIZ.address} · {BIZ.city}</Kicker>
+            <Kicker light>{BIZ.address} ·{'\u00A0'}{BIZ.city}</Kicker>
             <h2 className="font-[var(--f-display)] mt-4 text-4xl md:text-6xl leading-[1.04]" style={{ color: C.crema }}>
               ¿Vendes, arriendas<br />o aseguras?
             </h2>
@@ -532,7 +533,7 @@ export default function CorredoraDePropiedadesTalca() {
               href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="tap-44 mt-8 inline-flex items-center rounded-full px-8 py-3 text-sm font-bold uppercase tracking-[0.12em] transition-transform active:scale-95"
+              className="tap-44 mt-8 inline-flex items-center rounded-full px-5 py-3 text-sm font-bold uppercase tracking-[0.12em] whitespace-nowrap transition-transform active:scale-95"
               style={{ backgroundColor: C.lata, color: C.verde }}
             >
               WhatsApp {BIZ.phoneDisplay}
@@ -543,7 +544,7 @@ export default function CorredoraDePropiedadesTalca() {
 
       <footer className="px-5 py-6 text-center border-t" style={{ borderColor: C.lineaOsc }}>
         <p className="font-[var(--f-mono)] text-[10px] uppercase tracking-[0.16em] leading-relaxed" style={{ color: C.suave }}>
-          {BIZ.rubro} · {BIZ.address}, {BIZ.city} · {BIZ.phoneDisplay}
+          {BIZ.rubro} · {BIZ.address},{'\u00A0'}{BIZ.city}{'\u00A0'}·{'\u00A0'}{BIZ.phoneDisplay}
         </p>
       </footer>
 
