@@ -4845,6 +4845,14 @@ const BLITZ = [
     tagline: 'La receta del auto: crema clínica, rojo de urgencia y la cinta amarilla del taller, con sus afiches reales de Instagram.',
     gradient: 'linear-gradient(135deg, #F7F3E8 0%, #1A1C17 90%, #C8102E 180%)',
   },
+  {
+    slug: 'ando',
+    name: 'Andö',
+    rubro: 'Restaurante nikkei + chifa',
+    city: 'Curicó',
+    tagline: 'La pizarra nikkei de Av. España: noche, papel arroz y rojo del isotipo, con su carta QR y afiches reales.',
+    gradient: 'linear-gradient(135deg, #161210 0%, #C62828 120%, #F4EDE0 200%)',
+  },
 ]
 
 export const metadata: Metadata = {
