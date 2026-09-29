@@ -14,7 +14,7 @@ const body = localFont({
   src: [{ path: '../../fonts/lora/normal-400-700.woff2' }],
 })
 const mono = localFont({
-  src: [{ path: '../../fonts/roboto-mono/normal-400.woff2', weight: '400', style: 'normal' }],
+  src: [{ path: '../../fonts/roboto-mono/normal-100-700.woff2', weight: '100 700', style: 'normal' }],
 })
 
 export const metadata: Metadata = demoMetadata({

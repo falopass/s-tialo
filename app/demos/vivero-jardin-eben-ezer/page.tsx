@@ -22,7 +22,8 @@ const body = localFont({
 })
 const mono = localFont({
   src: [
-    { path: '../../fonts/ibm-plex-mono/normal-100-700.woff2', weight: '100 700', style: 'normal' },
+    { path: '../../fonts/ibm-plex-mono/normal-500.woff2', weight: '500', style: 'normal' },
+    { path: '../../fonts/ibm-plex-mono/normal-700.woff2', weight: '700', style: 'normal' },
   ],
 })
 
