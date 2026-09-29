@@ -1251,8 +1251,8 @@ const BLITZ = [
     name: 'Mía Centro De Estética',
     rubro: 'Centro de estética',
     city: 'Curicó',
-    tagline: 'Doble columna con sidebar pegajoso: verde campo, tierra y crema, con fotos.',
-    gradient: 'linear-gradient(135deg, #2E4224 0%, #4C6B3C 55%, #8C6239 140%)',
+    tagline: 'La casa morada: violeta del letrero con franja dorada, el tótem de la reja y el álbum de uñas de su ficha.',
+    gradient: 'linear-gradient(135deg, #341652 0%, #8A3BC0 55%, #F2C14E 140%)',
   },
   {
     slug: 'muebleria-infinity-muebles-talca',
