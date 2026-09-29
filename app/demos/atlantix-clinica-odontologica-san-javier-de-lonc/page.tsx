@@ -167,7 +167,7 @@ export default function AtlantixPage() {
           <Reveal delay={140}>
             <div className="relative">
               <figure
-                className="relative aspect-[4/5] max-h-[560px] w-full overflow-hidden"
+                className="relative aspect-[6/5] md:aspect-[4/5] max-h-[560px] w-full overflow-hidden"
                 style={{ borderRadius: '28px', boxShadow: '0 24px 60px rgba(14,47,51,0.18)', border: `1px solid ${C.line}` }}
               >
                 <Image
@@ -176,7 +176,7 @@ export default function AtlantixPage() {
                   fill
                   priority
                   sizes="(min-width:768px) 44vw, 90vw"
-                  className="object-cover"
+                  className="object-cover object-bottom md:object-center"
                 />
               </figure>
               {/* Tarjeta flotante: el equipo adentro */}
