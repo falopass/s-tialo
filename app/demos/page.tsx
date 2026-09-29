@@ -2789,6 +2789,14 @@ const BLITZ = [
     tagline: 'Centro de monitoreo: navy + naranja de su logo, feeds CCTV con esquinas y el muro de clientes nacionales.',
     gradient: 'linear-gradient(135deg, #070C1D 0%, #13204A 60%, #F04E23 170%)',
   },
+  {
+    slug: 'daem-san-clemente',
+    name: 'DAEM San Clemente',
+    rubro: 'Educación municipal',
+    city: 'San Clemente',
+    tagline: 'El tablero del municipio: azul institucional + naranja del escudo, ventanillas de trámites y el directorio de la red.',
+    gradient: 'linear-gradient(135deg, #1D2070 0%, #2E3192 60%, #F7941E 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
