@@ -4621,6 +4621,14 @@ const BLITZ = [
     tagline: 'Mujeres que resuelven: orden de trabajo, teal del sello real y amarillo de obra sobre papel.',
     gradient: 'linear-gradient(135deg, #F4F1EA 0%, #0E7C86 130%, #F2C314 200%)',
   },
+  {
+    slug: 'bajon-de-la-alameda',
+    name: 'Bajón De La Alameda',
+    rubro: 'Puesto de perros calientes',
+    city: 'Linares',
+    tagline: 'Ticket de sanguchería: papel crema, ketchup y mostaza — el completo real que salva el bajón.',
+    gradient: 'linear-gradient(135deg, #FFF4DE 0%, #2A1408 90%, #C1272D 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
