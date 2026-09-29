@@ -75,7 +75,7 @@ const RESENAS = [
     a: 'paciente · chilopina',
   },
   {
-    t: 'Broncopulmonar muy acertiva. Recomendado.',
+    t: 'Broncopulmonar muy acertiva.',
     a: 'jael cueto · google',
   },
 ]
