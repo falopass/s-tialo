@@ -26,6 +26,7 @@ const C = {
   mustard: '#E3A008',
   terracotta: '#B8441D',
   deep: '#231508',
+  wood: '#6E421E',
   line: 'rgba(42,27,16,0.14)',
 }
 
@@ -43,6 +44,9 @@ const NAV_LINKS = [
   { label: 'Reseñas', href: '#resenas' },
   { label: 'Cómo llegar', href: '#contacto' },
 ]
+
+/* Las flechas del poste de madera en la puerta, tal cual dice el letrero real. */
+const LETRERO = ['Sandwiches', 'Completos', 'Pizza', 'Sushi', 'Papas fritas', 'Bebidas y más']
 
 const CARTA = [
   {
@@ -73,6 +77,21 @@ const CARTA = [
   {
     grupo: 'Desayunos',
     items: [{ name: 'Desayuno completo', price: '$2.500 – $3.000' }],
+  },
+] as const
+
+const PLATOS = [
+  {
+    src: 'chorrillana',
+    alt: 'Chorrillana de Antümalen con papas fritas, carne y huevo',
+    name: 'La chorrillana de la casa',
+    price: '$7.500',
+  },
+  {
+    src: 'mechada',
+    alt: 'Plato de mechada con papas fritas y huevos fritos servido en Antümalen',
+    name: 'Mechada con papas',
+    price: '$4.500',
   },
 ] as const
 
@@ -107,6 +126,35 @@ function Flecha({ className = 'w-4 h-4', color = 'currentColor' }: { className?:
   )
 }
 
+/** Una tabla del letrero: flecha de madera con el nombre tallado. */
+function Tabla({ texto, index }: { texto: string; index: number }) {
+  return (
+    <li
+      className="relative pl-7 py-2.5 pr-6"
+      style={{
+        width: `${88 - index * 4}%`,
+        background: `linear-gradient(180deg, #7d4f24 0%, ${C.wood} 60%, #5c3517 100%)`,
+        clipPath: 'polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%)',
+        transform: `rotate(${index % 2 === 0 ? -1 : 1.2}deg)`,
+        boxShadow: '0 4px 10px rgba(0,0,0,0.25)',
+      }}
+    >
+      {/* clavo de la tabla */}
+      <span
+        className="absolute left-2.5 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full"
+        style={{ backgroundColor: 'rgba(0,0,0,0.45)', boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.25)' }}
+        aria-hidden="true"
+      />
+      <span
+        className={`${display.className} font-black text-base md:text-lg uppercase tracking-[0.08em]`}
+        style={{ color: '#FBEED3', textShadow: '0 1px 0 rgba(0,0,0,0.45)' }}
+      >
+        {texto}
+      </span>
+    </li>
+  )
+}
+
 function Eyebrow({ children, light = false, color }: { children: React.ReactNode; light?: boolean; color?: string }) {
   return (
     <p
@@ -127,6 +175,7 @@ export default function AntumalenPage() {
     >
       <BlitzNav
         name={BIZ.short}
+        logoSrc={`${IMG}/logo.webp`}
         links={NAV_LINKS}
         waLink={WA_LINK}
         fontClass={display.className}
@@ -141,14 +190,14 @@ export default function AntumalenPage() {
         }}
       />
 
-      {/* ── Hero a sangre ── */}
+      {/* ── Hero a sangre: la fachada amarilla de la ruta ── */}
       <section id="inicio" className="relative min-h-svh flex flex-col justify-end overflow-hidden" style={{ backgroundColor: C.deep }}>
         <img
           src={`${IMG}/hero.webp`}
           alt="Fachada de Antümalen Restaurant en Ruta 115, San Clemente, con su letrero amarillo"
           loading="eager"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-[50%_30%]"
         />
         <div
           className="absolute inset-0"
@@ -231,6 +280,44 @@ export default function AntumalenPage() {
         </div>
       </section>
 
+      {/* ── El letrero de la puerta: flechas de madera, tal cual ── */}
+      <section className="relative overflow-hidden" style={{ backgroundColor: '#F3E8D4' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-[1fr_1.1fr] gap-10 md:gap-16 items-center">
+          <Reveal>
+            <Eyebrow color="#9C3A16">El letrero de la puerta</Eyebrow>
+            <h2 className={`${display.className} font-black text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: C.ink }}>
+              Lo que hay,
+              <br />
+              <span className="italic" style={{ color: C.terracotta }}>dicho en madera</span>
+            </h2>
+            <p className="text-sm md:text-base leading-relaxed max-w-md mb-6" style={{ color: '#6A5B49' }}>
+              Junto a la puerta, un poste de madera con flechas anuncia la
+              carta de la casa. Esto dice, palabra por palabra — y cada
+              flecha apunta a algo que sale de la cocina todos los días.
+            </p>
+            <p className="text-sm leading-relaxed max-w-md font-bold" style={{ color: C.ink }}>
+              Además de la carta: menús para servir en el local o para
+              llevar, y delivery dentro de San Clemente.
+            </p>
+          </Reveal>
+          <Reveal delay={140}>
+            {/* El poste con las tablas, como el letrero real */}
+            <div className="relative max-w-[340px] mx-auto pl-5">
+              <div
+                className="absolute left-0 top-0 bottom-0 w-[10px] rounded-full"
+                style={{ background: 'linear-gradient(90deg, #59351a, #7d4f24)' }}
+                aria-hidden="true"
+              />
+              <ul className="relative space-y-3.5 py-2">
+                {LETRERO.map((texto, i) => (
+                  <Tabla key={texto} texto={texto} index={i} />
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── La carta ── */}
       <section id="carta" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
@@ -288,76 +375,101 @@ export default function AntumalenPage() {
             </figure>
           </Reveal>
         </div>
+        {/* Los platos, con foto real */}
+        <div className="grid sm:grid-cols-2 gap-5 md:gap-6 mt-10 md:mt-14">
+          {PLATOS.map((p, i) => (
+            <Reveal key={p.src} delay={i * 120}>
+              <figure className="relative rounded-2xl overflow-hidden group" style={{ boxShadow: '0 16px 40px rgba(42,27,16,0.16)' }}>
+                <img
+                  src={`${IMG}/${p.src}.webp`}
+                  alt={p.alt}
+                  className="w-full object-cover aspect-[4/3] transition-transform duration-700 group-hover:scale-[1.04]"
+                  loading="lazy"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-5 py-3.5" style={{ background: 'linear-gradient(180deg, rgba(35,21,8,0) 0%, rgba(35,21,8,0.88) 45%)' }}>
+                  <span className={`${display.className} font-black text-base md:text-lg`} style={{ color: '#FFFCF6' }}>
+                    {p.name}
+                  </span>
+                  <span className={`${display.className} font-black text-base px-3 py-1 rounded-full`} style={{ backgroundColor: C.mustard, color: '#231508' }}>
+                    {p.price}
+                  </span>
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
-      {/* ── El local ── */}
+      {/* ── El local: dos pisos ── */}
       <section id="local" className="scroll-mt-20" style={{ backgroundColor: C.deep }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-          <Reveal>
-            <Eyebrow light>El local</Eyebrow>
-            <h2 className={`${display.className} font-black text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: '#FFFCF6' }}>
-              Dos pisos,
-              <br />
-              <span className="italic" style={{ color: '#F5C14E' }}>un solo ambiente familiar</span>
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: 'rgba(255,252,246,0.88)' }}>
-              Un restaurant acogedor a la entrada de San Clemente, con
-              segundo nivel climatizado para comer tranquilo en verano
-              y en invierno.
-            </p>
-            <ul className="space-y-3.5 mb-4">
-              {[
-                'Segundo nivel climatizado para almorzar sin calor ni frío',
-                'Delivery dentro de San Clemente',
-                'Menús para servir en el local o para llevar',
-                'Desayunos desde las 9:30',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm md:text-base" style={{ color: 'rgba(255,252,246,0.94)' }}>
-                  <Flecha className="w-4 h-4 shrink-0 mt-1" color="#F5C14E" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a
-              href={WA_LINK_RESERVA}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${display.className} inline-block font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44 mt-6`}
-              style={{ backgroundColor: C.mustard, color: '#231508' }}
-            >
-              Reservar mesa
-            </a>
-          </Reveal>
-          <div className="grid grid-cols-2 gap-4">
-            <Reveal delay={80} className="col-span-2">
-              <div className="rounded-2xl overflow-hidden" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center mb-12 md:mb-16">
+            <Reveal>
+              <Eyebrow light>El local</Eyebrow>
+              <h2 className={`${display.className} font-black text-4xl md:text-5xl leading-[1.05] mb-6`} style={{ color: '#FFFCF6' }}>
+                La escalera sube
+                <br />
+                <span className="italic" style={{ color: '#F5C14E' }}>al segundo nivel</span>
+              </h2>
+              <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: 'rgba(255,252,246,0.88)' }}>
+                Un restaurant acogedor a la entrada de San Clemente, con
+                segundo nivel climatizado para comer tranquilo en verano
+                y en invierno.
+              </p>
+              <ul className="space-y-3.5 mb-4">
+                {[
+                  'Segundo nivel climatizado para almorzar sin calor ni frío',
+                  'Delivery dentro de San Clemente',
+                  'Menús para servir en el local o para llevar',
+                  'Desayunos desde las 9:30',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm md:text-base" style={{ color: 'rgba(255,252,246,0.94)' }}>
+                    <Flecha className="w-4 h-4 shrink-0 mt-1" color="#F5C14E" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={WA_LINK_RESERVA}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${display.className} inline-block font-bold text-sm md:text-base px-7 py-3.5 rounded-full transition-transform active:scale-95 tap-44 mt-6`}
+                style={{ backgroundColor: C.mustard, color: '#231508' }}
+              >
+                Reservar mesa
+              </a>
+            </Reveal>
+            <Reveal delay={120}>
+              <figure className="rounded-2xl overflow-hidden" style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.4)' }}>
                 <img
-                  src={`${IMG}/salon.webp`}
-                  alt="Salón interior de Antümalen con mesas y decoración cálida"
+                  src={`${IMG}/entrada.webp`}
+                  alt="Entrada de Antümalen con la escalera de madera que sube al segundo nivel climatizado"
                   className="w-full object-cover aspect-[16/10]"
                   loading="lazy"
                 />
-              </div>
+              </figure>
+            </Reveal>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+            <Reveal delay={80}>
+              <figure className="rounded-2xl overflow-hidden h-full">
+                <img
+                  src={`${IMG}/salon2.webp`}
+                  alt="Salón del segundo nivel de Antümalen con mesas, aire acondicionado y decoración rústica"
+                  className="w-full h-full object-cover aspect-[16/10]"
+                  loading="lazy"
+                />
+              </figure>
             </Reveal>
             <Reveal delay={160}>
-              <div className="rounded-2xl overflow-hidden h-full">
+              <figure className="rounded-2xl overflow-hidden h-full">
                 <img
-                  src={`${IMG}/chorrillana.webp`}
-                  alt="Chorrillana de Antümalen con papas, carne y huevo"
-                  className="w-full h-full object-cover aspect-[4/5]"
+                  src={`${IMG}/salon.webp`}
+                  alt="Salón interior de Antümalen con mesas y decoración cálida"
+                  className="w-full h-full object-cover aspect-[16/10]"
                   loading="lazy"
                 />
-              </div>
-            </Reveal>
-            <Reveal delay={220}>
-              <div className="rounded-2xl overflow-hidden h-full">
-                <img
-                  src={`${IMG}/mechada.webp`}
-                  alt="Plato de mechada con papas fritas servido en Antümalen"
-                  className="w-full h-full object-cover aspect-[4/5]"
-                  loading="lazy"
-                />
-              </div>
+              </figure>
             </Reveal>
           </div>
         </div>
@@ -487,7 +599,7 @@ export default function AntumalenPage() {
         <div
           className="absolute inset-0 opacity-[0.14]"
           style={{
-            backgroundImage: `url(${IMG}/salon.webp)`,
+            backgroundImage: `url(${IMG}/salon2.webp)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
