@@ -34,12 +34,13 @@ export const WA_LINK_PRECIOS = `https://wa.me/${BIZ.whatsapp}?text=${encodeURICo
 
 export const INSTAGRAM_URL = 'https://www.instagram.com/beautylove_texia'
 
-export const MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=Beauty+Love+Notre+Damme+913+Molina'
+// Link por CID: resuelve siempre a esta ficha (la búsqueda por nombre
+// cae en homónimos fuera de Chile).
+export const MAPS_URL = 'https://www.google.com/maps?cid=0xb829ec749d02cbe3'
 
-// Coordenadas de la ficha de Google — la búsqueda por dirección quedaba
-// a nivel de ciudad y por nombre resolvía fuera de Chile.
+// Por nombre + país: abre la tarjeta de la ficha con pin en Notre Damme
+// (la versión por coordenadas mostraba un mapa vacío sin datos del negocio).
 export const MAPS_EMBED =
-  'https://www.google.com/maps?q=-35.1162875%2C-71.2735979&z=17&hl=es&output=embed'
+  'https://www.google.com/maps?q=Beauty+Love+Molina+Chile&z=16&hl=es&output=embed'
 
 export const IMG = '/demos/beauty-love'
