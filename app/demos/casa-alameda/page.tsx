@@ -190,7 +190,7 @@ export default function CasaAlamedaPage() {
       />
 
       {/* ── Hero: escenario a todo el ancho ── */}
-      <section id="inicio" className="relative min-h-[88vh] flex flex-col justify-end overflow-hidden">
+      <section id="inicio" className="relative min-h-[96vh] flex flex-col justify-end overflow-hidden">
         <Image
           src={`${IMG}/hero.webp`}
           alt="Interior de Casa Alameda de noche: luces cálidas, neón morado y la barra llena de gente"
