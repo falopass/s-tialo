@@ -55,6 +55,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F4F1E6 0%, #B3C938 90%, #1B2340 190%)',
   },
   {
+    slug: 'meshi-teno',
+    name: 'Meshi Teno',
+    rubro: 'Delivery — sushi, burger y handrolls',
+    city: 'Teno',
+    tagline: 'El delivery nocturno de Bellavista: carbón de fondo, el círculo rojo de su logo como sello y la carta servida en papel a cuadros.',
+    gradient: 'linear-gradient(135deg, #12100E 0%, #E63B2E 95%, #F5B90D 190%)',
+  },
+  {
     slug: 'el-sauce-mote-con-huesillo',
     name: 'El Sauce - Mote Con Huesillo',
     rubro: 'Restaurant — comida típica',
