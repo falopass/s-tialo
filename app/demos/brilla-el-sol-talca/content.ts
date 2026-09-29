@@ -1,7 +1,7 @@
 /**
  * Datos verificados en la ficha pública de Google Maps del complejo
  * (28-09-2026): nombre, dirección, teléfono, categoría (campo de
- * fútbol), 4.5 estrellas con 133 reseñas y horario 9:00–24:00 todos
+ * fútbol), 4,5 estrellas con 133 reseñas y horario 9:00–24:00 todos
  * los días. Su página de Facebook (@ComplejoDeportivoBrillaElSol,
  * 422 seguidores) confirma el arriendo de la cancha en bloques de
  * 90 minutos. Las fotos del demo son reales y salen de esa misma
@@ -15,7 +15,7 @@ export const BIZ = {
   address: '12 sur, Calle 6 Ote., S/N',
   phone: '56981812455',
   phoneDisplay: '+56 9 8181 2455',
-  rating: '4.5',
+  rating: '4,5',
   reviews: 133,
   horario: '9:00–24:00, todos los días',
   bloque: '90 min',
