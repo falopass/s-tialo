@@ -99,6 +99,31 @@ const TREATMENTS = [
   { icon: 'cirugia', name: 'Cirugía oral', desc: 'Extracciones y procedimientos quirúrgicos con atención cercana.' },
 ]
 
+/* El paso a paso de una atención, con las fotos reales de su ficha e IG. */
+const STEPS = [
+  {
+    src: 'consulta',
+    alt: 'Dentista de Triadent conversando el diagnóstico con una paciente',
+    n: '01',
+    title: 'Llegas y te escuchan',
+    desc: 'La primera hora parte con conversación: qué te molesta, qué buscas y qué opciones tienes.',
+  },
+  {
+    src: 'atencion',
+    alt: 'Paciente en el box de Triadent durante una atención',
+    n: '02',
+    title: 'Te explican cada paso',
+    desc: 'Antes de tocar un diente, el plan se conversa: qué se hará, por qué y cuánto costará.',
+  },
+  {
+    src: 'equipo',
+    alt: 'Profesional de Triadent sonriendo junto al espejo con forma de muela de la clínica',
+    n: '03',
+    title: 'Sales con control agendado',
+    desc: 'La hora agendada se cumple y sales con tu próximo control ya programado.',
+  },
+]
+
 /* Reseñas reales de su ficha de Google (texto original en español). */
 const REVIEWS = [
   {
@@ -137,6 +162,50 @@ const FAQS = [
   },
 ]
 
+/* Curva de sonrisa: subraya una palabra del titular. */
+function Smile({ color, className = '' }: { color: string; className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 120 22"
+      className={`block ${className}`}
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M4 6 C30 20 90 20 116 6"
+        stroke={color}
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
+/* Foto enmarcada en arco (arcada): el motivo gráfico del demo. */
+function Arco({
+  src,
+  alt,
+  sizes,
+  ratio = 'aspect-[3/4]',
+  className = '',
+}: {
+  src: string
+  alt: string
+  sizes: string
+  ratio?: string
+  className?: string
+}) {
+  return (
+    <figure
+      className={`relative overflow-hidden rounded-t-[999px] rounded-b-3xl ${ratio} ${className}`}
+      style={{ border: `1px solid ${C.line}`, boxShadow: '0 20px 50px -22px rgba(42,35,80,0.35)' }}
+    >
+      <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
+    </figure>
+  )
+}
+
 export default function TriadentPage() {
   return (
     <div
@@ -159,22 +228,41 @@ export default function TriadentPage() {
         }}
       />
 
-      {/* ── Hero: foto real de la fachada con el letrero ── */}
+      {/* ── Hero: la entrada real, enmarcada en arco ── */}
       <section id="inicio" className="relative overflow-hidden" style={{ backgroundColor: C.roseSoft }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-32 md:pt-40 pb-14 md:pb-20 grid lg:grid-cols-[1.05fr_1fr] gap-10 md:gap-14 items-center">
+        {/* corazón-muela gigante de fondo, solo el contorno como en el logo */}
+        <svg
+          className="absolute -right-16 -top-10 w-[300px] md:w-[420px] pointer-events-none select-none"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="rgba(178,41,139,0.10)"
+          strokeWidth="1"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          {ICONS.general}
+        </svg>
+        <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-28 md:pt-40 pb-14 md:pb-20 grid lg:grid-cols-[1.05fr_0.95fr] gap-10 md:gap-14 items-center">
           <Reveal>
             <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] mb-5 flex items-center gap-3" style={{ color: C.accentDeep }}>
               <span className="inline-block w-8 h-px" style={{ backgroundColor: C.accent }} aria-hidden="true" />
-              Clínica dental en el centro de Talca
+              Clínica dental · centro de Talca
             </p>
             <h1
-              className={`${display.className} font-semibold leading-[1.04] tracking-[-0.01em] text-[clamp(2.4rem,7vw,4.4rem)] mb-5`}
+              className={`${display.className} font-semibold leading-[1.04] tracking-[-0.01em] text-[clamp(2.3rem,7vw,4.2rem)] mb-6`}
             >
-              Tu dentista en 1 Norte 841
+              Te atienden{' '}
+              <span className="relative inline-block">
+                altiro
+                <Smile color={C.accent} className="absolute left-0 -bottom-2 w-full h-[0.22em]" />
+              </span>{' '}
+              en 1 Norte
             </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-lg mb-8" style={{ color: C.muted }}>
-              Atención odontológica cercana, con explicaciones claras y
-              trato amable. Agenda tu hora por WhatsApp.
+              En 1 Norte 841, a pasos de la plaza de Talca: atención
+              odontológica cercana, con el plan explicado antes de empezar
+              y el trato amable que marcan sus reseñas.
             </p>
             <div className="flex flex-wrap gap-3">
               <a
@@ -202,27 +290,20 @@ export default function TriadentPage() {
             </p>
           </Reveal>
           <Reveal delay={150}>
-            <figure className="relative">
-              <div
-                className="relative overflow-hidden rounded-3xl aspect-[4/3] md:aspect-[4/3] shadow-[0_24px_60px_-24px_rgba(42,35,80,0.35)]"
-                style={{ border: `1px solid ${C.line}` }}
+            <div className="relative max-w-[380px] mx-auto lg:max-w-none">
+              <Arco
+                src={`${IMG}/entrada.webp`}
+                alt={`Entrada de ${BIZ.name} en 1 Norte 841, Talca, con su letrero y el pasillo de jardín`}
+                sizes="(min-width: 1024px) 42vw, 90vw"
+                ratio="aspect-[3/4]"
+              />
+              <p
+                className="absolute left-1/2 -translate-x-1/2 -bottom-4 whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold shadow-lg"
+                style={{ backgroundColor: 'rgba(252,250,252,0.95)', color: C.ink }}
               >
-                <Image
-                  src={`${IMG}/hero.webp`}
-                  alt={`Fachada de ${BIZ.name} en el centro de Talca`}
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 45vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption
-                className="absolute left-4 bottom-4 rounded-full px-4 py-2 text-xs font-semibold shadow-lg"
-                style={{ backgroundColor: 'rgba(252,250,252,0.94)', color: C.ink }}
-              >
-                1 Norte 841, a pasos de la plaza
-              </figcaption>
-            </figure>
+                El pasillo verde que entra a la clínica
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -258,7 +339,8 @@ export default function TriadentPage() {
       <section id="tratamientos" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
         <Reveal>
           <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-4`}>
-            Tratamientos
+            Todo lo que tu sonrisa necesita,{' '}
+            <span style={{ color: C.accentDeep }}>en una sola clínica</span>
           </h2>
           <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-10" style={{ color: C.muted }}>
             Las especialidades que la clínica publica en su Instagram.
@@ -272,7 +354,7 @@ export default function TriadentPage() {
                 style={{ backgroundColor: '#FFFFFF', borderColor: C.line }}
               >
                 <span
-                  className="w-[46px] h-[46px] rounded-2xl flex items-center justify-center shrink-0"
+                  className="w-[46px] h-[46px] rounded-t-[20px] rounded-b-xl flex items-center justify-center shrink-0"
                   style={{ backgroundColor: C.roseSoft, color: C.accentDeep }}
                 >
                   <svg viewBox="0 0 24 24" className="w-[23px] h-[23px]" aria-hidden="true">
@@ -293,6 +375,52 @@ export default function TriadentPage() {
         </ul>
       </section>
 
+      {/* ── Así es una atención (paso a paso con fotos reales) ── */}
+      <section className="scroll-mt-20" style={{ backgroundColor: C.ink }}>
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <Reveal>
+            <p className="text-[11px] uppercase tracking-[0.22em] mb-4 flex items-center gap-3" style={{ color: '#EFB9DE' }}>
+              <span className="inline-block w-8 h-px" style={{ backgroundColor: '#EFB9DE' }} aria-hidden="true" />
+              El paso a paso
+            </p>
+            <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-3`} style={{ color: '#FCFAFC' }}>
+              Así es una atención en Triadent
+            </h2>
+            <p className="text-sm md:text-base max-w-2xl leading-relaxed mb-12" style={{ color: 'rgba(252,250,252,0.78)' }}>
+              Las fotos son reales: su ficha de Google y su Instagram.
+            </p>
+          </Reveal>
+          <ol className="grid md:grid-cols-3 gap-8 md:gap-6">
+            {STEPS.map((s, i) => (
+              <Reveal key={s.n} delay={i * 120}>
+                <li className="relative">
+                  <span
+                    className={`${display.className} absolute -top-3 left-1/2 -translate-x-1/2 z-10 text-xs font-semibold tracking-[0.18em] px-4 py-1.5 rounded-full`}
+                    style={{ backgroundColor: C.accent, color: '#fff' }}
+                    aria-hidden="true"
+                  >
+                    {s.n}
+                  </span>
+                  <Arco
+                    src={`${IMG}/${s.src}.webp`}
+                    alt={s.alt}
+                    sizes="(min-width: 768px) 30vw, 85vw"
+                    ratio="aspect-[3/4]"
+                    className="mb-5"
+                  />
+                  <h3 className={`${display.className} font-semibold text-xl mb-2 text-center`} style={{ color: '#FCFAFC' }}>
+                    {s.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-center max-w-xs mx-auto" style={{ color: 'rgba(252,250,252,0.72)' }}>
+                    {s.desc}
+                  </p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       {/* ── La clínica por dentro (fotos reales) ── */}
       <section id="clinica" className="scroll-mt-20" style={{ backgroundColor: C.roseSoft }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
@@ -307,8 +435,7 @@ export default function TriadentPage() {
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: C.muted }}>
                 Fotos reales de la ficha de Google de la clínica y de su
-                Instagram: la entrada en 1 Norte, el box de atención y el
-                equipo trabajando.
+                Instagram: la fachada en 1 Norte y el box de atención.
               </p>
               <a
                 href={BIZ.instagram}
@@ -320,7 +447,7 @@ export default function TriadentPage() {
                 {BIZ.instagramHandle} en Instagram →
               </a>
             </Reveal>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 items-end">
               <Reveal delay={80} className="col-span-2">
                 <figure className="relative overflow-hidden rounded-2xl aspect-[16/9]" style={{ border: `1px solid ${C.line}` }}>
                   <Image
@@ -332,22 +459,28 @@ export default function TriadentPage() {
                   />
                 </figure>
               </Reveal>
-              {[
-                { src: 'atencion', alt: 'Profesional de Triadent atendiendo a un paciente' },
-                { src: 'equipo', alt: 'Dentista de Triadent en la clínica' },
-              ].map((f, i) => (
-                <Reveal key={f.src} delay={160 + i * 100}>
-                  <figure className="relative overflow-hidden rounded-2xl aspect-[4/5]" style={{ border: `1px solid ${C.line}` }}>
-                    <Image
-                      src={`${IMG}/${f.src}.webp`}
-                      alt={f.alt}
-                      fill
-                      sizes="(min-width: 1024px) 21vw, 50vw"
-                      className="object-cover"
-                    />
-                  </figure>
-                </Reveal>
-              ))}
+              <Reveal delay={160}>
+                <figure className="relative overflow-hidden rounded-2xl aspect-[4/3]" style={{ border: `1px solid ${C.line}` }}>
+                  <Image
+                    src={`${IMG}/hero.webp`}
+                    alt={`Fachada de ${BIZ.name} con su letrero fucsia en el centro de Talca`}
+                    fill
+                    sizes="(min-width: 1024px) 21vw, 50vw"
+                    className="object-cover"
+                  />
+                </figure>
+              </Reveal>
+              <Reveal delay={220}>
+                <figure className="relative overflow-hidden rounded-2xl aspect-[4/3]" style={{ border: `1px solid ${C.line}` }}>
+                  <Image
+                    src={`${IMG}/fachada.webp`}
+                    alt={`Letrero de ${BIZ.name} visto desde la calle 1 Norte`}
+                    fill
+                    sizes="(min-width: 1024px) 21vw, 50vw"
+                    className="object-cover"
+                  />
+                </figure>
+              </Reveal>
             </div>
           </div>
         </div>
@@ -386,7 +519,8 @@ export default function TriadentPage() {
             <div className="space-y-5">
               <Reveal delay={100}>
                 <h2 className={`${display.className} font-semibold text-3xl md:text-4xl leading-tight`}>
-                  Lo que dicen los pacientes
+                  Quienes ya se atendieron{' '}
+                  <span style={{ color: C.accentDeep }}>lo cuentan mejor</span>
                 </h2>
               </Reveal>
               {REVIEWS.map((r, i) => (
@@ -413,7 +547,7 @@ export default function TriadentPage() {
       <section className="max-w-6xl mx-auto px-5 md:px-8 pb-16 md:pb-24">
         <Reveal>
           <h2 className={`${display.className} font-semibold text-3xl md:text-5xl leading-tight mb-3`}>
-            Preguntas de pacientes
+            Antes de tu primera hora
           </h2>
         </Reveal>
         <FaqList
@@ -490,9 +624,10 @@ export default function TriadentPage() {
       <section style={{ backgroundColor: C.rose }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 text-center">
           <Reveal>
-            <h2 className={`${display.className} font-semibold text-[clamp(2rem,6vw,3.8rem)] leading-[1.05] mb-6`}>
+            <h2 className={`${display.className} font-semibold text-[clamp(2rem,6vw,3.8rem)] leading-[1.05] mb-3`}>
               Agenda tu hora esta semana
             </h2>
+            <Smile color={C.accent} className="mx-auto w-40 md:w-56 h-4 mb-7" />
             <p className="text-sm md:text-base max-w-md mx-auto mb-9" style={{ color: C.muted }}>
               Escríbenos por WhatsApp y te confirmamos la hora más cercana
               disponible.
