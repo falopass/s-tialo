@@ -334,6 +334,7 @@ const BLITZ_CREATED: Record<string, string> = {
   'oveja-negra-linares': '2026-09-29',
   'la-terraza-resto-bar-rauco': '2026-09-29',
   kochu: '2026-09-29',
+  'soluciones-mecanicas-el-rey': '2026-09-29',
 }
 
 function familyFor(rubro: string) {

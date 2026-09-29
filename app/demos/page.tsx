@@ -4525,6 +4525,14 @@ const BLITZ = [
     tagline: 'El tablero de la galería: placas de latón sobre verde profundo y la oficina 3-C de 1 Sur 770 como identidad.',
     gradient: 'linear-gradient(135deg, #0E1A13 0%, #1B3529 80%, #C9A45C 170%)',
   },
+  {
+    slug: 'soluciones-mecanicas-el-rey',
+    name: 'Soluciones Mecánicas El Rey',
+    rubro: 'Taller mecánico · autos y motos',
+    city: 'Talca',
+    tagline: 'El afiche hecho página: negro taller, amarillo taxi y corona, cinta de servicios y el 5,0 de 62 reseñas.',
+    gradient: 'linear-gradient(135deg, #0D0D0B 0%, #14140F 55%, #F2C500 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
