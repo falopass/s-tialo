@@ -14,7 +14,10 @@
  *   Luisa Ramírez), traducidas fielmente al español — Google las muestra
  *   en inglés.
  * - Fotos en /demos/veterinaria-vanessa-castillo: `fachada` y `esquina`
- *   son Street View real del local (Google, 2026). `consulta`, `farmacia`
+ *   son Street View real del local (Google, 2026); `centralvet` es la
+ *   foto publicada en su propia ficha de Google — la misma esquina con
+ *   el letrero «CentralVet — Vanessa Castillo Gerli» (mismo teléfono y
+ *   dirección en directorios). `consulta`, `farmacia`
  *   y `peluqueria` son ILUSTRACIONES generadas, marcadas en la página
  *   como «bosquejo» — la pyme casi no publica fotos.
  * Textos de sección son de muestra.

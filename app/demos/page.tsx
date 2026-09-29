@@ -2195,8 +2195,8 @@ const BLITZ = [
     name: 'Veterinaria Vanessa Castillo',
     rubro: 'Clínica veterinaria y pet shop',
     city: 'Molina',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #F6F1E8 0%, #14151A 150%)',
+    tagline: 'El letrero de la esquina: negro y rojo de su fachada real, cinta corrida de servicios y fotos de Street View y su ficha.',
+    gradient: 'linear-gradient(135deg, #F6F1E8 0%, #14151A 55%, #E0383E 160%)',
   },
   {
     slug: 'sangucheria-chico-garcia',

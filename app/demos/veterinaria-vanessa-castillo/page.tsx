@@ -329,18 +329,32 @@ export default function VeterinariaVanessaCastilloPage() {
             </ul>
           </Reveal>
           <Reveal delay={120}>
-            <figure>
-              <img
-                src={`${IMG}/esquina.webp`}
-                alt="Esquina de la veterinaria en Quechereguas, Molina, vista desde la calle"
-                loading="lazy"
-                className="w-full object-cover aspect-[4/3] rounded-sm"
-                style={{ boxShadow: '0 20px 50px -20px rgba(0,0,0,0.6)', border: '1px solid rgba(246,241,232,0.18)' }}
-              />
-              <figcaption className={`${mono.className} mt-3 text-[10px] uppercase tracking-[0.2em]`} style={{ color: 'rgba(246,241,232,0.62)' }}>
-                foto real · street view 2026
-              </figcaption>
-            </figure>
+            <div className="space-y-7">
+              <figure>
+                <img
+                  src={`${IMG}/esquina.webp`}
+                  alt="Esquina de la veterinaria en Quechereguas, Molina, vista desde la calle"
+                  loading="lazy"
+                  className="w-full object-cover aspect-[4/3] rounded-sm"
+                  style={{ boxShadow: '0 20px 50px -20px rgba(0,0,0,0.6)', border: '1px solid rgba(246,241,232,0.18)' }}
+                />
+                <figcaption className={`${mono.className} mt-3 text-[10px] uppercase tracking-[0.2em]`} style={{ color: 'rgba(246,241,232,0.62)' }}>
+                  foto real · street view 2026
+                </figcaption>
+              </figure>
+              <figure className="sm:w-3/4">
+                <img
+                  src={`${IMG}/centralvet.webp`}
+                  alt="La misma esquina con el letrero de CentralVet Veterinaria — Vanessa Castillo Gerli, foto publicada en su ficha de Google"
+                  loading="lazy"
+                  className="w-full object-cover aspect-[3/4] rounded-sm"
+                  style={{ boxShadow: '0 20px 50px -20px rgba(0,0,0,0.6)', border: '1px solid rgba(246,241,232,0.18)' }}
+                />
+                <figcaption className={`${mono.className} mt-3 text-[10px] uppercase tracking-[0.2em]`} style={{ color: 'rgba(246,241,232,0.62)' }}>
+                  foto real · su ficha de Google · letrero CentralVet
+                </figcaption>
+              </figure>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -483,7 +497,7 @@ export default function VeterinariaVanessaCastilloPage() {
         </div>
         <div className="border-t" style={{ borderColor: 'rgba(246,241,232,0.14)' }}>
           <p className="max-w-6xl mx-auto px-5 md:px-8 py-2.5 text-xs leading-relaxed" style={{ color: 'rgba(246,241,232,0.68)' }}>
-            Datos de la ficha pública de Google (dirección, horario, reseñas); fotos de la fachada: Street View. Las ilustraciones marcadas «bosquejo» son de muestra, igual que los textos.
+            Datos de la ficha pública de Google (dirección, horario, reseñas); fotos de la fachada: Street View y su ficha de Google. Las ilustraciones marcadas «bosquejo» son de muestra, igual que los textos.
           </p>
         </div>
         <div className="px-5 pb-5 [&>div]:static [&>div]:mx-auto [&>div]:w-fit [&>div]:max-w-full">
