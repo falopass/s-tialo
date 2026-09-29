@@ -372,6 +372,24 @@ export default function Page() {
                   className="rounded-3xl object-cover aspect-[3/4] w-full"
                 />
               </Reveal>
+              <Reveal delay={220}>
+                <Image
+                  src={`${IMG}/sala.webp`}
+                  alt="Sala de la consulta: sofá, mesa de trabajo y piso de madera con luz de ventana"
+                  width={900}
+                  height={1200}
+                  className="rounded-3xl object-cover aspect-[3/4] w-full"
+                />
+              </Reveal>
+              <Reveal delay={280}>
+                <Image
+                  src={`${IMG}/edificio.webp`}
+                  alt="Edificio esquinero de Lingo's Cowork en 1 Poniente, de noche"
+                  width={1200}
+                  height={900}
+                  className="rounded-3xl object-cover object-[62%_50%] aspect-[3/4] w-full"
+                />
+              </Reveal>
             </div>
           </div>
         </div>
