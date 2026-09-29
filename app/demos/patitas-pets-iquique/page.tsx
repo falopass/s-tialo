@@ -282,11 +282,13 @@ export default function PatitasPetsPage() {
               Concordia, el mesón y las mascotas que llegan a saludar.
             </p>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 items-start">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 items-start">
             <Polaroid src={`${IMG}/fachada.webp`} alt="Fachada de Patitas Pets en La Concordia, con un perrito en la entrada" caption="la esquina" rotate={-2.5} />
             <Polaroid src={`${IMG}/chiko.webp`} alt="Chiko, un perrito blanco cliente de la tienda" caption="chiko" rotate={2} delay={90} />
             <Polaroid src={`${IMG}/peluqueria.webp`} alt="Caniche blanco sobre la mesa de peluquería de Patitas" caption="en la pelu" rotate={-1.5} delay={180} />
-            <Polaroid src={`${IMG}/gato.webp`} alt="Gato negro junto a las bolsas de alimento natural de la tienda" caption="el gato" rotate={2.5} delay={270} />
+            <Polaroid src={`${IMG}/pelu2.webp`} alt="Chiky recibiendo corte en la peluquería de Patitas, foto de su Instagram" caption="chiky, pelu" rotate={2.5} delay={270} />
+            <Polaroid src={`${IMG}/gato.webp`} alt="Gato negro junto a las bolsas de alimento natural de la tienda" caption="el gato" rotate={-2} delay={360} />
+            <Polaroid src={`${IMG}/estante.webp`} alt="Estante de la tienda con bolsas de alimento Fórmula Natural y pocillos" caption="el estante" rotate={1.5} delay={450} />
           </div>
         </div>
       </section>
@@ -379,8 +381,9 @@ export default function PatitasPetsPage() {
                 <span style={{ color: C.verdeInk }}>mascota</span>
               </h2>
               <p className="text-sm md:text-base leading-relaxed max-w-md mb-6" style={{ color: C.muted }}>
-                En La Concordia 2147, a pasos de Av. Salvador Allende.
-                Si no puedes ir, escríbeles: tienen delivery.
+                Atienden en La Concordia 2147 desde 2023, a pasos de
+                Av. Salvador Allende. Si no puedes ir, escríbeles: tienen
+                delivery.
               </p>
               <div className="flex flex-wrap gap-2 mb-8">
                 {SERVICIOS_EXTRA.map((s) => (
@@ -500,7 +503,15 @@ export default function PatitasPetsPage() {
                 Escribir por WhatsApp
               </a>
               <p className={`${mono.className} text-xs mt-4`} style={{ color: C.muted }}>
-                {BIZ.phoneDisplay} · @{BIZ.instagram}
+                {BIZ.phoneDisplay} ·{' '}
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`underline underline-offset-4 hover:opacity-70 ${focusRing} tap-44`}
+                >
+                  @{BIZ.instagram}
+                </a>
               </p>
             </Reveal>
           </div>
@@ -509,7 +520,7 @@ export default function PatitasPetsPage() {
 
       {/* ── Footer compacto ── */}
       <footer style={{ backgroundColor: C.verdeDeep, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-7 pb-24">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-7 pb-8">
           <p className={`${display.className} uppercase text-xl mb-1 flex items-center gap-3`}>
             <Paw className="w-5 h-5" color="#B7DC8E" />
             {BIZ.name}
