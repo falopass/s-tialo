@@ -2311,7 +2311,7 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F7F0E3 0%, #BE3A24 70%, #33633C 140%)',
   },
   {
-    slug: 'aridos-los-maitenes-ltda',
+    slug: 'aridos-los-maitenes-ltda-',
     name: 'Áridos Los Maitenes Ltda.',
     rubro: 'Extracción y venta de áridos',
     city: 'San Clemente',
@@ -2327,7 +2327,7 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #0B3C74 0%, #1463B8 55%, #D2292F 140%)',
   },
   {
-    slug: 'jardin-dona-ignacia-1',
+    slug: 'jard-n-do-a-ignacia-1',
     name: 'Jardín Doña Ignacia',
     rubro: 'Centro de jardinería',
     city: 'Talca',
