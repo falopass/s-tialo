@@ -3493,6 +3493,14 @@ const BLITZ = [
     tagline: 'Km 20 de la M-50: cabañas de madera con piscina a pasos de la playa y sus rocas.',
     gradient: 'linear-gradient(135deg, #0E2230 0%, #16303F 55%, #E2903B 180%)',
   },
+  {
+    slug: 'casonalascamelias',
+    name: 'Casona Las Camelias',
+    rubro: 'Casona · alojamiento',
+    city: 'Curepto',
+    tagline: 'Libro de huéspedes: papel hueso, rosa camelia y la calle O’Higgins real; reservas solo por teléfono.',
+    gradient: 'linear-gradient(135deg, #23251F 0%, #3D5A45 60%, #B0526B 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
