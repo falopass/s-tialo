@@ -3421,6 +3421,14 @@ const BLITZ = [
     tagline: 'El letrero de la plaza: madera, azul agua y dorado de su fachada, con la cocina de mar de su ficha.',
     gradient: 'linear-gradient(135deg, #0B2B31 0%, #1E6E7E 100%, #C8A24B 210%)',
   },
+  {
+    slug: 'cabanaslaslomas',
+    name: 'Cabañas Las Lomas',
+    rubro: 'Cabañas y campo',
+    city: 'San Clemente',
+    tagline: 'Tablero de parcela: pergamino, madera oscura y dorado marca, cerco de estacas, tarifas y reseñas reales.',
+    gradient: 'linear-gradient(135deg, #241910 0%, #5C3D24 60%, #C9A24B 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
