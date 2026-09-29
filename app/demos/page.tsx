@@ -3357,6 +3357,14 @@ const BLITZ = [
     tagline: 'La esquina de Prat con la pizarra a tiza: mantel a cuadros, teja y su letrero colgante.',
     gradient: 'linear-gradient(135deg, #F7F1E5 0%, #B4463C 110%, #2C5F8A 190%)',
   },
+  {
+    slug: 'sabores-propios',
+    name: 'Sabores Propios',
+    rubro: 'Cafetería y restaurant',
+    city: 'Empedrado',
+    tagline: 'La casita naranja con nombre pintado a mano: menú del día en tres tiempos y vitrina de helados.',
+    gradient: 'linear-gradient(135deg, #FBF3E4 0%, #DE7A2C 110%, #35633F 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
