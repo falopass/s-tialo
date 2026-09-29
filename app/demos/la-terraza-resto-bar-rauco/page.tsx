@@ -20,6 +20,10 @@ const C = {
   night: '#0D0A0E',
   night2: '#171017',
   magenta: '#E1256B',
+  // Fucsia más oscuro para superficies con texto blanco encima (4.49:1 el puro);
+  // y un fucsia más claro para texto pequeño sobre fondo oscuro.
+  magentaDeep: '#C1165A',
+  magentaSoft: '#F0428B',
   green: '#1DB584',
   white: '#F5EFF2',
   muted: 'rgba(245,239,242,0.68)',
@@ -95,7 +99,7 @@ function WaButton({ children }: { children: React.ReactNode }) {
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center justify-center gap-2.5 min-h-[44px] px-7 py-2.5 rounded-full font-bold text-[15px] tracking-wide transition-transform hover:-translate-y-0.5 active:translate-y-0 tap-44"
-      style={{ backgroundColor: C.magenta, color: '#fff' }}
+      style={{ backgroundColor: C.magentaDeep, color: '#fff' }}
     >
       <WaIcon className="w-[18px] h-[18px]" />
       {children}
@@ -103,7 +107,7 @@ function WaButton({ children }: { children: React.ReactNode }) {
   )
 }
 
-function Eyebrow({ children, color = C.magenta }: { children: React.ReactNode; color?: string }) {
+function Eyebrow({ children, color = C.magentaSoft }: { children: React.ReactNode; color?: string }) {
   return (
     <p className={`${display.className} text-[12px] font-bold uppercase tracking-[0.3em] mb-4 flex items-center gap-3`} style={{ color }}>
       <span className="block w-6 h-px" style={{ backgroundColor: color }} aria-hidden="true" />
@@ -127,7 +131,7 @@ export default function LaTerrazaRaucoPage() {
         waLink={WA_LINK}
         ctaLabel="Reservar"
         fontClass={display.className}
-        theme={{ over: 'dark', bar: 'rgba(13,10,14,0.88)', ink: C.white, line: C.line, btnBg: C.magenta, btnInk: '#fff' }}
+        theme={{ over: 'dark', bar: 'rgba(13,10,14,0.88)', ink: C.white, line: C.line, btnBg: C.magentaDeep, btnInk: '#fff' }}
       />
 
       {/* ── Hero: la noche, a toda pantalla ───────────── */}
@@ -212,7 +216,7 @@ export default function LaTerrazaRaucoPage() {
                       <Image src={`${IMG}/${a.src}.webp`} alt={a.alt} fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <figcaption className="p-4">
-                      <p className={`${display.className} font-bold uppercase text-base`} style={{ color: C.magenta }}>{a.title}</p>
+                      <p className={`${display.className} font-bold uppercase text-base`} style={{ color: C.magentaSoft }}>{a.title}</p>
                       <p className="mt-1 text-sm leading-relaxed" style={{ color: C.muted }}>{a.desc}</p>
                     </figcaption>
                   </figure>
@@ -293,7 +297,7 @@ export default function LaTerrazaRaucoPage() {
       </section>
 
       {/* ── Reseñas ───────────────────────────────────── */}
-      <section aria-label="Reseñas" className="border-y" style={{ borderColor: C.line, backgroundColor: C.magenta }}>
+      <section aria-label="Reseñas" className="border-y" style={{ borderColor: C.line, backgroundColor: C.magentaDeep }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-16">
           <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-14">
             <Reveal className="shrink-0" >
