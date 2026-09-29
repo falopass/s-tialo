@@ -158,7 +158,7 @@ function Tabla({ texto, index }: { texto: string; index: number }) {
 function Eyebrow({ children, light = false, color }: { children: React.ReactNode; light?: boolean; color?: string }) {
   return (
     <p
-      className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-extrabold"
+      className="text-[11px] uppercase tracking-[0.24em] mb-4 flex items-center gap-3 font-extrabold text-balance"
       style={{ color: color ?? (light ? '#F5C14E' : C.terracotta) }}
     >
       <Flecha className="w-[18px] h-[18px]" />
