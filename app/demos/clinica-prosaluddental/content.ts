@@ -1,15 +1,16 @@
 /**
  * app/demos/clinica-prosaluddental/content.ts
  *
- * Datos del mockup. REALES (ficha pública de Google Maps y Facebook):
- * nombre, dirección, las 7 reseñas, el teléfono fijo (73) 233 2070 —
- * solo llamadas, la clínica no publica WhatsApp — y la página
- * facebook.com/clinicadent.prosalud. Las fotos de
- * public/demos/clinica-prosaluddental/ son la fachada real en
- * Curapalihue 442 (Google Street View, mayo 2024); los interiores
- * de los servicios van como bosquejo marcado porque la clínica no
- * publica fotos propias. Todo lo demás (servicios, precios, horarios,
- * textos de reseñas) es contenido de muestra.
+ * Datos del mockup. REALES (ficha de Google Maps verificada 29-09-2026):
+ * nombre, dirección, rating 4.1 con 7 reseñas, el teléfono fijo
+ * (73) 233 2070 — solo llamadas, la clínica no publica WhatsApp —,
+ * el horario (lun a vie 9:00-13:00 y 14:00-18:30, fin de semana
+ * cerrado) y la página facebook.com/clinicadent.prosalud. Las fotos
+ * de public/demos/clinica-prosaluddental/ son la fachada real en
+ * Curapalihue 442 (Google Street View); es la única foto pública
+ * del negocio — ni Maps ni Facebook muestran interiores — así que
+ * los interiores de los servicios van como bosquejo marcado.
+ * Todo lo demás (servicios, precios, textos de reseñas) es muestra.
  */
 
 export const BIZ = {
@@ -24,6 +25,9 @@ export const BIZ = {
   phoneTel: '+56732332070',
   facebook: 'https://www.facebook.com/clinicadent.prosalud/',
   reviews: 7,
+  rating: '4,1',
+  hoursWeek: 'Lun a vie 9:00–13:00 y 14:00–18:30',
+  hoursWeekend: 'Sábados y domingos cerrado',
 } as const
 
 // La clínica solo publica teléfono fijo: el CTA de contacto es una llamada.

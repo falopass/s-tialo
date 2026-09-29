@@ -260,7 +260,7 @@ export default function ProSaludDentalPage() {
               <svg viewBox="0 0 24 24" className="w-[13px] h-[13px]" fill={C.orange} stroke={C.orange} strokeWidth="1.5" strokeLinejoin="round" aria-hidden="true">
                 <path d="M12 2.5 L14.9 8.6 L21.5 9.4 L16.6 14 L18 20.5 L12 17.2 L6 20.5 L7.4 14 L2.5 9.4 L9.1 8.6 Z" />
               </svg>
-              {BIZ.reviews} reseñas en Google
+              {BIZ.rating} · {BIZ.reviews} reseñas en Google
             </span>
             <span className="hidden md:inline">{BIZ.phoneDisplay}</span>
             <span className="hidden lg:inline" style={{ color: 'rgba(255,255,255,0.8)' }}>sitio de ejemplo</span>
@@ -381,8 +381,8 @@ export default function ProSaludDentalPage() {
               </h2>
               <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: 'rgba(255,255,255,0.72)' }}>
                 ProSaludDental atiende en {BIZ.address}, {BIZ.city}: el
-                dentista de la comuna, al alcance de un mensaje. Acumula{' '}
-                {BIZ.reviews} reseñas en su ficha de Google.
+                dentista de la comuna, al alcance de una llamada. Acumula{' '}
+                un {BIZ.rating} de promedio en {BIZ.reviews} reseñas de su ficha de Google.
               </p>
               <ul className="space-y-3 mb-9">
                 {[
@@ -440,9 +440,9 @@ export default function ProSaludDentalPage() {
                   Lo que dicen los pacientes
                 </h3>
                 <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                  ProSaludDental acumula {BIZ.reviews} reseñas en Google
-                  Maps. Estos textos son de muestra: al publicar van las
-                  reseñas reales.
+                  ProSaludDental acumula un {BIZ.rating} de promedio con{' '}
+                  {BIZ.reviews} reseñas en Google Maps. Estos textos son de
+                  muestra: al publicar van las reseñas reales.
                 </p>
                 <a
                   href={MAPS_URL}
@@ -566,7 +566,7 @@ export default function ProSaludDentalPage() {
                 </svg>
                 <span>
                   <strong className="font-bold" style={{ color: C.inkDeep }}>Horario:</strong>{' '}
-                  por confirmar — agenda tu hora por teléfono
+                  {BIZ.hoursWeek} · {BIZ.hoursWeekend}
                 </span>
               </li>
             </ul>
