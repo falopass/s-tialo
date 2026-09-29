@@ -3370,8 +3370,8 @@ const BLITZ = [
     name: 'Cabañas y Camping El Esfuerzo',
     rubro: 'Camping y cabañas',
     city: 'Molina',
-    tagline: 'Muestra nueva (ficha de diseno pendiente).',
-    gradient: 'linear-gradient(135deg, #F7F0DC 0%, #A63B21 150%)',
+    tagline: 'Camping junto al río en Molina: papel crema, techos óxido, lima del negocio y celosías de madera.',
+    gradient: 'linear-gradient(135deg, #F7F0DC 0%, #A63B21 110%, #86B93C 190%)',
   },
   {
     slug: 'comercial-servimaule',
