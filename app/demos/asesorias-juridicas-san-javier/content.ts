@@ -11,6 +11,12 @@
  *   la venta de insumos de oficina del mismo domicilio.
  * - La ficha tiene una sola reseña de 5 estrellas, sin texto: se muestra
  *   tal cual, sin inventar cita.
+ * - Verificación cruzada: la nómina de jueces árbitros del Poder Judicial
+ *   para Talca (pjud.cl, jul-2024) inscribe en este mismo domicilio al
+ *   abogado Erick Cancino Poblete — civil, comercial, familia y
+ *   comunidades en general.
+ * - Las tres fotos son registros reales de Street View de la ficha:
+ *   la fachada con el letrero y dos vistas de la calle Sgto. Aldea.
  */
 
 export const BIZ = {
@@ -25,6 +31,16 @@ export const BIZ = {
   rating: 5.0,
   ratingLabel: '5,0',
   reviews: 1,
+} as const
+
+/**
+ * El abogado inscrito en este domicilio según la nómina de jueces
+ * árbitros del PJUD (Talca, 2024). Dato oficial, no publicitario.
+ */
+export const ABOGADO = {
+  nombre: 'Erick Cancino Poblete',
+  inscripcion: 'nómina de jueces árbitros del PJUD, jurisdicción de Talca',
+  areas: 'civil · comercial · familia · comunidades',
 } as const
 
 /** Los tres servicios que declara la propia ficha de Google. */

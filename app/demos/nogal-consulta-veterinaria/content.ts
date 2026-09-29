@@ -5,8 +5,9 @@
  * - Ficha de Google Maps «Nogal consulta veterinaria»: Veterinario,
  *   Maipú 1702, Molina (Maule) · +56 9 9883 7389 · 4,5 de 5 en
  *   57 reseñas. La ficha no está reclamada: sin horario ni sitio web.
- * - La foto del local es la imagen real que muestra la ficha
- *   (registro de Street View de la cuadra de Maipú 1702).
+ * - Las fotos son registros reales de Street View tomados de la ficha
+ *   (la fachada de Maipú 1702, la esquina de la plaza y el Mercado,
+ *   vistos desde la misma cuadra).
  * - Las citas son reseñas reales de la ficha (nombre de pila).
  *   La ficha no publica fotos del interior: los espacios sin foto
  *   real van marcados como «bosquejo».

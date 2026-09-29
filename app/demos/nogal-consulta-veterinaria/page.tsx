@@ -350,9 +350,9 @@ export default function NogalConsultaVeterinariaPage() {
                   <span style={{ color: C.leaf }}>centro de Molina</span>
                 </h2>
                 <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: C.muted }}>
-                  La consulta queda en {BIZ.address}, a pasos de la plaza.
-                  La ficha aún no publica horario — escriba por WhatsApp
-                  para agendar.
+                  La consulta queda en {BIZ.address}, a pasos de la plaza y
+                  del Mercado de Molina. La ficha aún no publica horario —
+                  escriba por WhatsApp para agendar.
                 </p>
                 <dl className="grid grid-cols-2 gap-x-6 gap-y-5 mb-8 text-sm">
                   {[
@@ -379,18 +379,36 @@ export default function NogalConsultaVeterinariaPage() {
               </div>
               <div className="space-y-5">
                 <div className="grid grid-cols-2 gap-5">
-                  <div className="relative aspect-[4/3] overflow-hidden border" style={{ borderColor: C.ink }}>
-                    <Image
-                      src={`${IMG}/local.webp`}
-                      alt="Calle Maipú a la altura del 1702 en Molina, donde está la consulta veterinaria Nogal — registro real de la ficha"
-                      fill
-                      sizes="(min-width: 1024px) 25vw, 50vw"
-                      className="object-cover"
-                    />
-                    <span className={`${mono.className} absolute bottom-2 left-2 text-[9px] uppercase tracking-[0.16em] px-2 py-1`} style={{ backgroundColor: 'rgba(36,49,31,0.9)', color: C.paper }}>
-                      foto real · ficha de Google
-                    </span>
-                  </div>
+                  {[
+                    {
+                      src: 'local.webp',
+                      alt: 'Calle Maipú a la altura del 1702 en Molina, donde está la consulta veterinaria Nogal — registro real de la ficha',
+                      tag: 'la fachada',
+                    },
+                    {
+                      src: 'plaza.webp',
+                      alt: 'Esquina de la plaza de Molina con la florería, a pasos de la consulta — registro de la cuadra en la ficha',
+                      tag: 'la plaza, a pasos',
+                    },
+                    {
+                      src: 'mercado.webp',
+                      alt: 'El Mercado de Molina visto desde la cuadra de la consulta — registro real de la ficha',
+                      tag: 'el Mercado, enfrente',
+                    },
+                  ].map((f) => (
+                    <div key={f.src} className="relative aspect-[4/3] overflow-hidden border" style={{ borderColor: C.ink }}>
+                      <Image
+                        src={`${IMG}/${f.src}`}
+                        alt={f.alt}
+                        fill
+                        sizes="(min-width: 1024px) 25vw, 50vw"
+                        className="object-cover"
+                      />
+                      <span className={`${mono.className} absolute bottom-2 left-2 text-[9px] uppercase tracking-[0.16em] px-2 py-1`} style={{ backgroundColor: 'rgba(36,49,31,0.9)', color: C.paper }}>
+                        foto real · {f.tag}
+                      </span>
+                    </div>
+                  ))}
                   {/* La ficha no publica fotos del interior: escena marcada como bosquejo */}
                   <div
                     className="relative aspect-[4/3] border flex flex-col items-center justify-center gap-2 p-4"
@@ -449,7 +467,7 @@ export default function NogalConsultaVeterinariaPage() {
             Sitiazo
           </a>{' '}
           para {BIZ.name}. Dirección, teléfono, nota y reseñas son datos reales de su
-          ficha de Google; la foto de la cuadra es el registro real de la ficha y la
+          ficha de Google; las fotos de la cuadra son registros reales de la ficha y la
           escena del interior está marcada como bosquejo porque la ficha no publica
           fotos propias.{' '}
           <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing} tap-44`} style={{ color: '#B9CF9C' }}>

@@ -4,7 +4,7 @@ import localFont from 'next/font/local'
 import { SITE, whatsappLink } from '@/lib/config'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { demoMetadata } from '../meta'
-import { BIZ, SERVICIOS, PASOS, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import { BIZ, ABOGADO, SERVICIOS, PASOS, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -253,11 +253,21 @@ export default function AsesoriasJuridicasSanJavierPage() {
                 <br />
                 <span style={{ color: C.sello }}>en su ficha</span>
               </h2>
-              <p className="text-sm md:text-base leading-relaxed max-w-sm mb-8" style={{ color: C.tintaSoft }}>
+              <p className="text-sm md:text-base leading-relaxed max-w-sm mb-6" style={{ color: C.tintaSoft }}>
                 La ficha de Google registra {BIZ.ratingLabel} de 5 estrellas.
                 Es un registro joven — la primera reseña la dejó Alexis
                 Arellano con cinco estrellas.
               </p>
+              <div className="border-l-2 pl-4 mb-8 max-w-sm" style={{ borderColor: C.sello }}>
+                <p className={`${mono.className} text-[10px] uppercase tracking-[0.22em] mb-1.5`} style={{ color: C.sello }}>
+                  Constancia · pjud.cl
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: C.tintaSoft }}>
+                  En este domicilio figura inscrito el abogado{' '}
+                  <strong className="font-bold" style={{ color: C.tinta }}>{ABOGADO.nombre}</strong>,
+                  en la {ABOGADO.inscripcion} — {ABOGADO.areas}.
+                </p>
+              </div>
               <a
                 href={MAPS_URL}
                 target="_blank"
@@ -337,8 +347,35 @@ export default function AsesoriasJuridicasSanJavierPage() {
                     className="object-cover"
                   />
                   <span className={`${mono.className} absolute bottom-2 left-2 text-[9px] uppercase tracking-[0.16em] px-2 py-1`} style={{ backgroundColor: 'rgba(35,48,60,0.9)', color: C.papel }}>
-                    foto real · ficha de Google
+                    foto real · la fachada
                   </span>
+                </div>
+                <div className="grid grid-cols-2 gap-5">
+                  {[
+                    {
+                      src: 'calle.webp',
+                      alt: 'La calle Sargento Aldea con sus árboles, a la altura de la oficina — registro real de la ficha',
+                      tag: 'la calle',
+                    },
+                    {
+                      src: 'cuadra.webp',
+                      alt: 'La cuadra de Sgto. Aldea 2661 en San Javier, vista desde la esquina — registro real de la ficha',
+                      tag: 'la cuadra',
+                    },
+                  ].map((f) => (
+                    <div key={f.src} className="relative aspect-[4/3] overflow-hidden border-2" style={{ borderColor: C.tinta }}>
+                      <Image
+                        src={`${IMG}/${f.src}`}
+                        alt={f.alt}
+                        fill
+                        sizes="(min-width: 1024px) 25vw, 50vw"
+                        className="object-cover"
+                      />
+                      <span className={`${mono.className} absolute bottom-2 left-2 text-[9px] uppercase tracking-[0.16em] px-2 py-1`} style={{ backgroundColor: 'rgba(35,48,60,0.9)', color: C.papel }}>
+                        foto real · {f.tag}
+                      </span>
+                    </div>
+                  ))}
                 </div>
                 <div className="overflow-hidden border-2 min-h-[300px]" style={{ borderColor: C.tinta }}>
                   <LazyMap
@@ -381,8 +418,8 @@ export default function AsesoriasJuridicasSanJavierPage() {
             Sitiazo
           </a>{' '}
           para {BIZ.name}. Dirección, teléfono, servicios y nota son datos
-          reales de su ficha de Google; la foto de la fachada es el registro
-          real de la ficha.{' '}
+          reales de su ficha de Google; la inscripción del abogado es dato
+          oficial de pjud.cl y las fotos son registros reales de la ficha.{' '}
           <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2 ${focusRing} tap-44`} style={{ color: '#E4B6A5' }}>
             ¿Lo hacemos realidad?
           </a>
