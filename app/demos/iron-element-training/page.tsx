@@ -283,7 +283,7 @@ export default function IronElementTrainingPage() {
                   <span className={`${display.className} font-bold uppercase tracking-tight text-lg md:text-xl`} style={{ color: C.paper }}>
                     {ESTACIONES[0].nombre}
                   </span>
-                  <span className={`${mono.className} text-[10px] uppercase tracking-[0.14em] shrink-0`} style={{ color: C.yellow }}>
+                  <span className={`${mono.className} text-[10px] uppercase tracking-[0.14em] text-right leading-snug`} style={{ color: C.yellow }}>
                     {ESTACIONES[0].detalle}
                   </span>
                 </figcaption>
@@ -308,7 +308,7 @@ export default function IronElementTrainingPage() {
                     <span className={`${display.className} font-bold uppercase tracking-tight text-base`} style={{ color: C.paper }}>
                       {e.nombre}
                     </span>
-                    <span className={`${mono.className} text-[9px] md:text-[10px] uppercase tracking-[0.12em] shrink-0`} style={{ color: C.yellow }}>
+                    <span className={`${mono.className} text-[9px] md:text-[10px] uppercase tracking-[0.12em] text-right leading-snug`} style={{ color: C.yellow }}>
                       {e.detalle}
                     </span>
                   </figcaption>
@@ -335,7 +335,7 @@ export default function IronElementTrainingPage() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
             <Reveal>
               <div className="border-2 p-5 md:p-7" style={{ borderColor: 'rgba(242,247,240,0.4)', backgroundColor: 'rgba(23,23,26,0.18)' }}>
-                <p className={`${mono.className} text-[10px] uppercase tracking-[0.2em] mb-3`} style={{ color: 'rgba(242,247,240,0.75)' }}>
+                <p className={`${mono.className} text-[10px] uppercase tracking-[0.2em] mb-3`} style={{ color: C.greenInk }}>
                   Mensualidad
                 </p>
                 <p className={`${display.className} font-bold leading-none text-4xl md:text-6xl mb-3`} style={{ color: '#FFFFFF' }}>
@@ -346,7 +346,7 @@ export default function IronElementTrainingPage() {
                   Rango publicado por el gym en su Instagram. Escríbeles
                   y te pasan el plan que te acomoda.
                 </p>
-                <p className={`${mono.className} text-[10px] uppercase tracking-[0.16em]`} style={{ color: 'rgba(242,247,240,0.6)' }}>
+                <p className={`${mono.className} text-[10px] uppercase tracking-[0.16em]`} style={{ color: C.greenInk }}>
                   valores {BIZ.igUser} · marzo 2026
                 </p>
                 <a
@@ -371,12 +371,12 @@ export default function IronElementTrainingPage() {
                     <span className={`${display.className} font-bold uppercase tracking-tight text-base md:text-lg`} style={{ color: C.greenInk }}>
                       {h.dias}
                     </span>
-                    <span className={`${mono.className} text-sm font-bold`} style={{ color: C.yellow }}>
+                    <span className={`${mono.className} text-sm font-bold px-1.5 py-0.5 rounded-sm`} style={{ color: C.yellow, backgroundColor: C.ink }}>
                       {h.horas}
                     </span>
                   </div>
                 ))}
-                <p className={`${mono.className} px-5 py-3 text-[10px] uppercase tracking-[0.16em]`} style={{ color: 'rgba(242,247,240,0.65)' }}>
+                <p className={`${mono.className} px-5 py-3 text-[10px] uppercase tracking-[0.16em]`} style={{ color: C.greenInk }}>
                   horario publicado en la ficha de Google
                 </p>
               </div>
