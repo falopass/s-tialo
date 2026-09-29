@@ -232,6 +232,7 @@
   "hostal-josefa": "2026-09-27T05:53:34-03:00",
   "hostal-plaza-maule-express": "2026-09-28T20:13:13+00:00",
   "hostel-1760": "2026-09-28T19:43:30+00:00",
+  "hosteria-itahue": "2026-09-29T05:13:29-03:00",
   "hotel-boutique-normandi": "2026-09-29T02:57:21+00:00",
   "hotel-marcos-gamero": "2026-09-29T01:07:18+00:00",
   "imprenta-multigraf": "2026-09-28T23:26:12+00:00",
@@ -343,6 +344,7 @@
   "oriente-hotel-boutique": "2026-09-28T20:50:49+00:00",
   "otel-con-m-caba-as-del-cerro": "2026-09-28T16:04:15+00:00",
   "paco-mer": "2026-09-29T06:51:46+00:00",
+  "paila-con-huevos": "2026-09-29T08:25:47.730Z",
   "panaderia-bravo": "2026-09-26T17:02:35-03:00",
   "panaderia-la-moderna-talca": "2026-09-28T18:24:00+00:00",
   "panes-y-postres-metodo-grez-talca": "2026-09-29T04:56:45+00:00",
@@ -385,7 +387,9 @@
   "restaurant-casa-del-mar": "2026-09-29T06:33:25+00:00",
   "restaurant-donde-quelito": "2026-09-29T07:01:58+00:00",
   "restaurant-el-encuentro": "2026-09-27T04:47:22-03:00",
+  "restaurant-el-rancho": "2026-09-29T05:15:59-03:00",
   "restaurant-el-yugo": "2026-09-29T08:03:01+00:00",
+  "restaurant-germania": "2026-09-29T05:19:22-03:00",
   "restaurant-la-esquina": "2026-09-29T07:14:23+00:00",
   "restaurant-toro-bayo": "2026-09-29T04:34:35-03:00",
   "restaurante-esmeralda": "2026-09-29T02:31:37-03:00",
@@ -462,8 +466,5 @@
   "wow-park": "2026-09-26T22:53:19-03:00",
   "yp-construcciones": "2026-09-28T03:39:36+00:00",
   "yum-express-talca": "2026-09-28T16:16:35+00:00",
-  "zamono": "2026-09-26T23:27:10-03:00",
-  "hosteria-itahue": "2026-09-29T08:13:21.514Z",
-  "restaurant-el-rancho": "2026-09-29T08:15:53.369Z",
-  "restaurant-germania": "2026-09-29T08:18:10.767Z"
+  "zamono": "2026-09-26T23:27:10-03:00"
 }

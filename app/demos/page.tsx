@@ -3621,6 +3621,14 @@ const BLITZ = [
     tagline: 'La mesa puesta: mantel a cuadros, cazuela en marco de arco y la laguna con cisnes frente al local.',
     gradient: 'linear-gradient(135deg, #F8F1E3 0%, #B93524 110%, #331E0D 190%)',
   },
+  {
+    slug: 'paila-con-huevos',
+    name: 'La Paila de Huevos',
+    rubro: 'Picada y comida casera',
+    city: 'San Rafael',
+    tagline: 'La picada de la Ruta 5: papel de horno, greda y el letrero pintado a mano del quincho.',
+    gradient: 'linear-gradient(135deg, #F4E9D2 0%, #B84A24 90%, #241B0F 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
