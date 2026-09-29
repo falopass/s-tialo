@@ -2527,6 +2527,14 @@ const BLITZ = [
     tagline: 'Anaquel de almazara en oscuro oliva: botellas 8 Olivos, Alto Lontué y Monjes, con diploma EVOO 2014.',
     gradient: 'linear-gradient(135deg, #161B0D 0%, #3A4423 55%, #B48A2E 160%)',
   },
+  {
+    slug: 'clinica-dental-araucaria-molina',
+    name: 'Clínica Dental Araucaria',
+    rubro: 'Clínica dental',
+    city: 'Molina',
+    tagline: 'La clínica de la puerta de madera en Av. Sur: verde bosque, marco de madera y los carteles de las Correa.',
+    gradient: 'linear-gradient(135deg, #0E2117 0%, #1E4433 55%, #9A6A3C 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
