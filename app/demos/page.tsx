@@ -29,12 +29,15 @@ const BLITZ = [
     city: 'San Clemente',
     tagline: 'La casona del Álamo: Fraunces + Karla, rojo granero y pradera, carta criolla real y amenities del predio.',
     gradient: 'linear-gradient(135deg, #F4EDDC 0%, #A03123 120%, #2E5726 190%)',
+  },
+  {
     slug: 'mily-restaurant',
     name: 'Mily Restaurant',
     rubro: 'Restaurant familiar',
     city: 'San Javier',
     tagline: 'El diner de la Arturo Prat: papel cuadrillé, rojo del pick que pincha cada plato y la cajita Mily que piden por nombre.',
     gradient: 'linear-gradient(135deg, #FDF7EC 0%, #C0272D 115%, #14324B 190%)',
+  },
   {
     slug: 'rico-s-restaurant',
     name: "Rico's Restaurant",
@@ -58,6 +61,7 @@ const BLITZ = [
     city: 'Río Claro',
     tagline: 'El parador de madera del km 218: las puertas literales de la entrada, la botillería de vinos del Maule y 1.008 reseñas.',
     gradient: 'linear-gradient(135deg, #F2E7CF 0%, #B53A2A 120%, #211308 190%)',
+  },
   {
     slug: 'restaurant-la-rueda',
     name: 'Restaurant La Rueda',
@@ -81,6 +85,7 @@ const BLITZ = [
     city: 'Romeral',
     tagline: 'La casa de portón a la Quilvo: mantel cuadrillé, mesa de campo propuesta y reseñas reales del pasajero.',
     gradient: 'linear-gradient(135deg, #F7F1E3 0%, #B5522D 110%, #2E4A38 190%)',
+  },
   {
     slug: 'el-roto-quezada',
     name: 'El Roto Quezada',
@@ -88,6 +93,7 @@ const BLITZ = [
     city: 'Río Claro',
     tagline: 'El diario mural del comedor de Cumpeo: portada de archivo, la lámina del roto Quezada y cartas de los comensales.',
     gradient: 'linear-gradient(135deg, #F2ECDC 0%, #8E2B1F 120%)',
+  },
   {
     slug: 'el-pollo-farsante',
     name: 'El Pollo Farsante',
@@ -159,14 +165,6 @@ const BLITZ = [
     city: 'Talca',
     tagline: 'La esquina de Las Rastras: verde botella de sus azulejos, neón que no apaga y toldo a rayas.',
     gradient: 'linear-gradient(135deg, #F6EFE1 0%, #9FE870 90%, #14382C 190%)',
-  },
-  {
-    slug: 'el-pollo-farsante',
-    name: 'El Pollo Farsante',
-    rubro: 'Restaurante',
-    city: 'Cumpeo, Río Claro',
-    tagline: 'El cómic de Cumpeo: viñetas, ¡PLOP! y la carta real de la pizarra en la entrada a Pelotillehue.',
-    gradient: 'linear-gradient(135deg, #FBF3DC 0%, #F2C230 60%, #D62B1F 150%)',
   },
   {
     slug: 'rukalauken-food-drinks',
