@@ -3013,6 +3013,14 @@ const BLITZ = [
     tagline: 'La página como ficha de ruta: asfalto y azul de su camión, manifiesto de cargas y flota real al frente.',
     gradient: 'linear-gradient(135deg, #10161E 0%, #2E63C4 120%, #F2B705 200%)',
   },
+  {
+    slug: 'consulta-medica-san-clemente',
+    name: 'Consulta Médica San Clemente',
+    rubro: 'Kinesiología',
+    city: 'San Clemente',
+    tagline: 'La página como consulta de barrio: crema y salvia, arco de esquina y sus líneas de atención reales.',
+    gradient: 'linear-gradient(135deg, #FAF4EA 0%, #3A7D5C 90%, #25543D 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
