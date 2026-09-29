@@ -3533,6 +3533,30 @@ const BLITZ = [
     tagline: 'La casa del jardín: ventanas con partidor, hortensias, tarifas reales por capacidad y sello Sernatur.',
     gradient: 'linear-gradient(135deg, #FBFAF7 0%, #3F7052 115%, #C0668B 190%)',
   },
+  {
+    slug: 'vaiven-bar-restaurant',
+    name: 'Vaivén - Bar Restaurant',
+    rubro: 'Bar y parrilla',
+    city: 'Linares',
+    tagline: 'La caja de acero corten: carbón, óxido y crema, con díptico día/noche y cartel de horarios hasta las 3 AM.',
+    gradient: 'linear-gradient(135deg, #17100B 0%, #A94F26 120%, #F3E8D6 190%)',
+  },
+  {
+    slug: 'restaurant-el-yugo',
+    name: 'Restaurant El Yugo',
+    rubro: 'Restaurant familiar',
+    city: 'Colbún',
+    tagline: 'La pizarra del almuerzo: papel mantel, tiza y marcador rojo para el comedor camino a las termas.',
+    gradient: 'linear-gradient(135deg, #F2EBDC 0%, #B7392B 120%, #22271F 190%)',
+  },
+  {
+    slug: 'costanera-pelluhue',
+    name: 'Costanera, Restorán & Bar',
+    rubro: 'Restorán y bar de playa',
+    city: 'Pelluhue',
+    tagline: 'La terraza sobre la arena: azul mar, teal de quitasoles y carta real con ceviches y tablas.',
+    gradient: 'linear-gradient(135deg, #F3ECDC 0%, #0B6E78 110%, #0D2C36 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
