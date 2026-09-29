@@ -115,6 +115,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F6EFE1 0%, #9FE870 90%, #14382C 190%)',
   },
   {
+    slug: 'el-pollo-farsante',
+    name: 'El Pollo Farsante',
+    rubro: 'Restaurante',
+    city: 'Cumpeo, Río Claro',
+    tagline: 'El cómic de Cumpeo: viñetas, ¡PLOP! y la carta real de la pizarra en la entrada a Pelotillehue.',
+    gradient: 'linear-gradient(135deg, #FBF3DC 0%, #F2C230 60%, #D62B1F 150%)',
+  },
+  {
     slug: 'rukalauken-food-drinks',
     name: 'RukaLauken Food & Drinks',
     rubro: 'Bar & grill',
