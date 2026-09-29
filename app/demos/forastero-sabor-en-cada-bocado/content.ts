@@ -8,7 +8,8 @@
  * (Salchi Forastera, Salchi Golosa, Salchi Glotona, pizzas, ass
  * forasteros, completos, empanadas, churrascos y delivery). Las promos
  * mostradas son las gráficas reales que el local publica en Facebook;
- * su vigencia se confirma por WhatsApp.
+ * su vigencia se confirma por WhatsApp. Las reseñas citadas son las 4
+ * reales de su ficha de Google Maps (todas de 5 estrellas, 29-09-2026).
  */
 
 export const BIZ = {
@@ -45,3 +46,30 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
 )}&output=embed`
 
 export const IMG = '/demos/forastero-sabor-en-cada-bocado'
+
+// Las 4 reseñas reales de la ficha de Google Maps del local (todas de 5 ★).
+// La cuarta (Lilian Campos Romero) no tiene texto: se muestra solo la nota.
+export const RESENAS = [
+  {
+    nombre: 'Eduardo Toledo',
+    fecha: 'Hace 3 meses',
+    texto:
+      'Restaurante ubicado en la comuna de Pencahue, que cuenta con una variada carta, donde destacan sus pizzas artesanales de muy buena calidad y gran sabor. El local es bastante amplio y cómodo, y la atención es cordial y expedita…',
+  },
+  {
+    nombre: 'Angélica Ibarra',
+    fecha: 'Hace 2 meses',
+    texto: 'Buena experiencia, el joven Manuel super amable, la comida super rica, local limpio.',
+  },
+  {
+    nombre: 'Sunil Sanjay Butir Sumbul',
+    fecha: 'Hace 4 meses',
+    texto:
+      'Soy de la India y fui por primera vez a este local y la atención que me dio el niño en caja es excelente. Las comidas son recomendadas y el niño es muy amable, cortés y caballero. ¡Muy buen servicio!',
+  },
+] as const
+
+export const RESENA_SIN_TEXTO = {
+  nombre: 'Lilian Campos Romero',
+  fecha: 'Hace 5 meses',
+} as const

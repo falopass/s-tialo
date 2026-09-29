@@ -4,7 +4,7 @@ import localFont from 'next/font/local'
 import { Reveal, BlitzNav, WaFab, Stars } from '../blitz-kit'
 import { DemoBand } from '../kit'
 import { demoMetadata } from '../meta'
-import { BIZ, WA_LINK, WA_LINK_LLEVAR, MAPS_URL, MAPS_EMBED, IMG } from './content'
+import { BIZ, WA_LINK, WA_LINK_LLEVAR, MAPS_URL, MAPS_EMBED, IMG, RESENAS, RESENA_SIN_TEXTO } from './content'
 import LazyMap from '../lazy-map'
 
 const display = localFont({
@@ -49,6 +49,7 @@ const NAV_LINKS = [
   { label: 'Las salchis', href: '#salchis' },
   { label: 'La carta', href: '#carta' },
   { label: 'Promos', href: '#promos' },
+  { label: 'Opiniones', href: '#opiniones' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -387,6 +388,65 @@ export default function ForasteroPage() {
         </ul>
       </section>
 
+      {/* ── Opiniones: las 4 reseñas reales de su Google ── */}
+      <section id="opiniones" className="scroll-mt-20">
+        <GoldRule />
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
+          <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-10 lg:gap-14 items-start">
+            <Reveal>
+              <Eyebrow>Opiniones reales de Google</Eyebrow>
+              <h2 className={`${display.className} text-[34px] md:text-[52px] leading-[1.02] tracking-[0.01em]`}>
+                {BIZ.rating} de 5: las {BIZ.reviews} reseñas son de{' '}
+                <span style={{ color: C.gold }}>cinco estrellas</span>
+              </h2>
+              <p className="mt-4 max-w-md text-[15px] md:text-[16px] leading-relaxed" style={{ color: C.muted }}>
+                Los que paran en Villagra 704 lo cuentan así en su ficha de
+                Google. Textos reales, tal como los escribieron.
+              </p>
+              <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-4">
+                <Stars value={5} color={C.gold} className="w-[18px] h-[18px]" />
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${FOCUS} inline-flex min-h-[44px] items-center text-[14px] font-semibold underline underline-offset-4 tap-44`}
+                  style={{ color: C.gold }}
+                >
+                  Ver la ficha en Google →
+                </a>
+              </div>
+            </Reveal>
+            <div className="space-y-5">
+              {RESENAS.map((r, i) => (
+                <Reveal key={r.nombre} delay={i * 100}>
+                  <figure
+                    className="rounded-2xl p-6 md:p-7"
+                    style={{ backgroundColor: C.panel, border: `1px solid ${C.line}` }}
+                  >
+                    <Stars value={5} color={C.gold} className="w-[14px] h-[14px]" />
+                    <blockquote className="mt-3.5 text-[15px] md:text-[16px] leading-relaxed" style={{ color: C.cream }}>
+                      “{r.texto}”
+                    </blockquote>
+                    <figcaption className="mt-4 text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ color: C.muted }}>
+                      {r.nombre} · {r.fecha} · Google
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+              <Reveal delay={320}>
+                <p
+                  className="flex items-center gap-3 px-6 py-4 rounded-2xl text-[13px] font-semibold"
+                  style={{ backgroundColor: C.panelHi, border: `1px dashed ${C.line}`, color: C.muted }}
+                >
+                  <Stars value={5} color={C.gold} className="w-[13px] h-[13px] shrink-0" />
+                  {RESENA_SIN_TEXTO.nombre} también dejó cinco estrellas ({RESENA_SIN_TEXTO.fecha.toLowerCase()}).
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Delivery: banner real del local ── */}
       <section className="scroll-mt-20" style={{ backgroundColor: C.panel }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] gap-8 lg:gap-14 items-center">
@@ -497,7 +557,7 @@ export default function ForasteroPage() {
           </div>
           <p className="text-[12px] leading-relaxed md:max-w-[26rem]" style={{ color: C.dim }}>
             <span className="font-semibold" style={{ color: C.gold }}>Mockup de Sitiazo.</span>{' '}
-            Datos, fotos, platos y promos del local reales, publicados en su Facebook y su ficha de Google.
+            Datos, fotos, platos, promos y reseñas del local reales, publicados en su Facebook y su ficha de Google.
           </p>
         </div>
         <div className="max-w-6xl mx-auto px-5 md:px-8 pb-24 [&>div]:static [&>div]:max-w-full [&>div]:w-fit">
