@@ -122,7 +122,7 @@ export default function EscuelaDeConductoresAmateurs() {
               priority
             />
             <figcaption className={`${mono.className} px-4 py-3 text-[11px] uppercase tracking-wider flex flex-wrap gap-x-6 gap-y-1`} style={{ backgroundColor: C.asphalt2, color: C.muted }}>
-              <span>El auto de práctica — 6 Oriente esquina Alameda</span>
+              <span>El auto de práctica — 6 Oriente esquina Alameda</span>
               <span style={{ color: C.signal }}>Aceptan Visa · Mastercard</span>
             </figcaption>
           </figure>
