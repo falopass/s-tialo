@@ -3637,6 +3637,14 @@ const BLITZ = [
     tagline: 'La carta mural: crema de afiche, rojo y verde del logo, con los precios reales de su pared.',
     gradient: 'linear-gradient(135deg, #FAF4E8 0%, #D92B28 95%, #1B1312 175%)',
   },
+  {
+    slug: 'donde-paulo-restaurante',
+    name: 'Donde Paulo Restaurant',
+    rubro: 'Restaurant y parrilladas',
+    city: 'Talca',
+    tagline: 'La sobremesa del clásico: mantel, carbón y azul cuadrillé, con la historia de Río Claro a la 9 Oriente.',
+    gradient: 'linear-gradient(135deg, #F6F1E7 0%, #1C1A17 95%, #C4552C 180%)',
+  },
 ]
 
 export const metadata: Metadata = {
