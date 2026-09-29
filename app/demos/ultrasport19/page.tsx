@@ -247,12 +247,13 @@ export default function Ultrasport19Page() {
       >
         <div className="max-w-6xl mx-auto px-5 md:px-8 h-[60px] md:h-[68px] flex items-center justify-between gap-4">
           <a href="#inicio" className="flex items-center gap-2.5 leading-none tap-44">
-            <span
-              className={`${display.className} font-black text-base md:text-lg px-2 py-1 border-[3px]`}
-              style={{ backgroundColor: C.yellow, color: C.ink, borderColor: C.ink }}
-            >
-              U19
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${IMG}/logo.webp`}
+              alt="Logo de Ultrasport19"
+              className="w-10 h-10 md:w-11 md:h-11 border-[3px] object-cover"
+              style={{ backgroundColor: C.paper, borderColor: C.ink }}
+            />
             <span className="font-mono font-bold uppercase text-xs md:text-sm tracking-[0.2em]">
               Ultrasport19
             </span>
@@ -681,9 +682,14 @@ export default function Ultrasport19Page() {
       <footer style={{ backgroundColor: C.ink, color: C.paper }}>
         <div className="max-w-6xl mx-auto pl-5 pr-20 md:pl-8 py-6 flex flex-col gap-2">
           <p className={`${display.className} font-black uppercase text-xl flex items-center gap-3`}>
-            <span className="inline-block px-2 py-0.5 border-[3px] text-sm" style={{ backgroundColor: C.yellow, color: C.ink, borderColor: C.yellow }}>
-              U19
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${IMG}/logo.webp`}
+              alt=""
+              aria-hidden="true"
+              className="w-10 h-10 border-[3px] object-cover"
+              style={{ borderColor: C.yellow }}
+            />
             {BIZ.name}
           </p>
           <address className="not-italic font-mono text-[11px] uppercase tracking-[0.16em]" style={{ color: 'rgba(245,244,239,0.75)' }}>
