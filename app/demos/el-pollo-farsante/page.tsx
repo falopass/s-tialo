@@ -26,8 +26,8 @@ const C = {
   paperHi: '#FFF9EA',
   ink: '#1A140E',
   muted: '#5C5142',
-  red: '#D62B1F',
-  sky: '#3E7CB1',
+  red: '#C92A1E',
+  sky: '#376E9F',
   yellow: '#F2C230',
   line: '#1A140E',
 }
@@ -534,24 +534,24 @@ export default function ElPolloFarsantePage() {
           <Reveal>
             <Cap n="CAP. 4" titulo="Km 7,5 de la K-31" dark />
           </Reveal>
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div className="min-w-0">
               <Reveal>
                 <address className="not-italic mb-6">
                   <p className={`${display.className} uppercase leading-tight text-2xl md:text-4xl mb-2`} style={{ color: C.paperHi }}>
                     {BIZ.address}
                   </p>
-                  <p className="text-sm md:text-base" style={{ color: 'rgba(255,255,255,0.85)' }}>
+                  <p className="text-sm md:text-base" style={{ color: C.paperHi }}>
                     Camino a Cumpeo · {BIZ.city}, {BIZ.region}
                   </p>
                   <a
                     href={`tel:${BIZ.phoneTel}`}
                     className={`${mono.className} inline-block text-sm md:text-base mt-3 underline underline-offset-4 decoration-2 tap-44`}
-                    style={{ color: C.yellow, textDecorationColor: 'rgba(242,194,48,0.4)' }}
+                    style={{ color: C.paperHi, textDecorationColor: 'rgba(242,194,48,0.6)' }}
                   >
                     {BIZ.phoneDisplay}
                   </a>
-                  <p className={`${mono.className} text-[11px] md:text-xs mt-3 uppercase tracking-[0.14em]`} style={{ color: 'rgba(255,255,255,0.75)' }}>
+                  <p className={`${mono.className} text-[11px] md:text-xs mt-3 uppercase tracking-[0.14em]`} style={{ color: C.paperHi }}>
                     Instagram {BIZ.igUser}
                   </p>
                 </address>
@@ -580,7 +580,7 @@ export default function ElPolloFarsantePage() {
               </Reveal>
             </div>
             <Reveal delay={120}>
-              <div className="relative overflow-hidden border-[3px] aspect-[4/3] min-h-[300px]" style={{ borderColor: C.ink, boxShadow: `6px 6px 0 ${C.ink}` }}>
+              <div className="relative overflow-hidden border-[3px] min-h-[300px] md:aspect-[4/3]" style={{ borderColor: C.ink, boxShadow: `6px 6px 0 ${C.ink}` }}>
                 <LazyMap
                   title={`Mapa: ${BIZ.name}, ${BIZ.city}`}
                   src={MAPS_EMBED}
@@ -589,7 +589,7 @@ export default function ElPolloFarsantePage() {
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
-              <p className={`${mono.className} text-[10px] md:text-[11px] uppercase tracking-[0.16em] mt-3`} style={{ color: 'rgba(255,255,255,0.85)' }}>
+              <p className={`${mono.className} text-[10px] md:text-[11px] uppercase tracking-[0.16em] mt-3`} style={{ color: C.paperHi }}>
                 A la entrada de Cumpeo — busca el tótem del pollo
               </p>
             </Reveal>
