@@ -4549,6 +4549,14 @@ const BLITZ = [
     tagline: 'El domingo en la quinta: bosque y azul piscina, línea de tiempo del día y fotos reales del lugar.',
     gradient: 'linear-gradient(135deg, #F7F2E4 0%, #0E8FA8 110%, #173C2A 190%)',
   },
+  {
+    slug: 'toro-s-sushi-rauco',
+    name: "Toro's Sushi Rauco",
+    rubro: 'Restaurante de sushi',
+    city: 'Rauco',
+    tagline: 'Un ataque de sabor: neón ovni sobre negro espacial, carta real con precios y delivery en Rauco.',
+    gradient: 'linear-gradient(135deg, #0B0B10 0%, #12121A 55%, #8CFF3C 170%)',
+  },
 ]
 
 export const metadata: Metadata = {
