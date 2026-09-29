@@ -40,6 +40,8 @@ const C = {
   bosque: '#173C2A',
   bosqueOscuro: '#0F2A1D',
   agua: '#0E8FA8',
+  aguaFuerte: '#0A6E80',
+  aguaCielo: '#7FD4E0',
   aguaClara: '#E2F2F4',
   crema: '#F7F2E4',
   ink: '#1E2B24',
@@ -139,7 +141,7 @@ export default function Rukapen() {
           bar: 'rgba(15,42,29,0.82)',
           ink: '#F7F2E4',
           line: 'rgba(247,242,228,0.14)',
-          btnBg: C.agua,
+          btnBg: C.aguaFuerte,
           btnInk: '#fff',
         }}
         fontClass={redonda.className}
@@ -192,7 +194,7 @@ export default function Rukapen() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="tap-44 inline-flex items-center px-6 py-3 text-base font-bold rounded-full"
-                style={{ backgroundColor: C.agua, color: '#fff' }}
+                style={{ backgroundColor: C.aguaFuerte, color: '#fff' }}
               >
                 Reservar un día
               </a>
@@ -218,7 +220,7 @@ export default function Rukapen() {
         <Reveal>
           <p
             className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`}
-            style={{ color: C.agua }}
+            style={{ color: C.aguaFuerte }}
           >
             Fotos del lugar, tal cual es
           </p>
@@ -267,7 +269,7 @@ export default function Rukapen() {
           <Reveal>
             <p
               className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`}
-              style={{ color: C.agua }}
+              style={{ color: C.aguaCielo }}
             >
               Así se ve el día
             </p>
@@ -312,7 +314,7 @@ export default function Rukapen() {
                       style={{ borderColor: C.agua, backgroundColor: C.bosque }}
                       aria-hidden="true"
                     />
-                    <p className={`${mono.className} text-sm`} style={{ color: C.agua }}>
+                    <p className={`${mono.className} text-sm`} style={{ color: C.aguaCielo }}>
                       {d.hora}
                     </p>
                     <h3
@@ -337,7 +339,7 @@ export default function Rukapen() {
         <Reveal>
           <p
             className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`}
-            style={{ color: C.agua }}
+            style={{ color: C.aguaFuerte }}
           >
             Reseñas reales de Google
           </p>
@@ -385,7 +387,7 @@ export default function Rukapen() {
           <Reveal>
             <p
               className={`${mono.className} text-[11px] uppercase tracking-[0.22em] mb-3`}
-              style={{ color: C.agua }}
+              style={{ color: C.aguaFuerte }}
             >
               Cómo llegar
             </p>
