@@ -4789,6 +4789,22 @@ const BLITZ = [
     tagline: 'La carta calada del vivero: blanco zinc, gerbera roja y las anémonas reales de su Facebook.',
     gradient: 'linear-gradient(135deg, #F7F4EC 0%, #2C4A32 90%, #C2449A 190%)',
   },
+  {
+    slug: 'vivero-los-colibries',
+    name: 'Vivero Los Colibríes',
+    rubro: 'Vivero y jardín',
+    city: 'San Clemente',
+    tagline: 'Papel crema, tinta hoja y el rosado de su malla rachel: etiquetas de planta y cintas de colores, con fotos reales.',
+    gradient: 'linear-gradient(135deg, #F7F2E3 0%, #3E6B34 80%, #B23A7E 160%)',
+  },
+  {
+    slug: 'espacio-unihue',
+    name: 'Espacio Unihue',
+    rubro: 'Arriendo de bodegas y contenedores',
+    city: 'Talca',
+    tagline: 'Plano de obra: asfalto, verde contenedor y el plano real de bodegas numeradas del cruce Unihue.',
+    gradient: 'linear-gradient(135deg, #1B1E1B 0%, #2E4A34 60%, #7FA65A 140%)',
+  },
 ]
 
 export const metadata: Metadata = {
