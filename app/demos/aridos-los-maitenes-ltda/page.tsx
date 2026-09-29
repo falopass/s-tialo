@@ -38,7 +38,7 @@ const C = {
 }
 
 export const metadata: Metadata = demoMetadata({
-  slug: 'aridos-los-maitenes-ltda-',
+  slug: 'aridos-los-maitenes-ltda',
   title: 'Áridos Los Maitenes Ltda. | Arena y ripio en San Clemente',
   description:
     'Planta de áridos en el sector Queri, San Clemente: arena y ripio con retiro en planta. Horario de oficina y cotizaciones por WhatsApp.',

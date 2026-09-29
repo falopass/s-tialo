@@ -1,5 +1,5 @@
 /**
- * app/demos/jard-n-do-a-ignacia-1/content.ts
+ * app/demos/jardin-dona-ignacia-1/content.ts
  *
  * Datos verificados en la ficha de Google Maps «Jardín Doña Ignacia 1»
  * (Veintiocho Sur 361, Talca): categoría centro de jardinería, teléfono,
@@ -35,4 +35,4 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
   'Jardín Doña Ignacia 1, Veintiocho Sur 361, Talca, Chile',
 )}&output=embed`
 
-export const IMG = '/demos/jard-n-do-a-ignacia-1'
+export const IMG = '/demos/jardin-dona-ignacia-1'

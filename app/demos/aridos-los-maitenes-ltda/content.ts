@@ -1,5 +1,5 @@
 /**
- * app/demos/aridos-los-maitenes-ltda-/content.ts
+ * app/demos/aridos-los-maitenes-ltda/content.ts
  *
  * Datos verificados en la ficha de Google Maps «ARIDOS LOS MAITENES LTDA.»
  * (San Clemente, sector Queri): teléfono, nota 3.8 con 5 reseñas y
@@ -38,4 +38,4 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
   'ARIDOS LOS MAITENES LTDA., San Clemente, Maule, Chile',
 )}&output=embed`
 
-export const IMG = '/demos/aridos-los-maitenes-ltda-'
+export const IMG = '/demos/aridos-los-maitenes-ltda'

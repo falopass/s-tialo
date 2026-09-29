@@ -45,7 +45,7 @@ const C = {
 }
 
 export const metadata: Metadata = demoMetadata({
-  slug: 'jard-n-do-a-ignacia-1',
+  slug: 'jardin-dona-ignacia-1',
   title: 'Jardín Doña Ignacia | Centro de jardinería en Talca',
   description:
     'Vivero y centro de jardinería en Veintiocho Sur 361, Talca: plantas de interior y exterior, tierra e insumos, regalos envueltos. 4,6 en Google. Abierto todos los días.',

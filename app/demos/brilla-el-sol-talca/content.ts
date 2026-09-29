@@ -6,6 +6,9 @@
  * 422 seguidores) confirma el arriendo de la cancha en bloques de
  * 90 minutos. Las fotos del demo son reales y salen de esa misma
  * ficha (partidos, entrenamientos, entrada y plaza del recinto).
+ * Revisado 29-09-2026: la ficha no publica logo y su Facebook exige
+ * sesión para ver la foto de perfil — la marca se compone
+ * tipográficamente (no hay logo real que bajar).
  */
 export const BIZ = {
   name: 'Complejo Deportivo Brilla El Sol',
