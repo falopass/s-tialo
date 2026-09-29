@@ -2,9 +2,11 @@
  * app/demos/atlantix-clinica-odontologica-san-javier-de-lonc/content.ts
  *
  * Datos del mockup. REALES (ficha pública de Google Maps, Instagram
- * @clinicaatlantix y su página de agenda en AgendaPro): nombre,
- * dirección, 4,8 estrellas en 58 reseñas con citas reales, WhatsApp,
- * horarios de atención y la lista de servicios de su propio afiche.
+ * @clinicaatlantix y su agenda pública en AgendaPro): nombre, dirección,
+ * 4,8 estrellas en 58 reseñas con citas reales, WhatsApp, horarios y la
+ * lista de servicios publicada (afiche + agenda online). El titular del
+ * hero es el eslogan pintado en su propia vitrina. Las fotos son reales:
+ * fachada y letreros de Maps; interior, ortodoncia y carillas de su IG.
  */
 
 export const BIZ = {
@@ -18,11 +20,15 @@ export const BIZ = {
   phoneTel: '+56920148665',
   whatsapp: '56920148665',
   instagram: 'clinicaatlantix',
+  instagramFollowers: '1.649',
   instagramUrl: 'https://instagram.com/clinicaatlantix',
   rating: 4.8,
   ratingLabel: '4,8',
   reviews: 58,
 } as const
+
+/** Eslogan pintado en la vitrina del local (visible en las fotos). */
+export const SLOGAN = 'La sonrisa es el mensaje más potente que existe'
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
   'Hola, vi la página de Atlantix Clínica Odontológica y quiero agendar una hora',
@@ -42,19 +48,27 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
 
 export const IMG = '/demos/atlantix-clinica-odontologica-san-javier-de-lonc'
 
-/** Lista de su afiche publicado + AgendaPro (odontopediatría, implantes,
- * endodoncia y blanqueamiento figuran en su agenda online). */
-export const SERVICIOS = [
+/** Los 6 del afiche difundido por la clínica en sus redes. */
+export const SERVICIOS_AFICHE = [
   'Limpieza dental',
   'Tapaduras',
   'Extracciones',
   'Ortodoncia',
   'Ortopedia maxilar',
   'Periodoncia',
+] as const
+
+/** Los que figuran además en su agenda online de AgendaPro. */
+export const SERVICIOS_AGENDA = [
   'Blanqueamiento',
   'Implantes',
   'Endodoncia',
   'Odontopediatría',
+  'Prótesis dentales',
+  'Carillas',
+  'Restauraciones',
+  'Cirugía oral',
+  'Radiografías',
 ] as const
 
 /** Horario real de su agenda pública en AgendaPro. */
