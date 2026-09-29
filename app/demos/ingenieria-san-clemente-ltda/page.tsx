@@ -355,7 +355,7 @@ export default function IngenieriaSanClementePage() {
           </div>
           <p className="text-[11px] leading-relaxed pt-4 border-t" style={{ color: C.mutedDark, borderColor: 'rgba(236,233,223,0.12)' }}>
             Mockup preparado por {SITE.name} para {BIZ.legalName} — empresa sin web ni ficha pública en Maps al 29-09-2026.
-            Sitios como este {SITE.priceText} —{' '}
+            Sitios como este desde $79.990 —{' '}
             <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className={`${focusRing} underline underline-offset-2 font-semibold tap-44`} style={{ color: C.ambar }}>
               hablar con Sitiazo
             </a>.

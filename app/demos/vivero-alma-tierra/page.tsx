@@ -49,7 +49,13 @@ export const metadata: Metadata = demoMetadata({
   image: `${IMG}/invernadero.webp`,
 })
 
-const HILERAS = [
+const HILERAS: readonly {
+  etq: string
+  titulo: string
+  texto: string
+  real?: boolean
+  scene?: 'gavillas' | 'mesa' | 'parcela'
+}[] = [
   {
     etq: 'El invernadero',
     real: true,
@@ -78,7 +84,7 @@ const HILERAS = [
       'El vivero funciona en una parcela rural de San Clemente. Portón de campo, árboles y el invernadero al fondo — croquis a la espera de la foto real.',
     scene: 'parcela',
   },
-] as const
+]
 
 export default function Page() {
   return (
