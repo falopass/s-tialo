@@ -131,7 +131,7 @@ export default function Ando() {
               ceviches y sushi de barra, con buffet de platos peruanos.
               La frase de arriba está pintada a tiza en su propio salón.
             </p>
-            <div className="mt-5 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3 pr-14">
               <a
                 href={BIZ.cartaQr}
                 target="_blank"
@@ -301,7 +301,7 @@ export default function Ando() {
               <br />
               <a href={BIZ.facebook} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 tap-44">facebook.com/ando.nikkeichifa</a>
             </address>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3 pr-14">
               <a
                 href={CALL_LINK}
                 className="inline-flex items-center justify-center h-[52px] px-6 rounded-full text-sm font-bold uppercase tracking-wide"
@@ -349,22 +349,23 @@ export default function Ando() {
             <a href={CALL_LINK} className="underline underline-offset-2 tap-44">{BIZ.phoneDisplay}</a>
           </address>
         </div>
-        <div className="border-t" style={{ borderColor: 'rgba(237,230,214,0.14)' }}>
-          <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(237,230,214,0.68)' }}>
-            Sitio de ejemplo preparado por{' '}
-            <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.chalk }}>
-              Sitiazo
-            </a>{' '}
-            para {BIZ.name} ({BIZ.city}). Los datos y las fotos son reales:
-            ficha de Google, su Facebook y su carta QR; el local figura en
-            Av. España 109 — direcciones antiguas en directorios son la
-            misma casa. No se generó ninguna imagen.{' '}
-            <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#E8B9A8' }}>
-              ¿Lo hacemos realidad?
-            </a>
-          </p>
-        </div>
       </footer>
+
+      <div style={{ backgroundColor: '#0E0B0A', borderTop: '1px solid rgba(237,230,214,0.14)' }}>
+        <p className="max-w-6xl mx-auto px-5 md:px-8 pt-4 pb-20 text-xs leading-relaxed" style={{ color: 'rgba(237,230,214,0.68)' }}>
+          Sitio de ejemplo preparado por{' '}
+          <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.chalk }}>
+            Sitiazo
+          </a>{' '}
+          para {BIZ.name} ({BIZ.city}). Los datos y las fotos son reales:
+          ficha de Google, su Facebook y su carta QR; el local figura en
+          Av. España 109 — direcciones antiguas en directorios son la
+          misma casa. No se generó ninguna imagen.{' '}
+          <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#E8B9A8' }}>
+            ¿Lo hacemos realidad?
+          </a>
+        </p>
+      </div>
 
       <WaFab href={CALL_LINK} label={`Llamar a ${BIZ.name}`} />
     </div>
