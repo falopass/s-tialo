@@ -33,6 +33,7 @@ const C = {
   teal: '#0E7C7B',
   tealSoft: '#DCEFED',
   coral: '#E4572E',
+  coralDark: '#BC4522',
   coralSoft: '#FBE3D8',
   mustard: '#F2B705',
   leaf: '#4E8A5A',
@@ -108,7 +109,7 @@ export default function Page() {
           bar: 'rgba(255,246,232,0.94)',
           ink: C.ink,
           line: C.line,
-          btnBg: C.coral,
+          btnBg: C.coralDark,
           btnInk: '#FFFFFF',
         }}
         ctaLabel="Consultar cupo"
@@ -139,7 +140,7 @@ export default function Page() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${display.className} tap-44 inline-flex items-center rounded-full px-6 py-3 text-base font-extrabold text-white shadow-lg`}
-                    style={{ backgroundColor: C.coral }}
+                    style={{ backgroundColor: C.coralDark }}
                   >
                     Consultar por un cupo
                   </a>
@@ -206,7 +207,7 @@ export default function Page() {
       <section id="jardin" className="scroll-mt-20 max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
         <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
           <Reveal>
-            <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.coral }}>
+            <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.coralDark }}>
               El jardín
             </p>
             <h2 className={`${display.className} mt-3 text-3xl md:text-5xl font-extrabold leading-[1]`}>
@@ -224,7 +225,7 @@ export default function Page() {
                   className="rounded-3xl p-5 flex gap-4 items-start"
                   style={{ backgroundColor: C.card, border: `1.5px solid ${C.line}` }}
                 >
-                  <span className={`${mono.className} shrink-0 text-sm font-bold pt-1`} style={{ color: C.coral }}>
+                  <span className={`${mono.className} shrink-0 text-sm font-bold pt-1`} style={{ color: C.coralDark }}>
                     {f.n}
                   </span>
                   <div>
@@ -283,7 +284,7 @@ export default function Page() {
         <div className="grid gap-10 md:grid-cols-2 md:items-start">
           <div>
             <Reveal>
-              <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.coral }}>
+              <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em]`} style={{ color: C.coralDark }}>
                 Matrícula y consultas
               </p>
               <h2 className={`${display.className} mt-3 text-3xl md:text-5xl font-extrabold leading-[1]`}>
@@ -329,7 +330,7 @@ export default function Page() {
                   <details className="group border-b py-4" style={{ borderColor: C.line }}>
                     <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-bold text-base tap-44">
                       {f.q}
-                      <span className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-lg leading-none transition-transform group-open:rotate-45" style={{ color: C.coral }}>+</span>
+                      <span className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-lg leading-none transition-transform group-open:rotate-45" style={{ color: C.coralDark }}>+</span>
                     </summary>
                     <p className="text-sm leading-relaxed mt-3 max-w-xl" style={{ color: C.muted }}>{f.a}</p>
                   </details>
