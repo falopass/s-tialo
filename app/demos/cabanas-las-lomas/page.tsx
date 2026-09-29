@@ -39,10 +39,11 @@ const C = {
   soft: '#EAE0C9',
   card: '#FBF7EA',
   ink: '#2B2416',
-  muted: '#6E6450',
+  muted: '#64573D',
   sign: '#6B4A26',
   deep: '#241C0F',
   gold: '#B9975B',
+  goldHi: '#E3C48A',
   cream: '#F5EFE1',
   line: 'rgba(107,74,38,0.24)',
 }
@@ -119,7 +120,7 @@ function Mojon({ children, light = false }: { children: React.ReactNode; light?:
   return (
     <p
       className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em] font-bold mb-4 flex items-center gap-3`}
-      style={{ color: light ? C.gold : C.sign }}
+      style={{ color: light ? C.goldHi : C.sign }}
     >
       <span
         className="inline-block w-3 h-3 rounded-sm rotate-45 shrink-0"
@@ -227,13 +228,13 @@ export default function CabanasLasLomasPage() {
                 <img src={`${IMG}/logo.webp`} alt="Logo de Cabañas Las Lomas" className="h-10 w-auto" />
                 <span className="flex-1 border-t border-dashed" style={{ borderColor: 'rgba(247,241,227,0.4)' }} aria-hidden="true" />
               </div>
-              <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em] font-bold mb-3`} style={{ color: C.gold }}>
+              <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-[0.3em] font-bold mb-3`} style={{ color: C.goldHi }}>
                 K-551 · Las Lomas Norte · San Clemente
               </p>
               <h1 className={`${signal.className} uppercase font-extrabold leading-[0.92] tracking-[0.01em] text-[clamp(3.2rem,12vw,7rem)] mb-5`} style={{ color: '#F7F1E3' }}>
                 Cabañas
                 <br />
-                Las Lomas <span aria-hidden="true" style={{ color: C.gold }}>→</span>
+                Las Lomas <span aria-hidden="true" style={{ color: C.goldHi }}>→</span>
               </h1>
               <p className="text-base md:text-lg leading-relaxed mb-7 max-w-lg" style={{ color: 'rgba(247,241,227,0.85)' }}>
                 Cabañas equipadas, restobar y piscina en la carretera hacia
@@ -292,7 +293,7 @@ export default function CabanasLasLomasPage() {
                 <li key={h.name} className="flex items-stretch">
                   <Placa>
                     {h.name}
-                    <span className={`${mono.className} text-[10px] tracking-[0.1em] font-bold normal-case`} style={{ color: C.gold }}>
+                    <span className={`${mono.className} text-[10px] tracking-[0.1em] font-bold normal-case`} style={{ color: C.goldHi }}>
                       · {h.km}
                     </span>
                   </Placa>
@@ -501,7 +502,7 @@ export default function CabanasLasLomasPage() {
                 <blockquote className={`${signal.className} text-xl md:text-2xl font-semibold leading-snug mb-4`} style={{ color: C.ink }}>
                   “{r.text}”
                 </blockquote>
-                <figcaption className={`${mono.className} text-[10px] uppercase tracking-[0.2em] font-bold`} style={{ color: C.gold }}>
+                <figcaption className={`${mono.className} text-[10px] uppercase tracking-[0.2em] font-bold`} style={{ color: C.sign }}>
                   {r.note}
                 </figcaption>
               </figure>
@@ -566,7 +567,7 @@ export default function CabanasLasLomasPage() {
           <Reveal className="flex-1">
             <Mojon light>reservas</Mojon>
             <h2 className={`${signal.className} uppercase font-extrabold tracking-[0.02em] text-4xl md:text-5xl leading-[1.0] mb-4`} style={{ color: '#F7F1E3' }}>
-              Las Lomas <span style={{ color: C.gold }}>te espera →</span>
+              Las Lomas <span style={{ color: C.goldHi }}>te espera →</span>
             </h2>
             <p className="text-sm md:text-base leading-relaxed max-w-lg" style={{ color: 'rgba(247,241,227,0.82)' }}>
               Escríbenos con tus fechas y cuántos son: respondemos con
