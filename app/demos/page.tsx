@@ -2797,6 +2797,14 @@ const BLITZ = [
     tagline: 'El tablero del municipio: azul institucional + naranja del escudo, ventanillas de trámites y el directorio de la red.',
     gradient: 'linear-gradient(135deg, #1D2070 0%, #2E3192 60%, #F7941E 170%)',
   },
+  {
+    slug: 'torno-metal',
+    name: 'Torno Metal',
+    rubro: 'Metalmecánica y niplería',
+    city: 'Talca',
+    tagline: 'Ficha técnica del taller: grafito y amarillo del galpón de 5 Sur, catálogo de niplería con códigos y sus reseñas reales.',
+    gradient: 'linear-gradient(135deg, #15181B 0%, #E8A90C 80%, #E9E6DC 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
