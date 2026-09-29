@@ -15,6 +15,14 @@ const BLITZ = [
     gradient: 'linear-gradient(135deg, #F6EFE0 0%, #C45F1E 130%, #17301F 190%)',
   },
   {
+    slug: 'hostal-eben-ezer',
+    name: 'Hostal Eben-Ezer',
+    rubro: 'Hostal y comida casera',
+    city: 'Empedrado',
+    tagline: 'La pizarra del almuerzo: papel mantel, verde oliva y ladrillo para el comedor familiar del centro de Empedrado.',
+    gradient: 'linear-gradient(135deg, #F2EAD9 0%, #B5492C 120%, #3F4A2A 190%)',
+  },
+  {
     slug: 'el-carrito',
     name: 'El Carrito',
     rubro: 'Comida rápida',
