@@ -3581,6 +3581,22 @@ const BLITZ = [
     tagline: 'Ticket del día: papel, petróleo y sello rojo, vales reales del letrero y la pizarra frente a la plaza.',
     gradient: 'linear-gradient(135deg, #FBF6EC 0%, #0E4C5C 120%, #C0392B 190%)',
   },
+  {
+    slug: 'plaza-recova-cafeteria-y-restaurant',
+    name: 'Plaza Recova Cafetería y Restaurant',
+    rubro: 'Cafetería y restaurant',
+    city: 'Yerbas Buenas',
+    tagline: 'La carta de la recova: crema y rojo de su logo, pizarra de platos y polaroids del sándwich insignia.',
+    gradient: 'linear-gradient(135deg, #FAF3E4 0%, #B3131A 110%, #1C150E 190%)',
+  },
+  {
+    slug: 'cocineria-los-troncos',
+    name: 'Cocinería Los Troncos',
+    rubro: 'Cocinería y comida casera',
+    city: 'Pencahue',
+    tagline: 'La mesa puesta: mantel a cuadros, cazuela en marco de arco y la laguna con cisnes frente al local.',
+    gradient: 'linear-gradient(135deg, #F8F1E3 0%, #B93524 110%, #331E0D 190%)',
+  },
 ]
 
 export const metadata: Metadata = {
