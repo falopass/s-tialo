@@ -89,14 +89,66 @@ const NUMEROS = [
   { value: '12:00 a 19:30', label: 'horario, todos los días' },
 ]
 
-const PLATOS_MESA = [
-  { src: 'paila', alt: 'Paila de greda humeante con mariscos y caldo', nombre: 'Paila de la casa' },
-  { src: 'plateada', alt: 'Plateada a lo pobre con huevo frito, papas y ensalada', nombre: 'Plateada a lo pobre' },
-  { src: 'sopaipillas', alt: 'Sopaipillas doradas junto al mortero de piedra con pebre', nombre: 'Sopaipillas y pebre' },
-  { src: 'pescado', alt: 'Paila de pescado con papas cocidas servida en greda', nombre: 'Pescado en paila' },
-  { src: 'cazuela', alt: 'Cazuela de ave con verduras servida en fuente de greda', nombre: 'Cazuela' },
-  { src: 'tabla', alt: 'Tabla de quesos, cecinas y pan amado para compartir', nombre: 'Tabla para la mesa' },
+const MESA_POLAROIDS = [
+  {
+    src: 'manos',
+    alt: 'Manos partiendo un pollo entero sobre la mesa, con ensalada chilena, papas fritas y una paila de greda al lado',
+    caption: 'El pollo se parte en la mesa · $18.000 a $20.000',
+    rot: 'rotate-[1.4deg]',
+  },
+  {
+    src: 'lopobre',
+    alt: 'Filete a lo pobre con papas fritas, huevos fritos y cebolla en plato de borde verde',
+    caption: 'Filete a lo pobre · $16.000',
+    rot: 'rotate-[-1.6deg]',
+  },
 ]
+
+const MESA_TIRA = [
+  {
+    src: 'mesadulce',
+    alt: 'Mesa con mantel de cuadrillé azul: palta, choclo, sopaipillas, limones y una botella de Coca-Cola junto a un jockey',
+    caption: 'La palta y el choclo de la pichanga · sopaipillas $400',
+  },
+  {
+    src: 'pescadofrito',
+    alt: 'Pescado frito dorado con ensalada chilena de tomate y cebolla',
+    caption: 'Pescado frito con ensalada chilena',
+  },
+  {
+    src: 'juegos',
+    alt: 'Juegos infantiles de madera con columpio y resbalín en el patio arbolado junto al río',
+    caption: 'Afuera, los juegos de los niños junto al río',
+  },
+]
+
+/** Trozo de masking tape para clavar fotos y papelones. */
+function Tape({ className = '', rot = '-6deg' }: { className?: string; rot?: string }) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`absolute h-6 w-20 ${className}`}
+      style={{
+        transform: `rotate(${rot})`,
+        backgroundColor: 'rgba(255,248,234,0.6)',
+        boxShadow: '0 1px 3px rgba(38,25,14,0.2)',
+      }}
+    />
+  )
+}
+
+/** Foto con borde de papel clavada con tape. */
+function Polaroid({ src, alt, caption, rot }: { src: string; alt: string; caption: string; rot: string }) {
+  return (
+    <figure className={`relative ${rot}`} style={{ backgroundColor: C.cream, padding: 8, boxShadow: '0 6px 18px rgba(38,25,14,0.18)' }}>
+      <Tape className="-top-2.5 left-1/2 -translate-x-1/2" />
+      <img src={`${IMG}/${src}.webp`} alt={alt} loading="lazy" className="w-full aspect-[4/3] object-cover" />
+      <figcaption className={`${mono.className} pt-2 pb-1 text-[10px] md:text-[11px] font-semibold uppercase tracking-wide leading-snug`} style={{ color: C.naranjaInk }}>
+        {caption}
+      </figcaption>
+    </figure>
+  )
+}
 
 function AvisoSitiazo() {
   return (
@@ -142,6 +194,7 @@ export default function LasViejasCochinasPage() {
       <div style={{ backgroundColor: C.ink }}>
         <BlitzNav
           name={BIZ.name}
+          logoSrc={`${IMG}/logo.webp`}
           links={NAV_LINKS}
           waLink={CALL_LINK}
           ctaLabel="Llamar"
@@ -230,36 +283,62 @@ export default function LasViejasCochinasPage() {
         </div>
       </section>
 
-      {/* ── Lo que llega a la mesa: corrida de platos reales ── */}
-      <section id="mesa" className="scroll-mt-16 py-14 md:py-20" style={{ backgroundColor: C.cream }}>
+      {/* ── La mesa servida: fotos con la gente y la mesa de verdad ── */}
+      <section id="mesa" className="scroll-mt-16 py-14 md:py-24 overflow-hidden" style={{ backgroundColor: C.cream }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
-            <h2 className={`${display.className} uppercase text-3xl md:text-5xl leading-[0.98]`} style={{ color: C.ink }}>
-              Lo que llega<br className="md:hidden" /> a la mesa
+            <Eyebrow>Fotos reales de la ficha del local</Eyebrow>
+            <h2 className={`${display.className} uppercase text-3xl md:text-5xl leading-[0.98] mt-3`} style={{ color: C.ink }}>
+              La mesa se sirve<br className="md:hidden" /> a mano llena
             </h2>
             <p className={`${mono.className} mt-3 text-xs md:text-sm uppercase tracking-[0.18em]`} style={{ color: C.muted }}>
-              Fotos del restaurante · desliza →
+              Los precios son los del papelón de la pared
             </p>
           </Reveal>
-        </div>
-        <Reveal delay={120}>
-          <div className="mt-8 flex gap-4 overflow-x-auto snap-x snap-mandatory px-5 md:px-8 pb-4 max-w-6xl mx-auto">
-            {PLATOS_MESA.map((p) => (
-              <figure key={p.src} className="shrink-0 w-[220px] md:w-[260px] snap-start">
+
+          <div className="mt-10 grid md:grid-cols-12 gap-6 md:gap-8 items-start">
+            <Reveal className="md:col-span-7">
+              <figure>
                 <img
-                  src={`${IMG}/${p.src}.webp`}
-                  alt={p.alt}
+                  src={`${IMG}/mesaservida.webp`}
+                  alt="Una mesa con mantel de cuadrillé azul ya servida: paila mariscal en greda, mortero de chancho en piedra, plato a lo pobre y sopaipilla"
                   loading="lazy"
-                  className="w-full aspect-[3/4] object-cover rounded-xl"
-                  style={{ border: `2px solid ${C.line}` }}
+                  className="w-full aspect-[4/3] object-cover rounded-xl"
+                  style={{ border: `3px solid ${C.naranjaInk}` }}
                 />
-                <figcaption className={`${mono.className} mt-2 text-xs font-semibold uppercase tracking-wide`} style={{ color: C.naranjaInk }}>
-                  {p.nombre}
+                <figcaption className={`${mono.className} mt-3 text-xs md:text-sm uppercase tracking-wide`} style={{ color: C.naranjaInk }}>
+                  Así llega la mesa: paila mariscal, mortero y a lo pobre
                 </figcaption>
               </figure>
+            </Reveal>
+            <div className="md:col-span-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-8 md:gap-10 pt-2">
+              {MESA_POLAROIDS.map((p, i) => (
+                <Reveal key={p.src} delay={120 + i * 100}>
+                  <Polaroid {...p} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {MESA_TIRA.map((p, i) => (
+              <Reveal key={p.src} delay={i * 90}>
+                <figure>
+                  <img
+                    src={`${IMG}/${p.src}.webp`}
+                    alt={p.alt}
+                    loading="lazy"
+                    className="w-full aspect-[4/3] object-cover rounded-lg"
+                    style={{ border: `2px solid ${C.line}` }}
+                  />
+                  <figcaption className={`${mono.className} mt-2 text-[11px] md:text-xs font-semibold uppercase tracking-wide leading-snug`} style={{ color: C.muted }}>
+                    {p.caption}
+                  </figcaption>
+                </figure>
+              </Reveal>
             ))}
           </div>
-        </Reveal>
+        </div>
       </section>
 
       {/* ── El mortero campeón ── */}
@@ -301,7 +380,7 @@ export default function LasViejasCochinasPage() {
       <Mantel />
 
       {/* ── La carta: el papelón de precios real ── */}
-      <section id="carta" className="scroll-mt-16 py-14 md:py-24" style={{ backgroundColor: C.paper }}>
+      <section id="carta" className="scroll-mt-16 py-14 md:py-24 overflow-hidden" style={{ backgroundColor: C.paper }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           <Reveal>
             <Eyebrow>La carta</Eyebrow>
@@ -314,21 +393,28 @@ export default function LasViejasCochinasPage() {
             </p>
           </Reveal>
 
-          {/* Los más pedidos: números grandes, precio real */}
-          <div className="mt-10 grid sm:grid-cols-3 gap-4">
+          {/* Los más pedidos: etiquetas de precio colgadas */}
+          <div className="mt-10 flex flex-wrap gap-4 md:gap-6">
             {MAS_PEDIDOS.map((m, i) => (
-              <Reveal key={m.n} delay={i * 80} className="h-full">
+              <Reveal key={m.n} delay={i * 80}>
                 <div
-                  className="h-full rounded-xl px-5 py-5 flex flex-col gap-1"
-                  style={{ backgroundColor: i === 0 ? C.tealDark : C.cream, border: `2px solid ${i === 0 ? C.tealDark : C.line}` }}
+                  className={`relative flex items-center gap-4 pl-8 pr-5 py-3 rounded-sm ${i % 2 ? 'rotate-[1.3deg]' : 'rotate-[-1.3deg]'}`}
+                  style={{ backgroundColor: C.naranjaLuz, boxShadow: '0 3px 0 rgba(158,61,6,0.5)' }}
                 >
-                  <p className={`${mono.className} text-[11px] uppercase tracking-[0.16em]`} style={{ color: i === 0 ? '#FFD9A0' : C.naranjaInk }}>
-                    {m.d}
-                  </p>
-                  <p className={`${display.className} uppercase text-xl md:text-2xl leading-tight`} style={{ color: i === 0 ? C.cream : C.ink }}>
-                    {m.n}
-                  </p>
-                  <p className={`${mono.className} text-lg md:text-xl font-bold`} style={{ color: i === 0 ? C.naranjaLuz : C.boton }}>
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full"
+                    style={{ backgroundColor: C.paper }}
+                  />
+                  <div>
+                    <p className={`${mono.className} text-[10px] font-semibold uppercase tracking-[0.16em] leading-tight`} style={{ color: C.ink }}>
+                      {m.d}
+                    </p>
+                    <p className={`${display.className} uppercase text-lg md:text-xl leading-tight`} style={{ color: C.ink }}>
+                      {m.n}
+                    </p>
+                  </div>
+                  <p className={`${mono.className} text-xl md:text-2xl font-bold`} style={{ color: C.ink }}>
                     {m.p}
                   </p>
                 </div>
@@ -336,45 +422,57 @@ export default function LasViejasCochinasPage() {
             ))}
           </div>
 
-          {/* El listado completo */}
-          <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {CARTA.map((g, gi) => (
-              <Reveal key={g.grupo} delay={gi * 60} className="h-full">
-                <div className="h-full rounded-xl p-5 md:p-6" style={{ backgroundColor: C.paperDeep, border: `2px dashed ${C.naranjaInk}` }}>
-                  <h3 className={`${display.className} uppercase text-lg md:text-xl tracking-wide`} style={{ color: C.naranjaInk }}>
-                    {g.grupo}
-                  </h3>
-                  <ul className="mt-3 space-y-2">
-                    {g.items.map((it) => (
-                      <li key={it.n} className="flex items-baseline gap-2 text-sm md:text-[15px]">
-                        <span style={{ color: C.ink }}>{it.n}</span>
-                        <span className="flex-1 border-b-2 border-dotted" style={{ borderColor: 'rgba(158,61,6,0.45)' }} aria-hidden="true" />
-                        <span className={`${mono.className} font-bold`} style={{ color: C.naranjaInk }}>{it.p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  {g.nota && (
-                    <p className="mt-4 text-xs leading-relaxed" style={{ color: C.muted }}>{g.nota}</p>
-                  )}
+          {/* El papelón: un solo tablero clavado en el pilar turquesa */}
+          <Reveal delay={100}>
+            <div className="mt-10 rounded-lg p-2 md:p-2.5" style={{ backgroundColor: C.tealDark }}>
+              <div className="relative rounded px-5 py-8 md:px-10 md:py-10" style={{ backgroundColor: C.paperDeep }}>
+                <Tape className="-top-4 left-8" rot="-5deg" />
+                <Tape className="-top-4 right-8" rot="4deg" />
+                <div className="flex items-baseline justify-between gap-4 pb-4 border-b-2 border-dashed" style={{ borderColor: 'rgba(158,61,6,0.45)' }}>
+                  <p className={`${mono.className} text-[11px] md:text-xs font-semibold uppercase tracking-[0.22em]`} style={{ color: C.naranjaInk }}>
+                    Listado de precios
+                  </p>
+                  <p className={`${mono.className} text-[11px] md:text-xs uppercase tracking-wide`} style={{ color: 'rgba(38,25,14,0.78)' }}>
+                    abril 2024
+                  </p>
                 </div>
-              </Reveal>
-            ))}
-            {/* El papelón real, clavado en el pilar */}
-            <Reveal delay={200} className="h-full">
-              <figure className="h-full flex flex-col">
-                <img
-                  src={`${IMG}/listado.webp`}
-                  alt="El listado de precios real del restaurante, escrito a mano en el papelón de la pared"
-                  loading="lazy"
-                  className="w-full rounded-xl object-cover rotate-[-1.5deg] shadow-lg"
-                  style={{ border: `6px solid ${C.cream}`, aspectRatio: '4/3' }}
-                />
-                <figcaption className={`${mono.className} mt-3 text-[11px] uppercase tracking-wide`} style={{ color: C.muted }}>
-                  El papelón de la pared del salón
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
+                <div className="mt-7 md:columns-2 md:gap-10">
+                  {CARTA.map((g) => (
+                    <div key={g.grupo} className="break-inside-avoid mb-8">
+                      <h3 className={`${display.className} uppercase text-xl md:text-2xl tracking-wide`} style={{ color: C.naranjaInk }}>
+                        {g.grupo}
+                      </h3>
+                      <ul className="mt-3 space-y-2">
+                        {g.items.map((it) => (
+                          <li key={it.n} className="flex items-baseline gap-2 text-sm md:text-[15px]">
+                            <span style={{ color: C.ink }}>{it.n}</span>
+                            <span className="flex-1 border-b-2 border-dotted" style={{ borderColor: 'rgba(158,61,6,0.45)' }} aria-hidden="true" />
+                            <span className={`${mono.className} font-bold`} style={{ color: C.naranjaInk }}>{it.p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {g.nota && (
+                        <p className="mt-3 text-xs leading-relaxed" style={{ color: 'rgba(38,25,14,0.78)' }}>{g.nota}</p>
+                      )}
+                    </div>
+                  ))}
+                  <figure className="break-inside-avoid relative rotate-[-1.5deg] mb-2" style={{ backgroundColor: C.cream, padding: 8, boxShadow: '0 6px 18px rgba(38,25,14,0.18)' }}>
+                    <Tape className="-top-2.5 left-1/2 -translate-x-1/2" />
+                    <img
+                      src={`${IMG}/listado.webp`}
+                      alt="El listado de precios real del restaurante, escrito a mano en el papelón de la pared"
+                      loading="lazy"
+                      className="w-full object-cover"
+                      style={{ aspectRatio: '4/3' }}
+                    />
+                    <figcaption className={`${mono.className} pt-2 pb-1 text-[10px] md:text-[11px] uppercase tracking-wide`} style={{ color: 'rgba(38,25,14,0.78)' }}>
+                      El original, clavado junto a la caja
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
       <Mantel />
@@ -415,8 +513,8 @@ export default function LasViejasCochinasPage() {
                 style={{ border: '3px solid rgba(255,248,234,0.3)' }}
               />
               <img
-                src={`${IMG}/decor.webp`}
-                alt="Detalle del salón: banderines de colores y decoración de picada chilena"
+                src={`${IMG}/salonvacio.webp`}
+                alt="El salón a la altura de la mesa: manteles rojos, pilares turquesa y los números de mesa colgando"
                 loading="lazy"
                 className="w-full h-full object-cover rounded-xl aspect-[4/5] mt-8"
                 style={{ border: '3px solid rgba(255,248,234,0.3)' }}

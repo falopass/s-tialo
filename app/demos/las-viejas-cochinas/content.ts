@@ -26,7 +26,7 @@ export const BIZ = {
   fundado: 1975,
   porPersona: '$10.000 a $15.000 por persona',
   horario: 'Todos los días de 12:00 a 19:30',
-  facebook: 'https://www.facebook.com/pages/category/Restaurant/Las-viejas-cochinas-105557124423869/',
+  facebook: 'https://www.facebook.com/p/Las-viejas-cochinas-100063634615098/',
 } as const
 
 // El restaurante solo publica teléfono fijo: el CTA de contacto es una llamada.
