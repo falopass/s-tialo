@@ -2805,6 +2805,14 @@ const BLITZ = [
     tagline: 'Ficha técnica del taller: grafito y amarillo del galpón de 5 Sur, catálogo de niplería con códigos y sus reseñas reales.',
     gradient: 'linear-gradient(135deg, #15181B 0%, #E8A90C 80%, #E9E6DC 160%)',
   },
+  {
+    slug: 'planificador-tributario',
+    name: 'Planificador Tributario',
+    rubro: 'Contabilidad y asesoría tributaria',
+    city: 'Talca',
+    tagline: 'Libro mayor en crema y verde: carátula SpA con RUT, servicios como líneas de cuenta y el condominio del 841.',
+    gradient: 'linear-gradient(135deg, #F6F1E3 0%, #1D5B42 90%, #22303E 160%)',
+  },
 ]
 
 export const metadata: Metadata = {
