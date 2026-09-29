@@ -2,7 +2,7 @@ export const BIZ = {
   name: 'Panes y Postres Método Grez',
   fullName: 'Panes y Postres Método Grez Talca',
   category: 'Tienda de postres sin azúcar y sin gluten',
-  address: '25 Oriente 3426, Talca',
+  address: '25 Oriente 3426, con 22 y Media Norte, Talca',
   city: 'Talca, Maule',
   phone: '56966755735',
   phoneDisplay: '+56 9 6675 5735',

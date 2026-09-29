@@ -194,8 +194,8 @@ export default function Page() {
             </div>
             <div className="md:col-span-5 min-h-[280px] md:min-h-0">
               <img
-                src={`${IMG}/torta-merengue.webp`}
-                alt="Torta con crema y merengue sin azúcar de Método Grez Talca"
+                src={`${IMG}/torta-crema.webp`}
+                alt="Torta de crema con rosetas sin azúcar de Método Grez Talca"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -216,8 +216,8 @@ export default function Page() {
           </Reveal>
           <Reveal delay={80}>
             <p className="mt-3 text-base md:text-lg leading-relaxed max-w-2xl" style={{ color: C.muted }}>
-              Todo lo que ves es real: fotos de la tienda. Tortas, panes, galletas
-              y chocolates que no llevan ni azúcar ni gluten.
+              Todo lo que ves es real: fotos de la tienda. Tortas, panes, galletas,
+              chocolates, cupcakes y gelatinas que no llevan ni azúcar ni gluten.
             </p>
           </Reveal>
           <div className="mt-8 grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
@@ -355,7 +355,7 @@ export default function Page() {
             </Reveal>
             <Reveal delay={100}>
               <p className="mt-4 text-base leading-relaxed" style={{ color: C.muted }}>
-                Sector oriente de Talca, cerca de 22 y Media Norte. Retira tu
+                Sector oriente de Talca, esquina de 22 y Media Norte. Retira tu
                 encargo o escribe y coordina el envío.
               </p>
             </Reveal>
