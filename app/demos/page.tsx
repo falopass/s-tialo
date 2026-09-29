@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'el-mexicano',
+    name: 'El Mexicano',
+    rubro: 'Restaurante mexicano',
+    city: 'Villa Alegre',
+    tagline: 'Cantina con guirnalda de papel picado: papel crema, rojo teja y sus murales reales.',
+    gradient: 'linear-gradient(135deg, #F4EAD6 0%, #B4231F 90%, #170D0C 150%)',
+  },
+  {
     slug: 'peppo-las-rastras',
     name: 'Peppo Las Rastras',
     rubro: 'Restaurante chileno',
