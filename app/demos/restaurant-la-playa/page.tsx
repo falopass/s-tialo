@@ -300,9 +300,23 @@ export default function LaPlayaPage() {
             ))}
           </div>
           <Reveal delay={160}>
-            <p className="mt-8 font-mono text-xs uppercase tracking-[0.18em]" style={{ color: C.tealSoft }}>
-              Carta transcrita tal cual la tienen en el local · puede variar
-            </p>
+            <div className="mt-10 flex flex-col md:flex-row items-start gap-6">
+              <figure
+                className="relative overflow-hidden w-full md:w-[340px] shrink-0 aspect-[4/3] rounded-lg"
+                style={{ border: `4px solid ${C.teal}`, transform: 'rotate(-1.2deg)', boxShadow: `5px 5px 0 rgba(12,70,71,0.25)` }}
+              >
+                <Image
+                  src={`${IMG}/carta.webp`}
+                  alt={`Carta real de ${BIZ.name} con los precios escritos a mano`}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width:768px) 340px, 92vw"
+                />
+              </figure>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] leading-relaxed" style={{ color: C.tealSoft }}>
+                Carta transcrita tal cual la tienen en el local · puede variar
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
