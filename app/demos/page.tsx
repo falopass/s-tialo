@@ -7,6 +7,14 @@ import DemoCatalog from './catalog'
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ = [
   {
+    slug: 'hasbu-motos',
+    name: 'Hasbu Motos',
+    rubro: 'Motos',
+    city: 'Talca',
+    tagline: 'Concesionario de motos: carbón y rojo-naranja, tipografía industrial, esquinas cortadas y siluetas de referencia.',
+    gradient: 'linear-gradient(135deg, #121110 0%, #3A1509 55%, #F0481C 135%)',
+  },
+  {
     slug: 'restaurant-fuego-bendito',
     name: 'Restaurante Fuego Bendito',
     rubro: 'Restaurante · parrilla y mariscos',

@@ -93,6 +93,7 @@ const FAMILIES: Family[] = [
       'repuesto',
       'lubric',
       'automotriz',
+      'motos',
     ],
   },
   {
@@ -184,6 +185,7 @@ const CABANAS_LA_QUEBRADA: CatalogDemo = {
 }
 
 const BLITZ_CREATED: Record<string, string> = {
+  'hasbu-motos': '2026-10-08',
   'topisima-optica-talca': '2026-09-29',
   'venta-de-autos-usados': '2026-09-29',
   'vivero-huilquilemu': '2026-09-29',
