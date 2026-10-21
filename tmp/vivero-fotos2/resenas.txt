@@ -1,3 +1,0 @@
-TABS: []
-CLICKED: null
-RESENAS: []

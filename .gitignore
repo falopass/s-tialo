@@ -27,5 +27,12 @@ sitiazo-design-system.md.pdf
 
 # trabajo local (fotos crudas, perfiles CDP, mediciones)
 tmp/
+.tmp/
 cache/
 nul
+*.stackdump
+*.log
+
+# worktrees y respaldos locales
+.wt-*/
+.backup-*/
