@@ -125,9 +125,11 @@ Cada sección usa una familia de layout distinta; ninguna se repite.
 | 1 | **Hero + pieza central (un solo bloque):** titular "Tu web, antes de pagar un peso.", bajada de 18 palabras, campo opcional "¿Cómo se llama tu negocio?" (ver 7b), CTA "Pide tu demo" (WhatsApp) y "Ver {total} demos" con el total real del catálogo. El escenario (captura real en formato celular) a la derecha y fijo en escritorio; en el celular queda fijo arriba y los tres pasos (Estructura, Forma, Publicada) pasan debajo. Sin eyebrow ni texto chico en el hero. | Split con columna fija (sticky) |
 | 2 | **Rubros:** tira de 8 demos publicados de otros rubros (manicura, heladería, mueblería, hogar, abogados, cabañas, dental, pastelería), en dither, con rubro y ciudad. Se desliza con el scroll; no repite los demos de la sección 3. | Tira horizontal ligada al scroll |
 | 3 | **Demos por rubro:** 6 capturas reales de demos de referencia en dither, con revelación a color; cada una con "Quiero uno así" (WhatsApp con ese demo de referencia) y, al final, el enlace "Busca el tuyo entre los {total} demos". | Grilla asimétrica de 12 columnas (2 en el celular) |
-| 4 | **Planes:** el Recomendado grande y los otros dos más chicos al lado. Sin efectos; el ojo descansa aquí. | Asimétrico destacado |
+| 4 | **Planes:** el Recomendado grande y los otros dos más chicos al lado. Sin efectos; el ojo descansa aquí. Cada plan muestra sus cuotas (y el Básico su mensual) y su propio "Quiero este plan" (ver 7c). | Asimétrico destacado |
+| 4b | **¿Cuál te conviene?:** tres preguntas de un toque y un plan recomendado con su botón. | Fieldsets en columna + tarjeta de resultado |
 | 5 | **Caso Rancho Itahue:** texto a la izquierda, captura de escritorio y de celular superpuestas a la derecha, cita textual del dueño. Solo hechos de su texto; sin métricas inventadas. | Split texto + capturas superpuestas |
 | 6 | **Proyectos propios:** CalculaChile y CVListo, etiquetados como productos propios del estudio, no como clientes. | Lista editorial de dos filas grandes |
+| 6b | **En resumen:** precio, formas de pago, plazos, demo, dónde y contacto en texto simple, desde `lib/config`. Es lo que citan Google y los asistentes de IA. | Lista de definiciones en dos columnas |
 | 7 | **Cierre:** punto amarillo y el mismo CTA "Pide tu demo". Si el visitante escribió su negocio, el titular lo nombra. | Centrado de una sola columna |
 
 Las texturas siguen el relato de arriba abajo: ASCII en el hero, dither en el proceso y los demos, color de los planes hacia abajo ("publicada").
@@ -181,6 +183,15 @@ El sitio principal vive en el route group `app/(sitio)/` con su propio `layout.t
 - Cada demo con captura (grilla, tira y catálogo destacado) tiene "Quiero uno así", que abre WhatsApp con ese demo como referencia. Los mensajes se arman en `_lib/contacto.ts` (`mensajeDemo`).
 - Las imágenes para compartir (Open Graph, 1200×630) salen de `scripts/sitio-og.mjs`: titular de la página en Cormorant y una captura real en dither detrás de la misma captura a color. Están en `public/sitio/og/` y se regeneran a mano cuando cambia un titular. Formato JPG, porque WhatsApp no siempre muestra WebP.
 - Las cifras del sitio se calculan en el build. El total de demos sale de `catalogo()` y nunca se escribe a mano.
+
+## 7c. Elegir plan en la primera visita (decisión de Diego, 2026-10-23)
+
+- Dos intenciones, dos etiquetas: "Pide tu demo" (ver antes de decidir) y "Quiero este plan" (ya decidió). El mensaje de "Quiero este plan" lleva plan, forma de pago y nombre del negocio (`mensajeDemo` con `plan` y `pago`).
+- Formas de pago: pago único 50% y 50%, hasta 3 cuotas sin interés, o mensual solo en el plan Básico. Los montos de las cuotas salen de `cuotas()` en `lib/config.ts`.
+- "Sin riesgo para ti" repite solo lo que dicen los términos: el demo es gratis y en cuotas o mensual se paga al entregar.
+- Barra fija con "Pide tu demo" en el celular (`BarraMovil`). Qué comunica: pedir el demo siempre está a un toque. Aparece cuando ya bajaste y ningún CTA principal (`[data-cta-principal]`) está a la vista, y nunca con el aviso de cookies abierto. Con movimiento reducido no se anima.
+- Cada clic a WhatsApp registra el evento `whatsapp` en Vercel Analytics, con `origen`, `plan`, `pago` y `conNegocio`.
+- Páginas por rubro en `/paginas-web-para/<rubro>/`, con datos en `content/rubros.ts`. Solo se publican rubros con 5 demos reales o más, y su texto es propio de cada rubro, sin cifras de mercado.
 
 ---
 

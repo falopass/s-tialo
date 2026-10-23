@@ -131,16 +131,42 @@ Preview (protegido con SSO de Vercel): https://sitiazo-git-redisenio-sitio-falop
 
 ### TODO de datos (sin resolver, para Diego)
 
-- **Pago y hosting:** resuelto (decisión de Diego, 2026-10-23). Tres formas: pago único (50% al comenzar, 50% al terminar), hasta 3 cuotas sin interés (tarjeta vía MercadoPago o directo a Sitiazo) o mensual $12.990; en cuotas y mensual el primer pago es en la entrega. Con mensual el sitio queda publicado mientras se pague. Términos, FAQ y `FORMAS_PAGO` alineados.
-- **Razón social por confirmar:** `LEGAL.legalName` es "Eldrinor y Vaelen".
+- **Pago y hosting:** resuelto (decisión de Diego, 2026-10-23). Tres formas: pago único (50% al comenzar, 50% al terminar), hasta 3 cuotas sin interés (tarjeta vía MercadoPago o directo a Sitiazo) o mensual $12.990 solo para el plan Básico; en cuotas y mensual el primer pago es en la entrega. Con mensual el sitio queda publicado mientras se pague. Términos, FAQ y `FORMAS_PAGO` alineados.
+- **Razón social por confirmar:** `LEGAL.legalName` es "Eldrinor y Vaelen". En la rama `mejoras-sitio` ya no se publica en el JSON-LD hasta que lo confirmes.
+- **Páginas o secciones:** `PLANS` dice "5 páginas" y "Hasta 10 páginas", pero las features dicen "Hasta 5 secciones" y "Hasta 10 productos o servicios". Definir cuál vale.
 - **Datos sin fuente:** resuelto. Se quitaron "Arica a Punta Arenas", las cifras del post de WhatsApp, los rangos de precios de agencias y el "80%" de Sobre.
 - **Newsletter:** se eliminó el formulario, que no enviaba nada. Si quieres newsletter, hay que conectar un proveedor real.
 - **"Demo en 48 horas":** sale de `DISENO.md`, no de `lib/config`. Confirmar que sigue vigente.
 - **Demos que daban 404:** `cabanas-rocas-de-pellines` y `el-rincon-de-faby` estaban en el catálogo viejo sin página. Si existen en otro lado, hay que agregar su carpeta; si no, borrarlos de `app/demos/catalogo.ts`.
-- **Tarjeta de X (Twitter):** el layout raíz sigue apuntando a la imagen genérica `/og-image.png`. No se tocó porque es del layout raíz. WhatsApp usa `og:image`, que ya es la de cada página.
+- **Tarjeta de X (Twitter):** resuelto en `mejoras-sitio`: X toma la `og:image` de cada página.
 - **`public/og-image-planes.png`:** quedó sin uso; se puede borrar.
 - **Token de bypass de Vercel:** se usó solo como variable de entorno en comandos y no quedó en ningún archivo. Revocarlo en Settings → Deployment Protection al terminar la revisión.
-- **Restos de Roma en `lib/config.ts`:** el contexto de WhatsApp `caso-roma` y la mención en `TEAM.bio`. No se ven en el sitio, pero el archivo lo importan los demos y no se toca sin tu visto bueno.
+- **Restos de Roma en `lib/config.ts`:** resuelto en `mejoras-sitio`.
+- **Search Console y Bing (`mejoras-sitio`):** define en Vercel `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` y `NEXT_PUBLIC_BING_SITE_VERIFICATION` con los tokens. Después de publicar, envía `https://sitiazo.cl/sitemap.xml` en las dos.
+- **Perfiles reales para el schema:** Instagram y ficha de Google de Sitiazo, si existen, para `sameAs`.
+- **Testimonio de Rancho Itahue sobre Sitiazo:** con permiso del dueño. Las reseñas de Google del rancho no sirven, porque son del rancho.
+- **Ficha de Google Business de Sitiazo en Curicó:** es la palanca local más grande y se hace fuera del código.
+
+### Rama `mejoras-sitio` (2026-10-23, sobre `redisenio-sitio`)
+
+| Bloque | Commit |
+|---|---|
+| Mensual solo Básico, contacto solo WhatsApp, privacidad sin newsletter | `8e665c7` |
+| Fase 1: config sin código muerto, `JsonLd`, blog en MDX, `verificar-sitio` en postbuild | `03d2ef8` |
+| Fase 3: entidad Sitiazo fuera de los demos, canonical en demos, `llms.txt`, verificación por env | `cecf184` |
+| Fase 2: cuotas por plan, "Quiero este plan", "¿Cuál te conviene?", barra móvil, medición | `636b0ce` |
+| Fase 4: 12 páginas por rubro y 4 notas nuevas | `411fd67` |
+
+Verificado en el preview de `411fd67`:
+- **Build:** READY, con `verificar-sitio` en verde.
+- **Páginas:** 9 páginas a 360 y 1440 px (y 390 en home y planes), sin errores de JS ni desborde horizontal. Botones y chips entre 44 y 52 px.
+- **Barra móvil:** sale y se esconde donde corresponde, y no aparece con el aviso de cookies abierto.
+- **Mensajes de WhatsApp:** cada plan y forma de pago arma el mensaje correcto.
+- **JSON-LD:** la home tiene `@id`, los demos no declaran ser Sitiazo y las páginas por rubro tienen FAQ y migas.
+- **Demos:** los 5 de referencia salen idénticos contra producción (10 de 10).
+- **LCP de laboratorio:** home 2,35 s, planes 2,14 s, rubro restaurantes 2,17 s. CLS 0.
+
+Scripts y capturas en `tmp/fase5/`, fuera de git.
 
 ---
 
