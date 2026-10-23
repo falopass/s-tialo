@@ -77,11 +77,11 @@ export default async function BlogPostPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <article className="s-wrap pt-[calc(var(--s-nav-h)+48px)] pb-24 md:pt-[calc(var(--s-nav-h)+88px)] md:pb-32">
-        <header className="max-w-[24ch]">
+        <header>
           <p className="s-mono text-(--s-ceniza)">
             {post.date}, {post.readTime.toLowerCase()} de lectura
           </p>
-          <h1 className="s-display mt-4 text-[clamp(2.4rem,5.2vw,4.5rem)]">{sinPunto(post.title)}</h1>
+          <h1 className="s-display mt-4 max-w-[20ch] text-[clamp(2.4rem,5.2vw,4.5rem)]">{sinPunto(post.title)}</h1>
         </header>
         <p className="s-lead mt-6">{post.description}</p>
 

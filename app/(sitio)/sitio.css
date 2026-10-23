@@ -201,6 +201,8 @@ body:has([data-sitio])::before {
   }
 
   [data-sitio] .s-link {
+    /* Relleno vertical en un elemento en línea: agranda el área táctil a 44 px sin mover el texto. */
+    padding-block: 12px;
     color: var(--s-crema);
     text-decoration: underline;
     text-decoration-color: rgb(245 196 0 / 0.7);

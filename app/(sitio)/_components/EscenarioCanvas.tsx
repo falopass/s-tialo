@@ -145,7 +145,8 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
 
     function dibujarAscii(r: Raster, a: number) {
       const colsFin = Math.min(46, Math.max(24, Math.round(cssW / 6.5)))
-      const cols = Math.round(colsFin * (0.5 + 0.5 * a))
+      // Arranca ya legible (70% de la densidad final) y se afina hasta el detalle completo.
+      const cols = Math.round(colsFin * (0.7 + 0.3 * a))
       const cw = cssW / cols
       const ch = cw / 0.6
       const filas = Math.ceil(cssH / ch)
