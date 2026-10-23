@@ -31,6 +31,13 @@
 
   CLS 0 en todas. Falta el dato de campo (CrUX/PageSpeed) después de publicar.
 - **Redirecciones:** `/casos/roma-crochet/` responde 308 hacia `/casos/rancho-itahue/`.
+- **Bloque "next level"** (commits `92f0d0b5a2` y `764f0c7603`, 2026-10-23):
+  - **Demos:** los 5 de referencia salen idénticos contra producción (10 de 10). El índice `/demos/` cambia a propósito.
+  - **Catálogo:** 624 demos, y los 624 enlaces responden 200. La búsqueda funciona ("veterinaria" encuentra 18), igual que el estado vacío y "Más nuevos". Sin scroll horizontal y sin errores de JavaScript.
+  - **WhatsApp:** el nombre que se escribe en el hero llega al mensaje del hero, de "Quiero uno así" y de `/planes/`.
+  - **Hero en el celular:** el CTA termina en y = 445 de 780, visible sin scroll.
+  - **Imágenes para compartir:** las 11 páginas apuntan a su `og:image` y todas responden 200.
+  - **LCP de laboratorio** (mismas condiciones): home 2,22 s, `/demos/` 2,48 s. El catálogo queda justo bajo el límite porque el HTML trae las 624 filas. Si el dato de campo sale peor, la mejora es paginar o cargar las filas después del primer pintado.
 
 ### Dónde está cada cosa
 
