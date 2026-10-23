@@ -10,12 +10,21 @@ import { Magnetico } from './Magnetico'
  * CTA principal del sitio: pedir el demo por WhatsApp. Misma etiqueta en todas partes.
  * Si el visitante escribió el nombre de su negocio en el hero, el mensaje ya lo trae.
  */
-export function BotonDemo({ className = '', origen = 'boton-demo' }: { className?: string; origen?: string }) {
+export function BotonDemo({
+  className = '',
+  origen = 'boton-demo',
+  negocioPorDefecto,
+}: {
+  className?: string
+  origen?: string
+  /** Nombre del negocio para el mensaje cuando el visitante no escribió el suyo (páginas por rubro). */
+  negocioPorDefecto?: string
+}) {
   const negocio = useNegocio()
   return (
     <Magnetico>
       <a
-        href={linkDemo({ negocio })}
+        href={linkDemo({ negocio: negocio || negocioPorDefecto })}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => medirWhatsApp({ origen, conNegocio: negocio !== '' })}

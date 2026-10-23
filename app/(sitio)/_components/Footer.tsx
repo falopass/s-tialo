@@ -19,6 +19,7 @@ const COLUMNAS = [
       { label: 'Casos', href: '/casos/' },
       { label: 'Caso Rancho Itahue', href: '/casos/rancho-itahue/' },
       { label: 'Demos por rubro', href: '/demos/', documento: true },
+      { label: 'Webs por rubro', href: '/paginas-web-para/' },
       { label: 'Notas', href: '/blog/' },
     ],
   },

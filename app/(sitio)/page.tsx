@@ -124,7 +124,11 @@ export default function HomePage() {
         <p className="mt-16 md:mt-20">
           <a href="/demos/" className="s-link">
             Busca el tuyo entre los {totalDemos} demos
-          </a>
+          </a>{' '}
+          o mira las{' '}
+          <Enlace href="/paginas-web-para/" className="s-link">
+            webs por rubro
+          </Enlace>
         </p>
       </section>
 

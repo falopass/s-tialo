@@ -13,7 +13,8 @@ function normalizar(t: string) {
   return t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLocaleLowerCase('es')
 }
 
-function Fila({ d }: { d: DemoCatalogo }) {
+/** Fila editorial de un demo del catálogo; también la usan las páginas por rubro. */
+export function Fila({ d }: { d: DemoCatalogo }) {
   return (
     <li>
       {/* <a> y no <Link>: el demo carga en un documento limpio, sin los estilos del sitio. */}

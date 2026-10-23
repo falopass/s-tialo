@@ -4,7 +4,9 @@ import SitioLayout from '../(sitio)/layout'
 import { Cabecera } from '../(sitio)/_components/Cabecera'
 import { CatalogoDemos } from '../(sitio)/_components/CatalogoDemos'
 import { Cierre } from '../(sitio)/_components/Cierre'
+import { Enlace } from '../(sitio)/_components/Enlace'
 import { TiraRubros } from '../(sitio)/_components/TiraRubros'
+import { rubrosPublicados } from '@/content/rubros'
 import { catalogo, familias } from './catalogo'
 
 /**
@@ -59,6 +61,14 @@ export default function DemosIndex() {
         bajada="Webs de muestra que armamos para negocios de Chile, con sus fotos y sus datos. Si tu rubro está aquí, ya sabes cómo se vería la tuya."
       />
       <TiraRubros ids={DESTACADOS} etiqueta="Demos destacados" />
+      <div className="s-wrap mt-6 flex flex-wrap items-baseline gap-x-5 gap-y-2">
+        <span className="s-mono text-(--s-ceniza)">Webs por rubro:</span>
+        {rubrosPublicados(demos).map((r) => (
+          <Enlace key={r.slug} href={`/paginas-web-para/${r.slug}/`} className="s-link">
+            {r.nombre}
+          </Enlace>
+        ))}
+      </div>
       <CatalogoDemos demos={demos} familias={familias()} />
       <Cierre
         titulo={

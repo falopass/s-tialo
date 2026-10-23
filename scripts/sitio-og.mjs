@@ -51,6 +51,30 @@ const PAGINAS = [
     captura: 'mym',
     tamano: 64,
   },
+  {
+    id: 'blog-pagina-web-o-instagram-pyme',
+    titulo: 'Página web o solo Instagram: <em>qué le conviene a tu pyme.</em>',
+    captura: 'fran-wartemberg',
+    tamano: 64,
+  },
+  {
+    id: 'blog-como-aparecer-en-google-maps',
+    titulo: 'Cómo aparecer en Google Maps <em>con tu negocio.</em>',
+    captura: 'servimac',
+    tamano: 64,
+  },
+  {
+    id: 'blog-dominio-cl-como-comprarlo',
+    titulo: 'Dominio .cl: cuánto cuesta y <em>cómo comprarlo.</em>',
+    captura: 'ius',
+    tamano: 64,
+  },
+  {
+    id: 'blog-que-debe-tener-web-restaurante',
+    titulo: 'Qué debe tener la web <em>de un restaurante.</em>',
+    captura: 'los-leones',
+    tamano: 64,
+  },
   { id: 'demos', titulo: 'Demos por rubro. <em>Busca el tuyo.</em>', captura: 'vista-hermosa' },
 ]
 

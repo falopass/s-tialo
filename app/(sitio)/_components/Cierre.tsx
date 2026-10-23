@@ -24,9 +24,13 @@ const TITULO = (
 export function Cierre({
   titulo = TITULO,
   bajada = 'Mándanos tu Instagram o tu ficha de Google. Verlo no cuesta nada.',
+  origen = 'cierre',
+  negocioPorDefecto,
 }: {
   titulo?: React.ReactNode
   bajada?: string
+  origen?: string
+  negocioPorDefecto?: string
 }) {
   return (
     <section data-cta-principal className="border-t border-(--s-linea)">
@@ -35,7 +39,7 @@ export function Cierre({
         <h2 className="s-display mx-auto max-w-[15ch] text-[clamp(2.5rem,6vw,5.5rem)]">{titulo}</h2>
         <p className="s-lead mx-auto mt-6">{bajada}</p>
         <div className="mt-10">
-          <BotonDemo origen="cierre" />
+          <BotonDemo origen={origen} negocioPorDefecto={negocioPorDefecto} />
         </div>
       </div>
     </section>

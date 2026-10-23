@@ -9,6 +9,7 @@ import {
   formatCLP,
 } from '@/lib/config'
 import { catalogo, familias } from '@/app/demos/catalogo'
+import { rubrosPublicados } from '@/content/rubros'
 
 // Con `output: 'export'`, Next exporta este GET estático como out/llms.txt.
 export const dynamic = 'force-static'
@@ -21,6 +22,7 @@ const PAGINAS: [string, string][] = [
   ['/como-funciona/', 'El proceso, del demo gratis a la entrega'],
   ['/casos/', 'Casos reales de webs publicadas'],
   ['/demos/', 'Catálogo de demos hechas para negocios reales'],
+  ['/paginas-web-para/', 'Páginas web por rubro, con demos reales'],
   ['/preguntas-frecuentes/', 'Dudas comunes sobre precio, hosting y plazos'],
   ['/blog/', 'Notas sobre web y ventas para pymes'],
   ['/contacto/', 'Cómo pedir tu demo por WhatsApp'],
@@ -58,6 +60,12 @@ ${planes.join('\n')}
 ${catalogo().length} demos de negocios reales: ${BASE}/demos/
 
 ${fams.join('\n')}
+
+## Webs por rubro
+
+${rubrosPublicados(catalogo())
+  .map((r) => `- [${r.titulo}](${BASE}/paginas-web-para/${r.slug}/)`)
+  .join('\n')}
 
 ## Páginas
 
