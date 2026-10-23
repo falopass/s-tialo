@@ -223,14 +223,18 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
 
     /**
      * El nombre del negocio en la grilla del ASCII: limpia una franja y escribe el nombre en amarillo,
-     * a la escala más grande (3, 2 o 1 celdas por letra) que entre en tres líneas.
+     * a la escala más grande (3, 2 o 1 celdas por letra) en que entre en tres líneas sin cortar palabras.
+     * Solo a escala 1 se corta una palabra, si ni así cabe.
      */
     function dibujarNombre(g: Grilla, ahora: number) {
+      const palabraMasLarga = Math.max(...nombre.split(' ').map((p) => p.length))
       let s = 3
-      let lineas = partir(nombre, Math.max(1, Math.floor((g.cols - 2) / s)))
-      while (s > 1 && (lineas.length > 3 || Math.floor((g.cols - 2) / s) < 5)) {
+      let max = Math.max(1, Math.floor((g.cols - 2) / s))
+      let lineas = partir(nombre, max)
+      while (s > 1 && (lineas.length > 3 || palabraMasLarga > max || max < 5)) {
         s--
-        lineas = partir(nombre, Math.max(1, Math.floor((g.cols - 2) / s)))
+        max = Math.max(1, Math.floor((g.cols - 2) / s))
+        lineas = partir(nombre, max)
       }
       const alto = lineas.length * s
       const fila0 = Math.max(1, Math.round(g.filas * 0.34 - alto / 2))
