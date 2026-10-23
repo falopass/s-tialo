@@ -25,17 +25,6 @@ export const posts: PostMeta[] = [
     featured: true,
   },
   {
-    slug: 'caso-roma-crochet-amigurumis-curico',
-    title: 'Caso real: cómo Roma Crochet pasó de DM a web propia.',
-    description:
-      'La historia de una marca artesanal del Maule que pasó de vender por mensaje directo en Instagram a tener su propia página web profesional.',
-    date: 'Marzo 2026',
-    dateISO: '2026-03-15',
-    readTime: '6 MIN',
-    tags: ['CASOS', 'PYMES', 'RESULTADOS'],
-    image: '/images/still-lifes/blog-roma-crochet.webp',
-  },
-  {
     slug: 'whatsapp-business-pagina-web-pymes',
     title: 'WhatsApp Business + página web: cómo combinarlos para vender más.',
     description:
@@ -45,6 +34,46 @@ export const posts: PostMeta[] = [
     readTime: '7 MIN',
     tags: ['WHATSAPP', 'VENTAS', 'GUÍA'],
     image: '/images/still-lifes/blog-whatsapp.webp',
+  },
+  {
+    slug: 'pagina-web-o-instagram-pyme',
+    title: 'Página web o solo Instagram: qué le conviene a tu pyme.',
+    description:
+      'Instagram y una página web hacen trabajos distintos. Cuándo basta con Instagram, cuándo necesitas web y cómo combinarlos para vender más.',
+    date: 'Octubre 2026',
+    dateISO: '2026-10-23',
+    readTime: '2 MIN',
+    tags: ['INSTAGRAM', 'PYMES', 'GUÍA'],
+  },
+  {
+    slug: 'como-aparecer-en-google-maps',
+    title: 'Cómo aparecer en Google Maps con tu negocio, paso a paso.',
+    description:
+      'Crea y verifica tu Perfil de Empresa de Google, complétalo y pide reseñas para aparecer cuando buscan tu rubro cerca.',
+    date: 'Octubre 2026',
+    dateISO: '2026-10-23',
+    readTime: '2 MIN',
+    tags: ['GOOGLE', 'SEO LOCAL', 'GUÍA'],
+  },
+  {
+    slug: 'dominio-cl-como-comprarlo',
+    title: 'Dominio .cl: cuánto cuesta y cómo comprarlo.',
+    description:
+      'Precio oficial de NIC Chile, cómo inscribir tu dominio .cl a tu nombre y cómo elegir un buen nombre para tu negocio.',
+    date: 'Octubre 2026',
+    dateISO: '2026-10-23',
+    readTime: '2 MIN',
+    tags: ['DOMINIO', 'PYMES', 'GUÍA'],
+  },
+  {
+    slug: 'que-debe-tener-web-restaurante',
+    title: 'Qué debe tener la página web de un restaurante.',
+    description:
+      'La carta legible en el celular, horario, cómo llegar, pedidos por WhatsApp y fotos reales: lo mínimo para que te elijan.',
+    date: 'Octubre 2026',
+    dateISO: '2026-10-23',
+    readTime: '2 MIN',
+    tags: ['RESTAURANTES', 'PYMES', 'GUÍA'],
   },
 ]
 

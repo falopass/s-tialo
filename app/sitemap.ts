@@ -5,6 +5,8 @@ import { SITE } from '@/lib/config'
 import { posts } from '@/content/posts'
 import { detailedCases } from '@/content/cases'
 import { DEMOS } from './demos/data'
+import { catalogo } from './demos/catalogo'
+import { rubrosPublicados } from '@/content/rubros'
 
 // Required for `output: 'export'` static builds.
 export const dynamic = 'force-static'
@@ -30,13 +32,14 @@ const STATIC_ROUTES: Route[] = [
   { path: '/',                      changeFrequency: 'weekly',  priority: 1.0 },
   { path: '/planes/',               changeFrequency: 'monthly', priority: 0.9 },
   { path: '/casos/',                changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/casos/roma-crochet/',   changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/casos/rancho-itahue/', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/como-funciona/',        changeFrequency: 'monthly', priority: 0.8 },
   { path: '/blog/',                 changeFrequency: 'weekly',  priority: 0.8 },
   { path: '/contacto/',             changeFrequency: 'yearly',  priority: 0.7 },
   { path: '/sobre/',                changeFrequency: 'yearly',  priority: 0.6 },
   { path: '/preguntas-frecuentes/', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/demos/',                changeFrequency: 'weekly',  priority: 0.7 },
+  { path: '/paginas-web-para/',     changeFrequency: 'monthly', priority: 0.7 },
   { path: '/rancho-itahue/',        changeFrequency: 'monthly', priority: 0.8 },
   { path: '/terminos/',             changeFrequency: 'yearly',  priority: 0.4 },
   { path: '/privacidad/',           changeFrequency: 'yearly',  priority: 0.3 },
@@ -44,7 +47,7 @@ const STATIC_ROUTES: Route[] = [
 
 // Fecha real de la última actualización de contenido de las páginas estáticas.
 // Actualizarla cuando cambie el contenido, no en cada build.
-const LAST_UPDATED = new Date('2026-09-25')
+const LAST_UPDATED = new Date('2026-10-23')
 
 /**
  * Slugs de todos los demos: los que tienen carpeta propia en app/demos/
@@ -99,5 +102,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }))
 
-  return [...staticEntries, ...caseEntries, ...blogEntries, ...demoEntries]
+  const rubroEntries: MetadataRoute.Sitemap = rubrosPublicados(catalogo()).map((r) => ({
+    url: `${base}/paginas-web-para/${r.slug}/`,
+    lastModified: LAST_UPDATED,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  return [...staticEntries, ...caseEntries, ...blogEntries, ...demoEntries, ...rubroEntries]
 }

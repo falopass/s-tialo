@@ -1,11 +1,7 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { displaySerif, bodySans, monoText } from '@/lib/fonts'
-import { Nav } from '@/components/layout/Nav'
-import { Footer } from '@/components/layout/Footer'
-import { CookieConsent } from '@/components/ui/CookieConsent'
-import { SiteChrome } from '@/components/layout/SiteChrome'
-import { SITE, SEO_DEFAULTS, SCHEMA } from '@/lib/config'
+import { SITE, SEO_DEFAULTS, MARCA } from '@/lib/config'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -27,16 +23,22 @@ export const metadata: Metadata = {
     title: SEO_DEFAULTS.defaultTitle,
     description: SITE.description,
     url: SITE.url,
-    siteName: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+    siteName: MARCA,
     locale: SITE.ogLocale,
     type: 'website',
     images: [SEO_DEFAULTS.ogImage],
   },
   twitter: {
     card: 'summary_large_image',
-    title: SEO_DEFAULTS.defaultTitle,
-    description: SITE.description,
-    images: [SEO_DEFAULTS.ogImage.url],
+  },
+  // Tokens de Search Console/Bing solo si están definidos: sin env var no hay meta vacío.
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { other: { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+      : {}),
   },
   robots: {
     index: true,
@@ -61,26 +63,7 @@ export default function RootLayout({
         >
           Saltar al contenido
         </a>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(SCHEMA.localBusiness),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(SCHEMA.website),
-          }}
-        />
-        <SiteChrome>
-          <Nav />
-        </SiteChrome>
         <main id="main-content">{children}</main>
-        <SiteChrome>
-          <Footer />
-          <CookieConsent />
-        </SiteChrome>
         <Analytics />
       </body>
     </html>

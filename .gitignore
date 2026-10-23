@@ -36,3 +36,6 @@ nul
 # worktrees y respaldos locales
 .wt-*/
 .backup-*/
+
+# imágenes generadas en el build por scripts/dither.mjs
+public/dither/
