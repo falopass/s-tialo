@@ -129,7 +129,7 @@ Cada sección usa una familia de layout distinta; ninguna se repite.
 | 4b | **¿Cuál te conviene?:** tres preguntas de un toque y un plan recomendado con su botón. | Fieldsets en columna + tarjeta de resultado |
 | 5 | **Caso Rancho Itahue:** texto a la izquierda, captura de escritorio y de celular superpuestas a la derecha, cita textual del dueño. Solo hechos de su texto; sin métricas inventadas. | Split texto + capturas superpuestas |
 | 6 | **Proyectos propios:** CalculaChile y CVListo, etiquetados como productos propios del estudio, no como clientes. | Lista editorial de dos filas grandes |
-| 6b | **En resumen:** precio, formas de pago, plazos, demo, dónde y contacto en texto simple, desde `lib/config`. Es lo que citan Google y los asistentes de IA. | Lista de definiciones en dos columnas |
+| 6b | **Lo esencial, en una ficha:** titular y CTA fijos a la izquierda; a la derecha, una ficha con precio, pago, plazo, demo, dónde y contacto, con el dato grande en la serif y su explicación al lado. Todo en texto real desde `lib/config`, para que lo citen Google y los asistentes de IA. | Split con columna fija + ficha de filas |
 | 7 | **Cierre:** punto amarillo y el mismo CTA "Pide tu demo". Si el visitante escribió su negocio, el titular lo nombra. | Centrado de una sola columna |
 
 Las texturas siguen el relato de arriba abajo: ASCII en el hero, dither en el proceso y los demos, color de los planes hacia abajo ("publicada").
