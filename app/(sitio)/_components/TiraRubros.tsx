@@ -1,4 +1,5 @@
 import { imagen } from '../_lib/imagenes'
+import { QuieroUnoAsi } from './BotonDemo'
 import { CapturaRevela } from './Captura'
 
 /** Un demo publicado por rubro, distintos de los de la grilla "Uno como el tuyo" para mostrar amplitud y no repetir. */
@@ -9,13 +10,14 @@ const TIRA = ['nailsyus', 'san-clemente', 'infinity', 'mym', 'ius', 'vista-hermo
  * en vez de palabras. Con scroll-driven animations la tira se desliza en horizontal según el scroll
  * de la página (sin loop) y cada captura pasa a color al entrar o con el cursor. Sin soporte o con
  * movimiento reducido es una fila que se desliza con el dedo.
- * Enlaza con <a> (carga completa) para que el demo cargue en un documento limpio.
+ * Enlaza con <a> (carga completa) para que el demo cargue en un documento limpio; "Quiero uno así"
+ * abre WhatsApp con ese demo como referencia.
  */
-export function TiraRubros() {
+export function TiraRubros({ ids = TIRA, etiqueta = 'Demos de otros rubros' }: { ids?: string[]; etiqueta?: string }) {
   return (
-    <section className="s-tira border-y border-(--s-linea) py-10 md:py-14" aria-label="Demos de otros rubros">
+    <section className="s-tira border-y border-(--s-linea) py-10 md:py-14" aria-label={etiqueta}>
       <ul className="s-tira-pista">
-        {TIRA.map((id) => {
+        {ids.map((id) => {
           const i = imagen(id)
           return (
             <li key={id} className="s-tira-item">
@@ -33,6 +35,7 @@ export function TiraRubros() {
                   {i.nombre}, {i.ciudad}
                 </span>
               </a>
+              <QuieroUnoAsi nombre={i.nombre!} rubro={i.rubro!} />
             </li>
           )
         })}

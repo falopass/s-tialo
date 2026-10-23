@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Preguntas frecuentes | Sitiazo.cl',
     description: DESCRIPCION,
     url: siteUrl('/preguntas-frecuentes/'),
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Preguntas frecuentes de Sitiazo.cl' }],
+    images: [{ url: '/sitio/og/preguntas-frecuentes.jpg', width: 1200, height: 630, alt: 'Preguntas frecuentes de Sitiazo.cl' }],
   },
 }
 

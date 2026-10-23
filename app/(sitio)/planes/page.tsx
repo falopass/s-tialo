@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: 'Planes y precios de páginas web para pymes | Sitiazo.cl',
     description: DESCRIPCION,
     url: siteUrl('/planes/'),
-    images: [{ url: '/og-image-planes.png', width: 1200, height: 630, alt: 'Planes de diseño web de Sitiazo.cl' }],
+    images: [{ url: '/sitio/og/planes.jpg', width: 1200, height: 630, alt: 'Planes de diseño web de Sitiazo.cl' }],
   },
 }
 

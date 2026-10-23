@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     url: URL_CASO,
     images: [
       {
-        url: '/sitio/fuentes/rancho-escritorio.webp',
-        width: 1440,
-        height: 900,
-        alt: 'Portada de ranchoitahue.cl en un computador',
+        url: '/sitio/og/caso-rancho-itahue.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Rancho Itahue ya tiene su web: captura de ranchoitahue.cl en dither y a color',
       },
     ],
   },

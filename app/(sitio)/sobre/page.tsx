@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'Sobre Sitiazo | Sitiazo.cl',
     description: DESCRIPCION,
     url: siteUrl('/sobre/'),
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Sobre Sitiazo.cl' }],
+    images: [{ url: '/sitio/og/sobre.jpg', width: 1200, height: 630, alt: 'Sobre Sitiazo.cl' }],
   },
 }
 

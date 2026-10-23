@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import { SITE, siteUrl } from '@/lib/config'
 import { cases } from '@/content/cases'
 import { BIZ, RANCHO } from '../rancho-itahue/content'
+import { catalogo } from '../demos/catalogo'
 import { BotonDemo } from './_components/BotonDemo'
 import { Captura } from './_components/Captura'
 import { Cierre } from './_components/Cierre'
 import { Enlace } from './_components/Enlace'
 import { Escenario } from './_components/Escenario'
 import { TiraRubros } from './_components/TiraRubros'
+import { TuNegocio } from './_components/TuNegocio'
 import { Planes } from './_components/Planes'
 import { TarjetaDemo } from './_components/TarjetaDemo'
 
@@ -19,7 +21,7 @@ export const metadata: Metadata = {
     title: 'Tu web, antes de pagar un peso',
     description: SITE.description,
     url: siteUrl(),
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Sitiazo.cl, páginas web que sí venden' }],
+    images: [{ url: '/sitio/og/inicio.jpg', width: 1200, height: 630, alt: 'Sitiazo.cl, páginas web que sí venden' }],
   },
 }
 
@@ -48,6 +50,8 @@ const CITA_DUENO = RANCHO.paragraphs[2].split('. ')[0] + '.'
 const PROYECTOS = cases.filter((c) => c.slug === 'calculachile' || c.slug === 'cvlisto')
 
 export default function HomePage() {
+  // Cifra real: se cuenta en el build desde el catálogo de /demos/.
+  const totalDemos = catalogo().length
   return (
     <>
       {/* Hero y pieza central: el mismo objeto pasa de estructura a forma a publicada. */}
@@ -59,10 +63,13 @@ export default function HomePage() {
           <p className="s-lead s-entra mt-6" style={{ '--i': 1 } as React.CSSProperties}>
             Mándanos tu Instagram y en 48 horas recibes un demo por WhatsApp. Lista en 7 días desde $79.990.
           </p>
-          <div className="s-entra mt-8 flex flex-wrap gap-3" style={{ '--i': 2 } as React.CSSProperties}>
+          <div className="s-entra mt-8" style={{ '--i': 2 } as React.CSSProperties}>
+            <TuNegocio />
+          </div>
+          <div className="s-entra mt-3 flex flex-wrap gap-3" style={{ '--i': 3 } as React.CSSProperties}>
             <BotonDemo />
             <a href="/demos/" className="s-btn s-btn-secundario">
-              Ver demos
+              Ver {totalDemos} demos
             </a>
           </div>
         </div>
@@ -99,6 +106,11 @@ export default function HomePage() {
             <TarjetaDemo key={id} id={id} />
           ))}
         </div>
+        <p className="mt-16 md:mt-20">
+          <a href="/demos/" className="s-link">
+            Busca el tuyo entre los {totalDemos} demos
+          </a>
+        </p>
       </section>
 
       <section className="border-t border-(--s-linea)">

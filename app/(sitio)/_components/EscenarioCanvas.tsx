@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 import { scroll } from 'framer-motion'
+import { limpiarNegocio } from '../_lib/contacto'
+import { leerNegocio, suscribirNegocio } from '../_lib/negocio'
 
 /** color: versión chica (celular); colorGrande: para pantallas donde el escenario supera ~400 px reales. */
 export type FotoEscenario = { id: string; color: string; colorGrande: string }
@@ -15,11 +17,14 @@ export type FotoEscenario = { id: string; color: string; colorGrande: string }
  *   "te armamos tu web antes de que pagues".
  * - Bajo el cursor (o con un toque) el ASCII se dispersa: la web todavía es materia blanda.
  * - Con el scroll, una disolución Bayer lleva el ASCII a dither y el dither a color: el proceso real.
+ * - Si el visitante escribe el nombre de su negocio en el hero, ese nombre se arma en ASCII amarillo
+ *   sobre la captura, letra a letra: "tu web empieza aquí". Se disuelve con el resto al pasar a dither.
  *
  * Reglas de rendimiento: se carga diferido (next/dynamic desde EscenarioVivo), DPR máximo 2,
  * dibuja solo cuando algo cambia, se pausa fuera de pantalla y con la pestaña oculta, y nunca
  * toca estado de React. Con movimiento reducido no hay rotación, dispersión ni transiciones:
- * cada paso cambia de cuadro al instante. Ningún texto vive dentro del canvas.
+ * cada paso cambia de cuadro al instante. Ningún texto informativo (precio, CTA) vive en el canvas:
+ * el nombre del negocio es solo un eco decorativo del campo del hero, que sigue siendo el texto real.
  */
 
 const RAMPA = ' .:-=+*#%@'
@@ -32,9 +37,41 @@ const TINTA = [14, 14, 12]
 const CREMA = [242, 239, 230]
 const FONDO = '#181815'
 const TEXTO = '#f2efe6'
+const AMARILLO = '#f5c400'
 const ROTACION_MS = 6000
 const ENSAMBLE_MS = 900
 const RAFAGA_MS = 700
+/** Cada letra del nombre se descifra durante REVELA_MS, y empieza REVELA_PASO después de la anterior. */
+const REVELA_MS = 260
+const REVELA_PASO = 45
+
+type Grilla = { cols: number; cw: number; ch: number; filas: number }
+type Linea = { t: string; o: number }
+
+/** Parte el nombre en líneas de hasta `max` caracteres, guardando dónde empieza cada una en el texto. */
+function partir(texto: string, max: number): Linea[] {
+  const lineas: Linea[] = []
+  let actual: Linea | null = null
+  for (const m of texto.matchAll(/\S+/g)) {
+    let t = m[0]
+    let o = m.index ?? 0
+    while (t.length > max) {
+      if (actual) lineas.push(actual)
+      actual = null
+      lineas.push({ t: t.slice(0, max), o })
+      t = t.slice(max)
+      o += max
+    }
+    if (!actual) actual = { t, o }
+    else if (actual.t.length + 1 + t.length <= max) actual = { t: `${actual.t} ${t}`, o: actual.o }
+    else {
+      lineas.push(actual)
+      actual = { t, o }
+    }
+  }
+  if (actual) lineas.push(actual)
+  return lineas
+}
 
 type Raster = {
   w: number
@@ -90,6 +127,9 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
     let raf = 0
     let timerRotar = 0
     let vivo = true
+    let nombre = ''
+    let tiempos: number[] = []
+    let finRevela = 0
 
     function cargar(i: number) {
       let p = imagenes.get(i)
@@ -143,7 +183,7 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
       return { w, h, lum, dither, umbral, ditherCanvas, img }
     }
 
-    function dibujarAscii(r: Raster, a: number) {
+    function dibujarAscii(r: Raster, a: number): Grilla {
       const colsFin = Math.min(46, Math.max(24, Math.round(cssW / 6.5)))
       // Arranca ya legible (70% de la densidad final) y se afina hasta el detalle completo.
       const cols = Math.round(colsFin * (0.7 + 0.3 * a))
@@ -178,6 +218,50 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
           ctx!.fillText(RAMPA[k], x0 + dx, y0 + dy)
         }
       }
+      return { cols, cw, ch, filas }
+    }
+
+    /**
+     * El nombre del negocio en la grilla del ASCII: limpia una franja y escribe el nombre en amarillo,
+     * a la escala más grande (3, 2 o 1 celdas por letra) que entre en tres líneas.
+     */
+    function dibujarNombre(g: Grilla, ahora: number) {
+      let s = 3
+      let lineas = partir(nombre, Math.max(1, Math.floor((g.cols - 2) / s)))
+      while (s > 1 && (lineas.length > 3 || Math.floor((g.cols - 2) / s) < 5)) {
+        s--
+        lineas = partir(nombre, Math.max(1, Math.floor((g.cols - 2) / s)))
+      }
+      const alto = lineas.length * s
+      const fila0 = Math.max(1, Math.round(g.filas * 0.34 - alto / 2))
+      ctx!.fillStyle = FONDO
+      ctx!.fillRect(0, (fila0 - 1) * g.ch, cssW, (alto + 2) * g.ch)
+      ctx!.font = `600 ${(g.ch * s * 0.92).toFixed(2)}px ${mono}`
+      ctx!.textBaseline = 'top'
+      ctx!.fillStyle = AMARILLO
+      lineas.forEach((l, li) => {
+        const col0 = Math.floor((g.cols - l.t.length * s) / 2)
+        for (let j = 0; j < l.t.length; j++) {
+          const letra = l.t[j]
+          if (letra === ' ') continue
+          const t0 = tiempos[l.o + j] ?? 0
+          if (ahora < t0) continue
+          const glifo = ahora < t0 + REVELA_MS ? RAMPA[2 + Math.floor(Math.random() * 8)] : letra
+          ctx!.fillText(glifo, (col0 + j * s) * g.cw, (fila0 + li * s) * g.ch)
+        }
+      })
+    }
+
+    function alCambiarNombre() {
+      const nuevo = limpiarNegocio(leerNegocio()).toLocaleUpperCase('es')
+      if (nuevo === nombre) return
+      let k = 0
+      while (k < nuevo.length && k < nombre.length && nuevo[k] === nombre[k]) k++
+      const ahora = performance.now()
+      tiempos = Array.from(nuevo, (_, i) => (i < k ? (tiempos[i] ?? 0) : reducir ? 0 : ahora + (i - k) * REVELA_PASO))
+      nombre = nuevo
+      finRevela = reducir || nuevo.length === 0 ? 0 : ahora + (nuevo.length - k) * REVELA_PASO + REVELA_MS
+      pedir()
     }
 
     /** Disolución ordenada: muestra el dither donde el umbral Bayer queda bajo el avance. */
@@ -234,9 +318,11 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
       ctx.fillRect(0, 0, cssW, cssH)
       const p = progreso
       if (p <= 1 / 3) {
-        dibujarAscii(r, p * 3)
+        const g = dibujarAscii(r, p * 3)
+        if (nombre) dibujarNombre(g, performance.now())
       } else if (p <= 2 / 3) {
-        dibujarAscii(r, 1)
+        const g = dibujarAscii(r, 1)
+        if (nombre) dibujarNombre(g, performance.now())
         dibujarDitherParcial(r, (p - 1 / 3) * 3)
       } else {
         ctx.imageSmoothingEnabled = false
@@ -256,6 +342,7 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
         ensamblado = Math.min(1, (t - inicioEnsamble) / ENSAMBLE_MS)
         seguir = true
       }
+      if (nombre && performance.now() < finRevela) seguir = true
       if (rafaga) {
         const e = (t - rafaga.t) / RAFAGA_MS
         if (e >= 1) {
@@ -351,6 +438,7 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
     })
 
     const ro = new ResizeObserver(medir)
+    const cancelarNombre = suscribirNegocio(alCambiarNombre)
 
     const alMover = (e: PointerEvent) => {
       if (reducir || e.pointerType !== 'mouse') return
@@ -400,6 +488,7 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
       canvas.addEventListener('pointerdown', alTocar)
       document.addEventListener('visibilitychange', alCambiarPestana)
       if (fotos.length > 1) cargar(1)
+      alCambiarNombre()
     })().catch(() => {
       // Si la foto no carga, queda el póster en dither.
     })
@@ -409,6 +498,7 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
       cancelAnimationFrame(raf)
       window.clearTimeout(timerRotar)
       cancelarScroll()
+      cancelarNombre()
       io.disconnect()
       ro.disconnect()
       canvas.removeEventListener('pointermove', alMover)

@@ -470,6 +470,230 @@ body:has([data-sitio])::before {
   }
 }
 
+/* ── Campo "¿Cómo se llama tu negocio?" y enlaces "Quiero uno así" ── */
+@layer components {
+  [data-sitio] .s-negocio {
+    max-width: 440px;
+  }
+
+  [data-sitio] .s-campo {
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    padding: 0 1.4rem;
+    border: 1px solid rgb(242 239 230 / 0.35);
+    border-radius: 999px;
+    background: var(--s-tinta-2);
+    color: var(--s-crema);
+    font: inherit;
+    font-size: 1.0625rem;
+    transition: border-color 0.2s var(--s-ease);
+  }
+
+  [data-sitio] .s-campo::placeholder {
+    color: var(--s-ceniza);
+    opacity: 1;
+  }
+
+  [data-sitio] .s-campo:hover {
+    border-color: rgb(242 239 230 / 0.6);
+  }
+
+  [data-sitio] .s-campo:focus-visible {
+    outline: 2px solid var(--s-amarillo);
+    outline-offset: 3px;
+    border-color: transparent;
+  }
+
+  [data-sitio] .s-quiero {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    color: var(--s-crema);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: underline;
+    text-decoration-color: rgb(245 196 0 / 0.7);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+  }
+
+  [data-sitio] .s-quiero:hover {
+    text-decoration-color: var(--s-amarillo);
+  }
+}
+
+/* ── Catálogo de demos (/demos/) ──
+   En el celular, buscador y familias quedan fijos bajo la nav; en escritorio, columna fija a la izquierda. */
+@layer components {
+  [data-sitio] .s-cat-filtros {
+    position: sticky;
+    top: var(--s-nav-h);
+    z-index: 10;
+    margin-inline: calc(var(--s-gutter) * -1);
+    padding: 12px var(--s-gutter) 4px;
+    background: var(--s-tinta);
+    border-bottom: 1px solid var(--s-linea);
+  }
+
+  [data-sitio] .s-cat-chips {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    margin-inline: calc(var(--s-gutter) * -1);
+    padding: 0 var(--s-gutter) 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  [data-sitio] .s-cat-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  [data-sitio] .s-cat-chip {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0 1rem;
+    border: 1px solid var(--s-linea);
+    border-radius: 999px;
+    color: var(--s-crema-2);
+    font-size: 0.9375rem;
+    white-space: nowrap;
+    transition:
+      border-color 0.2s var(--s-ease),
+      color 0.2s var(--s-ease);
+  }
+
+  [data-sitio] .s-cat-chip:hover {
+    border-color: rgb(242 239 230 / 0.45);
+    color: var(--s-crema);
+  }
+
+  [data-sitio] .s-cat-chip[aria-pressed='true'] {
+    border-color: var(--s-crema);
+    background: var(--s-crema);
+    color: var(--s-tinta);
+  }
+
+  [data-sitio] .s-cat-chip-n {
+    font-family: var(--s-f-mono), ui-monospace, monospace;
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  [data-sitio] .s-cat-fila {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 24px;
+    grid-template-areas:
+      'nombre flecha'
+      'rubro flecha';
+    align-items: center;
+    column-gap: 16px;
+    row-gap: 2px;
+    min-height: 64px;
+    padding: 14px 0;
+    border-top: 1px solid var(--s-linea);
+    color: var(--s-crema);
+  }
+
+  [data-sitio] .s-cat-nombre {
+    grid-area: nombre;
+    font-size: 1.5rem;
+    line-height: 1.15;
+  }
+
+  [data-sitio] .s-cat-rubro {
+    grid-area: rubro;
+    color: var(--s-ceniza);
+  }
+
+  /* En el celular la ciudad va junto al rubro, en la misma línea (ver CatalogoDemos). */
+  [data-sitio] .s-cat-ciudad {
+    display: none;
+  }
+
+  [data-sitio] .s-cat-flecha {
+    grid-area: flecha;
+    color: var(--s-ceniza);
+    transition:
+      transform 0.25s var(--s-ease),
+      color 0.2s var(--s-ease);
+  }
+
+  [data-sitio] .s-cat-fila:hover .s-cat-nombre {
+    font-style: italic;
+  }
+
+  [data-sitio] .s-cat-fila:hover .s-cat-flecha {
+    color: var(--s-amarillo);
+    transform: translate(2px, -2px);
+  }
+
+  @media (min-width: 768px) {
+    [data-sitio] .s-cat-fila {
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 0.55fr) 24px;
+      grid-template-areas: 'nombre rubro ciudad flecha';
+      column-gap: 24px;
+    }
+
+    [data-sitio] .s-cat-nombre {
+      font-size: 1.75rem;
+    }
+
+    [data-sitio] .s-cat-ciudad {
+      display: block;
+      grid-area: ciudad;
+      color: var(--s-crema-2);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    [data-sitio] .s-catalogo {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 64px;
+      align-items: start;
+    }
+
+    [data-sitio] .s-cat-filtros {
+      top: calc(var(--s-nav-h) + 32px);
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: none;
+    }
+
+    [data-sitio] .s-cat-chips {
+      flex-direction: column;
+      gap: 0;
+      margin: 24px 0 0;
+      padding: 0;
+      overflow: visible;
+    }
+
+    [data-sitio] .s-cat-chip {
+      justify-content: space-between;
+      border: 0;
+      border-top: 1px solid var(--s-linea);
+      border-radius: 0;
+      padding: 0 4px;
+      background: none;
+    }
+
+    [data-sitio] .s-cat-chip[aria-pressed='true'] {
+      background: none;
+      color: var(--s-crema);
+      font-style: italic;
+      box-shadow: inset 3px 0 0 var(--s-amarillo);
+      padding-left: 14px;
+    }
+  }
+}
+
 /* ── Imágenes: dither y revelación a color (fase 3) ──
    Las versiones las genera scripts/dither.mjs en el build. Nunca dither ni grano sobre texto ni sobre el amarillo. */
 @layer components {

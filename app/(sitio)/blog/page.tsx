@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Notas | Sitiazo.cl',
     description: DESCRIPCION,
     url: siteUrl('/blog/'),
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Notas de Sitiazo.cl' }],
+    images: [{ url: '/sitio/og/blog.jpg', width: 1200, height: 630, alt: 'Notas de Sitiazo.cl' }],
   },
 }
 

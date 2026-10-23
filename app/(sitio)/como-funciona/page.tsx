@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Cómo funciona: tu página web en 7 días | Sitiazo.cl',
     description: DESCRIPCION,
     url: siteUrl('/como-funciona/'),
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Cómo funciona Sitiazo.cl' }],
+    images: [{ url: '/sitio/og/como-funciona.jpg', width: 1200, height: 630, alt: 'Cómo funciona Sitiazo.cl' }],
   },
 }
 

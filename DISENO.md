@@ -93,6 +93,7 @@ Implementado así (concepto "El scroll es el proceso", ver `DIRECCION.md`):
 | Hero | Los caracteres arman en ASCII la captura real de un demo y rotan entre tres rubros cada ~6 s | Te armamos tu web antes de que pagues | `EscenarioCanvas` (canvas, diferido con `next/dynamic`) |
 | Hero | El ASCII se dispersa bajo el cursor; en el celular, con un toque o al entrar en pantalla | La web todavía es materia blanda, se puede tocar | Mismo canvas, solo mientras el objeto está en ASCII |
 | Pieza central | El objeto queda fijo mientras pasan tres pasos; una disolución Bayer lo lleva de ASCII a dither y de dither a color | El proceso real: estructura, forma, publicada | `scroll()` de framer-motion sobre la lista de pasos; el paso activo queda en crema |
+| Hero | Lo que el visitante escribe en "¿Cómo se llama tu negocio?" se arma letra a letra en ASCII amarillo sobre la captura, y se disuelve con el resto al pasar a dither | Tu web empieza aquí: el visitante ve su propio nombre en la estructura | Mismo canvas (`_lib/negocio.ts` lo comunica sin estado de React); con reduce aparece sin descifrado |
 | Navegación | Al hover, la palabra se descifra en caracteres de la rampa ASCII | Respuesta, en el idioma del hero | `Descifra`, 280 ms, sin salto de ancho; solo con mouse |
 | CTA principal | Leve atracción magnética hacia el cursor | Dónde hacer clic | `useMotionValue` + `useSpring`; solo con mouse fino |
 | Secciones | Entrada al aparecer en pantalla | Ritmo de lectura | `animation-timeline: view()` dentro de `@supports`; sin soporte, se muestran directo |
@@ -167,6 +168,14 @@ El sitio principal vive en el route group `app/(sitio)/` con su propio `layout.t
 - Los enlaces del sitio hacia `/demos/*` son `<a>` (carga completa), nunca `<Link>`: el demo siempre carga en un documento limpio.
 - Landmarks: el `<main id="main-content">` es del layout raíz y envuelve también a los demos, así que el `header` y el `footer` del sitio quedan dentro de él. Moverlo cambiaría el DOM de 600 demos; se acepta el costo. El landmark `<nav>` se conserva.
 - Antes de mergear, se comparan capturas de 5 demos de referencia contra producción: tienen que ser idénticas píxel a píxel.
+- **El índice `/demos/` es una página del sitio** (decisión de Diego, 2026-10-23): `app/demos/page.tsx` envuelve su contenido en el layout del sitio y sus datos viven en `app/demos/catalogo.ts`. Ningún demo importa esos archivos. `app/demos/layout.tsx`, `kit.tsx`, `data.ts` y las carpetas de cada demo no se tocan. Cada fila del catálogo enlaza con `<a>`. Solo se listan los demos que tienen página (se comprueba en el build).
+
+## 7b. WhatsApp con contexto e imágenes para compartir
+
+- El hero pregunta "¿Cómo se llama tu negocio?" (opcional). Ese nombre vive en `sessionStorage` mientras dura la visita, y todos los botones de WhatsApp del sitio (nav, hero, planes, cierre) lo llevan en el mensaje. Enter en el campo abre WhatsApp.
+- Cada demo con captura (grilla, tira y catálogo destacado) tiene "Quiero uno así", que abre WhatsApp con ese demo como referencia. Los mensajes se arman en `_lib/contacto.ts` (`mensajeDemo`).
+- Las imágenes para compartir (Open Graph, 1200×630) salen de `scripts/sitio-og.mjs`: titular de la página en Cormorant y una captura real en dither detrás de la misma captura a color. Están en `public/sitio/og/` y se regeneran a mano cuando cambia un titular. Formato JPG, porque WhatsApp no siempre muestra WebP.
+- Las cifras del sitio se calculan en el build. El total de demos sale de `catalogo()` y nunca se escribe a mano.
 
 ---
 

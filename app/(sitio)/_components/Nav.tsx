@@ -7,6 +7,7 @@ import { Logo } from './Logo'
 import { Enlace } from './Enlace'
 import { Descifra } from './Descifra'
 import { CTA_DEMO, linkDemo } from '../_lib/contacto'
+import { useNegocio } from '../_lib/negocio'
 
 const LINKS = [
   { label: 'Cómo funciona', href: '/como-funciona/' },
@@ -22,6 +23,7 @@ function activo(pathname: string, href: string) {
 
 export function Nav() {
   const pathname = usePathname()
+  const negocio = useNegocio()
   const [abierto, setAbierto] = useState(false)
 
   useEffect(() => setAbierto(false), [pathname])
@@ -58,7 +60,7 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href={linkDemo()} target="_blank" rel="noopener noreferrer" className="s-btn s-btn-primario hidden min-h-11 px-5 text-[15px] sm:inline-flex">
+          <a href={linkDemo({ negocio })} target="_blank" rel="noopener noreferrer" className="s-btn s-btn-primario hidden min-h-11 px-5 text-[15px] sm:inline-flex">
             {CTA_DEMO}
           </a>
           <button
@@ -93,7 +95,7 @@ export function Nav() {
               </li>
             ))}
           </ul>
-          <a href={linkDemo()} target="_blank" rel="noopener noreferrer" className="s-btn s-btn-primario w-full">
+          <a href={linkDemo({ negocio })} target="_blank" rel="noopener noreferrer" className="s-btn s-btn-primario w-full">
             {CTA_DEMO}
           </a>
         </nav>

@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: siteUrl(`/blog/${post.slug}/`),
       type: 'article',
       publishedTime: post.dateISO,
-      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: sinPunto(post.title) }],
+      images: [{ url: `/sitio/og/blog-${post.slug}.jpg`, width: 1200, height: 630, alt: sinPunto(post.title) }],
     },
   }
 }
@@ -52,7 +52,7 @@ export default async function BlogPostPage({ params }: Props) {
     '@type': 'BlogPosting',
     headline: sinPunto(post.title),
     description: post.description,
-    image: `${SITE.url}/og-image.png`,
+    image: `${SITE.url}/sitio/og/blog-${post.slug}.jpg`,
     datePublished: post.dateISO,
     author: { '@type': 'Person', name: LEGAL.ownerName },
     publisher: {

@@ -72,6 +72,13 @@
   - El sitemap ya lista la nueva URL.
   - Los datos salen de `app/rancho-itahue/content.ts` (texto del dueño, reseñas de Google), que se lee sin modificarlo.
   - Imágenes: capturas reales de ranchoitahue.cl (`public/sitio/fuentes/rancho-*.webp`).
+- **Hacia "next level" (pedido de Diego, 2026-10-23):**
+  - Campo "¿Cómo se llama tu negocio?" en el hero: el nombre se arma en ASCII en el canvas y viaja en todos los mensajes de WhatsApp.
+  - "Quiero uno así" en cada demo con captura.
+  - Imágenes para compartir por página (`scripts/sitio-og.mjs`, `public/sitio/og/`).
+  - Total real de demos en la home y en el catálogo.
+  - Rediseño del índice `/demos/` como página del sitio, con buscador, familias, lista editorial y destacados en dither. Los demos no se tocan.
+  - Dos entradas del catálogo viejo daban 404 en producción (`cabanas-rocas-de-pellines`, `el-rincon-de-faby`): no tienen carpeta ni datos. El catálogo nuevo solo lista demos con página.
 - La página Sobre ya no usa `TEAM.bio` de `lib/config`: su bio vive en la página, sin Roma.
 
 ### TODO de datos (sin resolver, para Diego)
