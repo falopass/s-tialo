@@ -475,3 +475,121 @@ body:has([data-sitio])::before {
     opacity: 0;
   }
 }
+
+/* ── Movimiento (fase 4) ──
+   Cada animación tiene su "qué comunica" (ver DISENO.md, sección 3). Solo transform y opacity.
+   Todo vive dentro de prefers-reduced-motion: no-preference; con reduce, el sitio queda estático. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero: titular, bajada y CTA entran en orden. Comunica jerarquía: primero la promesa, después cómo, después dónde hacer clic.
+     Empieza en opacidad 0.2 (no 0) para no retrasar el LCP. */
+  [data-sitio] .s-entra {
+    animation: s-entra 0.7s var(--s-ease) both;
+    animation-delay: calc(var(--i, 0) * 110ms);
+  }
+
+  /* Secciones: entran al aparecer en pantalla. Comunica ritmo de lectura, una idea a la vez. */
+  @supports (animation-timeline: view()) {
+    [data-sitio] .s-revela {
+      animation: s-revela linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 65%;
+    }
+  }
+
+  /* La única marquesina: amplitud de rubros. Se detiene con el mouse encima para poder leerla. */
+  [data-sitio] .s-marquesina-pista {
+    animation: s-marquesina 48s linear infinite;
+  }
+
+  [data-sitio] .s-marquesina:hover .s-marquesina-pista {
+    animation-play-state: paused;
+  }
+
+  /* Revelación a color en el celular: aparece en pasos, como si la imagen terminara de "resolverse". */
+  [data-sitio] .s-revela-capa {
+    transition: opacity 0.9s steps(6, end);
+  }
+
+  /* Revelación a color con mouse: una máscara circular sigue al cursor. */
+  @media (hover: hover) and (pointer: fine) {
+    [data-sitio] .s-revela-capa {
+      transition: none;
+    }
+
+    [data-sitio] .s-revela-color[data-activo] .s-revela-capa {
+      opacity: 1;
+      transition: none;
+      -webkit-mask-image: radial-gradient(circle 120px at var(--s-x, 50%) var(--s-y, 50%), #000 98%, transparent 100%);
+      mask-image: radial-gradient(circle 120px at var(--s-x, 50%) var(--s-y, 50%), #000 98%, transparent 100%);
+    }
+  }
+
+  /* Transición entre páginas del sitio (solo tipo "sitio", nunca en un demo): la página que sale se apaga
+     en pasos y la nueva sube y se resuelve en pasos. La nav, con nombre propio, no se mueve. */
+  html:active-view-transition-type(sitio)::view-transition-old(root) {
+    animation: s-vt-sale 0.2s steps(4, end) both;
+  }
+
+  html:active-view-transition-type(sitio)::view-transition-new(root) {
+    animation: s-vt-entra 0.36s steps(6, end) both;
+  }
+}
+
+/* En el celular (o con movimiento reducido) la versión a color queda al entrar en pantalla. */
+[data-sitio] .s-revela-color[data-visto] .s-revela-capa {
+  opacity: 1;
+}
+
+[data-sitio] .s-nav {
+  view-transition-name: s-nav;
+}
+
+/* Con movimiento reducido la marquesina es una lista quieta que se lee completa. */
+@media (prefers-reduced-motion: reduce) {
+  [data-sitio] .s-marquesina-pista {
+    width: auto;
+    padding-inline: var(--s-gutter);
+  }
+
+  [data-sitio] .s-marquesina-grupo {
+    flex-wrap: wrap;
+    row-gap: 0.2em;
+  }
+
+  [data-sitio] .s-marquesina-grupo + .s-marquesina-grupo {
+    display: none;
+  }
+}
+
+@keyframes s-entra {
+  from {
+    opacity: 0.2;
+    transform: translateY(0.45em);
+  }
+}
+
+@keyframes s-revela {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+@keyframes s-marquesina {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes s-vt-sale {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes s-vt-entra {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}

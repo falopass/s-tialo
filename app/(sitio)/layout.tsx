@@ -1,6 +1,7 @@
 import { Nav } from './_components/Nav'
 import { Footer } from './_components/Footer'
 import { CookieConsent } from './_components/CookieConsent'
+import { MovimientoSitio } from './_components/MovimientoSitio'
 import { sFontClasses } from './_lib/fonts'
 import './sitio.css'
 
@@ -15,6 +16,7 @@ export default function SitioLayout({ children }: { children: React.ReactNode })
       {children}
       <Footer />
       <CookieConsent />
+      <MovimientoSitio />
     </div>
   )
 }

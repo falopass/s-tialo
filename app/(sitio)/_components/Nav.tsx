@@ -1,10 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { List, X } from '@phosphor-icons/react/dist/ssr'
 import { Logo } from './Logo'
+import { Enlace } from './Enlace'
+import { Descifra } from './Descifra'
 import { CTA_DEMO, linkDemo } from '../_lib/contacto'
 
 const LINKS = [
@@ -44,14 +45,15 @@ export function Nav() {
 
         <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
           {LINKS.map((l) => (
-            <Link
+            <Enlace
               key={l.href}
               href={l.href}
+              aria-label={l.label}
               aria-current={activo(pathname, l.href) ? 'page' : undefined}
               className="text-[15px] text-(--s-crema-2) transition-colors hover:text-(--s-crema) aria-[current=page]:text-(--s-crema) aria-[current=page]:underline aria-[current=page]:decoration-(--s-amarillo) aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8"
             >
-              {l.label}
-            </Link>
+              <Descifra texto={l.label} />
+            </Enlace>
           ))}
         </nav>
 
@@ -81,13 +83,13 @@ export function Nav() {
           <ul className="flex flex-col gap-5">
             {[{ label: 'Inicio', href: '/' }, ...LINKS, { label: 'Notas', href: '/blog/' }, { label: 'Sobre el estudio', href: '/sobre/' }].map((l) => (
               <li key={l.href}>
-                <Link
+                <Enlace
                   href={l.href}
                   aria-current={l.href !== '/' && activo(pathname, l.href) ? 'page' : undefined}
                   className="s-display block text-[2.4rem] leading-none text-(--s-crema) aria-[current=page]:italic"
                 >
                   {l.label}
-                </Link>
+                </Enlace>
               </li>
             ))}
           </ul>

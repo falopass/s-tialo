@@ -53,13 +53,13 @@ export default function HomePage() {
       {/* Hero y pieza central: el mismo objeto pasa de estructura a forma a publicada. */}
       <section className="s-proceso s-wrap" aria-label="Cómo nace tu web">
         <div className="s-proceso-hero">
-          <h1 className="s-display text-[clamp(2.75rem,6.4vw,6rem)]">
+          <h1 className="s-display s-entra text-[clamp(2.75rem,6.4vw,6rem)]">
             Tu web, antes de pagar <em>un peso.</em>
           </h1>
-          <p className="s-lead mt-6">
+          <p className="s-lead s-entra mt-6" style={{ '--i': 1 } as React.CSSProperties}>
             Mándanos tu Instagram y en 48 horas recibes un demo por WhatsApp. Lista en 7 días desde $79.990.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="s-entra mt-8 flex flex-wrap gap-3" style={{ '--i': 2 } as React.CSSProperties}>
             <BotonDemo />
             <a href="/demos/" className="s-btn s-btn-secundario">
               Ver demos

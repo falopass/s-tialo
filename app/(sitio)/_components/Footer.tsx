@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Enlace } from './Enlace'
 import { WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
 import { CONTACT, LEGAL, SITE, whatsappLink } from '@/lib/config'
 import { Logo } from './Logo'
@@ -64,9 +64,9 @@ export function Footer() {
                         {l.label}
                       </a>
                     ) : (
-                      <Link href={l.href} className="inline-flex min-h-11 items-center text-[15px] text-(--s-crema-2) transition-colors hover:text-(--s-crema)">
+                      <Enlace href={l.href} className="inline-flex min-h-11 items-center text-[15px] text-(--s-crema-2) transition-colors hover:text-(--s-crema)">
                         {l.label}
-                      </Link>
+                      </Enlace>
                     )}
                   </li>
                 ))}
