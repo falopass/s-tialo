@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { PLANS, siteUrl } from '@/lib/config'
 import { processSteps } from '@/content/process'
 import { Cabecera } from '../_components/Cabecera'
-import { Captura } from '../_components/Captura'
+import { CapturaRevela } from '../_components/Captura'
 import { Cierre } from '../_components/Cierre'
 import { Enlace } from '../_components/Enlace'
 
@@ -54,8 +54,18 @@ export default function ComoFuncionaPage() {
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <Captura id="los-leones" className="w-full rounded-[22px] border border-(--s-linea)" />
-          <Captura id="entre-raices" className="mt-12 w-full rounded-[22px] border border-(--s-linea)" />
+          <CapturaRevela
+            id="los-leones"
+            sizes="(min-width: 768px) 20vw, 50vw"
+            className="aspect-[780/1688] overflow-hidden rounded-[22px] border border-(--s-linea)"
+            imgClassName="object-cover"
+          />
+          <CapturaRevela
+            id="entre-raices"
+            sizes="(min-width: 768px) 20vw, 50vw"
+            className="mt-12 aspect-[780/1688] overflow-hidden rounded-[22px] border border-(--s-linea)"
+            imgClassName="object-cover"
+          />
         </div>
       </section>
 

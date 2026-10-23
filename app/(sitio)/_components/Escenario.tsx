@@ -1,4 +1,4 @@
-import { Captura } from './Captura'
+import { CapturaDither } from './Captura'
 
 /**
  * El objeto que atraviesa la home: la captura real de un demo en formato celular.
@@ -7,7 +7,7 @@ import { Captura } from './Captura'
 export function Escenario({ id }: { id: string }) {
   return (
     <div className="s-escenario">
-      <Captura id={id} eager className="absolute inset-0 size-full object-cover" />
+      <CapturaDither id={id} eager className="absolute inset-0 size-full object-cover" />
     </div>
   )
 }

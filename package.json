@@ -5,6 +5,7 @@
   "description": "Sitiazo.cl — Páginas web que sí venden",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/dither.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

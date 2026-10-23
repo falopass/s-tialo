@@ -451,3 +451,27 @@ body:has([data-sitio])::before {
     display: none;
   }
 }
+
+/* ── Imágenes: dither y revelación a color (fase 3) ──
+   Las versiones las genera scripts/dither.mjs en el build. Nunca dither ni grano sobre texto ni sobre el amarillo. */
+@layer components {
+  [data-sitio] .s-pixelado {
+    image-rendering: pixelated;
+  }
+
+  [data-sitio] .s-revela-color {
+    position: relative;
+    display: block;
+  }
+
+  [data-sitio] .s-revela-color > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  [data-sitio] .s-revela-capa {
+    opacity: 0;
+  }
+}
