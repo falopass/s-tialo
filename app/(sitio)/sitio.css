@@ -593,3 +593,23 @@ body:has([data-sitio])::before {
     transform: translateY(16px);
   }
 }
+
+/* ── Pieza central (fase 5) ──
+   Con el canvas activo, el paso en curso queda en crema y los otros en ceniza: el texto acompaña
+   al objeto. Sin JavaScript todos los pasos se leen igual. */
+/* Sin capa a propósito: tiene que ganarle a la utilidad de color del párrafo. */
+[data-sitio] .s-proceso[data-vivo] .s-paso:not([data-activo]),
+[data-sitio] .s-proceso[data-vivo] .s-paso:not([data-activo]) p {
+  color: var(--s-ceniza);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-sitio] .s-paso,
+  [data-sitio] .s-paso p {
+    transition: color 0.35s var(--s-ease);
+  }
+
+  [data-sitio] .s-escenario canvas {
+    transition: opacity 0.4s var(--s-ease);
+  }
+}

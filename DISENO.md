@@ -85,15 +85,20 @@ Usarlas todas en todas partes produce otro template. Cada una tiene un solo trab
 
 Toda animación tiene que responder "¿qué comunica?" en una frase: jerarquía, relato, respuesta a una acción o cambio de estado. Si no hay respuesta, se elimina.
 
+Implementado así (concepto "El scroll es el proceso", ver `DIRECCION.md`):
+
 | Dónde | Qué se mueve | Qué comunica | Cómo |
 |---|---|---|---|
-| Hero | ASCII armando la web; titular entra por líneas | La oferta del demo | Canvas + CSS (`@starting-style` o keyframes con `animation-delay` escalonado) |
-| Navegación | Al hover, la palabra se "descifra" en caracteres mono antes de asentarse | Respuesta, coherente con el ASCII | Componente cliente pequeño, máximo 300 ms |
-| CTA principal | Leve atracción magnética hacia el cursor | Dónde hacer clic | Motion: `useMotionValue` + `useSpring`, nunca `useState` |
-| Secciones | Entrada escalonada al hacer scroll | Ritmo de lectura | CSS `animation-timeline: view()` dentro de `@supports`; sin soporte, se muestran directo |
-| Demos por rubro | Revelación del dither a color | La foto real del negocio | Ver sección 2 |
-| Cómo funciona | Sticky-stack: tres pasos que se apilan al hacer scroll, cada uno con una captura real dithereada | El proceso real: tu negocio en Google Maps, el demo, el mensaje de WhatsApp | Motion `whileInView` o el esqueleto 5.A de la skill |
-| Franja de rubros | Una sola marquesina: "barberías · cafeterías · talleres · clínicas · ..." | Amplitud de clientes | CSS puro, máximo una por página |
+| Hero | Titular, bajada y CTA entran en orden | Jerarquía: la promesa, cómo, dónde hacer clic | Keyframes `s-entra` con `--i`; parte en opacidad 0.2 para no retrasar el LCP |
+| Hero | Los caracteres arman en ASCII la captura real de un demo y rotan entre tres rubros cada ~6 s | Te armamos tu web antes de que pagues | `EscenarioCanvas` (canvas, diferido con `next/dynamic`) |
+| Hero | El ASCII se dispersa bajo el cursor; en el celular, con un toque o al entrar en pantalla | La web todavía es materia blanda, se puede tocar | Mismo canvas, solo mientras el objeto está en ASCII |
+| Pieza central | El objeto queda fijo mientras pasan tres pasos; una disolución Bayer lo lleva de ASCII a dither y de dither a color | El proceso real: estructura, forma, publicada | `scroll()` de framer-motion sobre la lista de pasos; el paso activo queda en crema |
+| Navegación | Al hover, la palabra se descifra en caracteres de la rampa ASCII | Respuesta, en el idioma del hero | `Descifra`, 280 ms, sin salto de ancho; solo con mouse |
+| CTA principal | Leve atracción magnética hacia el cursor | Dónde hacer clic | `useMotionValue` + `useSpring`; solo con mouse fino |
+| Secciones | Entrada al aparecer en pantalla | Ritmo de lectura | `animation-timeline: view()` dentro de `@supports`; sin soporte, se muestran directo |
+| Demos por rubro | Revelación del dither a color | Detrás de cada demo hay un negocio real | Máscara circular que sigue al cursor; en el celular, al entrar en pantalla, en pasos |
+| Rubros | Una sola marquesina | Amplitud de rubros | CSS puro; se pausa con el mouse; quieta con reduce |
+| Entre páginas | La página que sale se apaga en pasos y la nueva sube en pasos; la nav no se mueve | Cambiar de página es cambiar de etapa; el estudio se mantiene | View Transitions con tipo `sitio` (`Enlace` + `_lib/transiciones.ts`); sin soporte de tipos, navegación normal |
 
 ### Prohibido
 
@@ -116,14 +121,15 @@ Cada sección usa una familia de layout distinta; ninguna se repite.
 
 | # | Sección | Familia de layout |
 |---|---|---|
-| 1 | **Hero:** titular sobre el demo gratis ("Tu web, antes de pagar un peso."), bajada de máximo 20 palabras ("Mándanos tu Instagram y en 48 horas recibes un demo por WhatsApp. Lista en 7 días desde $79.990."), CTA amarillo a WhatsApp, enlace secundario a demos. ASCII a la derecha (debajo en móvil). Un solo texto pequeño en todo el hero: la línea de log bajo los botones, sin eyebrow arriba. | Split texto + visual |
+| 1 | **Hero + pieza central (un solo bloque):** titular "Tu web, antes de pagar un peso.", bajada de 18 palabras, CTA "Pide tu demo" (WhatsApp) y "Ver demos". El escenario (captura real en formato celular) a la derecha y fijo en escritorio; en el celular queda fijo arriba y los tres pasos (Estructura, Forma, Publicada) pasan debajo. Sin eyebrow ni texto chico en el hero. | Split con columna fija (sticky) |
 | 2 | **Rubros:** la única marquesina de la página. | Marquesina |
-| 3 | **Demos por rubro:** tarjetas con dither y revelación. | Grilla de tarjetas con imagen |
-| 4 | **Cómo funciona:** tres pasos con capturas reales. | Sticky-stack |
-| 5 | **Planes:** un plan destacado grande y los otros dos más chicos al lado. Sin efectos; el ojo descansa aquí. | Asimétrico destacado |
-| 6 | **Caso Rancho Itahue:** captura real de ranchoitahue.cl a todo el ancho, con el texto en una zona limpia (nunca sobre la pantalla de la captura) y enlace al caso. Solo hechos del texto del dueño; sin métricas inventadas. | Imagen a sangre + texto superpuesto en zona limpia |
-| 7 | **Proyectos propios:** CalculaChile y CVListo etiquetados como proyectos propios del estudio, no como clientes. | Lista editorial de dos filas grandes |
-| 8 | **Cierre:** punto amarillo (opcional en ASCII) + CTA final a WhatsApp. | Centrado de una sola columna |
+| 3 | **Demos por rubro:** 6 capturas reales de demos de referencia en dither, con revelación a color. | Grilla asimétrica de 12 columnas (2 en el celular) |
+| 4 | **Planes:** el Recomendado grande y los otros dos más chicos al lado. Sin efectos; el ojo descansa aquí. | Asimétrico destacado |
+| 5 | **Caso Rancho Itahue:** texto a la izquierda, captura de escritorio y de celular superpuestas a la derecha, cita textual del dueño. Solo hechos de su texto; sin métricas inventadas. | Split texto + capturas superpuestas |
+| 6 | **Proyectos propios:** CalculaChile y CVListo, etiquetados como productos propios del estudio, no como clientes. | Lista editorial de dos filas grandes |
+| 7 | **Cierre:** punto amarillo y el mismo CTA "Pide tu demo". | Centrado de una sola columna |
+
+Las texturas siguen el relato de arriba abajo: ASCII en el hero, dither en el proceso y los demos, color de los planes hacia abajo ("publicada").
 
 Sin franja de "Trabajamos con" mientras haya un solo cliente. Los hechos (demo gratis, 7 días, precio) ya van en el hero.
 

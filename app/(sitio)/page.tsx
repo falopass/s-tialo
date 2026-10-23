@@ -69,7 +69,7 @@ export default function HomePage() {
 
         <div className="s-proceso-escena">
           <div className="s-proceso-sticky">
-            <Escenario id="fran-wartemberg" />
+            <Escenario ids={['fran-wartemberg', 'los-leones', 'servimac']} />
           </div>
         </div>
 
