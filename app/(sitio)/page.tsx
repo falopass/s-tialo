@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { SITE, siteUrl } from '@/lib/config'
+import { PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, SITE, STARTING_PRICE, siteUrl } from '@/lib/config'
 import { cases } from '@/content/cases'
 import { BIZ, RANCHO } from '../rancho-itahue/content'
 import { catalogo } from '../demos/catalogo'
@@ -50,7 +50,7 @@ const PASOS = [
     titulo: 'Si te gusta, la publicamos en 7 días.',
     antes: 'Si te gusta, publicamos la web de ',
     despues: ' en 7 días.',
-    texto: 'Desde $79.990 pago único, o $12.990 al mes con hosting y dominio.',
+    texto: `Desde ${STARTING_PRICE} pago único o en ${PAGO_CUOTAS} cuotas sin interés. El plan Básico también va por ${PAGO_MENSUAL_FORMATTED} al mes con hosting y dominio.`,
   },
 ]
 
@@ -71,7 +71,7 @@ export default function HomePage() {
             Tu web, antes de pagar <em>un peso.</em>
           </h1>
           <p className="s-lead s-entra mt-6" style={{ '--i': 1 } as React.CSSProperties}>
-            Mándanos tu Instagram y en 48 horas recibes un demo por WhatsApp. Lista en 7 días desde $79.990.
+            Mándanos tu Instagram y en 48 horas recibes un demo por WhatsApp. Lista en 7 días desde {STARTING_PRICE}.
           </p>
           <div className="s-entra mt-8" style={{ '--i': 2 } as React.CSSProperties}>
             <TuNegocio />

@@ -68,11 +68,8 @@ export const SITE = {
 // ─────────────────────────────────────────────
 
 const RAW_WHATSAPP = getEnv('NEXT_PUBLIC_WHATSAPP_NUMBER', '56962343671')
-const RAW_CALCOM = getEnv('NEXT_PUBLIC_CALCOM_URL', 'https://cal.com/diego-sitiazo/30min')
-
 export const CONTACT = {
   whatsappNumber: RAW_WHATSAPP,
-  calcomUrl: RAW_CALCOM,
   whatsappDisplay: formatPhoneNumber(RAW_WHATSAPP),
   telephone: `+${RAW_WHATSAPP}`,
 } as const
@@ -118,14 +115,6 @@ export function whatsappLink(context: WhatsAppContext = 'contacto'): string {
   const message =
     dynamicMessages[context]?.() ?? STATIC_WHATSAPP_MESSAGES[context]
   return `https://wa.me/${RAW_WHATSAPP}?text=${encodeURIComponent(message)}`
-}
-
-// ─────────────────────────────────────────────
-// 📅 CAL.COM
-// ─────────────────────────────────────────────
-
-export function calLink(): string {
-  return RAW_CALCOM
 }
 
 // ─────────────────────────────────────────────
@@ -304,10 +293,10 @@ export interface FormaPago {
 export const FORMAS_PAGO: FormaPago[] = [
   {
     id: 'mensual',
-    nombre: 'Mensual',
+    nombre: 'Mensual, plan Básico',
     precio: `${formatCLP(PRICE_MENSUAL)} / mes`,
     detalle:
-      'El primer mes se paga cuando te entregamos la web. Mes a mes, sin contrato: incluye hosting, dominio y los ajustes de contenido que necesites.',
+      'Solo para el plan Básico. El primer mes se paga cuando te entregamos la web. Mes a mes, sin contrato: incluye hosting, dominio y los ajustes de contenido que necesites.',
     destacado: true,
   },
   {
@@ -469,8 +458,5 @@ if (process.env.NODE_ENV === 'development') {
     console.warn(
       '⚠️  WHATSAPP NUMBER IS A PLACEHOLDER! Set NEXT_PUBLIC_WHATSAPP_NUMBER in .env.local',
     )
-  }
-  if (!RAW_CALCOM.startsWith('https://cal.com/')) {
-    console.warn('⚠️  CALCOM URL might be invalid:', RAW_CALCOM)
   }
 }

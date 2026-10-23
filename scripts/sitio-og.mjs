@@ -23,7 +23,7 @@ const PAGINAS = [
   {
     id: 'planes',
     titulo: 'Planes claros, <em>sin letra chica.</em>',
-    bajada: 'Desde $79.990 pago único o $12.990 al mes',
+    bajada: 'Desde $79.990, en cuotas o $12.990 al mes en el Básico',
     captura: 'los-leones',
   },
   { id: 'casos', titulo: 'Trabajo real, <em>publicado.</em>', captura: 'rancho-movil' },

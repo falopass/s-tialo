@@ -44,7 +44,7 @@ export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
         ))}
       </div>
       <p className="mt-8 text-(--s-crema-2)">
-        ¿Prefieres pagar mes a mes? {PAGO_MENSUAL_FORMATTED} al mes con hosting, dominio y ajustes incluidos.{' '}
+        ¿Prefieres pagar mes a mes? El plan Básico también va por {PAGO_MENSUAL_FORMATTED} al mes, con hosting, dominio y ajustes incluidos.{' '}
         {conEnlace && (
           <Enlace href="/planes/" className="s-link">
             Ver planes

@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import { CalendarBlank, WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
-import { CONTACT, LEGAL, SITE, calLink, siteUrl, whatsappLink } from '@/lib/config'
+import { WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
+import { CONTACT, LEGAL, SITE, siteUrl, whatsappLink } from '@/lib/config'
 import { contactFaqs, faqJsonLd } from '@/content/faqs'
 import { Cabecera } from '../_components/Cabecera'
 import { Preguntas } from '../_components/Preguntas'
 
 const DESCRIPCION =
-  'Cotiza la página web de tu negocio: WhatsApp directo o una llamada de 30 minutos por Google Meet. Respondemos en horas hábiles.'
+  'Cotiza la página web de tu negocio por WhatsApp. Mándanos tu Instagram o tu ficha de Google y te armamos un demo gratis. Respondemos en horas hábiles.'
 
 export const metadata: Metadata = {
   title: 'Contacto: cotiza la página web de tu pyme',
@@ -26,7 +26,7 @@ const contactPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
   url: siteUrl('/contacto/'),
-  description: 'Contacta a Sitiazo.cl por WhatsApp o agenda una llamada por Google Meet.',
+  description: 'Contacta a Sitiazo.cl por WhatsApp.',
   mainEntity: {
     '@type': 'ProfessionalService',
     name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
@@ -44,6 +44,13 @@ const contactPageJsonLd = {
   },
 }
 
+/** Lo que conviene mandar en el primer mensaje para que el demo salga sin ida y vuelta. */
+const QUE_MANDAR = [
+  'El nombre de tu negocio y qué vendes.',
+  'Tu Instagram o tu ficha de Google, para ver tus fotos y tus datos.',
+  'Si ya tienes dominio o web, el link.',
+]
+
 export default function ContactoPage() {
   return (
     <>
@@ -56,7 +63,7 @@ export default function ContactoPage() {
             Hablemos de <em>tu negocio.</em>
           </>
         }
-        bajada="Escríbenos por WhatsApp o agenda 30 minutos por Google Meet. Respondemos en horas hábiles, sin venta agresiva."
+        bajada="Todo se conversa por WhatsApp: el demo, los cambios y la publicación. Respondemos en horas hábiles, sin venta agresiva."
       />
 
       <section className="s-wrap grid gap-5 pb-24 md:grid-cols-[1.2fr_1fr] md:pb-32">
@@ -70,21 +77,20 @@ export default function ContactoPage() {
           <div>
             <p className="s-display text-[clamp(2.25rem,4vw,3.5rem)] leading-none">WhatsApp</p>
             <p className="mt-3 text-lg font-semibold">{CONTACT.whatsappDisplay}</p>
-            <p className="mt-1 opacity-80">El camino más rápido. Cuéntanos qué vendes y te respondemos.</p>
+            <p className="mt-1 opacity-80">Cuéntanos qué vendes y te respondemos.</p>
           </div>
         </a>
-        <a
-          href={calLink()}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex flex-col justify-between gap-12 rounded-3xl border border-(--s-linea) p-7 transition-colors hover:border-(--s-crema-2) md:p-10"
-        >
-          <CalendarBlank size={36} weight="regular" aria-hidden="true" />
-          <div>
-            <p className="s-display text-[clamp(2.25rem,4vw,3.5rem)] leading-none">Agenda 30 min</p>
-            <p className="mt-3 text-(--s-crema-2)">Una llamada por Google Meet para revisar tu proyecto con calma.</p>
-          </div>
-        </a>
+        <div className="rounded-3xl border border-(--s-linea) p-7 md:p-10">
+          <h2 className="text-lg font-semibold">Para ir rápido, mándanos:</h2>
+          <ul className="mt-6 grid gap-4 text-(--s-crema-2)">
+            {QUE_MANDAR.map((t) => (
+              <li key={t} className="flex items-baseline gap-3">
+                <span aria-hidden="true" className="inline-block h-px w-3 shrink-0 translate-y-[-4px] bg-(--s-ceniza)" />
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section className="border-t border-(--s-linea)">

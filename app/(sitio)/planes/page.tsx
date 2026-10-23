@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import {
   EXTRAS,
   FORMAS_PAGO,
+  PAGO_CUOTAS,
   PAGO_MENSUAL_FORMATTED,
   PLANS,
   PLANS_ARRAY,
@@ -113,7 +114,7 @@ export default function PlanesPage() {
             Planes claros, <em>sin letra chica.</em>
           </>
         }
-        bajada={`Pago único desde ${STARTING_PRICE} o mes a mes por ${PAGO_MENSUAL_FORMATTED}. El demo es gratis en los dos casos.`}
+        bajada={`Pago único desde ${STARTING_PRICE}, en hasta ${PAGO_CUOTAS} cuotas sin interés, o el plan Básico mes a mes por ${PAGO_MENSUAL_FORMATTED}. El demo siempre es gratis.`}
       />
 
       <section className="s-wrap pb-24 md:pb-32">
