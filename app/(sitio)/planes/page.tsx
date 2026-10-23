@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import {
   EXTRAS,
-  FORMAS_PAGO,
   MARCA,
   PAGO_CUOTAS,
   PAGO_MENSUAL_FORMATTED,
@@ -16,7 +15,6 @@ import { faqJsonLd, planFaqs } from '@/content/faqs'
 import { Cabecera } from '../_components/Cabecera'
 import { Cierre } from '../_components/Cierre'
 import { CualTeConviene } from '../_components/CualTeConviene'
-import { DatosClaros } from '../_components/DatosClaros'
 import { Planes } from '../_components/Planes'
 import { Preguntas } from '../_components/Preguntas'
 import { SinRiesgo } from '../_components/SinRiesgo'
@@ -122,45 +120,25 @@ export default function PlanesPage() {
         bajada={`Pago único desde ${STARTING_PRICE}, en hasta ${PAGO_CUOTAS} cuotas sin interés, o el plan Básico mes a mes por ${PAGO_MENSUAL_FORMATTED}. El demo siempre es gratis.`}
       />
 
-      <section className="s-wrap pb-24 md:pb-32">
-        <h2 className="s-display s-h3 mb-8">Elige cómo pagar.</h2>
-        <div className="grid gap-5 md:grid-cols-[1.2fr_1fr]">
-          {FORMAS_PAGO.map((f) => (
-            <article
-              key={f.id}
-              className={`rounded-3xl border p-7 md:p-9 ${
-                f.destacado ? 'border-(--s-amarillo) bg-(--s-tinta-2)' : 'border-(--s-linea)'
-              }`}
-            >
-              <h3 className="text-lg font-semibold">{f.nombre}</h3>
-              <p className="s-display mt-3 text-[clamp(2.25rem,4vw,3.25rem)] leading-none">{f.precio}</p>
-              <p className="mt-4 max-w-[46ch] text-(--s-crema-2)">{f.detalle}</p>
-            </article>
-          ))}
-        </div>
+      <section className="s-wrap pb-20 md:pb-24">
+        <h2 className="s-display s-h2 mb-14 max-w-[18ch]">Tres tamaños, un mismo cuidado.</h2>
+        <Planes conEnlace={false} />
       </section>
 
       <section className="border-t border-(--s-linea)">
-        <div className="s-wrap py-24 md:py-32">
-          <h2 className="s-display s-h2 mb-14 max-w-[18ch]">Tres tamaños, un mismo cuidado.</h2>
-          <Planes conEnlace={false} />
-        </div>
-      </section>
-
-      <section className="border-t border-(--s-linea)">
-        <div className="s-wrap py-24 md:py-32">
+        <div className="s-wrap py-20 md:py-24">
           <SinRiesgo />
         </div>
       </section>
 
       <section className="border-t border-(--s-linea)">
-        <div className="s-wrap py-24 md:py-32">
+        <div className="s-wrap py-20 md:py-24">
           <CualTeConviene />
         </div>
       </section>
 
       <section className="border-t border-(--s-linea)">
-        <div className="s-wrap py-24 md:py-32">
+        <div className="s-wrap py-20 md:py-24">
           <h2 className="s-display s-h2 mb-12">Qué incluye cada plan.</h2>
           <div className="mx-[calc(var(--s-gutter)*-1)] overflow-x-auto px-[var(--s-gutter)]">
             <table className="w-full min-w-[560px] border-collapse text-left">
@@ -207,7 +185,7 @@ export default function PlanesPage() {
       </section>
 
       <section className="border-t border-(--s-linea)">
-        <div className="s-wrap grid gap-12 py-24 md:grid-cols-[1fr_1.4fr] md:py-32">
+        <div className="s-wrap grid gap-12 py-20 md:grid-cols-[1fr_1.4fr] md:py-24">
           <h2 className="s-display s-h2">Extras, si los necesitas.</h2>
           <dl className="border-t border-(--s-linea)">
             {EXTRAS.map((e) => (
@@ -222,13 +200,7 @@ export default function PlanesPage() {
       </section>
 
       <section className="border-t border-(--s-linea)">
-        <div className="s-wrap py-24 md:py-32">
-          <DatosClaros />
-        </div>
-      </section>
-
-      <section className="border-t border-(--s-linea)">
-        <div className="s-wrap py-24 md:py-32">
+        <div className="s-wrap py-20 md:py-24">
           <h2 className="s-display s-h2 mb-10">Preguntas sobre los planes.</h2>
           <Preguntas items={planFaqs} />
         </div>
