@@ -168,7 +168,7 @@ El sitio principal vive en el route group `app/(sitio)/` con su propio `layout.t
 
 Un cambio al sitio principal no está listo hasta que:
 
-- [ ] `npm run lint`, `npm run typecheck` y `npm run build` pasan.
+- [ ] El build del preview de Vercel pasa. En local no se corre `lint`, `typecheck`, `build` ni `dev`.
 - [ ] Lighthouse móvil: LCP < 2.5 s, CLS < 0.1, INP < 200 ms (medido, no supuesto).
 - [ ] Revisado a 360 px, 768 px y 1440 px.
 - [ ] Revisado con `prefers-reduced-motion: reduce` activado: nada se mueve y nada queda roto.
