@@ -93,7 +93,7 @@ Implementado así (concepto "El scroll es el proceso", ver `DIRECCION.md`):
 | Hero | Los caracteres arman en ASCII la captura real de un demo y rotan entre tres rubros cada ~6 s | Te armamos tu web antes de que pagues | `EscenarioCanvas` (canvas, diferido con `next/dynamic`) |
 | Hero | El ASCII se dispersa bajo el cursor; en el celular, con un toque o al entrar en pantalla | La web todavía es materia blanda, se puede tocar | Mismo canvas, solo mientras el objeto está en ASCII |
 | Pieza central | El objeto queda fijo mientras pasan tres pasos; una disolución Bayer lo lleva de ASCII a dither y de dither a color | El proceso real: estructura, forma, publicada | `scroll()` de framer-motion sobre la lista de pasos; el paso activo queda en crema |
-| Hero | Lo que el visitante escribe en "¿Cómo se llama tu negocio?" se arma letra a letra en ASCII amarillo sobre la captura, y se disuelve con el resto al pasar a dither | Tu web empieza aquí: el visitante ve su propio nombre en la estructura | Mismo canvas (`_lib/negocio.ts` lo comunica sin estado de React); con reduce aparece sin descifrado |
+| Hero | Lo que el visitante escribe en "¿Cómo se llama tu negocio?" se arma letra a letra en ASCII amarillo sobre la captura, sigue en la etapa de dither y se disuelve recién con el color (nunca se pega sobre la captura a color de un demo real) | Tu web empieza aquí: el visitante ve su propio nombre en la estructura | Mismo canvas (`_lib/negocio.ts` lo comunica sin estado de React); con reduce aparece sin descifrado |
 | Navegación | Al hover, la palabra se descifra en caracteres de la rampa ASCII | Respuesta, en el idioma del hero | `Descifra`, 280 ms, sin salto de ancho; solo con mouse |
 | CTA principal | Leve atracción magnética hacia el cursor | Dónde hacer clic | `useMotionValue` + `useSpring`; solo con mouse fino |
 | Secciones | Entrada al aparecer en pantalla | Ritmo de lectura | `animation-timeline: view()` dentro de `@supports`; sin soporte, se muestran directo |
@@ -172,7 +172,12 @@ El sitio principal vive en el route group `app/(sitio)/` con su propio `layout.t
 
 ## 7b. WhatsApp con contexto e imágenes para compartir
 
-- El hero pregunta "¿Cómo se llama tu negocio?" (opcional). Ese nombre vive en `sessionStorage` mientras dura la visita, y todos los botones de WhatsApp del sitio (nav, hero, planes, cierre) lo llevan en el mensaje. Enter en el campo abre WhatsApp.
+- El hero pregunta "¿Cómo se llama tu negocio?" (opcional). El nombre acompaña el recorrido como texto real, no solo en el canvas:
+  - bajo los botones aparece "Listo: tu mensaje de WhatsApp ya dice “…”";
+  - los tres pasos de la home pasan a hablar de ese negocio ("En 48 horas te llega el demo de … por WhatsApp");
+  - el cierre por defecto dice "El demo de … puede estar listo pasado mañana".
+
+  Sin nombre, todo queda igual que antes (`ConNegocio`). Ese nombre vive en `sessionStorage` mientras dura la visita, y todos los botones de WhatsApp del sitio (nav, hero, planes, cierre) lo llevan en el mensaje. Enter en el campo abre WhatsApp.
 - Cada demo con captura (grilla, tira y catálogo destacado) tiene "Quiero uno así", que abre WhatsApp con ese demo como referencia. Los mensajes se arman en `_lib/contacto.ts` (`mensajeDemo`).
 - Las imágenes para compartir (Open Graph, 1200×630) salen de `scripts/sitio-og.mjs`: titular de la página en Cormorant y una captura real en dither detrás de la misma captura a color. Están en `public/sitio/og/` y se regeneran a mano cuando cambia un titular. Formato JPG, porque WhatsApp no siempre muestra WebP.
 - Las cifras del sitio se calculan en el build. El total de demos sale de `catalogo()` y nunca se escribe a mano.

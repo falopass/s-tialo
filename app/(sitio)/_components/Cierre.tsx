@@ -1,12 +1,28 @@
 import { BotonDemo } from './BotonDemo'
+import { ConNegocio } from './ConNegocio'
+
+/** Título por defecto; si el visitante escribió el nombre de su negocio en el hero, lo nombra. */
+const TITULO = (
+  <ConNegocio
+    sin={
+      <>
+        Tu demo puede estar listo <em>pasado mañana.</em>
+      </>
+    }
+    antes="El demo de "
+    despues={
+      <>
+        {' '}
+        puede estar listo <em>pasado mañana.</em>
+      </>
+    }
+    enfasis={false}
+  />
+)
 
 /** Cierre de página: el punto amarillo de la marca y el único CTA, pedir el demo. */
 export function Cierre({
-  titulo = (
-    <>
-      Tu demo puede estar listo <em>pasado mañana.</em>
-    </>
-  ),
+  titulo = TITULO,
   bajada = 'Mándanos tu Instagram o tu ficha de Google. Verlo no cuesta nada.',
 }: {
   titulo?: React.ReactNode

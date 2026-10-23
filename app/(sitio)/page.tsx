@@ -10,6 +10,7 @@ import { Enlace } from './_components/Enlace'
 import { Escenario } from './_components/Escenario'
 import { TiraRubros } from './_components/TiraRubros'
 import { TuNegocio } from './_components/TuNegocio'
+import { ConfirmaNegocio, ConNegocio } from './_components/ConNegocio'
 import { Planes } from './_components/Planes'
 import { TarjetaDemo } from './_components/TarjetaDemo'
 
@@ -25,21 +26,30 @@ export const metadata: Metadata = {
   },
 }
 
-/** Las tres etapas del relato: cada una corresponde a una textura (ASCII, dither, color). */
+/**
+ * Las tres etapas del relato: cada una corresponde a una textura (ASCII, dither, color).
+ * Si el visitante escribió el nombre de su negocio, el título usa `antes` + nombre + `despues`.
+ */
 const PASOS = [
   {
     etapa: 'Estructura',
     titulo: 'Nos mandas tu Instagram o tu ficha de Google.',
+    antes: 'Nos mandas el Instagram o la ficha de Google de ',
+    despues: '.',
     texto: 'Con eso vemos tu rubro, tus fotos y cómo te encuentran hoy.',
   },
   {
     etapa: 'Forma',
     titulo: 'En 48 horas te llega tu demo por WhatsApp.',
+    antes: 'En 48 horas te llega el demo de ',
+    despues: ' por WhatsApp.',
     texto: 'Lo armamos con tus fotos y tus datos reales. Verlo no cuesta nada.',
   },
   {
     etapa: 'Publicada',
     titulo: 'Si te gusta, la publicamos en 7 días.',
+    antes: 'Si te gusta, publicamos la web de ',
+    despues: ' en 7 días.',
     texto: 'Desde $79.990 pago único, o $12.990 al mes con hosting y dominio.',
   },
 ]
@@ -72,6 +82,7 @@ export default function HomePage() {
               Ver {totalDemos} demos
             </a>
           </div>
+          <ConfirmaNegocio />
         </div>
 
         <div className="s-proceso-escena">
@@ -85,7 +96,9 @@ export default function HomePage() {
             <li key={p.etapa} className="s-paso">
               <div>
                 <p className="s-mono s-paso-etapa">{p.etapa}</p>
-                <h2 className="s-display mt-2 text-[clamp(1.85rem,3vw,2.75rem)]">{p.titulo}</h2>
+                <h2 className="s-display mt-2 text-[clamp(1.85rem,3vw,2.75rem)]">
+                  <ConNegocio sin={p.titulo} antes={p.antes} despues={p.despues} />
+                </h2>
                 <p className="mt-3 max-w-[44ch] text-(--s-crema-2)">{p.texto}</p>
               </div>
             </li>

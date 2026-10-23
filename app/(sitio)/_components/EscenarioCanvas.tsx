@@ -18,7 +18,8 @@ export type FotoEscenario = { id: string; color: string; colorGrande: string }
  * - Bajo el cursor (o con un toque) el ASCII se dispersa: la web todavía es materia blanda.
  * - Con el scroll, una disolución Bayer lleva el ASCII a dither y el dither a color: el proceso real.
  * - Si el visitante escribe el nombre de su negocio en el hero, ese nombre se arma en ASCII amarillo
- *   sobre la captura, letra a letra: "tu web empieza aquí". Se disuelve con el resto al pasar a dither.
+ *   sobre la captura, letra a letra: "tu web empieza aquí". Sigue en la etapa de dither y se disuelve
+ *   recién al pasar a color (nunca se pega sobre la captura a color de un demo real).
  *
  * Reglas de rendimiento: se carga diferido (next/dynamic desde EscenarioVivo), DPR máximo 2,
  * dibuja solo cuando algo cambia, se pausa fuera de pantalla y con la pestaña oculta, y nunca
@@ -183,13 +184,19 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
       return { w, h, lum, dither, umbral, ditherCanvas, img }
     }
 
-    function dibujarAscii(r: Raster, a: number): Grilla {
+    /** Grilla de caracteres para un avance `a` del ASCII (0 a 1). */
+    function grilla(a: number): Grilla {
       const colsFin = Math.min(46, Math.max(24, Math.round(cssW / 6.5)))
       // Arranca ya legible (70% de la densidad final) y se afina hasta el detalle completo.
       const cols = Math.round(colsFin * (0.7 + 0.3 * a))
       const cw = cssW / cols
       const ch = cw / 0.6
-      const filas = Math.ceil(cssH / ch)
+      return { cols, cw, ch, filas: Math.ceil(cssH / ch) }
+    }
+
+    function dibujarAscii(r: Raster, a: number): Grilla {
+      const g = grilla(a)
+      const { cols, cw, ch, filas } = g
       ctx!.font = `500 ${(ch * 0.92).toFixed(2)}px ${mono}`
       ctx!.textBaseline = 'top'
       ctx!.fillStyle = TEXTO
@@ -218,7 +225,7 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
           ctx!.fillText(RAMPA[k], x0 + dx, y0 + dy)
         }
       }
-      return { cols, cw, ch, filas }
+      return g
     }
 
     /**
@@ -326,11 +333,13 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
         if (nombre) dibujarNombre(g, performance.now())
       } else if (p <= 2 / 3) {
         const g = dibujarAscii(r, 1)
-        if (nombre) dibujarNombre(g, performance.now())
         dibujarDitherParcial(r, (p - 1 / 3) * 3)
+        if (nombre) dibujarNombre(g, performance.now())
       } else {
         ctx.imageSmoothingEnabled = false
         ctx.drawImage(r.ditherCanvas, 0, 0, cssW, cssH)
+        // El color se resuelve en el mismo orden Bayer encima del nombre: el nombre se va con la etapa "forma".
+        if (nombre) dibujarNombre(grilla(1), performance.now())
         dibujarColorParcial(r, (p - 2 / 3) * 3)
       }
     }
