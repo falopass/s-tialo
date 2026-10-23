@@ -1,103 +1,96 @@
 import type { Metadata } from 'next'
-import { Dot } from '@/components/ui/Dot'
-import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { PrimaryButton } from '@/components/ui/PrimaryButton'
-import { whatsappLink, siteUrl } from '@/lib/config'
+import { PLANS, siteUrl } from '@/lib/config'
 import { processSteps } from '@/content/process'
+import { Cabecera } from '../_components/Cabecera'
+import { Captura } from '../_components/Captura'
+import { Cierre } from '../_components/Cierre'
+import { Enlace } from '../_components/Enlace'
+
+const DESCRIPCION =
+  'Cómo se hace la página web de tu negocio: primero ves un demo gratis en 48 horas y, si te gusta, la publicamos en 7 días hábiles.'
 
 export const metadata: Metadata = {
-  title: 'Cómo funciona — tu página web lista en 7 días',
-  description: 'El proceso para crear la página web de tu negocio: brief, diseño, desarrollo y publicación. 4 pasos, 7 días, sin enredos.',
+  title: 'Cómo funciona: tu página web lista en 7 días',
+  description: DESCRIPCION,
   alternates: { canonical: siteUrl('/como-funciona/') },
   openGraph: {
-    title: 'Cómo funciona — tu página web en 7 días | Sitiazo.cl',
-    description: 'El proceso para crear la página web de tu negocio: brief, diseño, desarrollo y publicación. 4 pasos, 7 días, sin enredos.',
+    title: 'Cómo funciona: tu página web en 7 días | Sitiazo.cl',
+    description: DESCRIPCION,
     url: siteUrl('/como-funciona/'),
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Así Trabajamos — Sitiazo.cl',
-      },
-    ],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Cómo funciona Sitiazo.cl' }],
   },
 }
 
 export default function ComoFuncionaPage() {
   return (
     <>
-      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-5xl mb-8">
-            <h1 className="font-display font-bold text-display-lg md:text-display-xl text-ink leading-display tracking-display mb-6 whitespace-nowrap">
-              Cómo funciona.
-              <Dot size="xl" variant="solid-yellow" />
-            </h1>
-            <p className="font-body text-lead text-ink-muted leading-body">
-              4 pasos. 7 días. Tu sitiazo en línea sin enredos.
+      <Cabecera
+        titulo={
+          <>
+            Primero ves tu web. <em>Después decides.</em>
+          </>
+        }
+        bajada={`El demo es gratis y llega en 48 horas. Si te gusta, la publicamos en ${PLANS.basico.deliveryLabel} con el plan Básico.`}
+      />
+
+      {/* Antes de pagar: el demo */}
+      <section className="s-wrap grid items-center gap-12 pb-24 md:grid-cols-[1.2fr_0.8fr] md:pb-32">
+        <div className="s-revela">
+          <h2 className="s-display s-h2 max-w-[14ch]">Antes de pagar, un demo con tus datos.</h2>
+          <div className="s-prosa mt-6">
+            <p>
+              Nos mandas por WhatsApp tu Instagram o tu ficha de Google. Con eso vemos tu rubro, tus fotos y cómo te
+              encuentran hoy.
+            </p>
+            <p>
+              En 48 horas te llega el link de tu demo: una web armada con tus fotos y tus datos reales, para que la
+              abras desde el celular y la muestres a quien quieras. Verla no cuesta nada.
             </p>
           </div>
-
-          {/* Steps grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 mb-10">
-            {processSteps.map((step) => (
-              <div key={step.number} className="flex flex-col">
-                <span className="font-mono text-display-sm text-ink-faded font-medium tracking-mono mb-2">
-                  {step.number}
-                </span>
-                <h2 className="font-display font-semibold text-display-sm text-ink leading-tight mb-1">
-                  {step.title}
-                </h2>
-                <p className="font-body text-body-sm text-ink-muted leading-body">
-                  {step.desc}
-                </p>
-                <span className="font-display text-meta tracking-ui text-yellow mt-2">
-                  {step.time}
-                </span>
-                <div className="mt-6 flex min-h-[240px] items-end justify-center md:min-h-[280px]">
-                  <img
-                    src={step.image}
-                    alt={`Composición visual para ${step.title}`}
-                    className="h-56 w-full object-contain object-bottom sm:h-64 md:h-72"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Timeline visual */}
-          <div className="relative flex items-center justify-between gap-4">
-            <div className="absolute left-0 right-0 top-1/2 h-px bg-divider -z-10" />
-            {processSteps.map((step) => (
-              <div key={step.number} className="flex flex-col items-center gap-2 bg-cream px-2">
-                <Dot size="sm" variant="solid-yellow" />
-                <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
-                  {step.number}
-                </span>
-              </div>
-            ))}
-          </div>
+          <p className="mt-8">
+            <a href="/demos/" className="s-link">
+              Ver demos que ya armamos
+            </a>
+          </p>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <Captura id="los-leones" className="w-full rounded-[22px] border border-(--s-linea)" />
+          <Captura id="entre-raices" className="mt-12 w-full rounded-[22px] border border-(--s-linea)" />
         </div>
       </section>
 
-      <HairlineDivider />
-
-      {/* CTA */}
-      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-[var(--prose-max)] mx-auto text-center">
-            <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-4">
-              ¿Empezamos?
-              <Dot size="lg" variant="solid-yellow" />
-            </h2>
-            <PrimaryButton href={whatsappLink('contacto')} external>
-              Hablemos por WhatsApp
-            </PrimaryButton>
-          </div>
+      {/* Después del sí: los pasos reales hasta publicar */}
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
+          <h2 className="s-display s-h2 mb-14 max-w-[18ch]">Si dices que sí, esto pasa en una semana.</h2>
+          <ol className="grid gap-10 md:grid-cols-4 md:gap-8">
+            {processSteps.map((p) => (
+              <li key={p.title} className="s-revela border-t border-(--s-linea) pt-5">
+                <p className="s-mono text-(--s-amarillo)">{p.time}</p>
+                <h3 className="s-display mt-3 text-[2rem] leading-tight">{p.title}</h3>
+                <p className="mt-2 text-(--s-crema-2)">{p.desc}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-12 max-w-[60ch] text-(--s-crema-2)">
+            El plan Recomendado toma {PLANS.recomendado.deliveryLabel} y el Catálogo, {PLANS.catalogo.deliveryLabel}.{' '}
+            <Enlace href="/planes/" className="s-link">
+              Ver planes
+            </Enlace>
+          </p>
         </div>
       </section>
+
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap flex flex-col gap-6 py-20 md:flex-row md:items-center md:justify-between">
+          <p className="s-display s-h3 max-w-[24ch]">¿Te quedan dudas sobre pagos, plazos o cambios?</p>
+          <Enlace href="/preguntas-frecuentes/" className="s-btn s-btn-secundario">
+            Ver preguntas frecuentes
+          </Enlace>
+        </div>
+      </section>
+
+      <Cierre />
     </>
   )
 }

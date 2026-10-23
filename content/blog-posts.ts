@@ -23,29 +23,29 @@ export const blogPostContent: Record<string, BlogPostContent> = {
       },
       {
         heading: '¿Por qué los precios varían tanto?',
-        body: 'El mercado de diseño web en Chile es amplio y poco transparente. Una agencia grande te puede cobrar $2.000.000 por algo que un freelance hace por $300.000. La diferencia no siempre es calidad: a veces es estructura de costos, overhead y margen.',
+        body: 'El mercado de diseño web en Chile es amplio y poco transparente. Por un sitio parecido puedes recibir presupuestos muy distintos, y la diferencia no siempre es calidad: a veces es estructura de costos, overhead y margen.',
       },
       {
         heading: 'Los 3 perfiles de precio en Chile',
-        body: 'Perfil 1: Agencia grande ($1.500.000 - $5.000.000+). Incluyen project manager, diseñador senior, desarrollador, SEO specialist. Pagas el equipo completo. Tiene sentido si eres una empresa mediana-grande con presupuesto de marketing.',
+        body: 'Perfil 1: Agencia grande. Incluyen project manager, diseñador senior, desarrollador y especialista SEO. Pagas el equipo completo. Tiene sentido si eres una empresa mediana o grande con presupuesto de marketing.',
       },
       {
         body: 'Perfil 2: Freelance/estudio chico ($79.990 - $199.990). Diseñador + desarrollador en una sola persona. Sin intermediarios, comunicación directa por WhatsApp. Menos overhead = precios más bajos. Ideal para pymes que necesitan presencia online sin gastar millones.',
       },
       {
-        body: 'Perfil 3: Plataformas DIY (Wix, Squarespace, Shopify) ($0 - $50.000/mes). Lo armas tú. La curva de aprendizaje es real. El resultado se nota genérico. Pero si tienes tiempo y cero presupuesto, puede funcionar.',
+        body: 'Perfil 3: Plataformas para armarla tú (Wix, Squarespace, Shopify), con plan mensual. La curva de aprendizaje es real y el resultado suele verse genérico. Pero si tienes tiempo y poco presupuesto, puede funcionar.',
       },
       {
         heading: '¿Qué incluye cada rango de precio?',
-        body: 'En Sitiazo trabajamos en el rango estudio chico ($80K-$200K). Por ese precio entregamos: diseño mobile-first, hosting primer año, dominio .cl, SEO local básico, WhatsApp integrado, y manual de uso. Sin costos escondidos, sin mantención obligatoria.',
+        body: 'En Sitiazo trabajamos en el rango estudio chico ($79.990 a $199.990, pago único). Por ese precio entregamos diseño primero para celular, SEO local básico, WhatsApp integrado y manual de uso. El hosting va aparte por $9.990 al mes, o puedes elegir el plan mensual de $12.990, que incluye hosting y dominio. Sin costos escondidos.',
       },
       {
         heading: 'La trampa del "barato"',
-        body: 'Cuidado con ofertas bajo $100.000. Generalmente son templates genéricos mal adaptados, sin SEO, sin responsive real, y desparecen a los 3 meses. Una web mal hecha es peor que no tener web: da mala impresión y aleja clientes.',
+        body: 'Cuidado con las ofertas que no muestran trabajos reales. A veces son plantillas genéricas mal adaptadas, sin SEO y sin una versión para celular de verdad. Una web mal hecha es peor que no tener web: da mala impresión y aleja clientes.',
       },
       {
         heading: 'Conclusión: cuánto deberías pagar',
-        body: 'Si eres una pyme chilena que necesita presencia online profesional, tu rango razonable es $79.990 - $199.990. Menos que eso, desconfía. Más que eso, pregúntate si realmente necesitas todo lo que te están vendiendo. Y siempre, siempre pide ver trabajos anteriores reales (no mockups).',
+        body: 'Si eres una pyme chilena que necesita presencia online profesional, un rango razonable para empezar es $79.990 a $199.990. Si te cotizan mucho más, pregúntate si realmente necesitas todo lo que te están vendiendo. Y siempre pide ver trabajos anteriores reales, no maquetas.',
       },
       {
         heading: '¿Quieres cotizar tu proyecto?',
@@ -57,7 +57,7 @@ export const blogPostContent: Record<string, BlogPostContent> = {
     sections: [
       {
         heading: 'Por qué WhatsApp es el mejor canal de venta en Chile',
-        body: 'Chile tiene una de las tasas de penetración de WhatsApp más altas del mundo. Según datos de 2025, más del 93% de los chilenos con smartphone usa WhatsApp a diario. Para una pyme, esto significa que tus clientes YA están ahí. No tienes que convencerlos de descargar otra app o crear una cuenta en tu sitio.',
+        body: 'En Chile, WhatsApp es la forma en que la gente le escribe a un negocio. Para una pyme, esto significa que tus clientes ya están ahí. No tienes que convencerlos de descargar otra app ni de crear una cuenta en tu sitio.',
       },
       {
         heading: 'Web + WhatsApp: la combinación ganadora',
@@ -76,7 +76,7 @@ export const blogPostContent: Record<string, BlogPostContent> = {
       },
       {
         heading: '¿Mail o WhatsApp? La respuesta es WhatsApp',
-        body: 'En Chile, WhatsApp convierte 5-10 veces más que el email. La cultura de mensajería instantánea es dominante. Un formulario de contacto puede tener 2% de conversión; un botón de WhatsApp puede tener 15-20%. Si tu negocio depende de que la gente te contacte, no hay discusión: WhatsApp primero.',
+        body: 'Un formulario de contacto le pide a la persona que escriba un correo y espere. Un botón de WhatsApp la deja conversando contigo en el mismo momento, en la app que ya usa. Si tu negocio depende de que la gente te contacte, WhatsApp primero.',
       },
       {
         heading: '¿Listo para integrar WhatsApp en tu web?',

@@ -5,7 +5,7 @@
  * Cada FAQ tiene un ID único para evitar duplicación.
  */
 
-import { PAGO_MENSUAL_FORMATTED, STARTING_PRICE, PAGO_CUOTAS } from '@/lib/config'
+import { PAGO_MENSUAL_FORMATTED, STARTING_PRICE, PAGO_CUOTAS, HOSTING_PRICE, formatCLP } from '@/lib/config'
 
 export interface FAQ {
   id: string
@@ -17,19 +17,18 @@ export const planFaqs: FAQ[] = [
   {
     id: 'plan-mensual',
     question: '¿Puedo pagar mes a mes?',
-    answer: `Sí. El plan mensual son ${PAGO_MENSUAL_FORMATTED} al mes — el primer mes se paga al activar — e incluye hosting, dominio y los ajustes de contenido que necesites. Si prefieres pagar una sola vez, está el pago único desde ${STARTING_PRICE} (con tarjeta de crédito, en ${PAGO_CUOTAS} cuotas).`,
+    answer: `Sí. El plan mensual son ${PAGO_MENSUAL_FORMATTED} al mes (el primer mes se paga al activar) e incluye hosting, dominio y los ajustes de contenido que necesites. Si prefieres pagar una sola vez, está el pago único desde ${STARTING_PRICE}, con tarjeta de crédito en ${PAGO_CUOTAS} cuotas.`,
   },
   {
     id: 'plan-barato',
     question: '¿Por qué tan barato?',
     answer:
-      'Somos un estudio chico en Curicó, sin oficina ni cuenta de agencia grande. El ahorro se va directo a tu web. Pagas una vez y listo.',
+      'Somos un estudio chico en Curicó, sin oficina ni estructura de agencia grande. El ahorro se va directo a tu web.',
   },
   {
     id: 'plan-hosting',
     question: '¿Qué incluye el hosting?',
-    answer:
-      'Tu página queda alojada en Vercel (gratis) con dominio personalizado. Puedes usar tu dominio actual o te ayudamos a comprar uno (~$10.000/año).',
+    answer: `Con el pago único, el hosting cuesta ${formatCLP(HOSTING_PRICE)} al mes. Con el plan mensual de ${PAGO_MENSUAL_FORMATTED} el hosting y el dominio van incluidos. Puedes usar tu dominio actual o te ayudamos a comprar uno.`,
   },
   {
     id: 'plan-cambiar',
@@ -56,7 +55,7 @@ export const contactFaqs: FAQ[] = [
     id: 'contacto-fuera-maule',
     question: '¿Atienden fuera del Maule?',
     answer:
-      'Sí, todo Chile. El proceso es 100% online. Hemos trabajado con clientes desde Arica hasta Punta Arenas.',
+      'Sí, todo Chile. El proceso es 100% online: el demo, los cambios y la publicación se coordinan por WhatsApp.',
   },
   {
     id: 'contacto-presupuesto',
@@ -76,7 +75,7 @@ export const generalFaqs: FAQ[] = [
   {
     id: 'general-pago-etapas',
     question: '¿Puedo pagar en etapas?',
-    answer: 'Sí. 50% para comenzar y 50% al aprobar la página.',
+    answer: `Sí. Puedes pagar mes a mes (${PAGO_MENSUAL_FORMATTED}, el primer mes al activar) o hacer un pago único con tarjeta de crédito en ${PAGO_CUOTAS} cuotas.`,
   },
   {
     id: 'general-contenido',

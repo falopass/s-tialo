@@ -8,5 +8,7 @@
   {"id":"rancho-movil","url":"https://ranchoitahue.cl/","formato":"movil","src":"public/sitio/fuentes/rancho-movil.webp","ancho":780,"alto":1688,"nombre":"Rancho Itahue","rubro":"Multiespacio","ciudad":"Molina","alt":"Primer pantallazo en celular de ranchoitahue.cl, la web de Rancho Itahue"},
   {"id":"rancho-escritorio","url":"https://ranchoitahue.cl/","formato":"escritorio","src":"public/sitio/fuentes/rancho-escritorio.webp","ancho":1440,"alto":900,"nombre":"Rancho Itahue","rubro":"Multiespacio","ciudad":"Molina","alt":"Portada de ranchoitahue.cl en un computador: salón de eventos, quinchos, piscinas y canchas en Molina"},
   {"id":"calculachile","src":"public/images/still-lifes/calculachile.webp","ancho":1536,"alto":1024,"alt":"Laptop con la portada de CalculaChile junto a una calculadora, recibo y papel cuadriculado"},
-  {"id":"cvlisto","src":"public/images/still-lifes/cvlisto.webp","ancho":1536,"alto":1024,"alt":"Laptop con la portada de CVListo junto a un currículum anonimizado, lápiz y clip"}
+  {"id":"cvlisto","src":"public/images/still-lifes/cvlisto.webp","ancho":1536,"alto":1024,"alt":"Laptop con la portada de CVListo junto a un currículum anonimizado, lápiz y clip"},
+  {"id":"malla-veterinaria-ucm","src":"public/images/still-lifes/malla-veterinaria-ucm.webp","ancho":1536,"alto":1024,"alt":"Laptop con la malla curricular de Veterinaria UCM junto a una libreta de terreno y estetoscopio"},
+  {"id":"malla-psicologia-ucm","src":"public/images/still-lifes/malla-psicologia-ucm.webp","ancho":1536,"alto":1024,"alt":"Tablet con la malla de Psicología UCM junto a una agenda, lápiz e hilo burdeos"}
 ]

@@ -1,74 +1,49 @@
 import type { Metadata } from 'next'
-import { Dot } from '@/components/ui/Dot'
-import { Accordion } from '@/components/ui/Accordion'
-import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { PrimaryButton } from '@/components/ui/PrimaryButton'
-import { whatsappLink, siteUrl } from '@/lib/config'
-import { generalFaqs, faqJsonLd } from '@/content/faqs'
+import { siteUrl } from '@/lib/config'
+import { faqJsonLd, generalFaqs, planFaqs } from '@/content/faqs'
+import { Cabecera } from '../_components/Cabecera'
+import { Cierre } from '../_components/Cierre'
+import { Preguntas } from '../_components/Preguntas'
+
+const DESCRIPCION =
+  'Cuánto cuesta una página web, plazos de entrega, formas de pago y mantención: respuestas claras para pymes chilenas.'
 
 export const metadata: Metadata = {
   title: 'Preguntas frecuentes sobre páginas web para pymes',
-  description: 'Cuánto cuesta una página web, plazos de entrega, formas de pago y mantención: respuestas claras para pymes chilenas.',
+  description: DESCRIPCION,
   alternates: { canonical: siteUrl('/preguntas-frecuentes/') },
   openGraph: {
     title: 'Preguntas frecuentes | Sitiazo.cl',
-    description: 'Cuánto cuesta una página web, plazos de entrega, formas de pago y mantención: respuestas claras para pymes chilenas.',
+    description: DESCRIPCION,
     url: siteUrl('/preguntas-frecuentes/'),
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Preguntas frecuentes — Sitiazo.cl',
-      },
-    ],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Preguntas frecuentes de Sitiazo.cl' }],
   },
 }
 
 const faqJsonLdData = faqJsonLd(generalFaqs)
 
-export default function FAQPage() {
+export default function PreguntasFrecuentesPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLdData) }}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLdData) }} />
+
+      <Cabecera
+        titulo={
+          <>
+            Preguntas <em>frecuentes.</em>
+          </>
+        }
+        bajada="Plazos, pagos, cambios y lo que necesitas mandarnos. Si tu duda no está aquí, escríbenos."
       />
-      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--spacing-7)] lg:gap-[var(--spacing-9)]">
-            <div>
-              <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
-                Preguntas frecuentes.
-                <Dot size="hero" variant="solid-yellow" />
-              </h1>
-            </div>
-            <div className="flex items-start justify-center lg:justify-end">
-              {/* Espacio reservado para still life si se agrega en el futuro */}
-            </div>
-          </div>
 
-          <div className="max-w-[var(--prose-max)] lg:max-w-none lg:w-full mt-8">
-            <Accordion items={generalFaqs} />
-          </div>
-        </div>
+      <section className="s-wrap grid gap-16 pb-24 md:grid-cols-[0.6fr_1.4fr] md:pb-32">
+        <h2 className="s-display s-h3">El proceso.</h2>
+        <Preguntas items={generalFaqs} />
+        <h2 className="s-display s-h3">Planes y pagos.</h2>
+        <Preguntas items={planFaqs} />
       </section>
 
-      <HairlineDivider />
-
-      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-[var(--prose-max)] mx-auto text-center">
-            <h2 className="font-display font-bold text-display-md text-ink leading-display mb-4">
-              ¿Te quedó alguna duda?
-              <Dot size="md" variant="solid-yellow" />
-            </h2>
-            <PrimaryButton href={whatsappLink('contacto')} external>
-              Escríbenos por WhatsApp
-            </PrimaryButton>
-          </div>
-        </div>
-      </section>
+      <Cierre titulo={<>¿Te quedó alguna duda? <em>Pide tu demo y la vemos.</em></>} />
     </>
   )
 }

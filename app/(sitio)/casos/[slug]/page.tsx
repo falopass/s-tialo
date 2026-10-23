@@ -1,15 +1,11 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { BulletList } from '@/components/ui/BulletList'
-import { Dot } from '@/components/ui/Dot'
-import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { PrimaryButton } from '@/components/ui/PrimaryButton'
-import { SecondaryButton } from '@/components/ui/SecondaryButton'
-import { StillLifeImage } from '@/components/ui/StillLifeImage'
-import { Tag } from '@/components/ui/Tag'
-import { detailedCases, getCase } from '@/content/cases'
-import { SITE, siteUrl, whatsappLink } from '@/lib/config'
+import { SITE, siteUrl } from '@/lib/config'
 import { breadcrumbJsonLd } from '@/lib/seo'
+import { detailedCases, getCase } from '@/content/cases'
+import { Captura } from '../../_components/Captura'
+import { Cierre } from '../../_components/Cierre'
+import { Enlace } from '../../_components/Enlace'
 
 type CasePageProps = {
   params: Promise<{ slug: string }>
@@ -21,18 +17,12 @@ export function generateStaticParams() {
   return detailedCases.map(({ slug }) => ({ slug }))
 }
 
-export async function generateMetadata({
-  params,
-}: CasePageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: CasePageProps): Promise<Metadata> {
   const { slug } = await params
   const caseStudy = getCase(slug)
-
-  if (!caseStudy || !caseStudy.sections) {
-    return {}
-  }
+  if (!caseStudy || !caseStudy.sections) return {}
 
   const canonical = siteUrl(`/casos/${caseStudy.slug}/`)
-
   return {
     title: `Caso ${caseStudy.name}`,
     description: caseStudy.description,
@@ -41,16 +31,17 @@ export async function generateMetadata({
       title: `Caso ${caseStudy.name} | Sitiazo.cl`,
       description: caseStudy.description,
       url: canonical,
-      images: [
-        {
-          url: caseStudy.image,
-          width: 1536,
-          height: 1024,
-          alt: caseStudy.imageAlt,
-        },
-      ],
+      images: [{ url: caseStudy.image, width: 1536, height: 1024, alt: caseStudy.imageAlt }],
     },
   }
+}
+
+/** Convierte "PRODUCTO PROPIO · CHILE" en "Producto propio, Chile" (una sola línea de contexto, sin mayúsculas gritadas). */
+function categoria(c: string) {
+  return c
+    .split(' · ')
+    .map((p) => p.charAt(0) + p.slice(1).toLowerCase())
+    .join(', ')
 }
 
 export default async function CasePage({ params }: CasePageProps) {
@@ -65,26 +56,18 @@ export default async function CasePage({ params }: CasePageProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
-    name: `Caso ${caseStudy.name} — Sitiazo.cl`,
+    name: `Caso ${caseStudy.name}, Sitiazo.cl`,
     description: caseStudy.description,
     url: caseUrl,
     image: `${SITE.url}${caseStudy.image}`,
-    author: {
-      '@type': 'Organization',
-      name: 'Sitiazo.cl',
-      url: SITE.url,
-    },
+    author: { '@type': 'Organization', name: 'Sitiazo.cl', url: SITE.url },
     about: {
       '@type': 'SoftwareApplication',
       name: caseStudy.name,
       description: caseStudy.tagline,
       ...(caseStudy.url ? { url: caseStudy.url } : {}),
     },
-    provider: {
-      '@type': 'ProfessionalService',
-      name: 'Sitiazo.cl',
-      url: SITE.url,
-    },
+    provider: { '@type': 'ProfessionalService', name: 'Sitiazo.cl', url: SITE.url },
   }
 
   const breadcrumbLd = breadcrumbJsonLd([
@@ -95,114 +78,58 @@ export default async function CasePage({ params }: CasePageProps) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-      <section className="pb-[var(--spacing-8)] pt-[var(--spacing-9)] md:pt-[var(--spacing-10)]">
-        <div className="mx-auto max-w-[var(--container-max)] px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <Tag variant="yellow" className="mb-8">
-            {caseStudy.category} · {caseStudy.year}
-          </Tag>
-
-          <div className="grid grid-cols-1 gap-[var(--spacing-8)] lg:grid-cols-2 lg:gap-[var(--spacing-10)]">
-            <div className="flex flex-col justify-center">
-              <h1 className="mb-5 font-display text-hero font-bold leading-display tracking-display text-ink">
-                {caseStudy.name}.
-                <Dot size="hero" variant="solid-yellow" />
-              </h1>
-              <p className="mb-3 font-display text-display-sm leading-tight text-ink">
-                {caseStudy.tagline}
-              </p>
-              <p className="mb-7 max-w-[var(--prose-max)] font-body text-lead leading-body text-ink-muted">
-                {caseStudy.description}
-              </p>
-
-              <BulletList items={caseStudy.bullets} className="mb-8" />
-
-              <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                <PrimaryButton href={whatsappLink('contacto')} external>
-                  Cuéntanos tu proyecto
-                </PrimaryButton>
-                {caseStudy.url && (
-                  <SecondaryButton href={caseStudy.url} external>
-                    {caseStudy.urlLabel ?? 'Visitar proyecto'}
-                  </SecondaryButton>
-                )}
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center">
-              <StillLifeImage
-                src={caseStudy.image}
-                alt={caseStudy.imageAlt}
-                aspectRatio="16:10"
-                figLabel={caseStudy.figLabel}
-                className="w-full max-w-2xl"
-                priority
-              />
-            </div>
-          </div>
-
-          {caseStudy.disclaimer && (
-            <aside className="mt-8 border-l-4 border-yellow bg-cream px-5 py-4 font-body text-body-sm leading-body text-ink-muted">
-              <strong className="font-semibold text-ink">Nota:</strong>{' '}
-              {caseStudy.disclaimer}
-            </aside>
+      <header className="s-wrap pt-[calc(var(--s-nav-h)+48px)] md:pt-[calc(var(--s-nav-h)+88px)]">
+        <p className="s-mono text-(--s-ceniza)">
+          {categoria(caseStudy.category)}, {caseStudy.year}
+        </p>
+        <h1 className="s-display s-h1 mt-4">{caseStudy.name}.</h1>
+        <p className="s-lead mt-6">{caseStudy.description}</p>
+        <div className="mt-10 flex flex-wrap gap-3">
+          {caseStudy.url && (
+            <a href={caseStudy.url} target="_blank" rel="noopener noreferrer" className="s-btn s-btn-secundario">
+              {caseStudy.urlLabel ?? 'Visitar el sitio'}
+            </a>
           )}
+          <Enlace href="/casos/" className="s-btn s-btn-secundario">
+            Ver todos los casos
+          </Enlace>
         </div>
+      </header>
+
+      <section className="s-wrap mt-16 md:mt-24">
+        <Captura id={caseStudy.slug} eager className="w-full rounded-2xl object-cover" />
+        <ul className="mt-10 grid gap-4 md:grid-cols-3 md:gap-8">
+          {caseStudy.bullets.map((b) => (
+            <li key={b} className="border-t border-(--s-linea) pt-4 text-(--s-crema-2)">
+              {b}
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <HairlineDivider />
-
-      <section className="py-[var(--spacing-7)] md:py-[var(--spacing-8)]">
-        <div className="mx-auto max-w-[var(--container-max)] px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <h2 className="mb-8 font-display text-display-lg font-bold leading-display tracking-display text-ink">
-            Del problema al producto.
-            <Dot size="lg" variant="solid-yellow" />
-          </h2>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {caseStudy.sections.map((section, index) => (
-              <article
-                key={section.title}
-                className="border border-border-subtle p-[var(--spacing-5)] md:p-[var(--spacing-6)]"
-              >
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="font-mono text-display-sm text-ink-faded">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <Dot size="sm" variant="solid-yellow" />
-                </div>
-                <h3 className="mb-3 font-display text-display-sm font-semibold text-ink">
-                  {section.title}
-                </h3>
-                <p className="font-body text-body leading-body text-ink-muted">
-                  {section.body}
-                </p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mx-auto mt-10 max-w-[var(--prose-max)] text-center">
-            <h2 className="mb-4 font-display text-display-md font-bold text-ink">
-              ¿Tu proyecto es el siguiente?
-              <Dot size="md" variant="solid-yellow" />
-            </h2>
-            <p className="mb-6 font-body text-body leading-body text-ink-muted">
-              Construimos productos y sitios claros, útiles y listos para usarse.
-            </p>
-            <PrimaryButton href={whatsappLink('contacto')} external>
-              Hablemos
-            </PrimaryButton>
-          </div>
+      <section className="s-wrap py-24 md:py-32">
+        <h2 className="s-display s-h2 mb-14 max-w-[16ch]">Del problema al producto.</h2>
+        <div className="grid gap-12 md:grid-cols-2 md:gap-x-20">
+          {caseStudy.sections.map((s, i) => (
+            <div key={s.title} className={i === 2 ? 'md:col-span-2 md:max-w-[60%]' : ''}>
+              <h3 className="s-display s-h3">{s.title}</h3>
+              <p className="mt-4 max-w-[60ch] text-(--s-crema-2)">{s.body}</p>
+            </div>
+          ))}
         </div>
+        {caseStudy.disclaimer && <p className="mt-14 max-w-[70ch] text-sm text-(--s-ceniza)">{caseStudy.disclaimer}</p>}
       </section>
+
+      <Cierre
+        titulo={
+          <>
+            ¿Tienes un proyecto así? <em>Partamos por el demo.</em>
+          </>
+        }
+      />
     </>
   )
 }

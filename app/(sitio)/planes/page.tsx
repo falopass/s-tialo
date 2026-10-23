@@ -1,38 +1,31 @@
 import type { Metadata } from 'next'
-import { cn } from '@/lib/utils'
-import { Dot } from '@/components/ui/Dot'
-import { BulletList } from '@/components/ui/BulletList'
-import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import { PrimaryButton } from '@/components/ui/PrimaryButton'
 import {
-  whatsappLink,
-  PLANS_ARRAY,
-  PLANS,
   EXTRAS,
-  STARTING_PRICE,
   FORMAS_PAGO,
   PAGO_MENSUAL_FORMATTED,
+  PLANS,
+  PLANS_ARRAY,
   SITE,
+  STARTING_PRICE,
   siteUrl,
 } from '@/lib/config'
-import { planFaqs, faqJsonLd } from '@/content/faqs'
+import { faqJsonLd, planFaqs } from '@/content/faqs'
+import { Cabecera } from '../_components/Cabecera'
+import { Cierre } from '../_components/Cierre'
+import { Planes } from '../_components/Planes'
+import { Preguntas } from '../_components/Preguntas'
+
+const DESCRIPCION = `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, mensual o pago único, sin letras chicas ni sorpresas.`
 
 export const metadata: Metadata = {
   title: 'Planes y precios de páginas web para pymes',
-  description: `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, mensual o pago único, sin letras chicas ni sorpresas.`,
+  description: DESCRIPCION,
   alternates: { canonical: siteUrl('/planes/') },
   openGraph: {
     title: 'Planes y precios de páginas web para pymes | Sitiazo.cl',
-    description: `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, mensual o pago único, sin letras chicas ni sorpresas.`,
+    description: DESCRIPCION,
     url: siteUrl('/planes/'),
-    images: [
-      {
-        url: '/og-image-planes.png',
-        width: 1200,
-        height: 630,
-        alt: 'Planes de diseño web — Sitiazo.cl',
-      },
-    ],
+    images: [{ url: '/og-image-planes.png', width: 1200, height: 630, alt: 'Planes de diseño web de Sitiazo.cl' }],
   },
 }
 
@@ -41,7 +34,7 @@ const planesFaqJsonLd = faqJsonLd(planFaqs)
 const planesServiceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Planes de diseño web — Sitiazo.cl',
+  name: 'Planes de diseño web de Sitiazo.cl',
   description: `Planes de diseño web para pymes chilenas. Mensual desde ${PAGO_MENSUAL_FORMATTED} o pago único desde ${STARTING_PRICE}.`,
   url: siteUrl('/planes/'),
   itemListElement: PLANS_ARRAY.map((plan, i) => ({
@@ -49,7 +42,7 @@ const planesServiceJsonLd = {
     position: i + 1,
     item: {
       '@type': 'Service',
-      name: `Plan ${plan.name} — Sitiazo.cl`,
+      name: `Plan ${plan.name}, Sitiazo.cl`,
       description: plan.description,
       url: siteUrl('/planes/'),
       provider: {
@@ -69,341 +62,155 @@ const planesServiceJsonLd = {
   numberOfItems: PLANS_ARRAY.length,
 }
 
+type Valor = string | boolean
+const GRUPOS: { titulo: string; filas: { nombre: string; basico: Valor; recomendado: Valor; catalogo: Valor }[] }[] = [
+  {
+    titulo: 'Diseño',
+    filas: [
+      { nombre: 'Secciones', basico: PLANS.basico.pages, recomendado: PLANS.recomendado.pages, catalogo: PLANS.catalogo.pages },
+      { nombre: 'Diseño a medida', basico: true, recomendado: true, catalogo: true },
+      { nombre: 'Primero para celular', basico: true, recomendado: true, catalogo: true },
+      { nombre: 'Blog integrado', basico: false, recomendado: true, catalogo: true },
+    ],
+  },
+  {
+    titulo: 'Ventas y Google',
+    filas: [
+      { nombre: 'Botón directo a WhatsApp', basico: true, recomendado: true, catalogo: true },
+      { nombre: 'SEO local', basico: false, recomendado: true, catalogo: true },
+      { nombre: 'Agenda con Cal.com', basico: false, recomendado: false, catalogo: true },
+      { nombre: 'Datos estructurados (Schema.org)', basico: false, recomendado: false, catalogo: true },
+    ],
+  },
+  {
+    titulo: 'Entrega',
+    filas: [
+      {
+        nombre: 'Días hábiles',
+        basico: String(PLANS.basico.deliveryDays),
+        recomendado: String(PLANS.recomendado.deliveryDays),
+        catalogo: String(PLANS.catalogo.deliveryDays),
+      },
+    ],
+  },
+]
+
+function Celda({ v }: { v: Valor }) {
+  if (v === true) return <span>Sí</span>
+  if (v === false) return <span className="text-(--s-ceniza)">No</span>
+  return <span>{v}</span>
+}
+
 export default function PlanesPage() {
   return (
-    <div className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(planesFaqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(planesServiceJsonLd),
-        }}
-      />
-      <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-[var(--spacing-7)] lg:gap-[var(--spacing-9)] mb-[var(--spacing-6)]">
-          <div className="lg:col-span-8">
-            <h1 className="font-display font-bold text-display-lg md:text-display-xl text-ink leading-display tracking-display mb-6 whitespace-nowrap">
-              Planes claros.
-              <Dot size="xl" variant="solid-yellow" />
-            </h1>
-            <p className="font-body text-lead text-ink-muted leading-body">
-              Sin humo, sin agencia gigante. Eliges tu plan, avanzamos y sales
-              online.
-            </p>
-          </div>
-        </div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(planesFaqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(planesServiceJsonLd) }} />
 
-        {/* ── Formas de pago ── */}
-        <section className="mb-[var(--spacing-7)]">
-          <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-6">
-            Elige cómo pagar.
-            <Dot size="lg" variant="solid-yellow" />
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {FORMAS_PAGO.map((f) => (
-              <div
-                key={f.id}
-                className={cn(
-                  'p-[var(--spacing-5)] flex flex-col',
-                  f.destacado
-                    ? 'bg-yellow border-2 border-ink'
-                    : 'border border-border-subtle bg-cream-deep',
-                )}
-              >
-                <div className="flex items-center justify-between gap-4 mb-3">
-                  <span className="font-body text-micro uppercase tracking-ui text-ink-faded font-medium">
-                    {f.nombre}
-                  </span>
-                  {f.destacado && (
-                    <span className="font-body text-micro uppercase tracking-ui text-ink font-medium">
-                      Recomendado
-                    </span>
-                  )}
-                </div>
-                <p className="font-display font-bold text-display-md text-ink leading-display mb-2">
-                  {f.precio}
-                </p>
-                <p className="font-body text-body-sm text-ink-muted leading-body">
-                  {f.detalle}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+      <Cabecera
+        titulo={
+          <>
+            Planes claros, <em>sin letra chica.</em>
+          </>
+        }
+        bajada={`Pago único desde ${STARTING_PRICE} o mes a mes por ${PAGO_MENSUAL_FORMATTED}. El demo es gratis en los dos casos.`}
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-[var(--spacing-6)]">
-          {PLANS_ARRAY.map((plan) => (
-            <div
-              key={plan.id}
-              className={cn(
-                'p-[var(--spacing-6)] flex flex-col',
-                plan.highlighted
-                  ? 'bg-yellow border-2 border-ink'
-                  : 'border border-border-subtle bg-cream-deep',
-              )}
+      <section className="s-wrap pb-24 md:pb-32">
+        <h2 className="s-display s-h3 mb-8">Elige cómo pagar.</h2>
+        <div className="grid gap-5 md:grid-cols-[1.2fr_1fr]">
+          {FORMAS_PAGO.map((f) => (
+            <article
+              key={f.id}
+              className={`rounded-3xl border p-7 md:p-9 ${
+                f.destacado ? 'border-(--s-amarillo) bg-(--s-tinta-2)' : 'border-(--s-linea)'
+              }`}
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-body text-micro uppercase tracking-ui text-ink-faded font-medium">
-                  {plan.name}
-                </span>
-                {plan.badge && (
-                  <span
-                    className={cn(
-                      'flex items-center gap-2 font-body text-micro uppercase tracking-ui',
-                      plan.highlighted
-                        ? 'text-ink font-medium'
-                        : 'text-ink-faded',
-                    )}
-                  >
-                    <Dot
-                      size="xs"
-                      variant={
-                        plan.highlighted ? 'solid-ink' : 'solid-yellow'
-                      }
-                    />
-                    {plan.badge}
-                  </span>
-                )}
-              </div>
-
-              <p className="font-display font-bold text-display-md text-ink leading-display mb-1">
-                {plan.priceFormatted}
-              </p>
-
-              <HairlineDivider className="my-4" />
-
-              <p className="font-body text-body text-ink-muted leading-body mb-4">
-                {plan.description}
-              </p>
-
-              <BulletList items={plan.features} className="mb-6 flex-1" />
-
-              <a
-                href={whatsappLink(plan.whatsappContext)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  'inline-flex items-center justify-center gap-2 font-medium text-body px-6 py-3 transition-colors duration-200',
-                  plan.highlighted
-                    ? 'bg-ink text-yellow hover:bg-ink-soft'
-                    : 'bg-ink text-cream hover:bg-ink-soft',
-                )}
-              >
-                {plan.ctaText}
-              </a>
-            </div>
+              <h3 className="text-lg font-semibold">{f.nombre}</h3>
+              <p className="s-display mt-3 text-[clamp(2.25rem,4vw,3.25rem)] leading-none">{f.precio}</p>
+              <p className="mt-4 max-w-[46ch] text-(--s-crema-2)">{f.detalle}</p>
+            </article>
           ))}
         </div>
-      </div>
+      </section>
 
-      <HairlineDivider />
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
+          <h2 className="s-display s-h2 mb-14 max-w-[18ch]">Tres tamaños, un mismo cuidado.</h2>
+          <Planes conEnlace={false} />
+        </div>
+      </section>
 
-      {/* ── Tabla comparativa ── */}
-      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-8">
-            Qué incluye cada plan.
-            <Dot size="lg" variant="solid-yellow" />
-          </h2>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
+          <h2 className="s-display s-h2 mb-12">Qué incluye cada plan.</h2>
+          <div className="mx-[calc(var(--s-gutter)*-1)] overflow-x-auto px-[var(--s-gutter)]">
+            <table className="w-full min-w-[560px] border-collapse text-left">
               <thead>
-                <tr className="border-b border-border-subtle">
-                  <th className="py-3 pr-4 font-body text-body-sm uppercase tracking-ui text-ink-faded font-medium text-left">
-                    Feature
+                <tr className="text-(--s-crema)">
+                  <th scope="col" className="w-[40%] pb-4 font-normal">
+                    <span className="sr-only">Característica</span>
                   </th>
-                  <th className="py-3 px-4 font-body text-body-sm uppercase tracking-ui text-ink font-medium text-center">
-                    {PLANS.basico.name}
-                  </th>
-                  <th className="py-3 px-4 font-body text-body-sm uppercase tracking-ui text-ink font-medium text-center bg-yellow/30">
-                    {PLANS.recomendado.name}
-                  </th>
-                  <th className="py-3 pl-4 font-body text-body-sm uppercase tracking-ui text-ink font-medium text-center">
-                    {PLANS.catalogo.name}
-                  </th>
+                  {PLANS_ARRAY.map((p) => (
+                    <th key={p.id} scope="col" className="pb-4 text-lg font-semibold">
+                      {p.name}
+                    </th>
+                  ))}
                 </tr>
               </thead>
-              <tbody className="font-body text-body-sm text-ink-muted">
-                {[
-                  {
-                    feature: 'Secciones',
-                    basico: PLANS.basico.pages,
-                    recomendado: PLANS.recomendado.pages,
-                    catalogo: PLANS.catalogo.pages,
-                  },
-                  {
-                    feature: 'Diseño editorial',
-                    basico: true,
-                    recomendado: true,
-                    catalogo: true,
-                  },
-                  {
-                    feature: 'Mobile-first',
-                    basico: true,
-                    recomendado: true,
-                    catalogo: true,
-                  },
-                  {
-                    feature: 'Blog integrado',
-                    basico: false,
-                    recomendado: true,
-                    catalogo: true,
-                  },
-                  {
-                    feature: 'SEO local',
-                    basico: false,
-                    recomendado: true,
-                    catalogo: true,
-                  },
-                  {
-                    feature: 'WhatsApp checkout',
-                    basico: true,
-                    recomendado: true,
-                    catalogo: true,
-                  },
-                  {
-                    feature: 'Cal.com',
-                    basico: false,
-                    recomendado: false,
-                    catalogo: true,
-                  },
-                  {
-                    feature: 'Schema.org',
-                    basico: false,
-                    recomendado: false,
-                    catalogo: true,
-                  },
-                  {
-                    feature: 'Entrega',
-                    basico: `${PLANS.basico.deliveryDays} días`,
-                    recomendado: `${PLANS.recomendado.deliveryDays} días`,
-                    catalogo: `${PLANS.catalogo.deliveryDays} días`,
-                  },
-                ].map((row) => (
-                  <tr
-                    key={row.feature}
-                    className="border-b border-border-subtle"
-                  >
-                    <td className="py-3 pr-4 text-ink">{row.feature}</td>
-                    {(['basico', 'recomendado', 'catalogo'] as const).map(
-                      (plan) => (
-                        <td
-                          key={plan}
-                          className={cn(
-                            'py-3 px-4 text-center',
-                            plan === 'recomendado' && 'bg-yellow/20',
-                          )}
-                        >
-                          {typeof row[plan] === 'boolean' ? (
-                            row[plan] ? (
-                              <Dot
-                                size="sm"
-                                variant="solid-yellow"
-                                className="mx-auto"
-                              />
-                            ) : (
-                              <span className="text-ink-faded">—</span>
-                            )
-                          ) : (
-                            <span>{row[plan]}</span>
-                          )}
-                        </td>
-                      ),
-                    )}
+              {GRUPOS.map((g) => (
+                <tbody key={g.titulo} className="border-t border-(--s-linea)">
+                  <tr>
+                    <th colSpan={4} scope="colgroup" className="s-mono pt-6 pb-2 font-normal text-(--s-ceniza)">
+                      {g.titulo}
+                    </th>
                   </tr>
-                ))}
-              </tbody>
+                  {g.filas.map((f) => (
+                    <tr key={f.nombre} className="text-(--s-crema-2)">
+                      <th scope="row" className="py-2 pr-4 font-normal text-(--s-crema)">
+                        {f.nombre}
+                      </th>
+                      <td className="py-2">
+                        <Celda v={f.basico} />
+                      </td>
+                      <td className="py-2">
+                        <Celda v={f.recomendado} />
+                      </td>
+                      <td className="py-2">
+                        <Celda v={f.catalogo} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              ))}
             </table>
           </div>
         </div>
       </section>
 
-      <HairlineDivider />
-
-      {/* ── Extras ── */}
-      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-8">
-            Extras.
-            <Dot size="lg" variant="solid-yellow" />
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {EXTRAS.map((addon) => (
-              <div
-                key={addon.name}
-                className="border border-border-subtle bg-cream p-[var(--spacing-5)]"
-              >
-                <div className="flex items-center justify-between gap-4 mb-2">
-                  <h3 className="font-display font-semibold text-[32px] leading-tight text-ink whitespace-nowrap">
-                    {addon.name}
-                  </h3>
-                  <span className="font-display font-bold text-[30px] leading-tight text-ink whitespace-nowrap">
-                    {addon.price}
-                  </span>
-                </div>
-                <p className="font-body text-body-sm text-ink-muted leading-body">
-                  {addon.desc}
-                </p>
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap grid gap-12 py-24 md:grid-cols-[1fr_1.4fr] md:py-32">
+          <h2 className="s-display s-h2">Extras, si los necesitas.</h2>
+          <dl className="border-t border-(--s-linea)">
+            {EXTRAS.map((e) => (
+              <div key={e.name} className="grid grid-cols-[1fr_auto] gap-x-6 gap-y-1 border-b border-(--s-linea) py-6">
+                <dt className="text-lg font-semibold">{e.name}</dt>
+                <dd className="s-display text-2xl">{e.price}</dd>
+                <dd className="col-span-2 text-(--s-crema-2)">{e.desc}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
-      <HairlineDivider />
-
-      {/* ── FAQ ── */}
-      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-8 text-center">
-            Preguntas frecuentes.
-            <Dot size="lg" variant="solid-yellow" />
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {planFaqs.map((faq) => (
-              <div
-                key={faq.id}
-                className="border border-border-subtle bg-cream p-4"
-              >
-                <h3 className="font-display font-semibold text-display-sm text-ink mb-2 flex items-center gap-2">
-                  <Dot size="sm" variant="solid-yellow" />
-                  {faq.question}
-                </h3>
-                <p className="font-body text-body-sm text-ink-muted leading-body">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
+          <h2 className="s-display s-h2 mb-10">Preguntas sobre los planes.</h2>
+          <Preguntas items={planFaqs} />
         </div>
       </section>
 
-      <HairlineDivider />
-
-      {/* ── CTA ── */}
-      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-[var(--prose-max)] mx-auto text-center">
-            <h2 className="font-display font-bold text-display-md text-ink leading-display mb-4">
-              ¿No sabes cuál elegir?
-              <Dot size="md" variant="solid-yellow" />
-            </h2>
-            <p className="font-body text-body text-ink-muted leading-body mb-6">
-              Conversemos 30 minutos. Te ayudo a decidir cuál plan calza mejor
-              con tu negocio.
-            </p>
-            <PrimaryButton href={whatsappLink('contacto')} external>
-              Agenda una llamada
-            </PrimaryButton>
-          </div>
-        </div>
-      </section>
-    </div>
+      <Cierre titulo={<>¿No sabes cuál elegir? <em>Parte por el demo.</em></>} />
+    </>
   )
 }
-
-

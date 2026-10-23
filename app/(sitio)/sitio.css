@@ -309,3 +309,145 @@ body:has([data-sitio])::before {
     overflow-x: auto;
   }
 }
+
+/* ── Home: hero + pieza central ──
+   Un solo bloque: en escritorio, texto a la izquierda y el escenario fijo a la derecha durante
+   el hero y los tres pasos; en el celular, el escenario queda fijo arriba y los pasos pasan debajo. */
+@layer components {
+  [data-sitio] .s-proceso {
+    --s-esc-h: min(46svh, 420px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: calc(var(--s-nav-h) + 40px);
+  }
+
+  [data-sitio] .s-proceso-escena {
+    position: sticky;
+    top: var(--s-nav-h);
+    z-index: 5;
+    align-self: start;
+    margin-top: 48px;
+    margin-inline: calc(var(--s-gutter) * -1);
+    padding: 12px var(--s-gutter);
+    background: var(--s-tinta);
+  }
+
+  [data-sitio] .s-escenario {
+    position: relative;
+    height: var(--s-esc-h);
+    aspect-ratio: 780 / 1688;
+    margin-inline: auto;
+    overflow: hidden;
+    border: 1px solid var(--s-linea);
+    border-radius: 30px;
+    background: var(--s-tinta-2);
+  }
+
+  [data-sitio] .s-proceso-pasos {
+    list-style: none;
+  }
+
+  [data-sitio] .s-paso {
+    display: flex;
+    align-items: center;
+    min-height: 62svh;
+    padding-block: 40px;
+  }
+
+  [data-sitio] .s-paso + .s-paso {
+    border-top: 1px solid var(--s-linea);
+  }
+
+  [data-sitio] .s-paso-etapa {
+    color: var(--s-ceniza);
+  }
+
+  [data-sitio] .s-paso[data-activo] .s-paso-etapa {
+    color: var(--s-amarillo);
+  }
+
+  @media (min-width: 1024px) {
+    [data-sitio] .s-proceso {
+      --s-esc-h: min(74svh, 660px);
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      column-gap: 48px;
+      padding-top: var(--s-nav-h);
+    }
+
+    [data-sitio] .s-proceso-hero {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: calc(100svh - var(--s-nav-h));
+      padding-block: 40px;
+    }
+
+    [data-sitio] .s-proceso-escena {
+      position: relative;
+      top: auto;
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: stretch;
+      margin: 0;
+      padding: 0;
+      background: none;
+    }
+
+    [data-sitio] .s-proceso-sticky {
+      position: sticky;
+      top: calc(var(--s-nav-h) + (100svh - var(--s-nav-h) - var(--s-esc-h)) / 2);
+    }
+
+    [data-sitio] .s-proceso-pasos {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    [data-sitio] .s-paso {
+      min-height: 78svh;
+    }
+  }
+
+  /* ── Demos por rubro: grilla asimétrica (2 columnas en el celular) ── */
+  [data-sitio] .s-demos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 16px;
+  }
+
+  @media (min-width: 900px) {
+    [data-sitio] .s-demos {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 32px;
+    }
+    [data-sitio] .s-demos > :nth-child(1) { grid-column: 1 / 6; }
+    [data-sitio] .s-demos > :nth-child(2) { grid-column: 6 / 9; margin-top: 120px; }
+    [data-sitio] .s-demos > :nth-child(3) { grid-column: 9 / 13; margin-top: 40px; }
+    [data-sitio] .s-demos > :nth-child(4) { grid-column: 2 / 5; }
+    [data-sitio] .s-demos > :nth-child(5) { grid-column: 5 / 10; margin-top: -80px; }
+    [data-sitio] .s-demos > :nth-child(6) { grid-column: 10 / 13; margin-top: 60px; }
+  }
+
+  /* ── Marquesina (estructura; el movimiento va en la capa de movimiento) ── */
+  [data-sitio] .s-marquesina {
+    overflow: hidden;
+  }
+
+  [data-sitio] .s-marquesina-pista {
+    display: flex;
+    width: max-content;
+  }
+
+  [data-sitio] .s-marquesina-grupo {
+    display: flex;
+    gap: 0.9em;
+    padding-right: 0.9em;
+  }
+
+  /* ── Preguntas frecuentes ── */
+  [data-sitio] .s-faq summary::-webkit-details-marker {
+    display: none;
+  }
+}

@@ -1,37 +1,20 @@
 import type { Metadata } from 'next'
-import { Dot } from '@/components/ui/Dot'
-import { Tag } from '@/components/ui/Tag'
-import { BulletList } from '@/components/ui/BulletList'
-import { PrimaryButton } from '@/components/ui/PrimaryButton'
-import { StillLifeImage } from '@/components/ui/StillLifeImage'
-import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import {
-  whatsappLink,
-  LEGAL,
-  TEAM,
-  siteUrl,
-} from '@/lib/config'
+import { LEGAL, TEAM, siteUrl } from '@/lib/config'
+import { Cabecera } from '../_components/Cabecera'
+import { Cierre } from '../_components/Cierre'
+
+const DESCRIPCION =
+  'Sitiazo es un estudio independiente de diseño web basado en el Maule que atiende pymes de todo Chile de forma remota. Hacemos páginas que venden, no que impresionan.'
 
 export const metadata: Metadata = {
-  title: 'Sobre Sitiazo — estudio de diseño web en el Maule',
-  description:
-    'Sitiazo es un estudio independiente de diseño web basado en el Maule que atiende pymes de todo Chile de forma remota. Hacemos páginas que venden, no que impresionan.',
-  alternates: {
-    canonical: siteUrl('/sobre/'),
-  },
+  title: 'Sobre Sitiazo: estudio de diseño web en el Maule',
+  description: DESCRIPCION,
+  alternates: { canonical: siteUrl('/sobre/') },
   openGraph: {
     title: 'Sobre Sitiazo | Sitiazo.cl',
-    description:
-      'Estudio independiente de diseño web basado en el Maule que atiende pymes de todo Chile de forma remota. Hacemos páginas que venden, no que impresionan.',
+    description: DESCRIPCION,
     url: siteUrl('/sobre/'),
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Sobre Nosotros — Sitiazo.cl',
-      },
-    ],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Sobre Sitiazo.cl' }],
   },
 }
 
@@ -39,168 +22,82 @@ export const metadata: Metadata = {
 const BIO_FUNDADOR =
   'Estudiante de Ingeniería Civil en Computación en la Universidad de Talca y CEO de Sitiazo. Construyo webs como hobby y sustento para mis estudios. Hice la web de Rancho Itahue (ranchoitahue.cl) y productos propios como CVListo (cvlisto.cl) y CalculaChile. Vivo en el Maule. Disfruto de la computación, el diseño y resolver problemas con el mínimo de código posible.'
 
-const creencias = [
+const CREENCIAS = [
   'Las pymes merecen webs profesionales sin pagar precios de agencia grande.',
-  'Mobile-first no es opcional — el 80% de tus clientes te ve desde el celular.',
-  'WhatsApp es el mejor checkout para Chile. Punto.',
-  'Una web rápida y clara vende más que una llena de animaciones.',
+  'Primero el celular: tus clientes te van a abrir desde un link de WhatsApp.',
+  'WhatsApp es el mejor checkout para Chile.',
+  'Una web rápida y clara vende más que una llena de adornos.',
 ]
 
-const stack = [
-  { area: 'Frontend', tools: 'Next.js · React · Tailwind v4' },
-  { area: 'Hosting', tools: 'Vercel · Cloudflare · sin sorpresas en la cuenta' },
-  { area: 'Integraciones', tools: 'WhatsApp Business · Cal.com · MercadoPago · Schema.org' },
+const STACK = [
+  { area: 'Frontend', tools: 'Next.js, React y Tailwind' },
+  { area: 'Hosting', tools: 'Vercel y Cloudflare, sin sorpresas en la cuenta' },
+  { area: 'Integraciones', tools: 'WhatsApp Business, Cal.com, Mercado Pago y Schema.org' },
 ]
 
 export default function SobrePage() {
+  const fundador = TEAM[0]
   return (
     <>
-      {/* Hero */}
-      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-5xl mb-8">
-            <h1 className="font-display font-bold text-display-lg md:text-display-xl text-ink leading-display tracking-display mb-6">
-              Un estudio chico
-              <br />
-              que diseña para pymes chilenas.
-              <Dot size="xl" variant="solid-yellow" />
-            </h1>
-            <p className="font-body text-lead text-ink-muted leading-body">
-              Sitiazo es un estudio independiente de diseño web con base en el
-              Maule que atiende pymes de todo Chile de forma remota. Hacemos
-              páginas que venden, no que impresionan.
+      <Cabecera
+        titulo={
+          <>
+            Un estudio chico que diseña para <em>pymes chilenas.</em>
+          </>
+        }
+        bajada="Estudio independiente de diseño web con base en el Maule. Atendemos pymes de todo Chile de forma remota. Hacemos páginas que venden, no que impresionan."
+      />
+
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
+          <h2 className="s-display s-h2 mb-12">Lo que creemos.</h2>
+          <ul className="grid gap-y-10 md:grid-cols-2 md:gap-x-16">
+            {CREENCIAS.map((c) => (
+              <li key={c} className="s-revela s-display text-[clamp(1.6rem,2.6vw,2.25rem)] leading-[1.15]">
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap grid gap-10 py-24 md:grid-cols-[0.8fr_1.2fr] md:py-32">
+          <div>
+            <h2 className="s-display s-h2">{fundador.name}.</h2>
+            <p className="mt-3 text-(--s-ceniza)">
+              Fundador. {LEGAL.city}, {LEGAL.region}.
             </p>
           </div>
+          <p className="s-lead max-w-[60ch]">{BIO_FUNDADOR}</p>
         </div>
       </section>
 
-      <HairlineDivider />
-
-      {/* Lo que creemos + imagen del estudio */}
-      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-9)] items-center">
-            <div>
-              <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-8">
-                Lo que creemos.
-                <Dot size="lg" variant="solid-yellow" />
-              </h2>
-              <BulletList items={creencias} />
-            </div>
-            <StillLifeImage
-              src="/images/still-lifes/sobre.webp"
-              alt="Composición editorial del estudio Sitiazo.cl con escritorio, papeles y punto amarillo"
-              aspectRatio="16:10"
-              figLabel="fig. 03 — estudio"
-              className="max-w-lg mx-auto"
-            />
-          </div>
-        </div>
-      </section>
-
-      <HairlineDivider />
-
-      {/* Detrás del estudio */}
-      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="font-display italic text-meta text-ink-faded tracking-ui">
-              fundador
-            </span>
-            <Dot size="xs" variant="solid-yellow" />
-          </div>
-          <div className="grid grid-cols-1 gap-[var(--spacing-9)] max-w-3xl">
-            {TEAM.map((member) => (
-              <div key={member.name}>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="font-display italic text-meta text-ink-faded tracking-ui">
-                    {member.figLabel} — {member.role}
-                  </span>
-                  <Dot size="xs" variant="solid-yellow" />
-                </div>
-                <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-6">
-                  {member.name}.
-                  <Dot size="lg" variant="solid-yellow" />
-                </h2>
-                <p className="font-body text-body text-ink-muted leading-body mb-6">
-                  {BIO_FUNDADOR}
-                </p>
-                <p className="font-body text-body-sm text-ink-muted">
-                  {LEGAL.city}, {LEGAL.country}
-                </p>
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap grid gap-10 py-24 md:grid-cols-[0.8fr_1.2fr] md:py-32">
+          <h2 className="s-display s-h2">Cómo construimos.</h2>
+          <dl className="grid gap-8">
+            {STACK.map((s) => (
+              <div key={s.area}>
+                <dt className="s-mono text-(--s-ceniza)">{s.area}</dt>
+                <dd className="mt-1 text-xl">{s.tools}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
-      <HairlineDivider />
-
-      {/* Cómo construimos */}
-      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <h2 className="font-display font-bold text-display-lg text-ink leading-display tracking-display mb-8">
-            Cómo construimos.
-            <Dot size="lg" variant="solid-yellow" />
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {stack.map((item) => (
-              <div
-                key={item.area}
-                className="border border-border-subtle p-[var(--spacing-6)]"
-              >
-                <Tag variant="yellow" className="mb-4">
-                  {item.area}
-                </Tag>
-                <p className="font-body text-body text-ink leading-body">
-                  {item.tools}
-                </p>
-              </div>
-            ))}
-          </div>
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
+          <h2 className="s-display s-h2 max-w-[18ch]">Por qué nos llamamos así.</h2>
+          <p className="s-lead mt-6 max-w-[62ch]">
+            “Sitiazo” es la versión chilena de “sitio” más “azo”, como partidazo, asadazo o golazo. Un sitiazo es una
+            web que la rompe: bien hecha, sin enredos, que cumple lo que promete. Eso es lo que entregamos.
+          </p>
         </div>
       </section>
 
-      <HairlineDivider />
-
-      {/* Por qué nos llamamos así */}
-      <section className="py-[var(--spacing-6)] md:py-[var(--spacing-7)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-5xl">
-            <h2 className="font-display font-bold text-display-md md:text-display-lg text-ink leading-display tracking-display mb-8 whitespace-nowrap">
-              Por qué nos llamamos así.
-              <Dot size="lg" variant="solid-yellow" />
-            </h2>
-            <p className="font-body text-body text-ink-muted leading-body max-w-[var(--prose-max)]">
-              &ldquo;Sitiazo&rdquo; es la versión chilena de &ldquo;sitio +
-              azo&rdquo;. Como decir &ldquo;partidazo&rdquo;,
-              &ldquo;asadazo&rdquo;, &ldquo;golazo&rdquo;. Un sitiazo es una web
-              que la rompe — bien hecha, sin enredos, que cumple lo que
-              promete. Eso es lo que entregamos.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <HairlineDivider />
-
-      {/* CTA final */}
-      <section className="py-[var(--spacing-7)] md:py-[var(--spacing-8)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-[var(--prose-max)] mx-auto text-center">
-            <h2 className="font-display font-bold text-display-xl text-ink leading-display mb-4">
-              ¿Conversamos?
-              <Dot size="xl" variant="solid-yellow" />
-            </h2>
-            <p className="font-body text-body text-ink-muted leading-body mb-8">
-              30 minutos. WhatsApp o Meet. Sin compromiso.
-            </p>
-            <PrimaryButton href={whatsappLink('contacto')} external>
-              Hablemos
-            </PrimaryButton>
-          </div>
-        </div>
-      </section>
+      <Cierre />
     </>
   )
 }

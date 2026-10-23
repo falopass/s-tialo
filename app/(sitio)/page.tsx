@@ -1,265 +1,166 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { Dot } from '@/components/ui/Dot'
-import { PrimaryButton } from '@/components/ui/PrimaryButton'
-import { SecondaryButton } from '@/components/ui/SecondaryButton'
-import { StillLifeImage } from '@/components/ui/StillLifeImage'
-import { HairlineDivider } from '@/components/ui/HairlineDivider'
-import {
-  whatsappLink,
-  SITE,
-  STARTING_PRICE,
-  PAGO_MENSUAL_FORMATTED,
-  PLANS,
-  siteUrl,
-} from '@/lib/config'
+import { SITE, siteUrl } from '@/lib/config'
+import { cases } from '@/content/cases'
+import { BIZ, RANCHO } from '../rancho-itahue/content'
+import { BotonDemo } from './_components/BotonDemo'
+import { Captura } from './_components/Captura'
+import { Cierre } from './_components/Cierre'
+import { Enlace } from './_components/Enlace'
+import { Escenario } from './_components/Escenario'
+import { Marquesina } from './_components/Marquesina'
+import { Planes } from './_components/Planes'
+import { TarjetaDemo } from './_components/TarjetaDemo'
 
 export const metadata: Metadata = {
   title: 'Diseño web para pymes en Chile',
   description: SITE.description,
   alternates: { canonical: siteUrl('/') },
   openGraph: {
-    title: 'Páginas web que sí venden',
+    title: 'Tu web, antes de pagar un peso',
     description: SITE.description,
     url: siteUrl(),
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: `${SITE.name}.cl — ${SITE.tagline}`,
-      },
-    ],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Sitiazo.cl, páginas web que sí venden' }],
   },
 }
+
+/** Las tres etapas del relato: cada una corresponde a una textura (ASCII, dither, color). */
+const PASOS = [
+  {
+    etapa: 'Estructura',
+    titulo: 'Nos mandas tu Instagram o tu ficha de Google.',
+    texto: 'Con eso vemos tu rubro, tus fotos y cómo te encuentran hoy.',
+  },
+  {
+    etapa: 'Forma',
+    titulo: 'En 48 horas te llega tu demo por WhatsApp.',
+    texto: 'Lo armamos con tus fotos y tus datos reales. Verlo no cuesta nada.',
+  },
+  {
+    etapa: 'Publicada',
+    titulo: 'Si te gusta, la publicamos en 7 días.',
+    texto: 'Desde $79.990 pago único, o $12.990 al mes con hosting y dominio.',
+  },
+]
+
+const DEMOS = ['fran-wartemberg', 'los-leones', 'servimac', 'la-granja', 'entre-raices', 'my-fusion']
+// Primera oración del texto oficial del dueño (app/rancho-itahue/content.ts).
+const CITA_DUENO = RANCHO.paragraphs[2].split('. ')[0] + '.'
+const PROYECTOS = cases.filter((c) => c.slug === 'calculachile' || c.slug === 'cvlisto')
 
 export default function HomePage() {
   return (
     <>
-      {/* ── Hero ── */}
-      <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-6)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)] relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--spacing-7)] lg:gap-[var(--spacing-9)] items-center">
-            <div className="flex flex-col justify-center">
-              <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
-                Páginas
-                <br />
-                web que
-                <br />
-                sí venden
-                <Dot
-                  size="hero"
-                  variant="solid-yellow"
-                  className="ml-2 inline-block align-middle animate-soft-pulse"
-                />
-              </h1>
-
-              <p className="font-body text-lead text-ink-muted leading-body max-w-[var(--prose-max)] mb-8">
-                Diseñamos páginas web para pymes y negocios que necesitan
-                vender. Listas en 7 días, desde {STARTING_PRICE} — o{' '}
-                {PAGO_MENSUAL_FORMATTED} al mes.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
-                <PrimaryButton href={whatsappLink('home')} external>
-                  Cotizar por WhatsApp
-                </PrimaryButton>
-                <Link
-                  href="/planes"
-                  className="font-body text-body text-ink underline decoration-ink/30 underline-offset-4 hover:text-yellow hover:decoration-yellow transition-colors"
-                >
-                  Ver planes →
-                </Link>
-              </div>
-
-              <div className="flex items-center gap-3 mb-3">
-                <Dot size="sm" variant="solid-yellow" />
-                <span className="font-body text-body-sm text-ink-muted">
-                  Diseño web para pymes de todo Chile · desde el Maule
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3 flex-wrap">
-                <span className="font-body text-micro uppercase tracking-ui text-ink-faded font-medium">
-                  Trabajamos con
-                </span>
-                <Dot size="xs" variant="solid-yellow" />
-                <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
-                  Rancho Itahue
-                </span>
-                <span className="text-ink-faded select-none">·</span>
-                <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
-                  Entrega {PLANS.basico.deliveryDays} días
-                </span>
-                <span className="text-ink-faded select-none">·</span>
-                <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
-                  Desde {STARTING_PRICE}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-center">
-              <StillLifeImage
-                src="/images/still-lifes/home-hero.webp"
-                alt="Composición editorial de Sitiazo.cl con smartphone, papeles y punto amarillo"
-                aspectRatio="4:5"
-                figLabel="fig. 01 — sitiazo home"
-                className="max-w-md lg:max-w-xl w-full"
-                priority
-              />
-            </div>
+      {/* Hero y pieza central: el mismo objeto pasa de estructura a forma a publicada. */}
+      <section className="s-proceso s-wrap" aria-label="Cómo nace tu web">
+        <div className="s-proceso-hero">
+          <h1 className="s-display text-[clamp(2.75rem,6.4vw,6rem)]">
+            Tu web, antes de pagar <em>un peso.</em>
+          </h1>
+          <p className="s-lead mt-6">
+            Mándanos tu Instagram y en 48 horas recibes un demo por WhatsApp. Lista en 7 días desde $79.990.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <BotonDemo />
+            <a href="/demos/" className="s-btn s-btn-secundario">
+              Ver demos
+            </a>
           </div>
+        </div>
 
-          {/* Scroll indicator */}
-          <div className="absolute bottom-2 right-[var(--spacing-5)] md:right-[var(--spacing-9)] flex items-center gap-2 opacity-40 hover:opacity-100 transition-opacity duration-300">
-            <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
-              Desliza
-            </span>
-            <span
-              className="inline-block animate-bounce text-ink-faded"
-              aria-hidden="true"
-            >
-              ↓
-            </span>
+        <div className="s-proceso-escena">
+          <div className="s-proceso-sticky">
+            <Escenario id="fran-wartemberg" />
           </div>
+        </div>
+
+        <ol className="s-proceso-pasos">
+          {PASOS.map((p) => (
+            <li key={p.etapa} className="s-paso">
+              <div>
+                <p className="s-mono s-paso-etapa">{p.etapa}</p>
+                <h2 className="s-display mt-2 text-[clamp(1.85rem,3vw,2.75rem)]">{p.titulo}</h2>
+                <p className="mt-3 max-w-[44ch] text-(--s-crema-2)">{p.texto}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <Marquesina />
+
+      {/* Demos por rubro: capturas reales de demos publicados. */}
+      <section className="s-wrap py-28 md:py-36">
+        <h2 className="s-display s-h2 s-revela">
+          Uno como el tuyo <em>ya existe.</em>
+        </h2>
+        <p className="s-lead s-revela mt-5">Demos que armamos para negocios del Maule. Toca uno para verlo completo.</p>
+        <div className="s-demos mt-14">
+          {DEMOS.map((id) => (
+            <TarjetaDemo key={id} id={id} />
+          ))}
         </div>
       </section>
 
-      <HairlineDivider />
-
-      {/* ── Para quién ── */}
-      <section className="py-[var(--spacing-5)] md:py-[var(--spacing-6)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="grid grid-cols-1 gap-[var(--spacing-6)] md:gap-[var(--spacing-7)] items-start">
-            <div>
-              <h2 className="font-display font-bold text-display-xl text-ink leading-display tracking-display mb-4">
-                Para quién.
-                <Dot size="xl" variant="solid-yellow" />
-              </h2>
-              <p className="font-body text-lead text-ink-muted leading-body max-w-[var(--prose-max)]">
-                Para pymes que necesitan una web clara, rápida y lista para
-                vender.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {[
-                {
-                  tag: 'SERVICIOS',
-                  title: 'Servicios locales',
-                  desc: 'Peluquerías, barberías, estudios profesionales. Webs claras que dicen quién eres y cómo te contactan.',
-                  image:
-                    '/images/still-lifes/para-quien-servicios-locales.webp',
-                },
-                {
-                  tag: 'HECHO A MANO',
-                  title: 'Marcas hechas a mano',
-                  desc: 'Crochet, cerámica, joyería, talleres. Catálogos editoriales que respetan tu oficio.',
-                  image: '/images/still-lifes/para-quien-hechas-a-mano.webp',
-                },
-                {
-                  tag: 'COMERCIO',
-                  title: 'Comercio pequeño',
-                  desc: 'Cafeterías, tiendas, delivery local. Webs rápidas que convierten visitantes en clientes.',
-                  image: '/images/still-lifes/para-quien-comercio-pequeno.webp',
-                },
-              ].map((item) => (
-                <div
-                  key={item.tag}
-                  className="border border-border-subtle bg-cream p-[var(--spacing-5)] flex flex-col"
-                >
-                  <div className="mb-6 flex h-64 items-center justify-center md:h-72">
-                    <img
-                      src={item.image}
-                      alt={`Página web para ${item.title.toLowerCase()} — composición editorial`}
-                      className="h-full w-full object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="flex items-center mb-3">
-                    <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
-                      {item.tag}
-                    </span>
-                  </div>
-                  <h3 className="font-display font-semibold text-display-sm text-ink leading-tight mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="font-body text-body-sm text-ink-muted leading-body mt-auto">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-28 md:py-36">
+          <h2 className="s-display s-h2 mb-14 max-w-[20ch]">Un precio claro para cada tamaño de negocio.</h2>
+          <Planes />
         </div>
       </section>
 
-      <HairlineDivider />
-
-      {/* ── Caso destacado ── */}
-      <section className="py-[var(--spacing-5)] md:py-[var(--spacing-6)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-7)] md:gap-[var(--spacing-8)] items-center">
-            <div>
-              <h2 className="font-display font-bold text-display-md text-ink leading-display mb-4 whitespace-nowrap">
-                Caso Rancho Itahue.
-                <Dot size="lg" variant="solid-yellow" />
-              </h2>
-              <p className="font-body text-body text-ink-muted leading-body mb-4 max-w-[var(--prose-max)]">
-                Un multiespacio rural de Molina con salón de eventos, quinchos,
-                piscinas y canchas. Su web, publicada en ranchoitahue.cl, se armó
-                con el texto del dueño y fotos reales del rancho.
-              </p>
-              <div className="flex items-center gap-4 mb-6 flex-wrap">
-                {['Sitio publicado', 'Texto del dueño', 'Fotos reales'].map(
-                  (b) => (
-                    <span
-                      key={b}
-                      className="flex items-center gap-2 font-body text-body-sm text-ink-muted"
-                    >
-                      <Dot size="xs" variant="solid-yellow" />
-                      {b}
-                    </span>
-                  ),
-                )}
-              </div>
-              <SecondaryButton href="/casos/rancho-itahue/">
-                Ver caso completo
-              </SecondaryButton>
-            </div>
-
-            <div className="flex items-center justify-center">
-              <StillLifeImage
-                src="/sitio/fuentes/rancho-escritorio.webp"
-                alt="Portada de ranchoitahue.cl en un computador"
-                aspectRatio="16:10"
-                figLabel="ranchoitahue.cl"
-                className="max-w-lg w-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <HairlineDivider />
-
-      {/* ── CTA final ── */}
-      <section className="py-[var(--spacing-5)] md:py-[var(--spacing-6)]">
-        <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-          <div className="max-w-[var(--prose-max)]">
-            <h2 className="font-display font-bold text-display-lg text-ink leading-display mb-4">
-              ¿Tu pyme es la siguiente?
-              <Dot size="lg" variant="solid-yellow" />
+      {/* Caso de cliente: Rancho Itahue, con capturas reales de su web publicada. */}
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap grid items-center gap-14 py-28 md:py-36 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="s-revela">
+            <h2 className="s-display s-h2 max-w-[13ch]">
+              Rancho Itahue ya tiene <em>su web.</em>
             </h2>
-            <p className="font-body text-body text-ink-muted leading-body mb-6">
-              Conversemos 30 minutos. Sin compromiso, sin venta agresiva.
+            <p className="s-lead mt-5">
+              Un multiespacio rural de {BIZ.city}, con salón de eventos, quinchos, piscinas y canchas. La armamos con el
+              texto del dueño y fotos reales del rancho.
             </p>
-            <PrimaryButton href={whatsappLink('contacto')} external>
-              Hablemos por WhatsApp
-            </PrimaryButton>
+            <blockquote className="mt-8 max-w-[30ch] border-l-2 border-(--s-amarillo) pl-5">
+              <p className="s-display text-[clamp(1.4rem,2vw,1.75rem)] leading-[1.2]">
+                “{CITA_DUENO}”
+              </p>
+              <footer className="mt-3 text-sm text-(--s-ceniza)">Texto del dueño, publicado en {BIZ.siteDisplay}</footer>
+            </blockquote>
+            <p className="mt-8">
+              <Enlace href="/casos/rancho-itahue/" className="s-link">
+                Ver el caso
+              </Enlace>
+            </p>
+          </div>
+          <div className="relative pb-10">
+            <Captura id="rancho-escritorio" className="block w-full rounded-2xl border border-(--s-linea)" />
+            <Captura
+              id="rancho-movil"
+              className="absolute right-[-4px] bottom-0 w-[28%] rounded-[22px] border border-(--s-linea) shadow-[0_24px_60px_rgb(0_0_0/0.55)] lg:right-auto lg:left-[-48px] lg:w-[24%]"
+            />
           </div>
         </div>
       </section>
+
+      {/* Proyectos propios del estudio, etiquetados como tales: no son clientes. */}
+      <section className="s-wrap py-28 md:py-36">
+        <h2 className="s-display s-h2 mb-12">También hacemos productos propios.</h2>
+        <div className="border-b border-(--s-linea)">
+          {PROYECTOS.map((c) => (
+            <Enlace
+              key={c.slug}
+              href={`/casos/${c.slug}/`}
+              className="group grid items-center gap-6 border-t border-(--s-linea) py-10 md:grid-cols-[1fr_1.1fr_280px]"
+            >
+              <h3 className="s-display text-[clamp(2.5rem,5vw,4.5rem)] group-hover:italic">{c.name}</h3>
+              <p className="max-w-[40ch] text-(--s-crema-2)">{c.tagline}.</p>
+              <Captura id={c.slug} className="aspect-[3/2] w-full rounded-[14px] object-cover" />
+            </Enlace>
+          ))}
+        </div>
+      </section>
+
+      <Cierre />
     </>
   )
 }
+
