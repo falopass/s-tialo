@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { displaySerif, bodySans, monoText } from '@/lib/fonts'
-import { Nav } from '@/components/layout/Nav'
-import { Footer } from '@/components/layout/Footer'
-import { CookieConsent } from '@/components/ui/CookieConsent'
-import { SiteChrome } from '@/components/layout/SiteChrome'
 import { SITE, SEO_DEFAULTS, SCHEMA } from '@/lib/config'
 import './globals.css'
 
@@ -73,14 +69,7 @@ export default function RootLayout({
             __html: JSON.stringify(SCHEMA.website),
           }}
         />
-        <SiteChrome>
-          <Nav />
-        </SiteChrome>
         <main id="main-content">{children}</main>
-        <SiteChrome>
-          <Footer />
-          <CookieConsent />
-        </SiteChrome>
         <Analytics />
       </body>
     </html>

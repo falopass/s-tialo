@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { Dot } from '@/components/ui/Dot'
-import { PrimaryButton } from '@/components/ui/PrimaryButton'
+import SitioLayout from './(sitio)/layout'
 
 export const metadata: Metadata = {
   title: 'Página no encontrada',
@@ -10,20 +9,16 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <section className="pt-[var(--spacing-9)] md:pt-[var(--spacing-10)] pb-[var(--spacing-8)] min-h-screen flex items-center">
-      <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-5)] md:px-[var(--spacing-9)]">
-        <div className="max-w-[var(--prose-max)]">
-          <h1 className="font-display font-bold text-hero text-ink leading-display tracking-display mb-6">
-            Esta página<br />no existe.<Dot size="hero" variant="solid-yellow" />
-          </h1>
-          <p className="font-body text-lead text-ink-muted leading-body mb-8">
-            Pero tu página sí puede existir. Volvé al inicio o contáctanos.
-          </p>
-          <div className="flex flex-col sm:flex-row items-start gap-4">
-            <PrimaryButton href="/">Volver al inicio</PrimaryButton>
-          </div>
+    <SitioLayout>
+      <section className="s-wrap flex min-h-[80dvh] flex-col justify-center pt-(--s-nav-h) pb-16">
+        <h1 className="s-display s-h1 max-w-[14ch]">Esta página no existe.</h1>
+        <p className="s-lead mt-6">Pero la de tu negocio sí puede existir. Vuelve al inicio o pide tu demo.</p>
+        <div className="mt-10">
+          <Link href="/" className="s-btn s-btn-primario">
+            Volver al inicio
+          </Link>
         </div>
-      </div>
-    </section>
+      </section>
+    </SitioLayout>
   )
 }

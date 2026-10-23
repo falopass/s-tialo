@@ -1,0 +1,311 @@
+/*
+ * Estilos del sitio principal (app/(sitio)).
+ *
+ * Regla anti-fuga: los demos comparten layout raíz y globals.css, y con React 19 una hoja
+ * cargada por un layout anidado sigue en el documento tras navegar en cliente. Por eso
+ * TODO aquí va bajo [data-sitio], las keyframes llevan prefijo s-, y lo único que toca
+ * body lo hace con body:has([data-sitio]), que deja de aplicar cuando el sitio no está montado.
+ */
+
+[data-sitio] {
+  --s-tinta: #0e0e0c;
+  --s-tinta-2: #181815;
+  --s-tinta-3: #23231f;
+  --s-crema: #f2efe6;
+  --s-crema-2: #b9b5aa;
+  --s-ceniza: #8a867c;
+  --s-amarillo: #f5c400;
+  --s-linea: rgb(242 239 230 / 0.12);
+
+  --s-nav-h: 64px;
+  --s-gutter: 16px;
+  --s-max: 1320px;
+  --s-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Escala de espaciado estándar de Tailwind (n × 4px): globals.css la redefine para el
+     sitio anterior; aquí se restaura igual que en app/demos/layout.tsx. */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-9: 36px;
+  --spacing-10: 40px;
+  --spacing-11: 44px;
+  --spacing-12: 48px;
+
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+  min-height: 100dvh;
+  background-color: var(--s-tinta);
+  color: var(--s-crema);
+  font-family: var(--s-f-body), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 768px) {
+  [data-sitio] {
+    --s-nav-h: 72px;
+    --s-gutter: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  [data-sitio] {
+    --s-gutter: 64px;
+  }
+}
+
+body:has([data-sitio]) {
+  background-color: #0e0e0c;
+  color-scheme: dark;
+}
+
+/* El grano viejo de globals.css (multiply sobre crema) no aplica al sitio oscuro. */
+body:has([data-sitio])::before {
+  display: none;
+}
+
+/* Grano global: un solo pseudo-elemento fijo, casi invisible, nunca sobre contenedores con scroll. */
+[data-sitio]::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background-image: url('/sitio/grano.png');
+  background-size: 128px 128px;
+  opacity: 0.06;
+}
+
+[data-sitio] ::selection {
+  background: var(--s-amarillo);
+  color: var(--s-tinta);
+}
+
+[data-sitio] :focus-visible {
+  outline: 2px solid var(--s-amarillo);
+  outline-offset: 3px;
+}
+
+/* Clases propias en la capa components: las utilidades de Tailwind (capa utilities) pueden ajustarlas. */
+@layer components {
+  /* ── Contenedor ── */
+
+  [data-sitio] .s-wrap {
+    width: 100%;
+    max-width: var(--s-max);
+    margin-inline: auto;
+    padding-inline: var(--s-gutter);
+  }
+
+  /* ── Tipografía ── */
+
+  [data-sitio] .s-display {
+    font-family: var(--s-f-display), Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  [data-sitio] .s-h1 {
+    font-size: clamp(2.6rem, 6.4vw, 5.75rem);
+  }
+
+  [data-sitio] .s-h2 {
+    font-size: clamp(2.1rem, 4.6vw, 4rem);
+  }
+
+  [data-sitio] .s-h3 {
+    font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+    line-height: 1.08;
+  }
+
+  [data-sitio] .s-lead {
+    font-size: clamp(1.06rem, 1.4vw, 1.25rem);
+    line-height: 1.55;
+    color: var(--s-crema-2);
+    max-width: 58ch;
+  }
+
+  [data-sitio] .s-mono {
+    font-family: var(--s-f-mono), ui-monospace, monospace;
+    font-size: 0.8125rem;
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+
+  [data-sitio] .s-prosa {
+    max-width: 65ch;
+    color: var(--s-crema-2);
+  }
+
+  [data-sitio] .s-prosa p + p {
+    margin-top: 1em;
+  }
+
+  /* Énfasis en titulares: itálica de la misma familia, con reserva para descendentes. */
+  [data-sitio] .s-display em {
+    font-style: italic;
+    padding-bottom: 0.08em;
+  }
+
+  /* ── Botones ── */
+
+  [data-sitio] .s-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 52px;
+    padding: 0 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1;
+    white-space: nowrap;
+    transition:
+      background-color 0.2s var(--s-ease),
+      color 0.2s var(--s-ease),
+      transform 0.15s var(--s-ease);
+  }
+
+  [data-sitio] .s-btn:active {
+    transform: scale(0.98);
+  }
+
+  [data-sitio] .s-btn-primario {
+    background: var(--s-amarillo);
+    color: var(--s-tinta);
+  }
+
+  [data-sitio] .s-btn-primario:hover {
+    background: #ffd21f;
+  }
+
+  [data-sitio] .s-btn-secundario {
+    border: 1px solid rgb(242 239 230 / 0.35);
+    color: var(--s-crema);
+  }
+
+  [data-sitio] .s-btn-secundario:hover {
+    border-color: var(--s-crema);
+  }
+
+  [data-sitio] .s-link {
+    color: var(--s-crema);
+    text-decoration: underline;
+    text-decoration-color: rgb(245 196 0 / 0.7);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+    transition: text-decoration-color 0.2s var(--s-ease);
+  }
+
+  [data-sitio] .s-link:hover {
+    text-decoration-color: var(--s-amarillo);
+  }
+
+  /* ── Legales (MDX) ── */
+
+  [data-sitio] .s-legal {
+    max-width: 72ch;
+    color: var(--s-crema-2);
+  }
+
+  [data-sitio] .s-legal h1 {
+    font-family: var(--s-f-display), Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.02;
+    color: var(--s-crema);
+    margin-bottom: 2rem;
+  }
+
+  [data-sitio] .s-legal h2 {
+    font-family: var(--s-f-display), Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    line-height: 1.1;
+    color: var(--s-crema);
+    margin: 3rem 0 1rem;
+  }
+
+  [data-sitio] .s-legal h3 {
+    font-weight: 600;
+    color: var(--s-crema);
+    margin: 2rem 0 0.75rem;
+  }
+
+  [data-sitio] .s-legal p,
+  [data-sitio] .s-legal ul,
+  [data-sitio] .s-legal ol,
+  [data-sitio] .s-legal table {
+    margin-bottom: 1rem;
+  }
+
+  [data-sitio] .s-legal ul,
+  [data-sitio] .s-legal ol {
+    padding-left: 1.25rem;
+  }
+
+  [data-sitio] .s-legal ul {
+    list-style: disc;
+  }
+
+  [data-sitio] .s-legal ol {
+    list-style: decimal;
+  }
+
+  [data-sitio] .s-legal li {
+    margin-bottom: 0.5rem;
+  }
+
+  [data-sitio] .s-legal strong {
+    color: var(--s-crema);
+    font-weight: 600;
+  }
+
+  [data-sitio] .s-legal hr {
+    margin: 2.5rem 0;
+    border: 0;
+    border-top: 1px solid var(--s-linea);
+  }
+
+  [data-sitio] .s-legal table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  [data-sitio] .s-legal th,
+  [data-sitio] .s-legal td {
+    border-bottom: 1px solid var(--s-linea);
+    padding: 0.75rem 0.5rem 0.75rem 0;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  [data-sitio] .s-legal th {
+    color: var(--s-crema);
+  }
+
+  [data-sitio] .s-legal a {
+    color: var(--s-crema);
+    text-decoration: underline;
+    text-decoration-color: rgb(245 196 0 / 0.7);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  [data-sitio] .s-legal-tabla {
+    overflow-x: auto;
+  }
+}
