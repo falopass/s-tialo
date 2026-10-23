@@ -20,6 +20,7 @@ const archivo = (ruta) => pathToFileURL(join(raiz, ruta)).href
 // Los titulares son los h1 de cada página; los de las notas, sus títulos en content/posts.ts.
 const PAGINAS = [
   { id: 'inicio', titulo: 'Tu web, antes de pagar <em>un peso.</em>', captura: 'fran-wartemberg' },
+  // shortcut: precios copiados de lib/config.ts; si cambian, actualizarlos aquí y regenerar las imágenes.
   {
     id: 'planes',
     titulo: 'Planes claros, <em>sin letra chica.</em>',

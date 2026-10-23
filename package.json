@@ -7,6 +7,7 @@
     "dev": "next dev",
     "prebuild": "node scripts/dither.mjs",
     "build": "next build",
+    "postbuild": "node scripts/verificar-sitio.mjs",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",

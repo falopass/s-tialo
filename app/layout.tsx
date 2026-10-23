@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { displaySerif, bodySans, monoText } from '@/lib/fonts'
-import { SITE, SEO_DEFAULTS, SCHEMA } from '@/lib/config'
+import { SITE, SEO_DEFAULTS, SCHEMA, MARCA } from '@/lib/config'
+import { JsonLd } from '@/lib/seo'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     title: SEO_DEFAULTS.defaultTitle,
     description: SITE.description,
     url: SITE.url,
-    siteName: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+    siteName: MARCA,
     locale: SITE.ogLocale,
     type: 'website',
     images: [SEO_DEFAULTS.ogImage],
@@ -57,18 +58,8 @@ export default function RootLayout({
         >
           Saltar al contenido
         </a>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(SCHEMA.localBusiness),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(SCHEMA.website),
-          }}
-        />
+        <JsonLd data={SCHEMA.localBusiness} />
+        <JsonLd data={SCHEMA.website} />
         <main id="main-content">{children}</main>
         <Analytics />
       </body>

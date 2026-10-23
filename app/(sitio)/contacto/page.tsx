@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
-import { CONTACT, LEGAL, SITE, siteUrl, whatsappLink } from '@/lib/config'
+import { CONTACT, LEGAL, MARCA, SITE, siteUrl, whatsappLink } from '@/lib/config'
+import { JsonLd } from '@/lib/seo'
 import { contactFaqs, faqJsonLd } from '@/content/faqs'
 import { Cabecera } from '../_components/Cabecera'
 import { Preguntas } from '../_components/Preguntas'
@@ -29,7 +30,7 @@ const contactPageJsonLd = {
   description: 'Contacta a Sitiazo.cl por WhatsApp.',
   mainEntity: {
     '@type': 'ProfessionalService',
-    name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+    name: MARCA,
     description: SITE.description,
     url: SITE.url,
     telephone: CONTACT.telephone,
@@ -54,8 +55,8 @@ const QUE_MANDAR = [
 export default function ContactoPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLdData) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageJsonLd) }} />
+      <JsonLd data={faqJsonLdData} />
+      <JsonLd data={contactPageJsonLd} />
 
       <Cabecera
         titulo={

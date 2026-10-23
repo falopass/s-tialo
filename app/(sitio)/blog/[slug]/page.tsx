@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { LEGAL, SITE, siteUrl } from '@/lib/config'
-import { breadcrumbJsonLd } from '@/lib/seo'
+import { LEGAL, MARCA, SITE, siteUrl } from '@/lib/config'
+import { breadcrumbJsonLd, JsonLd } from '@/lib/seo'
 import { getPost, posts } from '@/content/posts'
-import { getPostContent } from '@/content/blog-posts'
 import { Cierre } from '../../_components/Cierre'
 import { Enlace } from '../../_components/Enlace'
 
@@ -39,11 +38,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
   const post = getPost(slug)
-  const content = getPostContent(slug)
 
-  if (!post || !content) {
+  if (!post) {
     notFound()
   }
+
+  const { default: Cuerpo } = await import(`@/content/blog/${slug}.mdx`)
 
   const otros = posts.filter((p) => p.slug !== slug)
   const postUrl = siteUrl(`/blog/${post.slug}/`)
@@ -57,7 +57,7 @@ export default async function BlogPostPage({ params }: Props) {
     author: { '@type': 'Person', name: LEGAL.ownerName },
     publisher: {
       '@type': 'Organization',
-      name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+      name: MARCA,
       url: SITE.url,
     },
     url: postUrl,
@@ -73,8 +73,8 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <JsonLd data={blogJsonLd} />
+      <JsonLd data={breadcrumbLd} />
 
       <article className="s-wrap pt-[calc(var(--s-nav-h)+48px)] pb-24 md:pt-[calc(var(--s-nav-h)+88px)] md:pb-32">
         <header>
@@ -85,13 +85,8 @@ export default async function BlogPostPage({ params }: Props) {
         </header>
         <p className="s-lead mt-6">{post.description}</p>
 
-        <div className="mt-16 max-w-[68ch] border-t border-(--s-linea) pt-10">
-          {content.sections.map((s, i) => (
-            <section key={i} className={s.heading ? 'mt-12 first:mt-0' : 'mt-5'}>
-              {s.heading && <h2 className="s-display s-h3 mb-4">{s.heading}</h2>}
-              <p className="text-[18px] leading-[1.7] text-(--s-crema-2)">{s.body}</p>
-            </section>
-          ))}
+        <div className="s-prosa mt-16 max-w-[68ch] border-t border-(--s-linea) pt-10">
+          <Cuerpo />
         </div>
       </article>
 

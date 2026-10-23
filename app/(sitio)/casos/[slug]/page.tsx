@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { SITE, siteUrl } from '@/lib/config'
-import { breadcrumbJsonLd } from '@/lib/seo'
+import { breadcrumbJsonLd, JsonLd } from '@/lib/seo'
 import { detailedCases, getCase } from '@/content/cases'
 import { Captura } from '../../_components/Captura'
 import { Cierre } from '../../_components/Cierre'
@@ -78,8 +78,8 @@ export default async function CasePage({ params }: CasePageProps) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbLd} />
 
       <header className="s-wrap pt-[calc(var(--s-nav-h)+48px)] md:pt-[calc(var(--s-nav-h)+88px)]">
         <p className="s-mono text-(--s-ceniza)">

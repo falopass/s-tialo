@@ -1,6 +1,6 @@
 import { Enlace } from './Enlace'
 import { WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
-import { CONTACT, LEGAL, SITE, whatsappLink } from '@/lib/config'
+import { CONTACT, LEGAL, MARCA, whatsappLink } from '@/lib/config'
 import { Logo } from './Logo'
 
 const COLUMNAS = [
@@ -77,7 +77,7 @@ export function Footer() {
       </div>
       <div className="s-wrap border-t border-(--s-linea) py-6">
         <p className="s-mono text-(--s-ceniza)">
-          © {new Date().getFullYear()} {SITE.name}.{SITE.domain.split('.')[1]}
+          © {new Date().getFullYear()} {MARCA}
         </p>
       </div>
     </footer>

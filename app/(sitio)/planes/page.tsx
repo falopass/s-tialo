@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import {
   EXTRAS,
   FORMAS_PAGO,
+  MARCA,
   PAGO_CUOTAS,
   PAGO_MENSUAL_FORMATTED,
   PLANS,
@@ -10,6 +11,7 @@ import {
   STARTING_PRICE,
   siteUrl,
 } from '@/lib/config'
+import { JsonLd } from '@/lib/seo'
 import { faqJsonLd, planFaqs } from '@/content/faqs'
 import { Cabecera } from '../_components/Cabecera'
 import { Cierre } from '../_components/Cierre'
@@ -48,7 +50,7 @@ const planesServiceJsonLd = {
       url: siteUrl('/planes/'),
       provider: {
         '@type': 'ProfessionalService',
-        name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+        name: MARCA,
         url: SITE.url,
       },
       offers: {
@@ -105,8 +107,8 @@ function Celda({ v }: { v: Valor }) {
 export default function PlanesPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(planesFaqJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(planesServiceJsonLd) }} />
+      <JsonLd data={planesFaqJsonLd} />
+      <JsonLd data={planesServiceJsonLd} />
 
       <Cabecera
         titulo={

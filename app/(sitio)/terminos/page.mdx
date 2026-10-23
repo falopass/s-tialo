@@ -4,6 +4,8 @@
   alternates: { canonical: 'https://sitiazo.cl/terminos/' },
 }
 
+import { formatCLP, HOSTING_PRICE, PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, PLANS } from '@/lib/config'
+
 <article className="s-legal s-wrap pt-[calc(var(--s-nav-h)+48px)] pb-24 md:pt-[calc(var(--s-nav-h)+80px)]">
 
 # Términos y Condiciones
@@ -65,10 +67,10 @@ El proceso estándar de trabajo con Sitiazo es:
 **4.3.** Hay tres formas de pago:
 
 - **Pago único**: el valor del plan elegido, 50% al inicio y 50% al terminar, antes de la publicación.
-- **Pago en cuotas**: el valor del plan elegido en hasta 3 cuotas sin interés, con tarjeta de crédito a través de MercadoPago o en cuotas mensuales pagadas directamente a Sitiazo. La primera cuota se paga al momento de la entrega.
-- **Plan mensual** (solo plan Básico): $12.990 CLP al mes (o el monto vigente al momento de la contratación), con hosting, dominio y ajustes de contenido incluidos. El primer mes se paga al momento de la entrega.
+- **Pago en cuotas**: el valor del plan elegido en hasta {PAGO_CUOTAS} cuotas sin interés, con tarjeta de crédito a través de MercadoPago o en cuotas mensuales pagadas directamente a Sitiazo. La primera cuota se paga al momento de la entrega.
+- **Plan mensual** (solo plan Básico): {PAGO_MENSUAL_FORMATTED} CLP al mes (o el monto vigente al momento de la contratación), con hosting, dominio y ajustes de contenido incluidos. El primer mes se paga al momento de la entrega.
 
-**4.4.** Con el pago único o en cuotas, el servicio de hosting mensual ($9.990 CLP/mes o el monto vigente al momento de la contratación) se cobra a través de suscripción recurrente y puede ser cancelado por el cliente en cualquier momento con 30 días de aviso. En el plan mensual, el hosting va incluido.
+**4.4.** Con el pago único o en cuotas, el servicio de hosting mensual ({formatCLP(HOSTING_PRICE)} CLP/mes o el monto vigente al momento de la contratación) se cobra a través de suscripción recurrente y puede ser cancelado por el cliente en cualquier momento con 30 días de aviso. En el plan mensual, el hosting va incluido.
 
 **4.5.** Sitiazo se reserva el derecho de actualizar precios para nuevos clientes en cualquier momento. Los clientes activos mantienen el precio acordado al momento de la contratación durante al menos 12 meses.
 
@@ -78,9 +80,9 @@ El proceso estándar de trabajo con Sitiazo es:
 
 **5.1.** Los plazos de entrega son los publicados en sitiazo.cl/planes:
 
-- Plan Básico: 7 días hábiles
-- Plan Recomendado: 10 días hábiles
-- Plan Catálogo: 14 días hábiles
+- Plan Básico: {PLANS.basico.deliveryDays} días hábiles
+- Plan Recomendado: {PLANS.recomendado.deliveryDays} días hábiles
+- Plan Catálogo: {PLANS.catalogo.deliveryDays} días hábiles
 
 **5.2.** Los plazos comienzan a contarse desde el día hábil siguiente a la aceptación de la propuesta (y al pago del anticipo, en el pago único) y a la entrega completa del contenido necesario por parte del cliente (textos, imágenes, logos, accesos a cuentas relevantes).
 

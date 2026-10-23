@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE, siteUrl } from '@/lib/config'
-import { breadcrumbJsonLd } from '@/lib/seo'
+import { breadcrumbJsonLd, JsonLd } from '@/lib/seo'
 import { BIZ, RANCHO, RESENAS } from '../../../rancho-itahue/content'
 import { CTA_DEMO, linkDemo } from '../../_lib/contacto'
 import { Captura } from '../../_components/Captura'
@@ -66,8 +66,8 @@ const SECCIONES = [
 export default function CasoRanchoItahuePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(casoJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <JsonLd data={casoJsonLd} />
+      <JsonLd data={breadcrumbLd} />
 
       <header className="s-wrap pt-[calc(var(--s-nav-h)+48px)] md:pt-[calc(var(--s-nav-h)+80px)]">
         <h1 className="s-display s-h1 max-w-[16ch]">

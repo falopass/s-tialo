@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { siteUrl } from '@/lib/config'
+import { JsonLd } from '@/lib/seo'
 import { faqJsonLd, generalFaqs, planFaqs } from '@/content/faqs'
 import { Cabecera } from '../_components/Cabecera'
 import { Cierre } from '../_components/Cierre'
@@ -25,7 +26,7 @@ const faqJsonLdData = faqJsonLd(generalFaqs)
 export default function PreguntasFrecuentesPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLdData) }} />
+      <JsonLd data={faqJsonLdData} />
 
       <Cabecera
         titulo={

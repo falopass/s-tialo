@@ -5,13 +5,13 @@
  *
  * REGLAS CRÍTICAS:
  * 1. NUNCA hardcodear datos de negocio en componentes/páginas
- * 2. Toda data debe importarse desde acá
+ * 2. Toda data debe importarse desde aquí
  * 3. Valores sensibles (teléfono) DEBEN venir de env vars
- * 4. Si necesitás un valor nuevo (precio, plazo, contacto), agregalo acá primero
+ * 4. Si necesitas un valor nuevo (precio, plazo, contacto), agrégalo aquí primero
  */
 
 // ─────────────────────────────────────────────
-// 🛠️ UTILITIES
+// UTILITIES
 // ─────────────────────────────────────────────
 
 function formatPhoneNumber(raw: string): string {
@@ -27,7 +27,7 @@ export function formatCLP(amount: number): string {
 }
 
 // ─────────────────────────────────────────────
-// 🔒 ENVIRONMENT HELPERS
+// ENVIRONMENT HELPERS
 // ─────────────────────────────────────────────
 
 function getEnv(key: string, fallback: string, required = false): string {
@@ -35,10 +35,10 @@ function getEnv(key: string, fallback: string, required = false): string {
 
   if (!value) {
     if (required && process.env.NODE_ENV === 'production') {
-      throw new Error(`❌ Missing required env var: ${key}`)
+      throw new Error(`Missing required env var: ${key}`)
     }
     if (process.env.NODE_ENV !== 'test') {
-      console.warn(`⚠️  Env var ${key} not set, using fallback: ${fallback}`)
+      console.warn(`Env var ${key} not set, using fallback: ${fallback}`)
     }
     return fallback
   }
@@ -47,7 +47,7 @@ function getEnv(key: string, fallback: string, required = false): string {
 }
 
 // ─────────────────────────────────────────────
-// 🌐 SITE
+// SITE
 // ─────────────────────────────────────────────
 
 export const SITE = {
@@ -63,8 +63,11 @@ export const SITE = {
   currency: 'CLP',
 } as const
 
+/** Nombre público completo de la marca. */
+export const MARCA = 'Sitiazo.cl'
+
 // ─────────────────────────────────────────────
-// 📞 CONTACT (todo viene de env vars)
+// CONTACT (todo viene de env vars)
 // ─────────────────────────────────────────────
 
 const RAW_WHATSAPP = getEnv('NEXT_PUBLIC_WHATSAPP_NUMBER', '56962343671')
@@ -75,7 +78,7 @@ export const CONTACT = {
 } as const
 
 // ─────────────────────────────────────────────
-// 💬 WHATSAPP MESSAGES
+// WHATSAPP MESSAGES
 // ─────────────────────────────────────────────
 
 export type WhatsAppContext =
@@ -85,7 +88,6 @@ export type WhatsAppContext =
   | 'recomendado'
   | 'catalogo'
   | 'contacto'
-  | 'caso-roma'
   | 'cotizacion'
   | 'duda'
   | 'demo'
@@ -95,7 +97,6 @@ const STATIC_WHATSAPP_MESSAGES: Record<string, string> = {
   home: 'Hola Sitiazo! Vi su web y me interesa cotizar para mi pyme 🟡',
   planes: 'Hola! Quiero info sobre los planes de Sitiazo 🟡',
   contacto: 'Hola Sitiazo! Quiero conversar sobre un proyecto web 🟡',
-  'caso-roma': 'Hola! Vi el caso de Roma Crochet y quiero algo así para mi pyme 🟡',
   cotizacion: 'Hola! Necesito una cotización para mi proyecto web 🟡',
   duda: 'Hola Sitiazo! Tengo una duda antes de cotizar 🟡',
   demo: 'Hola! Vi el demo que me prepararon — les mando fotos en mejor calidad 🟡',
@@ -118,7 +119,7 @@ export function whatsappLink(context: WhatsAppContext = 'contacto'): string {
 }
 
 // ─────────────────────────────────────────────
-// 🔗 URL HELPERS
+// URL HELPERS
 // ─────────────────────────────────────────────
 
 export function siteUrl(path = ''): string {
@@ -128,7 +129,7 @@ export function siteUrl(path = ''): string {
 }
 
 // ─────────────────────────────────────────────
-// 💰 PLAN PRICES (standalone constants)
+// PLAN PRICES (standalone constants)
 // ─────────────────────────────────────────────
 
 const PRICE_BASICO = 79_990
@@ -137,7 +138,7 @@ const PRICE_CATALOGO = 199_990
 export const HOSTING_PRICE = 9_990
 
 // ─────────────────────────────────────────────
-// 💰 PLANS (single source of truth para precios)
+// PLANS (single source of truth para precios)
 // ─────────────────────────────────────────────
 
 export type PlanId = 'basico' | 'recomendado' | 'catalogo'
@@ -149,7 +150,6 @@ export interface Plan {
   badge?: string
   price: number
   priceFormatted: string
-  priceShort: string
   hostingMonthly: number
   hostingFormatted: string
   deliveryDays: number
@@ -169,7 +169,6 @@ export const PLANS: Record<PlanId, Plan> = {
     tag: 'Para empezar',
     price: PRICE_BASICO,
     priceFormatted: formatCLP(PRICE_BASICO),
-    priceShort: '$80K',
     hostingMonthly: HOSTING_PRICE,
     hostingFormatted: formatCLP(HOSTING_PRICE) + '/mes',
     deliveryDays: 7,
@@ -193,7 +192,6 @@ export const PLANS: Record<PlanId, Plan> = {
     badge: 'MÁS PEDIDO',
     price: PRICE_RECOMENDADO,
     priceFormatted: formatCLP(PRICE_RECOMENDADO),
-    priceShort: '$130K',
     hostingMonthly: HOSTING_PRICE,
     hostingFormatted: formatCLP(HOSTING_PRICE) + '/mes',
     deliveryDays: 10,
@@ -218,7 +216,6 @@ export const PLANS: Record<PlanId, Plan> = {
     tag: 'Premium',
     price: PRICE_CATALOGO,
     priceFormatted: formatCLP(PRICE_CATALOGO),
-    priceShort: '$200K',
     hostingMonthly: HOSTING_PRICE,
     hostingFormatted: formatCLP(HOSTING_PRICE) + '/mes',
     deliveryDays: 14,
@@ -238,10 +235,6 @@ export const PLANS: Record<PlanId, Plan> = {
   },
 }
 
-export function getPlan(id: PlanId): Plan {
-  return PLANS[id]
-}
-
 export const PLANS_ARRAY: Plan[] = [
   PLANS.basico,
   PLANS.recomendado,
@@ -249,10 +242,9 @@ export const PLANS_ARRAY: Plan[] = [
 ]
 
 export const STARTING_PRICE = PLANS.basico.priceFormatted
-export const STARTING_PRICE_SHORT = PLANS.basico.priceShort
 
 // ─────────────────────────────────────────────
-// ➕ EXTRAS
+// EXTRAS
 // ─────────────────────────────────────────────
 
 export const EXTRAS = [
@@ -274,13 +266,22 @@ export const EXTRAS = [
 ]
 
 // ─────────────────────────────────────────────
-// 💳 FORMAS DE PAGO
+// FORMAS DE PAGO
 // ─────────────────────────────────────────────
 
 const PRICE_MENSUAL = 12_990
 export const PAGO_MENSUAL = PRICE_MENSUAL
 export const PAGO_MENSUAL_FORMATTED = formatCLP(PRICE_MENSUAL)
 export const PAGO_CUOTAS = 3
+
+/** Monto de cada cuota sin interés, redondeado hacia arriba al peso. */
+export function cuotas(precio: number) {
+  const monto = Math.ceil(precio / PAGO_CUOTAS)
+  return { n: PAGO_CUOTAS, monto, montoFormatted: formatCLP(monto) }
+}
+
+/** El pago mensual solo existe para este plan. */
+export const PLAN_MENSUAL: PlanId = 'basico'
 
 export interface FormaPago {
   id: string
@@ -308,7 +309,7 @@ export const FORMAS_PAGO: FormaPago[] = [
 ]
 
 // ─────────────────────────────────────────────
-// 👥 TEAM
+// TEAM
 // ─────────────────────────────────────────────
 
 export interface TeamMember {
@@ -323,12 +324,12 @@ export const TEAM: TeamMember[] = [
     name: 'Diego',
     role: 'CEO',
     figLabel: 'fig. 01',
-    bio: 'Estudiante de Ingeniería Civil en Computación en la Universidad de Talca y CEO de Sitiazo. Construyo webs como hobby y sustento para mis estudios. Ya he construido páginas para algunas pymes: CVListo (cvlisto.cl), RomaCrochet (romacrochet.cl). Vivo en el Maule. Disfruto de la computación, el diseño y resolver problemas con el mínimo de código posible.',
+    bio: 'Estudiante de Ingeniería Civil en Computación en la Universidad de Talca y CEO de Sitiazo. Construyo webs como hobby y sustento para mis estudios. Ya he construido páginas para algunas pymes, como CVListo (cvlisto.cl) y Rancho Itahue (ranchoitahue.cl). Vivo en el Maule. Disfruto de la computación, el diseño y resolver problemas con el mínimo de código posible.',
   },
 ]
 
 // ─────────────────────────────────────────────
-// 🏢 LEGAL & BUSINESS
+// LEGAL & BUSINESS
 // ─────────────────────────────────────────────
 
 export const LEGAL = {
@@ -351,53 +352,31 @@ export const LEGAL = {
 } as const
 
 // ─────────────────────────────────────────────
-// 🔍 SEO DEFAULTS
+// SEO DEFAULTS
 // ─────────────────────────────────────────────
 
 export const SEO_DEFAULTS = {
   titleTemplate: '%s | Sitiazo.cl',
-  defaultTitle: `${SITE.name}.cl — ${SITE.tagline}`,
+  defaultTitle: `${MARCA} | Páginas web que sí venden`,
   defaultDescription: SITE.description,
 
   ogImage: {
     url: '/og-image.png',
     width: 1200,
     height: 630,
-    alt: `${SITE.name}.cl — ${SITE.tagline}`,
+    alt: `${MARCA} | Páginas web que sí venden`,
   },
 } as const
 
 // ─────────────────────────────────────────────
-// 📅 BUSINESS HOURS
-// ─────────────────────────────────────────────
-
-export const BUSINESS_HOURS = {
-  timezone: 'America/Santiago',
-  responseTime: {
-    whatsapp: 'horas hábiles',
-  },
-} as const
-
-// ─────────────────────────────────────────────
-// 🎨 BRAND ASSETS
-// ─────────────────────────────────────────────
-
-export const BRAND = {
-  logo: {
-    black: '/images/logo/logo-black-letras.png',
-    white: '/images/logo/logo-white-letras.png',
-  },
-} as const
-
-// ─────────────────────────────────────────────
-// 📋 SCHEMA (JSON-LD)
+// SCHEMA (JSON-LD)
 // ─────────────────────────────────────────────
 
 export const SCHEMA = {
   localBusiness: {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+    name: MARCA,
     legalName: LEGAL.legalName,
     description: SITE.description,
     url: SITE.url,
@@ -443,20 +422,20 @@ export const SCHEMA = {
   website: {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: `${SITE.name}.${SITE.domain.split('.')[1]}`,
+    name: MARCA,
     url: SITE.url,
     inLanguage: SITE.locale,
   },
 } as const
 
 // ─────────────────────────────────────────────
-// 🚨 RUNTIME VALIDATION (en dev)
+// RUNTIME VALIDATION (en dev)
 // ─────────────────────────────────────────────
 
 if (process.env.NODE_ENV === 'development') {
   if (RAW_WHATSAPP === '56900000000' || RAW_WHATSAPP === '569XXXXXXXX') {
     console.warn(
-      '⚠️  WHATSAPP NUMBER IS A PLACEHOLDER! Set NEXT_PUBLIC_WHATSAPP_NUMBER in .env.local',
+      'WHATSAPP NUMBER IS A PLACEHOLDER! Set NEXT_PUBLIC_WHATSAPP_NUMBER in .env.local',
     )
   }
 }
