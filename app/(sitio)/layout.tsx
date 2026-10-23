@@ -3,6 +3,8 @@ import { Footer } from './_components/Footer'
 import { CookieConsent } from './_components/CookieConsent'
 import { MovimientoSitio } from './_components/MovimientoSitio'
 import { sFontClasses } from './_lib/fonts'
+import { SCHEMA } from '@/lib/config'
+import { JsonLd } from '@/lib/seo'
 import './sitio.css'
 
 /**
@@ -12,6 +14,9 @@ import './sitio.css'
 export default function SitioLayout({ children }: { children: React.ReactNode }) {
   return (
     <div data-sitio className={sFontClasses}>
+      {/* La entidad Sitiazo va solo en páginas del sitio: los demos describen otros negocios. */}
+      <JsonLd data={SCHEMA.localBusiness} />
+      <JsonLd data={SCHEMA.website} />
       <Nav />
       {children}
       <Footer />

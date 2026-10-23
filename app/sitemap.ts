@@ -44,7 +44,7 @@ const STATIC_ROUTES: Route[] = [
 
 // Fecha real de la última actualización de contenido de las páginas estáticas.
 // Actualizarla cuando cambie el contenido, no en cada build.
-const LAST_UPDATED = new Date('2026-09-25')
+const LAST_UPDATED = new Date('2026-10-23')
 
 /**
  * Slugs de todos los demos: los que tienen carpeta propia en app/demos/

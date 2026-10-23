@@ -372,13 +372,18 @@ export const SEO_DEFAULTS = {
 // SCHEMA (JSON-LD)
 // ─────────────────────────────────────────────
 
+/** @id estable de la organización, para enlazar WebSite.publisher y otros grafos. */
+const ORGANIZACION_ID = `${SITE.url.replace(/\/$/, '')}/#organizacion`
+
 export const SCHEMA = {
   localBusiness: {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
+    '@id': ORGANIZACION_ID,
     name: MARCA,
-    legalName: LEGAL.legalName,
+    // legalName: pendiente de confirmar por Diego (ver PLAN-REDISENO.md)
     description: SITE.description,
+    email: 'hola@sitiazo.cl',
     url: SITE.url,
     telephone: CONTACT.telephone,
     address: LEGAL.address,
@@ -425,6 +430,7 @@ export const SCHEMA = {
     name: MARCA,
     url: SITE.url,
     inLanguage: SITE.locale,
+    publisher: { '@id': ORGANIZACION_ID },
   },
 } as const
 

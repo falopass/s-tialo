@@ -4110,6 +4110,9 @@ function tieneRuta(slug: string) {
   return DINAMICOS.has(slug) || existsSync(join(process.cwd(), 'app', 'demos', slug, 'page.tsx'))
 }
 
+/** El sitio no usa guion largo en texto visible; algunos rubros y nombres del registro sí lo traen. */
+const sinGuionLargo = (t: string) => t.replace(/\s*—\s*/g, ' · ')
+
 let cache: DemoCatalogo[] | null = null
 
 /** Todos los demos publicados, sin duplicados y solo los que tienen página, ordenados por nombre. */
@@ -4120,8 +4123,8 @@ export function catalogo(): DemoCatalogo[] {
     if (porSlug.has(d.slug)) return
     porSlug.set(d.slug, {
       slug: d.slug,
-      nombre: d.name,
-      rubro: d.rubro,
+      nombre: sinGuionLargo(d.name),
+      rubro: sinGuionLargo(d.rubro),
       ciudad: d.city,
       familia: familiaDe(d.rubro),
       creado: CREADOS[d.slug] ?? creado,

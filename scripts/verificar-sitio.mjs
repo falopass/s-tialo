@@ -3,9 +3,11 @@
  *   - toda URL del sitemap tiene su index.html
  *   - las páginas del sitio (todo lo que no es /demos/<slug>/) cumplen el mínimo
  *     de SEO y estructura: un solo h1, title, description, canonical, og:image,
- *     twitter:image, JSON-LD válido y texto visible sin guion largo (—)
+ *     JSON-LD válido y texto visible sin guion largo (—)
+ *   - la home debe traer el JSON-LD de la organización (@id "<origen>/#organizacion")
  *   - una muestra determinista de 20 demos se revisa solo con avisos (warn),
- *     igual que /rancho-itahue/ (sitio de cliente, reglas distintas)
+ *     igual que /rancho-itahue/ (sitio de cliente, reglas distintas); además se
+ *     avisa si un demo trae el JSON-LD de Sitiazo (ProfessionalService)
  *
  * Uso: node scripts/verificar-sitio.mjs   (corre solo si existe out/)
  */
@@ -23,6 +25,7 @@ if (!existsSync(rutaSitemap)) {
 }
 const sitemap = readFileSync(rutaSitemap, 'utf8')
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname)
+const origen = new URL(sitemap.match(/<loc>([^<]+)<\/loc>/)[1]).origin
 
 const htmls = new Map()
 for (const path of urls) {
@@ -32,6 +35,8 @@ for (const path of urls) {
 }
 
 const tiene = (html, re) => re.test(html)
+const ldJsons = (html) =>
+  [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => m[1])
 const metaConContenido = (html, nombre, attr = 'name') => {
   const tag = html.match(new RegExp(`<meta ${attr}="${nombre}"[^>]*>`))
   return !!tag && /content="[^"]+"/.test(tag[0])
@@ -50,10 +55,9 @@ function revisarSitio(path, html) {
   if (h1s !== 1) faltas.push(`${h1s} <h1> (debe haber exactamente uno)`)
   if (!tiene(html, /<link rel="canonical"/)) faltas.push('sin canonical')
   if (!metaConContenido(html, 'og:image', 'property')) faltas.push('sin og:image')
-  if (!metaConContenido(html, 'twitter:image')) faltas.push('sin twitter:image')
-  for (const m of html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+  for (const ld of ldJsons(html)) {
     try {
-      JSON.parse(m[1])
+      JSON.parse(ld)
     } catch {
       faltas.push('JSON-LD inválido')
       break
@@ -79,8 +83,17 @@ for (const [path, html] of htmls) {
   if (esSitio) {
     sitios++
     for (const f of revisarSitio(path, html)) errores.push(`${path}: ${f}`)
+    if (path === '/' && !html.includes(`"@id":"${origen}/#organizacion"`)) {
+      errores.push(`/: falta JSON-LD con "@id":"${origen}/#organizacion"`)
+    }
   } else if (suaves.has(path)) {
     for (const f of revisarMinimo(path, html)) avisos.push(`${path}: ${f}`)
+    if (
+      path.startsWith('/demos/') &&
+      ldJsons(html).some((ld) => ld.includes('"name":"Sitiazo.cl"') && ld.includes('ProfessionalService'))
+    ) {
+      avisos.push(`${path}: el demo incluye el JSON-LD de Sitiazo (ProfessionalService)`)
+    }
   }
 }
 

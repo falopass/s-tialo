@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { displaySerif, bodySans, monoText } from '@/lib/fonts'
-import { SITE, SEO_DEFAULTS, SCHEMA, MARCA } from '@/lib/config'
-import { JsonLd } from '@/lib/seo'
+import { SITE, SEO_DEFAULTS, MARCA } from '@/lib/config'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -31,9 +30,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: SEO_DEFAULTS.defaultTitle,
-    description: SITE.description,
-    images: [SEO_DEFAULTS.ogImage.url],
+  },
+  // Tokens de Search Console/Bing solo si están definidos: sin env var no hay meta vacío.
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { other: { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+      : {}),
   },
   robots: {
     index: true,
@@ -58,8 +63,6 @@ export default function RootLayout({
         >
           Saltar al contenido
         </a>
-        <JsonLd data={SCHEMA.localBusiness} />
-        <JsonLd data={SCHEMA.website} />
         <main id="main-content">{children}</main>
         <Analytics />
       </body>
