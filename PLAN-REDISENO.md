@@ -10,7 +10,13 @@
 | 3. Dither en prebuild | Hecha (`9ba107f8b0`). |
 | 4. Movimiento y transiciones | Hecha (`e0459f982e`). |
 | 5. Hero y pieza central | Hecha (`f8493146a7`), con ajustes posteriores tras revisar el preview. |
-| Verificación final | Hecha sobre el preview de Vercel (detalle abajo). Falta que Diego revise y mergee a `main`. |
+| Verificación final | Hecha sobre el preview de Vercel (detalle abajo). |
+| Tira de rubros (reemplaza la marquesina) | Hecha (`918d919a49`). |
+| "Next level": tu negocio en el hero, WhatsApp con contexto, imágenes para compartir, total real de demos, catálogo `/demos/` nuevo | Hecho (`92f0d0b5a2`, `764f0c7603`). |
+| El nombre del negocio acompaña el recorrido (confirmación, pasos, cierre, dither) | Hecho (`7c4425be60`). |
+| Merge a `main` | **Pendiente: lo hace Diego** después de revisar el preview. Nunca se hizo push a `main` desde esta rama. |
+
+Preview (protegido con SSO de Vercel): https://sitiazo-git-redisenio-sitio-falopass-projects.vercel.app
 
 ### Verificación (preview de Vercel, rama `redisenio-sitio`)
 
@@ -38,6 +44,12 @@
   - **Hero en el celular:** el CTA termina en y = 445 de 780, visible sin scroll.
   - **Imágenes para compartir:** las 11 páginas apuntan a su `og:image` y todas responden 200.
   - **LCP de laboratorio** (mismas condiciones): home 2,22 s, `/demos/` 2,48 s. El catálogo queda justo bajo el límite porque el HTML trae las 624 filas. Si el dato de campo sale peor, la mejora es paginar o cargar las filas después del primer pintado.
+- **Tira de rubros** (`918d919a49`): la tira avanza con el scroll (`transform` medido en tres posiciones). Con movimiento reducido queda quieta. Sin scroll horizontal en la página y sin errores de JavaScript, a 360 y 1440 px.
+- **Nombre en el recorrido** (`7c4425be60`), con "Panadería La Esquina" escrito en el hero, a 360 y 1440 px:
+  - aparece la confirmación;
+  - los tres pasos y el cierre usan el nombre;
+  - el nombre sigue en la etapa de dither y se va con el color;
+  - sin errores de JavaScript.
 
 ### Dónde está cada cosa
 
@@ -47,19 +59,38 @@
   - `DISENO.md`: identidad, movimiento implementado, estructura de la home, límite con los demos y definición de listo.
 - **Sitio nuevo:** `app/(sitio)/`.
   - `layout.tsx` y `sitio.css`.
-  - `_lib/`: fuentes, contacto, manifiesto de imágenes y transiciones.
-  - `_components/`: nav, footer, escenario y canvas, capturas, planes, cierre y el resto.
+  - `_lib/`:
+    - `fonts.ts` y `transiciones.ts`.
+    - `imagenes.json` e `imagenes.ts`: manifiesto de capturas, 20 imágenes.
+    - `contacto.ts`: `mensajeDemo` y `linkDemo`, los mensajes de WhatsApp con negocio o con demo de referencia.
+    - `negocio.ts`: el nombre que escribe el visitante, en `sessionStorage`, con suscripción y hooks.
+  - `_components/`:
+    - `EscenarioCanvas`: ASCII, dither y color, más el nombre del negocio.
+    - `TuNegocio`: el campo del hero.
+    - `ConNegocio`: los textos con el nombre y la confirmación.
+    - `BotonDemo`, que incluye `QuieroUnoAsi`.
+    - `TiraRubros`, `TarjetaDemo` y `CatalogoDemos`.
+    - Nav, footer, capturas, planes, cierre y el resto.
+- **Catálogo `/demos/`:**
+  - `app/demos/page.tsx`: página del sitio, envuelta en su layout.
+  - `app/demos/catalogo.ts`: datos del catálogo, que antes estaban dentro de `page.tsx` y `catalog.tsx`. Este último se borró.
+  - Ningún demo importa estos archivos.
 - **Assets:**
-  - `public/sitio/`: logo, grano y capturas fuente.
+  - `public/sitio/`: logo y grano.
+  - `public/sitio/fuentes/`: 14 capturas de demos y 2 de Rancho.
+  - `public/sitio/og/`: 12 imágenes para compartir, en JPG.
   - `public/dither/`: generado en el build, fuera de git.
 - **Scripts:**
   - `scripts/dither.mjs`: `prebuild`.
-  - `scripts/sitio-capturas.mjs`: recaptura las fuentes del manifiesto.
+  - `scripts/sitio-capturas.mjs [baseUrl] [ids]`: recaptura las fuentes del manifiesto, todas o solo los ids indicados.
+  - `scripts/sitio-og.mjs`: regenera las imágenes para compartir. Antes hay que correr `node scripts/dither.mjs`. Se corre a mano cuando cambia un titular, y los titulares están escritos en el script.
 - **Verificación local** (ignorada por git), en `tmp/redisenio/`:
   - `baseline-produccion/`: baseline de los demos.
   - `capturar.mjs` y `comparar.mjs`: comparación de demos.
   - `capturar-sitio.cjs`, `capturar-pasos.cjs`, `desborde.cjs` y `lcp.cjs`: revisión del sitio.
-  - Capturas en `sitio/` y `despues-final/`.
+  - `capturar-tira.cjs`, `verificar-next.cjs` y `verificar-recorrido.cjs`: revisión de la tira, el catálogo, los mensajes de WhatsApp, las imágenes para compartir y el nombre en el recorrido.
+  - Capturas en `sitio/` (subcarpetas `tira/`, `next/` y `recorrido/`), `despues-final/` y `preview-next/`.
+  - En Git Bash, `lcp.cjs` necesita `MSYS_NO_PATHCONV=1` para que la ruta `/` no se convierta en una ruta de Windows.
 - **Cómo usar el bypass del preview protegido:** `BYPASS=<secreto> node tmp/redisenio/capturar.mjs <url-del-preview> <carpeta>`. El secreto no se guarda en ningún archivo.
 
 ### Decisiones tomadas en la ejecución
@@ -86,6 +117,12 @@
   - Total real de demos en la home y en el catálogo.
   - Rediseño del índice `/demos/` como página del sitio, con buscador, familias, lista editorial y destacados en dither. Los demos no se tocan.
   - Dos entradas del catálogo viejo daban 404 en producción (`cabanas-rocas-de-pellines`, `el-rincon-de-faby`): no tienen carpeta ni datos. El catálogo nuevo solo lista demos con página.
+- **El nombre del negocio acompaña el recorrido (pedido de Diego, 2026-10-23).** Antes solo viajaba en el mensaje de WhatsApp y se perdía de vista al bajar, así que ahora también va en el texto:
+  - confirmación bajo los botones del hero;
+  - los tres pasos y el cierre por defecto lo nombran;
+  - en el canvas sigue durante el dither y se va con el color, porque no se pega sobre la captura a color de un demo real.
+
+  Sin nombre, todo queda igual.
 - La página Sobre ya no usa `TEAM.bio` de `lib/config`: su bio vive en la página, sin Roma.
 
 ### TODO de datos (sin resolver, para Diego)
@@ -95,6 +132,10 @@
 - **Datos sin fuente:** resuelto. Se quitaron "Arica a Punta Arenas", las cifras del post de WhatsApp, los rangos de precios de agencias y el "80%" de Sobre.
 - **Newsletter:** se eliminó el formulario, que no enviaba nada. Si quieres newsletter, hay que conectar un proveedor real.
 - **"Demo en 48 horas":** sale de `DISENO.md`, no de `lib/config`. Confirmar que sigue vigente.
+- **Demos que daban 404:** `cabanas-rocas-de-pellines` y `el-rincon-de-faby` estaban en el catálogo viejo sin página. Si existen en otro lado, hay que agregar su carpeta; si no, borrarlos de `app/demos/catalogo.ts`.
+- **Tarjeta de X (Twitter):** el layout raíz sigue apuntando a la imagen genérica `/og-image.png`. No se tocó porque es del layout raíz. WhatsApp usa `og:image`, que ya es la de cada página.
+- **`public/og-image-planes.png`:** quedó sin uso; se puede borrar.
+- **Token de bypass de Vercel:** se usó solo como variable de entorno en comandos y no quedó en ningún archivo. Revocarlo en Settings → Deployment Protection al terminar la revisión.
 - **Restos de Roma en `lib/config.ts`:** el contexto de WhatsApp `caso-roma` y la mención en `TEAM.bio`. No se ven en el sitio, pero el archivo lo importan los demos y no se toca sin tu visto bueno.
 
 ---

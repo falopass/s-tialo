@@ -60,3 +60,20 @@ Contexto que manda: quien llega es dueño o dueña de una pyme chilena, desde un
 ## Elección: A, "El scroll es el proceso"
 
 La oferta de Sitiazo es el proceso mismo: te armamos el demo antes de que pagues y en 7 días está publicado. A es el único concepto donde el movimiento cuenta exactamente eso, y lo hace con las tres texturas que la marca ya definió, en vez de agregar una idea nueva encima. Mantiene el precio, el plazo y el CTA en HTML nítido desde el primer pantallazo del celular, funciona sin secuestrar el scroll y se degrada limpio a estático. De B se toma la sección de demos por rubro, para que cada visitante encuentre uno parecido a su negocio. De C solo queda la idea de usar capturas reales de nuestros demos como imagen, no la mesa.
+
+---
+
+## Evolución después de implementar (2026-10-23)
+
+El concepto se mantuvo y se llevó más lejos en tres pasos, todos pedidos por Diego:
+
+1. **La marquesina de texto pasó a ser una tira de demos reales en dither.** Se desliza con el scroll, sin loop. Los rubros se muestran con trabajo real y no con palabras.
+2. **El proceso pasa a ser el del visitante.** El hero pregunta "¿Cómo se llama tu negocio?". Ese nombre:
+   - se arma en ASCII sobre la captura y sigue en la etapa de dither;
+   - aparece en los tres pasos y en el cierre;
+   - viaja en todos los mensajes de WhatsApp, también en "Quiero uno así" de cada demo.
+
+   Toma lo mejor del concepto B (personalización por negocio) sin convertir la home en un configurador.
+3. **El índice `/demos/` se volvió parte del sitio.** Tiene buscador, familias de rubro y una lista editorial con el total real de demos. Es el lugar donde termina "Ver demos". Los demos en sí no se tocaron.
+
+El detalle de implementación está en `DISENO.md` (secciones 3, 4, 7 y 7b), y el estado y la verificación, en `PLAN-REDISENO.md`.
