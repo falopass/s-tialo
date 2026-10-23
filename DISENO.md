@@ -128,9 +128,9 @@ Cada sección usa una familia de layout distinta; ninguna se repite.
 | 4 | **Planes:** tres columnas iguales con la misma estructura (precio, cuotas, qué incluye y "Quiero este plan" al pie); el Recomendado destaca con borde amarillo y va primero en el celular. Sin efectos; el ojo descansa aquí (ver 7c). "¿Cuál te conviene?" vive solo en `/planes/`. | Tres columnas iguales |
 | 5 | **Caso Rancho Itahue:** texto a la izquierda, captura de escritorio y de celular superpuestas a la derecha, cita textual del dueño. Solo hechos de su texto; sin métricas inventadas. | Split texto + capturas superpuestas |
 | 6 | **Lo esencial, en una ficha:** precio, pago, plazo y demo en una ficha de cuatro celdas, con el dato grande en la serif y su explicación debajo. Sin CTA propio (el cierre viene justo después). Todo en texto real desde `lib/config`, para que lo citen Google y los asistentes de IA. | Ficha de 4 celdas (2×2 en tablet, apilada en el celular) |
+| 7 | **Cierre:** punto amarillo y el mismo CTA "Pide tu demo". Si el visitante escribió su negocio, el titular lo nombra. | Centrado de una sola columna |
 
 Regla contra la repetición (decisión de Diego, 2026-10-23): un solo CTA de WhatsApp por zona. En la home son el hero, "Quiero este plan" en cada plan y el cierre, más la barra móvil. Los proyectos propios (CalculaChile, CVListo) viven solo en `/casos/`.
-| 7 | **Cierre:** punto amarillo y el mismo CTA "Pide tu demo". Si el visitante escribió su negocio, el titular lo nombra. | Centrado de una sola columna |
 
 Las texturas siguen el relato de arriba abajo: ASCII en el hero, dither en el proceso y los demos, color de los planes hacia abajo ("publicada").
 
