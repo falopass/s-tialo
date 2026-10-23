@@ -6,21 +6,54 @@
 |---|---|
 | 0. Baseline de demos | Hecha. 12 capturas desde producción (5 demos de referencia y el catálogo, a 360 y 1440 px). Ruido de base cero: dos corridas idénticas píxel a píxel. |
 | 1. Route group, tokens, fuentes, grano | Hecha y commiteada (`e7be44943f`). |
-| 2. Estructura y copy | **En curso.** Listo: capturas reales de 6 demos y su manifiesto. Falta reescribir todas las páginas. |
-| 3. Dither en prebuild | Pendiente. |
-| 4. Movimiento y transiciones | Pendiente. |
-| 5. Hero y pieza central | Pendiente. |
-| Verificación final | Pendiente. |
+| 2. Estructura y copy | Hecha (`3c5161e20d`). |
+| 3. Dither en prebuild | Hecha (`9ba107f8b0`). |
+| 4. Movimiento y transiciones | Hecha (`e0459f982e`). |
+| 5. Hero y pieza central | Hecha (`f8493146a7`), con ajustes posteriores tras revisar el preview. |
+| Verificación final | Hecha sobre el preview de Vercel (detalle abajo). Falta que Diego revise y mergee a `main`. |
+
+### Verificación (preview de Vercel, rama `redisenio-sitio`)
+
+- **Build:** el build del preview pasa en cada push; incluye el `prebuild` de dither. En local no se corrió lint, typecheck, build ni dev.
+- **Demos:** 5 demos de referencia y el catálogo `/demos/`, a 360 y 1440 px, comparados píxel a píxel contra producción: **12 de 12 idénticos**, en el build de la fase 5 y otra vez en el build final.
+- **Sitio:** todas las páginas a 360, 768 y 1440 px, con y sin movimiento reducido.
+  - Sin errores de JavaScript; solo los 404 esperados de la página inexistente.
+  - Sin scroll horizontal a 360 px.
+  - Áreas táctiles de 44 px.
+- **LCP de laboratorio** (celular de 360 px, CPU 4x, 4G lento, caché fría; mediana de 3 corridas):
+
+  | Página | LCP |
+  |---|---|
+  | Home | 2,24 s |
+  | Planes | 2,21 s |
+  | Casos | 2,40 s |
+  | Caso Rancho | 2,42 s |
+
+  CLS 0 en todas. Falta el dato de campo (CrUX/PageSpeed) después de publicar.
+- **Redirecciones:** `/casos/roma-crochet/` responde 308 hacia `/casos/rancho-itahue/`.
 
 ### Dónde está cada cosa
 
-- **Documentos:** `PLAN-REDISENO.md` (este archivo), `DIRECCION.md` (los tres conceptos y la elección), `DISENO.md` (identidad; nueva sección 7 "Límite con los demos" y definición de listo sin comandos locales).
-- **Sitio nuevo:** `app/(sitio)/`. Contiene `layout.tsx`, `sitio.css`, `_lib/` (`fonts.ts`, `contacto.ts`, `imagenes.json`) y `_components/` (`Nav`, `Footer`, `CookieConsent`, `Logo`). Las páginas ya están movidas ahí, pero **todavía usan los componentes viejos** de `components/`: hoy se ven con el estilo anterior sobre fondo oscuro. La fase 2 las reescribe.
-- **Assets:** `public/sitio/` (`logo.webp`, `grano.png` y `fuentes/*.webp` con las capturas de demos).
-- **Scripts:** `scripts/sitio-capturas.mjs` recaptura los demos listados en `app/(sitio)/_lib/imagenes.json`.
-- **Baseline para comparar demos** (local, ignorado por git): `tmp/redisenio/baseline-produccion/`, más `tmp/redisenio/capturar.mjs` y `tmp/redisenio/comparar.mjs`. Para comparar contra el preview:
-  1. `node tmp/redisenio/capturar.mjs <url-del-preview> tmp/redisenio/despues`
-  2. `node tmp/redisenio/comparar.mjs tmp/redisenio/baseline-produccion tmp/redisenio/despues`
+- **Documentos:**
+  - `PLAN-REDISENO.md` (este archivo).
+  - `DIRECCION.md`: los tres conceptos y la elección.
+  - `DISENO.md`: identidad, movimiento implementado, estructura de la home, límite con los demos y definición de listo.
+- **Sitio nuevo:** `app/(sitio)/`.
+  - `layout.tsx` y `sitio.css`.
+  - `_lib/`: fuentes, contacto, manifiesto de imágenes y transiciones.
+  - `_components/`: nav, footer, escenario y canvas, capturas, planes, cierre y el resto.
+- **Assets:**
+  - `public/sitio/`: logo, grano y capturas fuente.
+  - `public/dither/`: generado en el build, fuera de git.
+- **Scripts:**
+  - `scripts/dither.mjs`: `prebuild`.
+  - `scripts/sitio-capturas.mjs`: recaptura las fuentes del manifiesto.
+- **Verificación local** (ignorada por git), en `tmp/redisenio/`:
+  - `baseline-produccion/`: baseline de los demos.
+  - `capturar.mjs` y `comparar.mjs`: comparación de demos.
+  - `capturar-sitio.cjs`, `capturar-pasos.cjs`, `desborde.cjs` y `lcp.cjs`: revisión del sitio.
+  - Capturas en `sitio/` y `despues-final/`.
+- **Cómo usar el bypass del preview protegido:** `BYPASS=<secreto> node tmp/redisenio/capturar.mjs <url-del-preview> <carpeta>`. El secreto no se guarda en ningún archivo.
 
 ### Decisiones tomadas en la ejecución
 
@@ -39,16 +72,10 @@
 
 ### TODO de datos (sin resolver, para Diego)
 
-- **Pago y hosting se contradicen:**
-  - `content/faqs.ts` dice "pagas una vez" y "hosting en Vercel gratis".
-  - Los términos y la FAQ general dicen "50/50".
-  - `lib/config` define mensual $12.990 o pago único, más hosting $9.990/mes.
+- **Pago y hosting:** las FAQ y los posts ya quedaron alineados con `lib/config` (mensual $12.990 o pago único + hosting $9.990/mes). **Los términos legales todavía dicen "50/50"**: no se tocan sin tu aprobación.
 - **Razón social por confirmar:** `LEGAL.legalName` es "Eldrinor y Vaelen".
-- **Datos sin fuente:**
-  - "desde Arica hasta Punta Arenas" (`content/faqs.ts`);
-  - las cifras del post de WhatsApp (`content/blog-posts.ts`);
-  - "el 80% de tus clientes" (página Sobre).
-- **Newsletter:** el formulario del blog no envía nada.
+- **Datos sin fuente:** resuelto. Se quitaron "Arica a Punta Arenas", las cifras del post de WhatsApp, los rangos de precios de agencias y el "80%" de Sobre.
+- **Newsletter:** se eliminó el formulario, que no enviaba nada. Si quieres newsletter, hay que conectar un proveedor real.
 - **"Demo en 48 horas":** sale de `DISENO.md`, no de `lib/config`. Confirmar que sigue vigente.
 - **Restos de Roma en `lib/config.ts`:** el contexto de WhatsApp `caso-roma` y la mención en `TEAM.bio`. No se ven en el sitio, pero el archivo lo importan los demos y no se toca sin tu visto bueno.
 

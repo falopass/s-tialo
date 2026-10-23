@@ -321,7 +321,8 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
               if (i === idx) li.dataset.activo = ''
               else delete li.dataset.activo
             })
-            const nuevo = reducir ? [0, 0.2, 0.5, 1][idx + 1] : p
+            // Con movimiento reducido, un cuadro fijo por paso: ASCII, dither completo, color.
+            const nuevo = reducir ? [0, 0.2, 2 / 3, 1][idx + 1] : p
             if (nuevo === progreso) return
             progreso = nuevo
             if (progreso > 0.01) {
