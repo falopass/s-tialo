@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useNegocio } from '../_lib/negocio'
 
 /**
@@ -33,11 +34,19 @@ export function ConNegocio({
 /** Confirmación bajo los botones del hero: muestra que el nombre ya va en el mensaje de WhatsApp. */
 export function ConfirmaNegocio() {
   const negocio = useNegocio()
+  const [avisado, setAvisado] = useState(negocio)
+
+  // El aria-live anuncia el valor con pausa: no lee cada tecla que se presiona.
+  useEffect(() => {
+    const t = setTimeout(() => setAvisado(negocio), 700)
+    return () => clearTimeout(t)
+  }, [negocio])
+
   return (
     <p aria-live="polite" className="mt-4 min-h-[1.5em] text-[15px] text-(--s-ceniza)">
-      {negocio && (
+      {avisado && (
         <>
-          Listo: tu mensaje de WhatsApp ya dice <span className="text-(--s-crema)">“{negocio}”</span>.
+          Listo: tu mensaje de WhatsApp ya dice <span className="text-(--s-crema)">“{avisado}”</span>.
         </>
       )}
     </p>

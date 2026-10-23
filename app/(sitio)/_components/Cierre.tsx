@@ -29,13 +29,13 @@ export function Cierre({
   bajada?: string
 }) {
   return (
-    <section className="border-t border-(--s-linea)">
+    <section data-cta-principal className="border-t border-(--s-linea)">
       <div className="s-wrap s-revela flex flex-col items-center py-28 text-center md:py-40">
         <span aria-hidden="true" className="mb-9 size-[18px] rounded-full bg-(--s-amarillo)" />
         <h2 className="s-display mx-auto max-w-[15ch] text-[clamp(2.5rem,6vw,5.5rem)]">{titulo}</h2>
         <p className="s-lead mx-auto mt-6">{bajada}</p>
         <div className="mt-10">
-          <BotonDemo />
+          <BotonDemo origen="cierre" />
         </div>
       </div>
     </section>

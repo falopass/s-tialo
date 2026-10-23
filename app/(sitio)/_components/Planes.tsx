@@ -1,4 +1,5 @@
-import { PAGO_MENSUAL_FORMATTED, PLANS } from '@/lib/config'
+import { cuotas, PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, PLAN_MENSUAL, PLANS } from '@/lib/config'
+import { AccionPlan } from './AccionPlan'
 import { BotonDemo } from './BotonDemo'
 import { Enlace } from './Enlace'
 
@@ -17,6 +18,9 @@ export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
           <div>
             <h3 className="text-lg font-semibold">{recomendado.name}</h3>
             <p className="s-display mt-4 text-[clamp(3rem,5vw,4.75rem)] leading-none">{recomendado.priceFormatted}</p>
+            <p className="mt-2 text-sm text-(--s-crema-2)">
+              o {PAGO_CUOTAS} cuotas de {cuotas(recomendado.price).montoFormatted} sin interés
+            </p>
             <p className="mt-3 text-(--s-crema-2)">
               {recomendado.pages}. Lista en {recomendado.deliveryLabel}.
             </p>
@@ -29,17 +33,24 @@ export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
               ))}
             </ul>
           </div>
-          <div>
-            <BotonDemo />
-          </div>
+          <AccionPlan plan="recomendado" primario />
         </article>
         {[basico, catalogo].map((p) => (
           <article key={p.id} className="rounded-3xl border border-(--s-linea) p-7">
             <h3 className="text-lg font-semibold">{p.name}</h3>
             <p className="s-display mt-4 text-[2.75rem] leading-none">{p.priceFormatted}</p>
+            <p className="mt-2 text-sm text-(--s-crema-2)">
+              o {PAGO_CUOTAS} cuotas de {cuotas(p.price).montoFormatted} sin interés
+            </p>
+            {p.id === PLAN_MENSUAL && (
+              <p className="mt-1 text-sm text-(--s-crema-2)">o {PAGO_MENSUAL_FORMATTED} al mes</p>
+            )}
             <p className="mt-3 text-(--s-crema-2)">
               {p.pages}. {p.description} Lista en {p.deliveryLabel}.
             </p>
+            <div className="mt-6">
+              <AccionPlan plan={p.id} />
+            </div>
           </article>
         ))}
       </div>
@@ -51,6 +62,10 @@ export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
           </Enlace>
         )}
       </p>
+      <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
+        <p className="text-(--s-crema-2)">¿Prefieres ver tu demo antes de decidir?</p>
+        <BotonDemo origen="planes" />
+      </div>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
-import { linkDemo } from '../_lib/contacto'
+import { limpiarNegocio, linkDemo } from '../_lib/contacto'
+import { medirWhatsApp } from '../_lib/medir'
 import { guardarNegocio, useNegocioCrudo } from '../_lib/negocio'
 
 /**
@@ -14,6 +15,7 @@ export function TuNegocio() {
 
   function enviar(e: React.FormEvent) {
     e.preventDefault()
+    medirWhatsApp({ origen: 'hero-campo', conNegocio: limpiarNegocio(texto) !== '' })
     window.open(linkDemo({ negocio: texto }), '_blank', 'noopener,noreferrer')
   }
 

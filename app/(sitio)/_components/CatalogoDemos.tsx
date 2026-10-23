@@ -125,7 +125,7 @@ export function CatalogoDemos({
               Todavía no hay un demo de “{consulta.trim()}”. <em>El tuyo puede ser el primero.</em>
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <BotonDemo />
+              <BotonDemo origen="catalogo-vacio" />
               {familia !== TODAS && (
                 <button type="button" onClick={() => setFamilia(TODAS)} className="s-link">
                   Buscar en todos los rubros

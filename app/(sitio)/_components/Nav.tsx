@@ -7,6 +7,7 @@ import { Logo } from './Logo'
 import { Enlace } from './Enlace'
 import { Descifra } from './Descifra'
 import { CTA_DEMO, linkDemo } from '../_lib/contacto'
+import { medirWhatsApp } from '../_lib/medir'
 import { useNegocio } from '../_lib/negocio'
 
 const LINKS = [
@@ -60,7 +61,7 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href={linkDemo({ negocio })} target="_blank" rel="noopener noreferrer" className="s-btn s-btn-primario hidden min-h-11 px-5 text-[15px] sm:inline-flex">
+          <a href={linkDemo({ negocio })} target="_blank" rel="noopener noreferrer" onClick={() => medirWhatsApp({ origen: 'nav', conNegocio: negocio !== '' })} className="s-btn s-btn-primario hidden min-h-11 px-5 text-[15px] sm:inline-flex">
             {CTA_DEMO}
           </a>
           <button
@@ -95,7 +96,7 @@ export function Nav() {
               </li>
             ))}
           </ul>
-          <a href={linkDemo({ negocio })} target="_blank" rel="noopener noreferrer" className="s-btn s-btn-primario w-full">
+          <a href={linkDemo({ negocio })} target="_blank" rel="noopener noreferrer" onClick={() => medirWhatsApp({ origen: 'menu', conNegocio: negocio !== '' })} className="s-btn s-btn-primario w-full">
             {CTA_DEMO}
           </a>
         </nav>

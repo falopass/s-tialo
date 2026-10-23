@@ -1,6 +1,7 @@
 import { Nav } from './_components/Nav'
 import { Footer } from './_components/Footer'
 import { CookieConsent } from './_components/CookieConsent'
+import { BarraMovil } from './_components/BarraMovil'
 import { MovimientoSitio } from './_components/MovimientoSitio'
 import { sFontClasses } from './_lib/fonts'
 import { SCHEMA } from '@/lib/config'
@@ -21,6 +22,7 @@ export default function SitioLayout({ children }: { children: React.ReactNode })
       {children}
       <Footer />
       <CookieConsent />
+      <BarraMovil />
       <MovimientoSitio />
     </div>
   )

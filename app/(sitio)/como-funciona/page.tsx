@@ -5,6 +5,7 @@ import { Cabecera } from '../_components/Cabecera'
 import { CapturaRevela } from '../_components/Captura'
 import { Cierre } from '../_components/Cierre'
 import { Enlace } from '../_components/Enlace'
+import { SinRiesgo } from '../_components/SinRiesgo'
 
 const DESCRIPCION =
   'Cómo se hace la página web de tu negocio: primero ves un demo gratis en 48 horas y, si te gusta, la publicamos en 7 días hábiles.'
@@ -97,6 +98,12 @@ export default function ComoFuncionaPage() {
           <Enlace href="/preguntas-frecuentes/" className="s-btn s-btn-secundario">
             Ver preguntas frecuentes
           </Enlace>
+        </div>
+      </section>
+
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
+          <SinRiesgo />
         </div>
       </section>
 

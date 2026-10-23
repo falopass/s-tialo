@@ -34,7 +34,7 @@ const COLUMNAS = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-(--s-linea) bg-(--s-tinta)">
+    <footer data-cta-principal className="border-t border-(--s-linea) bg-(--s-tinta)">
       <div className="s-wrap grid gap-12 py-16 md:grid-cols-[1.3fr_2fr] md:py-20">
         <div className="flex flex-col gap-6">
           <Logo className="h-6" />

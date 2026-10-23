@@ -20,6 +20,7 @@ export function CookieConsent() {
     try {
       localStorage.setItem(STORAGE_KEY, 'accepted')
     } catch {}
+    window.dispatchEvent(new Event('sitiazo:cookies'))
     setVisible(false)
   }
 

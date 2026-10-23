@@ -515,6 +515,26 @@ body:has([data-sitio])::before {
   [data-sitio] .s-faq summary::-webkit-details-marker {
     display: none;
   }
+
+  /* ── Barra móvil del CTA ── */
+  [data-sitio] .s-barra {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  [data-sitio] .s-barra[data-visible] {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* La barra sube y aparece en pasos cortos. Comunica: el CTA sigue a un toque. */
+  [data-sitio] .s-barra {
+    transition:
+      transform 0.3s var(--s-ease),
+      opacity 0.3s var(--s-ease);
+  }
 }
 
 /* ── Campo "¿Cómo se llama tu negocio?" y enlaces "Quiero uno así" ── */

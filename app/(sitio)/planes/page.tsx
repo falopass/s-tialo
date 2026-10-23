@@ -15,8 +15,11 @@ import { JsonLd } from '@/lib/seo'
 import { faqJsonLd, planFaqs } from '@/content/faqs'
 import { Cabecera } from '../_components/Cabecera'
 import { Cierre } from '../_components/Cierre'
+import { CualTeConviene } from '../_components/CualTeConviene'
+import { DatosClaros } from '../_components/DatosClaros'
 import { Planes } from '../_components/Planes'
 import { Preguntas } from '../_components/Preguntas'
+import { SinRiesgo } from '../_components/SinRiesgo'
 
 const DESCRIPCION = `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, mensual o pago único, sin letras chicas ni sorpresas.`
 
@@ -146,6 +149,18 @@ export default function PlanesPage() {
 
       <section className="border-t border-(--s-linea)">
         <div className="s-wrap py-24 md:py-32">
+          <SinRiesgo />
+        </div>
+      </section>
+
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
+          <CualTeConviene />
+        </div>
+      </section>
+
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
           <h2 className="s-display s-h2 mb-12">Qué incluye cada plan.</h2>
           <div className="mx-[calc(var(--s-gutter)*-1)] overflow-x-auto px-[var(--s-gutter)]">
             <table className="w-full min-w-[560px] border-collapse text-left">
@@ -203,6 +218,12 @@ export default function PlanesPage() {
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
+          <DatosClaros />
         </div>
       </section>
 

@@ -11,6 +11,8 @@ import { Escenario } from './_components/Escenario'
 import { TiraRubros } from './_components/TiraRubros'
 import { TuNegocio } from './_components/TuNegocio'
 import { ConfirmaNegocio, ConNegocio } from './_components/ConNegocio'
+import { CualTeConviene } from './_components/CualTeConviene'
+import { DatosClaros } from './_components/DatosClaros'
 import { Planes } from './_components/Planes'
 import { TarjetaDemo } from './_components/TarjetaDemo'
 
@@ -76,8 +78,8 @@ export default function HomePage() {
           <div className="s-entra mt-8" style={{ '--i': 2 } as React.CSSProperties}>
             <TuNegocio />
           </div>
-          <div className="s-entra mt-3 flex flex-wrap gap-3" style={{ '--i': 3 } as React.CSSProperties}>
-            <BotonDemo />
+          <div data-cta-principal className="s-entra mt-3 flex flex-wrap gap-3" style={{ '--i': 3 } as React.CSSProperties}>
+            <BotonDemo origen="hero" />
             <a href="/demos/" className="s-btn s-btn-secundario">
               Ver {totalDemos} demos
             </a>
@@ -133,6 +135,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-28 md:py-36">
+          <CualTeConviene />
+        </div>
+      </section>
+
       {/* Caso de cliente: Rancho Itahue, con capturas reales de su web publicada. */}
       <section className="border-t border-(--s-linea)">
         <div className="s-wrap grid items-center gap-14 py-28 md:py-36 lg:grid-cols-[0.8fr_1.2fr]">
@@ -181,6 +189,12 @@ export default function HomePage() {
               <Captura id={c.slug} className="aspect-[3/2] w-full rounded-[14px] object-cover" />
             </Enlace>
           ))}
+        </div>
+      </section>
+
+      <section className="border-t border-(--s-linea)">
+        <div className="s-wrap py-24 md:py-32">
+          <DatosClaros />
         </div>
       </section>
 
