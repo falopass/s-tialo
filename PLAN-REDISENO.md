@@ -84,6 +84,10 @@ Preview (protegido con SSO de Vercel): https://sitiazo-git-redisenio-sitio-falop
   - `scripts/dither.mjs`: `prebuild`.
   - `scripts/sitio-capturas.mjs [baseUrl] [ids]`: recaptura las fuentes del manifiesto, todas o solo los ids indicados.
   - `scripts/sitio-og.mjs`: regenera las imágenes para compartir. Antes hay que correr `node scripts/dither.mjs`. Se corre a mano cuando cambia un titular, y los titulares están escritos en el script.
+- **Skills del proyecto** (`.agents/skills/`, enlazadas en `.claude/`, `.devin/` y `.grok/`):
+  - `sitiazo-sitio` y `sitiazo-demo`: mapas y recetas.
+  - `sitiazo-datos`: qué script usar para cada dato del negocio.
+  - `sitiazo-verificar`: scripts reutilizables `preview.mjs`, `revisar.mjs`, `demos-identicos.mjs` y `lcp.mjs`. Reemplazan a los de `tmp/redisenio/`.
 - **Verificación local** (ignorada por git), en `tmp/redisenio/`:
   - `baseline-produccion/`: baseline de los demos.
   - `capturar.mjs` y `comparar.mjs`: comparación de demos.
