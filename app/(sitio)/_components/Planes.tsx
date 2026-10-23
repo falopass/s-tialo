@@ -1,44 +1,33 @@
 import { cuotas, PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, PLAN_MENSUAL, PLANS } from '@/lib/config'
 import { AccionPlan } from './AccionPlan'
-import { BotonDemo } from './BotonDemo'
 import { Enlace } from './Enlace'
 
 const sinEntrega = (f: string) => !f.startsWith('Entrega')
 
 /**
- * Los tres planes, con el recomendado destacado y los otros dos al lado.
- * Sección informativa: sin efectos, el ojo descansa aquí. Precios desde lib/config.
+ * Los tres planes en columnas iguales; el Recomendado destaca por el borde y va primero
+ * en el celular. Sección informativa: sin efectos, el ojo descansa aquí. Precios desde lib/config.
  */
 export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
   const { basico, recomendado, catalogo } = PLANS
+  const planes = [basico, recomendado, catalogo]
   return (
     <div>
-      <div className="grid gap-5 lg:grid-cols-[1.35fr_1fr] lg:grid-rows-2">
-        <article className="flex flex-col justify-between gap-10 rounded-3xl border border-(--s-linea) bg-(--s-tinta-2) p-7 md:p-10 lg:row-span-2">
-          <div>
-            <h3 className="text-lg font-semibold">{recomendado.name}</h3>
-            <p className="s-display mt-4 text-[clamp(3rem,5vw,4.75rem)] leading-none">{recomendado.priceFormatted}</p>
-            <p className="mt-2 text-sm text-(--s-crema-2)">
-              o {PAGO_CUOTAS} cuotas de {cuotas(recomendado.price).montoFormatted} sin interés
-            </p>
-            <p className="mt-3 text-(--s-crema-2)">
-              {recomendado.pages}. Lista en {recomendado.deliveryLabel}.
-            </p>
-            <ul className="mt-7 grid gap-2.5 text-(--s-crema-2)">
-              {recomendado.features.filter(sinEntrega).map((f) => (
-                <li key={f} className="flex items-baseline gap-3">
-                  <span aria-hidden="true" className="inline-block h-px w-3 shrink-0 translate-y-[-4px] bg-(--s-ceniza)" />
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <AccionPlan plan="recomendado" primario />
-        </article>
-        {[basico, catalogo].map((p) => (
-          <article key={p.id} className="rounded-3xl border border-(--s-linea) p-7">
-            <h3 className="text-lg font-semibold">{p.name}</h3>
-            <p className="s-display mt-4 text-[2.75rem] leading-none">{p.priceFormatted}</p>
+      <div className="grid gap-5 lg:grid-cols-3 lg:items-stretch">
+        {planes.map((p) => (
+          <article
+            key={p.id}
+            className={`flex flex-col rounded-3xl border p-7 md:p-8 ${
+              p.id === recomendado.id
+                ? 'order-first border-(--s-amarillo) bg-(--s-tinta-2) lg:order-none'
+                : 'border-(--s-linea)'
+            }`}
+          >
+            <div className="flex items-baseline gap-3">
+              <h3 className="text-lg font-semibold">{p.name}</h3>
+              {p.id === recomendado.id && <span className="s-mono text-(--s-ceniza)">Más pedido</span>}
+            </div>
+            <p className="s-display mt-4 text-[clamp(2.75rem,4vw,3.75rem)] leading-none">{p.priceFormatted}</p>
             <p className="mt-2 text-sm text-(--s-crema-2)">
               o {PAGO_CUOTAS} cuotas de {cuotas(p.price).montoFormatted} sin interés
             </p>
@@ -46,26 +35,29 @@ export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
               <p className="mt-1 text-sm text-(--s-crema-2)">o {PAGO_MENSUAL_FORMATTED} al mes</p>
             )}
             <p className="mt-3 text-(--s-crema-2)">
-              {p.pages}. {p.description} Lista en {p.deliveryLabel}.
+              {p.pages}. Lista en {p.deliveryLabel}.
             </p>
-            <div className="mt-6">
-              <AccionPlan plan={p.id} />
+            <ul className="mt-6 grid gap-2.5 text-(--s-crema-2)">
+              {p.features.filter(sinEntrega).map((f) => (
+                <li key={f} className="flex items-baseline gap-3">
+                  <span aria-hidden="true" className="inline-block h-px w-3 shrink-0 translate-y-[-4px] bg-(--s-ceniza)" />
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-auto pt-8">
+              <AccionPlan plan={p.id} primario={p.id === recomendado.id} />
             </div>
           </article>
         ))}
       </div>
-      <p className="mt-8 text-(--s-crema-2)">
-        ¿Prefieres pagar mes a mes? El plan Básico también va por {PAGO_MENSUAL_FORMATTED} al mes, con hosting, dominio y ajustes incluidos.{' '}
-        {conEnlace && (
+      {conEnlace && (
+        <p className="mt-8">
           <Enlace href="/planes/" className="s-link">
-            Ver planes
+            Compara todo lo que incluye cada plan
           </Enlace>
-        )}
-      </p>
-      <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
-        <p className="text-(--s-crema-2)">¿Prefieres ver tu demo antes de decidir?</p>
-        <BotonDemo origen="planes" />
-      </div>
+        </p>
+      )}
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, SITE, STARTING_PRICE, siteUrl } from '@/lib/config'
-import { cases } from '@/content/cases'
 import { BIZ, RANCHO } from '../rancho-itahue/content'
 import { catalogo } from '../demos/catalogo'
 import { BotonDemo } from './_components/BotonDemo'
@@ -11,7 +10,6 @@ import { Escenario } from './_components/Escenario'
 import { TiraRubros } from './_components/TiraRubros'
 import { TuNegocio } from './_components/TuNegocio'
 import { ConfirmaNegocio, ConNegocio } from './_components/ConNegocio'
-import { CualTeConviene } from './_components/CualTeConviene'
 import { DatosClaros } from './_components/DatosClaros'
 import { Planes } from './_components/Planes'
 import { TarjetaDemo } from './_components/TarjetaDemo'
@@ -59,7 +57,6 @@ const PASOS = [
 const DEMOS = ['fran-wartemberg', 'los-leones', 'servimac', 'la-granja', 'entre-raices', 'my-fusion']
 // Primera oración del texto oficial del dueño (app/rancho-itahue/content.ts).
 const CITA_DUENO = RANCHO.paragraphs[2].split('. ')[0] + '.'
-const PROYECTOS = cases.filter((c) => c.slug === 'calculachile' || c.slug === 'cvlisto')
 
 export default function HomePage() {
   // Cifra real: se cuenta en el build desde el catálogo de /demos/.
@@ -111,7 +108,7 @@ export default function HomePage() {
       <TiraRubros />
 
       {/* Demos por rubro: capturas reales de demos publicados. */}
-      <section className="s-wrap py-28 md:py-36">
+      <section className="s-wrap py-20 md:py-28">
         <h2 className="s-display s-h2 s-revela">
           Uno como el tuyo <em>ya existe.</em>
         </h2>
@@ -133,21 +130,15 @@ export default function HomePage() {
       </section>
 
       <section className="border-t border-(--s-linea)">
-        <div className="s-wrap py-28 md:py-36">
+        <div className="s-wrap py-20 md:py-28">
           <h2 className="s-display s-h2 mb-14 max-w-[20ch]">Un precio claro para cada tamaño de negocio.</h2>
           <Planes />
         </div>
       </section>
 
-      <section className="border-t border-(--s-linea)">
-        <div className="s-wrap py-28 md:py-36">
-          <CualTeConviene />
-        </div>
-      </section>
-
       {/* Caso de cliente: Rancho Itahue, con capturas reales de su web publicada. */}
       <section className="border-t border-(--s-linea)">
-        <div className="s-wrap grid items-center gap-14 py-28 md:py-36 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="s-wrap grid items-center gap-14 py-20 md:py-28 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="s-revela">
             <h2 className="s-display s-h2 max-w-[13ch]">
               Rancho Itahue ya tiene <em>su web.</em>
@@ -178,26 +169,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Proyectos propios del estudio, etiquetados como tales: no son clientes. */}
-      <section className="s-wrap py-28 md:py-36">
-        <h2 className="s-display s-h2 mb-12">También hacemos productos propios.</h2>
-        <div className="border-b border-(--s-linea)">
-          {PROYECTOS.map((c) => (
-            <Enlace
-              key={c.slug}
-              href={`/casos/${c.slug}/`}
-              className="group grid items-center gap-6 border-t border-(--s-linea) py-10 md:grid-cols-[1fr_1.1fr_280px]"
-            >
-              <h3 className="s-display text-[clamp(2.5rem,5vw,4.5rem)] group-hover:italic">{c.name}</h3>
-              <p className="max-w-[40ch] text-(--s-crema-2)">{c.tagline}.</p>
-              <Captura id={c.slug} className="aspect-[3/2] w-full rounded-[14px] object-cover" />
-            </Enlace>
-          ))}
-        </div>
-      </section>
-
       <section className="border-t border-(--s-linea)">
-        <div className="s-wrap py-24 md:py-32">
+        <div className="s-wrap py-20 md:py-28">
           <DatosClaros />
         </div>
       </section>

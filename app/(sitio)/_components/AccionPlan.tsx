@@ -33,7 +33,7 @@ export function AccionPlan({ plan, primario = false }: { plan: PlanId; primario?
           ))}
         </div>
       </fieldset>
-      <p aria-live="polite" className="mt-4 text-(--s-crema-2)">
+      <p aria-live="polite" className="mt-4 text-sm text-(--s-crema-2)">
         {textoPago(plan, pago)}
       </p>
       <a
@@ -42,7 +42,7 @@ export function AccionPlan({ plan, primario = false }: { plan: PlanId; primario?
         rel="noopener noreferrer"
         data-cta-principal
         onClick={() => medirWhatsApp({ origen: 'plan', plan, pago, conNegocio: negocio !== '' })}
-        className={`s-btn mt-6 ${primario ? 's-btn-primario' : 's-btn-secundario'}`}
+        className={`s-btn mt-5 ${primario ? 's-btn-primario' : 's-btn-secundario'}`}
       >
         <WhatsappLogo size={20} weight="regular" aria-hidden="true" />
         Quiero este plan
