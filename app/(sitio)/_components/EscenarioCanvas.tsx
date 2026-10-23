@@ -3,7 +3,8 @@
 import { useEffect, useRef } from 'react'
 import { scroll } from 'framer-motion'
 
-export type FotoEscenario = { id: string; color: string }
+/** color: versión chica (celular); colorGrande: para pantallas donde el escenario supera ~400 px reales. */
+export type FotoEscenario = { id: string; color: string; colorGrande: string }
 
 /**
  * La pieza central de la home: la captura real de un demo pasa de estructura (ASCII) a forma
@@ -98,7 +99,8 @@ export default function EscenarioCanvas({ fotos }: { fotos: FotoEscenario[] }) {
           img.decoding = 'async'
           img.onload = () => resolver(img)
           img.onerror = rechazar
-          img.src = fotos[i].color
+          // En el celular basta la versión chica: el escenario mide ~200 px de ancho a 2x.
+          img.src = canvas!.clientWidth * Math.min(2, window.devicePixelRatio || 1) > 400 ? fotos[i].colorGrande : fotos[i].color
         })
         imagenes.set(i, p)
       }

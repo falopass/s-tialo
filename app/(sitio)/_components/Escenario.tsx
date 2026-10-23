@@ -10,7 +10,8 @@ import { EscenarioVivo } from './EscenarioVivo'
 export function Escenario({ ids }: { ids: string[] }) {
   const fotos = ids.map((id) => {
     const i = imagen(id)
-    return { id, color: rutaColor(i, anchosColor(i)[1]) }
+    const [chico, grande] = anchosColor(i)
+    return { id, color: rutaColor(i, chico), colorGrande: rutaColor(i, grande) }
   })
   return (
     <div className="s-escenario">
