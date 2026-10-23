@@ -97,7 +97,7 @@ Implementado así (concepto "El scroll es el proceso", ver `DIRECCION.md`):
 | CTA principal | Leve atracción magnética hacia el cursor | Dónde hacer clic | `useMotionValue` + `useSpring`; solo con mouse fino |
 | Secciones | Entrada al aparecer en pantalla | Ritmo de lectura | `animation-timeline: view()` dentro de `@supports`; sin soporte, se muestran directo |
 | Demos por rubro | Revelación del dither a color | Detrás de cada demo hay un negocio real | Máscara circular que sigue al cursor; en el celular, al entrar en pantalla, en pasos |
-| Rubros | Una sola marquesina | Amplitud de rubros | CSS puro; se pausa con el mouse; quieta con reduce |
+| Rubros | Tira de 8 demos de otros rubros en dither que se desliza en horizontal según el scroll (sin loop); cada captura pasa a color al entrar o con el cursor | Amplitud de rubros, con demos reales en vez de palabras | `TiraRubros`: CSS `view-timeline` dentro de `@supports`; sin soporte o con reduce, fila que se desliza con el dedo |
 | Entre páginas | La página que sale se apaga en pasos y la nueva sube en pasos; la nav no se mueve | Cambiar de página es cambiar de etapa; el estudio se mantiene | View Transitions con tipo `sitio` (`Enlace` + `_lib/transiciones.ts`); sin soporte de tipos, navegación normal |
 
 ### Prohibido
@@ -106,7 +106,7 @@ Implementado así (concepto "El scroll es el proceso", ver `DIRECCION.md`):
 - Loops de `requestAnimationFrame` que tocan estado de React.
 - Animar `top`, `left`, `width` o `height`. Solo `transform` y `opacity`.
 - Animaciones infinitas en secciones informativas (planes, preguntas frecuentes, legal).
-- Más de una marquesina por página.
+- Marquesinas de texto en loop infinito. Los rubros se muestran con demos reales (tira de rubros).
 - Scroll-jacking.
 
 ### Accesibilidad del movimiento
@@ -122,7 +122,7 @@ Cada sección usa una familia de layout distinta; ninguna se repite.
 | # | Sección | Familia de layout |
 |---|---|---|
 | 1 | **Hero + pieza central (un solo bloque):** titular "Tu web, antes de pagar un peso.", bajada de 18 palabras, CTA "Pide tu demo" (WhatsApp) y "Ver demos". El escenario (captura real en formato celular) a la derecha y fijo en escritorio; en el celular queda fijo arriba y los tres pasos (Estructura, Forma, Publicada) pasan debajo. Sin eyebrow ni texto chico en el hero. | Split con columna fija (sticky) |
-| 2 | **Rubros:** la única marquesina de la página. | Marquesina |
+| 2 | **Rubros:** tira de 8 demos publicados de otros rubros (manicura, heladería, mueblería, hogar, abogados, cabañas, dental, pastelería), en dither, con rubro y ciudad. Se desliza con el scroll; no repite los demos de la sección 3. | Tira horizontal ligada al scroll |
 | 3 | **Demos por rubro:** 6 capturas reales de demos de referencia en dither, con revelación a color. | Grilla asimétrica de 12 columnas (2 en el celular) |
 | 4 | **Planes:** el Recomendado grande y los otros dos más chicos al lado. Sin efectos; el ojo descansa aquí. | Asimétrico destacado |
 | 5 | **Caso Rancho Itahue:** texto a la izquierda, captura de escritorio y de celular superpuestas a la derecha, cita textual del dueño. Solo hechos de su texto; sin métricas inventadas. | Split texto + capturas superpuestas |

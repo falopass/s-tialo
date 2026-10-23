@@ -62,6 +62,10 @@
 - Las clases propias del sitio viven en `@layer components`, así que las utilidades de Tailwind pueden ajustarlas.
 - **Hero y pieza central:** rotan entre Fran Wartemberg, Los Leones y Servimac.
 - **Demos por rubro:** los 6 del manifiesto, todos de la lista de referencia aprobada en `AGENTS.md`.
+- **La marquesina de texto se reemplazó por una tira de rubros (pedido de Diego, 2026-10-23):**
+  - Son 8 demos de referencia de otros rubros, en dither y con rubro y ciudad, que se deslizan en horizontal según el scroll, sin loop. Componente `app/(sitio)/_components/TiraRubros.tsx`.
+  - Las capturas son de producción (`node scripts/sitio-capturas.mjs https://sitiazo.cl <ids>`).
+  - Sin `view-timeline` o con movimiento reducido, es una fila que se desliza con el dedo.
 - **Roma Crochet sale del sitio por completo (pedido de Diego, 2026-10-23).** El caso de cliente es Rancho Itahue (ranchoitahue.cl):
   - Nueva página: `/casos/rancho-itahue/`. Se borraron `/casos/roma-crochet/` y el post `caso-roma-crochet-amigurumis-curico`, junto con sus imágenes.
   - Las URLs viejas redirigen con 301 en `vercel.json`: el caso va a `/casos/rancho-itahue/` y el post, a `/blog/`.

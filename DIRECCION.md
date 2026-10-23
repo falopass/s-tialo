@@ -13,7 +13,7 @@ Contexto que manda: quien llega es dueño o dueña de una pyme chilena, desde un
 **Recorrido.**
 1. Hero: titular, bajada con plazo y precio, CTA amarillo a WhatsApp. Al lado (debajo en el celular) el objeto en ASCII, armándose y rotando entre tres rubros reales.
 2. Pieza central: el objeto queda fijo mientras pasan tres pasos de texto. "Nos mandas tu Instagram" lo deja en ASCII; "armamos tu demo en 48 horas" lo disuelve en dither; "la publicamos en 7 días" lo revela a color.
-3. Rubros: la única marquesina de la página.
+3. Rubros: tira de demos reales de otros rubros en dither, que se desliza en horizontal con el scroll (reemplazó a la marquesina de texto el 2026-10-23).
 4. Demos por rubro: capturas reales en dither que se revelan a color.
 5. Planes, caso Rancho Itahue, proyectos propios y cierre: ya en la etapa "publicada", nítidos, sin texturas sobre el contenido.
 

@@ -7,7 +7,7 @@ import { Captura } from './_components/Captura'
 import { Cierre } from './_components/Cierre'
 import { Enlace } from './_components/Enlace'
 import { Escenario } from './_components/Escenario'
-import { Marquesina } from './_components/Marquesina'
+import { TiraRubros } from './_components/TiraRubros'
 import { Planes } from './_components/Planes'
 import { TarjetaDemo } from './_components/TarjetaDemo'
 
@@ -86,7 +86,7 @@ export default function HomePage() {
         </ol>
       </section>
 
-      <Marquesina />
+      <TiraRubros />
 
       {/* Demos por rubro: capturas reales de demos publicados. */}
       <section className="s-wrap py-28 md:py-36">

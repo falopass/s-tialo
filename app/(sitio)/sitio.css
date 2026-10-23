@@ -432,20 +432,36 @@ body:has([data-sitio])::before {
     [data-sitio] .s-demos > :nth-child(6) { grid-column: 10 / 13; margin-top: 60px; }
   }
 
-  /* ── Marquesina (estructura; el movimiento va en la capa de movimiento) ── */
-  [data-sitio] .s-marquesina {
-    overflow: hidden;
+  /* ── Tira de rubros (estructura; el movimiento va en la capa de movimiento) ──
+     Base: una fila que se desliza con el dedo o con la barra. */
+  [data-sitio] .s-tira {
+    container-type: inline-size;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--s-gutter);
+    scrollbar-width: thin;
+    scrollbar-color: var(--s-linea) transparent;
   }
 
-  [data-sitio] .s-marquesina-pista {
+  [data-sitio] .s-tira-pista {
     display: flex;
+    gap: 16px;
     width: max-content;
+    margin: 0;
+    padding: 0 var(--s-gutter);
+    list-style: none;
   }
 
-  [data-sitio] .s-marquesina-grupo {
-    display: flex;
-    gap: 0.9em;
-    padding-right: 0.9em;
+  [data-sitio] .s-tira-item {
+    width: clamp(150px, 40vw, 250px);
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 768px) {
+    [data-sitio] .s-tira-pista {
+      gap: 24px;
+    }
   }
 
   /* ── Preguntas frecuentes ── */
@@ -498,13 +514,20 @@ body:has([data-sitio])::before {
     }
   }
 
-  /* La única marquesina: amplitud de rubros. Se detiene con el mouse encima para poder leerla. */
-  [data-sitio] .s-marquesina-pista {
-    animation: s-marquesina 48s linear infinite;
-  }
+  /* Tira de rubros: se desliza en horizontal según el scroll de la página, sin loop. Comunica la amplitud
+     de rubros con demos reales. El recorrido es exacto: termina con la última captura alineada al borde. */
+  @supports (animation-timeline: view()) {
+    [data-sitio] .s-tira {
+      overflow-x: clip;
+      scroll-snap-type: none;
+      view-timeline-name: --s-tira;
+    }
 
-  [data-sitio] .s-marquesina:hover .s-marquesina-pista {
-    animation-play-state: paused;
+    [data-sitio] .s-tira-pista {
+      animation: s-tira linear both;
+      animation-timeline: --s-tira;
+      animation-range: cover 8% cover 92%;
+    }
   }
 
   /* Revelación a color en el celular: aparece en pasos, como si la imagen terminara de "resolverse". */
@@ -546,23 +569,6 @@ body:has([data-sitio])::before {
   view-transition-name: s-nav;
 }
 
-/* Con movimiento reducido la marquesina es una lista quieta que se lee completa. */
-@media (prefers-reduced-motion: reduce) {
-  [data-sitio] .s-marquesina-pista {
-    width: auto;
-    padding-inline: var(--s-gutter);
-  }
-
-  [data-sitio] .s-marquesina-grupo {
-    flex-wrap: wrap;
-    row-gap: 0.2em;
-  }
-
-  [data-sitio] .s-marquesina-grupo + .s-marquesina-grupo {
-    display: none;
-  }
-}
-
 @keyframes s-entra {
   from {
     opacity: 0.2;
@@ -577,9 +583,9 @@ body:has([data-sitio])::before {
   }
 }
 
-@keyframes s-marquesina {
+@keyframes s-tira {
   to {
-    transform: translateX(-50%);
+    transform: translateX(min(0px, calc(-100% + 100cqw)));
   }
 }
 
