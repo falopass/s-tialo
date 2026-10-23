@@ -15,7 +15,7 @@ export function Escenario({ ids }: { ids: string[] }) {
   })
   return (
     <div className="s-escenario">
-      <CapturaDither id={ids[0]} eager className="absolute inset-0 size-full object-cover" />
+      <CapturaDither id={ids[0]} prioridad className="absolute inset-0 size-full object-cover" />
       <EscenarioVivo fotos={fotos} />
     </div>
   )

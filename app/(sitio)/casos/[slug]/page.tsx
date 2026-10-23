@@ -100,7 +100,7 @@ export default async function CasePage({ params }: CasePageProps) {
       </header>
 
       <section className="s-wrap mt-16 md:mt-24">
-        <Captura id={caseStudy.slug} eager className="w-full rounded-2xl object-cover" />
+        <Captura id={caseStudy.slug} prioridad className="w-full rounded-2xl object-cover" />
         <ul className="mt-10 grid gap-4 md:grid-cols-3 md:gap-8">
           {caseStudy.bullets.map((b) => (
             <li key={b} className="border-t border-(--s-linea) pt-4 text-(--s-crema-2)">

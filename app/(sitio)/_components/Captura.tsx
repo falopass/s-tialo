@@ -4,6 +4,8 @@ type Props = {
   id: string
   className?: string
   eager?: boolean
+  /** Candidata a LCP: se pide con prioridad alta. */
+  prioridad?: boolean
   /** Ancho que ocupa la imagen en pantalla, para que el navegador elija del srcset. */
   sizes?: string
   /** Capa repetida de otra imagen: sin alt para no duplicar la descripción. */
@@ -20,6 +22,7 @@ export function Captura({
   eager = false,
   sizes = '(min-width: 1024px) 50vw, 100vw',
   decorativa = false,
+  prioridad = false,
 }: Props) {
   const i = imagen(id)
   const [chico] = anchosColor(i)
@@ -32,7 +35,8 @@ export function Captura({
       aria-hidden={decorativa || undefined}
       width={chico}
       height={altoPara(i, chico)}
-      loading={eager ? 'eager' : 'lazy'}
+      loading={eager || prioridad ? 'eager' : 'lazy'}
+      fetchPriority={prioridad ? 'high' : undefined}
       decoding="async"
       className={className}
     />
@@ -40,7 +44,7 @@ export function Captura({
 }
 
 /** La misma imagen en dither de dos tonos (la etapa "forma"). Píxeles nítidos, sin suavizado. */
-export function CapturaDither({ id, className = '', eager = false }: Omit<Props, 'sizes' | 'decorativa'>) {
+export function CapturaDither({ id, className = '', eager = false, prioridad = false }: Omit<Props, 'sizes' | 'decorativa'>) {
   const i = imagen(id)
   const w = anchoDither(i)
   return (
@@ -49,7 +53,8 @@ export function CapturaDither({ id, className = '', eager = false }: Omit<Props,
       alt={i.alt}
       width={w}
       height={altoPara(i, w)}
-      loading={eager ? 'eager' : 'lazy'}
+      loading={eager || prioridad ? 'eager' : 'lazy'}
+      fetchPriority={prioridad ? 'high' : undefined}
       decoding="async"
       className={`s-pixelado ${className}`}
     />

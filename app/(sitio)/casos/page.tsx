@@ -41,7 +41,7 @@ export default function CasosPage() {
         <Enlace href="/casos/rancho-itahue/" className="group block">
           <Captura
             id="rancho-escritorio"
-            eager
+            prioridad
             className="w-full rounded-2xl border border-(--s-linea) transition-opacity group-hover:opacity-90"
           />
           <div className="mt-8 grid gap-4 md:grid-cols-2 md:items-end">

@@ -4,6 +4,7 @@ import { SITE, siteUrl } from '@/lib/config'
 import { breadcrumbJsonLd } from '@/lib/seo'
 import { BIZ, RANCHO, RESENAS } from '../../../rancho-itahue/content'
 import { CTA_DEMO, linkDemo } from '../../_lib/contacto'
+import { Captura } from '../../_components/Captura'
 
 const URL_CASO = siteUrl('/casos/rancho-itahue/')
 const DESCRIPCION =
@@ -87,19 +88,15 @@ export default function CasoRanchoItahuePage() {
       </header>
 
       <section className="s-wrap mt-16 grid items-end gap-6 md:mt-24 md:grid-cols-[1fr_auto]">
-        <img
-          src="/sitio/fuentes/rancho-escritorio.webp"
-          alt="Portada de ranchoitahue.cl en un computador: salón de eventos, quinchos, piscinas y canchas en Molina"
-          width={1440}
-          height={900}
+        <Captura
+          id="rancho-escritorio"
+          prioridad
+          sizes="(min-width: 768px) 75vw, 100vw"
           className="w-full rounded-2xl border border-(--s-linea)"
         />
-        <img
-          src="/sitio/fuentes/rancho-movil.webp"
-          alt="Primer pantallazo de ranchoitahue.cl en un celular"
-          width={780}
-          height={1688}
-          loading="lazy"
+        <Captura
+          id="rancho-movil"
+          sizes="(min-width: 768px) 260px, 70vw"
           className="mx-auto w-[min(280px,70vw)] rounded-[28px] border border-(--s-linea) md:w-[260px]"
         />
       </section>
