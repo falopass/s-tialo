@@ -32,7 +32,7 @@ This repository contains the studio's own marketing site, built with modern stat
 - ⚡ **Static export** for instant loading and edge deployment
 - 📱 **Mobile-first responsive** layout
 - ✍️ **Blog system** for SEO content marketing
-- 📸 **Case study pages** showcasing client work (e.g., Roma Crochet)
+- 📸 **Case study pages** showcasing client work (e.g., Rancho Itahue)
 - 💬 **Multi-channel contact** (WhatsApp, Email, Cal.com)
 - 🎬 **Framer Motion animations** for editorial feel
 - 🗺️ **SEO-optimized** with sitemap.xml and metadata
@@ -49,7 +49,7 @@ sitiazo-cl/
 │   ├── planes/page.tsx             # Clear pricing plans ($199K / $299K / $449K)
 │   ├── casos/
 │   │   ├── page.tsx                # Case studies grid
-│   │   └── roma-crochet/page.tsx   # Client case study
+│   │   └── rancho-itahue/page.tsx  # Client case study
 │   ├── como-funciona/page.tsx      # Process (4 steps + timeline)
 │   ├── blog/
 │   │   ├── page.tsx                # Blog listing + newsletter CTA
@@ -173,7 +173,7 @@ Este repositorio contiene el sitio propio del estudio, construido con static exp
 - ⚡ Static export para carga instantánea
 - 📱 Responsive mobile-first
 - ✍️ Sistema de blog para content marketing SEO
-- 📸 Páginas de casos de estudio (ej: Roma Crochet)
+- 📸 Páginas de casos de estudio (ej: Rancho Itahue)
 - 💬 Contacto multi-canal (WhatsApp, Email, Cal.com)
 - 🎬 Animaciones con Framer Motion
 - 🗺️ SEO optimizado con sitemap.xml

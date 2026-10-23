@@ -85,7 +85,7 @@ export default function HomePage() {
                 </span>
                 <Dot size="xs" variant="solid-yellow" />
                 <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
-                  Roma Crochet
+                  Rancho Itahue
                 </span>
                 <span className="text-ink-faded select-none">·</span>
                 <span className="font-body text-micro uppercase tracking-ui text-ink-faded">
@@ -202,16 +202,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-7)] md:gap-[var(--spacing-8)] items-center">
             <div>
               <h2 className="font-display font-bold text-display-md text-ink leading-display mb-4 whitespace-nowrap">
-                Caso Roma Crochet.
+                Caso Rancho Itahue.
                 <Dot size="lg" variant="solid-yellow" />
               </h2>
               <p className="font-body text-body text-ink-muted leading-body mb-4 max-w-[var(--prose-max)]">
-                Una marca artesanal del Maule que pasó de vender por DM a tener
-                su propia web. Amigurumis personalizados, hechos a mano en
-                Curicó.
+                Un multiespacio rural de Molina con salón de eventos, quinchos,
+                piscinas y canchas. Su web, publicada en ranchoitahue.cl, se armó
+                con el texto del dueño y fotos reales del rancho.
               </p>
               <div className="flex items-center gap-4 mb-6 flex-wrap">
-                {['Mobile-first', 'WhatsApp visible', 'Identidad cálida'].map(
+                {['Sitio publicado', 'Texto del dueño', 'Fotos reales'].map(
                   (b) => (
                     <span
                       key={b}
@@ -223,17 +223,17 @@ export default function HomePage() {
                   ),
                 )}
               </div>
-              <SecondaryButton href="/casos/roma-crochet">
+              <SecondaryButton href="/casos/rancho-itahue/">
                 Ver caso completo
               </SecondaryButton>
             </div>
 
             <div className="flex items-center justify-center">
               <StillLifeImage
-                src="/images/still-lifes/roma-crochet.webp"
-                alt="Caso Roma Crochet en smartphone"
+                src="/sitio/fuentes/rancho-escritorio.webp"
+                alt="Portada de ranchoitahue.cl en un computador"
                 aspectRatio="16:10"
-                figLabel="fig. 02 — caso roma crochet"
+                figLabel="ranchoitahue.cl"
                 className="max-w-lg w-full"
               />
             </div>

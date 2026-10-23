@@ -17,7 +17,7 @@ const COLUMNAS = [
     titulo: 'Trabajo',
     links: [
       { label: 'Casos', href: '/casos/' },
-      { label: 'Caso Roma Crochet', href: '/casos/roma-crochet/' },
+      { label: 'Caso Rancho Itahue', href: '/casos/rancho-itahue/' },
       { label: 'Demos por rubro', href: '/demos/', documento: true },
       { label: 'Notas', href: '/blog/' },
     ],

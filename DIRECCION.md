@@ -15,7 +15,7 @@ Contexto que manda: quien llega es dueño o dueña de una pyme chilena, desde un
 2. Pieza central: el objeto queda fijo mientras pasan tres pasos de texto. "Nos mandas tu Instagram" lo deja en ASCII; "armamos tu demo en 48 horas" lo disuelve en dither; "la publicamos en 7 días" lo revela a color.
 3. Rubros: la única marquesina de la página.
 4. Demos por rubro: capturas reales en dither que se revelan a color.
-5. Planes, caso Roma Crochet, proyectos propios y cierre: ya en la etapa "publicada", nítidos, sin texturas sobre el contenido.
+5. Planes, caso Rancho Itahue, proyectos propios y cierre: ya en la etapa "publicada", nítidos, sin texturas sobre el contenido.
 
 **Qué se mueve y por qué.**
 - El objeto cambia de textura con el scroll: es el relato del servicio, no un adorno.

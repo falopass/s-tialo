@@ -9,4 +9,4 @@ Las cuatro composiciones nuevas fueron generadas con ImageGen el 21 de julio de 
 | `malla-veterinaria-ucm.webp` | Captura proporcionada por el autor del proyecto | Libreta de terreno, hoja prensada, estetoscopio y acento bosque |
 | `malla-psicologia-ucm.webp` | Captura proporcionada por el autor del proyecto | Agenda, lápiz, recorrido burdeos y cerámica |
 
-Las pantallas se usaron como referencia factual. No se añadieron personas, testimonios, métricas ni clientes ficticios. `roma-crochet.webp` es un asset anterior y no fue modificado en esta integración.
+Las pantallas se usaron como referencia factual. No se añadieron personas, testimonios, métricas ni clientes ficticios.

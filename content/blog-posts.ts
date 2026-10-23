@@ -53,33 +53,6 @@ export const blogPostContent: Record<string, BlogPostContent> = {
       },
     ],
   },
-  'caso-roma-crochet-amigurumis-curico': {
-    sections: [
-      {
-        heading: 'El punto de partida',
-        body: 'Roma Crochet vende amigurumis personalizados hechos a mano en Curicó, Región del Maule. Su negocio funcionaba 100% por Instagram: las clientas veían los muñecos en las historias, mandaban un DM, y coordinaban el pedido por chat. Funcionaba, pero tenía límites claros.',
-      },
-      {
-        heading: 'El problema',
-        body: 'Cuando tienes 10 conversaciones de WhatsApp abiertas con clientas que preguntan "¿cuánto sale el zorrito?", "¿tienes el principito?", "¿haces envío a Santiago?", pierdes horas respondiendo lo mismo. Además, Instagram no indexa en Google. Si alguien buscaba "amigurumis personalizados Chile", Roma no aparecía.',
-      },
-      {
-        heading: 'La solución',
-        body: 'Diseñamos una web simple, cálida y mobile-first. Cada amigurumi tiene su propia tarjeta con foto grande, nombre, precio y un botón directo de WhatsApp que abre el chat con un mensaje pre-armado: "Hola! Me interesa el [nombre del amigurumi] 🧶". La clienta solo aprieta enviar.',
-      },
-      {
-        heading: 'El resultado',
-        body: 'La web se publicó en 7 días. Roma ahora comparte su web en las historias de Instagram y el tráfico se divide entre redes sociales y búsqueda orgánica. Las consultas por WhatsApp llegan con el nombre del producto en el mensaje, lo que reduce el tiempo de respuesta. Y lo mejor: Google ya la indexó para "amigurumis Curicó".',
-      },
-      {
-        heading: 'Lo que aprendimos',
-        body: 'No necesitas una web de 20 páginas. Necesitas una web que responda las 3 preguntas que tus clientes siempre hacen: qué vendes, cuánto cuesta, y cómo te compro. Si tu web responde eso en menos de 5 segundos, ya ganaste.',
-      },
-      {
-        body: '¿Quieres un caso así para tu marca? Escríbeme.',
-      },
-    ],
-  },
   'whatsapp-business-pagina-web-pymes': {
     sections: [
       {

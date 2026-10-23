@@ -170,28 +170,28 @@ export const cases: CaseStudy[] = [
       'Proyecto estudiantil independiente. No es un servicio oficial de la Universidad Católica del Maule ni reemplaza la información académica institucional.',
   },
   {
-    slug: 'roma-crochet',
-    name: 'Roma Crochet',
-    category: 'CLIENTE · COMERCIO LOCAL',
-    tagline: 'Amigurumis personalizados hechos a mano en Curicó',
+    slug: 'rancho-itahue',
+    name: 'Rancho Itahue',
+    category: 'CLIENTE · MULTIESPACIO',
+    tagline: 'Salón de eventos, quinchos, piscinas y canchas en Molina',
     description:
-      'Una marca artesanal del Maule que pasó de vender por DM a tener su propia web. Amigurumis personalizados, hechos a mano en Curicó.',
-    image: '/images/still-lifes/roma-crochet.webp',
+      'La web de un multiespacio rural de Molina, armada con el texto del dueño, sus fotos y las reseñas de su ficha de Google.',
+    image: '/sitio/fuentes/rancho-escritorio.webp',
     imageAlt:
-      'Laptop con la web de Roma Crochet junto a materiales textiles y cerámica',
-    figLabel: 'fig. 05 — romacrochet.cl',
-    tags: ['Mobile-first', 'WhatsApp visible', 'Identidad cálida'],
-    url: 'https://romacrochet.cl',
-    urlLabel: 'Visitar romacrochet.cl',
+      'Portada de ranchoitahue.cl en un computador: salón de eventos, quinchos, piscinas y canchas en Molina',
+    figLabel: 'ranchoitahue.cl',
+    tags: ['Sitio publicado', 'Texto del dueño', 'Fotos reales'],
+    url: 'https://ranchoitahue.cl',
+    urlLabel: 'Visitar ranchoitahue.cl',
     year: '2026',
-    publishedDate: '2026-03-01',
+    publishedDate: '2026-09-29',
   },
 ]
 
 export const featuredCase = cases.find((caseStudy) => caseStudy.featured)!
 export const secondaryCases = cases.filter((caseStudy) => !caseStudy.featured)
 export const detailedCases = cases.filter(
-  (caseStudy) => caseStudy.slug !== 'roma-crochet' && caseStudy.sections,
+  (caseStudy) => caseStudy.slug !== 'rancho-itahue' && caseStudy.sections,
 )
 
 export function getCase(slug: string): CaseStudy | undefined {

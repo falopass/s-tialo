@@ -121,7 +121,7 @@ Cada sección usa una familia de layout distinta; ninguna se repite.
 | 3 | **Demos por rubro:** tarjetas con dither y revelación. | Grilla de tarjetas con imagen |
 | 4 | **Cómo funciona:** tres pasos con capturas reales. | Sticky-stack |
 | 5 | **Planes:** un plan destacado grande y los otros dos más chicos al lado. Sin efectos; el ojo descansa aquí. | Asimétrico destacado |
-| 6 | **Caso Roma Crochet:** foto dithereada a todo el ancho, resultado concreto, enlace al caso. | Imagen a sangre + texto superpuesto en zona limpia |
+| 6 | **Caso Rancho Itahue:** captura real de ranchoitahue.cl a todo el ancho, con el texto en una zona limpia (nunca sobre la pantalla de la captura) y enlace al caso. Solo hechos del texto del dueño; sin métricas inventadas. | Imagen a sangre + texto superpuesto en zona limpia |
 | 7 | **Proyectos propios:** CalculaChile y CVListo etiquetados como proyectos propios del estudio, no como clientes. | Lista editorial de dos filas grandes |
 | 8 | **Cierre:** punto amarillo (opcional en ASCII) + CTA final a WhatsApp. | Centrado de una sola columna |
 

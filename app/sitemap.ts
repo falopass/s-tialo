@@ -30,7 +30,7 @@ const STATIC_ROUTES: Route[] = [
   { path: '/',                      changeFrequency: 'weekly',  priority: 1.0 },
   { path: '/planes/',               changeFrequency: 'monthly', priority: 0.9 },
   { path: '/casos/',                changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/casos/roma-crochet/',   changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/casos/rancho-itahue/', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/como-funciona/',        changeFrequency: 'monthly', priority: 0.8 },
   { path: '/blog/',                 changeFrequency: 'weekly',  priority: 0.8 },
   { path: '/contacto/',             changeFrequency: 'yearly',  priority: 0.7 },

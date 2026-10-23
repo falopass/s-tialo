@@ -35,6 +35,10 @@ export const metadata: Metadata = {
   },
 }
 
+// La bio vive aquí y no en TEAM.bio (lib/config) para no tocar un archivo que importan los demos.
+const BIO_FUNDADOR =
+  'Estudiante de Ingeniería Civil en Computación en la Universidad de Talca y CEO de Sitiazo. Construyo webs como hobby y sustento para mis estudios. Hice la web de Rancho Itahue (ranchoitahue.cl) y productos propios como CVListo (cvlisto.cl) y CalculaChile. Vivo en el Maule. Disfruto de la computación, el diseño y resolver problemas con el mínimo de código posible.'
+
 const creencias = [
   'Las pymes merecen webs profesionales sin pagar precios de agencia grande.',
   'Mobile-first no es opcional — el 80% de tus clientes te ve desde el celular.',
@@ -119,7 +123,7 @@ export default function SobrePage() {
                   <Dot size="lg" variant="solid-yellow" />
                 </h2>
                 <p className="font-body text-body text-ink-muted leading-body mb-6">
-                  {member.bio}
+                  {BIO_FUNDADOR}
                 </p>
                 <p className="font-body text-body-sm text-ink-muted">
                   {LEGAL.city}, {LEGAL.country}

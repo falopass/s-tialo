@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/casos/roma-crochet", "destination": "/casos/rancho-itahue/", "permanent": true },
+    { "source": "/casos/roma-crochet/", "destination": "/casos/rancho-itahue/", "permanent": true },
+    { "source": "/blog/caso-roma-crochet-amigurumis-curico", "destination": "/blog/", "permanent": true },
+    { "source": "/blog/caso-roma-crochet-amigurumis-curico/", "destination": "/blog/", "permanent": true }
+  ]
+}

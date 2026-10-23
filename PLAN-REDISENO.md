@@ -29,6 +29,13 @@
 - Las clases propias del sitio viven en `@layer components`, así que las utilidades de Tailwind pueden ajustarlas.
 - **Hero y pieza central:** rotan entre Fran Wartemberg, Los Leones y Servimac.
 - **Demos por rubro:** los 6 del manifiesto, todos de la lista de referencia aprobada en `AGENTS.md`.
+- **Roma Crochet sale del sitio por completo (pedido de Diego, 2026-10-23).** El caso de cliente es Rancho Itahue (ranchoitahue.cl):
+  - Nueva página: `/casos/rancho-itahue/`. Se borraron `/casos/roma-crochet/` y el post `caso-roma-crochet-amigurumis-curico`, junto con sus imágenes.
+  - Las URLs viejas redirigen con 301 en `vercel.json`: el caso va a `/casos/rancho-itahue/` y el post, a `/blog/`.
+  - El sitemap ya lista la nueva URL.
+  - Los datos salen de `app/rancho-itahue/content.ts` (texto del dueño, reseñas de Google), que se lee sin modificarlo.
+  - Imágenes: capturas reales de ranchoitahue.cl (`public/sitio/fuentes/rancho-*.webp`).
+- La página Sobre ya no usa `TEAM.bio` de `lib/config`: su bio vive en la página, sin Roma.
 
 ### TODO de datos (sin resolver, para Diego)
 
@@ -43,6 +50,7 @@
   - "el 80% de tus clientes" (página Sobre).
 - **Newsletter:** el formulario del blog no envía nada.
 - **"Demo en 48 horas":** sale de `DISENO.md`, no de `lib/config`. Confirmar que sigue vigente.
+- **Restos de Roma en `lib/config.ts`:** el contexto de WhatsApp `caso-roma` y la mención en `TEAM.bio`. No se ven en el sitio, pero el archivo lo importan los demos y no se toca sin tu visto bueno.
 
 ---
 
@@ -62,7 +70,7 @@ Los demos (`app/demos/**`) y `app/rancho-itahue/**`, que es el sitio final de un
 - `framer-motion@11.18.2`, usado por un demo. No se actualiza.
 - `next.config.ts`, `package.json` y el lockfile, que afectan a todos.
 
-**Congelados** (no se editan): `app/demos/**`, `app/rancho-itahue/**`, `app/globals.css`, `lib/config.ts`, `lib/fonts.ts`, `next.config.ts`, `app/sitemap.ts`, `app/robots.ts`, `mdx-components.tsx`.
+**Congelados** (no se editan): `app/demos/**`, `app/rancho-itahue/**`, `app/globals.css`, `lib/config.ts`, `lib/fonts.ts`, `next.config.ts`, `app/robots.ts`, `mdx-components.tsx`. (`app/sitemap.ts` se editó solo para cambiar la URL del caso de cliente: no lo importa ningún demo.)
 
 **`app/layout.tsx` solo se aligera:** se quitan `SiteChrome`, `Nav`, `Footer` y `CookieConsent`. En demos y en rancho ya renderizan `null`, así que su HTML no cambia. Todo lo demás queda igual.
 
@@ -86,7 +94,7 @@ Ninguno de estos cambios se ejecuta dentro de los demos.
 **A. "El scroll es el proceso"** (elegido). La home narra cómo nace la web de una pyme. Un mismo objeto, la captura real de un demo nuestro en formato celular, acompaña el recorrido:
 - **Hero:** el objeto es estructura en ASCII y rota entre tres rubros.
 - **Pieza central:** al bajar, queda fijo (sticky) mientras tres pasos de texto pasan al lado. Pasa de ASCII a dither cuando "armamos tu demo en 48 horas" y de dither a color cuando "la publicamos en 7 días".
-- **Resto de la página:** sigue la misma progresión. Los demos por rubro van en dither con revelación a color. Planes, el caso Roma Crochet y el cierre van ya "publicados", nítidos y a color, con el CTA de WhatsApp.
+- **Resto de la página:** sigue la misma progresión. Los demos por rubro van en dither con revelación a color. Planes, el caso Rancho Itahue y el cierre van ya "publicados", nítidos y a color, con el CTA de WhatsApp.
 - **A 360 px:** primero titular, bajada y CTA. Después el objeto fijo arriba (unos 55svh) con los pasos pasando debajo. Sin scroll horizontal ni scroll-jacking.
 
 **B. "Uno como el tuyo".** La home es un selector de rubro. Elegir "barbería" o "taller" cambia el demo del hero (de dither a color), reordena los demos y precarga el mensaje de WhatsApp con el rubro. Convierte bien, pero es más un configurador que una experiencia memorable, y exige demos curados por rubro.
@@ -107,7 +115,7 @@ Cada sección usa una familia de layout distinta.
 2. **Rubros:** la única marquesina, solo CSS.
 3. **Demos por rubro:** grilla asimétrica de 5 o 6 capturas reales en dither con revelación a color. Enlazan al demo real.
 4. **Planes:** asimétrico, con el destacado grande y dos laterales. Datos de `PLANS` y `FORMAS_PAGO`. Sin efectos.
-5. **Caso Roma Crochet:** imagen a sangre y texto en una zona limpia.
+5. **Caso Rancho Itahue:** captura real de ranchoitahue.cl a todo el ancho y texto en una zona limpia.
 6. **Proyectos propios:** CalculaChile y CVListo, como lista editorial de dos filas, etiquetados como proyectos propios del estudio.
 7. **Cierre:** punto amarillo y el mismo CTA, "Pide tu demo". Una sola etiqueta por intención en toda la página.
 
@@ -127,7 +135,7 @@ Cada sección usa una familia de layout distinta.
 Más el catálogo `/demos/`. Se guardan en el scratchpad. Después: `git switch -c redisenio-sitio`.
 
 ### Fase 1: route group, tokens, fuentes locales y grano
-- `git mv` de cada página a `app/(sitio)/`: `page.tsx`, `planes`, `casos` (con `[slug]` y `roma-crochet`), `como-funciona`, `sobre`, `contacto`, `preguntas-frecuentes`, `blog` (con `[slug]`), `terminos` y `privacidad`. Las URLs no cambian.
+- `git mv` de cada página a `app/(sitio)/`: `page.tsx`, `planes`, `casos` (con `[slug]`; el caso de cliente es `rancho-itahue`), `como-funciona`, `sobre`, `contacto`, `preguntas-frecuentes`, `blog` (con `[slug]`), `terminos` y `privacidad`. Las URLs no cambian.
 - `app/(sitio)/layout.tsx`: wrapper `<div data-sitio>` con las clases de las fuentes propias, Nav, children, Footer y CookieConsent. Importa `sitio.css`.
 - `app/(sitio)/_lib/fonts.ts`: `next/font/local` con los mismos archivos de `app/fonts/` (cormorant-garamond, inter, geist-mono), con variables propias `--s-display`, `--s-body` y `--s-mono`.
 - `app/(sitio)/sitio.css`: tokens de `DISENO.md` bajo `[data-sitio]`, escala de espaciado estándar, base tipográfica y grano en `[data-sitio]::after` (fijo, `pointer-events-none`, opacidad entre 0,05 y 0,08, PNG de 128 px) con la regla `body:has(...)`.
@@ -139,7 +147,7 @@ Más el catálogo `/demos/`. Se guardan en el scratchpad. Después: `git switch 
 ### Fase 2: estructura y copy de todas las páginas, sin animaciones
 - Home según la estructura de arriba, con el escenario en su estado estático (póster).
 - **Planes:** formas de pago, los tres planes asimétricos, la tabla "qué incluye" como bloques agrupados en vez de filas con hairline, extras y FAQ. Se mantiene el JSON-LD.
-- **Casos** (índice, `[slug]` y Roma Crochet), **Cómo funciona**, **Sobre**, **Contacto**, **FAQ**, **Blog** e índice de posts: misma metadata, canonical y JSON-LD. Se reemplaza "—" por ":" en los títulos.
+- **Casos** (índice, `[slug]` y Rancho Itahue), **Cómo funciona**, **Sobre**, **Contacto**, **FAQ**, **Blog** e índice de posts: misma metadata, canonical y JSON-LD. Se reemplaza "—" por ":" en los títulos.
 - **Legales:** solo estilo nuevo con la clase `s-legal`. El texto no cambia (regla 11.F de la skill).
 - **Copy con datos reales:**
   - Se elimina "Arica a Punta Arenas" de `content/faqs.ts`.

@@ -25,17 +25,6 @@ export const posts: PostMeta[] = [
     featured: true,
   },
   {
-    slug: 'caso-roma-crochet-amigurumis-curico',
-    title: 'Caso real: cómo Roma Crochet pasó de DM a web propia.',
-    description:
-      'La historia de una marca artesanal del Maule que pasó de vender por mensaje directo en Instagram a tener su propia página web profesional.',
-    date: 'Marzo 2026',
-    dateISO: '2026-03-15',
-    readTime: '6 MIN',
-    tags: ['CASOS', 'PYMES', 'RESULTADOS'],
-    image: '/images/still-lifes/blog-roma-crochet.webp',
-  },
-  {
     slug: 'whatsapp-business-pagina-web-pymes',
     title: 'WhatsApp Business + página web: cómo combinarlos para vender más.',
     description:
