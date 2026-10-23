@@ -127,7 +127,7 @@ Preview (protegido con SSO de Vercel): https://sitiazo-git-redisenio-sitio-falop
 
 ### TODO de datos (sin resolver, para Diego)
 
-- **Pago y hosting:** las FAQ y los posts ya quedaron alineados con `lib/config` (mensual $12.990 o pago único + hosting $9.990/mes). **Los términos legales todavía dicen "50/50"**: no se tocan sin tu aprobación.
+- **Pago y hosting:** resuelto (decisión de Diego, 2026-10-23). Tres formas: pago único (50% al comenzar, 50% al terminar), hasta 3 cuotas sin interés (tarjeta vía MercadoPago o directo a Sitiazo) o mensual $12.990; en cuotas y mensual el primer pago es en la entrega. Con mensual el sitio queda publicado mientras se pague. Términos, FAQ y `FORMAS_PAGO` alineados.
 - **Razón social por confirmar:** `LEGAL.legalName` es "Eldrinor y Vaelen".
 - **Datos sin fuente:** resuelto. Se quitaron "Arica a Punta Arenas", las cifras del post de WhatsApp, los rangos de precios de agencias y el "80%" de Sobre.
 - **Newsletter:** se eliminó el formulario, que no enviaba nada. Si quieres newsletter, hay que conectar un proveedor real.

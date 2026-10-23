@@ -17,7 +17,7 @@ export const planFaqs: FAQ[] = [
   {
     id: 'plan-mensual',
     question: '¿Puedo pagar mes a mes?',
-    answer: `Sí. El plan mensual son ${PAGO_MENSUAL_FORMATTED} al mes (el primer mes se paga al activar) e incluye hosting, dominio y los ajustes de contenido que necesites. Si prefieres pagar una sola vez, está el pago único desde ${STARTING_PRICE}, con tarjeta de crédito en ${PAGO_CUOTAS} cuotas.`,
+    answer: `Sí. El plan mensual son ${PAGO_MENSUAL_FORMATTED} al mes (el primer mes se paga cuando te entregamos la web) e incluye hosting, dominio y los ajustes de contenido que necesites. Si prefieres pagar una sola vez, está el pago único desde ${STARTING_PRICE}, que también puedes pagar en hasta ${PAGO_CUOTAS} cuotas sin interés.`,
   },
   {
     id: 'plan-barato',
@@ -28,7 +28,7 @@ export const planFaqs: FAQ[] = [
   {
     id: 'plan-hosting',
     question: '¿Qué incluye el hosting?',
-    answer: `Con el pago único, el hosting cuesta ${formatCLP(HOSTING_PRICE)} al mes. Con el plan mensual de ${PAGO_MENSUAL_FORMATTED} el hosting y el dominio van incluidos. Puedes usar tu dominio actual o te ayudamos a comprar uno.`,
+    answer: `Con el pago único o en cuotas, el hosting cuesta ${formatCLP(HOSTING_PRICE)} al mes. Con el plan mensual de ${PAGO_MENSUAL_FORMATTED} el hosting y el dominio van incluidos. Puedes usar tu dominio actual o te ayudamos a comprar uno.`,
   },
   {
     id: 'plan-cambiar',
@@ -75,7 +75,7 @@ export const generalFaqs: FAQ[] = [
   {
     id: 'general-pago-etapas',
     question: '¿Puedo pagar en etapas?',
-    answer: `Sí. Puedes pagar mes a mes (${PAGO_MENSUAL_FORMATTED}, el primer mes al activar) o hacer un pago único con tarjeta de crédito en ${PAGO_CUOTAS} cuotas.`,
+    answer: `Sí. Con el pago único, pagas 50% para comenzar y 50% al terminar. También puedes pagar el plan en hasta ${PAGO_CUOTAS} cuotas sin interés, o mes a mes por ${PAGO_MENSUAL_FORMATTED}; en esos dos casos el primer pago se hace cuando te entregamos la web.`,
   },
   {
     id: 'general-contenido',

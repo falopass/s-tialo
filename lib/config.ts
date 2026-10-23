@@ -307,14 +307,14 @@ export const FORMAS_PAGO: FormaPago[] = [
     nombre: 'Mensual',
     precio: `${formatCLP(PRICE_MENSUAL)} / mes`,
     detalle:
-      'El primer mes se paga al activar. Mes a mes, sin contrato: incluye hosting, dominio y los ajustes de contenido que necesites.',
+      'El primer mes se paga cuando te entregamos la web. Mes a mes, sin contrato: incluye hosting, dominio y los ajustes de contenido que necesites.',
     destacado: true,
   },
   {
     id: 'unico',
     nombre: 'Pago único',
     precio: `desde ${formatCLP(PRICE_BASICO)}`,
-    detalle: `La página queda tuya. Con tarjeta de crédito puedes pagar en ${PAGO_CUOTAS} cuotas.`,
+    detalle: `La página queda tuya. 50% para comenzar y 50% al terminar, o en hasta ${PAGO_CUOTAS} cuotas sin interés.`,
   },
 ]
 
