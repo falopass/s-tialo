@@ -195,6 +195,19 @@ El sitio principal vive en el route group `app/(sitio)/` con su propio `layout.t
 
 ---
 
+## 7d. Instagram (decisión de Diego, 2026-10-25)
+
+La cuenta lleva el mismo sistema visual del sitio, no uno paralelo: tinta de fondo, Cormorant para titulares, Geist Mono para etiquetas y pies, grano encima, punto amarillo como firma. El relato es el mismo del sitio: dither → color, y en el carrusel del proceso, ASCII → dither → color.
+
+- Las piezas se generan con `scripts/sitio-ig.mjs` (hermano de `sitio-og.mjs`): cada tarjeta es un HTML renderizado por Playwright con las fuentes y capturas reales del repo. Salida en `tmp/ig/`, fuera de git. No va al build.
+- Formatos: feed 1080×1350, historia 1080×1920, perfil 1080×1080.
+- Plantillas: demo de la semana (dither + color de un demo real), carrusel del proceso (3 láminas: el ASCII se muestrea de verdad de la captura), la ficha (los cuatro datos de `DatosClaros`), rubros (capturas reales del rubro), caso real (Rancho Itahue escritorio + celular), historia con CTA y foto de perfil.
+- Reglas del sitio que se mantienen: el amarillo es solo acento (punto, nunca fondos), nada de dither ni grano sobre texto, nada de guion largo, solo datos reales.
+- El CTA impreso es "pide tu demo · link en bio": el contacto sigue siendo solo WhatsApp, el link de la bio apunta al sitio o al wa.me.
+- Los pies de foto sugeridos quedan en `tmp/ig/PIE-DE-FOTO.md` al correr el script.
+
+---
+
 ## 8. Definición de listo
 
 Un cambio al sitio principal no está listo hasta que:
