@@ -41,46 +41,50 @@ export function Nav() {
     }
   }, [abierto])
 
+  /* El panel va fuera del header: backdrop-filter crea un containing block para los
+     hijos fixed, y ahí top+bottom colapsaba el menú a altura 0 (nunca se veía). */
   return (
-    <header className="s-nav fixed inset-x-0 top-0 z-50 border-b border-(--s-linea) bg-(--s-tinta)/85 backdrop-blur-md">
-      <div className="s-wrap flex h-(--s-nav-h) items-center justify-between gap-6">
-        <Logo className="h-5 md:h-6" />
+    <>
+      <header className="s-nav fixed inset-x-0 top-0 z-50 border-b border-(--s-linea) bg-(--s-tinta)/85 backdrop-blur-md">
+        <div className="s-wrap flex h-(--s-nav-h) items-center justify-between gap-6">
+          <Logo className="h-5 md:h-6" />
 
-        <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
-          {LINKS.map((l) => (
-            <Enlace
-              key={l.href}
-              href={l.href}
-              aria-label={l.label}
-              aria-current={activo(pathname, l.href) ? 'page' : undefined}
-              className="text-[15px] text-(--s-crema-2) transition-colors hover:text-(--s-crema) aria-[current=page]:text-(--s-crema) aria-[current=page]:underline aria-[current=page]:decoration-(--s-amarillo) aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8"
+          <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
+            {LINKS.map((l) => (
+              <Enlace
+                key={l.href}
+                href={l.href}
+                aria-label={l.label}
+                aria-current={activo(pathname, l.href) ? 'page' : undefined}
+                className="text-[15px] text-(--s-crema-2) transition-colors hover:text-(--s-crema) aria-[current=page]:text-(--s-crema) aria-[current=page]:underline aria-[current=page]:decoration-(--s-amarillo) aria-[current=page]:decoration-2 aria-[current=page]:underline-offset-8"
+              >
+                <Descifra texto={l.label} />
+              </Enlace>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-2">
+            <a href={linkDemo({ negocio })} target="_blank" rel="noopener noreferrer" onClick={() => medirWhatsApp({ origen: 'nav', conNegocio: negocio !== '' })} className="s-btn s-btn-primario hidden min-h-11 px-5 text-[15px] sm:inline-flex">
+              {CTA_DEMO}
+            </a>
+            <button
+              type="button"
+              onClick={() => setAbierto((v) => !v)}
+              aria-expanded={abierto}
+              aria-controls="s-menu"
+              aria-label={abierto ? 'Cerrar menú' : 'Abrir menú'}
+              className="-mr-2 grid size-11 place-items-center text-(--s-crema) lg:hidden"
             >
-              <Descifra texto={l.label} />
-            </Enlace>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2">
-          <a href={linkDemo({ negocio })} target="_blank" rel="noopener noreferrer" onClick={() => medirWhatsApp({ origen: 'nav', conNegocio: negocio !== '' })} className="s-btn s-btn-primario hidden min-h-11 px-5 text-[15px] sm:inline-flex">
-            {CTA_DEMO}
-          </a>
-          <button
-            type="button"
-            onClick={() => setAbierto((v) => !v)}
-            aria-expanded={abierto}
-            aria-controls="s-menu"
-            aria-label={abierto ? 'Cerrar menú' : 'Abrir menú'}
-            className="-mr-2 grid size-11 place-items-center text-(--s-crema) lg:hidden"
-          >
-            {abierto ? <X size={24} weight="regular" /> : <List size={24} weight="regular" />}
-          </button>
+              {abierto ? <X size={24} weight="regular" /> : <List size={24} weight="regular" />}
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
       <div
         id="s-menu"
         hidden={!abierto}
-        className="fixed inset-x-0 top-(--s-nav-h) bottom-0 overflow-y-auto bg-(--s-tinta) lg:hidden"
+        className="fixed inset-x-0 top-(--s-nav-h) bottom-0 z-[45] overflow-y-auto bg-(--s-tinta) lg:hidden"
       >
         <nav aria-label="Menú" className="s-wrap flex min-h-full flex-col justify-between gap-12 py-10">
           <ul className="flex flex-col gap-5">
@@ -101,6 +105,6 @@ export function Nav() {
           </a>
         </nav>
       </div>
-    </header>
+    </>
   )
 }
