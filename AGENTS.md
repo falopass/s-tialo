@@ -20,7 +20,7 @@ redirects viven en `public/_redirects` y www→apex / trailing-slash 308 son reg
 
 ## Build intermitente por fuentes de Google (Next 16 + Turbopack)
 
-`npm run build` (y el deploy de Vercel) puede fallar de forma intermitente con:
+`npm run build` (y el build de Workers Builds) puede fallar de forma intermitente con:
 
 ```
 Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'

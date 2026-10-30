@@ -14,7 +14,7 @@
 
 ## 🔴 BLOQUEANTES PARA PRODUCCIÓN
 
-<sub><em>Estas 3 acciones DEBEN completarse antes de apuntar el dominio a Vercel.</em></sub>
+<sub><em>Estas 3 acciones DEBEN completarse antes de apuntar el dominio a Cloudflare.</em></sub>
 
 ### 1. WhatsApp Business
 
@@ -36,7 +36,8 @@
 [ ] Horario: L-V 9:00-19:00
 [ ] Editar .env.local con el número real:
     NEXT_PUBLIC_WHATSAPP_NUMBER=569XXXXXXXX
-[ ] Hacer deploy en Vercel con la nueva variable
+[ ] Definir la variable en Workers Builds (Worker sitiazo → Settings → Variables)
+    y lanzar un build nuevo
 ```
 
 **⏱️ Tiempo estimado**: 30 minutos
@@ -151,15 +152,15 @@
 
 ---
 
-### 8. Dominio sitiazo.cl → Vercel
+### 8. Dominio sitiazo.cl → Cloudflare
 
 ```
 [ ] Comprar dominio sitiazo.cl (si no lo tenés)
-[ ] En Vercel → Settings → Domains → Add sitiazo.cl
-[ ] En tu proveedor DNS → agregar registros que Vercel te indica
+[ ] En Cloudflare → Workers → sitiazo → Settings → Domains & Routes → Add sitiazo.cl
+[ ] En tu proveedor DNS → apuntar los nameservers a Cloudflare
 [ ] Esperar propagación DNS (5 min - 48 hrs)
 [ ] Verificar con: curl -I https://sitiazo.cl
-[ ] Configurar redirect de www → non-www (o viceversa)
+[ ] Redirect de www → apex como regla de la zona de Cloudflare
 [ ] Actualizar NEXT_PUBLIC_SITE_URL en .env.local a https://sitiazo.cl
 [ ] Re-deploy
 ```
@@ -196,7 +197,7 @@
 ```mermaid
 graph LR
     A[Code en repo] -->|git push| B[GitHub]
-    B -->|auto-deploy| C[Vercel Preview]
+    B -->|auto-deploy| C[Preview de Workers Builds]
     C -->|testear en OnePlus 13| D[Diego valida]
     D -->|OK| E[Merge a main]
     E -->|auto-deploy| F[Producción]
@@ -209,8 +210,8 @@ graph LR
 - [ ] WhatsApp Business configurado + número en `.env.local`
 - [ ] Email `hola@sitiazo.cl` funcional
 - [ ] Cal.com con slot de 30 min + link en `.env.local`
-- [ ] Dominio apuntado a Vercel
-- [ ] SSL activo (Vercel lo hace automático)
+- [ ] Dominio apuntado a Cloudflare
+- [ ] SSL activo (Cloudflare lo hace automático)
 - [ ] Favicon visible en pestaña del navegador
 - [ ] `npm run build` pasa SIN errores
 - [ ] Mobile test en OnePlus 13 (375px, 393px)

@@ -49,7 +49,7 @@ Componentes reutilizables (`app/(sitio)/_components/`):
 **Imagen real nueva (captura de un demo o de un sitio).**
 1. Agrega una entrada a `_lib/imagenes.json`: `id`, `demo` o `url`, `src: public/sitio/fuentes/<id>.webp`, `ancho`, `alto`, `nombre`, `rubro`, `ciudad` y `alt`.
 2. Captura desde producción: `node scripts/sitio-capturas.mjs https://sitiazo.cl <id1,id2>`.
-3. El dither y el srcset los genera `prebuild` en Vercel (`scripts/dither.mjs`). En local solo hace falta correr `node scripts/dither.mjs` si vas a generar imágenes para compartir.
+3. El dither y el srcset los genera `prebuild` en el build de Workers Builds (`scripts/dither.mjs`). En local solo hace falta correr `node scripts/dither.mjs` si vas a generar imágenes para compartir.
 4. Úsala con `<Captura id>`, `<CapturaRevela id>` o `<TarjetaDemo id>`. Para la candidata a LCP, pasa `prioridad`.
 
 **Imágenes para compartir (Open Graph).** Los titulares están escritos dentro de `scripts/sitio-og.mjs`. Edítalos ahí y corre `node scripts/dither.mjs && node scripts/sitio-og.mjs`. El resultado queda en `public/sitio/og/<id>.jpg`; enlázalo desde `openGraph.images`. Usa JPG, porque WhatsApp no siempre muestra WebP.

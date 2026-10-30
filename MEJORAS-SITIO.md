@@ -12,7 +12,7 @@ Todo está publicado en `sitiazo.cl` (`main`), a través de 3 PR mergeados:
 | #2 | `ficha-resumen` | El bloque "En resumen" pasa a ser una ficha editorial | `65cc382` |
 | #3 | `menos-scroll` | Menos scroll, sin CTAs repetidos, planes en tres columnas | `6f6ea19` |
 
-Cada deploy de producción quedó en READY en Vercel, con el control `verificar-sitio` en verde. Si algo sale mal, se vuelve al deploy anterior con Instant Rollback.
+Cada deploy de producción quedó en verde, con el control `verificar-sitio` en verde. Si algo sale mal, se vuelve al deploy anterior (rollback).
 
 ---
 
@@ -63,7 +63,7 @@ Se revisó la rama `redisenio-sitio`: 17 commits y 125 archivos.
 - **"¿Cuál te conviene?":** tres preguntas y un plan recomendado. Está solo en `/planes/`, y su lógica tiene un test de node.
 - **Barra fija en el celular:** muestra "Pide tu demo" y se esconde cuando hay otro botón principal a la vista o el aviso de cookies está abierto.
 - **"Sin riesgo para ti":** en `/planes/`, `/como-funciona/` y las páginas por rubro.
-- **Medición:** cada clic a WhatsApp registra el evento `whatsapp` en Vercel Analytics, con `origen`, `plan`, `pago` y `conNegocio`.
+- **Medición:** cada clic a WhatsApp registra el evento `whatsapp` vía `_lib/medir.ts`, con `origen`, `plan`, `pago` y `conNegocio`.
 
 ## 6. Contenido para Google (fase 4)
 
@@ -90,7 +90,7 @@ Se revisó la rama `redisenio-sitio`: 17 commits y 125 archivos.
 
 ## 8. Verificación hecha
 
-Todo se midió en los previews de Vercel. En el PC no se corrieron build, lint ni typecheck, porque es una regla del proyecto.
+Todo se midió en los previews de la rama. En el PC no se corrieron build, lint ni typecheck, porque es una regla del proyecto.
 
 - **Páginas:** a 360, 1024 y 1440 px, sin errores de JavaScript ni scroll horizontal. Botones entre 44 y 52 px.
 - **Demos:** los 5 de referencia salen idénticos a producción, píxel a píxel (10 de 10).
@@ -109,7 +109,7 @@ Todo se midió en los previews de Vercel. En el PC no se corrieron build, lint n
 - Crear la ficha de Google Business de Sitiazo en Curicó y pedir reseñas.
 - Decidir qué hacer con los 2 demos del catálogo sin página (`cabanas-rocas-de-pellines`, `el-rincon-de-faby`).
 - Borrar `public/og-image-planes.png`, que quedó sin uso.
-- Revocar los links compartidos y el token de bypass de Vercel cuando termines de revisar. Los links vencen solos en 23 horas.
+- Los links compartidos y el token de bypass del preview anterior ya vencieron y no aplican con Workers Builds.
 
 ## 10. Dónde está cada cosa
 

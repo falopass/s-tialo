@@ -10,15 +10,15 @@
 | 3. Dither en prebuild | Hecha (`9ba107f8b0`). |
 | 4. Movimiento y transiciones | Hecha (`e0459f982e`). |
 | 5. Hero y pieza central | Hecha (`f8493146a7`), con ajustes posteriores tras revisar el preview. |
-| Verificación final | Hecha sobre el preview de Vercel (detalle abajo). |
+| Verificación final | Hecha sobre el preview de la rama (detalle abajo). |
 | Tira de rubros (reemplaza la marquesina) | Hecha (`918d919a49`). |
 | "Next level": tu negocio en el hero, WhatsApp con contexto, imágenes para compartir, total real de demos, catálogo `/demos/` nuevo | Hecho (`92f0d0b5a2`, `764f0c7603`). |
 | El nombre del negocio acompaña el recorrido (confirmación, pasos, cierre, dither) | Hecho (`7c4425be60`). |
 | Merge a `main` | **Pendiente: lo hace Diego** después de revisar el preview. Nunca se hizo push a `main` desde esta rama. |
 
-Preview (protegido con SSO de Vercel): https://sitiazo-git-redisenio-sitio-falopass-projects.vercel.app
+El preview de la rama lo genera Workers Builds; la URL sale del deploy en GitHub (`gh api repos/falopass/s-tialo/deployments?ref=<rama>`) o del dashboard de Cloudflare.
 
-### Verificación (preview de Vercel, rama `redisenio-sitio`)
+### Verificación (preview de la rama `redisenio-sitio`)
 
 - **Build:** el build del preview pasa en cada push; incluye el `prebuild` de dither. En local no se corrió lint, typecheck, build ni dev.
 - **Demos:** 5 demos de referencia y el catálogo `/demos/`, a 360 y 1440 px, comparados píxel a píxel contra producción: **12 de 12 idénticos**, en el build de la fase 5 y otra vez en el build final.
@@ -99,7 +99,7 @@ Preview (protegido con SSO de Vercel): https://sitiazo-git-redisenio-sitio-falop
 
 ### Decisiones tomadas en la ejecución
 
-- Regla del proyecto: en local nunca se corre lint, typecheck, build ni dev. El único chequeo de compilación es el build del preview de Vercel.
+- Regla del proyecto: en local nunca se corre lint, typecheck, build ni dev. El único chequeo de compilación es el build de la rama en Workers Builds.
 - El grano es un PNG estático commiteado (`public/sitio/grano.png`), no se genera en el build.
 - Las clases propias del sitio viven en `@layer components`, así que las utilidades de Tailwind pueden ajustarlas.
 - **Hero y pieza central:** rotan entre Fran Wartemberg, Los Leones y Servimac.
@@ -110,7 +110,7 @@ Preview (protegido con SSO de Vercel): https://sitiazo-git-redisenio-sitio-falop
   - Sin `view-timeline` o con movimiento reducido, es una fila que se desliza con el dedo.
 - **Roma Crochet sale del sitio por completo (pedido de Diego, 2026-10-23).** El caso de cliente es Rancho Itahue (ranchoitahue.cl):
   - Nueva página: `/casos/rancho-itahue/`. Se borraron `/casos/roma-crochet/` y el post `caso-roma-crochet-amigurumis-curico`, junto con sus imágenes.
-  - Las URLs viejas redirigen con 301 en `vercel.json`: el caso va a `/casos/rancho-itahue/` y el post, a `/blog/`.
+  - Las URLs viejas redirigen con 301 en `public/_redirects`: el caso va a `/casos/rancho-itahue/` y el post, a `/blog/`.
   - El sitemap ya lista la nueva URL.
   - Los datos salen de `app/rancho-itahue/content.ts` (texto del dueño, reseñas de Google), que se lee sin modificarlo.
   - Imágenes: capturas reales de ranchoitahue.cl (`public/sitio/fuentes/rancho-*.webp`).
@@ -140,9 +140,9 @@ Preview (protegido con SSO de Vercel): https://sitiazo-git-redisenio-sitio-falop
 - **Demos que daban 404:** `cabanas-rocas-de-pellines` y `el-rincon-de-faby` estaban en el catálogo viejo sin página. Si existen en otro lado, hay que agregar su carpeta; si no, borrarlos de `app/demos/catalogo.ts`.
 - **Tarjeta de X (Twitter):** resuelto en `mejoras-sitio`: X toma la `og:image` de cada página.
 - **`public/og-image-planes.png`:** quedó sin uso; se puede borrar.
-- **Token de bypass de Vercel:** se usó solo como variable de entorno en comandos y no quedó en ningún archivo. Revocarlo en Settings → Deployment Protection al terminar la revisión.
+- **Token de bypass del preview anterior:** correspondía al hosting previo; ya no aplica con Workers Builds y no quedó en ningún archivo.
 - **Restos de Roma en `lib/config.ts`:** resuelto en `mejoras-sitio`.
-- **Search Console y Bing (`mejoras-sitio`):** define en Vercel `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` y `NEXT_PUBLIC_BING_SITE_VERIFICATION` con los tokens. Después de publicar, envía `https://sitiazo.cl/sitemap.xml` en las dos.
+- **Search Console y Bing (`mejoras-sitio`):** define `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` y `NEXT_PUBLIC_BING_SITE_VERIFICATION` con los tokens como variables de entorno del build en Cloudflare (Workers Builds → Settings). Después de publicar, envía `https://sitiazo.cl/sitemap.xml` en las dos.
 - **Perfiles reales para el schema:** Instagram y ficha de Google de Sitiazo, si existen, para `sameAs`.
 - **Testimonio de Rancho Itahue sobre Sitiazo:** con permiso del dueño. Las reseñas de Google del rancho no sirven, porque son del rancho.
 - **Ficha de Google Business de Sitiazo en Curicó:** es la palanca local más grande y se hace fuera del código.
@@ -191,7 +191,7 @@ Los demos (`app/demos/**`) y `app/rancho-itahue/**`, que es el sitio final de un
 **`app/layout.tsx` solo se aligera:** se quitan `SiteChrome`, `Nav`, `Footer` y `CookieConsent`. En demos y en rancho ya renderizan `null`, así que su HTML no cambia. Todo lo demás queda igual.
 
 Excepción mínima en `package.json`:
-- script `prebuild` para el dither (corre en el build de Vercel);
+- script `prebuild` para el dither (corre en el build de Workers Builds);
 - `sharp@0.34.5` como devDependency, la versión que ya está en `node_modules` vía Next;
 - `@phosphor-icons/react` fijado a una versión de más de 7 días, para los íconos de WhatsApp, flecha y menú (la skill prohíbe SVG a mano).
 
@@ -282,7 +282,7 @@ Más el catálogo `/demos/`. Se guardan en el scratchpad. Después: `git switch 
   - Mini en escala de grises para el ASCII.
   - PNG de grano de 128 px.
   - Salida en `public/dither/`, que va al `.gitignore`. Salta lo que ya está al día.
-- Enganchado solo en `"prebuild"` (Vercel). `sharp` ya quedó en devDependencies en la fase 1.
+- Enganchado solo en `"prebuild"` (Workers Builds). `sharp` ya quedó en devDependencies en la fase 1.
 - Componente `ImagenDither` como `<img>` con `width`/`height` explícitos, aplicado a demos, casos y still-lifes.
 
 ### Fase 4: sistema de movimiento y transiciones entre páginas
@@ -307,7 +307,7 @@ Más el catálogo `/demos/`. Se guardan en el scratchpad. Después: `git switch 
 
 ## Verificación (al final; en local nunca se corre lint, typecheck, build ni dev)
 
-1. Push de `redisenio-sitio` (nunca a `main`). Se obtiene la URL de preview con `gh api repos/falopass/s-tialo/deployments?ref=redisenio-sitio` y sus statuses. El build de Vercel es el chequeo de compilación.
+1. Push de `redisenio-sitio` (nunca a `main`). Se obtiene la URL de preview con `gh api repos/falopass/s-tialo/deployments?ref=redisenio-sitio` y sus statuses, o en el dashboard de Cloudflare. El build de Workers Builds es el chequeo de compilación.
 2. **Demos idénticos:** mismas capturas de la fase 0 contra el preview, con diff de píxeles (buffers raw de sharp) e inspección de cualquier diferencia (mapas, contenido con hora). Si el preview está protegido, se avisa a Diego: en local no se corre build ni dev (regla del proyecto).
 3. **Sitio:** capturas a 360, 768 y 1440 con `reducedMotion` en `reduce` y en `no-preference`. LCP móvil con PageSpeed sobre la URL del preview, si es pública.
 4. **Auditoría mecánica:**
