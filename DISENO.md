@@ -190,7 +190,7 @@ El sitio principal vive en el route group `app/(sitio)/` con su propio `layout.t
 - Formas de pago: pago único 50% y 50%, hasta 3 cuotas sin interés, o mensual solo en el plan Básico. Los montos de las cuotas salen de `cuotas()` en `lib/config.ts`.
 - "Sin riesgo para ti" repite solo lo que dicen los términos: el demo es gratis y en cuotas o mensual se paga al entregar.
 - Barra fija con "Pide tu demo" en el celular (`BarraMovil`). Qué comunica: pedir el demo siempre está a un toque. Aparece cuando ya bajaste y ningún CTA principal (`[data-cta-principal]`) está a la vista, y nunca con el aviso de cookies abierto. Con movimiento reducido no se anima.
-- Cada clic a WhatsApp registra el evento `whatsapp` en Vercel Analytics, con `origen`, `plan`, `pago` y `conNegocio`.
+- Cada clic a WhatsApp registra el evento `whatsapp` vía `_lib/medir.ts`, con `origen`, `plan`, `pago` y `conNegocio`.
 - Páginas por rubro en `/paginas-web-para/<rubro>/`, con datos en `content/rubros.ts`. Solo se publican rubros con 5 demos reales o más, y su texto es propio de cada rubro, sin cifras de mercado.
 
 ---
@@ -212,7 +212,7 @@ La cuenta lleva el mismo sistema visual del sitio, no uno paralelo: tinta de fon
 
 Un cambio al sitio principal no está listo hasta que:
 
-- [ ] El build del preview de Vercel pasa. En local no se corre `lint`, `typecheck`, `build` ni `dev`.
+- [ ] El build de la rama en Workers Builds pasa. En local no se corre `lint`, `typecheck`, `build` ni `dev`.
 - [ ] Lighthouse móvil: LCP < 2.5 s, CLS < 0.1, INP < 200 ms (medido, no supuesto).
 - [ ] Revisado a 360 px, 768 px y 1440 px.
 - [ ] Revisado con `prefers-reduced-motion: reduce` activado: nada se mueve y nada queda roto.

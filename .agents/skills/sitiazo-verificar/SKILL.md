@@ -1,6 +1,6 @@
 ---
 name: sitiazo-verificar
-description: Verificar cambios de Sitiazo sin cargar el PC. El build del preview de Vercel es el chequeo de compilación, y Playwright revisa contra el deploy (errores, desborde, capturas, LCP, demos idénticos a producción). Lo pesado va al VPS. Úsala cuando haya que confirmar que algo compila, se ve bien, no movió los demos o carga rápido, o cuando dudes en correr dev, build o typecheck en local.
+description: Verificar cambios de Sitiazo sin cargar el PC. El build de la rama en Workers Builds es el chequeo de compilación, y Playwright revisa contra el deploy (errores, desborde, capturas, LCP, demos idénticos a producción). Lo pesado va al VPS. Úsala cuando haya que confirmar que algo compila, se ve bien, no movió los demos o carga rápido, o cuando dudes en correr dev, build o typecheck en local.
 ---
 
 # Verificar sin levantar nada pesado en el PC
@@ -9,7 +9,7 @@ En este repo no se corre `npm run dev`, `build`, `lint` ni `typecheck` en el PC 
 
 | Pregunta | Cómo se responde |
 |---|---|
-| ¿Compila? (tipos, prebuild, export) | Push de la rama y build del preview de Vercel: `scripts/preview.mjs --esperar` |
+| ¿Compila? (tipos, prebuild, export) | Push de la rama y build en Workers Builds: `scripts/preview.mjs --esperar` |
 | ¿Se ve bien, hay errores JS o desborde? | `scripts/revisar.mjs <url-del-preview> --rutas …` |
 | ¿Moví algún demo? | `scripts/demos-identicos.mjs <url-del-preview>` |
 | ¿Carga rápido en celular? | `scripts/lcp.mjs <url-del-preview> --rutas …` |
@@ -20,13 +20,11 @@ Los scripts están en `.agents/skills/sitiazo-verificar/scripts/` y se corren de
 ## Flujo normal
 
 1. Commit y push a una rama, nunca a `main`: cada push a `main` despliega a producción.
-2. `node .agents/skills/sitiazo-verificar/scripts/preview.mjs --esperar`. Muestra el estado del build del commit y su URL. Si falla, el enlace a los logs de Vercel muestra el error de TypeScript o de build.
-3. Con la URL del preview, revisa lo que corresponda.
-   - La URL fija de una rama es `https://sitiazo-git-<rama>-falopass-projects.vercel.app`.
-   - Si la rama tiene caracteres raros, usa la que entrega `preview.mjs`.
+2. `node .agents/skills/sitiazo-verificar/scripts/preview.mjs --esperar`. Muestra el estado del build del commit y su URL (lee los deployments del commit en GitHub, que registra Workers Builds). Si falla, el enlace a los logs del build muestra el error de TypeScript o de build. También puedes ver el build en el dashboard de Cloudflare (Worker `sitiazo` → Workers Builds).
+3. Con la URL del preview, revisa lo que corresponda. Workers Builds genera una URL por build; usa siempre la que entrega `preview.mjs`.
 
 ```bash
-P=https://sitiazo-git-<rama>-falopass-projects.vercel.app
+P=<url-del-preview>  # la que entrega preview.mjs
 node .agents/skills/sitiazo-verificar/scripts/revisar.mjs $P --rutas /,/planes/,/demos/ --anchos 360,1440
 node .agents/skills/sitiazo-verificar/scripts/revisar.mjs $P --rutas / --reduce          # movimiento reducido
 node .agents/skills/sitiazo-verificar/scripts/demos-identicos.mjs $P                      # 5 demos, 360 y 1440
@@ -35,12 +33,10 @@ MSYS_NO_PATHCONV=1 node .agents/skills/sitiazo-verificar/scripts/lcp.mjs $P --ru
 
 Las capturas quedan en `tmp/` (ignorado por git). Revísalas con la herramienta de lectura de imágenes: una captura sí muestra la composición, pero no prueba el movimiento.
 
-## Preview protegido (Vercel SSO)
+## Previews de Workers Builds
 
-Los previews piden login de Vercel. Para automatizar se usa el secreto de "Protection Bypass for Automation", que está en Vercel → proyecto → Settings → Deployment Protection.
-- Pásalo solo como variable de entorno del comando: `BYPASS=<secreto> node …`. Nunca lo escribas en un archivo.
-- Los scripts dejan la cookie de bypass solo en el dominio `vercel.app`.
-- Sin `BYPASS`, los scripts funcionan contra producción (`https://sitiazo.cl`).
+Los previews que genera Workers Builds para cada build de rama son públicos: no piden login ni token. La variable `BYPASS` y el manejo de la cookie en `scripts/lib.mjs` quedaron del hosting anterior y ya no se usan.
+- Los scripts funcionan igual contra producción (`https://sitiazo.cl`).
 
 ## Cuándo comparar demos
 
@@ -77,5 +73,5 @@ curl -sS -o /dev/null -w '%{http_code}\n' https://sitiazo.51-79-71-83.sslip.io/
 ## Si igual hay que mirar algo en local
 
 - Para un componente aislado basta leer el código y el diff.
-- Para una página, el preview de Vercel cuesta menos RAM que `next dev`. Con un push, en unos 4 minutos hay URL.
+- Para una página, el preview de la rama cuesta menos RAM que `next dev`. Con un push, en unos minutos hay URL.
 - Los scripts de datos que usan el navegador compartido por CDP (puerto 29229) no abren navegadores nuevos: reutiliza ese navegador en vez de lanzar otro (ver la skill `sitiazo-datos`).
