@@ -14,7 +14,9 @@ Las demos de pymes viven en `app/demos/<slug>/`; las reglas de diseño móvil es
 
 ## Deploy
 
-`git push` a `main` dispara el deploy de producción en Vercel; no hay paso manual.
+`git push` a `main` dispara el deploy de producción en Cloudflare Workers (Workers Builds
+desde `main`); no hay paso manual. El Worker sirve los assets estáticos de `out/`; los
+redirects viven en `public/_redirects` y www→apex / trailing-slash 308 son reglas de la zona.
 
 ## Build intermitente por fuentes de Google (Next 16 + Turbopack)
 
@@ -28,7 +30,7 @@ Es un bug conocido de Next 16 con Turbopack al resolver `next/font/google`: la d
 archivo de fuente falla y el error se reporta como módulo faltante (en cada intento afecta a una
 fuente distinta, por ejemplo `manrope_*.module.css`). No lo causa el código de las páginas.
 
-Mitigación: reintentar el build (en local ayuda `rm -rf .next` antes); en Vercel, volver a
+Mitigación: reintentar el build (en local ayuda `rm -rf .next` antes); en Workers Builds, volver a
 empujar un commit para lanzar un build nuevo. Si la frecuencia se vuelve un problema, evaluar
 `next build --webpack` como alternativa estable.
 
