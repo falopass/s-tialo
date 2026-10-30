@@ -100,7 +100,7 @@ The design system is minimal, editorial, and built around a small set of tokens.
 | **Language** | TypeScript 5.5 |
 | **Animation** | Framer Motion 11 |
 | **Build** | Static export (`output: 'export'`) |
-| **Hosting** | Vercel (or any static host) |
+| **Hosting** | Cloudflare Workers (static assets) |
 
 ---
 
@@ -131,7 +131,7 @@ npm run start
 
 ## 🚀 Deployment
 
-Deployed to **Vercel** as a static site. Since it uses `output: 'export'`, the site can be hosted on any static host (Netlify, GitHub Pages, S3+CloudFront).
+Deployed to **Cloudflare Workers** as a static site (`output: 'export'` → Worker sirve los assets de `out/` con Workers Builds desde `main`; redirects en `public/_redirects`).
 
 ---
 
