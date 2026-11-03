@@ -8,9 +8,9 @@ import { medirWhatsApp } from '../_lib/medir'
 import { useNegocio } from '../_lib/negocio'
 
 const ETIQUETAS: Record<Pago, string> = {
-  unico: 'Pago único',
-  cuotas: 'En cuotas',
   mensual: 'Mensual',
+  anual: 'Anual',
+  unico: 'Compra única',
 }
 
 /**
@@ -19,7 +19,7 @@ const ETIQUETAS: Record<Pago, string> = {
  */
 export function AccionPlan({ plan, primario = false }: { plan: PlanId; primario?: boolean }) {
   const negocio = useNegocio()
-  const [pago, setPago] = useState<Pago>('unico')
+  const [pago, setPago] = useState<Pago>('mensual')
 
   return (
     <div>

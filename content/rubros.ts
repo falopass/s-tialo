@@ -51,7 +51,7 @@ export const RUBROS: Rubro[] = [
     porQue:
       'Con hasta 5 secciones caben la carta, el local, el horario y la ubicación, y trae SEO local para aparecer cuando buscan dónde comer en tu comuna.',
     preguntas: [
-      { pregunta: '¿Puedo cambiar la carta y los precios después?', respuesta: 'Sí. Nos mandas los cambios por WhatsApp y los subimos. Con el plan Básico mensual, los ajustes de contenido van incluidos.' },
+      { pregunta: '¿Puedo cambiar la carta y los precios después?', respuesta: 'Sí. Nos mandas los cambios por WhatsApp y los subimos. Con la mensualidad, los ajustes de contenido van incluidos.' },
       { pregunta: '¿Sirve si ya tengo Instagram?', respuesta: 'Sí, se complementan. Instagram muestra el día a día; la web responde lo que todos preguntan (carta, horario, dirección) y aparece en Google cuando buscan dónde comer.' },
       { pregunta: '¿Los pedidos llegan a una app?', respuesta: 'No. Llegan a tu WhatsApp con el mensaje armado, sin comisiones de aplicaciones de delivery.' },
       { pregunta: '¿Qué necesitan para armar el demo?', respuesta: 'Tu Instagram o tu ficha de Google. Con tus fotos y tus datos te armamos un demo gratis para que lo veas antes de decidir.' },
@@ -75,7 +75,7 @@ export const RUBROS: Rubro[] = [
     ],
     plan: 'basico',
     porQue:
-      'Una página bien hecha basta para mostrar tu estilo, lo que preparas, el horario y la ubicación. Si prefieres pagar mes a mes, el Básico también va mensual con hosting y dominio incluidos.',
+      'Una página bien hecha basta para mostrar tu estilo, lo que preparas, el horario y la ubicación. Se paga mes a mes, con hosting y dominio incluidos.',
     preguntas: [
       { pregunta: '¿Puedo mostrar la carta completa?', respuesta: 'Sí. En una página caben tus productos destacados; si quieres la carta completa en secciones, el plan Recomendado tiene espacio para eso.' },
       { pregunta: '¿Me ayudan a aparecer en Google Maps?', respuesta: 'La web enlaza a tu ficha de Google y la refuerza. El plan Recomendado incluye SEO local para tu comuna.' },

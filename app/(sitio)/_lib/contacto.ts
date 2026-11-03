@@ -1,4 +1,15 @@
-import { CONTACT, cuotas, PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, PLAN_MENSUAL, PLANS } from '@/lib/config'
+import {
+  ACTIVACION_FORMATTED,
+  COMPRA_BASICO,
+  COMPRA_BASICO_FORMATTED,
+  CONTACT,
+  cuotas,
+  MESES_PAGADOS_ANUAL,
+  PAGO_CUOTAS,
+  PLAN_COMPRA,
+  PLANS,
+  RENOVACION_ANUAL_FORMATTED,
+} from '@/lib/config'
 import type { PlanId } from '@/lib/config'
 
 /**
@@ -15,8 +26,8 @@ export function limpiarNegocio(texto: string): string {
   return texto.replace(/\s+/g, ' ').trim().slice(0, MAX_NEGOCIO)
 }
 
-/** Las tres formas de pago que ofrece el sitio. */
-export type Pago = 'unico' | 'cuotas' | 'mensual'
+/** Las tres formas de pago que ofrece el sitio. La compra única admite cuotas. */
+export type Pago = 'mensual' | 'anual' | 'unico'
 
 type Contexto = {
   /** Nombre del negocio que escribió el visitante en el hero (si lo escribió). */
@@ -25,41 +36,55 @@ type Contexto = {
   demo?: { nombre: string; rubro: string }
   /** Plan elegido en la página de planes o en el selector. */
   plan?: PlanId
-  /** Cómo quiere pagar; si pide mensual fuera del Básico se cae a pago único. */
+  /** Cómo quiere pagar; si pide compra única fuera del Básico se cae a anual. */
   pago?: Pago
 }
 
-/** Las formas de pago que se ofrecen para un plan: el mensual solo existe en el Básico. */
+/** Las formas de pago que se ofrecen para un plan: la compra única solo existe en el Básico. */
 export function pagosDe(plan: PlanId): Pago[] {
-  return plan === PLAN_MENSUAL ? ['unico', 'cuotas', 'mensual'] : ['unico', 'cuotas']
+  return plan === PLAN_COMPRA ? ['mensual', 'anual', 'unico'] : ['mensual', 'anual']
 }
 
 /** La forma de pago en una línea visible, con el precio ya resuelto. */
 export function textoPago(plan: PlanId, pago: Pago): string {
-  if (pago === 'cuotas') {
-    const { n, montoFormatted } = cuotas(PLANS[plan].price)
-    return `${n} cuotas de ${montoFormatted} sin interés. La primera, cuando te entregamos la web.`
+  const p = PLANS[plan]
+  if (pago === 'anual') {
+    return `${p.annualFormatted} por 12 meses: pagas ${MESES_PAGADOS_ANUAL} y sin activación. Se paga cuando te entregamos la web.`
   }
-  if (pago === 'mensual') {
-    return `${PAGO_MENSUAL_FORMATTED} al mes con hosting y dominio. El primer mes, cuando te entregamos la web.`
+  if (pago === 'unico' && plan === PLAN_COMPRA) {
+    const { n, montoFormatted } = cuotas(COMPRA_BASICO)
+    return `${COMPRA_BASICO_FORMATTED}: 50% al comenzar y 50% al terminar, o ${n} cuotas de ${montoFormatted} sin interés. Desde el segundo año, ${RENOVACION_ANUAL_FORMATTED} al año.`
   }
-  return `${PLANS[plan].priceFormatted} en dos partes: 50% al comenzar y 50% al terminar.`
+  return `${p.priceFormatted} al mes con hosting, dominio y ajustes incluidos, más ${ACTIVACION_FORMATTED} de activación. Sin permanencia.`
+}
+
+/** El precio principal a mostrar según la forma de pago elegida. */
+export function precioPrincipal(plan: PlanId, pago: Pago): string {
+  const p = PLANS[plan]
+  if (pago === 'anual') return `${p.annualFormatted} al año`
+  if (pago === 'unico' && plan === PLAN_COMPRA) return COMPRA_BASICO_FORMATTED
+  return `${p.priceFormatted} al mes`
+}
+
+/** La forma de pago real para un plan: la compra única fuera del Básico se cae a anual. */
+export function pagoValido(plan: PlanId, pago: Pago): Pago {
+  return pago === 'unico' && plan !== PLAN_COMPRA ? 'anual' : pago
 }
 
 /**
  * Mensaje prellenado de WhatsApp. Con el nombre del negocio o el demo de referencia,
  * Diego sabe qué armar antes de responder.
  */
-export function mensajeDemo({ negocio = '', demo, plan, pago = 'unico' }: Contexto = {}): string {
+export function mensajeDemo({ negocio = '', demo, plan, pago = 'mensual' }: Contexto = {}): string {
   const n = limpiarNegocio(negocio)
   if (plan) {
-    const pagoReal = pago === 'mensual' && plan !== PLAN_MENSUAL ? 'unico' : pago
+    const pagoReal = pagoValido(plan, pago)
     const detalle =
-      pagoReal === 'cuotas'
-        ? `${PAGO_CUOTAS} cuotas de ${cuotas(PLANS[plan].price).montoFormatted} sin interés`
-        : pagoReal === 'mensual'
-          ? `${PAGO_MENSUAL_FORMATTED} al mes`
-          : `${PLANS[plan].priceFormatted}, pago único`
+      pagoReal === 'anual'
+        ? `${PLANS[plan].annualFormatted} al año`
+        : pagoReal === 'unico'
+          ? `compra única de ${COMPRA_BASICO_FORMATTED}, hasta ${PAGO_CUOTAS} cuotas`
+          : `${PLANS[plan].priceFormatted} al mes`
     return `Hola Sitiazo, quiero el plan ${PLANS[plan].name} (${detalle}) para ${n || 'mi negocio'}. Este es el Instagram o la ficha de Google: `
   }
   if (demo) {

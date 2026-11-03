@@ -3,10 +3,11 @@ import {
   LEGAL,
   PLANS_ARRAY,
   PAGO_CUOTAS,
-  PAGO_MENSUAL_FORMATTED,
-  HOSTING_PRICE,
+  ACTIVACION_FORMATTED,
+  COMPRA_BASICO_FORMATTED,
+  MESES_PAGADOS_ANUAL,
+  RENOVACION_ANUAL_FORMATTED,
   CONTACT,
-  formatCLP,
 } from '@/lib/config'
 import { catalogo, familias } from '@/app/demos/catalogo'
 import { rubrosPublicados } from '@/content/rubros'
@@ -31,7 +32,7 @@ const PAGINAS: [string, string][] = [
 export function GET() {
   const planes = PLANS_ARRAY.map(
     (p) =>
-      `- **${p.name} (${p.priceFormatted}):** ${p.pages}, entrega en ${p.deliveryLabel}. Incluye: ${p.features.join(', ')}.`,
+      `- **${p.name} (${p.priceFormatted} al mes):** ${p.pages}, entrega en ${p.deliveryLabel}. Incluye: ${p.features.join(', ')}.`,
   )
   const fams = familias().map((f) => `- ${f.titulo}: ${f.total}`)
 
@@ -50,10 +51,9 @@ ${planes.join('\n')}
 
 ## Formas de pago
 
-- Pago único: 50% al comenzar y 50% al terminar.
-- Hasta ${PAGO_CUOTAS} cuotas sin interés; la primera cuota se paga al entregar la web.
-- ${PAGO_MENSUAL_FORMATTED} al mes, solo en el plan Básico; incluye hosting y dominio. El primer mes se paga al entregar la web.
-- Hosting con pago único o cuotas: ${formatCLP(HOSTING_PRICE)} al mes.
+- Mensual: el precio de cada plan incluye hosting, dominio y ajustes de contenido. Activación de ${ACTIVACION_FORMATTED} al comenzar; el primer mes se paga al entregar la web. Sin permanencia (aviso de 30 días).
+- Anual: 12 meses por el precio de ${MESES_PAGADOS_ANUAL}, sin activación.
+- Compra única (solo plan Básico): ${COMPRA_BASICO_FORMATTED}, 50% al comenzar y 50% al terminar o en hasta ${PAGO_CUOTAS} cuotas sin interés; desde el segundo año, ${RENOVACION_ANUAL_FORMATTED} al año por hosting, dominio y soporte.
 
 ## Demos
 

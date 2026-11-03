@@ -43,12 +43,12 @@ export function recomendarPlan(r: Respuestas): Recomendacion | null {
   let plan: PlanId = r.mostrar === 'pagina' ? 'basico' : r.mostrar === 'secciones' ? 'recomendado' : 'catalogo'
   if (r.google === true && plan === 'basico') plan = 'recomendado'
 
-  let pago: Pago = r.pago ?? 'unico'
+  let pago: Pago = r.pago ?? 'mensual'
   let nota: string | undefined
-  if (pago === 'mensual' && plan !== 'basico') {
-    pago = 'cuotas'
-    // shortcut: "3 cuotas" es PAGO_CUOTAS en lib/config.ts; el texto queda fijo aquí (no hay imports).
-    nota = 'El pago mensual es solo para el plan Básico; este plan lo puedes pagar en 3 cuotas sin interés.'
+  if (pago === 'unico' && plan !== 'basico') {
+    pago = 'anual'
+    // shortcut: "10 meses" es MESES_PAGADOS_ANUAL en lib/config.ts; el texto queda fijo aquí (no hay imports).
+    nota = 'La compra única es solo para el plan Básico; este plan lo puedes pagar al año: 12 meses por el precio de 10.'
   }
 
   return { plan, pago, razones: RAZONES[plan], nota }

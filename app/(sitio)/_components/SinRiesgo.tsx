@@ -1,10 +1,10 @@
 const GARANTIAS = [
   'Ver tu demo no cuesta nada.',
-  'Con el pago único, pagas la mitad al comenzar y la otra mitad al terminar.',
-  'En cuotas o mes a mes, pagas recién cuando te entregamos la web.',
+  'Mes a mes, al comenzar solo pagas la activación; el primer mes, cuando te entregamos la web. Sin permanencia.',
+  'Si pagas el año, pagas recién cuando te entregamos la web.',
 ]
 
-/** Las tres condiciones que hacen seguro decidir: nada se paga antes de ver. */
+/** Las tres condiciones que hacen seguro decidir: el demo es gratis y la mensualidad parte con la entrega. */
 export function SinRiesgo() {
   return (
     <div>

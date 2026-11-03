@@ -4,13 +4,13 @@
   alternates: { canonical: 'https://sitiazo.cl/terminos/' },
 }
 
-import { formatCLP, HOSTING_PRICE, PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, PLANS } from '@/lib/config'
+import { ACTIVACION_FORMATTED, COMPRA_BASICO_FORMATTED, MESES_PAGADOS_ANUAL, PAGO_CUOTAS, PLANS, RENOVACION_ANUAL_FORMATTED } from '@/lib/config'
 
 <article className="s-legal s-wrap pt-[calc(var(--s-nav-h)+48px)] pb-24 md:pt-[calc(var(--s-nav-h)+80px)]">
 
 # Términos y Condiciones
 
-**Última actualización**: Octubre 2026
+**Última actualización**: Noviembre 2026
 
 ---
 
@@ -46,13 +46,13 @@ El proceso estándar de trabajo con Sitiazo es:
 
 **3.4.** Aceptación de la propuesta por parte del cliente vía email o WhatsApp.
 
-**3.5.** Elección de la forma de pago (ver sección 4). En el pago único, se paga el 50% del valor del proyecto como anticipo y, recibido este pago, comienza oficialmente el desarrollo.
+**3.5.** Elección de la forma de pago (ver sección 4). En la mensualidad se paga la activación y, en la compra única en dos partes, el 50% del valor como anticipo; recibido ese pago, comienza oficialmente el desarrollo. En el pago anual y en la compra única en cuotas, el desarrollo comienza al aceptar la propuesta.
 
 **3.6.** Diseño y desarrollo dentro del plazo comprometido.
 
 **3.7.** Revisión y ajustes con el cliente.
 
-**3.8.** En el pago único, pago del 50% restante al terminar, antes de la publicación. En el pago en cuotas y en el plan mensual, el primer pago se hace al momento de la entrega.
+**3.8.** En la compra única en dos partes, pago del 50% restante al terminar, antes de la publicación. En la compra única en cuotas, la primera cuota se paga al momento de la entrega. En la mensualidad, el primer mes se paga al momento de la entrega; en el pago anual, el año completo se paga al momento de la entrega.
 
 **3.9.** Publicación del sitio en producción y entrega de accesos.
 
@@ -66,11 +66,11 @@ El proceso estándar de trabajo con Sitiazo es:
 
 **4.3.** Hay tres formas de pago:
 
-- **Pago único**: el valor del plan elegido, 50% al inicio y 50% al terminar, antes de la publicación.
-- **Pago en cuotas**: el valor del plan elegido en hasta {PAGO_CUOTAS} cuotas sin interés, con tarjeta de crédito a través de MercadoPago o en cuotas mensuales pagadas directamente a Sitiazo. La primera cuota se paga al momento de la entrega.
-- **Plan mensual** (solo plan Básico): {PAGO_MENSUAL_FORMATTED} CLP al mes (o el monto vigente al momento de la contratación), con hosting, dominio y ajustes de contenido incluidos. El primer mes se paga al momento de la entrega.
+- **Mensualidad** (todos los planes): el valor mensual del plan elegido (o el monto vigente al momento de la contratación), con hosting, dominio y ajustes de contenido incluidos, más una activación única de {ACTIVACION_FORMATTED} CLP al comenzar. El primer mes se paga al momento de la entrega. Sin permanencia.
+- **Pago anual** (todos los planes): 12 meses por el valor de {MESES_PAGADOS_ANUAL} mensualidades, sin activación. Se paga al momento de la entrega.
+- **Compra única** (solo plan Básico): {COMPRA_BASICO_FORMATTED} CLP, 50% al inicio y 50% al terminar, antes de la publicación, o en hasta {PAGO_CUOTAS} cuotas sin interés con tarjeta de crédito a través de MercadoPago, la primera al momento de la entrega. Desde el segundo año, {RENOVACION_ANUAL_FORMATTED} CLP al año por hosting, dominio y soporte.
 
-**4.4.** Con el pago único o en cuotas, el servicio de hosting mensual ({formatCLP(HOSTING_PRICE)} CLP/mes o el monto vigente al momento de la contratación) se cobra a través de suscripción recurrente y puede ser cancelado por el cliente en cualquier momento con 30 días de aviso. En el plan mensual, el hosting va incluido.
+**4.4.** La mensualidad se cobra de forma recurrente y el cliente puede cancelarla en cualquier momento con 30 días de aviso. El pago anual se renueva al cumplirse el año, salvo aviso con 30 días de anticipación. En la compra única, la renovación anual cubre hosting, dominio y soporte; si el cliente no la renueva, aplica la migración del punto 8.2.
 
 **4.5.** Sitiazo se reserva el derecho de actualizar precios para nuevos clientes en cualquier momento. Los clientes activos mantienen el precio acordado al momento de la contratación durante al menos 12 meses.
 
@@ -114,7 +114,7 @@ El proceso estándar de trabajo con Sitiazo es:
 
 **7.4.** El cliente garantiza que todo el contenido entregado a Sitiazo (imágenes, textos, logos, marcas) es de su propiedad o cuenta con los permisos necesarios para usarlo. Sitiazo no se hace responsable por reclamos de terceros sobre contenido provisto por el cliente.
 
-**7.5.** En el plan mensual, el sitio se mantiene publicado mientras la suscripción esté activa. Si el cliente la cancela, puede pasarse al pago único del plan correspondiente para quedarse con el sitio; la migración del punto 8.2 aplica una vez hecho ese pago.
+**7.5.** En la mensualidad y en el pago anual, el sitio se mantiene publicado mientras el servicio esté activo. Si el cliente lo cancela, se le entrega el contenido propio que haya aportado (textos, fotos y logo). En el plan Básico puede pasarse a la compra única para quedarse con el sitio; la migración del punto 8.2 aplica una vez hecho ese pago.
 
 ---
 
@@ -144,7 +144,7 @@ El proceso estándar de trabajo con Sitiazo es:
 - **Durante el desarrollo (primeros 3 días)**: reembolso del 50% de lo pagado.
 - **Durante el desarrollo (después del día 3)**: sin reembolso, pero el cliente recibe los archivos parciales del trabajo realizado hasta ese momento.
 
-En el pago en cuotas y en el plan mensual, el primer pago se hace en la entrega, así que cancelar antes no tiene costo.
+En la mensualidad, antes de la entrega solo se paga la activación, que se rige por las condiciones de arriba. En el pago anual todo se paga en la entrega, así que cancelar antes no tiene costo.
 
 **9.2.** Sitiazo se reserva el derecho de cancelar un proyecto en caso de incumplimiento del cliente (falta de pago, comportamiento abusivo, contenido ilegal o inapropiado). En ese caso, no procede reembolso.
 

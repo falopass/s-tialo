@@ -1,4 +1,4 @@
-import { cuotas, PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, PLAN_MENSUAL, PLANS } from '@/lib/config'
+import { ACTIVACION_FORMATTED, COMPRA_BASICO_FORMATTED, MESES_PAGADOS_ANUAL, PLAN_COMPRA, PLANS } from '@/lib/config'
 import { AccionPlan } from './AccionPlan'
 import { Enlace } from './Enlace'
 
@@ -27,12 +27,18 @@ export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
               <h3 className="text-lg font-semibold">{p.name}</h3>
               {p.id === recomendado.id && <span className="s-mono text-(--s-ceniza)">Más pedido</span>}
             </div>
-            <p className="s-display mt-4 text-[clamp(2.75rem,4vw,3.75rem)] leading-none">{p.priceFormatted}</p>
-            <p className="mt-2 text-sm text-(--s-crema-2)">
-              o {PAGO_CUOTAS} cuotas de {cuotas(p.price).montoFormatted} sin interés
+            <p className="s-display mt-4 text-[clamp(2.75rem,4vw,3.75rem)] leading-none">
+              {p.priceFormatted}
+              <span className="ml-1 font-sans text-base text-(--s-crema-2)">/mes</span>
             </p>
-            {p.id === PLAN_MENSUAL && (
-              <p className="mt-1 text-sm text-(--s-crema-2)">o {PAGO_MENSUAL_FORMATTED} al mes</p>
+            <p className="mt-2 text-sm text-(--s-crema-2)">
+              Hosting y dominio incluidos. {ACTIVACION_FORMATTED} de activación, sin permanencia.
+            </p>
+            <p className="mt-1 text-sm text-(--s-crema-2)">
+              o {p.annualFormatted} al año: 12 meses por {MESES_PAGADOS_ANUAL}
+            </p>
+            {p.id === PLAN_COMPRA && (
+              <p className="mt-1 text-sm text-(--s-crema-2)">o compra única de {COMPRA_BASICO_FORMATTED}</p>
             )}
             <p className="mt-3 text-(--s-crema-2)">
               {p.pages}. Lista en {p.deliveryLabel}.

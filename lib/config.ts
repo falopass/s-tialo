@@ -56,7 +56,7 @@ export const SITE = {
   url: getEnv('NEXT_PUBLIC_SITE_URL', 'https://sitiazo.cl'),
   tagline: 'Páginas web que sí venden.',
   description:
-    'Estudio de diseño web para pymes chilenas. Páginas que venden, listas en 7 días desde $79.990. Desde el Maule para todo Chile.',
+    'Estudio de diseño web para pymes chilenas. Páginas que venden, listas en 7 días desde $19.990 al mes con hosting y dominio incluidos. Desde el Maule para todo Chile.',
   shortDescription: 'Estudio de diseño web para pymes chilenas.',
   locale: 'es-CL',
   ogLocale: 'es_CL',
@@ -106,11 +106,11 @@ export function whatsappLink(context: WhatsAppContext = 'contacto'): string {
   // Dynamic messages that include plan prices (resolved at call time)
   const dynamicMessages: Record<string, () => string> = {
     basico: () =>
-      `Hola! Me interesa el plan Básico (${PLANS.basico.priceFormatted}). ¿Podemos conversar? 🟡`,
+      `Hola! Me interesa el plan Básico (${PLANS.basico.priceFormatted} al mes). ¿Podemos conversar? 🟡`,
     recomendado: () =>
-      `Hola! Me interesa el plan Recomendado (${PLANS.recomendado.priceFormatted}). ¿Podemos conversar? 🟡`,
+      `Hola! Me interesa el plan Recomendado (${PLANS.recomendado.priceFormatted} al mes). ¿Podemos conversar? 🟡`,
     catalogo: () =>
-      `Hola! Me interesa el plan Catálogo (${PLANS.catalogo.priceFormatted}). Quisiera más detalles 🟡`,
+      `Hola! Me interesa el plan Catálogo (${PLANS.catalogo.priceFormatted} al mes). Quisiera más detalles 🟡`,
   }
 
   const message =
@@ -132,10 +132,21 @@ export function siteUrl(path = ''): string {
 // PLAN PRICES (standalone constants)
 // ─────────────────────────────────────────────
 
-const PRICE_BASICO = 79_990
-const PRICE_RECOMENDADO = 129_990
-const PRICE_CATALOGO = 199_990
-export const HOSTING_PRICE = 9_990
+// Modelo de cobro (2026-11): mensualidad por plan, todo incluido y sin permanencia.
+// La compra única existe solo para el Básico y lleva renovación anual.
+const MENSUAL_BASICO = 19_990
+const MENSUAL_RECOMENDADO = 29_990
+const MENSUAL_CATALOGO = 44_990
+/** Activación única al contratar la mensualidad (no aplica con el pago anual). */
+export const ACTIVACION = 29_990
+export const ACTIVACION_FORMATTED = formatCLP(ACTIVACION)
+/** El pago anual adelantado cobra 10 mensualidades por 12 meses. */
+export const MESES_PAGADOS_ANUAL = 10
+/** Compra única del plan Básico y su renovación anual desde el segundo año. */
+export const COMPRA_BASICO = 179_990
+export const COMPRA_BASICO_FORMATTED = formatCLP(COMPRA_BASICO)
+export const RENOVACION_ANUAL = 59_990
+export const RENOVACION_ANUAL_FORMATTED = formatCLP(RENOVACION_ANUAL)
 
 // ─────────────────────────────────────────────
 // PLANS (single source of truth para precios)
@@ -148,10 +159,13 @@ export interface Plan {
   name: string
   tag: string
   badge?: string
+  /** Mensualidad del plan, con hosting, dominio y ajustes de contenido incluidos. */
   price: number
+  /** La mensualidad formateada, sin el "/mes" (p. ej. "$19.990"). */
   priceFormatted: string
-  hostingMonthly: number
-  hostingFormatted: string
+  /** Pago anual adelantado: 12 meses por MESES_PAGADOS_ANUAL mensualidades. */
+  annualPrice: number
+  annualFormatted: string
   deliveryDays: number
   deliveryLabel: string
   pages: string
@@ -167,10 +181,10 @@ export const PLANS: Record<PlanId, Plan> = {
     id: 'basico',
     name: 'Básico',
     tag: 'Para empezar',
-    price: PRICE_BASICO,
-    priceFormatted: formatCLP(PRICE_BASICO),
-    hostingMonthly: HOSTING_PRICE,
-    hostingFormatted: formatCLP(HOSTING_PRICE) + '/mes',
+    price: MENSUAL_BASICO,
+    priceFormatted: formatCLP(MENSUAL_BASICO),
+    annualPrice: MENSUAL_BASICO * MESES_PAGADOS_ANUAL,
+    annualFormatted: formatCLP(MENSUAL_BASICO * MESES_PAGADOS_ANUAL),
     deliveryDays: 7,
     deliveryLabel: '7 días hábiles',
     pages: '1 página',
@@ -190,10 +204,10 @@ export const PLANS: Record<PlanId, Plan> = {
     name: 'Recomendado',
     tag: 'Más pedido',
     badge: 'MÁS PEDIDO',
-    price: PRICE_RECOMENDADO,
-    priceFormatted: formatCLP(PRICE_RECOMENDADO),
-    hostingMonthly: HOSTING_PRICE,
-    hostingFormatted: formatCLP(HOSTING_PRICE) + '/mes',
+    price: MENSUAL_RECOMENDADO,
+    priceFormatted: formatCLP(MENSUAL_RECOMENDADO),
+    annualPrice: MENSUAL_RECOMENDADO * MESES_PAGADOS_ANUAL,
+    annualFormatted: formatCLP(MENSUAL_RECOMENDADO * MESES_PAGADOS_ANUAL),
     deliveryDays: 10,
     deliveryLabel: '10 días hábiles',
     pages: '5 páginas',
@@ -214,10 +228,10 @@ export const PLANS: Record<PlanId, Plan> = {
     id: 'catalogo',
     name: 'Catálogo',
     tag: 'Premium',
-    price: PRICE_CATALOGO,
-    priceFormatted: formatCLP(PRICE_CATALOGO),
-    hostingMonthly: HOSTING_PRICE,
-    hostingFormatted: formatCLP(HOSTING_PRICE) + '/mes',
+    price: MENSUAL_CATALOGO,
+    priceFormatted: formatCLP(MENSUAL_CATALOGO),
+    annualPrice: MENSUAL_CATALOGO * MESES_PAGADOS_ANUAL,
+    annualFormatted: formatCLP(MENSUAL_CATALOGO * MESES_PAGADOS_ANUAL),
     deliveryDays: 14,
     deliveryLabel: '14 días hábiles',
     pages: 'Hasta 10 páginas',
@@ -225,6 +239,7 @@ export const PLANS: Record<PlanId, Plan> = {
     features: [
       'Hasta 10 productos o servicios',
       'Fichas con foto y precio',
+      'Carrito: el pedido te llega por WhatsApp o con transferencia',
       'Filtros y búsqueda',
       'Cal.com integrado',
       'SEO local + Schema.org',
@@ -241,7 +256,8 @@ export const PLANS_ARRAY: Plan[] = [
   PLANS.catalogo,
 ]
 
-export const STARTING_PRICE = PLANS.basico.priceFormatted
+/** Precio de entrada, para frases tipo "desde $19.990 al mes". */
+export const STARTING_PRICE = `${PLANS.basico.priceFormatted} al mes`
 
 // ─────────────────────────────────────────────
 // EXTRAS
@@ -269,9 +285,7 @@ export const EXTRAS = [
 // FORMAS DE PAGO
 // ─────────────────────────────────────────────
 
-const PRICE_MENSUAL = 12_990
-export const PAGO_MENSUAL = PRICE_MENSUAL
-export const PAGO_MENSUAL_FORMATTED = formatCLP(PRICE_MENSUAL)
+/** Cuotas sin interés de la compra única. */
 export const PAGO_CUOTAS = 3
 
 /** Monto de cada cuota sin interés, redondeado hacia arriba al peso. */
@@ -280,8 +294,8 @@ export function cuotas(precio: number) {
   return { n: PAGO_CUOTAS, monto, montoFormatted: formatCLP(monto) }
 }
 
-/** El pago mensual solo existe para este plan. */
-export const PLAN_MENSUAL: PlanId = 'basico'
+/** La compra única solo existe para este plan; los demás van mensual o anual. */
+export const PLAN_COMPRA: PlanId = 'basico'
 
 export interface FormaPago {
   id: string
@@ -294,17 +308,22 @@ export interface FormaPago {
 export const FORMAS_PAGO: FormaPago[] = [
   {
     id: 'mensual',
-    nombre: 'Mensual, plan Básico',
-    precio: `${formatCLP(PRICE_MENSUAL)} / mes`,
-    detalle:
-      'Solo para el plan Básico. El primer mes se paga cuando te entregamos la web. Mes a mes, sin contrato: incluye hosting, dominio y los ajustes de contenido que necesites.',
+    nombre: 'Mensual',
+    precio: `desde ${formatCLP(MENSUAL_BASICO)} / mes`,
+    detalle: `Todo incluido: hosting, dominio y los ajustes de contenido que necesites. Activación de ${ACTIVACION_FORMATTED} al comenzar; el primer mes se paga cuando te entregamos la web. Sin permanencia: avisas con 30 días y listo.`,
     destacado: true,
   },
   {
+    id: 'anual',
+    nombre: 'Anual',
+    precio: `desde ${formatCLP(MENSUAL_BASICO * MESES_PAGADOS_ANUAL)} / año`,
+    detalle: `Pagas ${MESES_PAGADOS_ANUAL} meses y te llevas 12, sin activación. Incluye lo mismo que la mensualidad.`,
+  },
+  {
     id: 'unico',
-    nombre: 'Pago único',
-    precio: `desde ${formatCLP(PRICE_BASICO)}`,
-    detalle: `La página queda tuya. 50% para comenzar y 50% al terminar, o en hasta ${PAGO_CUOTAS} cuotas sin interés.`,
+    nombre: 'Compra única, plan Básico',
+    precio: `${COMPRA_BASICO_FORMATTED} + ${RENOVACION_ANUAL_FORMATTED} al año`,
+    detalle: `Solo para el plan Básico. 50% para comenzar y 50% al terminar, o en hasta ${PAGO_CUOTAS} cuotas sin interés. Desde el segundo año, ${RENOVACION_ANUAL_FORMATTED} al año por hosting, dominio y soporte.`,
   },
 ]
 

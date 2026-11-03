@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { cuotas, PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, PLAN_MENSUAL, PLANS, siteUrl } from '@/lib/config'
+import { ACTIVACION_FORMATTED, MESES_PAGADOS_ANUAL, PLANS, siteUrl } from '@/lib/config'
 import { breadcrumbJsonLd, JsonLd } from '@/lib/seo'
 import { catalogo } from '../../../demos/catalogo'
 import { calzaRubro, RUBROS, rubrosPublicados } from '@/content/rubros'
@@ -123,13 +123,16 @@ export default async function RubroPage({ params }: Props) {
           </div>
           <article className="rounded-3xl border border-(--s-amarillo) bg-(--s-tinta-2) p-7 md:p-10">
             <h3 className="text-lg font-semibold">Plan {plan.name}</h3>
-            <p className="s-display mt-4 text-[clamp(3rem,5vw,4.5rem)] leading-none">{plan.priceFormatted}</p>
-            <p className="mt-2 text-sm text-(--s-crema-2)">
-              o {PAGO_CUOTAS} cuotas de {cuotas(plan.price).montoFormatted} sin interés
+            <p className="s-display mt-4 text-[clamp(3rem,5vw,4.5rem)] leading-none">
+              {plan.priceFormatted}
+              <span className="ml-1 font-sans text-base text-(--s-crema-2)">/mes</span>
             </p>
-            {r.plan === PLAN_MENSUAL && (
-              <p className="mt-1 text-sm text-(--s-crema-2)">o {PAGO_MENSUAL_FORMATTED} al mes</p>
-            )}
+            <p className="mt-2 text-sm text-(--s-crema-2)">
+              Hosting y dominio incluidos. {ACTIVACION_FORMATTED} de activación, sin permanencia.
+            </p>
+            <p className="mt-1 text-sm text-(--s-crema-2)">
+              o {plan.annualFormatted} al año: 12 meses por {MESES_PAGADOS_ANUAL}
+            </p>
             <div className="mt-8">
               <AccionPlan plan={r.plan} primario />
             </div>
