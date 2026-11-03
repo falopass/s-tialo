@@ -5,7 +5,14 @@
  * Cada FAQ tiene un ID único para evitar duplicación.
  */
 
-import { PAGO_MENSUAL_FORMATTED, STARTING_PRICE, PAGO_CUOTAS, HOSTING_PRICE, formatCLP } from '@/lib/config'
+import {
+  ACTIVACION_FORMATTED,
+  COMPRA_BASICO_FORMATTED,
+  MESES_PAGADOS_ANUAL,
+  PAGO_CUOTAS,
+  RENOVACION_ANUAL_FORMATTED,
+  STARTING_PRICE,
+} from '@/lib/config'
 
 export interface FAQ {
   id: string
@@ -17,7 +24,7 @@ export const planFaqs: FAQ[] = [
   {
     id: 'plan-mensual',
     question: '¿Puedo pagar mes a mes?',
-    answer: `Sí, con el plan Básico: son ${PAGO_MENSUAL_FORMATTED} al mes (el primer mes se paga cuando te entregamos la web) e incluye hosting, dominio y los ajustes de contenido que necesites. Cualquier plan se puede pagar de una vez, desde ${STARTING_PRICE}, o en hasta ${PAGO_CUOTAS} cuotas sin interés.`,
+    answer: `Sí, todos los planes van mes a mes: desde ${STARTING_PRICE}, con hosting, dominio y los ajustes de contenido que necesites. Al comenzar se paga una activación de ${ACTIVACION_FORMATTED} y el primer mes se paga cuando te entregamos la web. No hay permanencia: si te vas, avisas con 30 días. Si pagas el año completo, son 12 meses por el precio de ${MESES_PAGADOS_ANUAL} y sin activación.`,
   },
   {
     id: 'plan-barato',
@@ -28,7 +35,7 @@ export const planFaqs: FAQ[] = [
   {
     id: 'plan-hosting',
     question: '¿Qué incluye el hosting?',
-    answer: `Con el pago único o en cuotas, el hosting cuesta ${formatCLP(HOSTING_PRICE)} al mes. Con el plan Básico mensual de ${PAGO_MENSUAL_FORMATTED} el hosting y el dominio van incluidos. Puedes usar tu dominio actual o te ayudamos a comprar uno.`,
+    answer: `En la mensualidad, el hosting y el dominio van incluidos. Si prefieres comprar el plan Básico (${COMPRA_BASICO_FORMATTED}, en hasta ${PAGO_CUOTAS} cuotas sin interés), desde el segundo año se pagan ${RENOVACION_ANUAL_FORMATTED} al año por hosting, dominio y soporte. Puedes usar tu dominio actual o te ayudamos a comprar uno.`,
   },
   {
     id: 'plan-cambiar',
@@ -75,7 +82,7 @@ export const generalFaqs: FAQ[] = [
   {
     id: 'general-pago-etapas',
     question: '¿Puedo pagar en etapas?',
-    answer: `Sí. Con el pago único, pagas 50% para comenzar y 50% al terminar. También puedes pagar el plan en hasta ${PAGO_CUOTAS} cuotas sin interés, o, en el plan Básico, mes a mes por ${PAGO_MENSUAL_FORMATTED}; en esos dos casos el primer pago se hace cuando te entregamos la web.`,
+    answer: `Sí. En la mensualidad pagas la activación de ${ACTIVACION_FORMATTED} al comenzar y el primer mes cuando te entregamos la web. Si compras el plan Básico, pagas 50% para comenzar y 50% al terminar, o en hasta ${PAGO_CUOTAS} cuotas sin interés.`,
   },
   {
     id: 'general-contenido',

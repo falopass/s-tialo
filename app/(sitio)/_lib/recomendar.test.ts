@@ -14,10 +14,10 @@ test('sin responder qué mostrar no hay recomendación', () => {
   assert.equal(recomendarPlan({ google: true, pago: 'unico' }), null)
 })
 
-test('una página recomienda el plan Básico', () => {
+test('una página recomienda el plan Básico, mensual por defecto', () => {
   const r = recomendarPlan({ mostrar: 'pagina' })
   assert.equal(r?.plan, 'basico')
-  assert.equal(r?.pago, 'unico')
+  assert.equal(r?.pago, 'mensual')
 })
 
 test('una página + aparecer en Google sube al Recomendado', () => {
@@ -30,16 +30,16 @@ test('productos con foto y precio recomienda el Catálogo', () => {
   assert.equal(plan({ mostrar: 'productos' }), 'catalogo')
 })
 
-test('secciones con pago mensual cae a cuotas, con nota', () => {
-  const r = recomendarPlan({ mostrar: 'secciones', pago: 'mensual' })
+test('secciones con compra única cae a anual, con nota', () => {
+  const r = recomendarPlan({ mostrar: 'secciones', pago: 'unico' })
   assert.equal(r?.plan, 'recomendado')
-  assert.equal(r?.pago, 'cuotas')
-  assert.equal(r?.nota, 'El pago mensual es solo para el plan Básico; este plan lo puedes pagar en 3 cuotas sin interés.')
+  assert.equal(r?.pago, 'anual')
+  assert.equal(r?.nota, 'La compra única es solo para el plan Básico; este plan lo puedes pagar al año: 12 meses por el precio de 10.')
 })
 
-test('una página con pago mensual sí queda mensual', () => {
-  const r = recomendarPlan({ mostrar: 'pagina', pago: 'mensual' })
+test('una página con compra única sí queda en compra única', () => {
+  const r = recomendarPlan({ mostrar: 'pagina', pago: 'unico' })
   assert.equal(r?.plan, 'basico')
-  assert.equal(r?.pago, 'mensual')
+  assert.equal(r?.pago, 'unico')
   assert.equal(r?.nota, undefined)
 })

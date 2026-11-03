@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, SITE, STARTING_PRICE, siteUrl } from '@/lib/config'
+import { MESES_PAGADOS_ANUAL, SITE, STARTING_PRICE, siteUrl } from '@/lib/config'
 import { BIZ, RANCHO } from '../rancho-itahue/content'
 import { catalogo } from '../demos/catalogo'
 import { BotonDemo } from './_components/BotonDemo'
@@ -50,7 +50,7 @@ const PASOS = [
     titulo: 'Si te gusta, la publicamos en 7 días.',
     antes: 'Si te gusta, publicamos la web de ',
     despues: ' en 7 días.',
-    texto: `Desde ${STARTING_PRICE} pago único o en ${PAGO_CUOTAS} cuotas sin interés. El plan Básico también va por ${PAGO_MENSUAL_FORMATTED} al mes con hosting y dominio.`,
+    texto: `Desde ${STARTING_PRICE} con hosting, dominio y ajustes incluidos, sin permanencia. Si pagas el año, son 12 meses por el precio de ${MESES_PAGADOS_ANUAL}.`,
   },
 ]
 

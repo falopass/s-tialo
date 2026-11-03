@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
 import { PLANS } from '@/lib/config'
-import { linkDemo, textoPago, type Pago } from '../_lib/contacto'
+import { linkDemo, textoPago, type Pago, precioPrincipal } from '../_lib/contacto'
 import { medirWhatsApp } from '../_lib/medir'
 import { useNegocio } from '../_lib/negocio'
 import { recomendarPlan, type Respuestas } from '../_lib/recomendar'
@@ -22,9 +22,9 @@ const GOOGLE: { valor: boolean; etiqueta: string }[] = [
 ]
 
 const PAGO: { valor: Pago; etiqueta: string }[] = [
-  { valor: 'unico', etiqueta: 'De una vez' },
-  { valor: 'cuotas', etiqueta: 'En cuotas' },
   { valor: 'mensual', etiqueta: 'Mes a mes' },
+  { valor: 'anual', etiqueta: 'Un pago al año' },
+  { valor: 'unico', etiqueta: 'Comprarla de una vez' },
 ]
 
 /**
@@ -100,7 +100,9 @@ export function CualTeConviene() {
               <p className="s-display text-[clamp(2.2rem,4vw,3.25rem)] leading-none">
                 Te conviene el plan <em>{plan.name}.</em>
               </p>
-              <p className="s-display mt-6 text-[clamp(2.25rem,4vw,3.25rem)] leading-none">{plan.priceFormatted}</p>
+              <p className="s-display mt-6 text-[clamp(2.25rem,4vw,3.25rem)] leading-none">
+                {precioPrincipal(resultado.plan, resultado.pago)}
+              </p>
               <p className="mt-3 text-(--s-crema-2)">{textoPago(resultado.plan, resultado.pago)}</p>
               <ul className="mt-6 grid gap-2.5 text-(--s-crema-2)">
                 {resultado.razones.map((t) => (

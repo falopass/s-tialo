@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import {
   EXTRAS,
   MARCA,
-  PAGO_CUOTAS,
-  PAGO_MENSUAL_FORMATTED,
+  ACTIVACION_FORMATTED,
+  COMPRA_BASICO_FORMATTED,
+  MESES_PAGADOS_ANUAL,
   PLANS,
   PLANS_ARRAY,
   SITE,
@@ -19,7 +20,7 @@ import { Planes } from '../_components/Planes'
 import { Preguntas } from '../_components/Preguntas'
 import { SinRiesgo } from '../_components/SinRiesgo'
 
-const DESCRIPCION = `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE}, mensual o pago único, sin letras chicas ni sorpresas.`
+const DESCRIPCION = `Cuánto cuesta una página web para pyme en Chile: planes de diseño web desde ${STARTING_PRICE} con hosting y dominio incluidos, sin permanencia ni letras chicas.`
 
 export const metadata: Metadata = {
   title: 'Planes y precios de páginas web para pymes',
@@ -39,7 +40,7 @@ const planesServiceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Planes de diseño web de Sitiazo.cl',
-  description: `Planes de diseño web para pymes chilenas. Mensual desde ${PAGO_MENSUAL_FORMATTED} o pago único desde ${STARTING_PRICE}.`,
+  description: `Planes de diseño web para pymes chilenas, desde ${STARTING_PRICE} con hosting y dominio incluidos.`,
   url: siteUrl('/planes/'),
   itemListElement: PLANS_ARRAY.map((plan, i) => ({
     '@type': 'ListItem',
@@ -58,6 +59,13 @@ const planesServiceJsonLd = {
         '@type': 'Offer',
         price: plan.price.toString(),
         priceCurrency: 'CLP',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: plan.price.toString(),
+          priceCurrency: 'CLP',
+          unitCode: 'MON',
+          unitText: 'mes',
+        },
         availability: 'https://schema.org/InStock',
         description: `${plan.name}: ${plan.pages}, entrega en ${plan.deliveryDays} días hábiles`,
       },
@@ -117,7 +125,7 @@ export default function PlanesPage() {
             Planes claros, <em>sin letra chica.</em>
           </>
         }
-        bajada={`Pago único desde ${STARTING_PRICE}, en hasta ${PAGO_CUOTAS} cuotas sin interés, o el plan Básico mes a mes por ${PAGO_MENSUAL_FORMATTED}. El demo siempre es gratis.`}
+        bajada={`Desde ${STARTING_PRICE} con hosting, dominio y ajustes incluidos. ${ACTIVACION_FORMATTED} de activación y sin permanencia, o 12 meses por el precio de ${MESES_PAGADOS_ANUAL}. El Básico también se puede comprar por ${COMPRA_BASICO_FORMATTED}. El demo siempre es gratis.`}
       />
 
       <section className="s-wrap pb-20 md:pb-24">

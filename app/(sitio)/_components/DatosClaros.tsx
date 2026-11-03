@@ -1,4 +1,4 @@
-import { PAGO_CUOTAS, PAGO_MENSUAL_FORMATTED, PLANS, STARTING_PRICE } from '@/lib/config'
+import { ACTIVACION_FORMATTED, MESES_PAGADOS_ANUAL, PLANS, STARTING_PRICE } from '@/lib/config'
 
 /**
  * Ficha con los hechos del servicio: el dato grande en la serif y la frase que lo explica abajo.
@@ -9,12 +9,12 @@ const FILAS: { etiqueta: string; valor: string; detalle: string }[] = [
   {
     etiqueta: 'Precio',
     valor: `Desde ${STARTING_PRICE}`,
-    detalle: `Pago único. El plan Básico también va por ${PAGO_MENSUAL_FORMATTED} al mes, con hosting y dominio.`,
+    detalle: 'Mensualidad con hosting, dominio y ajustes de contenido incluidos.',
   },
   {
     etiqueta: 'Pago',
-    valor: `${PAGO_CUOTAS} cuotas sin interés`,
-    detalle: 'O pago único: la mitad al comenzar y la otra mitad al terminar.',
+    valor: 'Sin permanencia',
+    detalle: `${ACTIVACION_FORMATTED} de activación y avisas con 30 días si te vas. Pagando el año, 12 meses por ${MESES_PAGADOS_ANUAL} y sin activación.`,
   },
   {
     etiqueta: 'Plazo',
