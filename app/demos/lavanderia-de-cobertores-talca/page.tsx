@@ -122,7 +122,7 @@ function SitiazoStrip({ dark = false }: { dark?: boolean }) {
       <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: dark ? '#7FC5E8' : C.azulBajo }}>
         Sitiazo
       </a>{' '}
-      — sitios para pymes desde $79.990.{' '}
+      — sitios para pymes desde $19.990.{' '}
       <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-bold underline underline-offset-2" style={{ color: dark ? '#7FC5E8' : C.azulBajo }}>
         Pide la tuya
       </a>
