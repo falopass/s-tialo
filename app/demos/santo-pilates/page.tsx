@@ -144,13 +144,13 @@ export default function SantoPilates() {
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(180deg, rgba(20,26,21,0.55) 0%, rgba(20,26,21,0.15) 38%, rgba(20,26,21,0.82) 100%)',
+                'linear-gradient(180deg, rgba(20,26,21,0.78) 0%, rgba(20,26,21,0.3) 42%, rgba(20,26,21,0.9) 100%)',
             }}
           />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-16 pt-40 sm:pb-24">
-          <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.32em]" style={{ color: C.sage }}>
+          <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.32em]" style={{ color: 'rgba(244,241,232,0.92)' }}>
             Estudio de pilates · Chillán
           </p>
           <h1
