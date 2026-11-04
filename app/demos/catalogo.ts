@@ -3785,6 +3785,12 @@ const BLITZ: Blitz[] = [
     rubro: 'Obras sanitarias, agua potable y vialidad',
     city: 'Laja',
   },
+  {
+    slug: 'casa-espacio-luz',
+    name: 'Casa Espacio Luz',
+    rubro: 'Centro de eventos',
+    city: 'Chillán',
+  },
 ]
 
 const FAMILIAS: Familia[] = [
