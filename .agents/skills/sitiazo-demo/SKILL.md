@@ -68,3 +68,20 @@ Cambiar `blitz-kit.tsx`, `kit.tsx`, `meta.ts`, `layout.tsx`, `lazy-map.tsx`, `li
 - En tarjetas clicables grandes (filtros, categorías), usa `role="button"` con `tabIndex` en vez de `<a>` o `<button>` gigante, porque el medidor de botones las cuenta como botón.
 - `AvisoMuestra` aparece sola en cada demo, salvo en `/demos/` y en `/demos/rancho-itahue`. Rancho Itahue es la web final de un cliente: trátala como sitio publicado.
 - Los demos se enlazan desde el sitio con `<a>` (carga completa), así que un demo nunca hereda estilos del sitio principal.
+
+## Movimiento: impresionar en la primera visita (Diego, 4-11-2026)
+
+- Cada demo nuevo lleva **al menos una animación propia y distinta** a la de los demás demos, y se nota en los primeros segundos sin hacer scroll.
+- Vale todo lo que sume carácter: parallax suave en el hero, títulos que entran por líneas, contadores, marquesina de fotos, revelado escalonado, un divisor que se dibuja al bajar. La animación debe tener motivo (la luz, el arco, la mesa, la música), no ser adorno.
+- Reglas técnicas: solo `transform` y `opacity`; nada que mueva layout. Respeta `prefers-reduced-motion`. En 390 px la animación no puede causar desborde ni tapar texto.
+- No repetir la misma animación entre demos seguidos: si el anterior usó parallax, este usa otra cosa.
+- Antes de publicar, mirar la página en el celular y confirmar que la animación se ve, no solo que existe en el código.
+
+## El estándar de ahora: cada demo, un encargo propio (Diego, 4-11-2026)
+
+- El piso es `tipico-de-la-claudia`. Si un demo nuevo no se siente a ese nivel, no está listo para enviarse.
+- Cada demo nace de un brief escrito: datos reales verificados, fotos elegidas a mano, dirección de arte propia (paleta, tipografía, motivo) y una animación distintiva.
+- Nada de plantilla: dos demos seguidos no pueden compartir layout ni animación. Si se parecen, se rehace uno.
+- El brief se guarda junto al encargo, con la plantilla `brief-template.md`.
+- Flujo: Devin `swe-2-max` para el demo estrella y `swe-2-high` para el resto, en las instabox; PC2 baja las fotos e integra; el notebook solo revisa y envía.
+- Antes de enviar: captura a 390 px, cero desborde, contraste, y mirarla como la vería el dueño del negocio.
