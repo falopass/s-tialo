@@ -37,6 +37,12 @@ const CREADOS: Record<string, string> = creados
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ: Blitz[] = [
   {
+    slug: 'jc-all-quick-wash',
+    name: 'Lavado de Autos JC All Quick Wash',
+    rubro: 'Lavado de autos',
+    city: 'Temuco',
+  },
+  {
     slug: 'santo-pilates',
     name: 'Santo Pilates',
     rubro: 'Estudio de Pilates',
