@@ -326,9 +326,13 @@ Link: https://sitiazo.cl (o el wa.me directo con mensaje)
 - demo-*: "Le armamos la web a {negocio} antes de que pagara un peso. Así se ven los demos de Sitiazo: tu negocio puede tener el suyo esta semana. Pide el tuyo por WhatsApp, link en la bio."
 - proceso-*: "Así trabajamos: primero la estructura, después la forma, y publicada. Tu demo llega por WhatsApp antes de que pagues."
 - ficha: "Sin letra chica: desde $19.990 al mes, con hosting, dominio y cambios incluidos. Puedes pagar mes a mes o anual (12 meses al precio de 10). El demo es gratis y llega por WhatsApp."
+- oferta: "Oferta de lanzamiento: hasta el 15 de noviembre no pagas activación ($29.990). El primer mes lo pagas recién cuando te entregamos tu web. Después, desde $19.990 al mes con hosting, dominio y cambios incluidos. El demo es gratis y llega por WhatsApp antes de que decidas." La oferta vence el 15-11-2026; el sitio sigue mostrando $29.990 de activación, por eso el pie nombra el valor estándar. Retirar o reemplazar esta pieza después de esa fecha.
 - rubro-*: "Demos reales para {rubro}. Busca el tuyo entre los 624 demos publicados en sitiazo.cl/demos."
-- caso-rancho: "Rancho Itahue ya tiene su web: ranchoitahue.cl. El tuyo puede estar listo pasado mañana."
-- historia-*: "Tu web antes de pagar un peso. Pide tu demo por WhatsApp."
+- caso-rancho: "Rancho Itahue ya tiene su web: ranchoitahue.cl. La tuya puede estar lista en pocos días."
+- historia-oferta (hasta el 15-11-2026): sin pie. La imagen ya dice "$0 de activación, en vez de $29.990". Programada para el 13 y el 15 de noviembre.
+- historia-pasos: sin pie. Los tres pasos van en la imagen.
+- historia-rancho / historia-*: "Tu web antes de pagar un peso. Pide tu demo por WhatsApp."
+- portada-facebook (1640×624) y destacada-* (1080×1920): sin pie; son imágenes de perfil.
 
 ## Hashtags base
 #diseñoweb #paginasweb #pymes #pymeschile #emprendedoreschile #curico #talca #maule #negocioonline
