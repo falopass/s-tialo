@@ -434,7 +434,7 @@ export default function Page() {
         </Reveal>
         <Reveal delay={80}>
           <p className="mt-4 text-[15px] md:text-base max-w-[52ch] mx-auto" style={{ color: C.muted }}>
-            Sitiazo diseña sitios para pymes del Maule desde $79.990. Este es un mockup hecho con la información pública de {BIZ.short}.
+            Sitiazo diseña sitios para pymes del Maule desde $19.990. Este es un mockup hecho con la información pública de {BIZ.short}.
           </p>
         </Reveal>
         <Reveal delay={140}>

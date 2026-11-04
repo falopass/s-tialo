@@ -390,7 +390,7 @@ export default function Page() {
             </div>
           </div>
           <p className="text-[11px] leading-snug" style={{ color: 'rgba(250,246,239,0.6)' }}>
-            Mockup de muestra realizado por Sitiazo — sitios web para pymes desde $79.990.
+            Mockup de muestra realizado por Sitiazo — sitios web para pymes desde $19.990.
           </p>
         </div>
       </footer>

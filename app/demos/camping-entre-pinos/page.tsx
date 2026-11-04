@@ -375,7 +375,7 @@ export default function CampingEntrePinosPage() {
             </div>
           </div>
           <p className={`${mono.className} mt-3 text-[10px]`} style={{ color: 'rgba(243,236,218,0.5)' }}>
-            {BIZ.sernatur} · {BIZ.fbFollowers} seguidores en Facebook · Demo de Sitiazo — tu sitio así, desde $79.990.
+            {BIZ.sernatur} · {BIZ.fbFollowers} seguidores en Facebook · Demo de Sitiazo — tu sitio así, desde $19.990.
           </p>
         </div>
       </footer>
