@@ -127,9 +127,9 @@ ${pie}`)
 
 // 2. El proceso en carrusel: estructura (ASCII) → forma (dither) → publicada (color).
 const PROCESO = [
-  { n: '01', titulo: 'Primero, <em>la estructura.</em>', telHtml: tel('pre', 'left: 340px; top: 430px; width: 400px; height: 840px', '<pre data-ascii></pre>'), js: asciiDe('los-leones') },
-  { n: '02', titulo: 'Después, <em>la forma.</em>', telHtml: tel('dither', 'left: 340px; top: 430px; width: 400px; height: 840px', imgDither('los-leones')) },
-  { n: '03', titulo: 'Y <em>publicada.</em>', telHtml: tel('color', 'left: 340px; top: 430px; width: 400px; height: 840px; box-shadow: 0 40px 90px rgb(0 0 0 / 0.6)', imgTel('los-leones')) },
+  { n: '01', titulo: 'Primero, <em>la estructura.</em>', telHtml: tel('pre', 'left: 340px; top: 430px; width: 400px; height: 840px', '<pre data-ascii></pre>'), js: asciiDe('rancho-movil') },
+  { n: '02', titulo: 'Después, <em>la forma.</em>', telHtml: tel('dither', 'left: 340px; top: 430px; width: 400px; height: 840px', imgDither('rancho-movil')) },
+  { n: '03', titulo: 'Y <em>publicada.</em>', telHtml: tel('color', 'left: 340px; top: 430px; width: 400px; height: 840px; box-shadow: 0 40px 90px rgb(0 0 0 / 0.6)', imgTel('rancho-movil')) },
 ]
 PROCESO.forEach((p, i) => {
   feed(`proceso-${i + 1}`, `
@@ -144,19 +144,19 @@ ${pie}`, p.js)
 feed('ficha', `
 ${logo}
 <h1 style="top: 190px">Lo esencial, <em>en una ficha.</em></h1>
-<div class="celda" style="left: 72px; top: 480px; width: 440px">
-  <p class="label">Precio</p><p class="valor">Desde $79.990</p>
-  <p class="detalle">Pago único o mensual, según el plan.</p>
+<div class="celda" style="left: 72px; top: 400px; width: 440px">
+  <p class="label">Precio</p><p class="valor">Desde $19.990</p>
+  <p class="detalle">Al mes. Hosting, dominio y cambios incluidos.</p>
 </div>
-<div class="celda" style="left: 568px; top: 480px; width: 440px">
-  <p class="label">Pago</p><p class="valor">3 cuotas</p>
-  <p class="detalle">Sin interés. O $12.990 al mes en el Básico.</p>
+<div class="celda" style="left: 568px; top: 400px; width: 440px">
+  <p class="label">Pago</p><p class="valor">Mes a mes</p>
+  <p class="detalle">O anual: 12 meses al precio de 10.</p>
 </div>
-<div class="celda" style="left: 72px; top: 850px; width: 440px">
+<div class="celda" style="left: 72px; top: 780px; width: 440px">
   <p class="label">Plazo</p><p class="valor">7 días</p>
   <p class="detalle">Hábiles. Hasta 14 según el plan.</p>
 </div>
-<div class="celda" style="left: 568px; top: 850px; width: 440px">
+<div class="celda" style="left: 568px; top: 780px; width: 440px">
   <p class="label">Demo</p><p class="valor">Gratis</p>
   <p class="detalle">Por WhatsApp, antes de pagar.</p>
 </div>
@@ -209,6 +209,82 @@ ${tel('color', 'left: 290px; top: 560px; width: 500px; height: 1082px; box-shado
 ${pie.replace('pide tu demo · link en bio', 'demo gratis · antes de pagar')}`)
 }
 
+// 6b. Historia con el caso propio (Rancho Itahue es de Diego): no nombra a negocios ajenos.
+historia('historia-rancho', `
+${logo}
+<h1 style="top: 190px; font-size: 96px">Tu web, antes de pagar <em>un peso.</em></h1>
+${tel('color', 'left: 290px; top: 500px; width: 500px; height: 1082px; box-shadow: 0 50px 110px rgb(0 0 0 / 0.6)', imgTel('rancho-movil'))}
+<p style="position: absolute; left: 72px; right: 72px; bottom: 210px; text-align: center; font: 400 64px Cormorant, serif">Pide tu demo gratis</p>
+<p style="position: absolute; left: 72px; right: 72px; bottom: 150px; text-align: center; font: 400 24px GeistMono, monospace; color: #8a867c">Desde $19.990 al mes · link en la bio</p>
+${pie.replace('pide tu demo · link en bio', 'demo gratis · antes de pagar')}`)
+
+// 6c. Oferta de lanzamiento (vigente hasta el 15 de noviembre de 2026).
+feed('oferta', `
+${logo}
+<p class="eyebrow">oferta de lanzamiento</p>
+<h1 style="top: 200px">Hasta el 15 de noviembre, <em>sin pagar activación.</em></h1>
+<div class="celda" style="left: 72px; top: 470px; width: 440px">
+  <p class="label">Activación</p><p class="valor" style="color: #f5c400; font-variant-numeric: lining-nums">$0</p>
+  <p class="detalle">En vez de $29.990.</p>
+</div>
+<div class="celda" style="left: 568px; top: 470px; width: 440px">
+  <p class="label">Primer mes</p><p class="valor">Al recibir tu web</p>
+  <p class="detalle">Pagas recién cuando te la entregamos.</p>
+</div>
+<div class="celda" style="left: 72px; top: 830px; width: 440px">
+  <p class="label">Después</p><p class="valor">Desde $19.990</p>
+  <p class="detalle">Al mes. Hosting, dominio y cambios incluidos.</p>
+</div>
+<div class="celda" style="left: 568px; top: 830px; width: 440px">
+  <p class="label">Demo</p><p class="valor">Gratis</p>
+  <p class="detalle">Por WhatsApp, antes de decidir.</p>
+</div>
+${pie}`)
+
+historia('historia-oferta', `
+${logo}
+<p class="eyebrow" style="top: 160px">oferta de lanzamiento</p>
+<h1 style="top: 260px; font-size: 104px">Hasta el 15 de noviembre, <em>sin pagar activación.</em></h1>
+<p style="position: absolute; left: 72px; top: 820px; font: 400 360px/1 Cormorant, serif; font-variant-numeric: lining-nums; color: #f5c400">$0</p>
+<p style="position: absolute; left: 72px; top: 1180px; width: 880px; font: 400 34px/1.4 GeistMono, monospace; color: #b9b5aa">de activación, en vez de $29.990. El primer mes lo pagas recién cuando te entregamos tu web.</p>
+<p style="position: absolute; left: 72px; right: 72px; bottom: 210px; text-align: center; font: 400 64px Cormorant, serif">Pide tu demo gratis</p>
+<p style="position: absolute; left: 72px; right: 72px; bottom: 150px; text-align: center; font: 400 24px GeistMono, monospace; color: #8a867c">Desde $19.990 al mes · link en la bio</p>
+${pie.replace('pide tu demo · link en bio', 'demo gratis · antes de pagar')}`)
+
+// 6d. Cómo se pide el demo, en tres pasos.
+historia('historia-pasos', `
+${logo}
+<p class="eyebrow" style="top: 160px">cómo funciona</p>
+<h1 style="top: 260px; font-size: 104px">Así pides <em>tu demo.</em></h1>
+${[['01', 'Escríbenos por WhatsApp y cuéntanos de tu negocio.'], ['02', 'Te enviamos un demo de tu web, gratis.'], ['03', 'Si te gusta, la publicamos.']].map(([n, t], i) => `
+<div class="celda" style="left: 72px; top: ${640 + i * 300}px; width: 936px">
+  <p class="label">paso ${n}</p><p class="valor" style="font-size: 62px; line-height: 1.05">${t}</p>
+</div>`).join('')}
+<p style="position: absolute; left: 72px; right: 72px; bottom: 150px; text-align: center; font: 400 24px GeistMono, monospace; color: #8a867c">link en la bio</p>
+${pie.replace('pide tu demo · link en bio', 'demo gratis · antes de pagar')}`)
+
+// 6e. Portada de la página de Facebook (1640×624), zona segura al centro-izquierda.
+tarjetas.push({
+  nombre: 'portada-facebook',
+  w: 1640,
+  h: 624,
+  inner: `
+${logo}
+<h1 style="top: 190px; font-size: 96px; width: 900px">Tu web, antes de pagar <em>un peso.</em></h1>
+<p class="sub" style="top: 500px; font-size: 26px">Demo gratis por WhatsApp · Desde $19.990 al mes</p>
+${tel('dither', 'left: 1010px; top: 130px; width: 250px; height: 540px', imgDither('rancho-movil'))}
+${tel('color', 'left: 1290px; top: 60px; width: 270px; height: 584px; box-shadow: 0 40px 90px rgb(0 0 0 / 0.6)', imgTel('rancho-movil'))}`,
+})
+
+// 6f. Portadas de historias destacadas (1080×1920; el círculo recorta el centro).
+for (const w of ['demos', 'precios', 'pasos', 'casos']) {
+  historia(`destacada-${w}`, `
+<p style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 44px">
+  <span class="punto" style="width: 36px; height: 36px"></span>
+  <span style="font: italic 400 220px/1 Cormorant, serif">${w}</span>
+</p>`)
+}
+
 // 7. Foto de perfil 1080×1080: la marca en su mínimo.
 tarjetas.push({
   nombre: 'perfil',
@@ -241,7 +317,7 @@ writeFileSync(
 ## Bio sugerida
 Tu web antes de pagar un peso.
 Demo gratis por WhatsApp.
-Desde $79.990, lista en 7 días.
+Desde $19.990 al mes.
 Desde el Maule para todo Chile.
 
 Link: https://sitiazo.cl (o el wa.me directo con mensaje)
@@ -249,7 +325,7 @@ Link: https://sitiazo.cl (o el wa.me directo con mensaje)
 ## Pies de foto
 - demo-*: "Le armamos la web a {negocio} antes de que pagara un peso. Así se ven los demos de Sitiazo: tu negocio puede tener el suyo esta semana. Pide el tuyo por WhatsApp, link en la bio."
 - proceso-*: "Así trabajamos: primero la estructura, después la forma, y publicada. Tu demo llega por WhatsApp antes de que pagues."
-- ficha: "Sin letra chica: desde $79.990, hasta 3 cuotas sin interés o $12.990 al mes en el plan Básico. El demo es gratis y llega por WhatsApp."
+- ficha: "Sin letra chica: desde $19.990 al mes, con hosting, dominio y cambios incluidos. Puedes pagar mes a mes o anual (12 meses al precio de 10). El demo es gratis y llega por WhatsApp."
 - rubro-*: "Demos reales para {rubro}. Busca el tuyo entre los 624 demos publicados en sitiazo.cl/demos."
 - caso-rancho: "Rancho Itahue ya tiene su web: ranchoitahue.cl. El tuyo puede estar listo pasado mañana."
 - historia-*: "Tu web antes de pagar un peso. Pide tu demo por WhatsApp."
