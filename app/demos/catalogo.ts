@@ -60,6 +60,7 @@ const BLITZ: Blitz[] = [
     rubro: 'Electricista',
     city: 'Rancagua',
   },
+  { slug: 'electricista-los-lagos', name: 'Marco Pozo · Electricista Puerto Montt', rubro: 'Electricista', city: 'Puerto Montt' },
   {
     slug: 'domos-borde-rio',
     name: 'Domos Borde Río',
