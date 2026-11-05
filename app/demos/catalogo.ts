@@ -37,6 +37,18 @@ const CREADOS: Record<string, string> = creados
 // Mockups personalizados para leads reales (carpeta propia en /demos).
 const BLITZ: Blitz[] = [
   {
+    slug: 'tecnicool',
+    name: 'Tecnicool',
+    rubro: 'Climatización',
+    city: 'Puerto Montt',
+  },
+  {
+    slug: 'zerok',
+    name: 'ZÉROK Refrigeración & Climatización',
+    rubro: 'Refrigeración',
+    city: 'Osorno',
+  },
+  {
     slug: 'electricista-sec-rancagua',
     name: 'Electricista certificado SEC Rancagua',
     rubro: 'Electricista',
