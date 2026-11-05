@@ -44,7 +44,7 @@ const C = {
   pozo: '#0D1216',
   niebla: '#E6EAEC',
   cobre: '#C77A3E',
-  cobreTxt: '#9A5A26', // cobre oscuro: el único que llega a 4.5:1 sobre niebla
+  cobreTxt: '#8C4F20', // cobre oscuro: pasa 4.5:1 sobre niebla y gris claro
   amar: '#F2C230',
   verde: '#3E8E5A',
   verdeTxt: '#69B383', // verde claro para texto chico sobre pizarra
@@ -912,7 +912,7 @@ export default function ElectricistaLosLagosPage() {
                     className="grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] gap-3 py-2.5 border-t items-baseline"
                     style={{ borderColor: 'rgba(18,23,28,0.16)' }}
                   >
-                    <dt className={`${mono.className} text-[10px] uppercase tracking-[0.18em]`} style={{ color: 'rgba(18,23,28,0.6)' }}>
+                    <dt className={`${mono.className} text-[10px] uppercase tracking-[0.18em]`} style={{ color: 'rgba(18,23,28,0.72)' }}>
                       {f.k}
                     </dt>
                     <dd
@@ -935,8 +935,8 @@ export default function ElectricistaLosLagosPage() {
                 ))}
               </dl>
               <p
-                className={`${mono.className} mt-5 text-[9px] uppercase tracking-[0.2em] text-right`}
-                style={{ color: 'rgba(18,23,28,0.5)' }}
+                className={`${mono.className} mt-5 text-[10px] uppercase tracking-[0.2em] text-right`}
+                style={{ color: 'rgba(18,23,28,0.65)' }}
               >
                 Datos de su perfil público · 2x3.cl
               </p>
@@ -1010,7 +1010,7 @@ export default function ElectricistaLosLagosPage() {
                     />
                   </div>
                 </div>
-                <figcaption className={`${mono.className} mt-2.5 text-[9px] md:text-[10px] uppercase tracking-[0.18em] leading-relaxed`} style={{ color: 'rgba(18,23,28,0.6)' }}>
+                <figcaption className={`${mono.className} mt-2.5 text-[10px] uppercase tracking-[0.18em] leading-relaxed`} style={{ color: 'rgba(18,23,28,0.65)' }}>
                   {f.cap}
                   <br />
                   <span style={{ color: C.cobreTxt }}>Obra real · Pto. Montt</span>
