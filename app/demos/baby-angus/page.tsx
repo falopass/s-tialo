@@ -243,7 +243,7 @@ export default function BabyAngusPage() {
       >
         <Image
           src={`${IMG}/hero.webp`}
-          alt="Interior de Baby Angus, tienda de ropa infantil en Osorno"
+          alt="Prenda de ropa infantil de Baby Angus"
           fill
           priority
           sizes="100vw"
