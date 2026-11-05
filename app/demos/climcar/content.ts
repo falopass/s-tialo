@@ -64,7 +64,7 @@ export const SERVICIOS = [
     icon: 'diagnostico',
     title: 'Diagnóstico y reparación',
     desc: 'Cuando el aire enfría poco o deja de funcionar, primero se revisa el sistema y después se cotiza.',
-    tag: 'Fallas y fugas',
+    tag: 'Revisión y cotización',
   },
 ] as const
 
