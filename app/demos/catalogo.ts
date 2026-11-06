@@ -3860,6 +3860,7 @@ const BLITZ: Blitz[] = [
   { slug: 'emergencias-veterinarias-puerto-montt', name: 'Emergencias Veterinarias Puerto Montt', rubro: 'Clínica veterinaria de urgencias', city: 'Puerto Montt' },
   { slug: 'la-piu-bella', name: 'La Piú Bella by Luis Ranieri', rubro: 'Peluquería', city: 'Los Ángeles' },
   { slug: 'rukalaf', name: 'Rukalaf', rubro: 'Masoterapia · estética y bienestar', city: 'Concepción' },
+  { slug: 'jj-cell-concepcion', name: 'JJ Cell Concepción', rubro: 'Servicio técnico de smartphones y tienda', city: 'Concepción' },
 ]
 
 const FAMILIAS: Familia[] = [
