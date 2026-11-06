@@ -3841,6 +3841,20 @@ const BLITZ: Blitz[] = [
     rubro: 'Centro de eventos',
     city: 'Chillán',
   },
+  {
+    slug: 'don-bicicleto',
+    name: 'Don Bicicleto',
+    rubro: 'Tienda de bicicletas y servicio técnico',
+    city: 'San Fernando',
+  },
+  { slug: 'portones-automaticos-valdivia', name: 'Portones Automáticos Valdivia', rubro: 'Electricista · automatización de portones', city: 'Valdivia' },
+  {
+    slug: 'carmen-calixto-kinesiologa',
+    name: 'Carmen Calixto Kinesióloga',
+    rubro: 'Kinesiología',
+    city: 'Valdivia',
+  },
+  { slug: 'servicio-automotriz-rf', name: 'Servicio Automotriz RF', rubro: 'Taller de reparación de automóviles', city: 'Osorno' },
 ]
 
 const FAMILIAS: Familia[] = [
