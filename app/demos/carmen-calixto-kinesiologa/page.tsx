@@ -211,7 +211,7 @@ export default function CarmenCalixtoPage() {
         @keyframes cc-stroke { from { clip-path: inset(0 100% 0 0) } to { clip-path: inset(0 -1% 0 0) } }
         .cc-strokewrap { clip-path: inset(0 -1% 0 0); animation: cc-stroke 1.6s cubic-bezier(.45,.05,.3,1) .35s both }
         .cc-dot {
-          offset-path: path('M14 520 C70 505 90 445 150 425 C215 403 225 330 285 308 C345 286 350 215 400 195 C445 177 455 120 458 78');
+          offset-path: path('M8 240 C55 233 92 245 150 237 C200 231 232 243 288 235 C322 230 344 205 350 170 C355 138 348 100 356 62 C361 45 366 34 368 28');
           offset-distance: 100%;
           animation: cc-dotgo 1.6s cubic-bezier(.45,.05,.3,1) .35s both;
         }
@@ -291,66 +291,74 @@ export default function CarmenCalixtoPage() {
           }}
         />
         <div className="relative max-w-6xl mx-auto px-5 md:px-8 pt-[104px] md:pt-[140px] pb-12 md:pb-20 grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
-          {/* columna de texto con el trazo detrás */}
-          <div className="relative">
-            <div
-              className="absolute -inset-x-4 -inset-y-8 pointer-events-none"
-              aria-hidden="true"
-            >
-              <svg
-                className="cc-strokewrap absolute inset-0 h-full w-full"
-                viewBox="0 0 480 560"
-                preserveAspectRatio="none"
-                fill="none"
+          {/* columna de texto */}
+          <div>
+            {/* El trazo vive solo sobre la ceja y el titular: subraya "a tu
+                ritmo." y sube por el espacio libre a la derecha del H1 hasta
+                el círculo coral. Nunca puede tocar bajada, botones ni estrellas. */}
+            <div className="relative">
+              <div
+                className="absolute -left-4 -right-4 -top-14 -bottom-3 pointer-events-none"
+                aria-hidden="true"
               >
-                <path
-                  d="M14 520 C70 505 90 445 150 425 C215 403 225 330 285 308 C345 286 350 215 400 195 C445 177 455 120 458 78"
-                  stroke={C.salvia}
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-              <svg
-                className="absolute inset-0 h-full w-full overflow-visible"
-                viewBox="0 0 480 560"
-                preserveAspectRatio="none"
-                fill="none"
-              >
-                <circle className="cc-end" cx="458" cy="78" r="9" fill={C.coral} />
-                <circle className="cc-dot" cx="0" cy="0" r="5.5" fill={C.pino} />
-              </svg>
+                <svg
+                  className="cc-strokewrap absolute inset-0 h-full w-full"
+                  viewBox="0 0 400 250"
+                  preserveAspectRatio="none"
+                  fill="none"
+                >
+                  <path
+                    d="M8 240 C55 233 92 245 150 237 C200 231 232 243 288 235 C322 230 344 205 350 170 C355 138 348 100 356 62 C361 45 366 34 368 28"
+                    stroke={C.salvia}
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <svg
+                  className="absolute inset-0 h-full w-full overflow-visible"
+                  viewBox="0 0 400 250"
+                  preserveAspectRatio="none"
+                  fill="none"
+                >
+                  <circle className="cc-end" cx="368" cy="28" r="9" fill={C.coral} />
+                  <circle className="cc-dot" cx="0" cy="0" r="5.5" fill={C.pino} />
+                </svg>
+              </div>
+
+              <div className="relative z-10">
+                <p
+                  className="cc-fade flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em]"
+                  style={{ color: C.salviaInk, animationDelay: '0.15s' }}
+                >
+                  <span className="h-px w-8 shrink-0" style={{ backgroundColor: C.salvia }} aria-hidden="true" />
+                  Kinesiología · Valdivia
+                </p>
+                <h1
+                  className={`${display.className} mt-5 leading-[1.02] tracking-[-0.01em] text-[clamp(3rem,11.5vw,5.4rem)]`}
+                >
+                  <span className="block overflow-hidden">
+                    <span className="cc-line block" style={{ animationDelay: '0.3s' }}>
+                      Moverte
+                    </span>
+                  </span>
+                  <span className="block overflow-hidden">
+                    <span className="cc-line block" style={{ animationDelay: '0.45s' }}>
+                      de nuevo,
+                    </span>
+                  </span>
+                  <span className="block overflow-hidden">
+                    <span
+                      className="cc-line block italic"
+                      style={{ animationDelay: '0.6s', color: C.coralInk }}
+                    >
+                      a tu ritmo.
+                    </span>
+                  </span>
+                </h1>
+              </div>
             </div>
 
             <div className="relative z-10">
-              <p
-                className="cc-fade flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em]"
-                style={{ color: C.salviaInk, animationDelay: '0.15s' }}
-              >
-                <span className="h-px w-8 shrink-0" style={{ backgroundColor: C.salvia }} aria-hidden="true" />
-                Kinesiología · Valdivia
-              </p>
-              <h1
-                className={`${display.className} mt-5 leading-[1.02] tracking-[-0.01em] text-[clamp(3rem,11.5vw,5.4rem)]`}
-              >
-                <span className="block overflow-hidden">
-                  <span className="cc-line block" style={{ animationDelay: '0.3s' }}>
-                    Moverte
-                  </span>
-                </span>
-                <span className="block overflow-hidden">
-                  <span className="cc-line block" style={{ animationDelay: '0.45s' }}>
-                    de nuevo,
-                  </span>
-                </span>
-                <span className="block overflow-hidden">
-                  <span
-                    className="cc-line block italic"
-                    style={{ animationDelay: '0.6s', color: C.coralInk }}
-                  >
-                    a tu ritmo.
-                  </span>
-                </span>
-              </h1>
               <p
                 className="cc-fade mt-5 max-w-md text-base md:text-lg leading-relaxed"
                 style={{ color: C.suave, animationDelay: '0.82s' }}
