@@ -3841,6 +3841,7 @@ const BLITZ: Blitz[] = [
     rubro: 'Centro de eventos',
     city: 'Chillán',
   },
+  { slug: 'portones-automaticos-valdivia', name: 'Portones Automáticos Valdivia', rubro: 'Electricista · automatización de portones', city: 'Valdivia' },
 ]
 
 const FAMILIAS: Familia[] = [
