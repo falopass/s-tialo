@@ -721,7 +721,7 @@ export default function ComidasDeCampoPage() {
                 <em style={{ fontWeight: 500, color: '#F6DFA6' }}>masas de empanada</em>
               </h2>
               <p className="mx-auto mt-4 max-w-md text-base leading-relaxed" style={{ color: 'rgba(251,244,230,0.85)' }}>
-                Las preparan en casa y las encargas por WhatsApp. Tú pones
+                Las encargas por WhatsApp. Tú pones
                 el pino, ellos la masa.
               </p>
               <div className="mt-7">
@@ -958,8 +958,8 @@ export default function ComidasDeCampoPage() {
                 <em style={{ color: C.oro, fontWeight: 500 }}>te esperamos.</em>
               </h2>
               <p className="mx-auto mt-5 max-w-md text-base leading-relaxed" style={{ color: C.mutD }}>
-                Reserva tu mesa o consulta por WhatsApp: te contestan los
-                mismos dueños.
+                Reserva tu mesa o consulta por WhatsApp: te responden por ahí
+                mismo.
               </p>
               <div className="mt-8 flex flex-col items-center gap-4">
                 <BtnWa>Reserva por WhatsApp</BtnWa>

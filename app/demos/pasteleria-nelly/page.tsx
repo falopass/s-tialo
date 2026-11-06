@@ -539,7 +539,7 @@ export default function PasteleriaNellyPage() {
                 {[
                   'Sopaipillas recién fritas, directo del aceite',
                   'Chancaca tibia con canela y naranja',
-                  'Zapallo picado en la cocina, no de bolsa',
+                  'Con zapallo, canela y naranja',
                 ].map((t, i) => (
                   <Slide key={t} delay={i * 110} from={44}>
                     <li className="flex items-start gap-3 text-sm md:text-[15px] font-semibold" style={{ color: C.crema }}>

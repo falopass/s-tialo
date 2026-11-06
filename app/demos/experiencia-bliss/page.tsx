@@ -539,8 +539,7 @@ export default function ExperienciaBlissPage() {
               <p className="mt-5 max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.mutL }}>
                 Aquí el dentista se vuelve un lugar tranquilo: explican
                 cada paso, dejan que los niños miren su serie favorita y
-                revisan con camarita. No esperes al dolor: la primera
-                visita puede ser solo un paseo para conocerse.
+                revisan con camarita. No esperes al dolor.
               </p>
               <ul className="mt-7 space-y-3.5">
                 {PARA_NINOS.map((item) => (

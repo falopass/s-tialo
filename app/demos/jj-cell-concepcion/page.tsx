@@ -838,7 +838,7 @@ export default function JjCellPage() {
                   style={{ backgroundColor: '#FFFFFF', border: `1.5px solid ${C.lineL}`, boxShadow: '0 18px 40px rgba(21,23,27,0.08)' }}
                 >
                   <p className={`${mono.className} text-[10px] font-semibold uppercase tracking-[0.24em]`} style={{ color: C.naranjaInk }}>
-                    Opinión verificada · Google
+                    Opinión en Google
                   </p>
                   <blockquote className={`${display.className} mt-4 text-xl md:text-2xl font-semibold leading-snug`}>
                     “Me explicaron todo el proceso técnico de forma clara y
