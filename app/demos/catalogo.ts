@@ -3856,6 +3856,7 @@ const BLITZ: Blitz[] = [
   },
   { slug: 'servicio-automotriz-rf', name: 'Servicio Automotriz RF', rubro: 'Taller de reparación de automóviles', city: 'Osorno' },
   { slug: 'altamicausa-vitacura', name: 'Altamicausa', rubro: 'Restaurante · Cocina peruana', city: 'Vitacura' },
+  { slug: 'experiencia-bliss', name: 'Experiencia Bliss', rubro: 'Clínica dental', city: 'Concepción' },
 ]
 
 const FAMILIAS: Familia[] = [
