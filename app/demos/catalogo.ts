@@ -3848,6 +3848,7 @@ const BLITZ: Blitz[] = [
     city: 'San Fernando',
   },
   { slug: 'portones-automaticos-valdivia', name: 'Portones Automáticos Valdivia', rubro: 'Electricista · automatización de portones', city: 'Valdivia' },
+  {
     slug: 'carmen-calixto-kinesiologa',
     name: 'Carmen Calixto Kinesióloga',
     rubro: 'Kinesiología',
