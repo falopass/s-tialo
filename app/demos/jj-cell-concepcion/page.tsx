@@ -845,7 +845,6 @@ export default function JjCellPage() {
                     sencilla, sin apuros ni tecnicismos”
                   </blockquote>
                   <figcaption className="mt-4 flex items-center gap-2.5">
-                    <Stars value={5} color={C.naranjaInk} size={13} />
                     <cite className="not-italic text-xs font-bold uppercase tracking-[0.16em]" style={{ color: C.mutedL }}>
                       Francisco G. · Local Guide
                     </cite>
@@ -1029,7 +1028,6 @@ export default function JjCellPage() {
                       {r.text}
                     </p>
                     <footer className="mt-3 flex items-center gap-2.5">
-                      <Stars value={5} color={C.dorado} size={12} />
                       <cite className="not-italic text-xs font-bold uppercase tracking-[0.16em]" style={{ color: C.mutedD }}>
                         {r.author} · Google{'tag' in r && r.tag ? ` · ${r.tag}` : ''}
                       </cite>
