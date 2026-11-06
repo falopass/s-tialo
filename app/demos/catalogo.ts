@@ -3861,6 +3861,7 @@ const BLITZ: Blitz[] = [
   { slug: 'la-piu-bella', name: 'La Piú Bella by Luis Ranieri', rubro: 'Peluquería', city: 'Los Ángeles' },
   { slug: 'rukalaf', name: 'Rukalaf', rubro: 'Masoterapia · estética y bienestar', city: 'Concepción' },
   { slug: 'jj-cell-concepcion', name: 'JJ Cell Concepción', rubro: 'Servicio técnico de smartphones y tienda', city: 'Concepción' },
+  { slug: 'experiencia-bliss', name: 'Experiencia Bliss', rubro: 'Clínica dental', city: 'Concepción' },
 ]
 
 const FAMILIAS: Familia[] = [
