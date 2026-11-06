@@ -3859,6 +3859,7 @@ const BLITZ: Blitz[] = [
   { slug: 'sables-patagonicos', name: 'Sables Patagónicos', rubro: 'Restaurante · Carnes al sable y buffet', city: 'Puerto Montt' },
   { slug: 'emergencias-veterinarias-puerto-montt', name: 'Emergencias Veterinarias Puerto Montt', rubro: 'Clínica veterinaria de urgencias', city: 'Puerto Montt' },
   { slug: 'la-piu-bella', name: 'La Piú Bella by Luis Ranieri', rubro: 'Peluquería', city: 'Los Ángeles' },
+  { slug: 'rukalaf', name: 'Rukalaf', rubro: 'Masoterapia · estética y bienestar', city: 'Concepción' },
 ]
 
 const FAMILIAS: Familia[] = [
