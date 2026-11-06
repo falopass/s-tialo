@@ -3841,6 +3841,12 @@ const BLITZ: Blitz[] = [
     rubro: 'Centro de eventos',
     city: 'Chillán',
   },
+  {
+    slug: 'carmen-calixto-kinesiologa',
+    name: 'Carmen Calixto Kinesióloga',
+    rubro: 'Kinesiología',
+    city: 'Valdivia',
+  },
 ]
 
 const FAMILIAS: Familia[] = [
