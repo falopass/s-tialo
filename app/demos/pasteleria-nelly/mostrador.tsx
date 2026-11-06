@@ -17,10 +17,18 @@
 import { useEffect, useRef, useState } from 'react'
 import { HORARIO } from './content'
 
+
+/** Día (0 = domingo) y minuto del día en Santiago, sin importar la zona del visitante. */
+function ahoraChile() {
+  const p = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Santiago', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date())
+  const v = (t: string) => p.find((x) => x.type === t)?.value ?? '0'
+  const dia = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(v('weekday'))
+  return { dia, min: (Number(v('hour')) % 24) * 60 + Number(v('minute')) }
+}
+
 function estadoHoy() {
-  const ahora = new Date()
-  const dia = HORARIO.find((h) => h.js === ahora.getDay())!
-  const min = ahora.getHours() * 60 + ahora.getMinutes()
+  const { dia: d, min } = ahoraChile()
+  const dia = HORARIO.find((h) => h.js === d)!
   const abierto = min >= dia.abre && min < dia.cierra
   return { dia, abierto, antesDeAbrir: min < dia.abre }
 }
@@ -137,7 +145,7 @@ export function SemanaHorario({
 }) {
   const [hoy, setHoy] = useState<number | null>(null)
   useEffect(() => {
-    setHoy(new Date().getDay())
+    setHoy(ahoraChile().dia)
   }, [])
 
   const orden = [1, 2, 3, 4, 5, 6, 0]

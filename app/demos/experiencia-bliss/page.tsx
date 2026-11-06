@@ -414,7 +414,7 @@ export default function ExperienciaBlissPage() {
                 Agenda tu evaluación
               </BtnWa>
               <BtnWa tone="linea" href={BIZ.booking}>
-                Agenda online
+                Ver su Instagram
               </BtnWa>
             </div>
             <div
@@ -890,7 +890,7 @@ export default function ExperienciaBlissPage() {
                 </ul>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <BtnWa tone="morado" href={MAPS_URL}>Cómo llegar</BtnWa>
-                  <BtnWa tone="linea" href={BIZ.booking}>Agenda online</BtnWa>
+                  <BtnWa tone="linea" href={BIZ.booking}>Ver su Instagram</BtnWa>
                 </div>
               </Reveal>
             </div>
@@ -983,7 +983,7 @@ export default function ExperienciaBlissPage() {
                 Agenda tu evaluación
               </BtnWa>
               <BtnWa tone="lineaD" href={BIZ.booking}>
-                Agenda online
+                Ver su Instagram
               </BtnWa>
             </div>
           </Reveal>

@@ -46,7 +46,7 @@ export const BIZ = {
   whatsapp: '56971879378',
   instagram: 'https://www.instagram.com/experienciabliss/',
   instagramUser: '@experienciabliss',
-  booking: 'https://agendamiento.softwaredentalink.com/agendas/agendamiento',
+  booking: 'https://www.instagram.com/experienciabliss/',
   rating: '5,0',
   ratingValue: 5.0,
   reviews: 174,
