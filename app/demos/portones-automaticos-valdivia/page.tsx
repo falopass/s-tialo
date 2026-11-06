@@ -151,8 +151,8 @@ const TRABAJOS = [
     h: 1056,
     alt: 'Portón de madera teñida con marco de fierro negro, recién armado en el taller',
     cap: 'PORTÓN DE MADERA Y FIERRO · EN ARMADO',
-    cls: 'md:col-span-6',
-    aspect: 'aspect-[5/4]',
+    cls: 'md:col-span-7',
+    aspect: 'aspect-[4/3]',
   },
   {
     src: `${IMG}/porton-reja.webp`,
@@ -160,7 +160,7 @@ const TRABAJOS = [
     h: 1152,
     alt: 'Portón corredera de reja metálica con puerta peatonal, instalado en un campo',
     cap: 'PORTÓN DE REJA CON PEATONAL',
-    cls: 'md:col-span-6 md:mt-14',
+    cls: 'md:col-span-5 md:mt-14',
     aspect: 'aspect-[4/5]',
   },
   {
@@ -170,15 +170,6 @@ const TRABAJOS = [
     alt: 'Portón de madera en etapa de armado sobre la mesa del taller',
     cap: 'TABLAS EN MONTAJE',
     cls: 'md:col-span-4',
-    aspect: 'aspect-[3/4.2]',
-  },
-  {
-    src: `${IMG}/motor-instalado.webp`,
-    w: 612,
-    h: 1025,
-    alt: 'Motor celeste de portón corredera instalado junto a la reja, en terreno',
-    cap: 'MOTOR INSTALADO EN TERRENO',
-    cls: 'md:col-span-4 md:mt-10',
     aspect: 'aspect-[3/4.2]',
   },
 ]
@@ -1057,14 +1048,14 @@ export default function PortonesAutomaticosValdiviaPage() {
               </Reveal>
             ))}
             {/* la placa con su publicación textual */}
-            <Reveal delay={180} className="col-span-2 md:col-span-4 md:mt-10">
+            <Reveal delay={180} className="col-span-2 md:col-span-8 md:mt-10">
               <div
-                className="h-full min-h-[220px] p-6 md:p-7 flex flex-col justify-between"
+                className="h-full min-h-[220px] md:min-h-[190px] p-6 md:p-7 flex flex-col sm:flex-row md:items-center gap-5 justify-between"
                 style={{ backgroundColor: C.carbon, color: C.hueso }}
               >
-                <Icon name="pinion" className="w-6 h-6" />
+                <Icon name="pinion" className="w-6 h-6 shrink-0" />
                 <div>
-                  <p className={`${display.className} text-lg md:text-xl uppercase leading-[1.2] tracking-[0.02em]`}>
+                  <p className={`${display.className} text-lg md:text-2xl uppercase leading-[1.2] tracking-[0.02em]`}>
                     «Construcción, montaje y automatización: portón fierro 5 metros con motor rápido.»
                   </p>
                   <p className={`${mono.className} mt-4 text-[9px] md:text-[10px] uppercase tracking-[0.2em]`} style={{ color: C.naranjo }}>
