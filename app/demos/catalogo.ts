@@ -3853,6 +3853,7 @@ const BLITZ: Blitz[] = [
     rubro: 'Kinesiología',
     city: 'Valdivia',
   },
+  { slug: 'servicio-automotriz-rf', name: 'Servicio Automotriz RF', rubro: 'Taller de reparación de automóviles', city: 'Osorno' },
 ]
 
 const FAMILIAS: Familia[] = [
