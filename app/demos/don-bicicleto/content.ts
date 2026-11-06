@@ -23,7 +23,7 @@ export const BIZ = {
   full: 'Tienda Don Bicicleto San Fernando',
   rubro: 'Tienda de bicicletas y servicio técnico especializado',
   city: 'San Fernando',
-  region: "Región del Libertador Bernardo O'Higgins",
+  region: "Región de O'Higgins",
   address: 'Av. Manuel Rodríguez 1015',
   city2: 'Chimbarongo',
   address2: 'Pisagua 108',

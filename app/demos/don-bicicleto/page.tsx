@@ -274,7 +274,11 @@ export default function DonBicicletoPage() {
 
       <div className="db-page">
         {/* ── 1 · Hero: la rueda que entra rodando ── */}
-        <section id="inicio" className="relative" style={{ backgroundColor: C.asfalto }}>
+        <section
+          id="inicio"
+          className="relative flex flex-col"
+          style={{ backgroundColor: C.asfalto }}
+        >
           {/* textura de asfalto */}
           <div
             className="absolute inset-0 pointer-events-none"
@@ -284,9 +288,9 @@ export default function DonBicicletoPage() {
             }}
             aria-hidden="true"
           />
-          {/* la foto del equipo, con corte diagonal de bajada */}
+          {/* la foto del equipo a sangre, con corte diagonal de bajada (solo móvil) */}
           <div
-            className="relative h-[290px] md:h-[430px]"
+            className="relative h-[290px] order-1 md:hidden"
             style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 30px), 0 100%)' }}
           >
             <div className="db-foto absolute inset-0">
@@ -308,8 +312,102 @@ export default function DonBicicletoPage() {
             />
           </div>
 
+          {/* el titular entra por palabras detrás de la rueda; en md+ la foto va al lado */}
+          <div className="relative order-3 md:order-1 max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14 md:pt-14 lg:pt-16 w-full grid md:grid-cols-[1.08fr_0.92fr] gap-10 md:gap-12 lg:gap-14 items-center">
+            <div>
+              <p
+                className="db-fade flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.3em] mb-5"
+                style={{ color: C.aluminio, animationDelay: '0.6s' }}
+              >
+                <span
+                  className="inline-block h-[10px] w-9"
+                  style={{
+                    backgroundImage: `repeating-linear-gradient(115deg, ${C.naranjo} 0 3px, transparent 3px 11px)`,
+                  }}
+                  aria-hidden="true"
+                />
+                San Fernando · Chimbarongo
+              </p>
+              <h1
+                className={`${display.className} uppercase leading-[0.94] tracking-[0.01em] text-[clamp(3.1rem,14vw,7.6rem)] md:text-[clamp(3rem,6.4vw,5.4rem)]`}
+              >
+                <span className="flex flex-wrap gap-x-[0.24em] overflow-hidden" style={{ color: C.tiza }}>
+                  {['Otra', 'que', 'se', 'va'].map((w, i) => (
+                    <span key={w} className="overflow-hidden">
+                      <span className="db-line block" style={{ animationDelay: `${0.75 + i * 0.13}s` }}>
+                        {w}
+                      </span>
+                    </span>
+                  ))}
+                </span>
+                <span className="block" style={{ transform: 'skewX(-5deg)' }}>
+                  <span className="block overflow-hidden">
+                    <span
+                      className="db-line inline-block"
+                      style={{ animationDelay: '1.3s', color: C.naranjo }}
+                    >
+                      pedaleando.
+                    </span>
+                  </span>
+                </span>
+              </h1>
+              <p
+                className="db-fade mt-5 max-w-md text-[15px] md:text-lg leading-relaxed font-medium"
+                style={{ color: C.mutedD, animationDelay: '1.55s' }}
+              >
+                Tienda de bicicletas y servicio técnico especializado. Te
+                asesoramos y te la entregamos ajustada a tu talla.
+              </p>
+              <div className="db-fade mt-7 flex flex-wrap gap-3" style={{ animationDelay: '1.7s' }}>
+                <Btn href={WA_LINK} tone="naranjo">
+                  Cotiza por WhatsApp
+                </Btn>
+                <Btn href="#vitrina" tone="lineTiza" external={false}>
+                  Ver bicicletas
+                </Btn>
+              </div>
+              <div
+                className="db-fade mt-6 flex flex-wrap items-center gap-x-3 gap-y-1.5"
+                style={{ animationDelay: '1.85s' }}
+              >
+                <Stars value={BIZ.ratingValue} color={C.naranjo} size={16} />
+                <span className="text-sm font-semibold" style={{ color: C.tiza }}>
+                  {BIZ.rating} en Google
+                </span>
+                <span className="text-sm" style={{ color: C.mutedD }}>
+                  · {BIZ.reviews} opiniones
+                </span>
+              </div>
+            </div>
+            {/* la foto con corte diagonal de bajada y filo naranjo (solo md+) */}
+            <figure className="hidden md:block relative">
+              <div
+                className="db-foto relative ml-auto w-full max-w-[460px] lg:max-w-[540px]"
+                style={{
+                  clipPath: 'polygon(8% 0, 100% 0, 92% 100%, 0 100%)',
+                  backgroundColor: C.naranjo,
+                }}
+              >
+                <div
+                  className="relative w-full aspect-square"
+                  style={{ clipPath: 'polygon(9.8% 0, 100% 0, 90.2% 100%, 1.8% 100%)' }}
+                >
+                  <Image
+                    src={`${IMG}/servicio-tecnico.webp`}
+                    alt="El equipo de Don Bicicleto con una MTB naranja frente a la tienda, bajo el letrero de servicio técnico"
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 540px, 42vw"
+                    className="object-cover"
+                    style={{ objectPosition: '50% 42%' }}
+                  />
+                </div>
+              </div>
+            </figure>
+          </div>
+
           {/* la costra: huella del neumático y la rueda que frena */}
-          <div className="relative h-[86px] md:h-[104px]" aria-hidden="true">
+          <div className="relative order-2 h-[86px] md:h-[96px]" aria-hidden="true">
             <div
               className="absolute left-[-6%] w-[112%] top-1/2"
               style={{ transform: 'translateY(-50%) rotate(3deg)' }}
@@ -326,73 +424,6 @@ export default function DonBicicletoPage() {
               >
                 <WheelSVG />
               </div>
-            </div>
-          </div>
-
-          {/* el titular entra por palabras detrás de la rueda */}
-          <div className="relative max-w-6xl mx-auto px-5 md:px-8 pb-10 md:pb-14">
-            <p
-              className="db-fade flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.3em] mb-5"
-              style={{ color: C.aluminio, animationDelay: '0.6s' }}
-            >
-              <span
-                className="inline-block h-[10px] w-9"
-                style={{
-                  backgroundImage: `repeating-linear-gradient(115deg, ${C.naranjo} 0 3px, transparent 3px 11px)`,
-                }}
-                aria-hidden="true"
-              />
-              San Fernando · Chimbarongo
-            </p>
-            <h1
-              className={`${display.className} uppercase leading-[0.94] tracking-[0.01em] text-[clamp(3.1rem,14vw,7.6rem)]`}
-            >
-              <span className="flex flex-wrap gap-x-[0.24em] overflow-hidden" style={{ color: C.tiza }}>
-                {['Otra', 'que', 'se', 'va'].map((w, i) => (
-                  <span key={w} className="overflow-hidden">
-                    <span className="db-line block" style={{ animationDelay: `${0.75 + i * 0.13}s` }}>
-                      {w}
-                    </span>
-                  </span>
-                ))}
-              </span>
-              <span className="block" style={{ transform: 'skewX(-5deg)' }}>
-                <span className="block overflow-hidden">
-                  <span
-                    className="db-line inline-block"
-                    style={{ animationDelay: '1.3s', color: C.naranjo }}
-                  >
-                    pedaleando.
-                  </span>
-                </span>
-              </span>
-            </h1>
-            <p
-              className="db-fade mt-5 max-w-md text-[15px] md:text-lg leading-relaxed font-medium"
-              style={{ color: C.mutedD, animationDelay: '1.55s' }}
-            >
-              Tienda de bicicletas y servicio técnico especializado. Te
-              asesoramos y te la entregamos ajustada a tu talla.
-            </p>
-            <div className="db-fade mt-7 flex flex-wrap gap-3" style={{ animationDelay: '1.7s' }}>
-              <Btn href={WA_LINK} tone="naranjo">
-                Cotiza por WhatsApp
-              </Btn>
-              <Btn href="#vitrina" tone="lineTiza" external={false}>
-                Ver bicicletas
-              </Btn>
-            </div>
-            <div
-              className="db-fade mt-6 flex flex-wrap items-center gap-x-3 gap-y-1.5"
-              style={{ animationDelay: '1.85s' }}
-            >
-              <Stars value={BIZ.ratingValue} color={C.naranjo} size={16} />
-              <span className="text-sm font-semibold" style={{ color: C.tiza }}>
-                {BIZ.rating} en Google
-              </span>
-              <span className="text-sm" style={{ color: C.mutedD }}>
-                · {BIZ.reviews} opiniones
-              </span>
             </div>
           </div>
         </section>
@@ -510,7 +541,7 @@ export default function DonBicicletoPage() {
                   label="Indumentaria"
                 >
                   <p className="mt-1.5 text-[15px] leading-relaxed" style={{ color: C.mutedL }}>
-                    Tricotas, chaquetas y vestuario para salir abrigado.
+                    Indumentaria y vestuario para salir a rodar.
                   </p>
                 </Plate>
               </Reveal>
