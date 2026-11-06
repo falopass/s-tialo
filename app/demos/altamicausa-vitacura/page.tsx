@@ -83,13 +83,6 @@ const FRANJA = [
   'COCTELERÍA DE AUTOR',
 ] as const
 
-const FRANJA_CAUSA = [
-  'Tabulé de Quinua',
-  'Ceviche de Champiñones',
-  'Lasagna de Verduras',
-  'Papardelles de Verduras',
-] as const
-
 /** Estrella de cuatro puntas del logo: separador y detalle dorado. */
 function Estrella({ className = 'w-3 h-3', color = C.oro }: { className?: string; color?: string }) {
   return (
@@ -673,8 +666,10 @@ export default function AltamicausaPage() {
                 </div>
                 <p className="mt-9 pt-6 border-t text-sm leading-relaxed" style={{ borderColor: C.lineL, color: C.mutCrema }}>
                   También en carta: risotto a la huancaína con lomo
-                  saltado, risotto al vino tinto y risotto apaltado. La
-                  opción vegana suma {FRANJA_CAUSA.join(', ').replace(/, ([^,]*)$/, ' y $1')}.
+                  saltado, risotto al vino tinto con lomo saltado y
+                  risotto apaltado con pollo saltado. La opción vegana
+                  suma Tabulé de Quinua, Ceviche de Champiñones, Lasagna
+                  de Verduras y Papardelles de Verduras.
                 </p>
                 <div className="mt-7">
                   <a
