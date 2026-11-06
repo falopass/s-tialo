@@ -3856,6 +3856,14 @@ const BLITZ: Blitz[] = [
   },
   { slug: 'servicio-automotriz-rf', name: 'Servicio Automotriz RF', rubro: 'Taller de reparación de automóviles', city: 'Osorno' },
   { slug: 'altamicausa-vitacura', name: 'Altamicausa', rubro: 'Restaurante · Cocina peruana', city: 'Vitacura' },
+  { slug: 'sables-patagonicos', name: 'Sables Patagónicos', rubro: 'Restaurante · Carnes al sable y buffet', city: 'Puerto Montt' },
+  { slug: 'emergencias-veterinarias-puerto-montt', name: 'Emergencias Veterinarias Puerto Montt', rubro: 'Clínica veterinaria de urgencias', city: 'Puerto Montt' },
+  { slug: 'la-piu-bella', name: 'La Piú Bella by Luis Ranieri', rubro: 'Peluquería', city: 'Los Ángeles' },
+  { slug: 'rukalaf', name: 'Rukalaf', rubro: 'Masoterapia · estética y bienestar', city: 'Concepción' },
+  { slug: 'jj-cell-concepcion', name: 'JJ Cell Concepción', rubro: 'Servicio técnico de smartphones y tienda', city: 'Concepción' },
+  { slug: 'experiencia-bliss', name: 'Experiencia Bliss', rubro: 'Clínica dental', city: 'Concepción' },
+  { slug: 'pasteleria-nelly', name: 'Panadería y Pastelería Nelly', rubro: 'Panadería y pastelería', city: 'Los Ángeles' },
+  { slug: 'comidas-de-campo-villarrica', name: 'Comidas de Campo', rubro: 'Restaurante · comida casera', city: 'Villarrica' },
 ]
 
 const FAMILIAS: Familia[] = [
