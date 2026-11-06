@@ -3857,6 +3857,7 @@ const BLITZ: Blitz[] = [
   { slug: 'servicio-automotriz-rf', name: 'Servicio Automotriz RF', rubro: 'Taller de reparación de automóviles', city: 'Osorno' },
   { slug: 'altamicausa-vitacura', name: 'Altamicausa', rubro: 'Restaurante · Cocina peruana', city: 'Vitacura' },
   { slug: 'sables-patagonicos', name: 'Sables Patagónicos', rubro: 'Restaurante · Carnes al sable y buffet', city: 'Puerto Montt' },
+  { slug: 'emergencias-veterinarias-puerto-montt', name: 'Emergencias Veterinarias Puerto Montt', rubro: 'Clínica veterinaria de urgencias', city: 'Puerto Montt' },
 ]
 
 const FAMILIAS: Familia[] = [
