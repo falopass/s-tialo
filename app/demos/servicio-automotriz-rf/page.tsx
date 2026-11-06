@@ -198,7 +198,7 @@ function Scanner() {
         backgroundColor: C.panel,
         boxShadow: '0 22px 50px rgba(0,0,0,0.45)',
       }}
-      role="img"
+      role="group"
       aria-label="Pantalla de scanner ilustrativa: lee motor, sistema eléctrico, frenos ABS, suspensión y combustibles, y termina con el diagnóstico listo"
     >
       {/* líneas de pantalla CRT */}
