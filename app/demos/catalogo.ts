@@ -3841,6 +3841,12 @@ const BLITZ: Blitz[] = [
     rubro: 'Centro de eventos',
     city: 'Chillán',
   },
+  {
+    slug: 'don-bicicleto',
+    name: 'Don Bicicleto',
+    rubro: 'Tienda de bicicletas y servicio técnico',
+    city: 'San Fernando',
+  },
 ]
 
 const FAMILIAS: Familia[] = [
