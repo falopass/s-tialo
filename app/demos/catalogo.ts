@@ -3863,6 +3863,7 @@ const BLITZ: Blitz[] = [
   { slug: 'jj-cell-concepcion', name: 'JJ Cell Concepción', rubro: 'Servicio técnico de smartphones y tienda', city: 'Concepción' },
   { slug: 'experiencia-bliss', name: 'Experiencia Bliss', rubro: 'Clínica dental', city: 'Concepción' },
   { slug: 'pasteleria-nelly', name: 'Panadería y Pastelería Nelly', rubro: 'Panadería y pastelería', city: 'Los Ángeles' },
+  { slug: 'comidas-de-campo-villarrica', name: 'Comidas de Campo', rubro: 'Restaurante · comida casera', city: 'Villarrica' },
 ]
 
 const FAMILIAS: Familia[] = [
