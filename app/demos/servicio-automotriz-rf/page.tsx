@@ -722,16 +722,18 @@ export default function ServicioAutomotrizRfPage() {
           </div>
 
           <ol className="border-t" style={{ borderColor: C.lineD }}>
-            {BITACORA.map((e, i) => (
+            {BITACORA.map((e, i) => {
+              const foto = 'foto' in e ? e.foto : undefined
+              return (
               <Reveal key={e.n} delay={i * 60}>
                 <li
-                  className="grid grid-cols-[104px_1fr] sm:grid-cols-[128px_1fr] gap-4 sm:gap-6 py-5 md:py-6 border-b items-center"
+                  className={`grid ${foto ? 'grid-cols-[104px_1fr] sm:grid-cols-[128px_1fr] gap-4 sm:gap-6' : 'grid-cols-1'} py-5 md:py-6 border-b items-center`}
                   style={{ borderColor: C.lineD }}
                 >
-                  {'foto' in e && e.foto ? (
+                  {foto && (
                     <figure className="relative w-full h-[96px] sm:h-[104px] overflow-hidden" style={{ border: `1px solid ${C.lineD}` }}>
                       <Image
-                        src={`${IMG}/${e.foto}`}
+                        src={`${IMG}/${foto}`}
                         alt={'fotoAlt' in e ? e.fotoAlt : ''}
                         width={640}
                         height={640}
@@ -739,13 +741,6 @@ export default function ServicioAutomotrizRfPage() {
                         className="w-full h-full object-cover"
                       />
                     </figure>
-                  ) : (
-                    <span
-                      className={`${mono.className} flex w-full h-[96px] sm:h-[104px] items-center justify-center text-[9px] uppercase tracking-[0.2em] border border-dashed`}
-                      style={{ borderColor: 'rgba(233,235,237,0.28)', color: 'rgba(233,235,237,0.55)' }}
-                    >
-                      Sin foto
-                    </span>
                   )}
                   <span>
                     <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -765,7 +760,8 @@ export default function ServicioAutomotrizRfPage() {
                   </span>
                 </li>
               </Reveal>
-            ))}
+              )
+            })}
           </ol>
         </div>
       </section>
