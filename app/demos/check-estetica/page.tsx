@@ -889,8 +889,7 @@ export default function CheckEsteticaPage() {
                     className={`${quote.className} border-l-2 pl-6 md:pl-8 text-[clamp(1.25rem,4vw,1.75rem)] leading-[1.35] max-w-xl`}
                     style={{ borderColor: C.rosa, color: C.tinta }}
                   >
-                    “La atención es excelente, desde que ingresas hasta las
-                    profesionales que atienden.”
+                    “{REVIEWS[0].text}”
                   </blockquote>
                   <p className={`${mono.className} mt-4 pl-6 md:pl-8 text-[10px] uppercase tracking-[0.26em]`} style={{ color: C.piedraInk }}>
                     {REVIEWS[0].author} · Reseña de Google
