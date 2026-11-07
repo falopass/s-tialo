@@ -3870,6 +3870,7 @@ const BLITZ: Blitz[] = [
   { slug: 'espacio-aventura-valdivia', name: 'Espacio Aventura', rubro: 'Cumpleaños infantiles y juegos', city: 'Valdivia' },
   { slug: 'barrakuda-villarrica', name: 'BarraKuda Bar & Grill', rubro: 'Restobar · parrilla, mariscos y coctelería', city: 'Villarrica' },
   { slug: 'one-club-barberia', name: 'Studio One Club Salón', rubro: 'Barbería', city: 'Valdivia' },
+  { slug: 'depilacion-bellyssima', name: 'Bellyssima, Depilación y Estética', rubro: 'Depilación · estética', city: 'Puerto Montt' },
 ]
 
 const FAMILIAS: Familia[] = [
