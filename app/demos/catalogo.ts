@@ -3868,6 +3868,7 @@ const BLITZ: Blitz[] = [
   { slug: 'aillyne-arce-cosmetologa', name: 'Aillyne Arce', rubro: 'Cosmetología y estética facial', city: 'Puerto Montt' },
   { slug: 'clima-hogares-valdivia', name: 'Clima Hogares', rubro: 'Climatización · estufas a pellet y aire acondicionado', city: 'Valdivia' },
   { slug: 'espacio-aventura-valdivia', name: 'Espacio Aventura', rubro: 'Cumpleaños infantiles y juegos', city: 'Valdivia' },
+  { slug: 'barrakuda-villarrica', name: 'BarraKuda Bar & Grill', rubro: 'Restobar · parrilla, mariscos y coctelería', city: 'Villarrica' },
 ]
 
 const FAMILIAS: Familia[] = [
