@@ -3864,6 +3864,14 @@ const BLITZ: Blitz[] = [
   { slug: 'experiencia-bliss', name: 'Experiencia Bliss', rubro: 'Clínica dental', city: 'Concepción' },
   { slug: 'pasteleria-nelly', name: 'Panadería y Pastelería Nelly', rubro: 'Panadería y pastelería', city: 'Los Ángeles' },
   { slug: 'comidas-de-campo-villarrica', name: 'Comidas de Campo', rubro: 'Restaurante · comida casera', city: 'Villarrica' },
+  { slug: 'check-estetica', name: 'Check Estética Integral', rubro: 'Estética integral · medicina estética', city: 'Concepción' },
+  { slug: 'aillyne-arce-cosmetologa', name: 'Aillyne Arce', rubro: 'Cosmetología y estética facial', city: 'Puerto Montt' },
+  { slug: 'clima-hogares-valdivia', name: 'Clima Hogares', rubro: 'Climatización · estufas a pellet y aire acondicionado', city: 'Valdivia' },
+  { slug: 'espacio-aventura-valdivia', name: 'Espacio Aventura', rubro: 'Cumpleaños infantiles y juegos', city: 'Valdivia' },
+  { slug: 'barrakuda-villarrica', name: 'BarraKuda Bar & Grill', rubro: 'Restobar · parrilla, mariscos y coctelería', city: 'Villarrica' },
+  { slug: 'one-club-barberia', name: 'Studio One Club Salón', rubro: 'Barbería', city: 'Valdivia' },
+  { slug: 'depilacion-bellyssima', name: 'Bellyssima, Depilación y Estética', rubro: 'Depilación · estética', city: 'Puerto Montt' },
+  { slug: 'pisek-osorno', name: 'Písek', rubro: 'Tienda de productos de belleza y peluquería', city: 'Osorno' },
 ]
 
 const FAMILIAS: Familia[] = [
