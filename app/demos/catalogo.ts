@@ -3865,6 +3865,7 @@ const BLITZ: Blitz[] = [
   { slug: 'pasteleria-nelly', name: 'Panadería y Pastelería Nelly', rubro: 'Panadería y pastelería', city: 'Los Ángeles' },
   { slug: 'comidas-de-campo-villarrica', name: 'Comidas de Campo', rubro: 'Restaurante · comida casera', city: 'Villarrica' },
   { slug: 'check-estetica', name: 'Check Estética Integral', rubro: 'Estética integral · medicina estética', city: 'Concepción' },
+  { slug: 'aillyne-arce-cosmetologa', name: 'Aillyne Arce', rubro: 'Cosmetología y estética facial', city: 'Puerto Montt' },
 ]
 
 const FAMILIAS: Familia[] = [
