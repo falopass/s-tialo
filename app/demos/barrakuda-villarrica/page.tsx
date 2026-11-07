@@ -731,7 +731,7 @@ export default function BarraKudaPage() {
               <p className="mt-7 flex items-center gap-3">
                 <Chispa color={C.magenta} />
                 <span className="text-sm" style={{ color: C.mutNoche }}>
-                  Pide en la barra el trago de la semana.
+                  La coctelería de la casa se pide en la barra.
                 </span>
               </p>
             </Reveal>
