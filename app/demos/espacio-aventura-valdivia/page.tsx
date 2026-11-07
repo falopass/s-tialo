@@ -1039,7 +1039,7 @@ export default function EspacioAventuraPage() {
                     <Icon name="reloj" className="w-[21px] h-[21px]" />
                   </span>
                   <div>
-                    <p className="text-[15px] font-extrabold" style={{ color: '#FFFDF8' }}>Martes y de jueves a domingo · 9:00 a 22:30</p>
+                    <p className="text-[15px] font-extrabold" style={{ color: '#FFFDF8' }}>Martes, jueves, viernes, sábado y domingo · 9:00 a 22:30</p>
                     <p className="text-[12.5px] leading-snug" style={{ color: 'rgba(255,253,248,0.66)' }}>
                       Lunes y miércoles cerrado. Tardes de juego: martes a jueves, 15:00 a 20:00.
                     </p>
