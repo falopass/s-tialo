@@ -496,8 +496,8 @@ export default function ClimaHogaresPage() {
                 <Btn href={WA_LINK} tone="naranjo">
                   Cotiza por WhatsApp
                 </Btn>
-                <Btn href={`tel:${BIZ.phoneTel}`} tone="lineL" external={false}>
-                  Llamar
+                <Btn href="#trabajos" tone="lineL" external={false}>
+                  Ver trabajos
                 </Btn>
               </div>
               <div className="ch-fade mt-4 flex flex-wrap items-center gap-x-3 gap-y-1.5" style={{ animationDelay: '1s' }}>
@@ -1031,7 +1031,7 @@ export default function ClimaHogaresPage() {
                   Cotiza por WhatsApp
                 </Btn>
                 <a
-                  href={`tel:${BIZ.phoneTel}`}
+                  href={`https://wa.me/${BIZ.phoneTel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer"
                   className={`${display.className} font-bold text-2xl md:text-3xl tracking-tight tap-44 underline underline-offset-8 decoration-2`}
                   style={{ color: '#F5F7FA', textDecorationColor: C.naranjo }}
                 >

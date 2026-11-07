@@ -926,11 +926,11 @@ export default function BarraKudaPage() {
                 </p>
                 <p className="mt-4 max-w-md text-base leading-relaxed" style={{ color: C.mutCrema }}>
                   Reservas:{' '}
-                  <a href={`tel:${BIZ.phoneTel}`} className="font-semibold tap-44" style={{ color: C.carbon }}>
+                  <a href={`https://wa.me/${BIZ.phoneTel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="font-semibold tap-44" style={{ color: C.carbon }}>
                     {BIZ.phoneDisplay}
                   </a>
                   {' · '}
-                  <a href={`tel:${BIZ.phone2Tel}`} className="font-semibold tap-44" style={{ color: C.carbon }}>
+                  <a href={`https://wa.me/${BIZ.phone2Tel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="font-semibold tap-44" style={{ color: C.carbon }}>
                     {BIZ.phone2Display}
                   </a>
                 </p>
@@ -1020,10 +1020,10 @@ export default function BarraKudaPage() {
             <div className="mt-9 flex flex-col items-center gap-4">
               <BtnWa>Reserva por WhatsApp</BtnWa>
               <p className="flex flex-wrap justify-center gap-x-5 gap-y-1">
-                <a href={`tel:${BIZ.phoneTel}`} className={`${display.className} text-xl font-semibold tap-44`} style={{ color: C.crema }}>
+                <a href={`https://wa.me/${BIZ.phoneTel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className={`${display.className} text-xl font-semibold tap-44`} style={{ color: C.crema }}>
                   {BIZ.phoneDisplay}
                 </a>
-                <a href={`tel:${BIZ.phone2Tel}`} className={`${display.className} text-xl font-semibold tap-44`} style={{ color: C.mutNoche }}>
+                <a href={`https://wa.me/${BIZ.phone2Tel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className={`${display.className} text-xl font-semibold tap-44`} style={{ color: C.mutNoche }}>
                   {BIZ.phone2Display}
                 </a>
               </p>
@@ -1054,7 +1054,7 @@ export default function BarraKudaPage() {
               Ver la carta
             </a>
             <span>{BIZ.address}, {BIZ.city}</span>
-            <a href={`tel:${BIZ.phoneTel}`} className="tap-44" style={{ color: C.crema }}>
+            <a href={`https://wa.me/${BIZ.phoneTel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="tap-44" style={{ color: C.crema }}>
               {BIZ.phoneDisplay}
             </a>
           </div>

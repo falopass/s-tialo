@@ -1107,7 +1107,7 @@ export default function EspacioAventuraPage() {
                   Cotizar por WhatsApp
                 </a>
                 <a
-                  href={`tel:${BIZ.phoneTel}`}
+                  href={`https://wa.me/${BIZ.phoneTel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer"
                   className="text-[15px] md:text-base font-extrabold px-7 py-3 rounded-full border-2 transition-colors hover:bg-white/10 tap-44"
                   style={{ borderColor: 'rgba(255,253,248,0.45)', color: '#FFFDF8' }}
                 >
@@ -1130,7 +1130,7 @@ export default function EspacioAventuraPage() {
             <address className="not-italic text-[13px] leading-relaxed" style={{ color: 'rgba(255,253,248,0.62)' }}>
               {BIZ.address} · {BIZ.city}, {BIZ.region}
               <br />
-              <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 hover:text-white transition-colors tap-44">
+              <a href={`https://wa.me/${BIZ.phoneTel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-white transition-colors tap-44">
                 {BIZ.phoneDisplay}
               </a>
               {' · '}

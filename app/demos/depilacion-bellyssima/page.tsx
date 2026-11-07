@@ -789,7 +789,7 @@ export default function DepilacionBellyssimaPage() {
                       </dt>
                       <dd>
                         <a
-                          href={`tel:${BIZ.phoneTel}`}
+                          href={`https://wa.me/${BIZ.phoneTel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer"
                           className="font-semibold underline underline-offset-4 decoration-1 tap-44"
                           style={{ color: C.ciruela, textDecorationColor: C.dorado }}
                         >
@@ -929,7 +929,7 @@ export default function DepilacionBellyssimaPage() {
               </p>
               <address className="not-italic">
                 {BIZ.address} · {BIZ.city}, {BIZ.region} ·{' '}
-                <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 whitespace-nowrap tap-44">
+                <a href={`https://wa.me/${BIZ.phoneTel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 whitespace-nowrap tap-44">
                   {BIZ.phoneDisplay}
                 </a>
                 {' · '}

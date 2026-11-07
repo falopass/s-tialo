@@ -1074,7 +1074,7 @@ export default function AillyneArcePage() {
                 Te envío la ubicación exacta al agendar.
                 <br />
                 <a
-                  href={`tel:${BIZ.phoneTel}`}
+                  href={`https://wa.me/${BIZ.phoneTel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer"
                   className="font-bold underline underline-offset-4 decoration-2 tap-44"
                   style={{ color: C.cafe, textDecorationColor: 'rgba(142,27,46,0.5)' }}
                 >
@@ -1105,7 +1105,7 @@ export default function AillyneArcePage() {
               <div className="mt-7 flex flex-col gap-4">
                 <BtnWa tone="crema">Agenda por WhatsApp</BtnWa>
                 <a
-                  href={`tel:${BIZ.phoneTel}`}
+                  href={`https://wa.me/${BIZ.phoneTel.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer"
                   className={`${display.className} text-2xl md:text-3xl tap-44 underline underline-offset-8 decoration-2`}
                   style={{ color: C.crema, textDecorationColor: 'rgba(242,214,207,0.6)' }}
                 >
