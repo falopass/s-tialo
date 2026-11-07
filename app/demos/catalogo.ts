@@ -3869,6 +3869,7 @@ const BLITZ: Blitz[] = [
   { slug: 'clima-hogares-valdivia', name: 'Clima Hogares', rubro: 'Climatización · estufas a pellet y aire acondicionado', city: 'Valdivia' },
   { slug: 'espacio-aventura-valdivia', name: 'Espacio Aventura', rubro: 'Cumpleaños infantiles y juegos', city: 'Valdivia' },
   { slug: 'barrakuda-villarrica', name: 'BarraKuda Bar & Grill', rubro: 'Restobar · parrilla, mariscos y coctelería', city: 'Villarrica' },
+  { slug: 'one-club-barberia', name: 'Studio One Club Salón', rubro: 'Barbería', city: 'Valdivia' },
 ]
 
 const FAMILIAS: Familia[] = [
