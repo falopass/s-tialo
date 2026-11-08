@@ -5,6 +5,8 @@ import {
   CONTACT,
   cuotas,
   MESES_PAGADOS_ANUAL,
+  OFERTA_ACTIVACION_FECHA,
+  ofertaActivacionVigente,
   PAGO_CUOTAS,
   PLAN_COMPRA,
   PLANS,
@@ -45,8 +47,11 @@ export function pagosDe(plan: PlanId): Pago[] {
   return plan === PLAN_COMPRA ? ['mensual', 'anual', 'unico'] : ['mensual', 'anual']
 }
 
-/** La forma de pago en una línea visible, con el precio ya resuelto. */
-export function textoPago(plan: PlanId, pago: Pago): string {
+/**
+ * La forma de pago en una línea visible, con el precio ya resuelto. `oferta` dice si rige la
+ * activación gratis; en componentes que se pintan en el build, pásalo desde `useOfertaVigente`.
+ */
+export function textoPago(plan: PlanId, pago: Pago, oferta: boolean = ofertaActivacionVigente()): string {
   const p = PLANS[plan]
   if (pago === 'anual') {
     return `${p.annualFormatted} por 12 meses: pagas ${MESES_PAGADOS_ANUAL} y sin activación. Se paga cuando te entregamos la web.`
@@ -55,7 +60,10 @@ export function textoPago(plan: PlanId, pago: Pago): string {
     const { n, montoFormatted } = cuotas(COMPRA_BASICO)
     return `${COMPRA_BASICO_FORMATTED}: 50% al comenzar y 50% al terminar, o ${n} cuotas de ${montoFormatted} sin interés. Desde el segundo año, ${RENOVACION_ANUAL_FORMATTED} al año.`
   }
-  return `${p.priceFormatted} al mes con hosting, dominio y ajustes incluidos, más ${ACTIVACION_FORMATTED} de activación. Sin permanencia.`
+  const activacion = oferta
+    ? `activación gratis hasta el ${OFERTA_ACTIVACION_FECHA} (normal ${ACTIVACION_FORMATTED})`
+    : `más ${ACTIVACION_FORMATTED} de activación`
+  return `${p.priceFormatted} al mes con hosting, dominio y ajustes incluidos, ${activacion}. Sin permanencia.`
 }
 
 /** El precio principal a mostrar según la forma de pago elegida. */

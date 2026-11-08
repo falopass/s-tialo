@@ -6,6 +6,7 @@ import type { PlanId } from '@/lib/config'
 import { linkDemo, pagosDe, textoPago, type Pago } from '../_lib/contacto'
 import { medirWhatsApp } from '../_lib/medir'
 import { useNegocio } from '../_lib/negocio'
+import { useOfertaVigente } from './SegunOferta'
 
 const ETIQUETAS: Record<Pago, string> = {
   mensual: 'Mensual',
@@ -17,8 +18,18 @@ const ETIQUETAS: Record<Pago, string> = {
  * Cómo pagar + CTA dentro de cada tarjeta de plan. Qué comunica: el plan se adapta
  * a la forma de pago que eliges, y el texto de abajo lo confirma al momento.
  */
-export function AccionPlan({ plan, primario = false }: { plan: PlanId; primario?: boolean }) {
+export function AccionPlan({
+  plan,
+  primario = false,
+  ofertaEnBuild,
+}: {
+  plan: PlanId
+  primario?: boolean
+  /** Vigencia de la oferta de activación a la fecha del build (`ofertaActivacionVigente()`). */
+  ofertaEnBuild: boolean
+}) {
   const negocio = useNegocio()
+  const oferta = useOfertaVigente(ofertaEnBuild)
   const [pago, setPago] = useState<Pago>('mensual')
 
   return (
@@ -34,7 +45,7 @@ export function AccionPlan({ plan, primario = false }: { plan: PlanId; primario?
         </div>
       </fieldset>
       <p aria-live="polite" className="mt-4 text-sm text-(--s-crema-2)">
-        {textoPago(plan, pago)}
+        {textoPago(plan, pago, oferta)}
       </p>
       <a
         href={linkDemo({ negocio, plan, pago })}

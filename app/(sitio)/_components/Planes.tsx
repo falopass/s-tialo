@@ -72,7 +72,7 @@ export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
               ))}
             </ul>
             <div className="mt-auto pt-8">
-              <AccionPlan plan={p.id} primario={p.id === recomendado.id} />
+              <AccionPlan plan={p.id} primario={p.id === recomendado.id} ofertaEnBuild={ofertaVigente} />
             </div>
           </article>
         ))}

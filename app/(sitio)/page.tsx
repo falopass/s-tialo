@@ -66,8 +66,9 @@ const PASOS = [
 ]
 
 /**
- * Lo que trae tener la web y lo que incluye la mensualidad, en el primer pantallazo.
- * Todo sale de lib/config (plan Básico): nada de promesas que el plan de entrada no cumple.
+ * Lo que trae tener la web y lo que incluye la mensualidad. Escritos a mano a partir del plan
+ * Básico de lib/config (features y comentario de `price`): si cambia lo que incluye el Básico,
+ * revisa esta lista. Nada que el plan de entrada no cumpla (el SEO local es del Recomendado).
  */
 const BENEFICIOS = [
   'Tus clientes ven tus fotos, precios y horario sin tener que preguntarte',
@@ -107,21 +108,13 @@ export default function HomePage() {
             Lista en {PLANS.basico.deliveryDays} días. Y antes de pagar, te mandamos gratis un demo con tus fotos por
             WhatsApp.
           </p>
-          <ul className="s-entra mt-6 grid gap-2.5 text-(--s-crema)" style={{ '--i': 2 } as React.CSSProperties}>
-            {BENEFICIOS.map((b) => (
-              <li key={b} className="flex items-start gap-3">
-                <Check size={20} weight="bold" aria-hidden="true" className="mt-0.5 shrink-0 text-(--s-amarillo)" />
-                {b}
-              </li>
-            ))}
-          </ul>
-          <div data-cta-principal className="s-entra mt-8 flex flex-wrap gap-3" style={{ '--i': 3 } as React.CSSProperties}>
+          <div data-cta-principal className="s-entra mt-8 flex flex-wrap gap-3" style={{ '--i': 2 } as React.CSSProperties}>
             <BotonDemo origen="hero" />
             <a href="#planes" className="s-btn s-btn-secundario">
               Ver precios
             </a>
           </div>
-          <p className="s-entra mt-4 max-w-[52ch] text-[15px] text-(--s-ceniza)" style={{ '--i': 4 } as React.CSSProperties}>
+          <p className="s-entra mt-4 max-w-[52ch] text-[15px] text-(--s-ceniza)" style={{ '--i': 3 } as React.CSSProperties}>
             <SegunOferta
               enBuild={ofertaVigente}
               oferta={<>También puedes pagar el año: 12 meses por {MESES_PAGADOS_ANUAL}.</>}
@@ -133,6 +126,14 @@ export default function HomePage() {
               }
             />
           </p>
+          <ul className="s-entra mt-8 grid gap-2.5 text-(--s-crema)" style={{ '--i': 4 } as React.CSSProperties}>
+            {BENEFICIOS.map((b) => (
+              <li key={b} className="flex items-start gap-3">
+                <Check size={20} weight="bold" aria-hidden="true" className="mt-0.5 shrink-0 text-(--s-amarillo)" />
+                {b}
+              </li>
+            ))}
+          </ul>
           {/* Opcional y fuera del primer pantallazo: el nombre se arma en el escenario y va en el WhatsApp. */}
           <div className="s-entra mt-10" style={{ '--i': 5 } as React.CSSProperties}>
             <TuNegocio />
