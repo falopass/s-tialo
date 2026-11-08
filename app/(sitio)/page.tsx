@@ -21,6 +21,7 @@ import { TiraRubros } from './_components/TiraRubros'
 import { TuNegocio } from './_components/TuNegocio'
 import { ConfirmaNegocio, ConNegocio } from './_components/ConNegocio'
 import { DatosClaros } from './_components/DatosClaros'
+import { DescifraEntrada } from './_components/DescifraEntrada'
 import { Planes } from './_components/Planes'
 import { SegunOferta } from './_components/SegunOferta'
 import { TarjetaDemo } from './_components/TarjetaDemo'
@@ -71,7 +72,7 @@ const PASOS = [
  * revisa esta lista. Nada que el plan de entrada no cumpla (el SEO local es del Recomendado).
  */
 const BENEFICIOS = [
-  'Tus clientes ven tus fotos, precios y horario sin tener que preguntarte',
+  'Tus clientes ven fotos, precios y horario sin preguntarte',
   'Te escriben a tu WhatsApp con un toque',
   'Hosting, dominio y ajustes de contenido incluidos',
   'Sin permanencia',
@@ -101,8 +102,16 @@ export default function HomePage() {
               </p>
             }
           />
-          <h1 className="s-display s-entra max-w-[14ch] text-[clamp(2.6rem,5.6vw,5.25rem)]">
-            Tu página web desde <em className="s-precio text-(--s-amarillo)">{PLANS.basico.priceFormatted}</em> al mes.
+          <h1
+            className="s-display s-entra max-w-[14ch] text-[clamp(2.6rem,5.6vw,5.25rem)]"
+            aria-label={`Tu página web desde ${PLANS.basico.priceFormatted} al mes.`}
+          >
+            <DescifraEntrada texto="Tu página web" />
+            <span className="mt-1 block">
+              <span className="s-precio-lado">desde</span>{' '}
+              <em className="s-precio text-(--s-amarillo)">{PLANS.basico.priceFormatted}</em>{' '}
+              <span className="s-precio-lado">al mes.</span>
+            </span>
           </h1>
           <p className="s-lead s-entra mt-6" style={{ '--i': 1 } as React.CSSProperties}>
             Lista en {PLANS.basico.deliveryDays} días. Y antes de pagar, te mandamos gratis un demo con tus fotos por
@@ -126,16 +135,20 @@ export default function HomePage() {
               }
             />
           </p>
-          <ul className="s-entra mt-8 grid gap-2.5 text-(--s-crema)" style={{ '--i': 4 } as React.CSSProperties}>
-            {BENEFICIOS.map((b) => (
-              <li key={b} className="flex items-start gap-3">
+          <ul className="mt-8 grid gap-2.5 text-(--s-crema)">
+            {BENEFICIOS.map((b, i) => (
+              <li
+                key={b}
+                className="s-entra-lado flex items-start gap-3"
+                style={{ '--i': 4 + i } as React.CSSProperties}
+              >
                 <Check size={20} weight="bold" aria-hidden="true" className="mt-0.5 shrink-0 text-(--s-amarillo)" />
                 {b}
               </li>
             ))}
           </ul>
           {/* Opcional y fuera del primer pantallazo: el nombre se arma en el escenario y va en el WhatsApp. */}
-          <div className="s-entra mt-10" style={{ '--i': 5 } as React.CSSProperties}>
+          <div className="s-entra mt-10" style={{ '--i': 8 } as React.CSSProperties}>
             <TuNegocio />
           </div>
           <ConfirmaNegocio />

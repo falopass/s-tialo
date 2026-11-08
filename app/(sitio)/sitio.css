@@ -543,7 +543,9 @@ body:has([data-sitio])::before {
     max-width: 440px;
   }
 
-  /* Cartel de la oferta de lanzamiento en el hero: amarillo pleno, texto nítido, sin textura. */
+  /* Cartel de la oferta de lanzamiento en el hero: amarillo pleno, texto nítido, sin textura.
+     Va levemente rotado, como sticker pegado encima del titular (rotate es propiedad aparte:
+     no pelea con la transform que anima s-entra). */
   [data-sitio] .s-cartel {
     width: fit-content;
     max-width: 100%;
@@ -553,19 +555,27 @@ body:has([data-sitio])::before {
     color: var(--s-tinta);
     font-size: 15px;
     line-height: 1.35;
+    rotate: -1.3deg;
   }
 
   [data-sitio] .s-cartel strong {
     font-weight: 700;
   }
 
-  /* El precio del hero encendido: más peso y un halo fijo del mismo amarillo.
-     El halo no es textura ni grano: el glifo queda nítido encima. */
+  /* El precio del hero en primer plano: el número va mucho más grande que el titular,
+     encendido (halo fijo del mismo amarillo), y "desde"/"al mes." quedan chicos a los lados.
+     El halo no es textura ni grano: el glifo queda nítido encima.
+     El tope en vw evita que la línea del precio desborde en pantallas angostas. */
   [data-sitio] .s-precio {
+    font-size: min(1.42em, 15.5vw);
     font-weight: 650;
     text-shadow:
       0 0 0.5em rgb(245 196 0 / 0.5),
       0 0 0.18em rgb(245 196 0 / 0.45);
+  }
+
+  [data-sitio] .s-precio-lado {
+    font-size: 0.42em;
   }
 
   [data-sitio] .s-campo {
@@ -821,11 +831,23 @@ body:has([data-sitio])::before {
     animation-delay: calc(var(--i, 0) * 110ms);
   }
 
-  /* El precio prende como letrero: parpadea en pasos una sola vez al terminar la entrada
-     del titular y queda encendido. Comunica dónde mirar primero. La espera hereda --i del h1. */
+  /* El precio prende como letrero: parpadea en pasos una sola vez justo después de que el
+     titular termina de descifrarse (~950 ms) y queda encendido. Comunica dónde mirar primero. */
   [data-sitio] .s-precio {
     animation: s-precio-pre 1s linear both;
-    animation-delay: calc(var(--i, 0) * 110ms + 720ms);
+    animation-delay: 1.1s;
+  }
+
+  /* Beneficios: entran uno a uno desde la izquierda y el check "tica" al llegar. Comunica:
+     lo que incluye la mensualidad se va marcando delante del visitante. */
+  [data-sitio] .s-entra-lado {
+    animation: s-entra-lado 0.55s var(--s-ease) both;
+    animation-delay: calc(var(--i, 0) * 110ms);
+  }
+
+  [data-sitio] .s-entra-lado svg {
+    animation: s-pop-check 0.4s var(--s-ease) both;
+    animation-delay: calc(var(--i, 0) * 110ms + 300ms);
   }
 
   /* Secciones: entran al aparecer en pantalla. Comunica ritmo de lectura, una idea a la vez. */
@@ -896,6 +918,26 @@ body:has([data-sitio])::before {
   from {
     opacity: 0.2;
     transform: translateY(0.45em);
+  }
+}
+
+/* Entrada lateral de los beneficios: llegan de la izquierda, como marcados a mano. */
+@keyframes s-entra-lado {
+  from {
+    opacity: 0;
+    transform: translateX(-0.6em);
+  }
+}
+
+/* El check pica al final de la entrada: pasa por encima de su tamaño y asienta. */
+@keyframes s-pop-check {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.15);
   }
 }
 
