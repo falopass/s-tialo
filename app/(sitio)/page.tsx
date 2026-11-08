@@ -102,7 +102,7 @@ export default function HomePage() {
             }
           />
           <h1 className="s-display s-entra max-w-[14ch] text-[clamp(2.6rem,5.6vw,5.25rem)]">
-            Tu página web desde <em className="text-(--s-amarillo)">{PLANS.basico.priceFormatted}</em> al mes.
+            Tu página web desde <em className="s-precio text-(--s-amarillo)">{PLANS.basico.priceFormatted}</em> al mes.
           </h1>
           <p className="s-lead s-entra mt-6" style={{ '--i': 1 } as React.CSSProperties}>
             Lista en {PLANS.basico.deliveryDays} días. Y antes de pagar, te mandamos gratis un demo con tus fotos por

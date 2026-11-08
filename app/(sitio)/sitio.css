@@ -559,6 +559,15 @@ body:has([data-sitio])::before {
     font-weight: 700;
   }
 
+  /* El precio del hero encendido: más peso y un halo fijo del mismo amarillo.
+     El halo no es textura ni grano: el glifo queda nítido encima. */
+  [data-sitio] .s-precio {
+    font-weight: 650;
+    text-shadow:
+      0 0 0.5em rgb(245 196 0 / 0.5),
+      0 0 0.18em rgb(245 196 0 / 0.45);
+  }
+
   [data-sitio] .s-campo {
     display: block;
     width: 100%;
@@ -812,6 +821,13 @@ body:has([data-sitio])::before {
     animation-delay: calc(var(--i, 0) * 110ms);
   }
 
+  /* El precio prende como letrero: parpadea en pasos una sola vez al terminar la entrada
+     del titular y queda encendido. Comunica dónde mirar primero. La espera hereda --i del h1. */
+  [data-sitio] .s-precio {
+    animation: s-precio-pre 1s linear both;
+    animation-delay: calc(var(--i, 0) * 110ms + 720ms);
+  }
+
   /* Secciones: entran al aparecer en pantalla. Comunica ritmo de lectura, una idea a la vez. */
   @supports (animation-timeline: view()) {
     [data-sitio] .s-revela {
@@ -880,6 +896,34 @@ body:has([data-sitio])::before {
   from {
     opacity: 0.2;
     transform: translateY(0.45em);
+  }
+}
+
+/* Parpadeo de letrero en pasos duros: apagado, prende, titubea y queda encendido. */
+@keyframes s-precio-pre {
+  0%,
+  14% {
+    opacity: 0.3;
+  }
+  15%,
+  28% {
+    opacity: 1;
+  }
+  29%,
+  40% {
+    opacity: 0.45;
+  }
+  41%,
+  55% {
+    opacity: 1;
+  }
+  56%,
+  68% {
+    opacity: 0.6;
+  }
+  69%,
+  100% {
+    opacity: 1;
   }
 }
 
