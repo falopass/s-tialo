@@ -148,6 +148,17 @@ export const COMPRA_BASICO_FORMATTED = formatCLP(COMPRA_BASICO)
 export const RENOVACION_ANUAL = 59_990
 export const RENOVACION_ANUAL_FORMATTED = formatCLP(RENOVACION_ANUAL)
 
+/**
+ * Oferta de lanzamiento (decisión de Diego, 2026-11-08): activación gratis contratando hasta el
+ * 15 de noviembre de 2026, a las 23:59 de Chile (horario de verano, UTC-3). Pasada la fecha, el
+ * sitio vuelve solo al texto normal (ver `SegunOferta`); después conviene borrar estas constantes.
+ */
+export const OFERTA_ACTIVACION_HASTA = Date.parse('2026-11-15T23:59:59-03:00')
+export const OFERTA_ACTIVACION_FECHA = '15 de noviembre'
+export function ofertaActivacionVigente(ahora: number = Date.now()) {
+  return ahora <= OFERTA_ACTIVACION_HASTA
+}
+
 // ─────────────────────────────────────────────
 // PLANS (single source of truth para precios)
 // ─────────────────────────────────────────────

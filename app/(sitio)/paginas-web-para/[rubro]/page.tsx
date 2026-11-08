@@ -1,6 +1,14 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ACTIVACION_FORMATTED, MESES_PAGADOS_ANUAL, PLANS, siteUrl } from '@/lib/config'
+import {
+  ACTIVACION_FORMATTED,
+  MESES_PAGADOS_ANUAL,
+  OFERTA_ACTIVACION_FECHA,
+  PLANS,
+  ofertaActivacionVigente,
+  siteUrl,
+} from '@/lib/config'
+import { SegunOferta } from '../../_components/SegunOferta'
 import { breadcrumbJsonLd, JsonLd } from '@/lib/seo'
 import { catalogo } from '../../../demos/catalogo'
 import { calzaRubro, RUBROS, rubrosPublicados } from '@/content/rubros'
@@ -128,13 +136,22 @@ export default async function RubroPage({ params }: Props) {
               <span className="ml-1 font-sans text-base text-(--s-crema-2)">/mes</span>
             </p>
             <p className="mt-2 text-sm text-(--s-crema-2)">
-              Hosting y dominio incluidos. {ACTIVACION_FORMATTED} de activación, sin permanencia.
+              Hosting y dominio incluidos.{' '}
+              <SegunOferta
+                enBuild={ofertaActivacionVigente()}
+                oferta={
+                  <>
+                    Activación gratis hasta el {OFERTA_ACTIVACION_FECHA} (normal {ACTIVACION_FORMATTED}), sin permanencia.
+                  </>
+                }
+                normal={<>{ACTIVACION_FORMATTED} de activación, sin permanencia.</>}
+              />
             </p>
             <p className="mt-1 text-sm text-(--s-crema-2)">
               o {plan.annualFormatted} al año: 12 meses por {MESES_PAGADOS_ANUAL}
             </p>
             <div className="mt-8">
-              <AccionPlan plan={r.plan} primario />
+              <AccionPlan plan={r.plan} primario ofertaEnBuild={ofertaActivacionVigente()} />
             </div>
           </article>
         </div>

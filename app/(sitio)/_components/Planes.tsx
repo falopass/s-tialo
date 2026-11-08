@@ -1,6 +1,15 @@
-import { ACTIVACION_FORMATTED, COMPRA_BASICO_FORMATTED, MESES_PAGADOS_ANUAL, PLAN_COMPRA, PLANS } from '@/lib/config'
+import {
+  ACTIVACION_FORMATTED,
+  COMPRA_BASICO_FORMATTED,
+  MESES_PAGADOS_ANUAL,
+  OFERTA_ACTIVACION_FECHA,
+  PLAN_COMPRA,
+  PLANS,
+  ofertaActivacionVigente,
+} from '@/lib/config'
 import { AccionPlan } from './AccionPlan'
 import { Enlace } from './Enlace'
+import { SegunOferta } from './SegunOferta'
 
 const sinEntrega = (f: string) => !f.startsWith('Entrega')
 
@@ -11,6 +20,7 @@ const sinEntrega = (f: string) => !f.startsWith('Entrega')
 export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
   const { basico, recomendado, catalogo } = PLANS
   const planes = [basico, recomendado, catalogo]
+  const ofertaVigente = ofertaActivacionVigente()
   return (
     <div>
       <div className="grid gap-5 lg:grid-cols-3 lg:items-stretch">
@@ -32,7 +42,17 @@ export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
               <span className="ml-1 font-sans text-base text-(--s-crema-2)">/mes</span>
             </p>
             <p className="mt-2 text-sm text-(--s-crema-2)">
-              Hosting y dominio incluidos. {ACTIVACION_FORMATTED} de activación, sin permanencia.
+              Hosting y dominio incluidos.{' '}
+              <SegunOferta
+                enBuild={ofertaVigente}
+                oferta={
+                  <>
+                    <span className="text-(--s-amarillo)">Activación gratis</span> hasta el {OFERTA_ACTIVACION_FECHA}{' '}
+                    (normal {ACTIVACION_FORMATTED}), sin permanencia.
+                  </>
+                }
+                normal={<>{ACTIVACION_FORMATTED} de activación, sin permanencia.</>}
+              />
             </p>
             <p className="mt-1 text-sm text-(--s-crema-2)">
               o {p.annualFormatted} al año: 12 meses por {MESES_PAGADOS_ANUAL}
@@ -52,7 +72,7 @@ export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
               ))}
             </ul>
             <div className="mt-auto pt-8">
-              <AccionPlan plan={p.id} primario={p.id === recomendado.id} />
+              <AccionPlan plan={p.id} primario={p.id === recomendado.id} ofertaEnBuild={ofertaVigente} />
             </div>
           </article>
         ))}

@@ -1,5 +1,15 @@
 import type { Metadata } from 'next'
-import { MESES_PAGADOS_ANUAL, SITE, STARTING_PRICE, siteUrl } from '@/lib/config'
+import { Check } from '@phosphor-icons/react/dist/ssr'
+import {
+  ACTIVACION_FORMATTED,
+  MESES_PAGADOS_ANUAL,
+  OFERTA_ACTIVACION_FECHA,
+  PLANS,
+  SITE,
+  STARTING_PRICE,
+  ofertaActivacionVigente,
+  siteUrl,
+} from '@/lib/config'
 import { BIZ, RANCHO } from '../rancho-itahue/content'
 import { catalogo } from '../demos/catalogo'
 import { BotonDemo } from './_components/BotonDemo'
@@ -12,6 +22,7 @@ import { TuNegocio } from './_components/TuNegocio'
 import { ConfirmaNegocio, ConNegocio } from './_components/ConNegocio'
 import { DatosClaros } from './_components/DatosClaros'
 import { Planes } from './_components/Planes'
+import { SegunOferta } from './_components/SegunOferta'
 import { TarjetaDemo } from './_components/TarjetaDemo'
 
 export const metadata: Metadata = {
@@ -54,6 +65,18 @@ const PASOS = [
   },
 ]
 
+/**
+ * Lo que trae tener la web y lo que incluye la mensualidad. Escritos a mano a partir del plan
+ * Básico de lib/config (features y comentario de `price`): si cambia lo que incluye el Básico,
+ * revisa esta lista. Nada que el plan de entrada no cumpla (el SEO local es del Recomendado).
+ */
+const BENEFICIOS = [
+  'Tus clientes ven tus fotos, precios y horario sin tener que preguntarte',
+  'Te escriben a tu WhatsApp con un toque',
+  'Hosting, dominio y ajustes de contenido incluidos',
+  'Sin permanencia',
+]
+
 const DEMOS = ['fran-wartemberg', 'los-leones', 'servimac', 'la-granja', 'entre-raices', 'my-fusion']
 // Primera oración del texto oficial del dueño (app/rancho-itahue/content.ts).
 const CITA_DUENO = RANCHO.paragraphs[2].split('. ')[0] + '.'
@@ -61,25 +84,59 @@ const CITA_DUENO = RANCHO.paragraphs[2].split('. ')[0] + '.'
 export default function HomePage() {
   // Cifra real: se cuenta en el build desde el catálogo de /demos/.
   const totalDemos = catalogo().length
+  // Fecha del build; en el navegador, SegunOferta corrige con la fecha del visitante.
+  const ofertaVigente = ofertaActivacionVigente()
   return (
     <>
       {/* Hero y pieza central: el mismo objeto pasa de estructura a forma a publicada. */}
       <section className="s-proceso s-wrap" aria-label="Cómo nace tu web">
         <div className="s-proceso-hero">
-          <h1 className="s-display s-entra text-[clamp(2.75rem,6.4vw,6rem)]">
-            Tu web, antes de pagar <em>un peso.</em>
+          {/* Cartel de la oferta de lanzamiento: se retira solo pasada la fecha (SegunOferta). */}
+          <SegunOferta
+            enBuild={ofertaVigente}
+            oferta={
+              <p className="s-cartel s-entra mb-6">
+                <strong>Activación gratis</strong> si contratas hasta el {OFERTA_ACTIVACION_FECHA}. Te ahorras{' '}
+                {ACTIVACION_FORMATTED}.
+              </p>
+            }
+          />
+          <h1 className="s-display s-entra max-w-[14ch] text-[clamp(2.6rem,5.6vw,5.25rem)]">
+            Tu página web desde <em className="text-(--s-amarillo)">{PLANS.basico.priceFormatted}</em> al mes.
           </h1>
           <p className="s-lead s-entra mt-6" style={{ '--i': 1 } as React.CSSProperties}>
-            Mándanos tu Instagram y en 48 horas recibes un demo por WhatsApp. Lista en 7 días desde {STARTING_PRICE}.
+            Lista en {PLANS.basico.deliveryDays} días. Y antes de pagar, te mandamos gratis un demo con tus fotos por
+            WhatsApp.
           </p>
-          <div className="s-entra mt-8" style={{ '--i': 2 } as React.CSSProperties}>
-            <TuNegocio />
-          </div>
-          <div data-cta-principal className="s-entra mt-3 flex flex-wrap gap-3" style={{ '--i': 3 } as React.CSSProperties}>
+          <div data-cta-principal className="s-entra mt-8 flex flex-wrap gap-3" style={{ '--i': 2 } as React.CSSProperties}>
             <BotonDemo origen="hero" />
-            <a href="/demos/" className="s-btn s-btn-secundario">
-              Ver {totalDemos} demos
+            <a href="#planes" className="s-btn s-btn-secundario">
+              Ver precios
             </a>
+          </div>
+          <p className="s-entra mt-4 max-w-[52ch] text-[15px] text-(--s-ceniza)" style={{ '--i': 3 } as React.CSSProperties}>
+            <SegunOferta
+              enBuild={ofertaVigente}
+              oferta={<>También puedes pagar el año: 12 meses por {MESES_PAGADOS_ANUAL}.</>}
+              normal={
+                <>
+                  Más {ACTIVACION_FORMATTED} de activación. O paga el año: 12 meses por {MESES_PAGADOS_ANUAL} y sin
+                  activación.
+                </>
+              }
+            />
+          </p>
+          <ul className="s-entra mt-8 grid gap-2.5 text-(--s-crema)" style={{ '--i': 4 } as React.CSSProperties}>
+            {BENEFICIOS.map((b) => (
+              <li key={b} className="flex items-start gap-3">
+                <Check size={20} weight="bold" aria-hidden="true" className="mt-0.5 shrink-0 text-(--s-amarillo)" />
+                {b}
+              </li>
+            ))}
+          </ul>
+          {/* Opcional y fuera del primer pantallazo: el nombre se arma en el escenario y va en el WhatsApp. */}
+          <div className="s-entra mt-10" style={{ '--i': 5 } as React.CSSProperties}>
+            <TuNegocio />
           </div>
           <ConfirmaNegocio />
         </div>
@@ -129,7 +186,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="border-t border-(--s-linea)">
+      <section id="planes" className="scroll-mt-[var(--s-nav-h)] border-t border-(--s-linea)">
         <div className="s-wrap py-20 md:py-28">
           <h2 className="s-display s-h2 mb-14 max-w-[20ch]">Un precio claro para cada tamaño de negocio.</h2>
           <Planes />
