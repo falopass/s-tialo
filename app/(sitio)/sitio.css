@@ -543,6 +543,22 @@ body:has([data-sitio])::before {
     max-width: 440px;
   }
 
+  /* Cartel de la oferta de lanzamiento en el hero: amarillo pleno, texto nítido, sin textura. */
+  [data-sitio] .s-cartel {
+    width: fit-content;
+    max-width: 100%;
+    padding: 10px 16px;
+    border-radius: 14px;
+    background: var(--s-amarillo);
+    color: var(--s-tinta);
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  [data-sitio] .s-cartel strong {
+    font-weight: 700;
+  }
+
   [data-sitio] .s-campo {
     display: block;
     width: 100%;

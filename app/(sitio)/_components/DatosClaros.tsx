@@ -1,11 +1,19 @@
-import { ACTIVACION_FORMATTED, MESES_PAGADOS_ANUAL, PLANS, STARTING_PRICE } from '@/lib/config'
+import {
+  ACTIVACION_FORMATTED,
+  MESES_PAGADOS_ANUAL,
+  OFERTA_ACTIVACION_FECHA,
+  PLANS,
+  STARTING_PRICE,
+  ofertaActivacionVigente,
+} from '@/lib/config'
+import { SegunOferta } from './SegunOferta'
 
 /**
  * Ficha con los hechos del servicio: el dato grande en la serif y la frase que lo explica abajo.
  * Va en texto real (no imagen) para que una persona, Google o un asistente de IA lo citen tal cual.
  * Todo sale de lib/config.
  */
-const FILAS: { etiqueta: string; valor: string; detalle: string }[] = [
+const FILAS: { etiqueta: string; valor: string; detalle: React.ReactNode }[] = [
   {
     etiqueta: 'Precio',
     valor: `Desde ${STARTING_PRICE}`,
@@ -14,7 +22,13 @@ const FILAS: { etiqueta: string; valor: string; detalle: string }[] = [
   {
     etiqueta: 'Pago',
     valor: 'Sin permanencia',
-    detalle: `${ACTIVACION_FORMATTED} de activación y avisas con 30 días si te vas. Pagando el año, 12 meses por ${MESES_PAGADOS_ANUAL} y sin activación.`,
+    detalle: (
+      <SegunOferta
+        enBuild={ofertaActivacionVigente()}
+        oferta={`Activación gratis hasta el ${OFERTA_ACTIVACION_FECHA} (normal ${ACTIVACION_FORMATTED}) y avisas con 30 días si te vas. Pagando el año, 12 meses por ${MESES_PAGADOS_ANUAL}.`}
+        normal={`${ACTIVACION_FORMATTED} de activación y avisas con 30 días si te vas. Pagando el año, 12 meses por ${MESES_PAGADOS_ANUAL} y sin activación.`}
+      />
+    ),
   },
   {
     etiqueta: 'Plazo',
