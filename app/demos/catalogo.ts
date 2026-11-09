@@ -3878,6 +3878,7 @@ const BLITZ: Blitz[] = [
   { slug: 'vivero-molco', name: 'Vivero Molco', rubro: 'Vivero y paisajismo', city: 'Villarrica' },
   { slug: 'electricidad-automotriz-del-valle', name: 'Electricidad Automotriz Del Valle', rubro: 'Electricidad automotriz', city: 'Villarrica' },
   { slug: 'tobar-silva-taller-villarrica', name: 'Mecánica Tobar', rubro: 'Taller mecánico', city: 'Villarrica' },
+  { slug: 'taller-mecanico-reiher', name: 'Reiher Diagno Service', rubro: 'Taller mecánico y centro de diagnóstico', city: 'Osorno' },
 ]
 
 const FAMILIAS: Familia[] = [
