@@ -3873,6 +3873,7 @@ const BLITZ: Blitz[] = [
   { slug: 'depilacion-bellyssima', name: 'Bellyssima, Depilación y Estética', rubro: 'Depilación · estética', city: 'Puerto Montt' },
   { slug: 'pisek-osorno', name: 'Písek', rubro: 'Tienda de productos de belleza y peluquería', city: 'Osorno' },
   { slug: 'vivero-molco', name: 'Vivero Molco', rubro: 'Vivero y paisajismo', city: 'Villarrica' },
+  { slug: 'distribuidora-cambur-pinton', name: 'Distribuidora Cambur Pintón', rubro: 'Tienda de productos venezolanos', city: 'Puerto Montt' },
 ]
 
 const FAMILIAS: Familia[] = [
