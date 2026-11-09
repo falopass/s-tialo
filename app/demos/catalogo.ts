@@ -3872,6 +3872,7 @@ const BLITZ: Blitz[] = [
   { slug: 'one-club-barberia', name: 'Studio One Club Salón', rubro: 'Barbería', city: 'Valdivia' },
   { slug: 'depilacion-bellyssima', name: 'Bellyssima, Depilación y Estética', rubro: 'Depilación · estética', city: 'Puerto Montt' },
   { slug: 'pisek-osorno', name: 'Písek', rubro: 'Tienda de productos de belleza y peluquería', city: 'Osorno' },
+  { slug: 'clinica-dental-lug', name: 'Clínica Dental Lüg', rubro: 'Clínica dental', city: 'Puerto Montt' },
   { slug: 'vivero-molco', name: 'Vivero Molco', rubro: 'Vivero y paisajismo', city: 'Villarrica' },
 ]
 
