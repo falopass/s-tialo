@@ -660,7 +660,7 @@ export default function ViktoriaAsencioPage() {
                           <path d="M3 13L13 3M6 3h7v7" />
                         </svg>
                       </a>
-                      <a href={`tel:${BIZ.phoneTel}`} className="text-sm font-medium tap-44" style={{ color: C.tinta }}>
+                      <a href={WA_LINK} className="text-sm font-medium tap-44" style={{ color: C.tinta }}>
                         {BIZ.phoneDisplay}
                       </a>
                     </div>
@@ -713,7 +713,7 @@ export default function ViktoriaAsencioPage() {
               </p>
               <div className="mt-9 flex flex-col items-center gap-4">
                 <BtnWa bg={C.marfil} ink={C.petroleoBajo}>Agenda tu sesión por WhatsApp</BtnWa>
-                <a href={`tel:${BIZ.phoneTel}`} className={`${display.className} text-2xl tap-44`} style={{ color: C.marfil }}>
+                <a href={WA_LINK} className={`${display.className} text-2xl tap-44`} style={{ color: C.marfil }}>
                   {BIZ.phoneDisplay}
                 </a>
               </div>
@@ -734,7 +734,7 @@ export default function ViktoriaAsencioPage() {
             </div>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs" style={{ color: C.mutP }}>
               <span>{BIZ.clinic} · {BIZ.address}, {BIZ.city}</span>
-              <a href={`tel:${BIZ.phoneTel}`} className="tap-44" style={{ color: C.marfil }}>
+              <a href={WA_LINK} className="tap-44" style={{ color: C.marfil }}>
                 {BIZ.phoneDisplay}
               </a>
             </div>
