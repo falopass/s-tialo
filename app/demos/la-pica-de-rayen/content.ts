@@ -68,7 +68,7 @@ export const PIZARRA = [
     alt: 'Paila marina con choritos, camarones y cilantro',
   },
   {
-    plato: 'Lasaña y puré con costillar',
+    plato: 'Lasaña · Puré con costillar',
     nota: 'recién salidos del horno',
     foto: 'carne-choclo',
     alt: 'Plato casero de la cocina de La Pica de Rayen',

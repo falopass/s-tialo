@@ -520,7 +520,7 @@ export default function LaPicaDeRayenPage() {
                 className="text-[11px] font-bold uppercase tracking-[0.28em]"
                 style={{ color: 'rgba(250,243,230,0.6)' }}
               >
-                y cada plato llega con ensalada, sopaipillas caseras y pebre
+                como la paila marina que llegó con ensalada, sopaipillas caseras y pebre
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Btn href={WA_LINK} tone="dorado">
