@@ -3873,7 +3873,7 @@ const BLITZ: Blitz[] = [
   { slug: 'depilacion-bellyssima', name: 'Bellyssima, Depilación y Estética', rubro: 'Depilación · estética', city: 'Puerto Montt' },
   { slug: 'pisek-osorno', name: 'Písek', rubro: 'Tienda de productos de belleza y peluquería', city: 'Osorno' },
   { slug: 'vivero-molco', name: 'Vivero Molco', rubro: 'Vivero y paisajismo', city: 'Villarrica' },
-  { slug: 'centro-de-eventos-las-bandurrias', name: 'Las Bandurrias Centro de Eventos', rubro: 'Cumpleaños infantiles y eventos familiares', city: 'Puerto Varas' },
+  { slug: 'centro-de-eventos-las-bandurrias', name: 'Las Bandurrias Centro de Eventos', rubro: 'Cumpleaños infantiles y celebraciones familiares', city: 'Puerto Varas' },
 ]
 
 const FAMILIAS: Familia[] = [
