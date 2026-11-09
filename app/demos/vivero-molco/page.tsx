@@ -707,8 +707,8 @@ export default function ViveroMolcoPage() {
                 </Reveal>
                 <Reveal delay={120}>
                   <p className="text-sm md:text-base leading-relaxed mb-4 max-w-sm" style={{ color: C.mutC }}>
-                    Lo que encuentras aquí no viene de otro vivero: se produce
-                    en estas mismas hileras, al aire del sur.
+                    Muchas de las plantas crecen aquí mismo,
+                    en estas hileras, al aire del sur.
                   </p>
                   <ul className="space-y-2.5 text-sm md:text-base" style={{ color: C.mutC }}>
                     {[
@@ -848,7 +848,7 @@ export default function ViveroMolcoPage() {
                       </dt>
                       <dd>
                         <a
-                          href={`tel:${BIZ.phoneTel}`}
+                          href={WA_LINK}
                           className="font-semibold underline underline-offset-4 decoration-1 tap-44"
                           style={{ color: C.musgo, textDecorationColor: C.brote }}
                         >
@@ -924,7 +924,7 @@ export default function ViveroMolcoPage() {
               <div className="text-xs leading-relaxed" style={{ color: C.mutD }}>
                 <p>
                   {BIZ.rubro} · {BIZ.city}, {BIZ.region} ·{' '}
-                  <a href={`tel:${BIZ.phoneTel}`} className="underline underline-offset-2 whitespace-nowrap tap-44">
+                  <a href={WA_LINK} className="underline underline-offset-2 whitespace-nowrap tap-44">
                     {BIZ.phoneDisplay}
                   </a>
                 </p>
