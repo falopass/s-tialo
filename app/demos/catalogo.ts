@@ -3876,6 +3876,7 @@ const BLITZ: Blitz[] = [
   { slug: 'clinica-advance-dental', name: 'Clínica Advance Dental', rubro: 'Clínica dental', city: 'Valdivia' },
   { slug: 'clinica-dental-lug', name: 'Clínica Dental Lüg', rubro: 'Clínica dental', city: 'Puerto Montt' },
   { slug: 'vivero-molco', name: 'Vivero Molco', rubro: 'Vivero y paisajismo', city: 'Villarrica' },
+  { slug: 'tobar-silva-taller-villarrica', name: 'Mecánica Tobar', rubro: 'Taller mecánico', city: 'Villarrica' },
 ]
 
 const FAMILIAS: Familia[] = [
