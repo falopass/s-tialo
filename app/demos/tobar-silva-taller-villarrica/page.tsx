@@ -316,8 +316,8 @@ export default function TobarPage() {
               <Btn href={WA_LINK} tone="azul" icon="wa">
                 Escríbenos por WhatsApp
               </Btn>
-              <Btn href={`tel:${BIZ.phoneTel}`} tone="lineD" icon="fono" external={false}>
-                Llamar al taller
+              <Btn href={WA_LINK_GRUA} tone="lineD" icon="wa">
+                Pide la grúa por WhatsApp
               </Btn>
             </div>
           </div>
@@ -548,7 +548,7 @@ export default function TobarPage() {
                     WhatsApp y llamadas
                   </dt>
                   <dd className="mt-1 text-sm md:text-base">
-                    <a href={`tel:${BIZ.phoneTel}`} className="tap-44 underline underline-offset-4 decoration-2" style={{ textDecorationColor: 'rgba(29,78,158,0.4)' }}>
+                    <a href={WA_LINK} className="tap-44 underline underline-offset-4 decoration-2" style={{ textDecorationColor: 'rgba(29,78,158,0.4)' }}>
                       {BIZ.phoneDisplay}
                     </a>
                   </dd>
@@ -614,7 +614,7 @@ export default function TobarPage() {
                 Escríbenos por WhatsApp
               </Btn>
               <a
-                href={`tel:${BIZ.phoneTel}`}
+                href={WA_LINK}
                 className="text-sm font-semibold underline underline-offset-4 decoration-2 tap-44"
                 style={{ color: C.papel, textDecorationColor: 'rgba(242,183,5,0.5)' }}
               >
