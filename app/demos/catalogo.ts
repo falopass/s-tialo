@@ -3881,6 +3881,7 @@ const BLITZ: Blitz[] = [
   { slug: 'taller-mecanico-reiher', name: 'Reiher Diagno Service', rubro: 'Taller mecánico y centro de diagnóstico', city: 'Osorno' },
   { slug: 'la-pica-de-rayen', name: 'La Pica de Rayen', rubro: 'Comida casera', city: 'Villarrica' },
   { slug: 'centro-de-eventos-las-bandurrias', name: 'Las Bandurrias Centro de Eventos', rubro: 'Cumpleaños infantiles y celebraciones familiares', city: 'Puerto Varas' },
+  { slug: 'distribuidora-cambur-pinton', name: 'Distribuidora Cambur Pintón', rubro: 'Tienda de productos venezolanos', city: 'Puerto Montt' },
 ]
 
 const FAMILIAS: Familia[] = [
