@@ -3888,6 +3888,7 @@ const BLITZ: Blitz[] = [
   { slug: 'hotel-manso-de-velasco', name: 'Hotel Manso de Velasco', rubro: 'Hotel de 3 estrellas', city: 'San Fernando' },
   { slug: 'cabanas-la-posada-puerto-montt', name: 'Cabañas La Posada', rubro: 'Cabañas de madera', city: 'Puerto Montt' },
   { slug: 'club-angels-puerto-montt', name: 'Club Angels', rubro: 'Discoteca', city: 'Puerto Montt' },
+  { slug: 'jardin-japones-concepcion', name: 'Jardín Japonés Concepción', rubro: 'Vivero y floristería', city: 'San Pedro de la Paz' },
 ]
 
 const FAMILIAS: Familia[] = [
