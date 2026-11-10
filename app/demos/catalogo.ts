@@ -3884,6 +3884,7 @@ const BLITZ: Blitz[] = [
   { slug: 'distribuidora-cambur-pinton', name: 'Distribuidora Cambur Pintón', rubro: 'Tienda de productos venezolanos', city: 'Puerto Montt' },
   { slug: 'ferreteria-los-alerces', name: 'Ferretería Los Alerces', rubro: 'Ferretería y materiales', city: 'Puerto Montt' },
   { slug: 'taller-servimec-puerto-varas', name: 'Taller SERVIMEC', rubro: 'Taller mecánico', city: 'Puerto Varas' },
+  { slug: 'carrusel-puerto-montt', name: 'Carrusel Puerto Montt', rubro: 'Boutique · ropa de fiesta', city: 'Puerto Montt' },
 ]
 
 const FAMILIAS: Familia[] = [
