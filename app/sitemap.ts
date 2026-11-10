@@ -5,6 +5,7 @@ import { SITE } from '@/lib/config'
 import { posts } from '@/content/posts'
 import { detailedCases } from '@/content/cases'
 import { DEMOS } from './demos/data'
+import { DEMOS_NOINDEX } from './demos/meta'
 import { catalogo } from './demos/catalogo'
 import { rubrosPublicados } from '@/content/rubros'
 
@@ -64,7 +65,9 @@ function demoSlugs(): string[] {
         existsSync(join(dir, e.name, 'page.tsx')),
     )
     .map((e) => e.name)
-  return [...new Set([...staticSlugs, ...DEMOS.map((d) => d.slug)])]
+  return [...new Set([...staticSlugs, ...DEMOS.map((d) => d.slug)])].filter(
+    (slug) => !DEMOS_NOINDEX.has(slug),
+  )
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
