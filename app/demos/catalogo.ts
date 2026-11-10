@@ -3885,6 +3885,7 @@ const BLITZ: Blitz[] = [
   { slug: 'ferreteria-los-alerces', name: 'Ferretería Los Alerces', rubro: 'Ferretería y materiales', city: 'Puerto Montt' },
   { slug: 'taller-servimec-puerto-varas', name: 'Taller SERVIMEC', rubro: 'Taller mecánico', city: 'Puerto Varas' },
   { slug: 'carrusel-puerto-montt', name: 'Carrusel Puerto Montt', rubro: 'Boutique · ropa de fiesta', city: 'Puerto Montt' },
+  { slug: 'hotel-manso-de-velasco', name: 'Hotel Manso de Velasco', rubro: 'Hotel de 3 estrellas', city: 'San Fernando' },
 ]
 
 const FAMILIAS: Familia[] = [
