@@ -3883,6 +3883,13 @@ const BLITZ: Blitz[] = [
   { slug: 'centro-de-eventos-las-bandurrias', name: 'Las Bandurrias Centro de Eventos', rubro: 'Cumpleaños infantiles y celebraciones familiares', city: 'Puerto Varas' },
   { slug: 'distribuidora-cambur-pinton', name: 'Distribuidora Cambur Pintón', rubro: 'Tienda de productos venezolanos', city: 'Puerto Montt' },
   { slug: 'ferreteria-los-alerces', name: 'Ferretería Los Alerces', rubro: 'Ferretería y materiales', city: 'Puerto Montt' },
+  { slug: 'taller-servimec-puerto-varas', name: 'Taller SERVIMEC', rubro: 'Taller mecánico', city: 'Puerto Varas' },
+  { slug: 'carrusel-puerto-montt', name: 'Carrusel Puerto Montt', rubro: 'Boutique · ropa de fiesta', city: 'Puerto Montt' },
+  { slug: 'hotel-manso-de-velasco', name: 'Hotel Manso de Velasco', rubro: 'Hotel de 3 estrellas', city: 'San Fernando' },
+  { slug: 'cabanas-la-posada-puerto-montt', name: 'Cabañas La Posada', rubro: 'Cabañas de madera', city: 'Puerto Montt' },
+  { slug: 'club-angels-puerto-montt', name: 'Club Angels', rubro: 'Discoteca', city: 'Puerto Montt' },
+  { slug: 'jardin-japones-concepcion', name: 'Jardín Japonés Concepción', rubro: 'Vivero y floristería', city: 'San Pedro de la Paz' },
+  { slug: 'peluqueria-valentino-valdivia', name: 'Peluquería Valentino', rubro: 'Peluquería', city: 'Valdivia' },
 ]
 
 const FAMILIAS: Familia[] = [
