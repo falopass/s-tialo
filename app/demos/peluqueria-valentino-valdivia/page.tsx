@@ -275,7 +275,7 @@ export default function PeluqueriaValentinoPage() {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                'linear-gradient(180deg, rgba(20,20,20,0.52) 0%, rgba(20,20,20,0.10) 38%, rgba(20,20,20,0.34) 62%, rgba(20,20,20,0.88) 100%)',
+                'linear-gradient(180deg, rgba(20,20,20,0.55) 0%, rgba(20,20,20,0.45) 22%, rgba(20,20,20,0.72) 42%, rgba(20,20,20,0.80) 70%, rgba(20,20,20,0.92) 100%)',
             }}
             aria-hidden="true"
           />
