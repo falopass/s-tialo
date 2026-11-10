@@ -374,17 +374,17 @@ export default function ServimecPage() {
               className={`${display.className} uppercase leading-[0.94] tracking-[0.01em] text-[clamp(2.85rem,12.2vw,5.6rem)]`}
               style={{ color: '#FFFFFF' }}
             >
-              <span className="block overflow-hidden pb-[0.05em] -mb-[0.05em]">
+              <span className="block overflow-hidden pt-[0.18em] -mt-[0.18em] pb-[0.05em] -mb-[0.05em]">
                 <span className="sv-linea" style={{ '--d': '1.12s' } as CSSProperties}>
                   Mecánica
                 </span>
               </span>
-              <span className="block overflow-hidden pb-[0.05em] -mb-[0.05em]">
+              <span className="block overflow-hidden pt-[0.18em] -mt-[0.18em] pb-[0.05em] -mb-[0.05em]">
                 <span className="sv-linea" style={{ '--d': '1.22s' } as CSSProperties}>
                   con ritmo
                 </span>
               </span>
-              <span className="block overflow-hidden pb-[0.08em]">
+              <span className="block overflow-hidden pt-[0.18em] -mt-[0.18em] pb-[0.08em]">
                 <span className="sv-linea" style={{ '--d': '1.32s', color: C.naranja } as CSSProperties}>
                   de competencia.
                 </span>
