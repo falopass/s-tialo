@@ -473,8 +473,9 @@ export default function HotelMansoDeVelascoPage() {
                   />
                 </div>
               </Reveal>
-              <Reveal delay={110} className="lg:col-span-5">
-                <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[calc(50%-12px)] overflow-hidden rounded-xl">
+              <div className="contents lg:col-span-5 lg:flex lg:flex-col lg:gap-6">
+              <Reveal delay={110} className="lg:flex-1 lg:min-h-0">
+                <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden rounded-xl">
                   <Image
                     src={`${IMG}/habitacion-desayuno.webp`}
                     alt="Bandeja de desayuno servida sobre la cama de una habitación cálida"
@@ -484,8 +485,8 @@ export default function HotelMansoDeVelascoPage() {
                   />
                 </div>
               </Reveal>
-              <Reveal delay={190} className="lg:col-span-5">
-                <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[calc(50%-12px)] overflow-hidden rounded-xl">
+              <Reveal delay={190} className="lg:flex-1 lg:min-h-0">
+                <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden rounded-xl">
                   <Image
                     src={`${IMG}/habitacion-roja.webp`}
                     alt="Habitación con cubrecama rojo, sillón y escritorio de trabajo"
@@ -495,6 +496,7 @@ export default function HotelMansoDeVelascoPage() {
                   />
                 </div>
               </Reveal>
+              </div>
             </div>
 
             <Reveal delay={80}>

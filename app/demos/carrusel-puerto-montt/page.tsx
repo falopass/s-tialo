@@ -740,6 +740,7 @@ export default function CarruselPage() {
                     alt={i < LOOKS.length ? l.alt : ''}
                     fill
                     loading="eager"
+                    fetchPriority="low"
                     sizes="(min-width: 768px) 189px, 147px"
                     className="object-cover"
                   />
