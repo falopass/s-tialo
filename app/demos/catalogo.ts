@@ -3883,6 +3883,7 @@ const BLITZ: Blitz[] = [
   { slug: 'centro-de-eventos-las-bandurrias', name: 'Las Bandurrias Centro de Eventos', rubro: 'Cumpleaños infantiles y celebraciones familiares', city: 'Puerto Varas' },
   { slug: 'distribuidora-cambur-pinton', name: 'Distribuidora Cambur Pintón', rubro: 'Tienda de productos venezolanos', city: 'Puerto Montt' },
   { slug: 'ferreteria-los-alerces', name: 'Ferretería Los Alerces', rubro: 'Ferretería y materiales', city: 'Puerto Montt' },
+  { slug: 'jardin-japones-concepcion', name: 'Jardín Japonés Concepción', rubro: 'Vivero y floristería', city: 'San Pedro de la Paz' },
 ]
 
 const FAMILIAS: Familia[] = [
