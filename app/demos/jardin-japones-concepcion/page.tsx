@@ -521,14 +521,14 @@ export default function JardinJaponesPage() {
                 </Reveal>
                 <Reveal delay={120}>
                   <p className="text-sm md:text-base leading-relaxed mb-7 max-w-md" style={{ color: C.mutC }}>
-                    Arbustos para el cerco, árboles para dar sombra y
-                    también frutales: la entrada misma los anuncia.
+                    Arbustos, árboles y también frutales:
+                    la entrada misma los anuncia.
                   </p>
                   <ul className="mb-8 divide-y" style={{ borderColor: C.lineC }}>
                     {[
-                      ['Arbustos', 'Ornamentales y de cerco'],
-                      ['Árboles', 'Para sombra y porte'],
-                      ['Frutales', 'Arbustos frutales para el patio'],
+                      ['Arbustos', 'Letrero de la entrada'],
+                      ['Árboles', 'Letrero de la entrada'],
+                      ['Frutales', 'Arbustos frutales'],
                     ].map(([k, v]) => (
                       <li key={k} className="flex items-baseline gap-4 py-3.5" style={{ borderColor: 'inherit' }}>
                         <span className={`${display.className} text-xl md:text-2xl w-24 shrink-0`} style={{ color: C.musgo }}>
@@ -566,14 +566,13 @@ export default function JardinJaponesPage() {
                   className={`${display.className} leading-[1.08] text-[clamp(1.9rem,7vw,3.6rem)]`}
                   style={{ color: C.tinta }}
                 >
-                  Un cumpleaños entre
+                  Un cumpleaños
                   <br />
-                  <em>el pasto y el agua.</em>
+                  <em>en el jardín.</em>
                 </h2>
                 <p className="mx-auto mt-5 max-w-md md:max-w-xl text-sm md:text-base leading-relaxed" style={{ color: C.mutC }}>
-                  A un costado del sector de plantas hay una carpa y un
-                  jardín con pasto junto al agua para celebrar cumpleaños
-                  infantiles.
+                  A un costado del sector de plantas hay una carpa para
+                  celebrar cumpleaños infantiles.
                 </p>
               </Reveal>
             </div>
