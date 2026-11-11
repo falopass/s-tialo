@@ -3,6 +3,7 @@ import {
   MESES_PAGADOS_ANUAL,
   OFERTA_ACTIVACION_FECHA,
   PLANS,
+  PRECIOS_NOTA,
   STARTING_PRICE,
   ofertaActivacionVigente,
 } from '@/lib/config'
@@ -17,7 +18,7 @@ const FILAS: { etiqueta: string; valor: string; detalle: React.ReactNode }[] = [
   {
     etiqueta: 'Precio',
     valor: `Desde ${STARTING_PRICE}`,
-    detalle: 'Mensualidad con hosting, dominio y ajustes de contenido incluidos.',
+    detalle: `Mensualidad con hosting, dominio y ajustes de contenido incluidos. ${PRECIOS_NOTA}.`,
   },
   {
     etiqueta: 'Pago',

@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next'
 import { Nav } from './_components/Nav'
 import { Footer } from './_components/Footer'
 import { CookieConsent } from './_components/CookieConsent'
@@ -24,6 +25,7 @@ export default function SitioLayout({ children }: { children: React.ReactNode })
       <CookieConsent />
       <BarraMovil />
       <MovimientoSitio />
+      <Analytics />
     </div>
   )
 }

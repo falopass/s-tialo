@@ -5,6 +5,7 @@ import {
   MESES_PAGADOS_ANUAL,
   OFERTA_ACTIVACION_FECHA,
   PLANS,
+  PRECIOS_NOTA,
   ofertaActivacionVigente,
   siteUrl,
 } from '@/lib/config'
@@ -136,7 +137,7 @@ export default async function RubroPage({ params }: Props) {
               <span className="ml-1 font-sans text-base text-(--s-crema-2)">/mes</span>
             </p>
             <p className="mt-2 text-sm text-(--s-crema-2)">
-              Hosting y dominio incluidos.{' '}
+              Hosting y dominio incluidos. {PRECIOS_NOTA}.{' '}
               <SegunOferta
                 enBuild={ofertaActivacionVigente()}
                 oferta={

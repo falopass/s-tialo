@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 import {
   EXTRAS,
-  MARCA,
   ACTIVACION_FORMATTED,
   COMPRA_BASICO_FORMATTED,
   MESES_PAGADOS_ANUAL,
   PLANS,
   PLANS_ARRAY,
-  SITE,
+  SCHEMA,
   STARTING_PRICE,
   siteUrl,
 } from '@/lib/config'
@@ -35,44 +34,6 @@ export const metadata: Metadata = {
 }
 
 const planesFaqJsonLd = faqJsonLd(planFaqs)
-
-const planesServiceJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Planes de diseño web de Sitiazo.cl',
-  description: `Planes de diseño web para pymes chilenas, desde ${STARTING_PRICE} con hosting y dominio incluidos.`,
-  url: siteUrl('/planes/'),
-  itemListElement: PLANS_ARRAY.map((plan, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    item: {
-      '@type': 'Service',
-      name: `Plan ${plan.name}, Sitiazo.cl`,
-      description: plan.description,
-      url: siteUrl('/planes/'),
-      provider: {
-        '@type': 'ProfessionalService',
-        name: MARCA,
-        url: SITE.url,
-      },
-      offers: {
-        '@type': 'Offer',
-        price: plan.price.toString(),
-        priceCurrency: 'CLP',
-        priceSpecification: {
-          '@type': 'UnitPriceSpecification',
-          price: plan.price.toString(),
-          priceCurrency: 'CLP',
-          unitCode: 'MON',
-          unitText: 'mes',
-        },
-        availability: 'https://schema.org/InStock',
-        description: `${plan.name}: ${plan.pages}, entrega en ${plan.deliveryDays} días hábiles`,
-      },
-    },
-  })),
-  numberOfItems: PLANS_ARRAY.length,
-}
 
 type Valor = string | boolean
 const GRUPOS: { titulo: string; filas: { nombre: string; basico: Valor; recomendado: Valor; catalogo: Valor }[] }[] = [
@@ -117,7 +78,7 @@ export default function PlanesPage() {
   return (
     <>
       <JsonLd data={planesFaqJsonLd} />
-      <JsonLd data={planesServiceJsonLd} />
+      <JsonLd data={SCHEMA.offerCatalog} />
 
       <Cabecera
         titulo={

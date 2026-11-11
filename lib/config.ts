@@ -106,11 +106,11 @@ export function whatsappLink(context: WhatsAppContext = 'contacto'): string {
   // Dynamic messages that include plan prices (resolved at call time)
   const dynamicMessages: Record<string, () => string> = {
     basico: () =>
-      `Hola! Me interesa el plan Básico (${PLANS.basico.priceFormatted} al mes). ¿Podemos conversar? 🟡`,
+      `Hola! Me interesa el plan Básico (${PLANS.basico.priceFormatted} al mes, ${PRECIOS_NOTA}). ¿Podemos conversar? 🟡`,
     recomendado: () =>
-      `Hola! Me interesa el plan Recomendado (${PLANS.recomendado.priceFormatted} al mes). ¿Podemos conversar? 🟡`,
+      `Hola! Me interesa el plan Recomendado (${PLANS.recomendado.priceFormatted} al mes, ${PRECIOS_NOTA}). ¿Podemos conversar? 🟡`,
     catalogo: () =>
-      `Hola! Me interesa el plan Catálogo (${PLANS.catalogo.priceFormatted} al mes). Quisiera más detalles 🟡`,
+      `Hola! Me interesa el plan Catálogo (${PLANS.catalogo.priceFormatted} al mes, ${PRECIOS_NOTA}). Quisiera más detalles 🟡`,
   }
 
   const message =
@@ -147,6 +147,9 @@ export const COMPRA_BASICO = 179_990
 export const COMPRA_BASICO_FORMATTED = formatCLP(COMPRA_BASICO)
 export const RENOVACION_ANUAL = 59_990
 export const RENOVACION_ANUAL_FORMATTED = formatCLP(RENOVACION_ANUAL)
+
+/** Nota junto al precio mensual: los valores publicados traen el IVA dentro. */
+export const PRECIOS_NOTA = 'IVA incluido'
 
 /**
  * Oferta de lanzamiento (decisión de Diego, 2026-11-08): activación gratis contratando hasta el
@@ -461,6 +464,36 @@ export const SCHEMA = {
     url: SITE.url,
     inLanguage: SITE.locale,
     publisher: { '@id': ORGANIZACION_ID },
+  },
+  /** Catálogo de ofertas: las tres mensualidades con su precio entero en CLP. */
+  offerCatalog: {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: `Planes de diseño web de ${MARCA}`,
+    url: siteUrl('/planes/'),
+    itemListElement: PLANS_ARRAY.map((plan) => ({
+      '@type': 'Offer',
+      name: `Plan ${plan.name}`,
+      description: `${plan.description} ${PRECIOS_NOTA}. ${
+        ofertaActivacionVigente()
+          ? `Activación $0 hasta el ${OFERTA_ACTIVACION_FECHA} de 2026; después ${ACTIVACION_FORMATTED}.`
+          : `Activación ${ACTIVACION_FORMATTED}.`
+      }`,
+      price: plan.price,
+      priceCurrency: SITE.currency,
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: plan.price,
+        priceCurrency: SITE.currency,
+        unitCode: 'MON',
+      },
+      availability: 'https://schema.org/InStock',
+      itemOffered: {
+        '@type': 'Service',
+        name: `Plan ${plan.name}, ${MARCA}`,
+        provider: { '@id': ORGANIZACION_ID },
+      },
+    })),
   },
 } as const
 

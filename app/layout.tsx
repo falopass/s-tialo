@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Analytics } from '@vercel/analytics/next'
 import { displaySerif, bodySans, monoText } from '@/lib/fonts'
 import { SITE, SEO_DEFAULTS, MARCA } from '@/lib/config'
 import './globals.css'
@@ -64,7 +63,6 @@ export default function RootLayout({
           Saltar al contenido
         </a>
         <main id="main-content">{children}</main>
-        <Analytics />
       </body>
     </html>
   )

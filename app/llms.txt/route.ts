@@ -3,6 +3,7 @@ import {
   LEGAL,
   PLANS_ARRAY,
   PAGO_CUOTAS,
+  PRECIOS_NOTA,
   ACTIVACION_FORMATTED,
   COMPRA_BASICO_FORMATTED,
   MESES_PAGADOS_ANUAL,
@@ -32,7 +33,7 @@ const PAGINAS: [string, string][] = [
 export function GET() {
   const planes = PLANS_ARRAY.map(
     (p) =>
-      `- **${p.name} (${p.priceFormatted} al mes):** ${p.pages}, entrega en ${p.deliveryLabel}. Incluye: ${p.features.join(', ')}.`,
+      `- **${p.name} (${p.priceFormatted} al mes, ${PRECIOS_NOTA}):** ${p.pages}, entrega en ${p.deliveryLabel}. Incluye: ${p.features.join(', ')}.`,
   )
   const fams = familias().map((f) => `- ${f.titulo}: ${f.total}`)
 
