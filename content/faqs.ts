@@ -9,6 +9,7 @@ import {
   ACTIVACION_FORMATTED,
   COMPRA_BASICO_FORMATTED,
   MESES_PAGADOS_ANUAL,
+  OFERTA_ACTIVACION_FECHA,
   PAGO_CUOTAS,
   PRECIOS_NOTA,
   RENOVACION_ANUAL_FORMATTED,
@@ -25,7 +26,7 @@ export const planFaqs: FAQ[] = [
   {
     id: 'plan-mensual',
     question: '¿Puedo pagar mes a mes?',
-    answer: `Sí, todos los planes van mes a mes: desde ${STARTING_PRICE} (${PRECIOS_NOTA}), con hosting, dominio y los ajustes de contenido que necesites. Al comenzar se paga una activación de ${ACTIVACION_FORMATTED} y el primer mes se paga cuando te entregamos la web. No hay permanencia: si te vas, avisas con 30 días. Si pagas el año completo, son 12 meses por el precio de ${MESES_PAGADOS_ANUAL} y sin activación.`,
+    answer: `Sí, todos los planes van mes a mes: desde ${STARTING_PRICE} (${PRECIOS_NOTA}), con hosting, dominio y los ajustes de contenido que necesites. Al comenzar la activación es gratis hasta el ${OFERTA_ACTIVACION_FECHA} de 2026 (después, ${ACTIVACION_FORMATTED}) y el primer mes se paga cuando te entregamos la web. No hay permanencia: si te vas, avisas con 30 días. Si pagas el año completo, son 12 meses por el precio de ${MESES_PAGADOS_ANUAL} y sin activación.`,
   },
   {
     id: 'plan-barato',
