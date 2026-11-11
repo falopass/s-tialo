@@ -2,10 +2,7 @@
 // Si aparece una fecha de publicación se guarda como último post.
 // Si pide login o bloquea -> 'no_verificable', NUNCA 'inactivo'.
 
-import { esHostPrivado } from './web.mjs'
-
-const UA =
-  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'
+import { getPublico } from './web.mjs'
 
 const DIAS_ACTIVO = 60
 const MS_DIA = 86_400_000
@@ -50,21 +47,13 @@ export function pideLogin(html, urlFinal = '') {
 
 export async function verificarInstagram(url) {
   if (!url || !url.trim()) return { estado: 'no_verificable' }
-  const destino = normalizaUrlIg(url)
-  if (esHostPrivado(destino)) return { estado: 'no_verificable' }
-  try {
-    const res = await fetch(destino, {
-      redirect: 'follow',
-      signal: AbortSignal.timeout(10_000),
-      headers: { 'user-agent': UA, 'accept-language': 'es-CL,es;q=0.9' },
-    })
-    if (!res.ok) return { estado: 'no_verificable' }
-    const html = await res.text()
-    if (pideLogin(html, res.url)) return { estado: 'no_verificable' }
-    const fecha = extraerUltimaFecha(html)
-    if (!fecha) return { estado: 'no_verificable' }
-    return { estado: clasificarFecha(fecha), ultimo_post: fecha }
-  } catch {
-    return { estado: 'no_verificable' }
-  }
+  const r = await getPublico(normalizaUrlIg(url), {
+    headers: { 'accept-language': 'es-CL,es;q=0.9' },
+  })
+  if (r.error || !r.res.ok) return { estado: 'no_verificable' }
+  const html = await r.res.text()
+  if (pideLogin(html, r.url)) return { estado: 'no_verificable' }
+  const fecha = extraerUltimaFecha(html)
+  if (!fecha) return { estado: 'no_verificable' }
+  return { estado: clasificarFecha(fecha), ultimo_post: fecha }
 }

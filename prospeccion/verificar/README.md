@@ -35,8 +35,9 @@ nombre,ciudad,rubro,web,instagram,resenas,estado
 - Si el CSV ya trae `web_propia`, `ig_estado` o `ig_ultimo_post`, el modo sin
   red los usa; `ig_ultimo_post` manda sobre `ig_estado` (la fecha es la
   evidencia) salvo que la fecha no se pueda leer.
-- El modo `--red` no consulta hosts internos (localhost, `.local`, IP privada)
-  ni la URL inicial ni en Instagram; un redirect aún podría aterrizar dentro.
+- El modo `--red` no consulta hosts internos (localhost, `.local`,
+  `.internal`, IP privada IPv4/IPv6): los redirects se siguen a mano, máximo
+  5 saltos, y cada salto se revisa antes de pedirlo.
 
 ## Salida
 

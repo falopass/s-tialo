@@ -4,12 +4,13 @@
 
 import assert from 'node:assert/strict'
 import { clasificar, numResenas } from './rubrica.mjs'
-import { esHostPrivado, esHostPropio } from './web.mjs'
+import { esHostPrivado, esHostPropio, verificarWeb } from './web.mjs'
 import {
   clasificarFecha,
   extraerUltimaFecha,
   normalizaUrlIg,
   pideLogin,
+  verificarInstagram,
 } from './instagram.mjs'
 import { senalesSinRed } from './cli.mjs'
 
@@ -83,7 +84,19 @@ assert.equal(esHostPropio(' https://lapyme.cl/ '), true)
 assert.equal(esHostPrivado('http://192.168.1.1/admin'), true)
 assert.equal(esHostPrivado('https://localhost:3000'), true)
 assert.equal(esHostPrivado('http://10.0.0.4'), true)
+assert.equal(esHostPrivado('http://127.0.0.1/'), true)
+assert.equal(esHostPrivado('http://[::1]/'), true)
+assert.equal(esHostPrivado('http://[fe80::1]/'), true)
+assert.equal(esHostPrivado('http://[fc00::1]/'), true)
+assert.equal(esHostPrivado('http://[::ffff:127.0.0.1]/'), true)
+assert.equal(esHostPrivado('http://algo.local/'), true)
 assert.equal(esHostPrivado('https://lapyme.cl'), false)
+assert.equal(esHostPrivado('http://ejemplo.cl'), false)
+
+// privado se corta antes del fetch: no_verificable sin tocar la red
+// (ejemplo.cl queda fuera: el clasificador la marca pública y no se pide)
+assert.equal((await verificarWeb('http://127.0.0.1/')).estado, 'no_verificable')
+assert.equal((await verificarInstagram('http://[::1]/x')).estado, 'no_verificable')
 
 // --- instagram: fecha dentro/fuera de 60 días ---
 assert.equal(clasificarFecha(hace(10), HOY), 'activo')

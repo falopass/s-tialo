@@ -40,36 +40,75 @@ export function esHostPropio(url) {
   return !HOSTS_NO_PROPIOS.some((d) => h === d || h.endsWith('.' + d))
 }
 
-// true si el host es localhost o una IP privada (el --red no consulta internos)
-export function esHostPrivado(url) {
-  const h = hostDe(url)
-  if (!h) return false
-  if (h === 'localhost' || h.endsWith('.local') || h.endsWith('.internal')) return true
-  const m = h.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/)
-  if (!m) return false
-  const a = Number(m[1])
-  const b = Number(m[2])
+function esIpv4Privada(a, b) {
   return (
     a === 0 || a === 10 || a === 127 || (a === 172 && b >= 16 && b <= 31) ||
     (a === 192 && b === 168) || (a === 169 && b === 254)
   )
 }
 
+function esIpv6Privada(h6) {
+  const h = h6.toLowerCase()
+  if (h === '::' || h === '::1') return true
+  // IPv4 embebido ::ffff:a.b.c.d llega normalizado como ::ffff:HHHH:HHHH
+  const m = h.match(/^::ffff:([0-9a-f]{1,4}):([0-9a-f]{1,4})$/)
+  if (m) {
+    const n = (parseInt(m[1], 16) << 16) + parseInt(m[2], 16)
+    return esIpv4Privada((n >>> 24) & 255, (n >>> 16) & 255)
+  }
+  const primero = parseInt(h.split(':')[0] || '0', 16)
+  // ULA fc00::/7 y enlace local fe80::/10
+  return (primero & 0xfe00) === 0xfc00 || (primero & 0xffc0) === 0xfe80
+}
+
+// true si el host es localhost o una IP privada (el --red no consulta internos)
+export function esHostPrivado(url) {
+  const h = hostDe(url)
+  if (!h) return false
+  if (h === 'localhost' || h.endsWith('.local') || h.endsWith('.internal')) return true
+  if (h.startsWith('[')) return esIpv6Privada(h.slice(1, -1))
+  const m = h.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/)
+  return m ? esIpv4Privada(Number(m[1]), Number(m[2])) : false
+}
+
+const REDIRECTS = new Set([301, 302, 303, 307, 308])
+
+// GET con redirects seguidos a mano (máx. `saltos`): antes de cada request
+// revisa que el host no sea privado. Devuelve { res, url } o { error }.
+export async function getPublico(url, { headers = {}, saltos = 5 } = {}) {
+  let actual = url
+  for (let i = 0; i <= saltos; i++) {
+    if (esHostPrivado(actual)) return { error: 'privado' }
+    let res
+    try {
+      res = await fetch(actual, {
+        redirect: 'manual',
+        signal: AbortSignal.timeout(10_000),
+        headers: { 'user-agent': UA, ...headers },
+      })
+    } catch {
+      return { error: 'red' }
+    }
+    if (!REDIRECTS.has(res.status)) return { res, url: actual }
+    const loc = res.headers.get('location')
+    res.body?.cancel().catch(() => {})
+    if (!loc) return { res, url: actual }
+    try {
+      const u = new URL(loc, actual)
+      if (u.protocol !== 'http:' && u.protocol !== 'https:') return { error: 'esquema' }
+      actual = u.href
+    } catch {
+      return { error: 'red' }
+    }
+  }
+  return { error: 'saltos' }
+}
+
 export async function verificarWeb(url) {
   if (!esHostPropio(url || '')) return { estado: 'sin_web' }
-  // shortcut: solo se revisa el host inicial; un redirect aún puede aterrizar
-  // en una IP privada. Si hace falta, manejar los redirects a mano.
-  if (esHostPrivado(url)) return { estado: 'no_verificable' }
-  try {
-    const res = await fetch(conEsquema(url), {
-      redirect: 'follow',
-      signal: AbortSignal.timeout(10_000),
-      headers: { 'user-agent': UA },
-    })
-    // si el redirect aterriza en un host no propio, no cuenta como web propia
-    if (res.ok && esHostPropio(res.url || url)) return { estado: 'viva', url_final: res.url }
-    return { estado: 'sin_web' }
-  } catch {
-    return { estado: 'no_verificable' }
-  }
+  const r = await getPublico(conEsquema(url))
+  if (r.error) return { estado: 'no_verificable' }
+  // si el redirect aterriza en un host no propio, no cuenta como web propia
+  if (r.res.ok && esHostPropio(r.url)) return { estado: 'viva', url_final: r.url }
+  return { estado: 'sin_web' }
 }
