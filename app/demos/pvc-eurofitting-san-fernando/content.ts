@@ -1,12 +1,13 @@
 /**
  * app/demos/pvc-eurofitting-san-fernando/content.ts
  *
- * Datos del mockup. REALES (ficha de Google Maps, 11-11-2026): nombre,
- * categoría (ferretería), dirección (Rancagua 357, San Fernando), teléfono,
- * horario (lun a vie 9:00 a 18:00, sáb 9:00 a 14:00, dom cerrado), rating
- * 4,6 con 5 opiniones y los textos citados. Fotos: todas de la ficha de
- * Maps del negocio. Las categorías de LINEAS son solo lo que se ve en esas
- * fotos; no hay precios, marcas ni stock publicados: se cotiza por WhatsApp.
+ * Datos del mockup. REALES (ficha de Google Maps, leída el 11-11-2026):
+ * nombre, categoría (ferretería), dirección (Rancagua 357, San Fernando),
+ * WhatsApp, horario (lun a vie 9:00 a 18:00, sáb 9:00 a 14:00, dom cerrado),
+ * rating 4,6 con 5 opiniones y las citas textuales. Fotos: todas de la
+ * ficha de Maps del negocio. LINEAS y sus detalles describen solo lo que
+ * se ve en esas fotos; no hay precios, marcas ni stock publicados: todo
+ * se cotiza por WhatsApp.
  */
 
 export const BIZ = {
@@ -17,7 +18,6 @@ export const BIZ = {
   city: 'San Fernando',
   region: "Región de O'Higgins",
   phoneDisplay: '+56 9 4132 1973',
-  phoneTel: '+56941321973',
   whatsapp: '56941321973',
   rating: '4,6',
   ratingValue: 4.6,
@@ -30,14 +30,57 @@ export const HORARIO = [
   { dia: 'Domingo', hora: 'Cerrado' },
 ] as const
 
-// Solo lo que aparece en las fotos de la ficha de Maps.
+// Solo lo que aparece en las fotos de la ficha de Maps: ni marcas,
+// ni medidas, ni stock.
 export const LINEAS = [
-  { codigo: '01', titulo: 'Tubos y fittings de PVC', img: 'fittings', alt: 'Estante con codos, tees y reducciones de PVC celeste' },
-  { codigo: '02', titulo: 'Rollos de polietileno y corrugado', img: 'rollos', alt: 'Rollos de manguera negra de polietileno y tubo corrugado amarillo' },
-  { codigo: '03', titulo: 'Estanques de agua', img: 'estanques', alt: 'Estanques azules de agua apilados en la bodega' },
-  { codigo: '04', titulo: 'Bombas y presurizadores', img: 'bomba', alt: 'Bomba de agua con presurizador conectada a cañería de PVC' },
-  { codigo: '05', titulo: 'Cámaras y anillos de hormigón', img: 'camaras', alt: 'Anillos y tapas de cámara de hormigón' },
-  { codigo: '06', titulo: 'Válvulas y piezas de red', img: 'valvulas', alt: 'Hidrante amarillo con válvulas y piezas de fierro fundido' },
+  {
+    codigo: '01',
+    titulo: 'Tubos y fittings de PVC',
+    detalle: 'Codos, tees, reducciones y uniones celestes, ordenados por medida.',
+    img: 'fittings',
+    pos: '50% 45%',
+    alt: 'Estante de madera con codos, tees y reducciones de PVC celeste',
+  },
+  {
+    codigo: '02',
+    titulo: 'Rollos de polietileno y corrugado',
+    detalle: 'Manguera negra de polietileno y tubo corrugado amarillo, al rollo.',
+    img: 'rollos',
+    pos: '50% 50%',
+    alt: 'Rollos de manguera negra de polietileno y tubo corrugado amarillo',
+  },
+  {
+    codigo: '03',
+    titulo: 'Estanques de agua',
+    detalle: 'Azules, apilados en altura por todo el pasillo de la bodega.',
+    img: 'estanques',
+    pos: '50% 40%',
+    alt: 'Estanques azules de agua apilados sobre las estanterías de la bodega',
+  },
+  {
+    codigo: '04',
+    titulo: 'Bombas y presurizadores',
+    detalle: 'Equipos armados y conectados a cañería de PVC.',
+    img: 'bomba',
+    pos: '50% 50%',
+    alt: 'Bomba de agua con presurizador conectada a cañería de PVC celeste',
+  },
+  {
+    codigo: '05',
+    titulo: 'Cámaras, anillos y tapas de hormigón',
+    detalle: 'Piezas de hormigón para cámaras y cajas de registro.',
+    img: 'camaras',
+    pos: '50% 50%',
+    alt: 'Anillos y tapas de cámara de hormigón apilados',
+  },
+  {
+    codigo: '06',
+    titulo: 'Válvulas, hidrantes y piezas de red',
+    detalle: 'Hidrante, válvulas y piezas de fierro fundido para la red.',
+    img: 'valvulas',
+    pos: '50% 12%',
+    alt: 'Hidrante amarillo con válvula azul y piezas de fierro fundido',
+  },
 ] as const
 
 export const OPINIONES = {
@@ -53,7 +96,7 @@ export const OPINIONES = {
 } as const
 
 export const WA_LINK = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
-  'Hola, vi la página de PVC Eurofitting y quiero hacer una consulta',
+  'Hola, vi la página de PVC Eurofitting y quiero cotizar materiales',
 )}`
 
 export const WA_COTIZAR = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
