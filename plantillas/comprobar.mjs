@@ -76,7 +76,29 @@ check('foto con ruta inexistente termina con código distinto de 0', fotoMala.st
 const existente = corre(['--ficha', FICHA, '--slug', 'ius-abogados-linares'])
 check('slug ya existente en app/demos/ termina con código distinto de 0', existente.status !== 0)
 
-// 5. Familia desconocida se rechaza.
+// 5. WhatsApp con formato de Google Maps se normaliza a dígitos y sale 0.
+writeFileSync(join(tmp, 'foto-ok.svg'), '<svg xmlns="http://www.w3.org/2000/svg"/>')
+const wspFormateado = corre([
+  '--ficha',
+  escribe('wsp-formateado.json', {
+    ...base,
+    whatsapp: '+56 9 0000 0000',
+    fotos: [{ ruta: 'foto-ok.svg', alt: 'x' }],
+  }),
+  '--slug', SLUG,
+])
+check('whatsapp con «+56 9 ...» se normaliza y termina con código 0', wspFormateado.status === 0)
+
+// 6. Una foto fuera de la carpeta de la ficha se rechaza (no se copian
+//    archivos privados a public/).
+const fotoFuera = corre([
+  '--ficha',
+  escribe('foto-fuera.json', { ...base, fotos: [{ ruta: '../fuera.png', alt: 'x' }] }),
+  '--slug', SLUG,
+])
+check('foto fuera de la carpeta de la ficha termina con código distinto de 0', fotoFuera.status !== 0)
+
+// 7. Familia desconocida se rechaza.
 const sinFamilia = corre(['--ficha', FICHA, '--slug', SLUG, '--familia', 'inexistente'])
 check('familia desconocida termina con código distinto de 0', sinFamilia.status !== 0)
 

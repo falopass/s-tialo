@@ -13,8 +13,8 @@
  * Solo usa la librería estándar de Node. No llama a la red ni arma demos de
  * negocios que no pidieron la suya.
  */
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { basename, dirname, join, resolve } from 'node:path'
+import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { basename, dirname, join, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const DIR = dirname(fileURLToPath(import.meta.url))
@@ -131,10 +131,19 @@ if (args.ficha) {
   if (ficha) {
     const dirFicha = dirname(rutaFicha)
 
-    for (const campo of ['nombre', 'rubro', 'ciudad', 'whatsapp']) {
+    for (const campo of ['nombre', 'rubro', 'ciudad']) {
       if (typeof ficha[campo] !== 'string' || !ficha[campo].trim()) {
         falla(`falta '${campo}' en la ficha (o viene vacío)`)
       }
+    }
+
+    // WhatsApp: la ficha puede traer el formato de Google Maps («+56 9 ...»);
+    // se normaliza a solo dígitos, que es lo que aceptan wa.me y tel:.
+    const wsp = String(ficha.whatsapp ?? '').replace(/\D/g, '')
+    if (!/^\d{8,15}$/.test(wsp)) {
+      falla("'whatsapp' debe ser el número con código de país (p.ej. «56912345678»)")
+    } else {
+      ficha.whatsapp = wsp
     }
     if (ficha.direccion != null && typeof ficha.direccion !== 'string') falla("'direccion' debe ser texto")
     if (ficha.horario != null && typeof ficha.horario !== 'string') falla("'horario' debe ser texto")
@@ -158,7 +167,13 @@ if (args.ficha) {
           return
         }
         f._abs = resolve(dirFicha, f.ruta)
-        if (!existsSync(f._abs)) falla(`la foto fotos[${i}] no existe: ${f._abs}`)
+        // Las fotos deben ser archivos reales dentro de la carpeta de la ficha:
+        // una ruta absoluta o con «../» podría copiar un archivo privado a public/.
+        if (!f._abs.startsWith(dirFicha + sep)) {
+          falla(`la foto fotos[${i}] está fuera de la carpeta de la ficha: ${f.ruta}`)
+        } else if (!existsSync(f._abs) || !statSync(f._abs).isFile()) {
+          falla(`la foto fotos[${i}] no existe como archivo: ${f._abs}`)
+        }
       })
     }
 
@@ -192,13 +207,17 @@ if (args.ficha) {
       }
 
       if (errores.length === 0) {
-        // Nombres de foto destino: basename, con prefijo si se repiten.
+        // Nombres de foto destino: basename único; si se repite, prefijo hasta
+        // que no choque con ninguno ya usado (incluido un «foto-N-» original).
+        // El src va codificado: un «#» o «?» en el nombre rompería la URL.
         const usados = new Set()
         const fotos = ficha.fotos.map((f, i) => {
-          let nombre = basename(f.ruta)
-          if (usados.has(nombre)) nombre = `foto-${i + 1}-${nombre}`
+          const base = basename(f.ruta)
+          let nombre = base
+          let n = i + 1
+          while (usados.has(nombre)) nombre = `foto-${n++}-${base}`
           usados.add(nombre)
-          return { origen: f._abs, nombre, src: `/demos/${slug}/${nombre}`, alt: f.alt }
+          return { origen: f._abs, nombre, src: `/demos/${slug}/${encodeURIComponent(nombre)}`, alt: f.alt }
         })
 
         const archivos = [

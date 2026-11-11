@@ -33,6 +33,7 @@ const C = {
   ink: '#221710',
   muted: '#6B5B4C',
   accent: '#B8431F',
+  accentTexto: '#8A3317',
   accentInk: '#FBF5EA',
   accentSoft: '#E7A98F',
   mutedDark: '#CBB9A5',
@@ -67,8 +68,8 @@ function Falta({ que, light = false }: { que: string; light?: boolean }) {
     <span
       className="inline-flex items-center border border-dashed px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em]"
       style={{
-        borderColor: light ? C.lineDark : C.accent,
-        color: light ? C.mutedDark : C.accent,
+        borderColor: light ? C.lineDark : C.accentTexto,
+        color: light ? C.mutedDark : C.accentTexto,
       }}
     >
       Falta: {que}
@@ -80,7 +81,7 @@ function Label({ children, light = false }: { children: ReactNode; light?: boole
   return (
     <p
       className="font-mono text-[11px] uppercase tracking-[0.22em] mb-4 flex items-center gap-2.5"
-      style={{ color: light ? C.accentSoft : C.accent }}
+      style={{ color: light ? C.accentSoft : C.accentTexto }}
     >
       {children}
       <span className="inline-block w-8 h-px" style={{ backgroundColor: 'currentColor' }} aria-hidden="true" />
@@ -181,7 +182,7 @@ export default function Page() {
             {BIZ.nombre || 'Nombre del negocio'}
           </h1>
           <p className="text-base md:text-lg mb-8 max-w-md" style={{ color: 'rgba(251,245,234,0.85)' }}>
-            {BIZ.ciudad ? `${BIZ.ciudad}. ` : ''}Pide o reserva tu mesa por WhatsApp.
+            {BIZ.ciudad ? `${BIZ.ciudad}. ` : ''}Pide o consulta por WhatsApp.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a

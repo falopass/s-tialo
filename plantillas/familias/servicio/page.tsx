@@ -257,8 +257,8 @@ export default function Page() {
               Hablemos
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-8 max-w-md" style={{ color: C.mutedDark }}>
-              Escríbenos por WhatsApp y te respondemos. Si pasas por el local,
-              aquí están los datos.
+              Escríbenos por WhatsApp y te respondemos. Aquí están los datos de
+              contacto.
             </p>
             <a
               href={WA_LINK}
