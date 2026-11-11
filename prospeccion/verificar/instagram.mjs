@@ -2,17 +2,20 @@
 // Si aparece una fecha de publicación se guarda como último post.
 // Si pide login o bloquea -> 'no_verificable', NUNCA 'inactivo'.
 
+import { esHostPrivado } from './web.mjs'
+
 const UA =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'
 
 const DIAS_ACTIVO = 60
 const MS_DIA = 86_400_000
 
+// Acepta URL completa, "www.instagram.com/x", "@user" o "user"
 export function normalizaUrlIg(v) {
-  const u = v.trim()
+  const u = v.trim().replace(/^@/, '')
   if (/^https?:\/\//i.test(u)) return u
-  const user = u.replace(/^@/, '').replace(/\/+$/, '')
-  return `https://www.instagram.com/${user}/`
+  if (/instagram\.com\//i.test(u)) return `https://${u}`
+  return `https://www.instagram.com/${u.replace(/\/+$/, '')}/`
 }
 
 // 'activo' si la fecha está dentro de 60 días respecto a `ahora`
@@ -31,7 +34,7 @@ export function extraerUltimaFecha(html) {
     const t = Number(raw) * (raw.length >= 13 ? 1 : 1000)
     if (t > max) max = t
   }
-  for (const m of html.matchAll(/"(?:datePublished|uploadDate)":"([^"]+)"/g)) {
+  for (const m of html.matchAll(/"(?:datePublished|uploadDate)"\s*:\s*"([^"]+)"/g)) {
     const t = Date.parse(m[1])
     if (t > max) max = t
   }
@@ -47,8 +50,10 @@ export function pideLogin(html, urlFinal = '') {
 
 export async function verificarInstagram(url) {
   if (!url || !url.trim()) return { estado: 'no_verificable' }
+  const destino = normalizaUrlIg(url)
+  if (esHostPrivado(destino)) return { estado: 'no_verificable' }
   try {
-    const res = await fetch(normalizaUrlIg(url), {
+    const res = await fetch(destino, {
       redirect: 'follow',
       signal: AbortSignal.timeout(10_000),
       headers: { 'user-agent': UA, 'accept-language': 'es-CL,es;q=0.9' },

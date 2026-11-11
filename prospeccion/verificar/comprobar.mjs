@@ -4,13 +4,14 @@
 
 import assert from 'node:assert/strict'
 import { clasificar, numResenas } from './rubrica.mjs'
-import { esHostPropio } from './web.mjs'
+import { esHostPrivado, esHostPropio } from './web.mjs'
 import {
   clasificarFecha,
   extraerUltimaFecha,
   normalizaUrlIg,
   pideLogin,
 } from './instagram.mjs'
+import { senalesSinRed } from './cli.mjs'
 
 const HOY = Date.now()
 const hace = (dias) => new Date(HOY - dias * 86_400_000).toISOString().slice(0, 10)
@@ -76,12 +77,21 @@ assert.equal(esHostPropio('https://www.google.com/maps/place/x'), false)
 assert.equal(esHostPropio(''), false)
 assert.equal(esHostPropio('https://lapyme.cl'), true)
 assert.equal(esHostPropio('lapyme.cl'), true)
+assert.equal(esHostPropio(' https://lapyme.cl/ '), true)
+
+// hosts internos no se consultan en modo --red
+assert.equal(esHostPrivado('http://192.168.1.1/admin'), true)
+assert.equal(esHostPrivado('https://localhost:3000'), true)
+assert.equal(esHostPrivado('http://10.0.0.4'), true)
+assert.equal(esHostPrivado('https://lapyme.cl'), false)
 
 // --- instagram: fecha dentro/fuera de 60 días ---
 assert.equal(clasificarFecha(hace(10), HOY), 'activo')
 assert.equal(clasificarFecha(hace(120), HOY), 'inactivo')
 assert.equal(clasificarFecha('no-es-fecha', HOY), 'no_verificable')
 assert.equal(normalizaUrlIg('@lapyme'), 'https://www.instagram.com/lapyme/')
+assert.equal(normalizaUrlIg('www.instagram.com/tienda'), 'https://www.instagram.com/tienda')
+assert.equal(normalizaUrlIg('https://instagram.com/tienda/'), 'https://instagram.com/tienda/')
 
 // HTML con fecha de publicación -> se extrae; muro de login -> null y pideLogin
 const htmlConPost = `<html><script>{"taken_at_timestamp":${Math.floor(HOY / 1000)}}</script></html>`
@@ -90,7 +100,26 @@ assert.equal(extraerUltimaFecha('<html><body>Log in to Instagram</body></html>')
 assert.equal(pideLogin('<html><body>loginForm</body></html>'), true)
 assert.equal(pideLogin('', 'https://www.instagram.com/accounts/login/'), true)
 
+// fecha JSON con espacio tras los dos puntos también se extrae
+const htmlConEspacio = `<script>{"datePublished": "${hace(5)}"}</script>`
+assert.equal(extraerUltimaFecha(htmlConEspacio), hace(5))
+
 // inactivo confirmado no puede salir de un no_verificable:
 // si no hay fecha, el estado es no_verificable (cubierto arriba con extraerUltimaFecha -> null)
+
+// --- sin red: la fecha del último post manda sobre ig_estado de la ficha ---
+assert.equal(
+  senalesSinRed({ web: '', ig_estado: 'activo', ig_ultimo_post: hace(120) }).ig_estado,
+  'inactivo'
+)
+assert.equal(
+  senalesSinRed({ web: '', ig_estado: 'inactivo', ig_ultimo_post: hace(10) }).ig_estado,
+  'activo'
+)
+assert.equal(senalesSinRed({ web: '', ig_estado: 'activo', ig_ultimo_post: '' }).ig_estado, 'activo')
+assert.equal(senalesSinRed({ web: '' }).ig_estado, 'no_verificable')
+assert.equal(senalesSinRed({ web: 'https://instagram.com/x' }).web_propia, 'sin_web')
+assert.equal(senalesSinRed({ web: 'https://lapyme.cl' }).web_propia, 'no_verificable')
+assert.equal(senalesSinRed({ web: '', web_propia: 'viva' }).web_propia, 'viva')
 
 console.log('ok - todas las comprobaciones pasaron')

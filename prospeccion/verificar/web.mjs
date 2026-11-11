@@ -20,7 +20,8 @@ const HOSTS_NO_PROPIOS = [
 ]
 
 export function conEsquema(url) {
-  return /^https?:\/\//i.test(url) ? url : `https://${url}`
+  const u = url.trim()
+  return /^https?:\/\//i.test(u) ? u : `https://${u}`
 }
 
 export function hostDe(url) {
@@ -39,8 +40,26 @@ export function esHostPropio(url) {
   return !HOSTS_NO_PROPIOS.some((d) => h === d || h.endsWith('.' + d))
 }
 
+// true si el host es localhost o una IP privada (el --red no consulta internos)
+export function esHostPrivado(url) {
+  const h = hostDe(url)
+  if (!h) return false
+  if (h === 'localhost' || h.endsWith('.local') || h.endsWith('.internal')) return true
+  const m = h.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/)
+  if (!m) return false
+  const a = Number(m[1])
+  const b = Number(m[2])
+  return (
+    a === 0 || a === 10 || a === 127 || (a === 172 && b >= 16 && b <= 31) ||
+    (a === 192 && b === 168) || (a === 169 && b === 254)
+  )
+}
+
 export async function verificarWeb(url) {
   if (!esHostPropio(url || '')) return { estado: 'sin_web' }
+  // shortcut: solo se revisa el host inicial; un redirect aún puede aterrizar
+  // en una IP privada. Si hace falta, manejar los redirects a mano.
+  if (esHostPrivado(url)) return { estado: 'no_verificable' }
   try {
     const res = await fetch(conEsquema(url), {
       redirect: 'follow',

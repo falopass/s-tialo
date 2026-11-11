@@ -10,20 +10,12 @@
 // --red lo corre Diego manualmente, nunca en corridas automatizadas.
 
 import { readFileSync } from 'node:fs'
+import { pathToFileURL } from 'node:url'
 import { clasificar } from './rubrica.mjs'
 import { esHostPropio, verificarWeb } from './web.mjs'
 import { clasificarFecha, verificarInstagram } from './instagram.mjs'
 
-const NUEVAS = ['web_propia', 'ig_estado', 'pago', 'prioridad', 'motivo']
-
-const args = process.argv.slice(2)
-const iFicha = args.indexOf('--ficha')
-const ficha = iFicha >= 0 ? args[iFicha + 1] : null
-const red = args.includes('--red')
-if (!ficha) {
-  console.error('uso: node prospeccion/verificar/cli.mjs --ficha archivo.csv [--red]')
-  process.exit(1)
-}
+const NUEVAS = ['web_propia', 'ig_estado', 'ig_ultimo_post', 'pago', 'prioridad', 'motivo']
 
 // CSV con comillas estándar ("" escapa comilla, comas y saltos dentro de comillas)
 export function parseCsv(texto) {
@@ -63,23 +55,17 @@ export function csvCampo(v) {
   return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s
 }
 
-const filas = parseCsv(readFileSync(ficha, 'utf8'))
-if (!filas.length) {
-  console.error('ficha vacía o sin cabecera')
-  process.exit(1)
-}
-const cabecera = filas[0].map((h) => h.trim())
-const idx = Object.fromEntries(cabecera.map((h, i) => [h, i]))
-const salida = [...cabecera, ...NUEVAS.filter((c) => !(c in idx))]
-
-// Sin red: usa columnas ya presentes; infiere sin_web solo cuando el host
-// del campo web no es propio o está vacío (se puede saber sin conexión).
-function senalesSinRed(fila) {
+// Sin red: usa columnas ya presentes. La fecha del último post manda sobre
+// ig_estado (evidencia más fresca); el host del campo web se evalúa sin
+// conexión: no propio o vacío es sin_web, propio queda no_verificable.
+export function senalesSinRed(fila) {
   const web_propia =
     fila.web_propia || (esHostPropio(fila.web || '') ? 'no_verificable' : 'sin_web')
-  const ig_estado =
-    fila.ig_estado ||
-    (fila.ig_ultimo_post ? clasificarFecha(fila.ig_ultimo_post) : 'no_verificable')
+  let ig_estado = fila.ig_estado || 'no_verificable'
+  if (fila.ig_ultimo_post) {
+    const porFecha = clasificarFecha(fila.ig_ultimo_post)
+    if (porFecha !== 'no_verificable') ig_estado = porFecha
+  }
   return { web_propia, ig_estado, ig_ultimo_post: fila.ig_ultimo_post || null }
 }
 
@@ -90,13 +76,44 @@ async function senalesConRed(fila) {
 }
 
 const dormir = (ms) => new Promise((r) => setTimeout(r, ms))
-const lineas = [salida.map(csvCampo).join(',')]
-for (const cols of filas.slice(1)) {
-  const fila = Object.fromEntries(cabecera.map((h, i) => [h, cols[i] ?? '']))
-  const s = red ? await senalesConRed(fila) : senalesSinRed(fila)
-  const { pago, prioridad, motivo } = clasificar({ ...fila, ...s })
-  const extra = { web_propia: s.web_propia, ig_estado: s.ig_estado, pago, prioridad, motivo }
-  lineas.push(salida.map((c) => csvCampo(c in extra ? extra[c] : fila[c])).join(','))
-  if (red) await dormir(800)
+
+async function main() {
+  const args = process.argv.slice(2)
+  const iFicha = args.indexOf('--ficha')
+  const ficha = iFicha >= 0 ? args[iFicha + 1] : null
+  const red = args.includes('--red')
+  if (!ficha) {
+    console.error('uso: node prospeccion/verificar/cli.mjs --ficha archivo.csv [--red]')
+    process.exit(1)
+  }
+
+  const filas = parseCsv(readFileSync(ficha, 'utf8'))
+  if (!filas.length) {
+    console.error('ficha vacía o sin cabecera')
+    process.exit(1)
+  }
+  const cabecera = filas[0].map((h) => h.trim())
+  const salida = [...cabecera, ...NUEVAS.filter((c) => !cabecera.includes(c))]
+
+  const lineas = [salida.map(csvCampo).join(',')]
+  for (const cols of filas.slice(1)) {
+    const fila = Object.fromEntries(cabecera.map((h, i) => [h, cols[i] ?? '']))
+    const s = red ? await senalesConRed(fila) : senalesSinRed(fila)
+    const { pago, prioridad, motivo } = clasificar({ ...fila, ...s })
+    const extra = {
+      web_propia: s.web_propia,
+      ig_estado: s.ig_estado,
+      ig_ultimo_post: s.ig_ultimo_post || '',
+      pago,
+      prioridad,
+      motivo,
+    }
+    lineas.push(salida.map((c) => csvCampo(c in extra ? extra[c] : fila[c])).join(','))
+    if (red) await dormir(800)
+  }
+  process.stdout.write(lineas.join('\n') + '\n')
 }
-process.stdout.write(lineas.join('\n') + '\n')
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  await main()
+}

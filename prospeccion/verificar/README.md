@@ -33,7 +33,10 @@ nombre,ciudad,rubro,web,instagram,resenas,estado
 - `estado`: texto libre; si contiene `cerrado`/`cerrada` o `closed` se descarta.
 - Columnas de más se ignoran y pasan a la salida.
 - Si el CSV ya trae `web_propia`, `ig_estado` o `ig_ultimo_post`, el modo sin
-  red los usa tal cual.
+  red los usa; `ig_ultimo_post` manda sobre `ig_estado` (la fecha es la
+  evidencia) salvo que la fecha no se pueda leer.
+- El modo `--red` no consulta hosts internos (localhost, `.local`, IP privada)
+  ni la URL inicial ni en Instagram; un redirect aún podría aterrizar dentro.
 
 ## Salida
 
@@ -43,6 +46,7 @@ CSV por stdout con las columnas de entrada más:
 | --- | --- |
 | `web_propia` | `viva` · `sin_web` · `no_verificable` |
 | `ig_estado` | `activo` · `inactivo` · `no_verificable` |
+| `ig_ultimo_post` | fecha `YYYY-MM-DD` del último post visto, si se pudo leer |
 | `pago` | `senal_resenas` · `insuficiente` · `no_verificable` |
 | `prioridad` | `alta` · `revisar` · `descartar` |
 | `motivo` | frase que cita la señal usada |
