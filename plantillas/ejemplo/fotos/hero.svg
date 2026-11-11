@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Imagen ficticia de muestra">
+  <rect width="1200" height="900" fill="#E7E1D2"/>
+  <rect x="80" y="120" width="1040" height="560" fill="#2E5E4E"/>
+  <circle cx="600" cy="400" r="140" fill="#F7F4EE" opacity="0.25"/>
+  <text x="600" y="740" text-anchor="middle" font-family="sans-serif" font-size="44" fill="#5D635A">Foto de muestra</text>
+</svg>

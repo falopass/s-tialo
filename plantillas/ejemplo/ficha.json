@@ -1,0 +1,38 @@
+{
+  "nota": "Negocio FICTICIO de muestra para probar armar.mjs. Nada de esto corresponde a un cliente real.",
+  "familia": "servicio",
+  "nombre": "Ejemplo Norte",
+  "rubro": "Taller de bicicletas",
+  "ciudad": "Ciudad Ejemplo",
+  "whatsapp": "56900000000",
+  "direccion": "",
+  "horario": "",
+  "servicios": [
+    {
+      "nombre": "Servicio ficticio de muestra uno",
+      "linea": "Línea de ejemplo, no corresponde a un servicio real."
+    },
+    {
+      "nombre": "Servicio ficticio de muestra dos",
+      "linea": "Otra línea de ejemplo para ver cómo se arma la lista."
+    },
+    {
+      "nombre": "Servicio ficticio de muestra tres",
+      "linea": "Tercera línea de muestra, también inventada."
+    }
+  ],
+  "fotos": [
+    {
+      "ruta": "fotos/hero.svg",
+      "alt": "Imagen ficticia de muestra para el encabezado del sitio"
+    },
+    {
+      "ruta": "fotos/trabajo.svg",
+      "alt": "Imagen ficticia de muestra que simula una foto del trabajo"
+    },
+    {
+      "ruta": "fotos/local.svg",
+      "alt": "Imagen ficticia de muestra que simula una foto del local"
+    }
+  ]
+}
