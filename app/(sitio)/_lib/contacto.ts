@@ -10,6 +10,7 @@ import {
   PAGO_CUOTAS,
   PLAN_COMPRA,
   PLANS,
+  PRECIOS_NOTA,
   RENOVACION_ANUAL_FORMATTED,
 } from '@/lib/config'
 import type { PlanId } from '@/lib/config'
@@ -63,7 +64,7 @@ export function textoPago(plan: PlanId, pago: Pago, oferta: boolean = ofertaActi
   const activacion = oferta
     ? `activación gratis hasta el ${OFERTA_ACTIVACION_FECHA} (normal ${ACTIVACION_FORMATTED})`
     : `más ${ACTIVACION_FORMATTED} de activación`
-  return `${p.priceFormatted} al mes con hosting, dominio y ajustes incluidos, ${activacion}. Sin permanencia.`
+  return `${p.priceFormatted} al mes, ${PRECIOS_NOTA}, con hosting, dominio y ajustes incluidos, ${activacion}. Sin permanencia.`
 }
 
 /** El precio principal a mostrar según la forma de pago elegida. */
@@ -92,7 +93,7 @@ export function mensajeDemo({ negocio = '', demo, plan, pago = 'mensual' }: Cont
         ? `${PLANS[plan].annualFormatted} al año`
         : pagoReal === 'unico'
           ? `compra única de ${COMPRA_BASICO_FORMATTED}, hasta ${PAGO_CUOTAS} cuotas`
-          : `${PLANS[plan].priceFormatted} al mes`
+          : `${PLANS[plan].priceFormatted} al mes, ${PRECIOS_NOTA}`
     return `Hola Sitiazo, quiero el plan ${PLANS[plan].name} (${detalle}) para ${n || 'mi negocio'}. Este es el Instagram o la ficha de Google: `
   }
   if (demo) {

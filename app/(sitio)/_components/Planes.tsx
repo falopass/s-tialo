@@ -5,6 +5,7 @@ import {
   OFERTA_ACTIVACION_FECHA,
   PLAN_COMPRA,
   PLANS,
+  PRECIOS_NOTA,
   ofertaActivacionVigente,
 } from '@/lib/config'
 import { AccionPlan } from './AccionPlan'
@@ -42,7 +43,7 @@ export function Planes({ conEnlace = true }: { conEnlace?: boolean }) {
               <span className="ml-1 font-sans text-base text-(--s-crema-2)">/mes</span>
             </p>
             <p className="mt-2 text-sm text-(--s-crema-2)">
-              Hosting y dominio incluidos.{' '}
+              Hosting y dominio incluidos. {PRECIOS_NOTA}.{' '}
               <SegunOferta
                 enBuild={ofertaVigente}
                 oferta={

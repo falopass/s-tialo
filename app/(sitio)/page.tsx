@@ -5,11 +5,13 @@ import {
   MESES_PAGADOS_ANUAL,
   OFERTA_ACTIVACION_FECHA,
   PLANS,
+  SCHEMA,
   SITE,
   STARTING_PRICE,
   ofertaActivacionVigente,
   siteUrl,
 } from '@/lib/config'
+import { JsonLd } from '@/lib/seo'
 import { BIZ, RANCHO } from '../rancho-itahue/content'
 import { catalogo } from '../demos/catalogo'
 import { BotonDemo } from './_components/BotonDemo'
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
   description: SITE.description,
   alternates: { canonical: siteUrl('/') },
   openGraph: {
-    title: 'Tu web, antes de pagar un peso',
+    title: `Tu página web desde ${PLANS.basico.priceFormatted} al mes.`,
     description: SITE.description,
     url: siteUrl(),
     images: [{ url: '/sitio/og/inicio.jpg', width: 1200, height: 630, alt: 'Sitiazo.cl, páginas web que sí venden' }],
@@ -89,6 +91,7 @@ export default function HomePage() {
   const ofertaVigente = ofertaActivacionVigente()
   return (
     <>
+      <JsonLd data={SCHEMA.offerCatalog} />
       {/* Hero y pieza central: el mismo objeto pasa de estructura a forma a publicada. */}
       <section className="s-proceso s-wrap" aria-label="Cómo nace tu web">
         <div className="s-proceso-hero">
