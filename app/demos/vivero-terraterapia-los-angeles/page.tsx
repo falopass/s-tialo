@@ -387,7 +387,7 @@ export default function TerraterapiaPage() {
         {/* ── 2 · La repisa: lo que hay en el pasaje ── */}
         <section id="vivero" className="scroll-mt-20" style={{ backgroundColor: C.papel2 }}>
           <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
-            <div className="grid md:grid-cols-12 gap-5 md:gap-10 items-end mb-9 md:mb-12">
+            <div className="grid grid-cols-[minmax(0,1fr)] md:grid-cols-12 gap-5 md:gap-10 items-end mb-9 md:mb-12">
               <Reveal className="md:col-span-7">
                 <Rotulo color={C.terracotaInk} icono={C.terracota}>
                   El vivero
@@ -414,7 +414,7 @@ export default function TerraterapiaPage() {
                 style={{ backgroundColor: C.terracota }}
                 aria-hidden="true"
               />
-              <div className="tt-repisa -mx-5 px-5 md:mx-0 md:px-0 flex items-end gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-1 md:grid md:grid-cols-6 md:overflow-visible md:pb-0">
+              <div className="tt-repisa -mx-5 px-5 md:mx-0 md:px-0 flex items-end gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-1 md:grid grid-cols-[minmax(0,1fr)] md:grid-cols-6 md:overflow-visible md:pb-0">
                 {REPISA.map((f, i) => (
                   <figure key={f.src} className="w-[47%] md:w-auto shrink-0 snap-start">
                     <div
@@ -472,7 +472,7 @@ export default function TerraterapiaPage() {
 
         {/* ── 3 · El consejo: la atención que las hace crecer ── */}
         <section id="consejo" className="scroll-mt-20 relative overflow-hidden" style={{ backgroundColor: C.hoja, color: C.papel }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
             <div>
               <Reveal>
                 <Rotulo color={C.mutD} icono={C.rosa}>
@@ -545,7 +545,7 @@ export default function TerraterapiaPage() {
 
         {/* ── 4 · Asesorías y despacho ── */}
         <section id="asesorias" className="scroll-mt-20" style={{ backgroundColor: C.rosa, color: C.hoja }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20 grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
             <div>
               <Reveal>
                 <Rotulo color="rgba(30,58,42,0.75)" icono={C.terracotaOsc}>
@@ -608,7 +608,7 @@ export default function TerraterapiaPage() {
               </h2>
             </Reveal>
 
-            <div className="mt-11 md:mt-14 grid lg:grid-cols-[1.25fr_1fr] gap-10 lg:gap-16">
+            <div className="mt-11 md:mt-14 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[1.25fr_1fr] gap-10 lg:gap-16">
               <Reveal>
                 <figure>
                   <MarcaHoja color={C.terracota} className="w-[18px] h-[25px] mb-5" />
@@ -650,7 +650,7 @@ export default function TerraterapiaPage() {
 
         {/* ── 6 · Dónde: el pasaje ── */}
         <section id="donde" className="scroll-mt-20" style={{ backgroundColor: C.papel2 }}>
-          <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <Reveal>
               <Rotulo color={C.terracotaInk} icono={C.terracota}>
                 Dónde estamos
