@@ -41,7 +41,7 @@ export const WA_GRUA = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
 )}`
 
 export const WA_TALLER = `https://wa.me/${BIZ.whatsapp}?text=${encodeURIComponent(
-  'Hola, vi la página de Grúas Irribarra y quiero agendar una revisión de mi auto',
+  'Hola, vi la página de Grúas Irribarra y quiero agendar una revisión',
 )}`
 
 // URL real de la ficha (leída el 11-11-2026).
