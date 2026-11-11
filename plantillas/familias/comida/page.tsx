@@ -227,7 +227,7 @@ export default function Page() {
                         className="flex-1 border-b border-dotted"
                         style={{ borderColor: C.line }}
                       />
-                      <span className="shrink-0 font-bold text-base md:text-lg" style={{ color: C.accentTexto }}>
+                      <span className="min-w-0 text-right font-bold text-base md:text-lg" style={{ color: C.accentTexto }}>
                         {s.precio}
                       </span>
                     </>

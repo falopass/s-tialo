@@ -9,7 +9,7 @@
  * con código 0 si todo sale como se espera.
  */
 import { spawnSync } from 'node:child_process'
-import { existsSync, mkdtempSync, writeFileSync } from 'node:fs'
+import { cpSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -148,6 +148,48 @@ check('foto fuera de la carpeta de la ficha termina con código distinto de 0', 
 // 7. Familia desconocida se rechaza.
 const sinFamilia = corre(['--ficha', FICHA, '--slug', SLUG, '--familia', 'inexistente'])
 check('familia desconocida termina con código distinto de 0', sinFamilia.status !== 0)
+
+// 8. Con --escribir (en una copia del repo en tmp, nunca en el real) el
+//    content.ts generado emite los campos de la ficha: reserva booleana y
+//    precio solo en los servicios que lo traen.
+const tmpEscritura = mkdtempSync(join(tmpdir(), 'plantillas-escritura-'))
+cpSync(DIR, join(tmpEscritura, 'plantillas'), { recursive: true })
+writeFileSync(join(tmpEscritura, 'foto.svg'), '<svg xmlns="http://www.w3.org/2000/svg"/>')
+const armarTmp = join(tmpEscritura, 'plantillas', 'armar.mjs')
+const correTmp = (args) => spawnSync(process.execPath, [armarTmp, ...args], { encoding: 'utf8' })
+
+const fichaTmp = join(tmpEscritura, 'ficha.json')
+writeFileSync(
+  fichaTmp,
+  JSON.stringify({
+    ...base,
+    reserva: true,
+    servicios: [
+      { nombre: 'Con precio', linea: 'Línea.', precio: '$8.000' },
+      { nombre: 'Sin precio', linea: 'Línea.' },
+    ],
+    fotos: [{ ruta: 'foto.svg', alt: 'x' }],
+  }),
+)
+const escrito = correTmp(['--ficha', fichaTmp, '--slug', 'prueba-escritura', '--escribir'])
+const demoTmp = join(tmpEscritura, 'app', 'demos', 'prueba-escritura')
+const contentTmp =
+  escrito.status === 0 && existsSync(join(demoTmp, 'content.ts'))
+    ? readFileSync(join(demoTmp, 'content.ts'), 'utf8')
+    : ''
+check(
+  '--escribir genera page.tsx, content.ts y copia la foto (en tmp)',
+  escrito.status === 0 &&
+    existsSync(join(demoTmp, 'page.tsx')) &&
+    existsSync(join(tmpEscritura, 'public', 'demos', 'prueba-escritura', 'foto.svg')),
+  escrito.stderr || escrito.stdout,
+)
+check(
+  'el content.ts emitido trae reserva:true y precio solo donde va',
+  /reserva: true/.test(contentTmp) &&
+    contentTmp.includes("precio: '$8.000'") &&
+    contentTmp.includes("{ nombre: 'Sin precio', linea: 'Línea.' },"),
+)
 
 if (fallos) {
   console.error(`\n${fallos} chequeo(s) fallaron`)

@@ -226,11 +226,13 @@ export default function Page() {
             ))}
           </ul>
         )}
-        <p className={`${mono.className} mt-8 text-xs`} style={{ color: C.muted }}>
-          {SERVICIOS.some((s) => s.precio)
-            ? '// Lo que no tiene precio se confirma por WhatsApp.'
-            : '// Sin precios publicados: se confirman por WhatsApp.'}
-        </p>
+        {SERVICIOS.some((s) => !s.precio) && (
+          <p className={`${mono.className} mt-8 text-xs`} style={{ color: C.muted }}>
+            {SERVICIOS.some((s) => s.precio)
+              ? '// Lo que no tiene precio se confirma por WhatsApp.'
+              : '// Sin precios publicados: se confirman por WhatsApp.'}
+          </p>
+        )}
       </section>
 
       {/* La tienda */}

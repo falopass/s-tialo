@@ -228,7 +228,7 @@ export default function Page() {
                   </p>
                 </div>
                 {s.precio && (
-                  <span className="shrink-0 text-sm md:text-base font-semibold" style={{ color: C.accent }}>
+                  <span className="min-w-0 text-right text-sm md:text-base font-semibold" style={{ color: C.accent }}>
                     {s.precio}
                   </span>
                 )}
