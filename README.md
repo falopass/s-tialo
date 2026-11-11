@@ -133,7 +133,7 @@ Sitiazo.cl offers three monthly plans for Chilean SMBs (VAT included, no lock-in
 - **Recomendado** · $29,990 CLP/month · up to 5 sections · 10 days
 - **Catálogo** · $44,990 CLP/month · up to 10 products · 14 days
 
-One-time activation fee of $29,990 CLP (free until November 15, 2026). Annual prepay: 10 months for 12. The Básico plan also has a one-time purchase option ($179,990 CLP + $59,990 CLP/year from year two). Contact is WhatsApp-only.
+One-time activation fee of $29,990 CLP on monthly plans (free until November 15, 2026). Annual prepay: 10 months for 12, no activation fee. The Básico plan also has a one-time purchase option ($179,990 CLP + $59,990 CLP/year from year two). Contact is WhatsApp-only.
 
 ---
 
@@ -176,7 +176,7 @@ Precios mensuales, IVA incluido, sin permanencia, con hosting y dominio:
 - **Recomendado** · $29.990 CLP/mes · hasta 5 secciones · 10 días
 - **Catálogo** · $44.990 CLP/mes · hasta 10 productos · 14 días
 
-Activación única de $29.990 (gratis hasta el 15 de noviembre de 2026). Pago anual: 10 meses por 12. El plan Básico también tiene compra única ($179.990 + $59.990 al año desde el segundo año).
+Activación única de $29.990 al contratar el mensual (gratis hasta el 15 de noviembre de 2026). Pago anual: 10 meses por 12, sin activación. El plan Básico también tiene compra única ($179.990 + $59.990 al año desde el segundo año).
 
 ## Producto en vivo
 
