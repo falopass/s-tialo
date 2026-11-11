@@ -3893,6 +3893,7 @@ const BLITZ: Blitz[] = [
   { slug: 'gruas-irribarra-villarrica', name: 'Grúas Irribarra', rubro: 'Grúa y taller mecánico', city: 'Villarrica' },
   { slug: 'pvc-eurofitting-san-fernando', name: 'PVC Eurofitting', rubro: 'Ferretería y materiales hidráulicos', city: 'San Fernando' },
   { slug: 'la-italiana-san-fernando', name: 'La Italiana', rubro: 'Tienda de ropa europea reciclada', city: 'San Fernando' },
+  { slug: 'el-paraiso-mascotas-valdivia', name: 'El Paraíso Mascotas', rubro: 'Tienda de mascotas', city: 'Valdivia' },
 ]
 
 const FAMILIAS: Familia[] = [
