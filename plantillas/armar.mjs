@@ -53,9 +53,12 @@ function tsStr(v) {
   return `'${JSON.stringify(v).slice(1, -1).replace(/\\"/g, '"').replace(/'/g, "\\'")}'`
 }
 
-/** Lista de objetos en el estilo del repo: claves sin comillas, valores simples. */
+/** Lista de objetos en el estilo del repo: claves sin comillas, valores simples.
+    Las claves opcionales que vienen vacías (null/undefined) se omiten. */
 function tsObjArr(arr, keys) {
-  const items = arr.map((o) => `  { ${keys.map((k) => `${k}: ${tsStr(o[k])}`).join(', ')} },`)
+  const items = arr.map(
+    (o) => `  { ${keys.filter((k) => o[k] != null).map((k) => `${k}: ${tsStr(o[k])}`).join(', ')} },`,
+  )
   return `[\n${items.join('\n')}\n]`
 }
 
@@ -84,13 +87,14 @@ function generarContent(ficha, slug, fotos) {
     `  whatsapp: ${tsStr(ficha.whatsapp)},`,
     `  direccion: ${tsStr(ficha.direccion ?? '')},`,
     `  horario: ${tsStr(ficha.horario ?? '')},`,
+    `  reserva: ${ficha.reserva === true},`,
     `  slug: ${tsStr(slug)},`,
     '} as const',
     '',
-    'export const SERVICIOS: { nombre: string; linea: string }[] = ' +
+    'export const SERVICIOS: { nombre: string; linea: string; precio?: string }[] = ' +
       tsObjArr(
-        ficha.servicios.map((s) => ({ nombre: s.nombre, linea: s.linea })),
-        ['nombre', 'linea'],
+        ficha.servicios.map((s) => ({ nombre: s.nombre, linea: s.linea, precio: s.precio })),
+        ['nombre', 'linea', 'precio'],
       ),
     '',
     'export const FOTOS: { src: string; alt: string }[] = ' + tsObjArr(fotos, ['src', 'alt']),
@@ -147,6 +151,7 @@ if (args.ficha) {
     }
     if (ficha.direccion != null && typeof ficha.direccion !== 'string') falla("'direccion' debe ser texto")
     if (ficha.horario != null && typeof ficha.horario !== 'string') falla("'horario' debe ser texto")
+    if (ficha.reserva != null && typeof ficha.reserva !== 'boolean') falla("'reserva' debe ser true o false")
 
     if (!Array.isArray(ficha.servicios) || ficha.servicios.length === 0) {
       falla("la ficha necesita al menos un servicio en 'servicios'")
@@ -154,6 +159,14 @@ if (args.ficha) {
       ficha.servicios.forEach((s, i) => {
         if (!s || typeof s.nombre !== 'string' || !s.nombre.trim() || typeof s.linea !== 'string' || !s.linea.trim()) {
           falla(`servicios[${i}] necesita 'nombre' y 'linea' con texto`)
+          return
+        }
+        if (s.precio != null) {
+          if (typeof s.precio !== 'string' || !s.precio.trim()) {
+            falla(`servicios[${i}].precio debe ser el precio real en texto (p.ej. «$8.000»)`)
+          } else {
+            s.precio = s.precio.trim()
+          }
         }
       })
     }

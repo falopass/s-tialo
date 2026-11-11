@@ -149,7 +149,7 @@ export default function Page() {
           <div className="grid md:grid-cols-[1.2fr_1fr] gap-10 md:gap-14 items-center">
             <div>
               <Label>{BIZ.rubro || 'Rubro'}</Label>
-              <h1 className="text-4xl md:text-6xl font-bold leading-[1.02] tracking-tight mb-5">
+              <h1 className="text-4xl md:text-6xl font-bold leading-[1.02] tracking-tight mb-5 break-words">
                 {BIZ.nombre || 'Nombre del negocio'}
               </h1>
               <p className="text-base md:text-lg leading-relaxed mb-8 max-w-md" style={{ color: C.muted }}>
@@ -207,6 +207,11 @@ export default function Page() {
                   <p className="text-xs md:text-sm leading-relaxed grow" style={{ color: C.muted }}>
                     {s.linea}
                   </p>
+                  {s.precio && (
+                    <p className={`${mono.className} mt-1.5 text-sm md:text-base font-semibold`} style={{ color: C.ink }}>
+                      {s.precio}
+                    </p>
+                  )}
                   <a
                     href={WA_LINK}
                     target="_blank"
@@ -222,7 +227,9 @@ export default function Page() {
           </ul>
         )}
         <p className={`${mono.className} mt-8 text-xs`} style={{ color: C.muted }}>
-          // Sin precios publicados: se confirman por WhatsApp.
+          {SERVICIOS.some((s) => s.precio)
+            ? '// Lo que no tiene precio se confirma por WhatsApp.'
+            : '// Sin precios publicados: se confirman por WhatsApp.'}
         </p>
       </section>
 
