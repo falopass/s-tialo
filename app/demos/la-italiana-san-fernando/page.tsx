@@ -290,7 +290,7 @@ export default function LaItalianaPage() {
 
       {/* ── 1 · Hero: el perchero ── */}
       <section id="inicio" className="relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-[76px] md:pt-32 pb-10 md:pb-20 grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 pt-[76px] md:pt-32 pb-10 md:pb-20 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
           <div>
             <div className="it-sube" style={{ animationDelay: '0.1s' }}>
               <Rotulo>Importadora · {BIZ.city}</Rotulo>
@@ -427,7 +427,7 @@ export default function LaItalianaPage() {
               acomoda y te llevas ropa europea a buen precio.
             </p>
           </Reveal>
-          <div className="mt-12 grid md:grid-cols-3 gap-10 md:gap-6 lg:gap-8">
+          <div className="mt-12 grid grid-cols-[minmax(0,1fr)] md:grid-cols-3 gap-10 md:gap-6 lg:gap-8">
             {FORMAS.map((f, i) => (
               <Reveal key={f.n} delay={i * 120}>
                 <Colgante rot={['-2deg', '1.6deg', '-1.2deg'][i]} hilo="h-6">
@@ -470,7 +470,7 @@ export default function LaItalianaPage() {
 
       {/* ── 4 · Temporadas: las etiquetas de fardo ── */}
       <section id="temporadas" className="scroll-mt-20" style={{ backgroundColor: C.verdeOsc, color: C.papel }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <Reveal>
             <Rotulo color="rgba(246,241,232,0.72)">Temporadas</Rotulo>
             <h2 className={`${display.className} mt-5 leading-[1.05] text-[clamp(2.1rem,6vw,3.8rem)]`}>
@@ -533,7 +533,7 @@ export default function LaItalianaPage() {
 
       {/* ── 5 · La sucursal: polaroid y horario ── */}
       <section id="sucursal" className="scroll-mt-20" style={{ backgroundColor: C.tinta, color: C.papel }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-[minmax(0,340px)_1fr] gap-12 md:gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-[minmax(0,1fr)] md:grid-cols-[minmax(0,340px)_1fr] gap-12 md:gap-16 items-center">
           <Reveal>
             <figure className="mx-auto w-[270px] md:w-full p-3 pb-4" style={{ backgroundColor: C.tag, transform: 'rotate(-2deg)', boxShadow: '0 24px 50px rgba(0,0,0,0.35)' }}>
               <div className="relative overflow-hidden aspect-[357/175]">
@@ -586,7 +586,7 @@ export default function LaItalianaPage() {
           <Reveal>
             <Rotulo centro>Opiniones en Google</Rotulo>
           </Reveal>
-          <div className="mt-10 grid md:grid-cols-2 gap-12 md:gap-10">
+          <div className="mt-10 grid grid-cols-[minmax(0,1fr)] md:grid-cols-2 gap-12 md:gap-10">
             {OPINIONES.map((o, i) => (
               <Reveal key={o.autor} delay={i * 140}>
                 <figure>
@@ -616,7 +616,7 @@ export default function LaItalianaPage() {
 
       {/* ── 7 · Dónde ── */}
       <section id="donde" className="scroll-mt-20 border-t" style={{ borderColor: C.line, backgroundColor: C.papel2 }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <Reveal>
             <Rotulo>Dónde estamos</Rotulo>
             <h2 className={`${display.className} mt-5 leading-[1.05] text-[clamp(2.1rem,5.5vw,3.6rem)]`}>
