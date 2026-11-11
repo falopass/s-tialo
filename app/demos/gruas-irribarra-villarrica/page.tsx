@@ -334,7 +334,7 @@ export default function GruasIrribarraPage() {
             </h2>
             <div className="gi-calzada mt-5 h-[4px] w-40 rounded-[1px]" style={{ backgroundColor: C.amarillo }} />
           </Reveal>
-          <div className="mt-10 md:mt-14 grid md:grid-cols-3 gap-8 md:gap-6">
+          <div className="mt-10 md:mt-14 grid grid-cols-[minmax(0,1fr)] md:grid-cols-3 gap-8 md:gap-6">
             {[
               {
                 n: '01',
@@ -388,7 +388,7 @@ export default function GruasIrribarraPage() {
 
       {/* 3 · Grúa: panel rojo con ficha de la máquina */}
       <section id="grua" className="scroll-mt-20" style={{ backgroundColor: C.asfalto }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24 grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
           <Reveal>
             <Rotulo color={C.amarillo}>Servicio 01 · Grúa</Rotulo>
             <h2
@@ -442,7 +442,7 @@ export default function GruasIrribarraPage() {
 
       {/* 4 · Taller: el galpón de Putúe Alto */}
       <section id="taller" className="scroll-mt-20" style={{ backgroundColor: C.cabina }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24 grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-14 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-14 items-center">
           <div className="relative order-2 lg:order-1">
             <Reveal>
               <div className="relative overflow-hidden rounded-[6px] aspect-[4/3]" style={{ border: `1px solid ${C.line}` }}>
@@ -506,7 +506,7 @@ export default function GruasIrribarraPage() {
           aria-hidden="true"
         />
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
-          <div className="grid lg:grid-cols-[auto_1fr] gap-8 lg:gap-16 items-center">
+          <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[auto_1fr] gap-8 lg:gap-16 items-center">
             <Reveal>
               <p className={`${mono.className} text-xs font-bold uppercase tracking-[0.22em]`} style={{ color: C.rojoOsc }}>
                 Horario de atención
@@ -544,7 +544,7 @@ export default function GruasIrribarraPage() {
       {/* 6 · Opiniones: señales con citas textuales */}
       <section id="opiniones" className="scroll-mt-20" style={{ backgroundColor: C.asfalto }}>
         <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24">
-          <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-10 lg:gap-16">
+          <div className="grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[0.75fr_1.25fr] gap-10 lg:gap-16">
             <Reveal>
               <Rotulo color={C.amarillo}>Opiniones en Google</Rotulo>
               <p className={`${display.className} mt-3 font-bold leading-none text-[clamp(4.6rem,15vw,7.5rem)]`} style={{ color: C.cabina }}>
@@ -597,7 +597,7 @@ export default function GruasIrribarraPage() {
 
       {/* 7 · Dónde: hito kilométrico + mapa */}
       <section id="donde" className="scroll-mt-20" style={{ backgroundColor: C.cabina }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <Reveal>
             <Rotulo color={C.rojo}>Dónde estamos</Rotulo>
             <h2 className={`${display.className} mt-3 font-bold uppercase leading-[0.96] text-[clamp(2.2rem,6vw,3.9rem)]`}>
