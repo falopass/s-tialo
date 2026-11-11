@@ -273,11 +273,11 @@ export default function LaItalianaPage() {
 
       {/* ── 3 · La sucursal: fachada + horario ── */}
       <section id="sucursal" className="scroll-mt-20" style={{ backgroundColor: C.tinta, color: C.papel }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-[auto_1fr] gap-10 md:gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-[auto_1fr] gap-12 md:gap-16 items-center">
           <Reveal>
-            <figure className="mx-auto w-[240px] md:w-[280px] p-3 pb-4" style={{ backgroundColor: C.papel, transform: 'rotate(-2deg)' }}>
-              <div className="relative overflow-hidden aspect-[9/16]">
-                <Image src={`${IMG}/fachada.webp`} alt="Fachada de La Italiana, ropa reciclada, en San Fernando" fill sizes="280px" className="object-cover" />
+            <figure className="mx-auto w-[270px] md:w-[320px] p-3 pb-4" style={{ backgroundColor: C.papel, transform: 'rotate(-2deg)' }}>
+              <div className="relative overflow-hidden aspect-[357/175]">
+                <Image src={`${IMG}/fachada.webp`} alt="Letrero de La Italiana, ropa reciclada, en la fachada de San Fernando" fill sizes="320px" className="object-cover" />
               </div>
               <figcaption className={`${italica.className} mt-3 text-center text-xl`} style={{ fontStyle: 'italic', color: C.tinta }}>
                 Te esperamos
@@ -362,7 +362,8 @@ export default function LaItalianaPage() {
           <Reveal>
             <Rotulo>Dónde estamos</Rotulo>
             <h2 className={`${display.className} mt-4 leading-[1.05] text-[clamp(2.2rem,5.5vw,3.8rem)]`}>
-              La Italiana,{' '}
+              La Italiana,
+              <br />
               <span className={italica.className} style={{ fontStyle: 'italic', color: C.verde }}>
                 {BIZ.city}
               </span>

@@ -11,6 +11,9 @@ import { BIZ, HORARIO, LINEAS, OPINIONES, WA_LINK, WA_COTIZAR, MAPS_URL, MAPS_EM
 const display = localFont({
   src: [{ path: '../../fonts/space-grotesk/normal-300-700.woff2', weight: '300 700', style: 'normal' }],
 })
+const body = localFont({
+  src: [{ path: '../../fonts/ibm-plex-sans/normal-100-700.woff2', weight: '100 700', style: 'normal' }],
+})
 const mono = localFont({
   src: [{ path: '../../fonts/ibm-plex-mono/normal-400.woff2', weight: '400', style: 'normal' }],
 })
@@ -110,10 +113,13 @@ function Btn({
 export default function PvcEurofittingPage() {
   return (
     <div
-      className={`${display.className} min-h-screen antialiased overflow-x-clip`}
+      className={`${body.className} pe-root min-h-screen antialiased overflow-x-clip`}
       style={{ ...SPACING, backgroundColor: C.hormigon, color: C.tinta }}
     >
       <style>{`
+        /* Títulos y citas en Space Grotesk; el cuerpo en IBM Plex Sans. */
+        .pe-root h1, .pe-root h2, .pe-root h3, .pe-root blockquote, .pe-root footer p.text-2xl { font-family: ${display.style.fontFamily} }
+
         /* El agua corre por la cañería: relleno con scaleX desde la izquierda. */
         @keyframes pe-agua { from { transform: scaleX(0) } to { transform: scaleX(1) } }
         .pe-agua { transform-origin: left center; animation: pe-agua 1.6s cubic-bezier(0.55,0.05,0.25,1) both }
@@ -410,7 +416,7 @@ export default function PvcEurofittingPage() {
               <a href={SITE.url} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: '#FFFFFF' }}>
                 {SITE.name}
               </a>{' '}
-              para {BIZ.name}.{' '}
+              para {BIZ.name}{' '}
               <a href={whatsappLink('contacto')} target="_blank" rel="noopener noreferrer" className="font-semibold underline underline-offset-2 tap-44" style={{ color: C.hidrante }}>
                 ¿Lo hacemos realidad?
               </a>
