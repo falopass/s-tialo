@@ -19,14 +19,17 @@ export const sDisplay = localFont({
   fallback: ['Georgia', 'serif'],
 })
 
-// Loader sobre el mismo archivo normal: next/font precarga por loader, así que este solo
-// emite el <link rel="preload"> que sDisplay ya no emite. La variable va declarada en
-// sFontClasses pero ninguna regla la lee.
+// Loader sobre el mismo archivo normal: next/font precarga por loader y el archivo emitido
+// depende de la fuente, no del loader (displaySerif y sDisplay ya comparten la misma URL),
+// así que este solo emite el <link rel="preload"> que sDisplay ya no emite. La variable va
+// declarada en sFontClasses pero ninguna regla la lee.
 const sDisplayPreload = localFont({
   src: [
     { path: '../../fonts/cormorant-garamond/normal-300-700.woff2', weight: '300 700', style: 'normal' },
   ],
   variable: '--s-f-display-pre',
+  display: 'swap',
+  fallback: ['Georgia', 'serif'],
 })
 
 export const sBody = localFont({
