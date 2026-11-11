@@ -474,11 +474,7 @@ export const SCHEMA = {
     itemListElement: PLANS_ARRAY.map((plan) => ({
       '@type': 'Offer',
       name: `Plan ${plan.name}`,
-      description: `${plan.description} ${PRECIOS_NOTA}. ${
-        ofertaActivacionVigente()
-          ? `Activación $0 hasta el ${OFERTA_ACTIVACION_FECHA} de 2026; después ${ACTIVACION_FORMATTED}.`
-          : `Activación ${ACTIVACION_FORMATTED}.`
-      }`,
+      description: `${plan.description} ${PRECIOS_NOTA}. Activación $0 hasta el ${OFERTA_ACTIVACION_FECHA} de 2026; después ${ACTIVACION_FORMATTED}.`,
       price: plan.price,
       priceCurrency: SITE.currency,
       priceSpecification: {
