@@ -350,7 +350,7 @@ export default function ElParaisoMascotasPage() {
             </p>
           </Reveal>
 
-          <ul className="ep-scroll mt-10 flex items-start gap-5 overflow-x-auto snap-x pb-2 md:grid md:grid-cols-5 md:gap-6 md:overflow-visible">
+          <ul className="ep-scroll mt-10 flex items-start gap-5 overflow-x-auto snap-x pb-2 md:grid grid-cols-[minmax(0,1fr)] md:grid-cols-5 md:gap-6 md:overflow-visible">
             {ESTANTE.map((e, i) => (
               <li
                 key={e.img}
@@ -387,7 +387,7 @@ export default function ElParaisoMascotasPage() {
 
       {/* ── 4 · Por mayor y al detalle: el mural lo dice ── */}
       <section id="mayor" className="scroll-mt-20" style={{ backgroundColor: C.cafe, color: C.crema }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-[minmax(0,1fr)] md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center">
           <div>
             <Reveal>
               <Rotulo color={C.mostaza}>Por mayor y al detalle</Rotulo>
@@ -486,7 +486,7 @@ export default function ElParaisoMascotasPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-10 grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl">
+          <div className="mt-10 grid grid-cols-[minmax(0,1fr)] md:grid-cols-2 gap-6 md:gap-8 max-w-4xl">
             {OPINIONES.map((o, i) => (
               <Reveal key={o.autor} delay={i * 120}>
                 <figure>
@@ -523,7 +523,7 @@ export default function ElParaisoMascotasPage() {
 
       {/* ── 7 · Dónde: la esquina de Av. Argentina ── */}
       <section id="donde" className="scroll-mt-20" style={{ backgroundColor: C.agua, color: '#FFFFFF' }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid grid-cols-[minmax(0,1fr)] lg:grid-cols-2 gap-10 items-center">
           <Reveal>
             <Rotulo color={C.crema2}>Dónde estamos</Rotulo>
             <h2 className={`${display.className} mt-3 font-extrabold leading-[1.02] text-[clamp(2.3rem,6vw,3.9rem)]`}>
