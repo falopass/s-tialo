@@ -3894,6 +3894,7 @@ const BLITZ: Blitz[] = [
   { slug: 'pvc-eurofitting-san-fernando', name: 'PVC Eurofitting', rubro: 'Ferretería y materiales hidráulicos', city: 'San Fernando' },
   { slug: 'la-italiana-san-fernando', name: 'La Italiana', rubro: 'Tienda de ropa europea reciclada', city: 'San Fernando' },
   { slug: 'el-paraiso-mascotas-valdivia', name: 'El Paraíso Mascotas', rubro: 'Tienda de mascotas', city: 'Valdivia' },
+  { slug: 'vivero-terraterapia-los-angeles', name: 'Vivero Urbano Terraterapia', rubro: 'Vivero urbano', city: 'Los Ángeles' },
 ]
 
 const FAMILIAS: Familia[] = [
