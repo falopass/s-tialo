@@ -3895,6 +3895,13 @@ const BLITZ: Blitz[] = [
   { slug: 'la-italiana-san-fernando', name: 'La Italiana', rubro: 'Tienda de ropa europea reciclada', city: 'San Fernando' },
   { slug: 'el-paraiso-mascotas-valdivia', name: 'El Paraíso Mascotas', rubro: 'Tienda de mascotas', city: 'Valdivia' },
   { slug: 'vivero-terraterapia-los-angeles', name: 'Vivero Urbano Terraterapia', rubro: 'Vivero urbano', city: 'Los Ángeles' },
+  { slug: 'pretty-woman-osorno', name: 'Pretty Woman', rubro: 'Centro de bienestar y belleza', city: 'Osorno' },
+  { slug: 'peluqueria-barberia-byc-puerto-montt', name: 'Peluquería y Barbería B&C', rubro: 'Peluquería y barbería', city: 'Puerto Montt' },
+  { slug: 'abuela-coffee-villarrica', name: 'Abuela Coffee', rubro: 'Cafetería', city: 'Villarrica' },
+  { slug: 'minimarket-calfulen-san-pedro-de-la-paz', name: 'Distribuidora Calfulén', rubro: 'Minimarket y distribuidora', city: 'San Pedro de la Paz' },
+  { slug: 'fiel-amigo-mascotas-valdivia', name: 'Fiel Amigo Mascotas', rubro: 'Tienda de mascotas', city: 'Valdivia' },
+  { slug: 'serviteca-fry-villarrica', name: 'Serviteca Fry', rubro: 'Taller mecánico y serviteca', city: 'Villarrica' },
+  { slug: 'fresh-and-go-villarrica', name: 'Fresh and go', rubro: 'Lavandería', city: 'Villarrica' },
 ]
 
 const FAMILIAS: Familia[] = [
