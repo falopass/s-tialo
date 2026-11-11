@@ -1,5 +1,7 @@
 # Mejoras del sitio principal (2026-10-23)
 
+> **Ojo (2026-11):** los precios y formas de pago descritos más abajo (pago único 50/50, cuotas, mensual de $12.990) ya no son los vigentes. El modelo actual es mensualidad por plan ($19.990 / $29.990 / $44.990, IVA incluido, sin permanencia, activación de $29.990 gratis hasta el 15 de noviembre de 2026) y la fuente de verdad es `lib/config.ts`.
+
 Registro de todo lo hecho en esta sesión sobre el sitio de Sitiazo, del rediseño revisado a producción. El detalle del rediseño previo está en `PLAN-REDISENO.md`, y las reglas de diseño en `DISENO.md`.
 
 ## Estado

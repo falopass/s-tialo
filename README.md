@@ -4,7 +4,7 @@
 
 **Websites that actually sell.**
 
-Boutique web studio for Chilean SMBs · Delivered in 7 days · From $199,000 CLP
+Boutique web studio for Chilean SMBs · Delivered in 7 days · From $19,990 CLP/month
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-0A0A0A?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
 [![Tailwind](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
@@ -20,7 +20,7 @@ Boutique web studio for Chilean SMBs · Delivered in 7 days · From $199,000 CLP
 
 ## 📖 Overview
 
-Sitiazo.cl is a boutique web design studio targeting Chilean small and medium businesses (pymes). Fast turnaround (7 days), transparent pricing (from $199,000 CLP), and focus on conversion-oriented design.
+Sitiazo.cl is a boutique web design studio targeting Chilean small and medium businesses (pymes). Fast turnaround (7 days), transparent monthly pricing (from $19,990 CLP/month, VAT included, no lock-in), and focus on conversion-oriented design.
 
 This repository contains the studio's own marketing site, built with modern static-export tooling for maximum performance and minimal hosting cost.
 
@@ -33,7 +33,7 @@ This repository contains the studio's own marketing site, built with modern stat
 - 📱 **Mobile-first responsive** layout
 - ✍️ **Blog system** for SEO content marketing
 - 📸 **Case study pages** showcasing client work (e.g., Rancho Itahue)
-- 💬 **Multi-channel contact** (WhatsApp, Email, Cal.com)
+- 💬 **WhatsApp-only contact** (`wa.me` links)
 - 🎬 **Framer Motion animations** for editorial feel
 - 🗺️ **SEO-optimized** with sitemap.xml and metadata
 
@@ -44,31 +44,21 @@ This repository contains the studio's own marketing site, built with modern stat
 ```
 sitiazo-cl/
 ├── app/
-│   ├── layout.tsx                  # Root layout (Nav + Footer + fonts)
-│   ├── page.tsx                    # Home — Hero landing
-│   ├── planes/page.tsx             # Clear pricing plans ($199K / $299K / $449K)
-│   ├── casos/
-│   │   ├── page.tsx                # Case studies grid
-│   │   └── rancho-itahue/page.tsx  # Client case study
-│   ├── como-funciona/page.tsx      # Process (4 steps + timeline)
-│   ├── blog/
-│   │   ├── page.tsx                # Blog listing + newsletter CTA
-│   │   └── [slug]/page.tsx         # Individual post
-│   ├── contacto/page.tsx           # Contact (WhatsApp / Email / Cal.com)
-│   ├── sobre/page.tsx              # About: studio, Diego, stack
-│   ├── not-found.tsx               # Editorial 404
-│   ├── globals.css                 # Design tokens (@theme)
-│   └── sitemap.ts                  # Generates public/sitemap.xml
+│   ├── (sitio)/                    # Marketing site (home, planes, casos, blog,
+│   │                               #  contacto, términos, rubros, …)
+│   │   ├── _components/            # Nav, Footer, BarraMovil, plan CTAs, etc.
+│   │   └── _lib/                   # contacto (WhatsApp links), medir, recomendar
+│   ├── demos/<slug>/               # SMB demo sites
+│   ├── rancho-itahue/              # Client case study
+│   ├── sitemap.ts                  # Generates public/sitemap.xml
+│   └── llms.txt/                   # llms.txt generated at build
 │
-├── components/
-│   ├── ui/                         # 11 primitives (Dot, Logo, Button, Tag, etc.)
-│   ├── layout/                     # Nav, Footer, FooterBar
-│   └── sections/                   # 7 reusable blocks
-│
-├── lib/                            # utils, contact (WhatsApp links), fonts
-├── content/                        # posts.ts (blog metadata)
-├── public/                         # favicon.svg, robots.txt, sitemap.xml
-└── out/                            # Static build (13 HTML pages)
+├── lib/config.ts                   # Single source of truth: prices, plans, contact
+├── content/                        # posts.ts, rubros.ts, blog/*.mdx bodies
+├── public/                         # favicon, robots.txt, demo photos
+├── scripts/                        # build helpers (dither, fechas, verificar-sitio)
+├── prospeccion/                    # Lead lists and verification tooling
+└── out/                            # Static build output
 ```
 
 ---
@@ -137,13 +127,13 @@ Deployed to **Cloudflare Workers** as a static site (`output: 'export'` → Work
 
 ## 💼 Studio Services
 
-Sitiazo.cl offers three service tiers for Chilean SMBs:
+Sitiazo.cl offers three monthly plans for Chilean SMBs (VAT included, no lock-in, hosting and domain included):
 
-- **Landing Page** — $199,000 CLP · 1 page · 7 days
-- **Multi-page Site** — $299,000 CLP · 3-5 pages · 10 days
-- **Custom Web** — $449,000+ CLP · Custom scope · 15+ days
+- **Básico** · $19,990 CLP/month · 1 page · 7 days
+- **Recomendado** · $29,990 CLP/month · up to 5 sections · 10 days
+- **Catálogo** · $44,990 CLP/month · up to 10 products · 14 days
 
-All plans include: mobile-responsive design, basic SEO, contact form, WhatsApp integration, and 1 month of post-launch support.
+One-time activation fee of $29,990 CLP on monthly plans (free until November 15, 2026). Annual prepay: 10 months for 12, no activation fee. The Básico plan also has a one-time purchase option ($179,990 CLP + $59,990 CLP/year from year two). Contact is WhatsApp-only.
 
 ---
 
@@ -163,7 +153,7 @@ Sitiazo.cl is a side venture aimed at generating recurring client relationships 
 
 ## Sobre Sitiazo.cl
 
-Sitiazo.cl es un estudio boutique de diseño web enfocado en pymes chilenas. Entrega rápida (7 días), precios transparentes (desde $199.000 CLP), y diseño enfocado en conversión.
+Sitiazo.cl es un estudio boutique de diseño web enfocado en pymes chilenas. Entrega rápida (7 días), precios transparentes por suscripción mensual (desde $19.990 CLP al mes, IVA incluido, sin permanencia), y diseño enfocado en conversión.
 
 Este repositorio contiene el sitio propio del estudio, construido con static export para máxima performance y costo mínimo de hosting.
 
@@ -174,15 +164,19 @@ Este repositorio contiene el sitio propio del estudio, construido con static exp
 - 📱 Responsive mobile-first
 - ✍️ Sistema de blog para content marketing SEO
 - 📸 Páginas de casos de estudio (ej: Rancho Itahue)
-- 💬 Contacto multi-canal (WhatsApp, Email, Cal.com)
+- 💬 Contacto solo por WhatsApp (links `wa.me`)
 - 🎬 Animaciones con Framer Motion
 - 🗺️ SEO optimizado con sitemap.xml
 
 ## Planes
 
-- **Landing Page** — $199.000 CLP · 1 página · 7 días
-- **Sitio Multi-página** — $299.000 CLP · 3-5 páginas · 10 días
-- **Web a medida** — $449.000+ CLP · Alcance custom · 15+ días
+Precios mensuales, IVA incluido, sin permanencia, con hosting y dominio:
+
+- **Básico** · $19.990 CLP/mes · 1 página · 7 días
+- **Recomendado** · $29.990 CLP/mes · hasta 5 secciones · 10 días
+- **Catálogo** · $44.990 CLP/mes · hasta 10 productos · 14 días
+
+Activación única de $29.990 al contratar el mensual (gratis hasta el 15 de noviembre de 2026). Pago anual: 10 meses por 12, sin activación. El plan Básico también tiene compra única ($179.990 + $59.990 al año desde el segundo año).
 
 ## Producto en vivo
 
