@@ -3903,6 +3903,7 @@ const BLITZ: Blitz[] = [
   { slug: 'serviteca-fry-villarrica', name: 'Serviteca Fry', rubro: 'Taller mecánico y serviteca', city: 'Villarrica' },
   { slug: 'fresh-and-go-villarrica', name: 'Fresh and go', rubro: 'Lavandería', city: 'Villarrica' },
   { slug: 'pernos-arriagada-villarrica', name: 'Pernos Arriagada', rubro: 'Tornería, maestranza y pernos', city: 'Villarrica' },
+  { slug: 'econovent-puerto-montt', name: 'Econovent', rubro: 'Fábrica de ventanas de PVC', city: 'Puerto Montt' },
 ]
 
 const FAMILIAS: Familia[] = [
