@@ -430,8 +430,8 @@ export default function CabanasALaCostaPage() {
                 </figcaption>
               </figure>
             </Reveal>
-            <Reveal delay={160} className="col-span-2 lg:col-span-3">
-              <figure className="ac-foto relative overflow-hidden rounded-2xl h-full aspect-[3/4] lg:aspect-auto">
+            <Reveal delay={160} className="col-span-6 lg:col-span-3">
+              <figure className="ac-foto relative overflow-hidden rounded-2xl aspect-[4/3] lg:aspect-auto lg:h-full">
                 <Image
                   src={`${IMG}/escalera.webp`}
                   alt="Escalera de madera de la cabaña vista desde arriba hacia la puerta"
@@ -445,7 +445,7 @@ export default function CabanasALaCostaPage() {
               </figure>
             </Reveal>
             {/* Sello de la cita en el mosaico */}
-            <Reveal delay={200} className="col-span-4 lg:col-span-5">
+            <Reveal delay={200} className="col-span-6 lg:col-span-5">
               <figure
                 className="h-full rounded-2xl p-5 md:p-6 flex flex-col justify-between gap-4"
                 style={{ backgroundColor: C.selva }}
