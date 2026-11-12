@@ -3908,6 +3908,7 @@ const BLITZ: Blitz[] = [
   { slug: 'cabanas-conquil-villarrica', name: 'Cabañas Conquil', rubro: 'Cabañas con tinaja', city: 'Villarrica' },
   { slug: 'cabanas-a-la-costa-valdivia', name: 'Cabañas a la Costa', rubro: 'Cabañas', city: 'Valdivia' },
   { slug: 'sari-duo-los-angeles', name: 'Sari Duo', rubro: 'Vivero', city: 'Los Ángeles' },
+  { slug: 'vivero-verde-esperanza-concepcion', name: 'Vivero Verde Esperanza', rubro: 'Vivero móvil', city: 'Concepción' },
 ]
 
 const FAMILIAS: Familia[] = [
