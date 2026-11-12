@@ -3903,6 +3903,12 @@ const BLITZ: Blitz[] = [
   { slug: 'serviteca-fry-villarrica', name: 'Serviteca Fry', rubro: 'Taller mecánico y serviteca', city: 'Villarrica' },
   { slug: 'fresh-and-go-villarrica', name: 'Fresh and go', rubro: 'Lavandería', city: 'Villarrica' },
   { slug: 'pernos-arriagada-villarrica', name: 'Pernos Arriagada', rubro: 'Tornería, maestranza y pernos', city: 'Villarrica' },
+  { slug: 'cabanas-cristobal-puerto-montt', name: 'Cabañas Cristóbal', rubro: 'Cabañas', city: 'Puerto Montt' },
+  { slug: 'econovent-puerto-montt', name: 'Econovent', rubro: 'Fábrica de ventanas de PVC', city: 'Puerto Montt' },
+  { slug: 'cabanas-conquil-villarrica', name: 'Cabañas Conquil', rubro: 'Cabañas con tinaja', city: 'Villarrica' },
+  { slug: 'cabanas-a-la-costa-valdivia', name: 'Cabañas a la Costa', rubro: 'Cabañas', city: 'Valdivia' },
+  { slug: 'sari-duo-los-angeles', name: 'Sari Duo', rubro: 'Vivero', city: 'Los Ángeles' },
+  { slug: 'vivero-verde-esperanza-concepcion', name: 'Vivero Verde Esperanza', rubro: 'Vivero móvil', city: 'Concepción' },
 ]
 
 const FAMILIAS: Familia[] = [
