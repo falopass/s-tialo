@@ -7,7 +7,7 @@ import { Reveal, BlitzNav, WaFab } from '../blitz-kit'
 import { demoMetadata } from '../meta'
 import LazyMap from '../lazy-map'
 import EnVista from './ventanas'
-import { BIZ, HORARIO, WA_LINK, MAPS_URL, MAPS_EMBED, IG_URL, FB_URL, IMG } from './content'
+import { BIZ, HORARIO, WA_LINK, MAPS_URL, MAPS_EMBED, IMG } from './content'
 
 const display = localFont({
   src: [{ path: '../../fonts/unbounded/normal-200-900.woff2', weight: '200 900', style: 'normal' }],
@@ -57,13 +57,13 @@ export const metadata: Metadata = demoMetadata({
   slug: 'econovent-puerto-montt',
   title: 'Econovent · Ventanas de PVC hechas en Puerto Montt',
   description:
-    'Fabricación, instalación y distribución de ventanas de PVC americano y europeo en Pasaje Don Justo, Puerto Montt. Reparto gratis en la comuna. Cotiza por WhatsApp.',
+    'Fábrica de ventanas de PVC americano y europeo en Pasaje Don Justo, Puerto Montt. Cotiza por WhatsApp.',
   image: `${IMG}/fabrica.webp`,
 })
 
 const NAV_LINKS = [
   { label: 'Las líneas', href: '#lineas' },
-  { label: 'El trabajo', href: '#trabajo' },
+  { label: 'Cómo cotizar', href: '#trabajo' },
   { label: 'La fábrica', href: '#fabrica' },
   { label: 'Contacto', href: '#contacto' },
 ]
@@ -142,24 +142,6 @@ function IconWa({ className = 'w-[17px] h-[17px]' }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
-    </svg>
-  )
-}
-
-function IconIg() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
-    </svg>
-  )
-}
-
-function IconFb() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-[15px] h-[15px]" fill="currentColor" aria-hidden="true">
-      <path d="M13.4 21v-7.6h2.55l.38-2.95H13.4V8.56c0-.85.24-1.43 1.46-1.43h1.57V4.5c-.27-.04-1.2-.12-2.29-.12-2.27 0-3.82 1.38-3.82 3.92v2.15H7.76v2.95h2.56V21h3.08Z" />
     </svg>
   )
 }
@@ -248,9 +230,9 @@ function VentanaFoto({
 }
 
 const PASOS = [
-  { n: '01', t: 'Fabricamos', d: 'Las ventanas se fabrican en el galpón de Pasaje Don Justo.' },
-  { n: '02', t: 'Instalamos', d: 'Instalamos las ventanas en tu casa.' },
-  { n: '03', t: 'Repartimos', d: 'Llevamos las ventanas a tu dirección sin costo dentro de la comuna.', gratis: true },
+  { n: '01', t: 'Nos escribes', d: 'Mándanos por WhatsApp las medidas y el tipo de ventana que buscas.' },
+  { n: '02', t: 'Te cotizamos', d: 'Te respondemos con la cotización y resolvemos tus dudas.' },
+  { n: '03', t: 'Fabricamos', d: 'Las ventanas se hacen en la fábrica de Pasaje Don Justo.' },
 ] as const
 
 export default function EconoventPage() {
@@ -402,8 +384,8 @@ export default function EconoventPage() {
             className="ev-sube mt-5 max-w-md text-base md:text-lg leading-relaxed font-medium"
             style={{ color: 'rgba(246,248,249,0.92)', animationDelay: '1.6s' }}
           >
-            Fabricamos, instalamos y distribuimos ventanas de PVC americano y
-            europeo. Reparto gratis dentro de la comuna de Puerto Montt.
+            Fábrica de ventanas de PVC americano y europeo en Pasaje Don
+            Justo, Puerto Montt. Cotiza directo por WhatsApp.
           </p>
           <div className="ev-sube mt-6 flex flex-wrap gap-3" style={{ animationDelay: '1.75s' }}>
             <Btn href={WA_LINK} tone="cielo">
@@ -432,7 +414,7 @@ export default function EconoventPage() {
           >
             <span className="whitespace-nowrap">{BIZ.address}</span>
             <span className="whitespace-nowrap">Lun a vie 9:00 a 19:00</span>
-            <span className="whitespace-nowrap" style={{ color: C.vidrio }}>Reparto gratis en la comuna</span>
+            <span className="whitespace-nowrap" style={{ color: C.vidrio }}>Cotiza por WhatsApp</span>
           </div>
         </div>
       </section>
@@ -565,18 +547,18 @@ export default function EconoventPage() {
         </div>
       </section>
 
-      {/* ── 3 · Cómo trabajamos: de la fábrica a tu casa ── */}
+      {/* ── 3 · Cómo cotizar: de tus medidas a tu ventana ── */}
       <section id="trabajo" className="scroll-mt-20" style={{ backgroundColor: C.antrac }}>
-        <div className="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
+        <div className="max-w-3xl mx-auto px-5 md:px-8 py-16 md:py-24">
           <div>
             <Reveal>
               <Rotulo color={C.vidrio} line={C.lineD}>
-                Cómo trabajamos
+                Cómo cotizar
               </Rotulo>
               <h2 className="uppercase font-semibold leading-[1.04] text-[clamp(1.9rem,6.2vw,4rem)]" style={{ color: '#FFFFFF' }}>
-                De la fábrica
+                De tus medidas
                 <br />
-                <span style={{ color: C.vidrio }}>a tu casa.</span>
+                <span style={{ color: C.vidrio }}>a tu ventana.</span>
               </h2>
             </Reveal>
             <ol className="mt-10 flex flex-col">
@@ -605,14 +587,6 @@ export default function EconoventPage() {
                   <Reveal delay={i * 90}>
                     <h3 className="flex flex-wrap items-center gap-3 uppercase font-semibold text-lg md:text-xl" style={{ color: '#FFFFFF' }}>
                       {p.t}
-                      {'gratis' in p && (
-                        <span
-                          className="text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-1"
-                          style={{ backgroundColor: C.rojo, color: '#FFFFFF' }}
-                        >
-                          Gratis
-                        </span>
-                      )}
                     </h3>
                     <p className="mt-2 max-w-md text-sm md:text-base leading-relaxed" style={{ color: C.mutD }}>
                       {p.d}
@@ -622,20 +596,6 @@ export default function EconoventPage() {
               ))}
             </ol>
           </div>
-          <Reveal delay={140}>
-            <div style={{ color: C.antrac }}>
-              <VentanaFoto
-                src={`${IMG}/obra.webp`}
-                alt="Casa de madera en construcción con ventanales de PVC instalados, trabajo real de Econovent"
-                sizes="(min-width: 1024px) 44vw, 100vw"
-                aspect="aspect-[5/4]"
-                position="50% 45%"
-                travesanos={1}
-                caption="Obra real · de su Instagram"
-                captionColor="rgba(246,248,249,0.62)"
-              />
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -657,8 +617,7 @@ export default function EconoventPage() {
               <Reveal delay={110}>
                 <p className="mt-6 max-w-md text-base md:text-lg leading-relaxed" style={{ color: 'rgba(34,40,46,0.78)' }}>
                   El galpón de planchas metálicas de Pasaje Don Justo es la
-                  fábrica. Ahí se fabrican las ventanas que después se
-                  instalan o se reparten en la comuna.
+                  fábrica. Ahí se fabrican las ventanas.
                 </p>
               </Reveal>
               <Reveal delay={180}>
@@ -733,28 +692,6 @@ export default function EconoventPage() {
                 Cómo llegar
               </Btn>
             </div>
-            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
-              <a
-                href={IG_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold tap-44"
-                style={{ color: C.antrac }}
-              >
-                <IconIg />
-                @econoventpuertomont
-              </a>
-              <a
-                href={FB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold tap-44"
-                style={{ color: C.antrac }}
-              >
-                <IconFb />
-                Econovent Puerto Montt
-              </a>
-            </div>
           </Reveal>
           <Reveal delay={120}>
             <div className="flex flex-col gap-4">
@@ -783,12 +720,12 @@ export default function EconoventPage() {
                 </div>
                 <div className="p-4" style={{ backgroundColor: '#FFFFFF' }}>
                   <p className={`${display.className} text-[10px] font-light uppercase tracking-[0.22em]`} style={{ color: C.mutL }}>
-                    Reparto
+                    Cotización
                   </p>
                   <p className="mt-2 text-sm font-semibold leading-snug">
-                    Gratis dentro de
+                    Por WhatsApp,
                     <br />
-                    la comuna
+                    con tus medidas
                   </p>
                 </div>
               </div>

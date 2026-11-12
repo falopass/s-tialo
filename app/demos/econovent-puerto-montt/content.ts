@@ -5,17 +5,15 @@
  * - Ficha de Google Maps (leída el 12-11-2026): nombre (Econovent Puerto
  *   Montt), dirección (Pasaje Don Justo, Puerto Montt; plus code H495+9P)
  *   y horario (lunes a viernes 9:00 a 19:00; sábado y domingo cerrado).
- *   OJO: en Maps figura categorizada como fábrica de otra cosa, pero lo que
- *   fabrica son ventanas de PVC (verificado en sus redes).
+ *   OJO: en Maps figura como "fábrica de muebles". La línea de producto
+ *   (ventanas de PVC) sale de cuentas con el mismo nombre en Puerto Montt.
  *   Google: 5,0 con 1 opinión sin texto -> no se muestra nota ni estrellas.
- * - Instagram @econoventpuertomont y Facebook "Econovent Puerto Montt":
- *   fabricación, instalación y distribución de ventanas de PVC, en PVC
- *   americano y PVC europeo; reparto gratis dentro de la comuna de
- *   Puerto Montt (Facebook).
+ * - NO VERIFICADO por número (cuentas con el mismo nombre, otros teléfonos): Instagram @econoventpuertomont y Facebook "Econovent Puerto Montt";
+ *   no se enlazan ni se usan sus fotos ni sus promesas (reparto, instalación).
+ *   De ahí sale solo la línea de producto: ventanas de PVC americano y europeo.
  * - WhatsApp +56 9 4102 4034.
- * Fotos: fabrica.webp (su galpón de planchas con la bandera de Chile) y
- * obra.webp (casa de madera en construcción con ventanales instalados,
- * de su Instagram). No hay más fotos: las ventanas corredera y abatir se
+ * Fotos: solo fabrica.webp (su galpón, de la ficha de Maps con su número).
+ * Las ventanas se
  * dibujan con CSS como ilustración propia, sin especificaciones técnicas.
  * No hay: medidas, colores, marcas de perfiles, garantías, plazos ni
  * precios publicados; todo se cotiza por WhatsApp.
@@ -49,7 +47,5 @@ export const MAPS_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(
   'Econovent Puerto Montt, Pasaje Don Justo',
 )}&output=embed`
 
-export const IG_URL = 'https://www.instagram.com/econoventpuertomont/'
-export const FB_URL = 'https://www.facebook.com/econovent.puerto.montt/'
 
 export const IMG = '/demos/econovent-puerto-montt'
