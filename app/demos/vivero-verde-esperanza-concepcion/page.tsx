@@ -67,7 +67,7 @@ const PASOS = [
   {
     n: '1',
     t: 'Pide el catálogo',
-    d: 'Escríbenos por WhatsApp y te envían el catálogo con precios.',
+    d: 'Escríbenos por WhatsApp y te enviamos el catálogo con precios.',
     icon: 'chat',
   },
   {
@@ -655,8 +655,8 @@ export default function ViveroVerdeEsperanzaPage() {
               </Reveal>
               <Reveal delay={120} className="md:col-span-5">
                 <p className="text-sm md:text-base leading-relaxed md:pb-1.5" style={{ color: C.mut }}>
-                  Trabajan principalmente a domicilio: tú pides, ellos
-                  cargan el camión y salen a ruta.
+                  Trabajamos principalmente a domicilio: tú pides, nosotros
+                  cargamos el camión y salimos a ruta.
                 </p>
               </Reveal>
             </div>
@@ -905,7 +905,7 @@ export default function ViveroVerdeEsperanzaPage() {
                   style={{ color: C.bosque }}
                 >
                   ¿Más lejos?{' '}
-                  <em className={lora.className}>Despachan a todo Chile.</em>
+                  <em className={lora.className}>Despachamos a todo Chile.</em>
                 </p>
                 <a
                   href={BIZ.instagram}

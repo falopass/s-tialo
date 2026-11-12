@@ -487,10 +487,9 @@ export default function SariDuoPage() {
               </Reveal>
               <Reveal delay={110}>
                 <p className="mt-5 max-w-md text-[15px] md:text-base leading-relaxed" style={{ color: C.mutC }}>
-                  A orilla de camino en {BIZ.city}, las plantas de {BIZ.name} crecen
-                  al aire libre, bajo el mismo sol y la misma lluvia que tendrán
-                  en tu jardín. Ven a recorrer el vivero con calma, o escribe y
-                  pregunta por la planta que buscas.
+                  {BIZ.name} es un vivero a orilla de camino en {BIZ.city},
+                  abierto todos los días. Ven a recorrerlo con calma, o escribe
+                  y pregunta por la planta que buscas.
                 </p>
               </Reveal>
               <Reveal delay={190}>
