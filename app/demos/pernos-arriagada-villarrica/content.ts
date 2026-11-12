@@ -5,7 +5,7 @@
  * leídos el 11-11-2026): nombre, categoría (tornería), dirección
  * (Cerros de Melilahuen 3855, Villarrica), WhatsApp, horario (lun a vie
  * 9:00 a 13:00 y 15:00 a 19:00, sáb 9:00 a 14:00, dom cerrado), el
- * atributo "se identifica como mujer empresaria" y las 3 opiniones con
+ * las 3 opiniones con
  * su única cita textual (sin nota publicada: no mostramos estrellas).
  * SERVICIOS y MURO son textuales de los letreros de la fachada; las
  * tres partidas del muro solo ordenan la lista (sin precios ni stock:
@@ -24,7 +24,6 @@ export const BIZ = {
   phoneDisplay: '+56 9 4063 7555',
   whatsapp: '56940637555',
   reviews: 3,
-  womenLed: 'Empresa liderada por una mujer',
 } as const
 
 export const HORARIO = [
