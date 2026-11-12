@@ -620,10 +620,6 @@ export default function PernosArriagadaPage() {
                 fotos de su ficha, con lluvia y hasta con nieve.
               </p>
               <div className="mt-6 flex flex-wrap gap-2.5">
-                <span className={`${mono.className} inline-flex items-center gap-2 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.16em] px-3 py-2 rounded-full`} style={{ backgroundColor: C.noche, color: '#FFFFFF' }}>
-                  <Tuerca className="h-[13px] w-[13px]" width={18} />
-                  {BIZ.womenLed}
-                </span>
                 <span className={`${mono.className} inline-flex items-center text-[10px] md:text-[11px] font-bold uppercase tracking-[0.16em] px-3 py-2 rounded-full`} style={{ border: `2px solid ${C.noche}`, color: C.noche }}>
                   Würth · Yato · Force
                 </span>
