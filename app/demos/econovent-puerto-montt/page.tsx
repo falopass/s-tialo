@@ -249,7 +249,7 @@ function VentanaFoto({
 
 const PASOS = [
   { n: '01', t: 'Fabricamos', d: 'Las ventanas se fabrican en el galpón de Pasaje Don Justo.' },
-  { n: '02', t: 'Instalamos', d: 'El mismo equipo las deja puestas en tu casa.' },
+  { n: '02', t: 'Instalamos', d: 'Instalamos las ventanas en tu casa.' },
   { n: '03', t: 'Repartimos', d: 'Llevamos las ventanas a tu dirección sin costo dentro de la comuna.', gratis: true },
 ] as const
 
@@ -493,10 +493,10 @@ export default function EconoventPage() {
                   </div>
                   <figcaption className="mt-5 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
                     <p className={`${display.className} text-[11px] font-light uppercase tracking-[0.26em]`} style={{ color: C.antrac }}>
-                      PVC americano · corredera
+                      PVC americano
                     </p>
                     <p className="text-sm leading-relaxed" style={{ color: C.mutL }}>
-                      Las hojas se deslizan sobre rieles.
+                      Te asesoramos según tu casa.
                     </p>
                   </figcaption>
                 </figure>
@@ -540,10 +540,10 @@ export default function EconoventPage() {
                   </div>
                   <figcaption className="mt-5">
                     <p className={`${display.className} text-[11px] font-light uppercase tracking-[0.26em]`} style={{ color: C.antrac }}>
-                      PVC europeo · abatir
+                      PVC europeo
                     </p>
                     <p className="mt-2 text-sm leading-relaxed" style={{ color: C.mutL }}>
-                      La hoja abre sobre su eje, como una puerta.
+                      Pregunta por los formatos disponibles.
                     </p>
                   </figcaption>
                 </figure>
@@ -649,9 +649,9 @@ export default function EconoventPage() {
                   La fábrica
                 </Rotulo>
                 <h2 className="uppercase font-semibold leading-[1.04] text-[clamp(1.9rem,6.2vw,4rem)]">
-                  No es tienda:
+                  Hechas en
                   <br />
-                  <span style={{ color: C.cielo }}>aquí se hacen.</span>
+                  <span style={{ color: C.cielo }}>Puerto Montt.</span>
                 </h2>
               </Reveal>
               <Reveal delay={110}>
@@ -702,7 +702,7 @@ export default function EconoventPage() {
               <span style={{ color: C.cielo }}>te cotizamos.</span>
             </h2>
             <p className="mt-6 max-w-md text-base md:text-lg leading-relaxed" style={{ color: C.mutL }}>
-              Con el ancho y el alto del vano alcanza para partir. Escríbenos
+              Mándanos las medidas de tu ventana. Escríbenos
               por WhatsApp y te respondemos con la cotización.
             </p>
             <address className="not-italic mt-8 text-base leading-relaxed">
