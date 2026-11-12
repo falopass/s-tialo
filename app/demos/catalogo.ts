@@ -3907,6 +3907,7 @@ const BLITZ: Blitz[] = [
   { slug: 'econovent-puerto-montt', name: 'Econovent', rubro: 'Fábrica de ventanas de PVC', city: 'Puerto Montt' },
   { slug: 'cabanas-conquil-villarrica', name: 'Cabañas Conquil', rubro: 'Cabañas con tinaja', city: 'Villarrica' },
   { slug: 'cabanas-a-la-costa-valdivia', name: 'Cabañas a la Costa', rubro: 'Cabañas', city: 'Valdivia' },
+  { slug: 'sari-duo-los-angeles', name: 'Sari Duo', rubro: 'Vivero', city: 'Los Ángeles' },
 ]
 
 const FAMILIAS: Familia[] = [
