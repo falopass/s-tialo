@@ -3909,6 +3909,9 @@ const BLITZ: Blitz[] = [
   { slug: 'cabanas-a-la-costa-valdivia', name: 'Cabañas a la Costa', rubro: 'Cabañas', city: 'Valdivia' },
   { slug: 'sari-duo-los-angeles', name: 'Sari Duo', rubro: 'Vivero', city: 'Los Ángeles' },
   { slug: 'vivero-verde-esperanza-concepcion', name: 'Vivero Verde Esperanza', rubro: 'Vivero móvil', city: 'Concepción' },
+  { slug: 'ditamis-dreams-valdivia', name: 'Ditamis Dreams', rubro: 'Centro de eventos infantiles', city: 'Valdivia' },
+  { slug: 'sur-salud-puerto-montt', name: 'Sur Salud', rubro: 'Clínica dental', city: 'Puerto Montt' },
+  { slug: 'jesica-munoz-peluqueria-puerto-montt', name: 'Jesica Peluquería', rubro: 'Peluquería y centro de estética', city: 'Puerto Montt' },
 ]
 
 const FAMILIAS: Familia[] = [
