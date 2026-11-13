@@ -3910,6 +3910,7 @@ const BLITZ: Blitz[] = [
   { slug: 'sari-duo-los-angeles', name: 'Sari Duo', rubro: 'Vivero', city: 'Los Ángeles' },
   { slug: 'vivero-verde-esperanza-concepcion', name: 'Vivero Verde Esperanza', rubro: 'Vivero móvil', city: 'Concepción' },
   { slug: 'ditamis-dreams-valdivia', name: 'Ditamis Dreams', rubro: 'Centro de eventos infantiles', city: 'Valdivia' },
+  { slug: 'sur-salud-puerto-montt', name: 'Sur Salud', rubro: 'Clínica dental', city: 'Puerto Montt' },
 ]
 
 const FAMILIAS: Familia[] = [
