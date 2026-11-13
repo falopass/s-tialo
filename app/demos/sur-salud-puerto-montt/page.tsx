@@ -86,7 +86,7 @@ const TRATAMIENTOS = [
     n: '01',
     name: 'Ortodoncia',
     tag: 'La especialidad del centro',
-    desc: 'Su especialidad según su propio logo: alinear tu sonrisa con un plan claro y controles a tu ritmo.',
+    desc: 'Nuestra especialidad: alinear tu sonrisa con un plan claro.',
     dest: true,
   },
   {
@@ -413,7 +413,7 @@ export default function SurSaludPage() {
                 <em style={{ color: C.celesteInk }}>una sola clínica.</em>
               </h2>
               <p className="text-base leading-relaxed max-w-sm lg:justify-self-end" style={{ color: C.mut }}>
-                Lo que publica Sur Salud en su Instagram: su centro de
+                Un centro de
                 ortodoncia y especialidades dentales en el centro de
                 Puerto Montt.
               </p>
