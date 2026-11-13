@@ -526,7 +526,7 @@ export default function JesicaPeluqueriaPage() {
                   La carta de color
                 </h2>
                 <p className="text-sm md:text-base max-w-xs leading-relaxed" style={{ color: C.mutC }}>
-                  Tres tonos que salen de esta silla cada semana. Cada foto
+                  Tres tonos de este salón. Cada foto
                   es un trabajo real del salón.
                 </p>
               </div>
