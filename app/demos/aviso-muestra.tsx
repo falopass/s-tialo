@@ -22,7 +22,7 @@ export function AvisoMuestra() {
         className="font-mono mx-auto max-w-3xl px-3 py-2 text-center text-micro leading-[1.6]"
         style={{ color: 'rgba(250,250,247,0.85)' }}
       >
-        Página de muestra moldeable a tu gusto. Fotos de tus redes — con mejores,
+        Página de muestra moldeable a tu gusto. Fotos de tus redes, con mejores
         aún mejor:{' '}
         <a
           href={whatsappLink('demo')}
