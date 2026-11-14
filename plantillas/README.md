@@ -39,8 +39,12 @@ dato. Las reglas móviles de `app/demos/GUIA-MOVIL.md` ya vienen aplicadas
 2. **Llenar una ficha** `ficha.json` siguiendo `contrato.ts`: nombre, rubro,
    ciudad, WhatsApp, al menos un servicio con su línea real y al menos una
    foto. `direccion` y `horario` son opcionales; lo que no esté confirmado
-   se omite. Guardar la ficha junto a las fotos fuera de `app/` (por ejemplo
-   en una carpeta del prospecto) mientras se arma.
+   se omite. Cada servicio puede traer `precio` opcional (texto tal cual,
+   «$8.000»): si no viene, la página no muestra precio ni un «desde». En la
+   familia `comida`, `reserva: true` habilita el copy de reservas; sin ese
+   campo la página solo habla de pedir por WhatsApp. Guardar la ficha junto
+   a las fotos fuera de `app/` (por ejemplo en una carpeta del prospecto)
+   mientras se arma.
 3. **Ensayar:**
    ```bash
    node plantillas/armar.mjs --ficha ruta/ficha.json --slug nombre-del-negocio
@@ -61,8 +65,9 @@ dato. Las reglas móviles de `app/demos/GUIA-MOVIL.md` ya vienen aplicadas
 
 Rechaza la ficha (código distinto de 0) si falta `nombre`, `rubro`, `ciudad`,
 `whatsapp`, al menos un servicio con `nombre` + `linea`, o al menos una foto
-con `ruta` y `alt`. Cada `ruta` de foto debe existir en disco (relativa al
-JSON). La `familia` debe ser `servicio`, `comida` o `catalogo` (campo
+con `ruta` y `alt`. `reserva` solo acepta `true`/`false` y `precio` texto
+no vacío. Cada `ruta` de foto debe existir en disco (relativa al JSON).
+La `familia` debe ser `servicio`, `comida` o `catalogo` (campo
 `familia` de la ficha o `--familia`). Rechaza slugs que ya existan en
 `app/demos/`, `public/demos/` o registrados en `data.ts`/`catalogo.ts`.
 

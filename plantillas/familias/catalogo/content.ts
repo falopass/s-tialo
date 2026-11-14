@@ -14,6 +14,7 @@ export const BIZ: {
   whatsapp: string
   direccion: string
   horario: string
+  reserva: boolean
   slug: string
 } = {
   nombre: '',
@@ -22,10 +23,11 @@ export const BIZ: {
   whatsapp: '',
   direccion: '',
   horario: '',
+  reserva: false,
   slug: '',
 }
 
-export const SERVICIOS: { nombre: string; linea: string }[] = []
+export const SERVICIOS: { nombre: string; linea: string; precio?: string }[] = []
 
 export const FOTOS: { src: string; alt: string }[] = []
 

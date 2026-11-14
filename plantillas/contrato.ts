@@ -21,6 +21,12 @@ export type FamiliaPlantilla = 'servicio' | 'comida' | 'catalogo'
 export interface ServicioFicha {
   nombre: string
   linea: string
+  /**
+   * Precio real tal como lo muestra el negocio: «$8.000», «$12.000 c/u».
+   * Opcional: si no viene, la plantilla no muestra precio ni un «desde»
+   * inventado.
+   */
+  precio?: string
 }
 
 /**
@@ -36,8 +42,9 @@ export interface FotoFicha {
  * La ficha de un prospecto que ya pidió su demo gratis.
  *
  * Campos mínimos: `nombre`, `rubro`, `ciudad`, `whatsapp`, al menos un
- * servicio y al menos una foto cuyo archivo exista. `direccion` y
- * `horario` son opcionales: si no vienen, la plantilla marca el hueco.
+ * servicio y al menos una foto cuyo archivo exista. `direccion`,
+ * `horario`, `reserva` y el `precio` de cada servicio son opcionales:
+ * lo que no viene no se menciona.
  */
 export interface FichaNegocio {
   /** Qué familia de esqueleto usar. */
@@ -54,6 +61,11 @@ export interface FichaNegocio {
   direccion?: string
   /** Horario real en una línea: «Lunes a viernes · 9:30 a 18:00». Opcional. */
   horario?: string
+  /**
+   * Solo familia 'comida': true si el negocio realmente toma reservas.
+   * Opcional; sin este campo la página no promete reserva ni mesa.
+   */
+  reserva?: boolean
   /** Al menos uno. */
   servicios: ServicioFicha[]
   /** Al menos una, con el archivo existente en `ruta`. */

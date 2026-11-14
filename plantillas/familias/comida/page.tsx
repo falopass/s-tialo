@@ -53,7 +53,7 @@ const NAV: NavTheme = {
 export const metadata: Metadata = demoMetadata({
   slug: BIZ.slug,
   title: `${BIZ.nombre} · ${BIZ.rubro} en ${BIZ.ciudad}`,
-  description: `${BIZ.rubro} en ${BIZ.ciudad}. Pide o reserva por WhatsApp.`,
+  description: `${BIZ.rubro} en ${BIZ.ciudad}. ${BIZ.reserva ? 'Pide o reserva' : 'Pide'} por WhatsApp.`,
   image: FOTOS[0]?.src,
 })
 
@@ -178,11 +178,12 @@ export default function Page() {
           >
             {BIZ.rubro || 'Rubro'}
           </p>
-          <h1 className={`${display.className} uppercase text-5xl md:text-8xl leading-[0.95] mb-4`}>
+          <h1 className={`${display.className} uppercase text-5xl md:text-8xl leading-[0.95] mb-4 break-words`}>
             {BIZ.nombre || 'Nombre del negocio'}
           </h1>
           <p className="text-base md:text-lg mb-8 max-w-md" style={{ color: 'rgba(251,245,234,0.85)' }}>
-            {BIZ.ciudad ? `${BIZ.ciudad}. ` : ''}Pide o consulta por WhatsApp.
+            {BIZ.ciudad ? `${BIZ.ciudad}. ` : ''}
+            {BIZ.reserva ? 'Pide o reserva por WhatsApp.' : 'Pide o consulta por WhatsApp.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
@@ -217,7 +218,21 @@ export default function Page() {
           <ul>
             {SERVICIOS.map((s) => (
               <li key={s.nombre} className="border-b border-dashed py-4 md:py-5" style={{ borderColor: C.line }}>
-                <h3 className="font-bold text-lg md:text-xl mb-1">{s.nombre}</h3>
+                <div className="flex items-baseline gap-3 mb-1">
+                  <h3 className="font-bold text-lg md:text-xl">{s.nombre}</h3>
+                  {s.precio && (
+                    <>
+                      <span
+                        aria-hidden="true"
+                        className="flex-1 border-b border-dotted"
+                        style={{ borderColor: C.line }}
+                      />
+                      <span className="min-w-0 text-right font-bold text-base md:text-lg" style={{ color: C.accentTexto }}>
+                        {s.precio}
+                      </span>
+                    </>
+                  )}
+                </div>
                 <p className="text-sm md:text-base leading-relaxed max-w-2xl" style={{ color: C.muted }}>
                   {s.linea}
                 </p>
@@ -296,7 +311,9 @@ export default function Page() {
               Pide por WhatsApp
             </h2>
             <p className="text-sm md:text-base leading-relaxed mb-8 max-w-sm" style={{ color: C.mutedDark }}>
-              Pedidos, reservas y la carta del día, todo por el mismo canal.
+              {BIZ.reserva
+                ? 'Pedidos, reservas y la carta del día, todo por el mismo canal.'
+                : 'Pedidos y la carta del día, todo por el mismo canal.'}
             </p>
             <a
               href={WA_LINK}

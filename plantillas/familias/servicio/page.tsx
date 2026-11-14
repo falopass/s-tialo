@@ -147,7 +147,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
           <div>
             <Label>{BIZ.rubro || 'Rubro'}</Label>
-            <h1 className={`${display.className} text-4xl md:text-6xl leading-[1.05] mb-5`}>
+            <h1 className={`${display.className} text-4xl md:text-6xl leading-[1.05] mb-5 break-words`}>
               {BIZ.nombre || 'Nombre del negocio'}
             </h1>
             <p className="text-base md:text-lg leading-relaxed mb-8 max-w-md" style={{ color: C.muted }}>
@@ -221,12 +221,17 @@ export default function Page() {
                 >
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <div>
+                <div className="grow">
                   <h3 className="font-semibold text-lg md:text-xl mb-1">{s.nombre}</h3>
                   <p className="text-sm md:text-base leading-relaxed" style={{ color: C.muted }}>
                     {s.linea}
                   </p>
                 </div>
+                {s.precio && (
+                  <span className="min-w-0 text-right text-sm md:text-base font-semibold" style={{ color: C.accent }}>
+                    {s.precio}
+                  </span>
+                )}
               </li>
             ))}
           </ol>
