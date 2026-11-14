@@ -3912,6 +3912,7 @@ const BLITZ: Blitz[] = [
   { slug: 'ditamis-dreams-valdivia', name: 'Ditamis Dreams', rubro: 'Centro de eventos infantiles', city: 'Valdivia' },
   { slug: 'sur-salud-puerto-montt', name: 'Sur Salud', rubro: 'Clínica dental', city: 'Puerto Montt' },
   { slug: 'jesica-munoz-peluqueria-puerto-montt', name: 'Jesica Peluquería', rubro: 'Peluquería y centro de estética', city: 'Puerto Montt' },
+  { slug: 'cvm-mecanicos-a-domicilio-osorno', name: 'CVM Mecánicos a Domicilio', rubro: 'Taller mecánico', city: 'Osorno' },
 ]
 
 const FAMILIAS: Familia[] = [
