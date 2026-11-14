@@ -83,6 +83,9 @@ Cambiar `blitz-kit.tsx`, `kit.tsx`, `meta.ts`, `layout.tsx`, `lazy-map.tsx`, `li
 - Cada demo nace de un brief escrito: datos reales verificados, fotos elegidas a mano, dirección de arte propia (paleta, tipografía, motivo) y una animación distintiva.
 - Nada de plantilla: dos demos seguidos no pueden compartir layout ni animación. Si se parecen, se rehace uno.
 - El brief se guarda junto al encargo, con la plantilla `brief-template.md`.
+- Los briefs viven **fuera del repo**: `D:/Códigos/_tools/radar-pymes/briefs-demos/` (lotes por fecha, `assets/<slug>/` con las fotos recortadas y `checks-<slug>.json`). Nunca se commitean porque llevan datos de contacto de los negocios.
+- Base visual y de movimiento: skill `frontend-base`. Composición, identidad y animación son libres; los datos del brief y los límites técnicos no.
+- Logo: usar la marca sola en header y footer (`logo-mark`), el lockup completo solo por encima de ~120 px. Recortar el margen muerto del PNG antes de usarlo.
 - Flujo: Devin `swe-2-max` para el demo estrella y `swe-2-high` para el resto, en `devin-vm`, PC2 (Windows) o el box `main` de Simular (las instabox ya no existen desde 2026-11-10). En PC2 Devin tiene bloqueado `sleep`: para esperar al servidor usa un script de espera. Todos los demos de un lote van juntos en un solo PR; el notebook revisa y envía.
 - Antes de enviar: captura a 390 px, cero desborde, contraste, y mirarla como la vería el dueño del negocio.
 
