@@ -75,3 +75,9 @@ curl -sS -o /dev/null -w '%{http_code}\n' https://sitiazo.51-79-71-83.sslip.io/
 - Para un componente aislado basta leer el código y el diff.
 - Para una página, el preview de la rama cuesta menos RAM que `next dev`. Con un push, en unos minutos hay URL.
 - Los scripts de datos que usan el navegador compartido por CDP (puerto 29229) no abren navegadores nuevos: reutiliza ese navegador en vez de lanzar otro (ver la skill `sitiazo-datos`).
+
+## Referencia del corpus
+
+- Piso antes de entregar: `C:/Users/lenov/.agents/studio/canonical/frontend-references/corpus/piso.md`.
+- Por tema (índice en `corpus/LEEME.md`): `verificacion.md`.
+- Rutas de la máquina de Diego. Una captura no comprueba motion ni movimiento reducido: lo no observado se declara como no comprobado.

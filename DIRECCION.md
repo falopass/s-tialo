@@ -77,3 +77,22 @@ El concepto se mantuvo y se llevó más lejos en tres pasos, todos pedidos por D
 3. **El índice `/demos/` se volvió parte del sitio.** Tiene buscador, familias de rubro y una lista editorial con el total real de demos. Es el lugar donde termina "Ver demos". Los demos en sí no se tocaron.
 
 El detalle de implementación está en `DISENO.md` (secciones 3, 4, 7 y 7b), y el estado y la verificación, en `PLAN-REDISENO.md`.
+
+## Piso comprobado (opcional)
+
+Reglas de `C:/Users/lenov/.agents/studio/canonical/frontend-references/corpus/piso.md`. Marca solo lo comprobado; anota cómo. Sin comprobar a la fecha 2026-11-13.
+
+- [ ] 1 Movimiento reducido con estado final, también en JS
+- [ ] 2 Nada nace invisible esperando a un script
+- [ ] 3-4 Contraste por par real, grises secundarios incluidos, en ambos temas
+- [ ] 5 Foco visible a 3:1
+- [ ] 6 Salto, `<main>`, un `<h1>`, controles nativos, ids únicos
+- [ ] 7 Formularios: label, validación al salir, `aria-disabled`
+- [ ] 8-9 Imágenes con caja, `srcset` y `alt`; vídeo con `poster` y `preload`
+- [ ] 10-12 Bucles con un reloj; pausa > 5 s; sin `transition: all`
+- [ ] 13-14 Zoom 200 %, reflujo 320 px, objetivo 24 px
+- [ ] 15-16 Cifras con fuente; `integrity`, `noopener`, `try/catch`, respaldo de `backdrop-filter`
+
+## Límites declarados (opcional)
+
+Aquí va lo no medido o no comprobado, dicho como tal: motion no visto en ejecución, tema secundario sin abrir, anchos sin probar, recetas del corpus usadas sin compilar.

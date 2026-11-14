@@ -85,3 +85,9 @@ Cambiar `blitz-kit.tsx`, `kit.tsx`, `meta.ts`, `layout.tsx`, `lazy-map.tsx`, `li
 - El brief se guarda junto al encargo, con la plantilla `brief-template.md`.
 - Flujo: Devin `swe-2-max` para el demo estrella y `swe-2-high` para el resto, en `devin-vm`, PC2 (Windows) o el box `main` de Simular (las instabox ya no existen desde 2026-11-10). En PC2 Devin tiene bloqueado `sleep`: para esperar al servidor usa un script de espera. Todos los demos de un lote van juntos en un solo PR; el notebook revisa y envía.
 - Antes de enviar: captura a 390 px, cero desborde, contraste, y mirarla como la vería el dueño del negocio.
+
+## Referencia del corpus
+
+- Piso antes de entregar: `C:/Users/lenov/.agents/studio/canonical/frontend-references/corpus/piso.md`.
+- Por tema (índice en `corpus/LEEME.md`): `motion.md`, `assets.md`, `taste-repertorio.md`.
+- Rutas de la máquina de Diego. El repertorio es opcional; la identidad de cada demo y `DISENO.md` siguen mandando.
