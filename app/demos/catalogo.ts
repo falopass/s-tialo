@@ -3915,6 +3915,7 @@ const BLITZ: Blitz[] = [
   { slug: 'quincho-de-don-pancho-osorno', name: 'Quincho de Don Pancho', rubro: 'Quincho y centro de eventos', city: 'Osorno' },
   { slug: 'ferreteria-el-gaucho-nunez-valdivia', name: 'Ferretería El Gaucho Núñez', rubro: 'Ferretería', city: 'Valdivia' },
   { slug: 'cabanas-loft-angelmo-puerto-montt', name: 'Cabañas Loft Angelmó', rubro: 'Cabañas', city: 'Puerto Montt' },
+  { slug: 'vintage-salon-de-belleza-villarrica', name: 'Vintage Salón de Belleza', rubro: 'Salón de belleza', city: 'Villarrica' },
 ]
 
 const FAMILIAS: Familia[] = [
