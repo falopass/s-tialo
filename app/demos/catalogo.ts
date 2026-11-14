@@ -3918,6 +3918,7 @@ const BLITZ: Blitz[] = [
   { slug: 'impresiones-digitales-serfocomp-concepcion', name: 'Serfocomp', rubro: 'Imprenta digital', city: 'Concepción' },
   { slug: 'cvm-mecanicos-a-domicilio-osorno', name: 'CVM Mecánicos a Domicilio', rubro: 'Taller mecánico', city: 'Osorno' },
   { slug: 'gatone-print-villarrica', name: 'Gatone Print', rubro: 'Taller de desabolladura y pintura', city: 'Villarrica' },
+  { slug: 'muebleria-valdivia', name: 'Mueblería Valdivia', rubro: 'Mueblería', city: 'Valdivia' },
 ]
 
 const FAMILIAS: Familia[] = [
