@@ -95,3 +95,9 @@ LCP de laboratorio en celular (CPU 4x, 4G lento): home 2,22 s, planes 2,21 s, ca
 La skill global `design-taste-frontend` sirve para dirección y critique. La tasteskill v2 de `.agents/skills/design-taste-frontend` es opcional: sus scripts (`draw`, `lint`, `inspect`) sirven como herramienta, pero sus reglas de estilo (sin mono, sin líneas finas, sin crema) no aplican aquí, porque la marca de Sitiazo las usa a propósito.
 
 Copy: español neutro con tú, sin guion largo en texto visible y solo datos reales. Si falta un dato, deja un TODO visible.
+
+## Referencia del corpus
+
+- Piso antes de entregar: `C:/Users/lenov/.agents/studio/canonical/frontend-references/corpus/piso.md`.
+- Por tema (índice en `corpus/LEEME.md`): `motion.md`, `assets.md`, `design-system.md`.
+- Rutas de la máquina de Diego. El repertorio es opcional; la identidad de cada demo y `DISENO.md` siguen mandando.

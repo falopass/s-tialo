@@ -3,6 +3,8 @@
 Esta guía aplica al sitio principal (home, planes, casos, cómo funciona, contacto).
 Los demos de pymes siguen `app/demos/GUIA-MOVIL.md` y la lista de demos de referencia en `AGENTS.md`.
 
+Piso comprobable antes de entregar: `C:/Users/lenov/.agents/studio/canonical/frontend-references/corpus/piso.md`; referencias por tema en `corpus/LEEME.md` (rutas de la máquina de Diego).
+
 **Design read:** landing de estudio creativo para dueños de pymes chilenas que llegan desde un link de WhatsApp en el celular, con lenguaje editorial oscuro + texturas digitales (ASCII, dither, grano), sobre Tailwind v4 + CSS nativo + Motion en hojas cliente aisladas.
 
 **Diales:** `DESIGN_VARIANCE: 8` · `MOTION_INTENSITY: 7` · `VISUAL_DENSITY: 3`

@@ -34,6 +34,10 @@ Mitigación: reintentar el build (en local ayuda `rm -rf .next` antes); en Worke
 empujar un commit para lanzar un build nuevo. Si la frecuencia se vuelve un problema, evaluar
 `next build --webpack` como alternativa estable.
 
+## Frontend
+
+Base: `frontend-base`. Piso comprobable antes de entregar: `C:/Users/lenov/.agents/studio/canonical/frontend-references/corpus/piso.md` (16 reglas; vale con cualquier dirección). Referencias por tema en `corpus/LEEME.md`; aquí sirven `motion.md`, `assets.md`, `verificacion.md`. Rutas de la máquina de Diego.
+
 ## Demos de referencia (los mejores, aprobados por el dueño)
 
 Antes de construir o rediseñar un demo, **estudia al menos 3 de estos** y apunta a ese nivel:
