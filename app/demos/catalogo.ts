@@ -3919,6 +3919,8 @@ const BLITZ: Blitz[] = [
   { slug: 'cvm-mecanicos-a-domicilio-osorno', name: 'CVM Mecánicos a Domicilio', rubro: 'Taller mecánico', city: 'Osorno' },
   { slug: 'gatone-print-villarrica', name: 'Gatone Print', rubro: 'Taller de desabolladura y pintura', city: 'Villarrica' },
   { slug: 'muebleria-valdivia', name: 'Mueblería Valdivia', rubro: 'Mueblería', city: 'Valdivia' },
+  { slug: 'star-work-uniformes-clinicos-villarrica', name: 'Star Work Uniformes Clínicos', rubro: 'Uniformes clínicos', city: 'Villarrica' },
+  { slug: 'vintage-salon-de-belleza-villarrica', name: 'Vintage Salón de Belleza', rubro: 'Salón de belleza', city: 'Villarrica' },
 ]
 
 const FAMILIAS: Familia[] = [
