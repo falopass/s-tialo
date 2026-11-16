@@ -696,7 +696,7 @@ export default function BenditoOutletPage() {
                   <p className="text-sm font-bold tracking-[0.06em]" style={{ color: 'rgba(244,238,227,0.72)' }}>
                     {REVIEWS[0].name}
                   </p>
-                  <p className="text-[10px] uppercase tracking-[0.2em] mt-1" style={{ color: 'rgba(244,238,227,0.45)' }}>
+                  <p className="text-[10px] uppercase tracking-[0.2em] mt-1" style={{ color: 'rgba(244,238,227,0.72)' }}>
                     Opinión en Google
                   </p>
                 </footer>
