@@ -3921,6 +3921,9 @@ const BLITZ: Blitz[] = [
   { slug: 'muebleria-valdivia', name: 'Mueblería Valdivia', rubro: 'Mueblería', city: 'Valdivia' },
   { slug: 'star-work-uniformes-clinicos-villarrica', name: 'Star Work Uniformes Clínicos', rubro: 'Uniformes clínicos', city: 'Villarrica' },
   { slug: 'vintage-salon-de-belleza-villarrica', name: 'Vintage Salón de Belleza', rubro: 'Salón de belleza', city: 'Villarrica' },
+  { slug: 'mao-dental-villarrica', name: 'MAO Dental', rubro: 'Clínica dental', city: 'Villarrica' },
+  { slug: 'ferreteria-puerta-sur-puerto-montt', name: 'Ferretería Puerta Sur', rubro: 'Ferretería', city: 'Puerto Montt' },
+  { slug: 'quincho-brasas-valdivia', name: 'Quincho Brasas Valdivia', rubro: 'Centro de eventos y quincho', city: 'Valdivia' },
 ]
 
 const FAMILIAS: Familia[] = [
