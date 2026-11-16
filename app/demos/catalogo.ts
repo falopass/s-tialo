@@ -3924,6 +3924,7 @@ const BLITZ: Blitz[] = [
   { slug: 'mao-dental-villarrica', name: 'MAO Dental', rubro: 'Clínica dental', city: 'Villarrica' },
   { slug: 'ferreteria-puerta-sur-puerto-montt', name: 'Ferretería Puerta Sur', rubro: 'Ferretería', city: 'Puerto Montt' },
   { slug: 'quincho-brasas-valdivia', name: 'Quincho Brasas Valdivia', rubro: 'Centro de eventos y quincho', city: 'Valdivia' },
+  { slug: 'bendito-outlet-osorno', name: 'Bendito Outlet', rubro: 'Tienda de ropa de mujer', city: 'Osorno' },
 ]
 
 const FAMILIAS: Familia[] = [
