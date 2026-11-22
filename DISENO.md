@@ -9,7 +9,7 @@ Piso comprobable antes de entregar: `C:/Users/lenov/.agents/studio/canonical/fro
 
 **Diales:** `DESIGN_VARIANCE: 8` · `MOTION_INTENSITY: 7` · `VISUAL_DENSITY: 3`
 
-Esta guía se apoya en taste-skill v2 (`design-taste-frontend`). Las decisiones de marca salen de aquí; las prohibiciones generales (sección 9 de la skill) aplican siempre.
+Esta guía se aplica con `frontend-base`, la única guía de frontend. Las decisiones de marca y las prohibiciones específicas de este documento se conservan.
 
 El problema que esta guía corrige: el sitio anterior era correcto pero estático y sin nada memorable. La página tiene que moverse, pero cada movimiento debe contar algo sobre el servicio.
 
@@ -226,5 +226,5 @@ Un cambio al sitio principal no está listo hasta que:
 - [ ] Ningún texto importante está dentro de un canvas o una imagen.
 - [ ] Ninguna maqueta falsa hecha con `<div>` (terminales, dashboards, capturas): solo imágenes reales.
 - [ ] Revisión final de copy: cero guiones largos, cero eyebrows de más, bajada del hero en 20 palabras o menos.
-- [ ] Pasa la sección 14 (pre-flight) de taste-skill v2.
+- [ ] Pasa la verificación de `frontend-base` y el piso comprobable enlazado al inicio de esta guía.
 - [ ] Cada animación nueva tiene su "qué comunica" en una frase en el PR.
