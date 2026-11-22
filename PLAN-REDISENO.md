@@ -84,7 +84,7 @@ El preview de la rama lo genera Workers Builds; la URL sale del deploy en GitHub
   - `scripts/dither.mjs`: `prebuild`.
   - `scripts/sitio-capturas.mjs [baseUrl] [ids]`: recaptura las fuentes del manifiesto, todas o solo los ids indicados.
   - `scripts/sitio-og.mjs`: regenera las imágenes para compartir. Antes hay que correr `node scripts/dither.mjs`. Se corre a mano cuando cambia un titular, y los titulares están escritos en el script.
-- **Skills del proyecto** (`.agents/skills/`, enlazadas en `.claude/`, `.devin/` y `.grok/`):
+- **Skills del proyecto** (`.agents/skills/`, enlazadas en `.claude/` y `.devin/`):
   - `sitiazo-sitio` y `sitiazo-demo`: mapas y recetas.
   - `sitiazo-datos`: qué script usar para cada dato del negocio.
   - `sitiazo-verificar`: scripts reutilizables `preview.mjs`, `revisar.mjs`, `demos-identicos.mjs` y `lcp.mjs`. Reemplazan a los de `tmp/redisenio/`.
